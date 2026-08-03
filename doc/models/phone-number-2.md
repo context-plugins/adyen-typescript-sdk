@@ -1,0 +1,35 @@
+
+# Phone Number 2
+
+The phone number of the legal entity.
+
+*This model accepts additional fields of type unknown.*
+
+## Structure
+
+`PhoneNumber2`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `number` | `string` | Required | The full phone number, including the country code. For example, **+3112345678**. |
+| `phoneCountryCode` | `string \| undefined` | Optional, Read-only | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.<br><br>The value of the `phoneCountryCode` is determined by the country code digit(s) of `phone.number` |
+| `type` | `string \| undefined` | Optional | The type of phone number.<br>Possible values: **mobile**, **landline**, **sip**, **fax.** |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+
+## Example
+
+```ts
+import { PhoneNumber2 } from 'adyenlib';
+
+const phoneNumber2: PhoneNumber2 = {
+  number: 'number6',
+  phoneCountryCode: 'phoneCountryCode4',
+  type: 'type4',
+  additionalProperties: {
+    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  },
+};
+```
+

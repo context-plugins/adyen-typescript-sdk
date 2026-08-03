@@ -1,0 +1,23 @@
+
+# A2 a Payment Method
+
+**ideal**
+
+## Enumeration
+
+`A2APaymentMethod`
+
+## Fields
+
+| Name |
+|  --- |
+| `Ideal` |
+
+## Example
+
+```ts
+import { A2APaymentMethod } from 'adyenlib';
+
+const a2APaymentMethod = A2APaymentMethod.Ideal;
+```
+

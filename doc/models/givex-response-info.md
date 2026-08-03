@@ -1,0 +1,35 @@
+
+# Givex Response Info
+
+*This model accepts additional fields of type unknown.*
+
+## Structure
+
+`GivexResponseInfo`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `currencyCode` | `string \| undefined` | Optional | The three-character ISO currency code |
+| `password` | `string \| undefined` | Optional | The password provided by the acquirer. |
+| `paymentFlow` | `string \| undefined` | Optional | The sales channel used for the payment. |
+| `username` | `string \| undefined` | Optional | The username provided by the acquirer. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+
+## Example
+
+```ts
+import { GivexResponseInfo } from 'adyenlib';
+
+const givexResponseInfo: GivexResponseInfo = {
+  currencyCode: 'currencyCode2',
+  password: 'password6',
+  paymentFlow: 'paymentFlow0',
+  username: 'username8',
+  additionalProperties: {
+    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  },
+};
+```
+

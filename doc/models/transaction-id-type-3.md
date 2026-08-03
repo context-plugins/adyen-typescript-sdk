@@ -1,0 +1,34 @@
+
+# Transaction Id Type 3
+
+Reference to the last CardAcquisition, to use the same card.
+If the loyalty account ID comes from a previous CardAcquisition.
+
+*This model accepts additional fields of type unknown.*
+
+## Structure
+
+`TransactionIdType3`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `transactionId` | `string` | Required | Unique identification of a transaction to identify the transaction on<br>the Sale System (e.g. ticket number), or the POI System.<br><br>**Constraints**: *Pattern*: `^.+$` |
+| `timeStamp` | `string` | Required | Date and time of a transaction for the Sale System, the POI System or the Acquirer.<br>Ensures the uniqueness of a transaction and indicates the time when the event<br>occurs in the EventNotification message. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+
+## Example
+
+```ts
+import { TransactionIdType3 } from 'adyenlib';
+
+const transactionIdType3: TransactionIdType3 = {
+  transactionId: 'TransactionID6',
+  timeStamp: '2016-03-13T12:52:32.123Z',
+  additionalProperties: {
+    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  },
+};
+```
+

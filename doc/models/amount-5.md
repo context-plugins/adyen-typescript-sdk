@@ -1,0 +1,31 @@
+
+# Amount 5
+
+*This model accepts additional fields of type unknown.*
+
+## Structure
+
+`Amount5`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `currency` | `string` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount. |
+| `value` | `bigint` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+
+## Example
+
+```ts
+import { Amount5 } from 'adyenlib';
+
+const amount5: Amount5 = {
+  currency: 'currency6',
+  value: BigInt(140),
+  additionalProperties: {
+    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  },
+};
+```
+
