@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { ExternalTerminalAction } from 'adyenlib';
+import { ExternalTerminalAction } from 'adyen';
 
 const externalTerminalAction: ExternalTerminalAction = {
   actionType: 'actionType4',

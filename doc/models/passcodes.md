@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Passcodes } from 'adyenlib';
+import { Passcodes } from 'adyen';
 
 const passcodes: Passcodes = {
   adminMenuPin: 'adminMenuPin0',

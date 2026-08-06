@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { AccountPayoutState } from 'adyenlib';
+import { AccountPayoutState } from 'adyen';
 
 const accountPayoutState: AccountPayoutState = {
   allowPayout: false,

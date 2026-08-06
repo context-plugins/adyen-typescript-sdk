@@ -48,13 +48,7 @@
 ## Example
 
 ```ts
-import {
-  Category3,
-  Priority,
-  Status53,
-  TransferData,
-  Type312,
-} from 'adyenlib';
+import { Category3, Priority, Status53, TransferData, Type312 } from 'adyen';
 
 const transferData: TransferData = {
   amount: {

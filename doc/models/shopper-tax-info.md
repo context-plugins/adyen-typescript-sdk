@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ShopperTaxInfo } from 'adyenlib';
+import { ShopperTaxInfo } from 'adyen';
 
 const shopperTaxInfo: ShopperTaxInfo = {
   taxCountryCode: 'taxCountryCode4',

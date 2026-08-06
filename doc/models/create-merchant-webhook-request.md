@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { CommunicationFormat, CreateMerchantWebhookRequest } from 'adyenlib';
+import { CommunicationFormat, CreateMerchantWebhookRequest } from 'adyen';
 
 const createMerchantWebhookRequest: CreateMerchantWebhookRequest = {
   active: false,

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { UtilityResponse } from 'adyenlib';
+import { UtilityResponse } from 'adyen';
 
 const utilityResponse: UtilityResponse = {
   originKeys: {

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { GivexResponseInfo1 } from 'adyenlib';
+import { GivexResponseInfo1 } from 'adyen';
 
 const givexResponseInfo1: GivexResponseInfo1 = {
   currencyCode: 'currencyCode6',

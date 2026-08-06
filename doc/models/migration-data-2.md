@@ -25,7 +25,7 @@ Details of the account holder migrated to the balance platform.
 ## Example
 
 ```ts
-import { MigrationData2 } from 'adyenlib';
+import { MigrationData2 } from 'adyen';
 
 const migrationData2: MigrationData2 = {
   accountHolderId: 'accountHolderId8',

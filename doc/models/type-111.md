@@ -51,7 +51,7 @@ Possible values for the [Classic Platforms integration](https://docs.adyen.com/c
 ## Example
 
 ```ts
-import { Type111 } from 'adyenlib';
+import { Type111 } from 'adyen';
 
 const type111 = Type111.Remainder;
 ```

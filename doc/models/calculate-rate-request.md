@@ -19,7 +19,7 @@ The request to calculate an amount in a different currency.
 ## Example
 
 ```ts
-import { CalculateRateRequest, ExchangeSide2, RateType2 } from 'adyenlib';
+import { CalculateRateRequest, ExchangeSide2, RateType2 } from 'adyen';
 
 const calculateRateRequest: CalculateRateRequest = {
   exchangeCalculations: [

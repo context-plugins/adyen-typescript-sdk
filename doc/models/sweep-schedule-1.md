@@ -20,7 +20,7 @@ The schedule when the `triggerAmount` is evaluated. If the balance meets the thr
 ## Example
 
 ```ts
-import { SweepSchedule1, Type6 } from 'adyenlib';
+import { SweepSchedule1, Type6 } from 'adyen';
 
 const sweepSchedule1: SweepSchedule1 = {
   type: Type6.Monthly,

@@ -21,7 +21,7 @@ Defines whether to book an additional commission for payments to your user's bal
 ## Example
 
 ```ts
-import { AdditionalCommission1 } from 'adyenlib';
+import { AdditionalCommission1 } from 'adyen';
 
 const additionalCommission1: AdditionalCommission1 = {
   balanceAccountId: 'balanceAccountId6',

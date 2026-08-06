@@ -21,7 +21,7 @@ Settings for store-and-forward offline payments. The `maxAmount`, `maxPayments`,
 ## Example
 
 ```ts
-import { StoreAndForward1 } from 'adyenlib';
+import { StoreAndForward1 } from 'adyen';
 
 const storeAndForward1: StoreAndForward1 = {
   maxAmount: [

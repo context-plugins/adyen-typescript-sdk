@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CalculatePciStatusResponse } from 'adyenlib';
+import { CalculatePciStatusResponse } from 'adyen';
 
 const calculatePciStatusResponse: CalculatePciStatusResponse = {
   signingRequired: false,

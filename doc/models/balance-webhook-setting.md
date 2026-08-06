@@ -26,7 +26,7 @@ import {
   BalanceWebhookSetting,
   ConditionType,
   Type18,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceWebhookSetting: BalanceWebhookSetting = {
   currency: 'currency6',

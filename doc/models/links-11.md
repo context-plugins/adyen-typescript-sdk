@@ -19,7 +19,7 @@ References to resources connected with this user.
 ## Example
 
 ```ts
-import { Links11 } from 'adyenlib';
+import { Links11 } from 'adyen';
 
 const links11: Links11 = {
   self: {

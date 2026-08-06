@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { BalancePlatform } from 'adyenlib';
+import { BalancePlatform } from 'adyen';
 
 const balancePlatform: BalancePlatform = {
   id: 'id2',

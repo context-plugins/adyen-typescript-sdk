@@ -178,7 +178,7 @@ The type of the field.
 ## Example
 
 ```ts
-import { FieldName } from 'adyenlib';
+import { FieldName } from 'adyen';
 
 const fieldName = FieldName.UltimateParentCompanyBusinessDetailsRegistrationNumber;
 ```

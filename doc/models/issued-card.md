@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { IssuedCard, PanEntryMode, ProcessingType1 } from 'adyenlib';
+import { IssuedCard, PanEntryMode, ProcessingType1 } from 'adyen';
 
 const issuedCard: IssuedCard = {
   authorisationType: 'authorisationType6',

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ThreeDs2CardRangeDetail } from 'adyenlib';
+import { ThreeDs2CardRangeDetail } from 'adyen';
 
 const threeDs2CardRangeDetail: ThreeDs2CardRangeDetail = {
   acsInfoInd: [

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SubMerchantData } from 'adyenlib';
+import { SubMerchantData } from 'adyen';
 
 const subMerchantData: SubMerchantData = {
   email: 'email8',

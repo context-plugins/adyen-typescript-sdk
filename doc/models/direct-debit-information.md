@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { DirectDebitInformation } from 'adyenlib';
+import { DirectDebitInformation } from 'adyen';
 
 const directDebitInformation: DirectDebitInformation = {
   dateOfSignature: '2016-03-13T12:52:32.123Z',

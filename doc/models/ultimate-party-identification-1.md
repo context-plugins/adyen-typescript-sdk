@@ -28,7 +28,7 @@ The ultimate sender of the funds of the transfer (ultimate debtor).
 ## Example
 
 ```ts
-import { UltimatePartyIdentification1 } from 'adyenlib';
+import { UltimatePartyIdentification1 } from 'adyen';
 
 const ultimatePartyIdentification1: UltimatePartyIdentification1 = {
   address: {

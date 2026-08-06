@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { HuLocalAccountIdentification1 } from 'adyenlib';
+import { HuLocalAccountIdentification1 } from 'adyen';
 
 const huLocalAccountIdentification1: HuLocalAccountIdentification1 = {
   accountNumber: 'accountNumber4',

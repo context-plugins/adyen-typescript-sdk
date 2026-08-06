@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { OfflineProcessing } from 'adyenlib';
+import { OfflineProcessing } from 'adyen';
 
 const offlineProcessing: OfflineProcessing = {
   chipFloorLimit: 192,

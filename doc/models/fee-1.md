@@ -19,7 +19,7 @@ Details of the fee configuration.
 ## Example
 
 ```ts
-import { Fee1 } from 'adyenlib';
+import { Fee1 } from 'adyen';
 
 const fee1: Fee1 = {
   amount: {

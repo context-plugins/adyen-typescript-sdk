@@ -25,11 +25,7 @@
 ## Example
 
 ```ts
-import {
-  LoadType,
-  ShopperInteraction1,
-  StoredValueLoadRequest,
-} from 'adyenlib';
+import { LoadType, ShopperInteraction1, StoredValueLoadRequest } from 'adyen';
 
 const storedValueLoadRequest: StoredValueLoadRequest = {
   amount: {

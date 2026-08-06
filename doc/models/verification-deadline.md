@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Capability, VerificationDeadline } from 'adyenlib';
+import { Capability, VerificationDeadline } from 'adyen';
 
 const verificationDeadline: VerificationDeadline = {
   capabilities: [

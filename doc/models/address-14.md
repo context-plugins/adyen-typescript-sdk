@@ -24,7 +24,7 @@ The address of the bank account or card owner.
 ## Example
 
 ```ts
-import { Address14 } from 'adyenlib';
+import { Address14 } from 'adyen';
 
 const address14: Address14 = {
   country: 'country6',

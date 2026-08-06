@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { Gender, ShareholderContact } from 'adyenlib';
+import { Gender, ShareholderContact } from 'adyen';
 
 const shareholderContact: ShareholderContact = {
   address: {

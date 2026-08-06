@@ -20,7 +20,7 @@ The folio information for the booking.
 ## Example
 
 ```ts
-import { Folio2 } from 'adyenlib';
+import { Folio2 } from 'adyen';
 
 const folio2: Folio2 = {
   cashAdvances: BigInt(206),

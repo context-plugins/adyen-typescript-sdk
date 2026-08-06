@@ -32,7 +32,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type13 } from 'adyenlib';
+import { Type13 } from 'adyen';
 
 const type13 = Type13.PerTransaction;
 ```

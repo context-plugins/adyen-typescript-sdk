@@ -25,7 +25,7 @@ The cardholder phone number need to be part of the authentication message for pa
 import {
   CheckoutSessionThreeDs2RequestData3,
   ThreeDsRequestorChallengeInd,
-} from 'adyenlib';
+} from 'adyen';
 
 const checkoutSessionThreeDs2RequestData3: CheckoutSessionThreeDs2RequestData3 = {
   homePhone: {

@@ -22,7 +22,7 @@ Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
 ## Example
 
 ```ts
-import { Unit } from 'adyenlib';
+import { Unit } from 'adyen';
 
 const unit = Unit.Months;
 ```

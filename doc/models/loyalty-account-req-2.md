@@ -25,7 +25,7 @@ import {
   IdentificationSupport1,
   IdentificationType11,
   LoyaltyAccountReq2,
-} from 'adyenlib';
+} from 'adyen';
 
 const loyaltyAccountReq2: LoyaltyAccountReq2 = {
   cardAcquisitionReference: {

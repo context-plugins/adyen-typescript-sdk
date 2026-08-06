@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Ancv } from 'adyenlib';
+import { Ancv } from 'adyen';
 
 const ancv: Ancv = {
   beneficiaryId: 'beneficiaryId6',

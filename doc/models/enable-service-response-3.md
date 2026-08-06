@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { EnableServiceResponse3, ErrorCondition1, Result11 } from 'adyenlib';
+import { EnableServiceResponse3, ErrorCondition1, Result11 } from 'adyen';
 
 const enableServiceResponse3: EnableServiceResponse3 = {
   response: {

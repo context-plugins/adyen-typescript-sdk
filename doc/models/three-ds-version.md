@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ThreeDsVersion } from 'adyenlib';
+import { ThreeDsVersion } from 'adyen';
 
 const threeDsVersion = ThreeDsVersion.Enum210;
 ```

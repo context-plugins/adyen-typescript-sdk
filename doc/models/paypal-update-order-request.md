@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { PaypalUpdateOrderRequest, Type211 } from 'adyenlib';
+import { PaypalUpdateOrderRequest, Type211 } from 'adyen';
 
 const paypalUpdateOrderRequest: PaypalUpdateOrderRequest = {
   amount: {

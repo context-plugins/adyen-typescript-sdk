@@ -65,7 +65,7 @@ import {
   AccountChangeIndicator,
   AccountType1,
   BalanceCheckRequest,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceCheckRequest: BalanceCheckRequest = {
   amount: {

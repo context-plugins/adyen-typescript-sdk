@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ShareholderType } from 'adyenlib';
+import { ShareholderType } from 'adyen';
 
 const shareholderType = ShareholderType.Owner;
 ```

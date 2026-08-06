@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PaymentInstrumentRevealRequest } from 'adyenlib';
+import { PaymentInstrumentRevealRequest } from 'adyen';
 
 const paymentInstrumentRevealRequest: PaymentInstrumentRevealRequest = {
   encryptedKey: 'encryptedKey4',

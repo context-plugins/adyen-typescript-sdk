@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { AfterpayTouchResponseInfo1 } from 'adyenlib';
+import { AfterpayTouchResponseInfo1 } from 'adyen';
 
 const afterpayTouchResponseInfo1: AfterpayTouchResponseInfo1 = {
   supportEmail: 'supportEmail6',

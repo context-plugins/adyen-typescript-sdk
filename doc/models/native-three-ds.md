@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { NativeThreeDs } from 'adyenlib';
+import { NativeThreeDs } from 'adyen';
 
 const nativeThreeDs = NativeThreeDs.Preferred;
 ```

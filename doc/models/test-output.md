@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { TestOutput } from 'adyenlib';
+import { TestOutput } from 'adyen';
 
 const testOutput: TestOutput = {
   status: 'status2',

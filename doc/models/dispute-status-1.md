@@ -25,7 +25,7 @@ Possible values: **draft**, **submitted**, **closed**, **won**, **chargeback**, 
 ## Example
 
 ```ts
-import { DisputeStatus1 } from 'adyenlib';
+import { DisputeStatus1 } from 'adyen';
 
 const disputeStatus1 = DisputeStatus1.Draft;
 ```

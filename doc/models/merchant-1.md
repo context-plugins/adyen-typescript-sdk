@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Merchant1 } from 'adyenlib';
+import { Merchant1 } from 'adyen';
 
 const merchant1: Merchant1 = {
   href: 'href2',

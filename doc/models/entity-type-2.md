@@ -24,7 +24,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { EntityType2 } from 'adyenlib';
+import { EntityType2 } from 'adyen';
 
 const entityType2 = EntityType2.NaturalPerson;
 ```

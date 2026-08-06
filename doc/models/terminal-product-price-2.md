@@ -20,7 +20,7 @@ The price of the product.
 ## Example
 
 ```ts
-import { TerminalProductPrice2 } from 'adyenlib';
+import { TerminalProductPrice2 } from 'adyen';
 
 const terminalProductPrice2: TerminalProductPrice2 = {
   currency: 'currency6',

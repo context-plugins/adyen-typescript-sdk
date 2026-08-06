@@ -24,7 +24,7 @@ If not specified, the webhook will use `sslVersion`: **TLSv1.2**.
 ## Example
 
 ```ts
-import { EncryptionProtocol } from 'adyenlib';
+import { EncryptionProtocol } from 'adyen';
 
 const encryptionProtocol = EncryptionProtocol.EnumTlSv13;
 ```

@@ -24,7 +24,7 @@ The result of the 3D Secure authentication.
 ## Example
 
 ```ts
-import { ThreeDs1Result2 } from 'adyenlib';
+import { ThreeDs1Result2 } from 'adyen';
 
 const threeDs1Result2: ThreeDs1Result2 = {
   cavv: 'cavv4',

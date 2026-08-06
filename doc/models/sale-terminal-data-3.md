@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SaleTerminalData3 } from 'adyenlib';
+import { SaleTerminalData3 } from 'adyen';
 
 const saleTerminalData3: SaleTerminalData3 = {
   totalsGroupId: 'TotalsGroupID8',

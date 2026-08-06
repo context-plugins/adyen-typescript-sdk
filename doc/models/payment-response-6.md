@@ -39,7 +39,7 @@ import {
   Result11,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentResponse6: PaymentResponse6 = {
   response: {

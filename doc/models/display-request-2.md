@@ -28,7 +28,7 @@ import {
   MenuEntryTag1,
   OutputFormat1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const displayRequest2: DisplayRequest2 = {
   displayOutput: [

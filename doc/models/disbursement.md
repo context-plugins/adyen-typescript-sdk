@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { Disbursement, FundsCollectionType2 } from 'adyenlib';
+import { Disbursement, FundsCollectionType2 } from 'adyen';
 
 const disbursement: Disbursement = {
   accountHolderId: 'accountHolderId2',

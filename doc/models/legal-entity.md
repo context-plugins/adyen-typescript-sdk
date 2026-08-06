@@ -26,7 +26,7 @@ Possible values: **Business**, **Individual**, or **NonProfit**.
 ## Example
 
 ```ts
-import { LegalEntity } from 'adyenlib';
+import { LegalEntity } from 'adyen';
 
 const legalEntity = LegalEntity.Partnership;
 ```

@@ -20,7 +20,7 @@ The currency and value to be added to the balance account, specified in minor un
 ## Example
 
 ```ts
-import { PatchableTopUpAmount2 } from 'adyenlib';
+import { PatchableTopUpAmount2 } from 'adyen';
 
 const patchableTopUpAmount2: PatchableTopUpAmount2 = {
   fixed: {

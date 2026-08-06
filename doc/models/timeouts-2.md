@@ -19,7 +19,7 @@ Settings for device [time-outs](https://docs.adyen.com/point-of-sale/pos-timeout
 ## Example
 
 ```ts
-import { Timeouts2 } from 'adyenlib';
+import { Timeouts2 } from 'adyen';
 
 const timeouts2: Timeouts2 = {
   fromActiveToSleep: 218,

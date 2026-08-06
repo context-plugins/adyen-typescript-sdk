@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { WalletProviderDeviceScore } from 'adyenlib';
+import { WalletProviderDeviceScore } from 'adyen';
 
 const walletProviderDeviceScore: WalletProviderDeviceScore = {
   operation: 'operation8',

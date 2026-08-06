@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ThreeDs1Result } from 'adyenlib';
+import { ThreeDs1Result } from 'adyen';
 
 const threeDs1Result: ThreeDs1Result = {
   cavv: 'cavv4',

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { StockData } from 'adyenlib';
+import { StockData } from 'adyen';
 
 const stockData: StockData = {
   marketIdentifier: 'marketIdentifier4',

@@ -40,7 +40,7 @@ import {
   StoredValueAccountType1,
   TerminalApiResponse,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const terminalApiResponse: TerminalApiResponse = {
   saleToPoiResponse: {

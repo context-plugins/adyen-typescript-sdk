@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { SoundFormat } from 'adyenlib';
+import { SoundFormat } from 'adyen';
 
 const soundFormat = SoundFormat.MessageRef;
 ```

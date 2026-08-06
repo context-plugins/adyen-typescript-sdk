@@ -35,7 +35,7 @@ import {
   StoredValueAccountType1,
   StoredValueResponse2,
   StoredValueTransactionType2,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueResponse2: StoredValueResponse2 = {
   response: {

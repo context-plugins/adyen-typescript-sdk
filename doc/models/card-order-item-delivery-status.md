@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CardOrderItemDeliveryStatus, Status7 } from 'adyenlib';
+import { CardOrderItemDeliveryStatus, Status7 } from 'adyen';
 
 const cardOrderItemDeliveryStatus: CardOrderItemDeliveryStatus = {
   errorMessage: 'errorMessage2',

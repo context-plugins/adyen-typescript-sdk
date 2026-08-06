@@ -24,7 +24,7 @@ The result of the payment. Possible values:
 ## Example
 
 ```ts
-import { ResultCode3 } from 'adyenlib';
+import { ResultCode3 } from 'adyen';
 
 const resultCode3 = ResultCode3.Error;
 ```

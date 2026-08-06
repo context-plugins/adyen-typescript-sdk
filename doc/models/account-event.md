@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AccountEvent, Event } from 'adyenlib';
+import { AccountEvent, Event } from 'adyen';
 
 const accountEvent: AccountEvent = {
   event: Event.InactivateAccount,

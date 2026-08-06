@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { FundingSource, PayWithGoogleDonations } from 'adyenlib';
+import { FundingSource, PayWithGoogleDonations } from 'adyen';
 
 const payWithGoogleDonations: PayWithGoogleDonations = {
   googlePayToken: 'googlePayToken4',

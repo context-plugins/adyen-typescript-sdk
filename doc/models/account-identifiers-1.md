@@ -24,7 +24,7 @@ Contains various codes and details used to uniquely identify the bank account ac
 ## Example
 
 ```ts
-import { AccountIdentifiers1 } from 'adyenlib';
+import { AccountIdentifiers1 } from 'adyen';
 
 const accountIdentifiers1: AccountIdentifiers1 = {
   ach: {

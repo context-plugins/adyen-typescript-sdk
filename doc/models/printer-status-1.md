@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PrinterStatus1 } from 'adyenlib';
+import { PrinterStatus1 } from 'adyen';
 
 const printerStatus1 = PrinterStatus1.OutOfOrder;
 ```

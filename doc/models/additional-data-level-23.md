@@ -33,7 +33,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataLevel23 } from 'adyenlib';
+import { AdditionalDataLevel23 } from 'adyen';
 
 const additionalDataLevel23: AdditionalDataLevel23 = {
   enhancedSchemeDataCustomerReference: 'enhancedSchemeData.customerReference0',

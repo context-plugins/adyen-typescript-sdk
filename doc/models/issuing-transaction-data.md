@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { IssuingTransactionData, Type86 } from 'adyenlib';
+import { IssuingTransactionData, Type86 } from 'adyen';
 
 const issuingTransactionData: IssuingTransactionData = {
   type: Type86.IssuingTransactionData,

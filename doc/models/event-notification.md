@@ -35,7 +35,7 @@ import {
   MenuEntryTag1,
   OutputFormat1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const eventNotification: EventNotification = {
   timeStamp: '2016-03-13T12:52:32.123Z',

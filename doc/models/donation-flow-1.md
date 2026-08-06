@@ -21,7 +21,7 @@ The interaction flow for in-person donations. Possible values:
 ## Example
 
 ```ts
-import { DonationFlow1 } from 'adyenlib';
+import { DonationFlow1 } from 'adyen';
 
 const donationFlow1 = DonationFlow1.OneStep;
 ```

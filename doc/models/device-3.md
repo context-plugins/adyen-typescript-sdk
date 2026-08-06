@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Device3 } from 'adyenlib';
+import { Device3 } from 'adyen';
 
 const device3 = Device3.CashierInput;
 ```

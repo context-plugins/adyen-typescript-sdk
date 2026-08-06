@@ -26,7 +26,7 @@ import {
   FieldName,
   GetAccountHolderStatusResponse,
   Status1,
-} from 'adyenlib';
+} from 'adyen';
 
 const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
   accountHolderCode: 'accountHolderCode2',

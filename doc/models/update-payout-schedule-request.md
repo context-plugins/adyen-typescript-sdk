@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Action, Schedule1, UpdatePayoutScheduleRequest } from 'adyenlib';
+import { Action, Schedule1, UpdatePayoutScheduleRequest } from 'adyen';
 
 const updatePayoutScheduleRequest: UpdatePayoutScheduleRequest = {
   schedule: Schedule1.WeeklyOnTueFriMidnight,

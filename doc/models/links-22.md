@@ -20,7 +20,7 @@ Contains links to the next and previous page whenever applicable.
 ## Example
 
 ```ts
-import { Links22 } from 'adyenlib';
+import { Links22 } from 'adyen';
 
 const links22: Links22 = {
   next: {

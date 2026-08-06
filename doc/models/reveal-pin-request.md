@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RevealPinRequest } from 'adyenlib';
+import { RevealPinRequest } from 'adyen';
 
 const revealPinRequest: RevealPinRequest = {
   encryptedKey: 'encryptedKey6',

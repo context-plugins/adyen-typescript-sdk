@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ReleaseUpdateDetails, Type62 } from 'adyenlib';
+import { ReleaseUpdateDetails, Type62 } from 'adyen';
 
 const releaseUpdateDetails: ReleaseUpdateDetails = {
   type: Type62.ReleaseUpdate,

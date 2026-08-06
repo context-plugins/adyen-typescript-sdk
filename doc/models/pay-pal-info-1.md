@@ -21,7 +21,7 @@ Details to provide if `type` is **paypal**.
 ## Example
 
 ```ts
-import { PayPalInfo1 } from 'adyenlib';
+import { PayPalInfo1 } from 'adyen';
 
 const payPalInfo1: PayPalInfo1 = {
   payerId: 'payerId2',

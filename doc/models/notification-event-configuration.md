@@ -22,7 +22,7 @@ import {
   EventType,
   IncludeMode,
   NotificationEventConfiguration,
-} from 'adyenlib';
+} from 'adyen';
 
 const notificationEventConfiguration: NotificationEventConfiguration = {
   eventType: EventType.ScheduledRefunds,

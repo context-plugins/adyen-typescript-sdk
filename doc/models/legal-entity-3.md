@@ -39,7 +39,7 @@ import {
   LegalEntity3,
   Type132,
   Type142,
-} from 'adyenlib';
+} from 'adyen';
 
 const legalEntity3: LegalEntity3 = {
   id: 'id8',

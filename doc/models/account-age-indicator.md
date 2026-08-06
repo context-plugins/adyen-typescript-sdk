@@ -27,7 +27,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { AccountAgeIndicator } from 'adyenlib';
+import { AccountAgeIndicator } from 'adyen';
 
 const accountAgeIndicator = AccountAgeIndicator.MoreThan60Days;
 ```

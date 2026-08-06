@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { ProductType } from 'adyenlib';
+import { ProductType } from 'adyen';
 
 const productType = ProductType.Goods;
 ```

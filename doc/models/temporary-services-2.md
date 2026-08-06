@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { TemporaryServices2 } from 'adyenlib';
+import { TemporaryServices2 } from 'adyen';
 
 const temporaryServices2: TemporaryServices2 = {
   employeeName: 'employeeName4',

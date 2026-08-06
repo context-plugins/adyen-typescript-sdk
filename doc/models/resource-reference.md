@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ResourceReference } from 'adyenlib';
+import { ResourceReference } from 'adyen';
 
 const resourceReference: ResourceReference = {
   description: 'description6',

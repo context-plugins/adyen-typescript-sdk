@@ -18,7 +18,7 @@ The new status of the network token. Possible values: **active**, **suspended**,
 ## Example
 
 ```ts
-import { Status16 } from 'adyenlib';
+import { Status16 } from 'adyen';
 
 const status16 = Status16.Active;
 ```

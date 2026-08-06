@@ -26,7 +26,7 @@ import {
   DonationCampaignRequest,
   DonationFlow1,
   DonationType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const donationCampaignRequest: DonationCampaignRequest = {
   name: 'name6',

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { IdealDetails } from 'adyenlib';
+import { IdealDetails } from 'adyen';
 
 const idealDetails: IdealDetails = {
   checkoutAttemptId: 'checkoutAttemptId4',

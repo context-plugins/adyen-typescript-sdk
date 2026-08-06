@@ -26,7 +26,7 @@ State of a POI Terminal.
 ## Example
 
 ```ts
-import { GlobalStatus1, PoiStatus, PrinterStatus1 } from 'adyenlib';
+import { GlobalStatus1, PoiStatus, PrinterStatus1 } from 'adyen';
 
 const poiStatus: PoiStatus = {
   globalStatus: GlobalStatus1.Maintenance,

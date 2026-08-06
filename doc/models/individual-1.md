@@ -28,7 +28,7 @@ Information about the individual. Required if `type` is **individual**.
 ## Example
 
 ```ts
-import { Individual1, Type132 } from 'adyenlib';
+import { Individual1, Type132 } from 'adyen';
 
 const individual1: Individual1 = {
   name: {

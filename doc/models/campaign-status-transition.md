@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { CampaignStatusTransition } from 'adyenlib';
+import { CampaignStatusTransition } from 'adyen';
 
 const campaignStatusTransition = CampaignStatusTransition.Activate;
 ```

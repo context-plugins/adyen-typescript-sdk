@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BcmcResponseInfo, Type33 } from 'adyenlib';
+import { BcmcResponseInfo, Type33 } from 'adyen';
 
 const bcmcResponseInfo: BcmcResponseInfo = {
   enableBcmcMobile: false,

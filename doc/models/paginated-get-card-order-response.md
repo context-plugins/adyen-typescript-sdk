@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaginatedGetCardOrderResponse } from 'adyenlib';
+import { PaginatedGetCardOrderResponse } from 'adyen';
 
 const paginatedGetCardOrderResponse: PaginatedGetCardOrderResponse = {
   hasNext: false,

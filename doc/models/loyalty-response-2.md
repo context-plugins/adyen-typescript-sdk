@@ -34,7 +34,7 @@ import {
   LoyaltyResponse2,
   OutputFormat1,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const loyaltyResponse2: LoyaltyResponse2 = {
   response: {

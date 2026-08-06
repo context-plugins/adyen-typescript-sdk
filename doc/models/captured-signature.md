@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CapturedSignature } from 'adyenlib';
+import { CapturedSignature } from 'adyen';
 
 const capturedSignature: CapturedSignature = {
   areaSize: {

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Timeouts } from 'adyenlib';
+import { Timeouts } from 'adyen';
 
 const timeouts: Timeouts = {
   fromActiveToSleep: 94,

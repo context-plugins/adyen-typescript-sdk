@@ -23,7 +23,7 @@ Required for `deviceChannel` set to **app**.
 ## Example
 
 ```ts
-import { SdkEphemPubKey } from 'adyenlib';
+import { SdkEphemPubKey } from 'adyen';
 
 const sdkEphemPubKey: SdkEphemPubKey = {
   crv: 'crv6',

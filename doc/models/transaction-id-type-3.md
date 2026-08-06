@@ -21,7 +21,7 @@ If the loyalty account ID comes from a previous CardAcquisition.
 ## Example
 
 ```ts
-import { TransactionIdType3 } from 'adyenlib';
+import { TransactionIdType3 } from 'adyen';
 
 const transactionIdType3: TransactionIdType3 = {
   transactionId: 'TransactionID6',

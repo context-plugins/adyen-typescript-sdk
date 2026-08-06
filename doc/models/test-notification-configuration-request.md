@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { EventType1, TestNotificationConfigurationRequest } from 'adyenlib';
+import { EventType1, TestNotificationConfigurationRequest } from 'adyen';
 
 const testNotificationConfigurationRequest: TestNotificationConfigurationRequest = {
   notificationId: BigInt(134),

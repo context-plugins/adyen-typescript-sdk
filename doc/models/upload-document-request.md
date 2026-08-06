@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DocumentType, UploadDocumentRequest } from 'adyenlib';
+import { DocumentType, UploadDocumentRequest } from 'adyen';
 
 const uploadDocumentRequest: UploadDocumentRequest = {
   documentContent: 'documentContent8',

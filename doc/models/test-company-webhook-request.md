@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { TestCompanyWebhookRequest } from 'adyenlib';
+import { TestCompanyWebhookRequest } from 'adyen';
 
 const testCompanyWebhookRequest: TestCompanyWebhookRequest = {
   merchantIds: [

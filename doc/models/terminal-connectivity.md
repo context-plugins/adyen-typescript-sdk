@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Status32, TerminalConnectivity } from 'adyenlib';
+import { Status32, TerminalConnectivity } from 'adyen';
 
 const terminalConnectivity: TerminalConnectivity = {
   bluetooth: {

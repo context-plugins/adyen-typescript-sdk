@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransactionLimit } from 'adyenlib';
+import { TransactionLimit } from 'adyen';
 
 const transactionLimit: TransactionLimit = {
   currency: 'currency4',

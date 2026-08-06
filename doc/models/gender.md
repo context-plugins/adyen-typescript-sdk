@@ -20,7 +20,7 @@ The gender.
 ## Example
 
 ```ts
-import { Gender } from 'adyenlib';
+import { Gender } from 'adyen';
 
 const gender = Gender.Unknown;
 ```

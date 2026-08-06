@@ -18,7 +18,7 @@ The HTTP method to use for the request Adyen makes on your behalf to the third p
 ## Example
 
 ```ts
-import { HttpMethod } from 'adyenlib';
+import { HttpMethod } from 'adyen';
 
 const httpMethod = HttpMethod.Patch;
 ```

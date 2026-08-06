@@ -29,7 +29,7 @@ import {
   MessageClass1,
   MessageHeader1,
   MessageType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const messageHeader1: MessageHeader1 = {
   messageClass: MessageClass1.Device,

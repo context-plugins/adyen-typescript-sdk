@@ -44,7 +44,7 @@
 ## Example
 
 ```ts
-import { CardDetails } from 'adyenlib';
+import { CardDetails } from 'adyen';
 
 const cardDetails: CardDetails = {
   billingSequenceNumber: 'billingSequenceNumber4',

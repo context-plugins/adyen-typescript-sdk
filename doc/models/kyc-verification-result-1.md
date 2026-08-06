@@ -25,7 +25,7 @@ The details of KYC Verification of the account holder.
 ## Example
 
 ```ts
-import { KycVerificationResult1, Status3, Type2 } from 'adyenlib';
+import { KycVerificationResult1, Status3, Type2 } from 'adyen';
 
 const kycVerificationResult1: KycVerificationResult1 = {
   accountHolder: {

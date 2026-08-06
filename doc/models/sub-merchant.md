@@ -24,7 +24,7 @@ Contains the final merchant who will be receiving the money, also known as subMe
 ## Example
 
 ```ts
-import { SubMerchant } from 'adyenlib';
+import { SubMerchant } from 'adyen';
 
 const subMerchant: SubMerchant = {
   city: 'city4',

@@ -27,7 +27,7 @@ If StoredValueTransactionType is Reverse or Duplicate.
 ## Example
 
 ```ts
-import { OriginalPoiTransaction1 } from 'adyenlib';
+import { OriginalPoiTransaction1 } from 'adyen';
 
 const originalPoiTransaction1: OriginalPoiTransaction1 = {
   saleId: 'SaleID4',

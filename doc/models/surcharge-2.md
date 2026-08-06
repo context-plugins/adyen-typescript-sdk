@@ -21,7 +21,7 @@ Review our [Surcharge compliance guide](https://docs.adyen.com/development-resou
 ## Example
 
 ```ts
-import { Surcharge2 } from 'adyenlib';
+import { Surcharge2 } from 'adyen';
 
 const surcharge2: Surcharge2 = {
   value: BigInt(254),

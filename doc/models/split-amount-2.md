@@ -23,7 +23,7 @@ The amount of the split item.
 ## Example
 
 ```ts
-import { SplitAmount2 } from 'adyenlib';
+import { SplitAmount2 } from 'adyen';
 
 const splitAmount2: SplitAmount2 = {
   value: BigInt(84),

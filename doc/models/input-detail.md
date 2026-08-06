@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { InputDetail } from 'adyenlib';
+import { InputDetail } from 'adyen';
 
 const inputDetail: InputDetail = {
   configuration: {

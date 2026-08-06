@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { IbanAccountIdentification2 } from 'adyenlib';
+import { IbanAccountIdentification2 } from 'adyen';
 
 const ibanAccountIdentification2: IbanAccountIdentification2 = {
   iban: 'iban8',

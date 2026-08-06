@@ -20,7 +20,7 @@ On a terminal that supports 3G or 4G connectivity, indicates the status of the p
 ## Example
 
 ```ts
-import { Status32 } from 'adyenlib';
+import { Status32 } from 'adyen';
 
 const status32 = Status32.Activated;
 ```

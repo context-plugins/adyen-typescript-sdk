@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CreateAccountRequest, PayoutSchedule } from 'adyenlib';
+import { CreateAccountRequest, PayoutSchedule } from 'adyen';
 
 const createAccountRequest: CreateAccountRequest = {
   accountHolderCode: 'accountHolderCode8',

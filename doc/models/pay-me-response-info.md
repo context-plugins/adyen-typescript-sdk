@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PayMeResponseInfo } from 'adyenlib';
+import { PayMeResponseInfo } from 'adyen';
 
 const payMeResponseInfo: PayMeResponseInfo = {
   displayName: 'displayName6',

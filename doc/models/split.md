@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Split, Type111 } from 'adyenlib';
+import { Split, Type111 } from 'adyen';
 
 const split: Split = {
   type: Type111.Remainder,

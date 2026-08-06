@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Type383, UsInternationalAchAddressRequirement } from 'adyenlib';
+import { Type383, UsInternationalAchAddressRequirement } from 'adyen';
 
 const usInternationalAchAddressRequirement: UsInternationalAchAddressRequirement = {
   type: Type383.UsInternationalAchAddressRequirement,

@@ -21,7 +21,7 @@ The API client can be initialized as follows:
 ## Code-Based Client Initialization
 
 ```ts
-import { Client, Environment, LogLevel } from 'adyenlib';
+import { Client, Environment, LogLevel } from 'adyen';
 
 const client = new Client({
   apiKeyAuthCredentials: {
@@ -55,7 +55,7 @@ const client = new Client({
 ```ts
 import * as path from 'path';
 import * as fs from 'fs';
-import { Client } from 'adyenlib';
+import { Client } from 'adyen';
 
 // Provide absolute path for the configuration file
 const absolutePath = path.resolve('./config.json');
@@ -75,7 +75,7 @@ See the [Configuration-Based Client Initialization](../doc/configuration-based-c
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import * as fs from 'fs';
-import { Client } from 'adyenlib';
+import { Client } from 'adyen';
 
 // Optional - Provide absolute path for the .env file
 const absolutePath = path.resolve('./.env');

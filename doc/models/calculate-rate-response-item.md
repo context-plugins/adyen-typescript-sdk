@@ -23,7 +23,7 @@ The response parameters returned when you calculate an amount in a different cur
 ## Example
 
 ```ts
-import { CalculateRateResponseItem } from 'adyenlib';
+import { CalculateRateResponseItem } from 'adyen';
 
 const calculateRateResponseItem: CalculateRateResponseItem = {
   appliedExchangeRate: 168.82,

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentMethodGroup } from 'adyenlib';
+import { PaymentMethodGroup } from 'adyen';
 
 const paymentMethodGroup: PaymentMethodGroup = {
   name: 'name6',

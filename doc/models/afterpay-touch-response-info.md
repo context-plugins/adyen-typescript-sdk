@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AfterpayTouchResponseInfo } from 'adyenlib';
+import { AfterpayTouchResponseInfo } from 'adyen';
 
 const afterpayTouchResponseInfo: AfterpayTouchResponseInfo = {
   supportEmail: 'supportEmail0',

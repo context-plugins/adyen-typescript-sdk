@@ -23,7 +23,7 @@ Details about the ultimate parent company's business.
 ## Example
 
 ```ts
-import { UltimateParentCompanyBusinessDetails2 } from 'adyenlib';
+import { UltimateParentCompanyBusinessDetails2 } from 'adyen';
 
 const ultimateParentCompanyBusinessDetails2: UltimateParentCompanyBusinessDetails2 = {
   legalBusinessName: 'legalBusinessName0',

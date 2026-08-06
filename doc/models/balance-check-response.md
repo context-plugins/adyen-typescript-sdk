@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { BalanceCheckResponse, ResultCode } from 'adyenlib';
+import { BalanceCheckResponse, ResultCode } from 'adyen';
 
 const balanceCheckResponse: BalanceCheckResponse = {
   balance: {

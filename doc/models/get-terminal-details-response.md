@@ -41,7 +41,7 @@
 ## Example
 
 ```ts
-import { GetTerminalDetailsResponse } from 'adyenlib';
+import { GetTerminalDetailsResponse } from 'adyen';
 
 const getTerminalDetailsResponse: GetTerminalDetailsResponse = {
   companyAccount: 'companyAccount0',

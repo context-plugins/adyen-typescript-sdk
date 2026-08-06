@@ -20,7 +20,7 @@ Support information for the legal entity. Required if you have a platform setup.
 ## Example
 
 ```ts
-import { Support1 } from 'adyenlib';
+import { Support1 } from 'adyen';
 
 const support1: Support1 = {
   email: 'email2',

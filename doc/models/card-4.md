@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Card4 } from 'adyenlib';
+import { Card4 } from 'adyen';
 
 const card4: Card4 = {
   cardHolder: {

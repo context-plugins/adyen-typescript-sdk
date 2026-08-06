@@ -19,7 +19,7 @@ Details to provide if `type` is **visa**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo14, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo14, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo14: GenericPmWithTdiUpdateInfo14 = {
   transactionDescription: {

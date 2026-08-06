@@ -27,7 +27,7 @@ import {
   InputCommand1,
   InputResponse3,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const inputResponse3: InputResponse3 = {
   inputResult: {

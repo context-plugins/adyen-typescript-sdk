@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { ShippingLocation } from 'adyenlib';
+import { ShippingLocation } from 'adyen';
 
 const shippingLocation: ShippingLocation = {
   address: {

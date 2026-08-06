@@ -63,7 +63,7 @@
 ## Example
 
 ```ts
-import { TransactionStatus } from 'adyenlib';
+import { TransactionStatus } from 'adyen';
 
 const transactionStatus = TransactionStatus.SecondChargebackCorrectionReceived;
 ```

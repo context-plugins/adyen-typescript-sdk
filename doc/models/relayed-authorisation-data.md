@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RelayedAuthorisationData } from 'adyenlib';
+import { RelayedAuthorisationData } from 'adyen';
 
 const relayedAuthorisationData: RelayedAuthorisationData = {
   metadata: {

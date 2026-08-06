@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ProcessingType, PulseResponseInfo, Type33 } from 'adyenlib';
+import { ProcessingType, PulseResponseInfo, Type33 } from 'adyen';
 
 const pulseResponseInfo: PulseResponseInfo = {
   processingType: ProcessingType.Ecom,

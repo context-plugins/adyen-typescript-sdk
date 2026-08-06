@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Type511 } from 'adyenlib';
+import { Type511 } from 'adyen';
 
 const type511 = Type511.Sepadirectdebit;
 ```

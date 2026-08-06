@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { KioskModeSettings } from 'adyenlib';
+import { KioskModeSettings } from 'adyen';
 
 const kioskModeSettings: KioskModeSettings = {
   allowedAppsInKioskMode: [

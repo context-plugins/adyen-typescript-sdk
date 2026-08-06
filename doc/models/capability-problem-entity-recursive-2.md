@@ -21,7 +21,7 @@ Contains details about the owner of the entity that has an error.
 ## Example
 
 ```ts
-import { CapabilityProblemEntityRecursive2, Type3 } from 'adyenlib';
+import { CapabilityProblemEntityRecursive2, Type3 } from 'adyen';
 
 const capabilityProblemEntityRecursive2: CapabilityProblemEntityRecursive2 = {
   documents: [

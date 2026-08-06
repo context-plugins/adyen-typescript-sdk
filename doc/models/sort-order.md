@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { SortOrder } from 'adyenlib';
+import { SortOrder } from 'adyen';
 
 const sortOrder = SortOrder.Asc;
 ```

@@ -26,7 +26,7 @@ Required when setting `priorities`.
 ## Example
 
 ```ts
-import { Category } from 'adyenlib';
+import { Category } from 'adyen';
 
 const category = Category.PlatformPayment;
 ```

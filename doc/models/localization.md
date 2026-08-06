@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Localization } from 'adyenlib';
+import { Localization } from 'adyen';
 
 const localization: Localization = {
   language: 'language0',

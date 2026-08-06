@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CheckoutForwardResponse } from 'adyenlib';
+import { CheckoutForwardResponse } from 'adyen';
 
 const checkoutForwardResponse: CheckoutForwardResponse = {
   response: {

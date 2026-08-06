@@ -23,7 +23,7 @@ The type of card for which the terminal accepts store-and-forward payments. You 
 ## Example
 
 ```ts
-import { SupportedCardTypes2 } from 'adyenlib';
+import { SupportedCardTypes2 } from 'adyen';
 
 const supportedCardTypes2: SupportedCardTypes2 = {
   credit: false,

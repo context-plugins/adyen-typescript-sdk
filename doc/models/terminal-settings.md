@@ -42,7 +42,7 @@
 ## Example
 
 ```ts
-import { SimcardStatus, TerminalSettings } from 'adyenlib';
+import { SimcardStatus, TerminalSettings } from 'adyen';
 
 const terminalSettings: TerminalSettings = {
   cardholderReceipt: {

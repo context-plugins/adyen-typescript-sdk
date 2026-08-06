@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Status5 } from 'adyenlib';
+import { Status5 } from 'adyen';
 
 const status5 = Status5.Closed;
 ```

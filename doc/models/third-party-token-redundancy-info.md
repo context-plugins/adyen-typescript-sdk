@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ThirdPartyTokenRedundancyInfo } from 'adyenlib';
+import { ThirdPartyTokenRedundancyInfo } from 'adyen';
 
 const thirdPartyTokenRedundancyInfo: ThirdPartyTokenRedundancyInfo = {
   requestTemplateCode: 'requestTemplateCode2',

@@ -22,7 +22,7 @@ If unprotected mobile data.
 ## Example
 
 ```ts
-import { SensitiveMobileData1 } from 'adyenlib';
+import { SensitiveMobileData1 } from 'adyen';
 
 const sensitiveMobileData1: SensitiveMobileData1 = {
   msisdn: 112,

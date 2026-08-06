@@ -25,7 +25,7 @@ import {
   MainSourceOfIncome,
   TaxReportingClassification,
   Type151,
-} from 'adyenlib';
+} from 'adyen';
 
 const taxReportingClassification: TaxReportingClassification = {
   businessType: BusinessType.SubsidiaryOfListedPublicCompany,

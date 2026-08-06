@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DeleteNotificationConfigurationRequest } from 'adyenlib';
+import { DeleteNotificationConfigurationRequest } from 'adyen';
 
 const deleteNotificationConfigurationRequest: DeleteNotificationConfigurationRequest = {
   notificationIds: [

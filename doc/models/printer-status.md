@@ -27,7 +27,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PrinterStatus } from 'adyenlib';
+import { PrinterStatus } from 'adyen';
 
 const printerStatus = PrinterStatus.PaperLow;
 ```

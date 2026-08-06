@@ -36,7 +36,7 @@ Required if a processingTier is not provided.
 ## Example
 
 ```ts
-import { AccountHolderDetails4, Gender } from 'adyenlib';
+import { AccountHolderDetails4, Gender } from 'adyen';
 
 const accountHolderDetails4: AccountHolderDetails4 = {
   address: {

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TicketResponseInfo } from 'adyenlib';
+import { TicketResponseInfo } from 'adyen';
 
 const ticketResponseInfo: TicketResponseInfo = {
   requestorId: 'requestorId4',

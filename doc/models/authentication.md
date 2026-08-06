@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Authentication, Type4 } from 'adyenlib';
+import { Authentication, Type4 } from 'adyen';
 
 const authentication: Authentication = {
   email: 'email8',

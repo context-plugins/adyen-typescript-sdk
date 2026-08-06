@@ -17,7 +17,7 @@ The desired status change. Possible values: **activate** or **end**.
 ## Example
 
 ```ts
-import { CampaignStatusTransition1 } from 'adyenlib';
+import { CampaignStatusTransition1 } from 'adyen';
 
 const campaignStatusTransition1 = CampaignStatusTransition1.Activate;
 ```

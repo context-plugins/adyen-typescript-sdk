@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { ExchangeSide } from 'adyenlib';
+import { ExchangeSide } from 'adyen';
 
 const exchangeSide = ExchangeSide.Buy;
 ```

@@ -26,7 +26,7 @@
     "trailingComma": "es5",
     "quoteProps": "preserve"
   },
-  "name": "adyenlib",
+  "name": "adyen",
   "description": "The A2A payments API provides endpoints for A2A payment flows, enabling issuers to facilitate direct payments through Adyen for users with an Adyen business account.  With these endpoints, you can: - **Retrieve payment details**: Retrieve transaction information for specific payments. - **Confirm payments**: Confirm payments with Strong Customer Authentication (SCA). - **Cancel payments**: Cancel pending transactions.  ## Authentication Each request made to the A2A Payments API must be signed with an API key. Generate an API key in your Customer Area.  To connect to the API, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  ## Roles and permissions To use the A2A Payments API, your API credential must have the following roles: - **Role for A2A Issuer payments - API**  Reach out to your Adyen contact to set up these roles. ## Going live When going live, generate an API key in your [live Customer Area](https://ca-live.adyen.com/ca). You can then use the API key to send requests to `https://balanceplatform-api-live.adyen.com/a2aissuer-api/v{version}/payments`.",
   "author": {
     "name": "Adyen Developer Experience team",

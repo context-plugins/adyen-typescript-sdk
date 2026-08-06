@@ -29,7 +29,7 @@ import {
   CardAcquisitionTransaction,
   ForceEntryMode,
   LoyaltyHandling2,
-} from 'adyenlib';
+} from 'adyen';
 
 const cardAcquisitionTransaction: CardAcquisitionTransaction = {
   allowedPaymentBrand: [

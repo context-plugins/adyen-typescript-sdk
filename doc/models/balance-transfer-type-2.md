@@ -21,7 +21,7 @@ The type of balance transfer. Possible values: **tax**, **fee**, **terminalSale*
 ## Example
 
 ```ts
-import { BalanceTransferType2 } from 'adyenlib';
+import { BalanceTransferType2 } from 'adyen';
 
 const balanceTransferType2 = BalanceTransferType2.Debit;
 ```

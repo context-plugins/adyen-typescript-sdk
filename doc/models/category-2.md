@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Category2 } from 'adyenlib';
+import { Category2 } from 'adyen';
 
 const category2 = Category2.Grants;
 ```

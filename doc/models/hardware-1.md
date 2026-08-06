@@ -21,7 +21,7 @@ Settings for terminal hardware features.
 ## Example
 
 ```ts
-import { Hardware1 } from 'adyenlib';
+import { Hardware1 } from 'adyen';
 
 const hardware1: Hardware1 = {
   displayMaximumBackLight: 52,

@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { Behavior, PaymentCaptureRequest, RateType } from 'adyenlib';
+import { Behavior, PaymentCaptureRequest, RateType } from 'adyen';
 
 const paymentCaptureRequest: PaymentCaptureRequest = {
   amount: {

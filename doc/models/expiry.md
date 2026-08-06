@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Expiry } from 'adyenlib';
+import { Expiry } from 'adyen';
 
 const expiry: Expiry = {
   month: 'month8',

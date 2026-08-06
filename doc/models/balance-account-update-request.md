@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { BalanceAccountUpdateRequest } from 'adyenlib';
+import { BalanceAccountUpdateRequest } from 'adyen';
 
 const balanceAccountUpdateRequest: BalanceAccountUpdateRequest = {
   accountHolderId: 'accountHolderId8',

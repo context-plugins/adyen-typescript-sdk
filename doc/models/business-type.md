@@ -23,7 +23,7 @@ Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicC
 ## Example
 
 ```ts
-import { BusinessType } from 'adyenlib';
+import { BusinessType } from 'adyen';
 
 const businessType = BusinessType.Other;
 ```

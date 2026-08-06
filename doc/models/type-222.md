@@ -19,7 +19,7 @@ Possible value: **bankAccount**.
 ## Example
 
 ```ts
-import { Type222 } from 'adyenlib';
+import { Type222 } from 'adyen';
 
 const type222 = Type222.BankAccount;
 ```

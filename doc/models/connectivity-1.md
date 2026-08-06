@@ -20,7 +20,7 @@ Settings for terminal connectivity features.
 ## Example
 
 ```ts
-import { Connectivity1, SimcardStatus } from 'adyenlib';
+import { Connectivity1, SimcardStatus } from 'adyen';
 
 const connectivity1: Connectivity1 = {
   simcardStatus: SimcardStatus.Activated,

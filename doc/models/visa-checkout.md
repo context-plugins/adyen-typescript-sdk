@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { FundingSource, Type55, VisaCheckout } from 'adyenlib';
+import { FundingSource, Type55, VisaCheckout } from 'adyen';
 
 const visaCheckout: VisaCheckout = {
   visaCheckoutCallId: 'visaCheckoutCallId8',

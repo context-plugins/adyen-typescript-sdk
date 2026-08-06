@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { ScheduleTerminalActionsResponse, Type210 } from 'adyenlib';
+import { ScheduleTerminalActionsResponse, Type210 } from 'adyen';
 
 const scheduleTerminalActionsResponse: ScheduleTerminalActionsResponse = {
   actionDetails: {

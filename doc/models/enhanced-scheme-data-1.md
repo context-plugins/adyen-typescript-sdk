@@ -24,7 +24,7 @@ Enhanced scheme data that may be required for processing the payment. For exampl
 ## Example
 
 ```ts
-import { EnhancedSchemeData1, RateType } from 'adyenlib';
+import { EnhancedSchemeData1, RateType } from 'adyen';
 
 const enhancedSchemeData1: EnhancedSchemeData1 = {
   airline: {

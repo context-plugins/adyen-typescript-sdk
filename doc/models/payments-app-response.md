@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PaymentsAppResponse } from 'adyenlib';
+import { PaymentsAppResponse } from 'adyen';
 
 const paymentsAppResponse: PaymentsAppResponse = {
   paymentsApps: [

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ExchangeMessage } from 'adyenlib';
+import { ExchangeMessage } from 'adyen';
 
 const exchangeMessage: ExchangeMessage = {
   messageCode: 'messageCode0',

@@ -29,7 +29,7 @@ import {
   ShopperInteraction1,
   Status51,
   StoredValueStatusChangeRequest,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueStatusChangeRequest: StoredValueStatusChangeRequest = {
   merchantAccount: 'merchantAccount8',

@@ -23,7 +23,7 @@
 import {
   CheckoutSessionThreeDs2RequestData,
   ThreeDsRequestorChallengeInd,
-} from 'adyenlib';
+} from 'adyen';
 
 const checkoutSessionThreeDs2RequestData: CheckoutSessionThreeDs2RequestData = {
   homePhone: {

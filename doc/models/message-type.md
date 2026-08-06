@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MessageType } from 'adyenlib';
+import { MessageType } from 'adyen';
 
 const messageType = MessageType.Request;
 ```

@@ -16,7 +16,7 @@ Default payment method details. Common for scheme payment methods, and for simpl
 ## Example
 
 ```ts
-import { Type181 } from 'adyenlib';
+import { Type181 } from 'adyen';
 
 const type181 = Type181.Scheme;
 ```

@@ -25,7 +25,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { DeliveryTimeframe } from 'adyenlib';
+import { DeliveryTimeframe } from 'adyen';
 
 const deliveryTimeframe = DeliveryTimeframe.ElectronicDelivery;
 ```

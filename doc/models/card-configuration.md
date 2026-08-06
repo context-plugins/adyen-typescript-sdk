@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { CardConfiguration } from 'adyenlib';
+import { CardConfiguration } from 'adyen';
 
 const cardConfiguration: CardConfiguration = {
   configurationProfileId: 'configurationProfileId6',

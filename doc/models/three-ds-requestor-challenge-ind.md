@@ -28,7 +28,7 @@ Indicates whether a challenge is requested for this transaction. Possible values
 ## Example
 
 ```ts
-import { ThreeDsRequestorChallengeInd } from 'adyenlib';
+import { ThreeDsRequestorChallengeInd } from 'adyen';
 
 const threeDsRequestorChallengeInd = ThreeDsRequestorChallengeInd.Enum01;
 ```

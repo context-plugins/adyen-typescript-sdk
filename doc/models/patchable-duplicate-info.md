@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PatchableDuplicateInfo } from 'adyenlib';
+import { PatchableDuplicateInfo } from 'adyen';
 
 const patchableDuplicateInfo: PatchableDuplicateInfo = {
   duplicateTransactionId: 'duplicateTransactionId2',

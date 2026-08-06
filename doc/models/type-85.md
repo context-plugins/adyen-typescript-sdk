@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type85 } from 'adyenlib';
+import { Type85 } from 'adyen';
 
 const type85 = Type85.InterchangeData;
 ```

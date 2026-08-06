@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataSwish } from 'adyenlib';
+import { ResponseAdditionalDataSwish } from 'adyen';
 
 const responseAdditionalDataSwish: ResponseAdditionalDataSwish = {
   swishPayerAlias: 'swish.payerAlias8',

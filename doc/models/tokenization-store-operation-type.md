@@ -22,7 +22,7 @@ The operation performed on the token. Possible values:
 ## Example
 
 ```ts
-import { TokenizationStoreOperationType } from 'adyenlib';
+import { TokenizationStoreOperationType } from 'adyen';
 
 const tokenizationStoreOperationType = TokenizationStoreOperationType.AlreadyExisting;
 ```

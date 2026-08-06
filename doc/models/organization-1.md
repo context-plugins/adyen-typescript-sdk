@@ -46,7 +46,7 @@ Information about the organization. Required if `type` is **organization**.
 ## Example
 
 ```ts
-import { Organization1 } from 'adyenlib';
+import { Organization1 } from 'adyen';
 
 const organization1: Organization1 = {
   legalName: 'legalName0',

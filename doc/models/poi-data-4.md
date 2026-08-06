@@ -21,7 +21,7 @@ If Result is Success.
 ## Example
 
 ```ts
-import { PoiData4 } from 'adyenlib';
+import { PoiData4 } from 'adyen';
 
 const poiData4: PoiData4 = {
   poiTransactionId: {

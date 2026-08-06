@@ -21,7 +21,7 @@
 import {
   AdditionalBankIdentification,
   AdditionalBankIdentificationType,
-} from 'adyenlib';
+} from 'adyen';
 
 const additionalBankIdentification: AdditionalBankIdentification = {
   code: 'code2',

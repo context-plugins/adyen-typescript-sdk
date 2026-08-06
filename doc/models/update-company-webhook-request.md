@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { UpdateCompanyWebhookRequest } from 'adyenlib';
+import { UpdateCompanyWebhookRequest } from 'adyen';
 
 const updateCompanyWebhookRequest: UpdateCompanyWebhookRequest = {
   acceptsExpiredCertificate: false,

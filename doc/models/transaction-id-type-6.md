@@ -21,7 +21,7 @@ If provided by the Acquirer.
 ## Example
 
 ```ts
-import { TransactionIdType6 } from 'adyenlib';
+import { TransactionIdType6 } from 'adyen';
 
 const transactionIdType6: TransactionIdType6 = {
   transactionId: 'TransactionID0',

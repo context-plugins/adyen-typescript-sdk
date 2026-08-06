@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DocumentPage, Type92 } from 'adyenlib';
+import { DocumentPage, Type92 } from 'adyen';
 
 const documentPage: DocumentPage = {
   pageName: 'pageName0',

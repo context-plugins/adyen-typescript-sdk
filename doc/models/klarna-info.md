@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { KlarnaInfo, Region } from 'adyenlib';
+import { KlarnaInfo, Region } from 'adyen';
 
 const klarnaInfo: KlarnaInfo = {
   disputeEmail: 'disputeEmail2',

@@ -19,7 +19,7 @@ Settings for EMV [offline payment](https://docs.adyen.com/point-of-sale/offline-
 ## Example
 
 ```ts
-import { OfflineProcessing1 } from 'adyenlib';
+import { OfflineProcessing1 } from 'adyen';
 
 const offlineProcessing1: OfflineProcessing1 = {
   chipFloorLimit: 212,

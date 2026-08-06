@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type112 } from 'adyenlib';
+import { Type112 } from 'adyen';
 
 const type112 = Type112.BankTransfer;
 ```

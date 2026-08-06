@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AccountStateType, PerformVerificationRequest } from 'adyenlib';
+import { AccountStateType, PerformVerificationRequest } from 'adyen';
 
 const performVerificationRequest: PerformVerificationRequest = {
   accountHolderCode: 'accountHolderCode6',

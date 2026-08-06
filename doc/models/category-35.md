@@ -18,7 +18,7 @@ The type of transfer. Possible values:
 ## Example
 
 ```ts
-import { Category35 } from 'adyenlib';
+import { Category35 } from 'adyen';
 
 const category35 = Category35.Bank;
 ```

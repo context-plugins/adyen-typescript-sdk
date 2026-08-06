@@ -31,7 +31,7 @@ import {
   Type32,
   Type413,
   Type59,
-} from 'adyenlib';
+} from 'adyen';
 
 const transferInstrument: TransferInstrument = {
   bankAccount: {

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Fixed } from 'adyenlib';
+import { Fixed } from 'adyen';
 
 const fixed: Fixed = {
   currency: 'currency0',

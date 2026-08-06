@@ -29,7 +29,7 @@ Required when creating an account holder with `legalEntity` **Business** or **No
 ## Example
 
 ```ts
-import { BusinessDetails3, Gender } from 'adyenlib';
+import { BusinessDetails3, Gender } from 'adyen';
 
 const businessDetails3: BusinessDetails3 = {
   doingBusinessAs: 'doingBusinessAs6',

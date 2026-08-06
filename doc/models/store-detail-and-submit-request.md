@@ -40,7 +40,7 @@ import {
   EntityType1,
   StoreDetailAndSubmitRequest,
   TokenService,
-} from 'adyenlib';
+} from 'adyen';
 
 const storeDetailAndSubmitRequest: StoreDetailAndSubmitRequest = {
   amount: {

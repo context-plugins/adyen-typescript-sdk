@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AdditionalSalesChannel } from 'adyenlib';
+import { AdditionalSalesChannel } from 'adyen';
 
 const additionalSalesChannel = AdditionalSalesChannel.ECommerce;
 ```

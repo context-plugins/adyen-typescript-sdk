@@ -39,7 +39,7 @@ Information related to an Input request. It conveys the target input logical dev
 ## Example
 
 ```ts
-import { Device2, InfoQualify2, InputCommand1, InputData2 } from 'adyenlib';
+import { Device2, InfoQualify2, InputCommand1, InputData2 } from 'adyen';
 
 const inputData2: InputData2 = {
   device: Device2.CashierDisplay,

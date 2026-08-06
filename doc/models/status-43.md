@@ -25,7 +25,7 @@ Once **closed**, a store can't be reopened.
 ## Example
 
 ```ts
-import { Status43 } from 'adyenlib';
+import { Status43 } from 'adyen';
 
 const status43 = Status43.Active;
 ```

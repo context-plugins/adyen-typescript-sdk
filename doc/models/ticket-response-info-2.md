@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { TicketResponseInfo2 } from 'adyenlib';
+import { TicketResponseInfo2 } from 'adyen';
 
 const ticketResponseInfo2: TicketResponseInfo2 = {
   requestorId: 'requestorId0',

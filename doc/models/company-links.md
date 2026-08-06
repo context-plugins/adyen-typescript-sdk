@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CompanyLinks } from 'adyenlib';
+import { CompanyLinks } from 'adyen';
 
 const companyLinks: CompanyLinks = {
   self: {

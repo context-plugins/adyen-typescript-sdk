@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AffirmInfo } from 'adyenlib';
+import { AffirmInfo } from 'adyen';
 
 const affirmInfo: AffirmInfo = {
   supportEmail: 'supportEmail6',

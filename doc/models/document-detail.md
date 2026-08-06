@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { DocumentDetail, DocumentType } from 'adyenlib';
+import { DocumentDetail, DocumentType } from 'adyen';
 
 const documentDetail: DocumentDetail = {
   documentType: DocumentType.Ssn,

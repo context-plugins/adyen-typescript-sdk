@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Geolocation } from 'adyenlib';
+import { Geolocation } from 'adyen';
 
 const geolocation: Geolocation = {
   geographicCoordinates: {

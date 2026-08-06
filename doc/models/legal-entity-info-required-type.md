@@ -34,7 +34,7 @@ import {
   Type132,
   Type142,
   Type212,
-} from 'adyenlib';
+} from 'adyen';
 
 const legalEntityInfoRequiredType: LegalEntityInfoRequiredType = {
   type: Type212.Individual,

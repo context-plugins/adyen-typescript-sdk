@@ -27,7 +27,7 @@ import {
   Priority2,
   TransferRoute,
   Type610,
-} from 'adyenlib';
+} from 'adyen';
 
 const transferRoute: TransferRoute = {
   category: Category2.Grants,

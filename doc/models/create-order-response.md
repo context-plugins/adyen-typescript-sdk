@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { CreateOrderResponse, ResultCode23 } from 'adyenlib';
+import { CreateOrderResponse, ResultCode23 } from 'adyen';
 
 const createOrderResponse: CreateOrderResponse = {
   amount: {

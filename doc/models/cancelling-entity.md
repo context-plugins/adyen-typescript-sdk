@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { CancellingEntity } from 'adyenlib';
+import { CancellingEntity } from 'adyen';
 
 const cancellingEntity = CancellingEntity.Merchant;
 ```

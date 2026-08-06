@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataDomesticError } from 'adyenlib';
+import { ResponseAdditionalDataDomesticError } from 'adyen';
 
 const responseAdditionalDataDomesticError: ResponseAdditionalDataDomesticError = {
   domesticRefusalReasonRaw: 'domesticRefusalReasonRaw6',

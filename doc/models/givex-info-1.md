@@ -22,7 +22,7 @@ Details to provide if `type` is **givex**.
 ## Example
 
 ```ts
-import { GivexInfo1, ShopperInteraction } from 'adyenlib';
+import { GivexInfo1, ShopperInteraction } from 'adyen';
 
 const givexInfo1: GivexInfo1 = {
   currencyCode: 'currencyCode0',

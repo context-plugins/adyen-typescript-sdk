@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Href } from 'adyenlib';
+import { Href } from 'adyen';
 
 const href: Href = {
   href: 'https://someUrl',

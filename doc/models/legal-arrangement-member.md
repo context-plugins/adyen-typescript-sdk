@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { LegalArrangementMember } from 'adyenlib';
+import { LegalArrangementMember } from 'adyen';
 
 const legalArrangementMember = LegalArrangementMember.Protector;
 ```

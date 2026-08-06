@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { ShowPages } from 'adyenlib';
+import { ShowPages } from 'adyen';
 
 const showPages: ShowPages = {
   bankDetailsSummaryPage: false,

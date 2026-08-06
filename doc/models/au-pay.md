@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AuPay, Type91 } from 'adyenlib';
+import { AuPay, Type91 } from 'adyen';
 
 const auPay: AuPay = {
   checkoutAttemptId: 'checkoutAttemptId4',

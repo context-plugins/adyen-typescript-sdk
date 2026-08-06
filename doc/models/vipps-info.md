@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { VippsInfo } from 'adyenlib';
+import { VippsInfo } from 'adyen';
 
 const vippsInfo: VippsInfo = {
   logo: 'logo0',

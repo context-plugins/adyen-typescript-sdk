@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { ApplePayDonations, FundingSource } from 'adyenlib';
+import { ApplePayDonations, FundingSource } from 'adyen';
 
 const applePayDonations: ApplePayDonations = {
   applePayToken: 'applePayToken0',

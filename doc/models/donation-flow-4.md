@@ -17,7 +17,7 @@ The interaction flow for in-person donations: complete payment for the purchase 
 ## Example
 
 ```ts
-import { DonationFlow4 } from 'adyenlib';
+import { DonationFlow4 } from 'adyen';
 
 const donationFlow4 = DonationFlow4.OneStep;
 ```

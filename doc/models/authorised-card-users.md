@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AuthorisedCardUsers } from 'adyenlib';
+import { AuthorisedCardUsers } from 'adyen';
 
 const authorisedCardUsers: AuthorisedCardUsers = {
   legalEntityIds: [

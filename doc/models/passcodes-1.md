@@ -22,7 +22,7 @@ Settings for [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals
 ## Example
 
 ```ts
-import { Passcodes1 } from 'adyenlib';
+import { Passcodes1 } from 'adyen';
 
 const passcodes1: Passcodes1 = {
   adminMenuPin: 'adminMenuPin2',

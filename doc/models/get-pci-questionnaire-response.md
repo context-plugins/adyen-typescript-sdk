@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { GetPciQuestionnaireResponse } from 'adyenlib';
+import { GetPciQuestionnaireResponse } from 'adyen';
 
 const getPciQuestionnaireResponse: GetPciQuestionnaireResponse = {
   content: 'content8',

@@ -26,7 +26,7 @@ import {
   ProcessingType,
   Type33,
   TypesWithError,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentMethodResponse: PaymentMethodResponse = {
   itemsTotal: 208,

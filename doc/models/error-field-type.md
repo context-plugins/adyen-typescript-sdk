@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ErrorFieldType, FieldName } from 'adyenlib';
+import { ErrorFieldType, FieldName } from 'adyen';
 
 const errorFieldType: ErrorFieldType = {
   errorCode: 124,

@@ -20,7 +20,7 @@ Additional shopper and transaction information to be included in your [standard 
 ## Example
 
 ```ts
-import { AdditionalSettings1 } from 'adyenlib';
+import { AdditionalSettings1 } from 'adyen';
 
 const additionalSettings1: AdditionalSettings1 = {
   includeEventCodes: [

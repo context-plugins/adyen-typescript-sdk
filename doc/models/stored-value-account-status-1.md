@@ -25,7 +25,7 @@ import {
   IdentificationType11,
   StoredValueAccountStatus1,
   StoredValueAccountType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueAccountStatus1: StoredValueAccountStatus1 = {
   storedValueAccountId: {

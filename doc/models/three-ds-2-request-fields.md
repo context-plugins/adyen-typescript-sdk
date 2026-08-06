@@ -59,7 +59,7 @@ import {
   ChAccChangeInd,
   ChAccPwChangeInd,
   ThreeDs2RequestFields,
-} from 'adyenlib';
+} from 'adyen';
 
 const threeDs2RequestFields: ThreeDs2RequestFields = {
   acctInfo: {

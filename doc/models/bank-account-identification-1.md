@@ -19,7 +19,7 @@ Contains the identification information of the account to which you can transfer
 ## Example
 
 ```ts
-import { BankAccountIdentification1 } from 'adyenlib';
+import { BankAccountIdentification1 } from 'adyen';
 
 const bankAccountIdentification1: BankAccountIdentification1 = {
   type: 'BankAccountIdentification1',

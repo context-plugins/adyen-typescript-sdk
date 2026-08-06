@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ShopperInteractionDevice2 } from 'adyenlib';
+import { ShopperInteractionDevice2 } from 'adyen';
 
 const shopperInteractionDevice2: ShopperInteractionDevice2 = {
   locale: 'locale4',

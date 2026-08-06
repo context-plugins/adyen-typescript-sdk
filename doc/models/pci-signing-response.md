@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PciSigningResponse } from 'adyenlib';
+import { PciSigningResponse } from 'adyen';
 
 const pciSigningResponse: PciSigningResponse = {
   pciQuestionnaireIds: [

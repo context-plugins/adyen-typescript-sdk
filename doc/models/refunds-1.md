@@ -20,7 +20,7 @@ Settings for refunds.
 ## Example
 
 ```ts
-import { Refunds1 } from 'adyenlib';
+import { Refunds1 } from 'adyen';
 
 const refunds1: Refunds1 = {
   referenced: {

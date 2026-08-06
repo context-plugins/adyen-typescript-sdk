@@ -17,7 +17,7 @@ The type of event notification sent when you select the notification button.
 ## Example
 
 ```ts
-import { Category1 } from 'adyenlib';
+import { Category1 } from 'adyen';
 
 const category1 = Category1.SaleWakeUp;
 ```

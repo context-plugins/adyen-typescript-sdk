@@ -32,7 +32,7 @@ Information about the trust. Required if `type` is **trust**.
 ## Example
 
 ```ts
-import { Trust1, Type171 } from 'adyenlib';
+import { Trust1, Type171 } from 'adyen';
 
 const trust1: Trust1 = {
   countryOfGoverningLaw: 'countryOfGoverningLaw2',

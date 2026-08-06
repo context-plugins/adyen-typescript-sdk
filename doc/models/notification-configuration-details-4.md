@@ -32,7 +32,7 @@ import {
   EventType,
   IncludeMode,
   NotificationConfigurationDetails4,
-} from 'adyenlib';
+} from 'adyen';
 
 const notificationConfigurationDetails4: NotificationConfigurationDetails4 = {
   active: false,

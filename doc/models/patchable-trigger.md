@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PatchableTrigger, ScheduleType1 } from 'adyenlib';
+import { PatchableTrigger, ScheduleType1 } from 'adyen';
 
 const patchableTrigger: PatchableTrigger = {
   schedule: {

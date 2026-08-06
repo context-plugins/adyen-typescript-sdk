@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Previous } from 'adyenlib';
+import { Previous } from 'adyen';
 
 const previous: Previous = {
   href: 'href0',

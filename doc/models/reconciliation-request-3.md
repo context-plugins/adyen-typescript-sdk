@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ReconciliationRequest3, ReconciliationType1 } from 'adyenlib';
+import { ReconciliationRequest3, ReconciliationType1 } from 'adyen';
 
 const reconciliationRequest3: ReconciliationRequest3 = {
   reconciliationType: ReconciliationType1.SaleReconciliation,

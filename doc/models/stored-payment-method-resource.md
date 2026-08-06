@@ -40,7 +40,7 @@
 ## Example
 
 ```ts
-import { StoredPaymentMethodResource } from 'adyenlib';
+import { StoredPaymentMethodResource } from 'adyen';
 
 const storedPaymentMethodResource: StoredPaymentMethodResource = {
   alias: 'alias4',

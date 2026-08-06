@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RevealPinResponse } from 'adyenlib';
+import { RevealPinResponse } from 'adyen';
 
 const revealPinResponse: RevealPinResponse = {
   encryptedPinBlock: 'encryptedPinBlock0',

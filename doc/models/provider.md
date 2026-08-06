@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Provider } from 'adyenlib';
+import { Provider } from 'adyen';
 
 const provider: Provider = {
   logoUrl: 'logoURL6',

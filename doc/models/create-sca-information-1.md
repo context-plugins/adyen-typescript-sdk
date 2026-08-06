@@ -20,7 +20,7 @@ Information for the Strong Customer Authentication (SCA)
 ## Example
 
 ```ts
-import { CreateScaInformation1, ScaExemption } from 'adyenlib';
+import { CreateScaInformation1, ScaExemption } from 'adyen';
 
 const createScaInformation1: CreateScaInformation1 = {
   exemption: ScaExemption.NotRegulated,

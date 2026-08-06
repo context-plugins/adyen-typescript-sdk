@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CashOutInfoCounterparty } from 'adyenlib';
+import { CashOutInfoCounterparty } from 'adyen';
 
 const cashOutInfoCounterparty: CashOutInfoCounterparty = {
   transferInstrumentId: 'transferInstrumentId6',

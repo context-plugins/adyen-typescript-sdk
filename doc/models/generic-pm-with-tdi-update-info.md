@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo: GenericPmWithTdiUpdateInfo = {
   transactionDescription: {

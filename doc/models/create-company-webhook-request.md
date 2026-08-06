@@ -36,7 +36,7 @@ import {
   CommunicationFormat,
   CreateCompanyWebhookRequest,
   FilterMerchantAccountType,
-} from 'adyenlib';
+} from 'adyen';
 
 const createCompanyWebhookRequest: CreateCompanyWebhookRequest = {
   active: false,

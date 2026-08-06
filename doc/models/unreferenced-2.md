@@ -19,7 +19,7 @@ Settings for unreferenced refunds.
 ## Example
 
 ```ts
-import { Unreferenced2 } from 'adyenlib';
+import { Unreferenced2 } from 'adyen';
 
 const unreferenced2: Unreferenced2 = {
   enableUnreferencedRefunds: false,

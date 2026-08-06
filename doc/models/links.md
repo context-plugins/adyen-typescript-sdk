@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Links } from 'adyenlib';
+import { Links } from 'adyen';
 
 const links: Links = {
   cancel: {

@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { TrackFormat } from 'adyenlib';
+import { TrackFormat } from 'adyen';
 
 const trackFormat = TrackFormat.Iso;
 ```

@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { NotifyShopperRequest } from 'adyenlib';
+import { NotifyShopperRequest } from 'adyen';
 
 const notifyShopperRequest: NotifyShopperRequest = {
   amount: {

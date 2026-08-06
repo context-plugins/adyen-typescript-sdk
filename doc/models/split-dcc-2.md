@@ -21,7 +21,7 @@ Defines the logic for booking the markup paid by the customer for Dynamic Curren
 ## Example
 
 ```ts
-import { SplitDcc2 } from 'adyenlib';
+import { SplitDcc2 } from 'adyen';
 
 const splitDcc2: SplitDcc2 = {
   accountHolderPercentage: BigInt(198),

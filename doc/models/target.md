@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Target, Type18 } from 'adyenlib';
+import { Target, Type18 } from 'adyen';
 
 const target: Target = {
   id: 'id2',

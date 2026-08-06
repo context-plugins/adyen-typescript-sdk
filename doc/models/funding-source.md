@@ -18,7 +18,7 @@ The funding source that should be used when multiple sources are available. For 
 ## Example
 
 ```ts
-import { FundingSource } from 'adyenlib';
+import { FundingSource } from 'adyen';
 
 const fundingSource = FundingSource.Debit;
 ```

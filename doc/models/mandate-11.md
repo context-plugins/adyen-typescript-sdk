@@ -32,7 +32,7 @@ import {
   BillingAttemptsRule,
   Frequency1,
   Mandate11,
-} from 'adyenlib';
+} from 'adyen';
 
 const mandate11: Mandate11 = {
   amount: 'amount8',

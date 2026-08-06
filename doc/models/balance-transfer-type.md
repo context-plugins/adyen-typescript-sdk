@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { BalanceTransferType } from 'adyenlib';
+import { BalanceTransferType } from 'adyen';
 
 const balanceTransferType = BalanceTransferType.TerminalSale;
 ```

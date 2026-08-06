@@ -32,7 +32,7 @@ import {
   Result11,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceinquiryResponse1: BalanceinquiryResponse1 = {
   response: {

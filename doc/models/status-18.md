@@ -21,7 +21,7 @@ The current status of the grant. Possible values: **Pending**, **Active**, **Rep
 ## Example
 
 ```ts
-import { Status18 } from 'adyenlib';
+import { Status18 } from 'adyen';
 
 const status18 = Status18.Repaid;
 ```

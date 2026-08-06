@@ -22,7 +22,7 @@ Format or protocol for receiving webhooks. Possible values:
 ## Example
 
 ```ts
-import { CommunicationFormat } from 'adyenlib';
+import { CommunicationFormat } from 'adyen';
 
 const communicationFormat = CommunicationFormat.Http;
 ```

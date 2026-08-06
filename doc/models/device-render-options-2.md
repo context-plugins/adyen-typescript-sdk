@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DeviceRenderOptions2, SdkInterface, SdkUiType } from 'adyenlib';
+import { DeviceRenderOptions2, SdkInterface, SdkUiType } from 'adyen';
 
 const deviceRenderOptions2: DeviceRenderOptions2 = {
   sdkInterface: SdkInterface.Native,

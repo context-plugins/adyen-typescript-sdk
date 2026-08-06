@@ -20,7 +20,7 @@ Details to provide if `type` is **pulse**.
 ## Example
 
 ```ts
-import { ProcessingType, PulseInfo2, Type33 } from 'adyenlib';
+import { ProcessingType, PulseInfo2, Type33 } from 'adyen';
 
 const pulseInfo2: PulseInfo2 = {
   processingType: ProcessingType.Pos,

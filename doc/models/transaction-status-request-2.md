@@ -25,7 +25,7 @@ import {
   DocumentQualifier,
   MessageCategory2,
   TransactionStatusRequest2,
-} from 'adyenlib';
+} from 'adyen';
 
 const transactionStatusRequest2: TransactionStatusRequest2 = {
   messageReference: {

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PciSigningRequest } from 'adyenlib';
+import { PciSigningRequest } from 'adyen';
 
 const pciSigningRequest: PciSigningRequest = {
   pciTemplateReferences: [

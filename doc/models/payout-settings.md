@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { PayoutSettings, Priority1, VerificationStatus } from 'adyenlib';
+import { PayoutSettings, Priority1, VerificationStatus } from 'adyen';
 
 const payoutSettings: PayoutSettings = {
   id: 'id0',

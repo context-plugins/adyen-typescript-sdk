@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { PatchableNotDeliveredInfo } from 'adyenlib';
+import { PatchableNotDeliveredInfo } from 'adyen';
 
 const patchableNotDeliveredInfo: PatchableNotDeliveredInfo = {
   agreedDeliveryLocation: 'agreedDeliveryLocation0',

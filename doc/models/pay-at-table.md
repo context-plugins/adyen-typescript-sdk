@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AuthenticationMethod, PayAtTable } from 'adyenlib';
+import { AuthenticationMethod, PayAtTable } from 'adyen';
 
 const payAtTable: PayAtTable = {
   authenticationMethod: AuthenticationMethod.Magswipe,

@@ -28,12 +28,7 @@
 ## Example
 
 ```ts
-import {
-  CreateAccountHolderResponse,
-  Event,
-  Gender,
-  Status1,
-} from 'adyenlib';
+import { CreateAccountHolderResponse, Event, Gender, Status1 } from 'adyen';
 
 const createAccountHolderResponse: CreateAccountHolderResponse = {
   accountCode: 'accountCode4',

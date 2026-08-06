@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AppIdentifierInfo } from 'adyenlib';
+import { AppIdentifierInfo } from 'adyen';
 
 const appIdentifierInfo: AppIdentifierInfo = {
   androidPackageId: 'androidPackageId8',

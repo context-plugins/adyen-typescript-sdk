@@ -23,7 +23,7 @@ import {
   BankAccountIdentificationType,
   BankAccountIdentificationTypeRequirement,
   Type293,
-} from 'adyenlib';
+} from 'adyen';
 
 const bankAccountIdentificationTypeRequirement: BankAccountIdentificationTypeRequirement = {
   type: Type293.BankAccountIdentificationTypeRequirement,

@@ -22,7 +22,7 @@ Supported operations: **anyMatch**, **noneMatch**.
 ## Example
 
 ```ts
-import { TokenRequestorsRestriction1 } from 'adyenlib';
+import { TokenRequestorsRestriction1 } from 'adyen';
 
 const tokenRequestorsRestriction1: TokenRequestorsRestriction1 = {
   operation: 'operation0',

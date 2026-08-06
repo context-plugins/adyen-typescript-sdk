@@ -26,7 +26,7 @@ Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
 ## Example
 
 ```ts
-import { ShopperInteraction2 } from 'adyenlib';
+import { ShopperInteraction2 } from 'adyen';
 
 const shopperInteraction2 = ShopperInteraction2.ECommerce;
 ```

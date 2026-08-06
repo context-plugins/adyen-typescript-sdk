@@ -19,7 +19,7 @@ Contains the full name of the person or entity that receives the payment funds).
 ## Example
 
 ```ts
-import { AccountHolder1 } from 'adyenlib';
+import { AccountHolder1 } from 'adyen';
 
 const accountHolder1: AccountHolder1 = {
   fullName: 'John Doe',

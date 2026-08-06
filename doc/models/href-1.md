@@ -19,7 +19,7 @@ The URL to where the user must be redirected after a successful payment.
 ## Example
 
 ```ts
-import { Href1 } from 'adyenlib';
+import { Href1 } from 'adyen';
 
 const href1: Href1 = {
   href: 'https://someUrl',

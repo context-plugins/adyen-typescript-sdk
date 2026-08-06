@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MobilePhone } from 'adyenlib';
+import { MobilePhone } from 'adyen';
 
 const mobilePhone: MobilePhone = {
   cc: 'cc4',

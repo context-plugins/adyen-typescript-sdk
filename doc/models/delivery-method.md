@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { DeliveryMethod, Type211 } from 'adyenlib';
+import { DeliveryMethod, Type211 } from 'adyen';
 
 const deliveryMethod: DeliveryMethod = {
   amount: {

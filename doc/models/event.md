@@ -20,7 +20,7 @@ The event.
 ## Example
 
 ```ts
-import { Event } from 'adyenlib';
+import { Event } from 'adyen';
 
 const event = Event.InactivateAccount;
 ```

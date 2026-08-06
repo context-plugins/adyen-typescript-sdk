@@ -20,7 +20,7 @@ Adyen-developed software to get payment details. For example, Checkout SDK, Secu
 ## Example
 
 ```ts
-import { CommonField } from 'adyenlib';
+import { CommonField } from 'adyen';
 
 const commonField: CommonField = {
   name: 'name8',

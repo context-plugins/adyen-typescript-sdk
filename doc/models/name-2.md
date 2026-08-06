@@ -20,7 +20,7 @@ The name of the contact.
 ## Example
 
 ```ts
-import { Name2 } from 'adyenlib';
+import { Name2 } from 'adyen';
 
 const name2: Name2 = {
   firstName: 'firstName0',

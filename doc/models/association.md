@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Association, AssociationStatus1, ScaEntityType1 } from 'adyenlib';
+import { Association, AssociationStatus1, ScaEntityType1 } from 'adyen';
 
 const association: Association = {
   entityId: 'entityId2',

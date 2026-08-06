@@ -20,7 +20,7 @@ The phone number of the account holder.
 ## Example
 
 ```ts
-import { Phone3, Type4 } from 'adyenlib';
+import { Phone3, Type4 } from 'adyen';
 
 const phone3: Phone3 = {
   number: 'number0',

@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { DocumentReference } from 'adyenlib';
+import { DocumentReference } from 'adyen';
 
 const documentReference: DocumentReference = {
   active: false,

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GrantInfo } from 'adyenlib';
+import { GrantInfo } from 'adyen';
 
 const grantInfo: GrantInfo = {
   grantAccountId: 'grantAccountId0',

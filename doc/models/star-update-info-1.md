@@ -19,7 +19,7 @@ Details to provide if `type` is **star**.
 ## Example
 
 ```ts
-import { StarUpdateInfo1, Type33 } from 'adyenlib';
+import { StarUpdateInfo1, Type33 } from 'adyen';
 
 const starUpdateInfo1: StarUpdateInfo1 = {
   transactionDescription: {

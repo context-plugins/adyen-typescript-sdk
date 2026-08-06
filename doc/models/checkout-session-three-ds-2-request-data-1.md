@@ -25,7 +25,7 @@ Request fields for 3D Secure 2. To check if any of the following fields are requ
 import {
   CheckoutSessionThreeDs2RequestData1,
   ThreeDsRequestorChallengeInd,
-} from 'adyenlib';
+} from 'adyen';
 
 const checkoutSessionThreeDs2RequestData1: CheckoutSessionThreeDs2RequestData1 = {
   homePhone: {

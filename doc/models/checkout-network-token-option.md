@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CheckoutNetworkTokenOption } from 'adyenlib';
+import { CheckoutNetworkTokenOption } from 'adyen';
 
 const checkoutNetworkTokenOption: CheckoutNetworkTokenOption = {
   includeCryptogram: false,

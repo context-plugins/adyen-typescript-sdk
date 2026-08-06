@@ -21,7 +21,7 @@ Contains information about the transfer related to the transaction.
 ## Example
 
 ```ts
-import { Priority, TransferView2, Type312 } from 'adyenlib';
+import { Priority, TransferView2, Type312 } from 'adyen';
 
 const transferView2: TransferView2 = {
   reference: 'reference8',

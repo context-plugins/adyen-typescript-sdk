@@ -20,7 +20,7 @@ Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
 ## Example
 
 ```ts
-import { ScaEntityType3 } from 'adyenlib';
+import { ScaEntityType3 } from 'adyen';
 
 const scaEntityType3 = ScaEntityType3.LegalEntity;
 ```

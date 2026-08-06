@@ -14,7 +14,7 @@
 ## Example
 
 ```ts
-import { ContentType3 } from 'adyenlib';
+import { ContentType3 } from 'adyen';
 
 const contentType3 = ContentType3.EnumApplicationjson;
 ```

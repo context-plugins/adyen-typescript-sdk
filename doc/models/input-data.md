@@ -37,7 +37,7 @@
 ## Example
 
 ```ts
-import { Device2, InfoQualify2, InputCommand1, InputData } from 'adyenlib';
+import { Device2, InfoQualify2, InputCommand1, InputData } from 'adyen';
 
 const inputData: InputData = {
   device: Device2.CashierDisplay,

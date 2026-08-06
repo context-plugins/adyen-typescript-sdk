@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { RatesCalculateResponse } from 'adyenlib';
+import { RatesCalculateResponse } from 'adyen';
 
 const ratesCalculateResponse: RatesCalculateResponse = {
   exchangeCalculations: [

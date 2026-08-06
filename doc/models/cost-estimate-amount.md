@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CostEstimateAmount } from 'adyenlib';
+import { CostEstimateAmount } from 'adyen';
 
 const costEstimateAmount: CostEstimateAmount = {
   currency: 'currency8',

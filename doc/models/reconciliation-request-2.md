@@ -21,7 +21,7 @@ Content of the Reconciliation Request message.
 ## Example
 
 ```ts
-import { ReconciliationRequest2, ReconciliationType1 } from 'adyenlib';
+import { ReconciliationRequest2, ReconciliationType1 } from 'adyen';
 
 const reconciliationRequest2: ReconciliationRequest2 = {
   reconciliationType: ReconciliationType1.AcquirerReconciliation,

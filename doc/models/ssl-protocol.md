@@ -19,7 +19,7 @@ The SSL protocol employed by the endpoint.
 ## Example
 
 ```ts
-import { SslProtocol } from 'adyenlib';
+import { SslProtocol } from 'adyen';
 
 const sslProtocol = SslProtocol.TlSv12;
 ```

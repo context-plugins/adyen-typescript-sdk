@@ -30,7 +30,7 @@ Possible values:
 ## Example
 
 ```ts
-import { DocumentQualifier1 } from 'adyenlib';
+import { DocumentQualifier1 } from 'adyen';
 
 const documentQualifier1 = DocumentQualifier1.SaleReceipt;
 ```

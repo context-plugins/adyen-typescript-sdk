@@ -21,7 +21,7 @@ For merchants operating outside of Japan, these fields are not required.
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo10, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo10, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo10: GenericPmWithTdiUpdateInfo10 = {
   transactionDescription: {

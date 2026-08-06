@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ConfidenceScore } from 'adyenlib';
+import { ConfidenceScore } from 'adyen';
 
 const confidenceScore: ConfidenceScore = {
   errors: [

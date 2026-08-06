@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PublicKeyResponse } from 'adyenlib';
+import { PublicKeyResponse } from 'adyen';
 
 const publicKeyResponse: PublicKeyResponse = {
   publicKey: 'publicKey4',

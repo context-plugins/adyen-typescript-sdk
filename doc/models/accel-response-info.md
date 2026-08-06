@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AccelResponseInfo, ProcessingType, Type33 } from 'adyenlib';
+import { AccelResponseInfo, ProcessingType, Type33 } from 'adyen';
 
 const accelResponseInfo: AccelResponseInfo = {
   processingType: ProcessingType.Billpay,

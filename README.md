@@ -64,7 +64,7 @@ npm install
 
 - This will install all dependencies in the **node_modules** folder.
 
-![Resolve Dependencies](https://apidocs.io/illustration/typescript?workspaceFolder=Adyen&workspaceName=adyenlib&step=resolveDependency)
+![Resolve Dependencies](https://apidocs.io/illustration/typescript?workspaceFolder=Adyen&workspaceName=adyen&step=resolveDependency)
 
 ## Installation
 
@@ -88,9 +88,9 @@ npm init --y
 
 ### 2. Add Dependencies to the Client Library
 
-- The created project manages its dependencies using its `package.json` file. In order to add a dependency on the *AdyenLib* client library, double click on the `package.json` file in the bar on the left and add the dependency to the package in it.
+- The created project manages its dependencies using its `package.json` file. In order to add a dependency on the *Adyen* client library, double click on the `package.json` file in the bar on the left and add the dependency to the package in it.
 
-![Add Adyenlib Dependency](https://apidocs.io/illustration/typescript?workspaceFolder=Adyen&workspaceName=adyenlib&step=importDependency)
+![Add Adyen Dependency](https://apidocs.io/illustration/typescript?workspaceFolder=Adyen&workspaceName=adyen&step=importDependency)
 
 - To install the package in the project, run the following command in the terminal:
 
@@ -98,7 +98,7 @@ npm init --y
 npm install
 ```
 
-![Install Adyenlib Dependency](https://apidocs.io/illustration/typescript?step=installDependency)
+![Install Adyen Dependency](https://apidocs.io/illustration/typescript?step=installDependency)
 
 ## Initialize the API Client
 
@@ -124,7 +124,7 @@ The API client can be initialized as follows:
 ### Code-Based Client Initialization
 
 ```ts
-import { Client, Environment, LogLevel } from 'adyenlib';
+import { Client, Environment, LogLevel } from 'adyen';
 
 const client = new Client({
   apiKeyAuthCredentials: {
@@ -158,7 +158,7 @@ const client = new Client({
 ```ts
 import * as path from 'path';
 import * as fs from 'fs';
-import { Client } from 'adyenlib';
+import { Client } from 'adyen';
 
 // Provide absolute path for the configuration file
 const absolutePath = path.resolve('./config.json');
@@ -178,7 +178,7 @@ See the [Configuration-Based Client Initialization](doc/configuration-based-clie
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import * as fs from 'fs';
-import { Client } from 'adyenlib';
+import { Client } from 'adyen';
 
 // Optional - Provide absolute path for the .env file
 const absolutePath = path.resolve('./.env');

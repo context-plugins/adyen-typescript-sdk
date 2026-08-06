@@ -42,7 +42,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ExpiryMonth } from 'adyenlib';
+import { ExpiryMonth } from 'adyen';
 
 const expiryMonth = ExpiryMonth.May;
 ```

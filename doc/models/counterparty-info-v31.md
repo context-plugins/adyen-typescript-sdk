@@ -22,7 +22,7 @@ The other party involved in the funds transfer. A bank account, a balance accoun
 ## Example
 
 ```ts
-import { CounterpartyInfoV31, Type413 } from 'adyenlib';
+import { CounterpartyInfoV31, Type413 } from 'adyen';
 
 const counterpartyInfoV31: CounterpartyInfoV31 = {
   balanceAccountId: 'balanceAccountId8',

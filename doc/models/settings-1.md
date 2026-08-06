@@ -21,7 +21,7 @@ General Wi-Fi settings.
 ## Example
 
 ```ts
-import { Settings1 } from 'adyenlib';
+import { Settings1 } from 'adyen';
 
 const settings1: Settings1 = {
   band: 'band0',

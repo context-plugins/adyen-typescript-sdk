@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CharacterStyle } from 'adyenlib';
+import { CharacterStyle } from 'adyen';
 
 const characterStyle = CharacterStyle.Normal;
 ```

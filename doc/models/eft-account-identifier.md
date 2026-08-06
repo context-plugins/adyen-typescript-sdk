@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { EftAccountIdentifier } from 'adyenlib';
+import { EftAccountIdentifier } from 'adyen';
 
 const eftAccountIdentifier: EftAccountIdentifier = {
   accountNumber: 'accountNumber0',

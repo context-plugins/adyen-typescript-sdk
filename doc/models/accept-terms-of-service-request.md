@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AcceptTermsOfServiceRequest } from 'adyenlib';
+import { AcceptTermsOfServiceRequest } from 'adyen';
 
 const acceptTermsOfServiceRequest: AcceptTermsOfServiceRequest = {
   acceptedBy: 'acceptedBy6',

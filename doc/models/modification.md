@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Modification, Status25 } from 'adyenlib';
+import { Modification, Status25 } from 'adyen';
 
 const modification: Modification = {
   direction: 'direction8',

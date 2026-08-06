@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SaleTransactionId } from 'adyenlib';
+import { SaleTransactionId } from 'adyen';
 
 const saleTransactionId: SaleTransactionId = {
   transactionId: 'TransactionID4',

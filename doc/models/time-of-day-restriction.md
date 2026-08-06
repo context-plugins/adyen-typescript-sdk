@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TimeOfDayRestriction } from 'adyenlib';
+import { TimeOfDayRestriction } from 'adyen';
 
 const timeOfDayRestriction: TimeOfDayRestriction = {
   operation: 'operation0',

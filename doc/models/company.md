@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Company } from 'adyenlib';
+import { Company } from 'adyen';
 
 const company: Company = {
   homepage: 'homepage6',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransactionListForAccount } from 'adyenlib';
+import { TransactionListForAccount } from 'adyen';
 
 const transactionListForAccount: TransactionListForAccount = {
   accountCode: 'accountCode4',

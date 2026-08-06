@@ -19,7 +19,7 @@ The object that you can use to enable payment validations for a transaction.
 ## Example
 
 ```ts
-import { PaymentValidations2 } from 'adyenlib';
+import { PaymentValidations2 } from 'adyen';
 
 const paymentValidations2: PaymentValidations2 = {
   name: {

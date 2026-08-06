@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SvsInfo } from 'adyenlib';
+import { SvsInfo } from 'adyen';
 
 const svsInfo: SvsInfo = {
   authorisationMid: 'authorisationMid4',

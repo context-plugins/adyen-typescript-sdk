@@ -56,7 +56,7 @@ import {
   SaleToPoiResponse2,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const saleToPoiResponse2: SaleToPoiResponse2 = {
   messageHeader: {

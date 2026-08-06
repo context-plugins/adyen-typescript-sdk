@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ErrorCondition1, Response3, Result11 } from 'adyenlib';
+import { ErrorCondition1, Response3, Result11 } from 'adyen';
 
 const response3: Response3 = {
   result: Result11.Failure,

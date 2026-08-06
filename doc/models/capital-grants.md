@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CapitalGrants, Status18 } from 'adyenlib';
+import { CapitalGrants, Status18 } from 'adyen';
 
 const capitalGrants: CapitalGrants = {
   grants: [

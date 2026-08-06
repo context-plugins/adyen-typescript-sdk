@@ -21,7 +21,7 @@ Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
 ## Example
 
 ```ts
-import { IdentificationType } from 'adyenlib';
+import { IdentificationType } from 'adyen';
 
 const identificationType = IdentificationType.Bic;
 ```

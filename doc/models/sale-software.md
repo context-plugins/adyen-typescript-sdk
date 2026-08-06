@@ -22,7 +22,7 @@ Information related to the software of the Sale System which manages the NEXO Sa
 ## Example
 
 ```ts
-import { SaleSoftware } from 'adyenlib';
+import { SaleSoftware } from 'adyen';
 
 const saleSoftware: SaleSoftware = {
   manufacturerId: 'ManufacturerID2',

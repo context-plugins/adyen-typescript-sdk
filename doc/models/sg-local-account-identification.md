@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SgLocalAccountIdentification, Type8 } from 'adyenlib';
+import { SgLocalAccountIdentification, Type8 } from 'adyen';
 
 const sgLocalAccountIdentification: SgLocalAccountIdentification = {
   accountNumber: 'accountNumber8',

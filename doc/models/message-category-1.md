@@ -65,7 +65,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MessageCategory1 } from 'adyenlib';
+import { MessageCategory1 } from 'adyen';
 
 const messageCategory1 = MessageCategory1.Reversal;
 ```

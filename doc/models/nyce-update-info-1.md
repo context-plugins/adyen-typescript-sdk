@@ -19,7 +19,7 @@ Details to provide if `type` is **nyce**.
 ## Example
 
 ```ts
-import { NyceUpdateInfo1, Type33 } from 'adyenlib';
+import { NyceUpdateInfo1, Type33 } from 'adyen';
 
 const nyceUpdateInfo1: NyceUpdateInfo1 = {
   transactionDescription: {

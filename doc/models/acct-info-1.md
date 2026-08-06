@@ -37,7 +37,7 @@ import {
   ChAccAgeInd,
   ChAccChangeInd,
   ChAccPwChangeInd,
-} from 'adyenlib';
+} from 'adyen';
 
 const acctInfo1: AcctInfo1 = {
   chAccAgeInd: ChAccAgeInd.Enum01,

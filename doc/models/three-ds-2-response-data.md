@@ -35,7 +35,7 @@
 ## Example
 
 ```ts
-import { ThreeDs2ResponseData } from 'adyenlib';
+import { ThreeDs2ResponseData } from 'adyen';
 
 const threeDs2ResponseData: ThreeDs2ResponseData = {
   acsChallengeMandated: 'acsChallengeMandated0',

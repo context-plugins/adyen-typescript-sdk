@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { StoreDetailResponse } from 'adyenlib';
+import { StoreDetailResponse } from 'adyen';
 
 const storeDetailResponse: StoreDetailResponse = {
   pspReference: 'pspReference8',

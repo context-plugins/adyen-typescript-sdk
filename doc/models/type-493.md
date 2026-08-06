@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type493 } from 'adyenlib';
+import { Type493 } from 'adyen';
 
 const type493 = Type493.Await;
 ```

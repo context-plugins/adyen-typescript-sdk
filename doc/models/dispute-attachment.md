@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { AttachmentType1, DisputeAttachment } from 'adyenlib';
+import { AttachmentType1, DisputeAttachment } from 'adyen';
 
 const disputeAttachment: DisputeAttachment = {
   attachmentType: AttachmentType1.Correspondence,

@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { Bank } from 'adyenlib';
+import { Bank } from 'adyen';
 
 const bank: Bank = {
   bankAccountNumber: 'bankAccountNumber8',

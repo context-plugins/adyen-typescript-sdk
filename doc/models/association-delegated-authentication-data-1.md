@@ -19,7 +19,7 @@ Contains authentication information required to associate the resource with the 
 ## Example
 
 ```ts
-import { AssociationDelegatedAuthenticationData1 } from 'adyenlib';
+import { AssociationDelegatedAuthenticationData1 } from 'adyen';
 
 const associationDelegatedAuthenticationData1: AssociationDelegatedAuthenticationData1 = {
   sdkOutput: 'sdkOutput8',

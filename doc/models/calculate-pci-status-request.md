@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AdditionalSalesChannel, CalculatePciStatusRequest } from 'adyenlib';
+import { AdditionalSalesChannel, CalculatePciStatusRequest } from 'adyen';
 
 const calculatePciStatusRequest: CalculatePciStatusRequest = {
   additionalSalesChannels: [

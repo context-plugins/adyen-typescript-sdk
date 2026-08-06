@@ -18,7 +18,7 @@ The source used to obtain the payload. Possible values: `qr`, `redirect`, and `p
 ## Example
 
 ```ts
-import { PaymentSource2 } from 'adyenlib';
+import { PaymentSource2 } from 'adyen';
 
 const paymentSource2 = PaymentSource2.PushNotification;
 ```

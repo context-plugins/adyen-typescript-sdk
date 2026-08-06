@@ -29,7 +29,7 @@ Card BIN details.
 ## Example
 
 ```ts
-import { CardBin1 } from 'adyenlib';
+import { CardBin1 } from 'adyen';
 
 const cardBin1: CardBin1 = {
   bin: 'bin4',

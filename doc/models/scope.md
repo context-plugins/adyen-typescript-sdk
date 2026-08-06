@@ -20,7 +20,7 @@ The scope to which the transfer limit applies. Possible values:
 ## Example
 
 ```ts
-import { Scope } from 'adyenlib';
+import { Scope } from 'adyen';
 
 const scope = Scope.PerDay;
 ```

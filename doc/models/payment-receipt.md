@@ -29,7 +29,7 @@ import {
   DocumentQualifier1,
   OutputFormat1,
   PaymentReceipt,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentReceipt: PaymentReceipt = {
   documentQualifier: DocumentQualifier1.SaleReceipt,

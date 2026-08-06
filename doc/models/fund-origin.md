@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { FundOrigin } from 'adyenlib';
+import { FundOrigin } from 'adyen';
 
 const fundOrigin: FundOrigin = {
   billingAddress: {

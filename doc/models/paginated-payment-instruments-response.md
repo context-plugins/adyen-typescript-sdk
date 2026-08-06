@@ -26,7 +26,7 @@ import {
   Type11,
   Type203,
   Type4,
-} from 'adyenlib';
+} from 'adyen';
 
 const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse = {
   hasNext: false,

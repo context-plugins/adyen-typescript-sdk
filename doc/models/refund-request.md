@@ -33,7 +33,7 @@ import {
   ChallengeCancel,
   DirectoryResponse,
   RefundRequest,
-} from 'adyenlib';
+} from 'adyen';
 
 const refundRequest: RefundRequest = {
   merchantAccount: 'merchantAccount6',

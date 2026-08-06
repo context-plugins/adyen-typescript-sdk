@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { DonationFlow } from 'adyenlib';
+import { DonationFlow } from 'adyen';
 
 const donationFlow = DonationFlow.OneStep;
 ```

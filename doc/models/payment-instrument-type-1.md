@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PaymentInstrumentType1 } from 'adyenlib';
+import { PaymentInstrumentType1 } from 'adyen';
 
 const paymentInstrumentType1 = PaymentInstrumentType1.Check;
 ```

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SupplyDefenseDocumentResponse } from 'adyenlib';
+import { SupplyDefenseDocumentResponse } from 'adyen';
 
 const supplyDefenseDocumentResponse: SupplyDefenseDocumentResponse = {
   disputeServiceResult: {

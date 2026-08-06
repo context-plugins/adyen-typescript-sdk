@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { Afterpay, Type22 } from 'adyenlib';
+import { Afterpay, Type22 } from 'adyen';
 
 const afterpay: Afterpay = {
   type: Type22.AfterpayDefault,

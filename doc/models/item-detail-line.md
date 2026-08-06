@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { ItemDetailLine } from 'adyenlib';
+import { ItemDetailLine } from 'adyen';
 
 const itemDetailLine: ItemDetailLine = {
   commodityCode: 'commodityCode0',

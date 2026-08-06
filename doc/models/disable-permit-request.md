@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DisablePermitRequest } from 'adyenlib';
+import { DisablePermitRequest } from 'adyen';
 
 const disablePermitRequest: DisablePermitRequest = {
   merchantAccount: 'merchantAccount8',

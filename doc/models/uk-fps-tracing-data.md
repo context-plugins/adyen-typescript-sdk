@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Type88, UkFpsTracingData } from 'adyenlib';
+import { Type88, UkFpsTracingData } from 'adyen';
 
 const ukFpsTracingData: UkFpsTracingData = {
   fpid: 'fpid2',

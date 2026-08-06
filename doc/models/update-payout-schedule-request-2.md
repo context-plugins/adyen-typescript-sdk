@@ -21,7 +21,7 @@ The details of the payout schedule to which the account must be updated.
 ## Example
 
 ```ts
-import { Action, Schedule1, UpdatePayoutScheduleRequest2 } from 'adyenlib';
+import { Action, Schedule1, UpdatePayoutScheduleRequest2 } from 'adyen';
 
 const updatePayoutScheduleRequest2: UpdatePayoutScheduleRequest2 = {
   schedule: Schedule1.BiweeklyOn1StAnd15ThAtMidnight,

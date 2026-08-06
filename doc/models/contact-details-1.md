@@ -22,7 +22,7 @@ Contact details of the account holder.
 ## Example
 
 ```ts
-import { ContactDetails1, Type4 } from 'adyenlib';
+import { ContactDetails1, Type4 } from 'adyen';
 
 const contactDetails1: ContactDetails1 = {
   address: {

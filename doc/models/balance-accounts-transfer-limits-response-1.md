@@ -32,7 +32,7 @@ import {
   ScaStatus,
   Scope,
   TransferType,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceAccountsTransferLimitsResponse1: BalanceAccountsTransferLimitsResponse1 = {
   amount: {

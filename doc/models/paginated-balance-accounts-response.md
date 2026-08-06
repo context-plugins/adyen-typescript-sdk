@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaginatedBalanceAccountsResponse } from 'adyenlib';
+import { PaginatedBalanceAccountsResponse } from 'adyen';
 
 const paginatedBalanceAccountsResponse: PaginatedBalanceAccountsResponse = {
   balanceAccounts: [

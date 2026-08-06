@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { MeApiCredential } from 'adyenlib';
+import { MeApiCredential } from 'adyen';
 
 const meApiCredential: MeApiCredential = {
   active: false,

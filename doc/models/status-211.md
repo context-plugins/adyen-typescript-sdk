@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Status211 } from 'adyenlib';
+import { Status211 } from 'adyen';
 
 const status211 = Status211.Active;
 ```

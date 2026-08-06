@@ -25,7 +25,7 @@ The address details of the billing entity.
 ## Example
 
 ```ts
-import { Address12 } from 'adyenlib';
+import { Address12 } from 'adyen';
 
 const address12: Address12 = {
   city: 'city8',

@@ -29,7 +29,7 @@ A container for bank account data.
 ## Example
 
 ```ts
-import { BankAccount2 } from 'adyenlib';
+import { BankAccount2 } from 'adyen';
 
 const bankAccount2: BankAccount2 = {
   bankAccountNumber: 'bankAccountNumber0',

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { TransferFundsRequest } from 'adyenlib';
+import { TransferFundsRequest } from 'adyen';
 
 const transferFundsRequest: TransferFundsRequest = {
   amount: {

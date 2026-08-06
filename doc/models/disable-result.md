@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DisableResult } from 'adyenlib';
+import { DisableResult } from 'adyen';
 
 const disableResult: DisableResult = {
   response: 'response4',

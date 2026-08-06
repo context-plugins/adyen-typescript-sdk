@@ -19,7 +19,7 @@ Contains information about the owner of the counterparty bank account.
 ## Example
 
 ```ts
-import { MandatePartyIdentification2 } from 'adyenlib';
+import { MandatePartyIdentification2 } from 'adyen';
 
 const mandatePartyIdentification2: MandatePartyIdentification2 = {
   fullName: 'fullName2',

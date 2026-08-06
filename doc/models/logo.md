@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Logo } from 'adyenlib';
+import { Logo } from 'adyen';
 
 const logo: Logo = {
   data: 'data4',

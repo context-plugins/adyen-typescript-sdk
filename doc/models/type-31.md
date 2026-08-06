@@ -16,7 +16,7 @@ The payment method type.
 ## Example
 
 ```ts
-import { Type31 } from 'adyenlib';
+import { Type31 } from 'adyen';
 
 const type31 = Type31.Alma;
 ```

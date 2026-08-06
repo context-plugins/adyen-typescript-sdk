@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { FundingSource, Masterpass, Type35 } from 'adyenlib';
+import { FundingSource, Masterpass, Type35 } from 'adyen';
 
 const masterpass: Masterpass = {
   masterpassTransactionId: 'masterpassTransactionId6',

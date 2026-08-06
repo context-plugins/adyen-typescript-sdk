@@ -19,7 +19,7 @@ Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
 ## Example
 
 ```ts
-import { Interchange } from 'adyenlib';
+import { Interchange } from 'adyen';
 
 const interchange = Interchange.DeductFromLiableAccount;
 ```

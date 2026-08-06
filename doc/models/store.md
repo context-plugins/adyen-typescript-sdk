@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Store } from 'adyenlib';
+import { Store } from 'adyen';
 
 const store: Store = {
   links: {

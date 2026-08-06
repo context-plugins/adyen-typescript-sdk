@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { StandalonePaymentCancelRequest } from 'adyenlib';
+import { StandalonePaymentCancelRequest } from 'adyen';
 
 const standalonePaymentCancelRequest: StandalonePaymentCancelRequest = {
   merchantAccount: 'merchantAccount4',

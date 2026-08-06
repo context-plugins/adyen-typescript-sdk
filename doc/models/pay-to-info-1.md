@@ -20,7 +20,7 @@ Details to provide if `type` is **payto**.
 ## Example
 
 ```ts
-import { PayToInfo1 } from 'adyenlib';
+import { PayToInfo1 } from 'adyen';
 
 const payToInfo1: PayToInfo1 = {
   merchantName: 'merchantName2',

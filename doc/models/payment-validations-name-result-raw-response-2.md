@@ -23,7 +23,7 @@ Contains the raw response(s) returned by the scheme for the name validation.
 ## Example
 
 ```ts
-import { PaymentValidationsNameResultRawResponse2 } from 'adyenlib';
+import { PaymentValidationsNameResultRawResponse2 } from 'adyen';
 
 const paymentValidationsNameResultRawResponse2: PaymentValidationsNameResultRawResponse2 = {
   firstName: 'firstName8',

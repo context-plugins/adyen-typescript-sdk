@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { FinancialReport } from 'adyenlib';
+import { FinancialReport } from 'adyen';
 
 const financialReport: FinancialReport = {
   annualTurnover: 'annualTurnover6',

@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { CheckData2, TrackFormat1 } from 'adyenlib';
+import { CheckData2, TrackFormat1 } from 'adyen';
 
 const checkData2: CheckData2 = {
   bankId: 'BankID8',

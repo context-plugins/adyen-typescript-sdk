@@ -19,7 +19,7 @@ Possible values: **Authorised**, **Declined**.
 ## Example
 
 ```ts
-import { Status61 } from 'adyenlib';
+import { Status61 } from 'adyen';
 
 const status61 = Status61.Authorised;
 ```

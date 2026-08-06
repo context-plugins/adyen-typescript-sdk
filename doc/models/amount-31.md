@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Amount31 } from 'adyenlib';
+import { Amount31 } from 'adyen';
 
 const amount31: Amount31 = {
   value: BigInt(154),

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Frequency2, StoredPaymentMethod4 } from 'adyenlib';
+import { Frequency2, StoredPaymentMethod4 } from 'adyen';
 
 const storedPaymentMethod4: StoredPaymentMethod4 = {
   checkoutAttemptId: 'checkoutAttemptId2',

@@ -19,7 +19,7 @@ Data for 3DS authentication.
 ## Example
 
 ```ts
-import { DetailsRequestAuthenticationData1 } from 'adyenlib';
+import { DetailsRequestAuthenticationData1 } from 'adyen';
 
 const detailsRequestAuthenticationData1: DetailsRequestAuthenticationData1 = {
   authenticationOnly: false,

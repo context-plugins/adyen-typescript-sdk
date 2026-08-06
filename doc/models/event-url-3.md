@@ -20,7 +20,7 @@ The list of local and public URLs to send notifications to when using local inte
 ## Example
 
 ```ts
-import { EventUrl3 } from 'adyenlib';
+import { EventUrl3 } from 'adyen';
 
 const eventUrl3: EventUrl3 = {
   eventLocalUrls: [

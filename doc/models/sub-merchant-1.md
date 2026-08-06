@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { SubMerchant1 } from 'adyenlib';
+import { SubMerchant1 } from 'adyen';
 
 const subMerchant1: SubMerchant1 = {
   city: 'city6',

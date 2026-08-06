@@ -20,7 +20,7 @@ The type of legal entity of the new account holder.
 ## Example
 
 ```ts
-import { LegalEntity1 } from 'adyenlib';
+import { LegalEntity1 } from 'adyen';
 
 const legalEntity1 = LegalEntity1.Business;
 ```

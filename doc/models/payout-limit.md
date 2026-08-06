@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PayoutLimit } from 'adyenlib';
+import { PayoutLimit } from 'adyen';
 
 const payoutLimit: PayoutLimit = {
   currency: 'currency8',

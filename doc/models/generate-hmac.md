@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenerateHmac } from 'adyenlib';
+import { GenerateHmac } from 'adyen';
 
 const generateHmac: GenerateHmac = {
   href: 'href6',

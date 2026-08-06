@@ -28,7 +28,7 @@ Possible values:
 ## Example
 
 ```ts
-import { DocumentQualifier } from 'adyenlib';
+import { DocumentQualifier } from 'adyen';
 
 const documentQualifier = DocumentQualifier.Voucher;
 ```

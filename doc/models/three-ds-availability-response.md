@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ThreeDsAvailabilityResponse } from 'adyenlib';
+import { ThreeDsAvailabilityResponse } from 'adyen';
 
 const threeDsAvailabilityResponse: ThreeDsAvailabilityResponse = {
   binDetails: {

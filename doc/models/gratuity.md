@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Gratuity } from 'adyenlib';
+import { Gratuity } from 'adyen';
 
 const gratuity: Gratuity = {
   allowCustomAmount: false,

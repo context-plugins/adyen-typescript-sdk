@@ -19,7 +19,7 @@ Possible values: **checking** or **savings**. Defaults to **checking**.
 ## Example
 
 ```ts
-import { AccountType } from 'adyenlib';
+import { AccountType } from 'adyen';
 
 const accountType = AccountType.Checking;
 ```

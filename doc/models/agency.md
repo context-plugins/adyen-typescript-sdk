@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Agency } from 'adyenlib';
+import { Agency } from 'adyen';
 
 const agency: Agency = {
   invoiceNumber: 'invoiceNumber6',

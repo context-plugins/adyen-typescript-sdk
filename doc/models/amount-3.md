@@ -20,7 +20,7 @@ The amount that must be pushed out or pulled in. You can configure either `sweep
 ## Example
 
 ```ts
-import { Amount3 } from 'adyenlib';
+import { Amount3 } from 'adyen';
 
 const amount3: Amount3 = {
   currency: 'currency0',

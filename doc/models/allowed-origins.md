@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AllowedOrigins } from 'adyenlib';
+import { AllowedOrigins } from 'adyen';
 
 const allowedOrigins: AllowedOrigins = {
   href: 'href6',

@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { DocumentQualifier2 } from 'adyenlib';
+import { DocumentQualifier2 } from 'adyen';
 
 const documentQualifier2 = DocumentQualifier2.SaleReceipt;
 ```

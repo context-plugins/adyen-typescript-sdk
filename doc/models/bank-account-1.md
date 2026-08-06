@@ -19,7 +19,7 @@ Contains information about the bank account.
 ## Example
 
 ```ts
-import { BankAccount1, Type413 } from 'adyenlib';
+import { BankAccount1, Type413 } from 'adyen';
 
 const bankAccount1: BankAccount1 = {
   accountIdentification: {

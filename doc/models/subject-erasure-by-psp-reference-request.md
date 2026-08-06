@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SubjectErasureByPspReferenceRequest } from 'adyenlib';
+import { SubjectErasureByPspReferenceRequest } from 'adyen';
 
 const subjectErasureByPspReferenceRequest: SubjectErasureByPspReferenceRequest = {
   forceErasure: false,

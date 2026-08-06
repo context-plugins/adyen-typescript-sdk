@@ -26,7 +26,7 @@ The type of schedule at which the top up is executed.
 ## Example
 
 ```ts
-import { ScheduleType1 } from 'adyenlib';
+import { ScheduleType1 } from 'adyen';
 
 const scheduleType1 = ScheduleType1.Monthly;
 ```

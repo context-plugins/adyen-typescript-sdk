@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenerateHmacKeyResponse } from 'adyenlib';
+import { GenerateHmacKeyResponse } from 'adyen';
 
 const generateHmacKeyResponse: GenerateHmacKeyResponse = {
   hmacKey: 'hmacKey6',

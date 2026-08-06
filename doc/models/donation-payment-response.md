@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { DonationPaymentResponse, Type493 } from 'adyenlib';
+import { DonationPaymentResponse, Type493 } from 'adyen';
 
 const donationPaymentResponse: DonationPaymentResponse = {
   amount: {

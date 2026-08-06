@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Balance } from 'adyenlib';
+import { Balance } from 'adyen';
 
 const balance: Balance = {
   available: BigInt(248),

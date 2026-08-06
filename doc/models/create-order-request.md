@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CreateOrderRequest } from 'adyenlib';
+import { CreateOrderRequest } from 'adyen';
 
 const createOrderRequest: CreateOrderRequest = {
   amount: {

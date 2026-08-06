@@ -163,7 +163,7 @@ Payment method [variant](https://docs.adyen.com/development-resources/paymentmet
 ## Example
 
 ```ts
-import { Type510 } from 'adyenlib';
+import { Type510 } from 'adyen';
 
 const type510 = Type510.Twint;
 ```

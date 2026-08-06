@@ -25,7 +25,7 @@ Information related to the mobile for the payment transaction.
 ## Example
 
 ```ts
-import { MobileData } from 'adyenlib';
+import { MobileData } from 'adyen';
 
 const mobileData: MobileData = {
   mobileCountryCode: 3,

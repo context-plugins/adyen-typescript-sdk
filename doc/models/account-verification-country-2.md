@@ -36,7 +36,7 @@ The location where the third-party individual's bank account is registered. Adye
 ## Example
 
 ```ts
-import { AccountVerificationCountry2 } from 'adyenlib';
+import { AccountVerificationCountry2 } from 'adyen';
 
 const accountVerificationCountry2 = AccountVerificationCountry2.Be;
 ```

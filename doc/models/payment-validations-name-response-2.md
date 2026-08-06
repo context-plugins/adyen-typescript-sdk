@@ -21,7 +21,7 @@ Object that contains the status and outcomes of the [name validation](https://do
 ## Example
 
 ```ts
-import { PaymentValidationsNameResponse2, Status11 } from 'adyenlib';
+import { PaymentValidationsNameResponse2, Status11 } from 'adyen';
 
 const paymentValidationsNameResponse2: PaymentValidationsNameResponse2 = {
   rawResponse: {

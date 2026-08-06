@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { RecurringTopUp, ScheduleType1, Status211 } from 'adyenlib';
+import { RecurringTopUp, ScheduleType1, Status211 } from 'adyen';
 
 const recurringTopUp: RecurringTopUp = {
   counterparty: {

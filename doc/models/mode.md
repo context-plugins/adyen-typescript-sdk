@@ -20,7 +20,7 @@ Indicates the type of front end integration. Possible values:
 ## Example
 
 ```ts
-import { Mode } from 'adyenlib';
+import { Mode } from 'adyen';
 
 const mode = Mode.Embedded;
 ```

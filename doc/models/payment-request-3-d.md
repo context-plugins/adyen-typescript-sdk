@@ -66,7 +66,7 @@ import {
   AccountChangeIndicator,
   AccountType1,
   PaymentRequest3D,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentRequest3D: PaymentRequest3D = {
   md: 'md8',

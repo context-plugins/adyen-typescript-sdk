@@ -27,7 +27,7 @@ If PaymentInstrumentType is Card.
 ## Example
 
 ```ts
-import { CardData1, EntryMode } from 'adyenlib';
+import { CardData1, EntryMode } from 'adyen';
 
 const cardData1: CardData1 = {
   paymentBrand: 'PaymentBrand6',

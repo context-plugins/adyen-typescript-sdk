@@ -22,7 +22,7 @@ Settings to skip signature, sign on display, or sign on receipt.
 ## Example
 
 ```ts
-import { Signature1 } from 'adyenlib';
+import { Signature1 } from 'adyen';
 
 const signature1: Signature1 = {
   askSignatureOnScreen: false,

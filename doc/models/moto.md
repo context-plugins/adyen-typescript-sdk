@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Moto } from 'adyenlib';
+import { Moto } from 'adyen';
 
 const moto: Moto = {
   enableMoto: false,

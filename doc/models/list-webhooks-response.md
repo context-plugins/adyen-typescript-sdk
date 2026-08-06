@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CommunicationFormat, ListWebhooksResponse } from 'adyenlib';
+import { CommunicationFormat, ListWebhooksResponse } from 'adyen';
 
 const listWebhooksResponse: ListWebhooksResponse = {
   itemsTotal: 144,

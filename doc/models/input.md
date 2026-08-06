@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { Input, InputCommand1 } from 'adyenlib';
+import { Input, InputCommand1 } from 'adyen';
 
 const input: Input = {
   inputCommand: InputCommand1.GetFunctionKey,

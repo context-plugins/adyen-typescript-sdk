@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { BankAccountV3, Type413 } from 'adyenlib';
+import { BankAccountV3, Type413 } from 'adyen';
 
 const bankAccountV3: BankAccountV3 = {
   accountHolder: {

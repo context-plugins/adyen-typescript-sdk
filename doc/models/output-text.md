@@ -28,7 +28,7 @@ It conveys information related to the content of the text message and its format
 ## Example
 
 ```ts
-import { CharacterHeight1, CharacterWidth1, OutputText } from 'adyenlib';
+import { CharacterHeight1, CharacterWidth1, OutputText } from 'adyen';
 
 const outputText: OutputText = {
   text: 'Text4',

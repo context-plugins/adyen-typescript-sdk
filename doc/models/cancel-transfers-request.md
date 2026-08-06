@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CancelTransfersRequest } from 'adyenlib';
+import { CancelTransfersRequest } from 'adyen';
 
 const cancelTransfersRequest: CancelTransfersRequest = {
   transferIds: [

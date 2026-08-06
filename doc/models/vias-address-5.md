@@ -24,7 +24,7 @@ The address of the entity.
 ## Example
 
 ```ts
-import { ViasAddress5 } from 'adyenlib';
+import { ViasAddress5 } from 'adyen';
 
 const viasAddress5: ViasAddress5 = {
   country: 'country6',

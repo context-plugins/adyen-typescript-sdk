@@ -25,7 +25,7 @@ Until the `executionDate`:
 ## Example
 
 ```ts
-import { ExecutionDate3 } from 'adyenlib';
+import { ExecutionDate3 } from 'adyen';
 
 const executionDate3: ExecutionDate3 = {
   date: '2016-03-13T12:52:32.123Z',

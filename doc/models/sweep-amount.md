@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SweepAmount } from 'adyenlib';
+import { SweepAmount } from 'adyen';
 
 const sweepAmount: SweepAmount = {
   currency: 'currency0',

@@ -24,7 +24,7 @@ Required for transactions performed by registered payment facilitators. The sub-
 ## Example
 
 ```ts
-import { BillingAddress4 } from 'adyenlib';
+import { BillingAddress4 } from 'adyen';
 
 const billingAddress4: BillingAddress4 = {
   city: 'city6',

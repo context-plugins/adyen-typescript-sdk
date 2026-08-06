@@ -26,7 +26,7 @@ If PaymentInstrumentType is Check.
 ## Example
 
 ```ts
-import { CheckData1, TrackFormat1 } from 'adyenlib';
+import { CheckData1, TrackFormat1 } from 'adyen';
 
 const checkData1: CheckData1 = {
   bankId: 'BankID2',

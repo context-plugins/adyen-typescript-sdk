@@ -21,7 +21,7 @@ Settings for an Oracle Payment Interface (OPI) integration.
 ## Example
 
 ```ts
-import { Opi1 } from 'adyenlib';
+import { Opi1 } from 'adyen';
 
 const opi1: Opi1 = {
   enablePayAtTable: false,

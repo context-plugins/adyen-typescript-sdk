@@ -30,7 +30,7 @@ The forex quote as returned in the response of the forex service.
 ## Example
 
 ```ts
-import { ForexQuote2 } from 'adyenlib';
+import { ForexQuote2 } from 'adyen';
 
 const forexQuote2: ForexQuote2 = {
   basePoints: 8,

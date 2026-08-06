@@ -23,7 +23,7 @@ Identification of a previous POI transaction.
 ## Example
 
 ```ts
-import { MessageCategory2, MessageReference4 } from 'adyenlib';
+import { MessageCategory2, MessageReference4 } from 'adyen';
 
 const messageReference4: MessageReference4 = {
   messageCategory: MessageCategory2.EnableService,

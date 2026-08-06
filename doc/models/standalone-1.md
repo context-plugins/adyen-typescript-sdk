@@ -21,7 +21,7 @@ Settings for [standalone](https://docs.adyen.com/point-of-sale/standalone/standa
 ## Example
 
 ```ts
-import { Standalone1 } from 'adyenlib';
+import { Standalone1 } from 'adyen';
 
 const standalone1: Standalone1 = {
   currencyCode: 'currencyCode2',

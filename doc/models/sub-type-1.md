@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SubType1 } from 'adyenlib';
+import { SubType1 } from 'adyen';
 
 const subType1 = SubType1.AtmDispute;
 ```

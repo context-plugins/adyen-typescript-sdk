@@ -33,7 +33,7 @@
 ## Example
 
 ```ts
-import { OnboardingLinkSettings } from 'adyenlib';
+import { OnboardingLinkSettings } from 'adyen';
 
 const onboardingLinkSettings: OnboardingLinkSettings = {
   acceptedCountries: [

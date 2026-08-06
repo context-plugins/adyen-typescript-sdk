@@ -21,7 +21,7 @@ import {
   ContractType,
   FinancingType2,
   GetDynamicOffersResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const getDynamicOffersResponse: GetDynamicOffersResponse = {
   dynamicOffers: [

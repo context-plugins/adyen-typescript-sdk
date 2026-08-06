@@ -28,7 +28,7 @@ Find out more here: [https://www.rfc-editor.org/rfc/rfc7807](https://www.rfc-edi
 ## Example
 
 ```ts
-import { DefaultErrorResponseEntity } from 'adyenlib';
+import { DefaultErrorResponseEntity } from 'adyen';
 
 const defaultErrorResponseEntity: DefaultErrorResponseEntity = {
   detail: 'detail6',

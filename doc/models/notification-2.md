@@ -23,7 +23,7 @@ Configures sending event notifications by pressing a button on a terminal, for e
 ## Example
 
 ```ts
-import { Category1, Notification2 } from 'adyenlib';
+import { Category1, Notification2 } from 'adyen';
 
 const notification2: Notification2 = {
   category: Category1.SaleWakeUp,

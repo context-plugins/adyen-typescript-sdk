@@ -21,7 +21,7 @@ Possible values: **notApplicable**, **low**, **medium**, **high**.
 ## Example
 
 ```ts
-import { AllowedLevel } from 'adyenlib';
+import { AllowedLevel } from 'adyen';
 
 const allowedLevel = AllowedLevel.Medium;
 ```

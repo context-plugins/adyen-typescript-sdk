@@ -22,7 +22,7 @@ References to resources connected with this merchant.
 ## Example
 
 ```ts
-import { MerchantLinks2 } from 'adyenlib';
+import { MerchantLinks2 } from 'adyen';
 
 const merchantLinks2: MerchantLinks2 = {
   self: {

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Type56, WeChatPay } from 'adyenlib';
+import { Type56, WeChatPay } from 'adyen';
 
 const weChatPay: WeChatPay = {
   checkoutAttemptId: 'checkoutAttemptId4',

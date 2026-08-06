@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { AccountType11, CheckoutBankAccount } from 'adyenlib';
+import { AccountType11, CheckoutBankAccount } from 'adyen';
 
 const checkoutBankAccount: CheckoutBankAccount = {
   accountType: AccountType11.Deposit,

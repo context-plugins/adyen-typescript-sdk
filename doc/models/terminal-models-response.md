@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TerminalModelsResponse } from 'adyenlib';
+import { TerminalModelsResponse } from 'adyen';
 
 const terminalModelsResponse: TerminalModelsResponse = {
   data: [

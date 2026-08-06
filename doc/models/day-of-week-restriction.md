@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DayOfWeekRestriction, Value1 } from 'adyenlib';
+import { DayOfWeekRestriction, Value1 } from 'adyen';
 
 const dayOfWeekRestriction: DayOfWeekRestriction = {
   operation: 'operation2',

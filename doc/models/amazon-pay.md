@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AmazonPay, Type41 } from 'adyenlib';
+import { AmazonPay, Type41 } from 'adyen';
 
 const amazonPay: AmazonPay = {
   amazonPayToken: 'amazonPayToken4',

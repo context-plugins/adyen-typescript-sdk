@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PersonalDocumentData, Type } from 'adyenlib';
+import { PersonalDocumentData, Type } from 'adyen';
 
 const personalDocumentData: PersonalDocumentData = {
   type: Type.Socialsecurity,

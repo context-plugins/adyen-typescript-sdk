@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { BrowserInfo2 } from 'adyenlib';
+import { BrowserInfo2 } from 'adyen';
 
 const browserInfo2: BrowserInfo2 = {
   acceptHeader: 'acceptHeader4',

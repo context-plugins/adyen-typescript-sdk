@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { A2APaymentMethod } from 'adyenlib';
+import { A2APaymentMethod } from 'adyen';
 
 const a2APaymentMethod = A2APaymentMethod.Ideal;
 ```

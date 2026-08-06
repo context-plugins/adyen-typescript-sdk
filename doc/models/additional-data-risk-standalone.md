@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataRiskStandalone } from 'adyenlib';
+import { AdditionalDataRiskStandalone } from 'adyen';
 
 const additionalDataRiskStandalone: AdditionalDataRiskStandalone = {
   payPalCountryCode: 'PayPal.CountryCode4',

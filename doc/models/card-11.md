@@ -20,7 +20,7 @@ Contains information about the counterparty card.
 ## Example
 
 ```ts
-import { Card11 } from 'adyenlib';
+import { Card11 } from 'adyen';
 
 const card11: Card11 = {
   cardHolder: {

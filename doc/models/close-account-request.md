@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CloseAccountRequest } from 'adyenlib';
+import { CloseAccountRequest } from 'adyen';
 
 const closeAccountRequest: CloseAccountRequest = {
   accountCode: 'accountCode6',

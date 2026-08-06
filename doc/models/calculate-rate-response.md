@@ -19,7 +19,7 @@ The response returned when you calculate an amount in a different currency.
 ## Example
 
 ```ts
-import { CalculateRateResponse } from 'adyenlib';
+import { CalculateRateResponse } from 'adyen';
 
 const calculateRateResponse: CalculateRateResponse = {
   exchangeCalculations: [

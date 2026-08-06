@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { WeChatPayResponseInfo2 } from 'adyenlib';
+import { WeChatPayResponseInfo2 } from 'adyen';
 
 const weChatPayResponseInfo2: WeChatPayResponseInfo2 = {
   contactPersonName: 'contactPersonName8',

@@ -34,7 +34,7 @@ Transaction outcomes that you want the terminal to print a merchant receipt or a
 ## Example
 
 ```ts
-import { ReceiptPrinting1 } from 'adyenlib';
+import { ReceiptPrinting1 } from 'adyen';
 
 const receiptPrinting1: ReceiptPrinting1 = {
   merchantApproved: false,

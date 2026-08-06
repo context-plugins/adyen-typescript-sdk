@@ -24,7 +24,7 @@ The type of donation to collect from the shopper. Possible values:
 ## Example
 
 ```ts
-import { DonationType1 } from 'adyenlib';
+import { DonationType1 } from 'adyen';
 
 const donationType1 = DonationType1.FixedAmounts;
 ```

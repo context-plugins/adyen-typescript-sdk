@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenerateApiKeyResponse } from 'adyenlib';
+import { GenerateApiKeyResponse } from 'adyen';
 
 const generateApiKeyResponse: GenerateApiKeyResponse = {
   apiKey: 'apiKey2',

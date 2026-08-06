@@ -20,7 +20,7 @@ A summary of the execution of the check.
 ## Example
 
 ```ts
-import { KycCheckSummary2 } from 'adyenlib';
+import { KycCheckSummary2 } from 'adyen';
 
 const kycCheckSummary2: KycCheckSummary2 = {
   kycCheckCode: 158,

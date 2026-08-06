@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { PayoutAccountHolderRequest } from 'adyenlib';
+import { PayoutAccountHolderRequest } from 'adyen';
 
 const payoutAccountHolderRequest: PayoutAccountHolderRequest = {
   accountCode: 'accountCode0',

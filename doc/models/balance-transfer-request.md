@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { BalanceTransferRequest, BalanceTransferType2 } from 'adyenlib';
+import { BalanceTransferRequest, BalanceTransferType2 } from 'adyen';
 
 const balanceTransferRequest: BalanceTransferRequest = {
   amount: {

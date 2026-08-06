@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { Airline } from 'adyenlib';
+import { Airline } from 'adyen';
 
 const airline: Airline = {
   passengerName: 'passengerName0',

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BankAccountModel } from 'adyenlib';
+import { BankAccountModel } from 'adyen';
 
 const bankAccountModel: BankAccountModel = {
   formFactor: { 'key1': 'val1', 'key2': 'val2' },

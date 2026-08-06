@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BinDetail } from 'adyenlib';
+import { BinDetail } from 'adyen';
 
 const binDetail: BinDetail = {
   issuerCountry: 'issuerCountry0',

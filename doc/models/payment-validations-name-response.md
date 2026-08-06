@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentValidationsNameResponse, Status11 } from 'adyenlib';
+import { PaymentValidationsNameResponse, Status11 } from 'adyen';
 
 const paymentValidationsNameResponse: PaymentValidationsNameResponse = {
   rawResponse: {

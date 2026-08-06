@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { ListMerchantResponse } from 'adyenlib';
+import { ListMerchantResponse } from 'adyen';
 
 const listMerchantResponse: ListMerchantResponse = {
   itemsTotal: 18,

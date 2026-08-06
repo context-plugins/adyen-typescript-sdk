@@ -35,7 +35,7 @@
 ## Example
 
 ```ts
-import { StoredPaymentMethod3 } from 'adyenlib';
+import { StoredPaymentMethod3 } from 'adyen';
 
 const storedPaymentMethod3: StoredPaymentMethod3 = {
   bankAccountNumber: 'bankAccountNumber8',

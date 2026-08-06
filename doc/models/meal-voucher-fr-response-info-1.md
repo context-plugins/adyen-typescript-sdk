@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { MealVoucherFrResponseInfo1 } from 'adyenlib';
+import { MealVoucherFrResponseInfo1 } from 'adyen';
 
 const mealVoucherFrResponseInfo1: MealVoucherFrResponseInfo1 = {
   conecsId: 'conecsId0',

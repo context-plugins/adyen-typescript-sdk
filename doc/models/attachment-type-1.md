@@ -18,7 +18,7 @@ The type of information contained in the attachment: **receipt**, **corresponden
 ## Example
 
 ```ts
-import { AttachmentType1 } from 'adyenlib';
+import { AttachmentType1 } from 'adyen';
 
 const attachmentType1 = AttachmentType1.Receipt;
 ```

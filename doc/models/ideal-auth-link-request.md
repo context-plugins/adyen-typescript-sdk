@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { IdealAuthLinkRequest } from 'adyenlib';
+import { IdealAuthLinkRequest } from 'adyen';
 
 const idealAuthLinkRequest: IdealAuthLinkRequest = {
   accountHolderId: 'AH00000000000000000000000',

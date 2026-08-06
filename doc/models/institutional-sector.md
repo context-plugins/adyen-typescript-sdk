@@ -32,7 +32,7 @@ The institutional sector the organization operates within.
 ## Example
 
 ```ts
-import { InstitutionalSector } from 'adyenlib';
+import { InstitutionalSector } from 'adyen';
 
 const institutionalSector = InstitutionalSector.DepositTakingCorporations;
 ```

@@ -20,7 +20,7 @@ Contains status updates related to additional reviews.
 ## Example
 
 ```ts
-import { ScaOnApproval, TransferReview1 } from 'adyenlib';
+import { ScaOnApproval, TransferReview1 } from 'adyen';
 
 const transferReview1: TransferReview1 = {
   numberOfApprovalsRequired: 128,

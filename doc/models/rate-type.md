@@ -19,7 +19,7 @@ Indicates whether the rental rate is daily or weekly.
 ## Example
 
 ```ts
-import { RateType } from 'adyenlib';
+import { RateType } from 'adyen';
 
 const rateType = RateType.Daily;
 ```

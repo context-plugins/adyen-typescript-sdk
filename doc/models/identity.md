@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Identity } from 'adyenlib';
+import { Identity } from 'adyen';
 
 const identity: Identity = {
   fullLegalName: 'fullLegalName2',

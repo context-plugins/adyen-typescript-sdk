@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Affirm, Type12 } from 'adyenlib';
+import { Affirm, Type12 } from 'adyen';
 
 const affirm: Affirm = {
   checkoutAttemptId: 'checkoutAttemptId2',

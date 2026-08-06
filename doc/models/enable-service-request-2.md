@@ -32,7 +32,7 @@ import {
   OutputFormat2,
   ServicesEnabled,
   TransactionAction1,
-} from 'adyenlib';
+} from 'adyen';
 
 const enableServiceRequest2: EnableServiceRequest2 = {
   transactionAction: TransactionAction1.StartTransaction,

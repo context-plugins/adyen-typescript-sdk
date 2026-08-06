@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CertificateLoadingRequest } from 'adyenlib';
+import { CertificateLoadingRequest } from 'adyen';
 
 const certificateLoadingRequest: CertificateLoadingRequest = {
   merchantAccount: 'merchantAccount6',

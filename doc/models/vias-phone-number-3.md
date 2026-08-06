@@ -23,7 +23,7 @@ The phone number of the account holder.
 ## Example
 
 ```ts
-import { PhoneType, ViasPhoneNumber3 } from 'adyenlib';
+import { PhoneType, ViasPhoneNumber3 } from 'adyen';
 
 const viasPhoneNumber3: ViasPhoneNumber3 = {
   phoneCountryCode: 'phoneCountryCode2',

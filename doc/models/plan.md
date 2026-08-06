@@ -27,7 +27,7 @@ By default, this is set to **regular**.
 ## Example
 
 ```ts
-import { Plan } from 'adyenlib';
+import { Plan } from 'adyen';
 
 const plan = Plan.NointeresRefundPrctg;
 ```

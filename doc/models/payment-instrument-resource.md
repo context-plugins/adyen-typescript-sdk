@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PaymentInstrumentResource } from 'adyenlib';
+import { PaymentInstrumentResource } from 'adyen';
 
 const paymentInstrumentResource: PaymentInstrumentResource = {
   paymentInstrumentId: 'paymentInstrumentId4',

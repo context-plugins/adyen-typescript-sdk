@@ -24,7 +24,7 @@ The address of the store. It is not possible to update the country of the store.
 ## Example
 
 ```ts
-import { UpdatableAddress1 } from 'adyenlib';
+import { UpdatableAddress1 } from 'adyen';
 
 const updatableAddress1: UpdatableAddress1 = {
   city: 'city0',

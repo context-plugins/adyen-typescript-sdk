@@ -21,7 +21,7 @@ import {
   AssociationStatus1,
   ScaEntityType1,
   SubmitScaAssociationResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const submitScaAssociationResponse: SubmitScaAssociationResponse = {
   scaAssociations: [

@@ -20,7 +20,7 @@ The maximum amount that payouts are limited to. Only applies if payouts are allo
 ## Example
 
 ```ts
-import { Amount4 } from 'adyenlib';
+import { Amount4 } from 'adyen';
 
 const amount4: Amount4 = {
   currency: 'currency2',

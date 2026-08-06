@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GetNotificationConfigurationRequest } from 'adyenlib';
+import { GetNotificationConfigurationRequest } from 'adyen';
 
 const getNotificationConfigurationRequest: GetNotificationConfigurationRequest = {
   notificationId: BigInt(0),

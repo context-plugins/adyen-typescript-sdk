@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Summary } from 'adyenlib';
+import { Summary } from 'adyen';
 
 const summary: Summary = {
   legalEntityId: 'legalEntityId2',

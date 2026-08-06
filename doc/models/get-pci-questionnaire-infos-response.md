@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GetPciQuestionnaireInfosResponse } from 'adyenlib';
+import { GetPciQuestionnaireInfosResponse } from 'adyen';
 
 const getPciQuestionnaireInfosResponse: GetPciQuestionnaireInfosResponse = {
   data: [

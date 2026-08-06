@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { TransactionRulesResult } from 'adyenlib';
+import { TransactionRulesResult } from 'adyen';
 
 const transactionRulesResult: TransactionRulesResult = {
   advice: 'advice0',

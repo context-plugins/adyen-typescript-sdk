@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Value1 } from 'adyenlib';
+import { Value1 } from 'adyen';
 
 const value1 = Value1.Tuesday;
 ```

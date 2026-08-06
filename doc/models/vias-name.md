@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Gender, ViasName } from 'adyenlib';
+import { Gender, ViasName } from 'adyen';
 
 const viasName: ViasName = {
   firstName: 'firstName2',

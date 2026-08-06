@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CardBrandDetails } from 'adyenlib';
+import { CardBrandDetails } from 'adyen';
 
 const cardBrandDetails: CardBrandDetails = {
   healthcare: false,

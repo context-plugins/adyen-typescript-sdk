@@ -25,7 +25,7 @@ import {
   ErrorCondition1,
   InfoQualify3,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const displayResponse2: DisplayResponse2 = {
   outputResult: [

@@ -28,7 +28,7 @@ Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed v
 ## Example
 
 ```ts
-import { ThreeDsReqAuthMethod } from 'adyenlib';
+import { ThreeDsReqAuthMethod } from 'adyen';
 
 const threeDsReqAuthMethod = ThreeDsReqAuthMethod.Enum05;
 ```

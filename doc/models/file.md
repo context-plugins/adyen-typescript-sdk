@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { File } from 'adyenlib';
+import { File } from 'adyen';
 
 const file: File = {
   data: 'data0',

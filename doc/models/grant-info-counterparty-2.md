@@ -20,7 +20,7 @@ Contains the details of the party that receives the grant.
 ## Example
 
 ```ts
-import { GrantInfoCounterparty2 } from 'adyenlib';
+import { GrantInfoCounterparty2 } from 'adyen';
 
 const grantInfoCounterparty2: GrantInfoCounterparty2 = {
   balanceAccountId: 'balanceAccountId8',

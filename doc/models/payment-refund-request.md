@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { PaymentRefundRequest, RateType } from 'adyenlib';
+import { PaymentRefundRequest, RateType } from 'adyen';
 
 const paymentRefundRequest: PaymentRefundRequest = {
   amount: {

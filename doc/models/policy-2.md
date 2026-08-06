@@ -20,7 +20,7 @@ An object that contains a description of the allowed resources and roles for the
 ## Example
 
 ```ts
-import { Policy2 } from 'adyenlib';
+import { Policy2 } from 'adyen';
 
 const policy2: Policy2 = {
   resources: [

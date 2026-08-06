@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Alignment } from 'adyenlib';
+import { Alignment } from 'adyen';
 
 const alignment = Alignment.Left;
 ```

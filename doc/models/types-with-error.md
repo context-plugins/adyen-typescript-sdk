@@ -161,7 +161,7 @@
 ## Example
 
 ```ts
-import { TypesWithError } from 'adyenlib';
+import { TypesWithError } from 'adyen';
 
 const typesWithError = TypesWithError.Megaleve;
 ```

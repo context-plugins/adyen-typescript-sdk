@@ -29,7 +29,7 @@ import {
   FundingSource,
   Interval,
   LegalEntityCapability,
-} from 'adyenlib';
+} from 'adyen';
 
 const legalEntityCapability: LegalEntityCapability = {
   allowed: false,

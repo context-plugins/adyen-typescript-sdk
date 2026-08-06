@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CreatePermitRequest } from 'adyenlib';
+import { CreatePermitRequest } from 'adyen';
 
 const createPermitRequest: CreatePermitRequest = {
   merchantAccount: 'merchantAccount4',

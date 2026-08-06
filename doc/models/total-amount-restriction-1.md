@@ -22,7 +22,7 @@ Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **gre
 ## Example
 
 ```ts
-import { TotalAmountRestriction1 } from 'adyenlib';
+import { TotalAmountRestriction1 } from 'adyen';
 
 const totalAmountRestriction1: TotalAmountRestriction1 = {
   operation: 'operation0',

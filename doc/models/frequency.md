@@ -28,7 +28,7 @@ Default value: The `defaultFrequency` from the balance platform schedule that yo
 ## Example
 
 ```ts
-import { Frequency } from 'adyenlib';
+import { Frequency } from 'adyen';
 
 const frequency = Frequency.Daily;
 ```

@@ -21,7 +21,7 @@ Contains installment settings. For more information, refer to [Installments](htt
 ## Example
 
 ```ts
-import { Installments, Plan } from 'adyenlib';
+import { Installments, Plan } from 'adyen';
 
 const installments: Installments = {
   value: 58,

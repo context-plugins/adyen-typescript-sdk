@@ -19,7 +19,7 @@ Reference to resources connected with the store.
 ## Example
 
 ```ts
-import { Links7 } from 'adyenlib';
+import { Links7 } from 'adyen';
 
 const links7: Links7 = {
   self: {

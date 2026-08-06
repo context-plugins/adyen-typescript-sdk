@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { GetPciUrlRequest } from 'adyenlib';
+import { GetPciUrlRequest } from 'adyen';
 
 const getPciUrlRequest: GetPciUrlRequest = {
   accountHolderCode: 'accountHolderCode6',

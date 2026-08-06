@@ -20,7 +20,7 @@ The category of lodging charges for the payment.
 ## Example
 
 ```ts
-import { LodgingChargeType } from 'adyenlib';
+import { LodgingChargeType } from 'adyen';
 
 const lodgingChargeType = LodgingChargeType.Stay;
 ```

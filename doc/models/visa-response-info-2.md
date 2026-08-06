@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Type33, VisaResponseInfo2 } from 'adyenlib';
+import { Type33, VisaResponseInfo2 } from 'adyen';
 
 const visaResponseInfo2: VisaResponseInfo2 = {
   transactionDescription: {

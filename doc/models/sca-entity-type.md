@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { ScaEntityType } from 'adyenlib';
+import { ScaEntityType } from 'adyen';
 
 const scaEntityType = ScaEntityType.AccountHolder;
 ```

@@ -22,7 +22,7 @@ The mobile phone number provided by the cardholder. The phone number must consis
 ## Example
 
 ```ts
-import { Phone2 } from 'adyenlib';
+import { Phone2 } from 'adyen';
 
 const phone2: Phone2 = {
   cc: 'cc6',

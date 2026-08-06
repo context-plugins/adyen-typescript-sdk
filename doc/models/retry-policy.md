@@ -17,7 +17,7 @@ When set to true, you can retry for failed recurring payments. The default value
 ## Example
 
 ```ts
-import { RetryPolicy } from 'adyenlib';
+import { RetryPolicy } from 'adyen';
 
 const retryPolicy = RetryPolicy.True;
 ```

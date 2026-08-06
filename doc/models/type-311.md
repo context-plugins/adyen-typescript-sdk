@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Type311 } from 'adyenlib';
+import { Type311 } from 'adyen';
 
 const type311 = Type311.Eps;
 ```

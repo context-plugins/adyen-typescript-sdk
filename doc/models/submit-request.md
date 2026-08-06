@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { Contract, EntityType2, SubmitRequest, TokenService } from 'adyenlib';
+import { Contract, EntityType2, SubmitRequest, TokenService } from 'adyen';
 
 const submitRequest: SubmitRequest = {
   amount: {

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TaxFormSummaryResponse } from 'adyenlib';
+import { TaxFormSummaryResponse } from 'adyen';
 
 const taxFormSummaryResponse: TaxFormSummaryResponse = {
   data: [

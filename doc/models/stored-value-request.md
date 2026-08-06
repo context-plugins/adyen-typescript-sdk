@@ -27,7 +27,7 @@ import {
   StoredValueAccountType1,
   StoredValueRequest,
   StoredValueTransactionType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueRequest: StoredValueRequest = {
   saleData: {

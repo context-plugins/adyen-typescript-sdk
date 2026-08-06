@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { GooglePayResponseInfo } from 'adyenlib';
+import { GooglePayResponseInfo } from 'adyen';
 
 const googlePayResponseInfo: GooglePayResponseInfo = {
   merchantId: 'merchantId4',

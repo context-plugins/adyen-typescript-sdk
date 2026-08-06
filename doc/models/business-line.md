@@ -33,7 +33,7 @@ import {
   Type3,
   Type32,
   Type59,
-} from 'adyenlib';
+} from 'adyen';
 
 const businessLine: BusinessLine = {
   id: 'id6',

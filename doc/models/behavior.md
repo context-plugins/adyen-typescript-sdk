@@ -20,7 +20,7 @@ Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, *
 ## Example
 
 ```ts
-import { Behavior } from 'adyenlib';
+import { Behavior } from 'adyen';
 
 const behavior = Behavior.DeductFromLiableAccount;
 ```

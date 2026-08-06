@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SdkEphemPubKey3 } from 'adyenlib';
+import { SdkEphemPubKey3 } from 'adyen';
 
 const sdkEphemPubKey3: SdkEphemPubKey3 = {
   crv: 'crv0',

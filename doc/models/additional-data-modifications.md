@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataModifications } from 'adyenlib';
+import { AdditionalDataModifications } from 'adyen';
 
 const additionalDataModifications: AdditionalDataModifications = {
   installmentPaymentDataSelectedInstallmentOption: 'installmentPaymentData.selectedInstallmentOption2',

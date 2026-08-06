@@ -30,7 +30,7 @@ import {
   PaymentInstrumentType11,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceInquiryRequest: BalanceInquiryRequest = {
   paymentAccountReq: {

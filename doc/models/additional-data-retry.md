@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataRetry } from 'adyenlib';
+import { AdditionalDataRetry } from 'adyen';
 
 const additionalDataRetry: AdditionalDataRetry = {
   retryChainAttemptNumber: 'retry.chainAttemptNumber4',

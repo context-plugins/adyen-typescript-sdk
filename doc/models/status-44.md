@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Status44 } from 'adyenlib';
+import { Status44 } from 'adyen';
 
 const status44 = Status44.Pending;
 ```

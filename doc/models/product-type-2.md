@@ -19,7 +19,7 @@ Possible values: **goods**, **services**.
 ## Example
 
 ```ts
-import { ProductType2 } from 'adyenlib';
+import { ProductType2 } from 'adyen';
 
 const productType2 = ProductType2.Goods;
 ```

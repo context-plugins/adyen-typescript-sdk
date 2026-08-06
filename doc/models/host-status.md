@@ -21,7 +21,7 @@ State of a Host.
 ## Example
 
 ```ts
-import { HostStatus } from 'adyenlib';
+import { HostStatus } from 'adyen';
 
 const hostStatus: HostStatus = {
   acquirerId: 230,

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Name6 } from 'adyenlib';
+import { Name6 } from 'adyen';
 
 const name6: Name6 = {
   status: 'status2',

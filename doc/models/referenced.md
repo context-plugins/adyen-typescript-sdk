@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Referenced } from 'adyenlib';
+import { Referenced } from 'adyen';
 
 const referenced: Referenced = {
   enableStandaloneRefunds: false,

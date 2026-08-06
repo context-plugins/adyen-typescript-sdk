@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { UltimatePartyIdentification } from 'adyenlib';
+import { UltimatePartyIdentification } from 'adyen';
 
 const ultimatePartyIdentification: UltimatePartyIdentification = {
   address: {

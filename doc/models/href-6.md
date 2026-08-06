@@ -19,7 +19,7 @@ The URL to where the user must be redirected after a payment has been canceled.
 ## Example
 
 ```ts
-import { Href6 } from 'adyenlib';
+import { Href6 } from 'adyen';
 
 const href6: Href6 = {
   href: 'https://someUrl',

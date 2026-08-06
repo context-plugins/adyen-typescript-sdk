@@ -20,7 +20,7 @@ Details to provide if `type` is **googlepay**.
 ## Example
 
 ```ts
-import { GooglePayInfo1 } from 'adyenlib';
+import { GooglePayInfo1 } from 'adyen';
 
 const googlePayInfo1: GooglePayInfo1 = {
   merchantId: 'merchantId2',

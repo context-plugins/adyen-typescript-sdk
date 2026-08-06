@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Standalone } from 'adyenlib';
+import { Standalone } from 'adyen';
 
 const standalone: Standalone = {
   currencyCode: 'currencyCode2',

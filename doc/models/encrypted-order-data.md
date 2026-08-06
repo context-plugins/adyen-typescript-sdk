@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { EncryptedOrderData } from 'adyenlib';
+import { EncryptedOrderData } from 'adyen';
 
 const encryptedOrderData: EncryptedOrderData = {
   orderData: 'orderData0',

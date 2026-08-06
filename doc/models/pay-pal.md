@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { PayPal, Type76 } from 'adyenlib';
+import { PayPal, Type76 } from 'adyen';
 
 const payPal: PayPal = {
   type: Type76.Paypal,

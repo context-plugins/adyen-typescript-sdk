@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Contact } from 'adyenlib';
+import { Contact } from 'adyen';
 
 const contact: Contact = {
   email: 'email4',

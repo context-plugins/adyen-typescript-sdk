@@ -26,7 +26,7 @@ The address where the purchased goods should be delivered.
 ## Example
 
 ```ts
-import { DeliveryAddress11 } from 'adyenlib';
+import { DeliveryAddress11 } from 'adyen';
 
 const deliveryAddress11: DeliveryAddress11 = {
   city: 'city4',

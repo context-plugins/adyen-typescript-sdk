@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ContractType, GrantOffers } from 'adyenlib';
+import { ContractType, GrantOffers } from 'adyen';
 
 const grantOffers: GrantOffers = {
   grantOffers: [

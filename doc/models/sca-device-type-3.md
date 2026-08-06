@@ -18,7 +18,7 @@ The type of the device.
 ## Example
 
 ```ts
-import { ScaDeviceType3 } from 'adyenlib';
+import { ScaDeviceType3 } from 'adyen';
 
 const scaDeviceType3 = ScaDeviceType3.Browser;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TimeOfDay } from 'adyenlib';
+import { TimeOfDay } from 'adyen';
 
 const timeOfDay: TimeOfDay = {
   endTime: 'endTime2',

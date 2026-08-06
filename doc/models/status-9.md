@@ -19,7 +19,7 @@ The status of the network token. Possible values: **active**, **inactive**, **su
 ## Example
 
 ```ts
-import { Status9 } from 'adyenlib';
+import { Status9 } from 'adyen';
 
 const status9 = Status9.Suspended;
 ```

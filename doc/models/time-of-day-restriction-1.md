@@ -20,7 +20,7 @@ A start and end time in a time-only ISO-8601 extended offset format. Supported o
 ## Example
 
 ```ts
-import { TimeOfDayRestriction1 } from 'adyenlib';
+import { TimeOfDayRestriction1 } from 'adyen';
 
 const timeOfDayRestriction1: TimeOfDayRestriction1 = {
   operation: 'operation8',

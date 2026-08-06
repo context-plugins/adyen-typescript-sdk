@@ -22,7 +22,7 @@ To delete an existing entry for a document `type`, send only the `type` field in
 ## Example
 
 ```ts
-import { Type } from 'adyenlib';
+import { Type } from 'adyen';
 
 const type = Type.Drivinglicense;
 ```

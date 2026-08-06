@@ -30,7 +30,7 @@ import {
   EventType,
   IncludeMode,
   NotificationConfigurationDetails,
-} from 'adyenlib';
+} from 'adyen';
 
 const notificationConfigurationDetails: NotificationConfigurationDetails = {
   active: false,

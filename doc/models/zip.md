@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Zip } from 'adyenlib';
+import { Zip } from 'adyen';
 
 const zip: Zip = {
   checkoutAttemptId: 'checkoutAttemptId2',

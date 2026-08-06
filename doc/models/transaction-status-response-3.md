@@ -41,7 +41,7 @@ import {
   StoredValueTransactionType2,
   TrackFormat1,
   TransactionStatusResponse3,
-} from 'adyenlib';
+} from 'adyen';
 
 const transactionStatusResponse3: TransactionStatusResponse3 = {
   response: {

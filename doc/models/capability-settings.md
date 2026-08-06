@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CapabilitySettings, FundingSource, Interval } from 'adyenlib';
+import { CapabilitySettings, FundingSource, Interval } from 'adyen';
 
 const capabilitySettings: CapabilitySettings = {
   amountPerIndustry: {

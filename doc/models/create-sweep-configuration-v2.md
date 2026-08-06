@@ -37,7 +37,7 @@ import {
   Priority,
   Reason,
   Type6,
-} from 'adyenlib';
+} from 'adyen';
 
 const createSweepConfigurationV2: CreateSweepConfigurationV2 = {
   counterparty: {

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CloseStoresRequest } from 'adyenlib';
+import { CloseStoresRequest } from 'adyen';
 
 const closeStoresRequest: CloseStoresRequest = {
   accountHolderCode: 'accountHolderCode2',

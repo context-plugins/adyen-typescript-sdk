@@ -48,7 +48,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type72 } from 'adyenlib';
+import { Type72 } from 'adyen';
 
 const type72 = Type72.Donations;
 ```

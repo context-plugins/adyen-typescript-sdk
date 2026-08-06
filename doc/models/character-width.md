@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CharacterWidth } from 'adyenlib';
+import { CharacterWidth } from 'adyen';
 
 const characterWidth = CharacterWidth.SingleWidth;
 ```

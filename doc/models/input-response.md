@@ -30,7 +30,7 @@ import {
   InputCommand1,
   InputResponse,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const inputResponse: InputResponse = {
   inputResult: {

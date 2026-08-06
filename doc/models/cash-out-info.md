@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CashOutInfo } from 'adyenlib';
+import { CashOutInfo } from 'adyen';
 
 const cashOutInfo: CashOutInfo = {
   amount: {

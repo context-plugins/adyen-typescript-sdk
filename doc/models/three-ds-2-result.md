@@ -32,7 +32,7 @@ The ThreeDS2Result that was returned in the final CRes.
 ## Example
 
 ```ts
-import { ChallengeCancel, ThreeDs2Result } from 'adyenlib';
+import { ChallengeCancel, ThreeDs2Result } from 'adyen';
 
 const threeDs2Result: ThreeDs2Result = {
   authenticationValue: 'authenticationValue4',

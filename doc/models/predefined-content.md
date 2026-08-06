@@ -21,7 +21,7 @@ It conveys information related to the predefined message.
 ## Example
 
 ```ts
-import { PredefinedContent } from 'adyenlib';
+import { PredefinedContent } from 'adyen';
 
 const predefinedContent: PredefinedContent = {
   referenceId: 'ReferenceID2',

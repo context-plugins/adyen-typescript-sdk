@@ -21,7 +21,7 @@ If POITransactionID not present.
 ## Example
 
 ```ts
-import { TransactionIdType5 } from 'adyenlib';
+import { TransactionIdType5 } from 'adyen';
 
 const transactionIdType5: TransactionIdType5 = {
   transactionId: 'TransactionID8',

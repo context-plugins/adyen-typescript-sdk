@@ -23,7 +23,7 @@ Healthcare auto-substantiation amounts for FSA/HSA card transactions. The amount
 ## Example
 
 ```ts
-import { Healthcare2 } from 'adyenlib';
+import { Healthcare2 } from 'adyen';
 
 const healthcare2: Healthcare2 = {
   totalHealthcareValue: BigInt(234),

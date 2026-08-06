@@ -23,7 +23,7 @@ Generic data structure for a card track, used when the magstripe card reader is 
 ## Example
 
 ```ts
-import { TrackData, TrackFormat1 } from 'adyenlib';
+import { TrackData, TrackFormat1 } from 'adyen';
 
 const trackData: TrackData = {
   trackValue: 'TrackValue0',

@@ -19,7 +19,7 @@ Possible values: **virtual**, **physical**.
 ## Example
 
 ```ts
-import { FormFactor1 } from 'adyenlib';
+import { FormFactor1 } from 'adyen';
 
 const formFactor1 = FormFactor1.Physical;
 ```

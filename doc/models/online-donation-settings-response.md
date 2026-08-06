@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { DonationType1, OnlineDonationSettingsResponse } from 'adyenlib';
+import { DonationType1, OnlineDonationSettingsResponse } from 'adyen';
 
 const onlineDonationSettingsResponse: OnlineDonationSettingsResponse = {
   amounts: [

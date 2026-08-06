@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { LegalArrangementRequest } from 'adyenlib';
+import { LegalArrangementRequest } from 'adyen';
 
 const legalArrangementRequest: LegalArrangementRequest = {
   legalArrangementCode: 'legalArrangementCode0',

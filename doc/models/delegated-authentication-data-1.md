@@ -19,7 +19,7 @@ Contains information required to register the SCA device.
 ## Example
 
 ```ts
-import { DelegatedAuthenticationData1 } from 'adyenlib';
+import { DelegatedAuthenticationData1 } from 'adyen';
 
 const delegatedAuthenticationData1: DelegatedAuthenticationData1 = {
   sdkOutput: 'sdkOutput2',

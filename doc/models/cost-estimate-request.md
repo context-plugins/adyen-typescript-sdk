@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Contract, CostEstimateRequest, TokenService } from 'adyenlib';
+import { Contract, CostEstimateRequest, TokenService } from 'adyen';
 
 const costEstimateRequest: CostEstimateRequest = {
   amount: {

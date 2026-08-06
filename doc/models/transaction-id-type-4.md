@@ -21,7 +21,7 @@ Absent if SaleReferenceID is sufficient to identify the transaction.
 ## Example
 
 ```ts
-import { TransactionIdType4 } from 'adyenlib';
+import { TransactionIdType4 } from 'adyen';
 
 const transactionIdType4: TransactionIdType4 = {
   transactionId: 'TransactionID6',

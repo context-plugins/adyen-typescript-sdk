@@ -21,7 +21,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { SuspiciousAccActivity } from 'adyenlib';
+import { SuspiciousAccActivity } from 'adyen';
 
 const suspiciousAccActivity = SuspiciousAccActivity.Enum01;
 ```

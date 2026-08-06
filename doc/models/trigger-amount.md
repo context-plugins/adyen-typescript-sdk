@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TriggerAmount } from 'adyenlib';
+import { TriggerAmount } from 'adyen';
 
 const triggerAmount: TriggerAmount = {
   currency: 'currency0',

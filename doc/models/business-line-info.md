@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { BusinessLineInfo, Reason1, Service } from 'adyenlib';
+import { BusinessLineInfo, Reason1, Service } from 'adyen';
 
 const businessLineInfo: BusinessLineInfo = {
   industryCode: 'industryCode0',

@@ -20,7 +20,7 @@ Settings for Mail Order/Telephone Order transactions.
 ## Example
 
 ```ts
-import { Moto1 } from 'adyenlib';
+import { Moto1 } from 'adyen';
 
 const moto1: Moto1 = {
   enableMoto: false,

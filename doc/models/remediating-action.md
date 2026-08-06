@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RemediatingAction } from 'adyenlib';
+import { RemediatingAction } from 'adyen';
 
 const remediatingAction: RemediatingAction = {
   code: 'code6',

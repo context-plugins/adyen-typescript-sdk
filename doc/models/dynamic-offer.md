@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { ContractType, DynamicOffer, FinancingType2 } from 'adyenlib';
+import { ContractType, DynamicOffer, FinancingType2 } from 'adyen';
 
 const dynamicOffer: DynamicOffer = {
   accountHolderId: 'accountHolderId6',

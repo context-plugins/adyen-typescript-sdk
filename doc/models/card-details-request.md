@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CardDetailsRequest } from 'adyenlib';
+import { CardDetailsRequest } from 'adyen';
 
 const cardDetailsRequest: CardDetailsRequest = {
   merchantAccount: 'merchantAccount6',

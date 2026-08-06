@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AssociationDelegatedAuthenticationData } from 'adyenlib';
+import { AssociationDelegatedAuthenticationData } from 'adyen';
 
 const associationDelegatedAuthenticationData: AssociationDelegatedAuthenticationData = {
   sdkOutput: 'sdkOutput0',

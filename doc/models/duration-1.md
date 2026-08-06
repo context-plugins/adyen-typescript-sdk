@@ -20,7 +20,7 @@ The duration, which you can specify in hours, days, weeks, or months. The maximu
 ## Example
 
 ```ts
-import { Duration1, Unit } from 'adyenlib';
+import { Duration1, Unit } from 'adyen';
 
 const duration1: Duration1 = {
   unit: Unit.Weeks,

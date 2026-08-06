@@ -21,7 +21,7 @@ Third-party developed platform used to initiate payment requests. For example, M
 ## Example
 
 ```ts
-import { ExternalPlatform } from 'adyenlib';
+import { ExternalPlatform } from 'adyen';
 
 const externalPlatform: ExternalPlatform = {
   integrator: 'integrator0',

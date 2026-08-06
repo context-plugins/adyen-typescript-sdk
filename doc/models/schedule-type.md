@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { ScheduleType } from 'adyenlib';
+import { ScheduleType } from 'adyen';
 
 const scheduleType = ScheduleType.Monthly;
 ```

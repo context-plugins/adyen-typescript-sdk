@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { CashOut, Type122 } from 'adyenlib';
+import { CashOut, Type122 } from 'adyen';
 
 const cashOut: CashOut = {
   amount: {

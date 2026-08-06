@@ -33,7 +33,7 @@ import {
   CaptureRequest,
   ChallengeCancel,
   DirectoryResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const captureRequest: CaptureRequest = {
   merchantAccount: 'merchantAccount0',

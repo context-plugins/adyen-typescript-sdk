@@ -31,7 +31,7 @@ Copy.
 ## Example
 
 ```ts
-import { SaleData6 } from 'adyenlib';
+import { SaleData6 } from 'adyen';
 
 const saleData6: SaleData6 = {
   saleTransactionId: {

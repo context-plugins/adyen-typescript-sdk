@@ -25,10 +25,7 @@
 ## Example
 
 ```ts
-import {
-  ShopperInteraction1,
-  StoredValueBalanceMergeRequest,
-} from 'adyenlib';
+import { ShopperInteraction1, StoredValueBalanceMergeRequest } from 'adyen';
 
 const storedValueBalanceMergeRequest: StoredValueBalanceMergeRequest = {
   merchantAccount: 'merchantAccount0',

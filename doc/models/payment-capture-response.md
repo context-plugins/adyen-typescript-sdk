@@ -26,12 +26,7 @@
 ## Example
 
 ```ts
-import {
-  Behavior,
-  PaymentCaptureResponse,
-  Status20,
-  Type111,
-} from 'adyenlib';
+import { Behavior, PaymentCaptureResponse, Status20, Type111 } from 'adyen';
 
 const paymentCaptureResponse: PaymentCaptureResponse = {
   amount: {

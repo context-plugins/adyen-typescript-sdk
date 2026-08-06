@@ -22,7 +22,7 @@ The reason for the amount update. Possible values:
 ## Example
 
 ```ts
-import { IndustryUsage1 } from 'adyenlib';
+import { IndustryUsage1 } from 'adyen';
 
 const industryUsage1 = IndustryUsage1.DelayedCharge;
 ```

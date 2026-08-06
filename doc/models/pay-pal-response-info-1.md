@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PayPalResponseInfo1 } from 'adyenlib';
+import { PayPalResponseInfo1 } from 'adyen';
 
 const payPalResponseInfo1: PayPalResponseInfo1 = {
   directCapture: false,

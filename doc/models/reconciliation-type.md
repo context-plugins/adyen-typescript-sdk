@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ReconciliationType } from 'adyenlib';
+import { ReconciliationType } from 'adyen';
 
 const reconciliationType = ReconciliationType.SaleReconciliation;
 ```

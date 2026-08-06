@@ -27,7 +27,7 @@ Object that contains information about the card payment instrument.
 ## Example
 
 ```ts
-import { CardInfo2, FormFactor1, PhoneType, Type4 } from 'adyenlib';
+import { CardInfo2, FormFactor1, PhoneType, Type4 } from 'adyen';
 
 const cardInfo2: CardInfo2 = {
   brand: 'brand8',

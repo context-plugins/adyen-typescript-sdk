@@ -20,7 +20,7 @@ Your reason for the refund request.
 ## Example
 
 ```ts
-import { MerchantRefundReason1 } from 'adyenlib';
+import { MerchantRefundReason1 } from 'adyen';
 
 const merchantRefundReason1 = MerchantRefundReason1.Duplicate;
 ```

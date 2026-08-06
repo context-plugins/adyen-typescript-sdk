@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { Mandate } from 'adyenlib';
+import { Mandate } from 'adyen';
 
 const mandate: Mandate = {
   balanceAccountId: 'balanceAccountId2',

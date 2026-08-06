@@ -19,7 +19,7 @@ Possible values: **industryExemption**, **belowTaxThreshold**.
 ## Example
 
 ```ts
-import { VatAbsenceReason } from 'adyenlib';
+import { VatAbsenceReason } from 'adyen';
 
 const vatAbsenceReason = VatAbsenceReason.IndustryExemption;
 ```

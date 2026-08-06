@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { CreateCompanyApiCredentialResponse } from 'adyenlib';
+import { CreateCompanyApiCredentialResponse } from 'adyen';
 
 const createCompanyApiCredentialResponse: CreateCompanyApiCredentialResponse = {
   active: false,

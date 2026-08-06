@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { MerchantAccount } from 'adyenlib';
+import { MerchantAccount } from 'adyen';
 
 const merchantAccount: MerchantAccount = {
   merchantAccount: 'merchantAccount0',

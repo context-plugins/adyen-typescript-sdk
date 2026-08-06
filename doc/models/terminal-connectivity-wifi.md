@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { TerminalConnectivityWifi } from 'adyenlib';
+import { TerminalConnectivityWifi } from 'adyen';
 
 const terminalConnectivityWifi: TerminalConnectivityWifi = {
   ipAddress: 'ipAddress0',

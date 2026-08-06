@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { OtherInfo, ProductType1, SubType11 } from 'adyenlib';
+import { OtherInfo, ProductType1, SubType11 } from 'adyen';
 
 const otherInfo: OtherInfo = {
   descriptionOfIssue: 'descriptionOfIssue8',

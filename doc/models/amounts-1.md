@@ -20,7 +20,7 @@ The object that contains the fixed donation amounts that the shopper can select 
 ## Example
 
 ```ts
-import { Amounts1 } from 'adyenlib';
+import { Amounts1 } from 'adyen';
 
 const amounts1: Amounts1 = {
   currency: 'currency6',

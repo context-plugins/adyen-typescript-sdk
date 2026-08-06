@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { IbanAccountIdentifier } from 'adyenlib';
+import { IbanAccountIdentifier } from 'adyen';
 
 const ibanAccountIdentifier: IbanAccountIdentifier = {
   bban: 'bban4',

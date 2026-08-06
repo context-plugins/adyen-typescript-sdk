@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PaypalUpdateOrderResponse, Status42 } from 'adyenlib';
+import { PaypalUpdateOrderResponse, Status42 } from 'adyen';
 
 const paypalUpdateOrderResponse: PaypalUpdateOrderResponse = {
   paymentData: 'paymentData0',

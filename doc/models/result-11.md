@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Result11 } from 'adyenlib';
+import { Result11 } from 'adyen';
 
 const result11 = Result11.Success;
 ```

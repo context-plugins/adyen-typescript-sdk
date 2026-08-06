@@ -33,7 +33,7 @@ The priority for the bank transfer. This sets the speed at which the transfer is
 ## Example
 
 ```ts
-import { Priority2 } from 'adyenlib';
+import { Priority2 } from 'adyen';
 
 const priority2 = Priority2.CrossBorder;
 ```

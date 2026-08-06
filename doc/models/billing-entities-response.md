@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BillingEntitiesResponse } from 'adyenlib';
+import { BillingEntitiesResponse } from 'adyen';
 
 const billingEntitiesResponse: BillingEntitiesResponse = {
   data: [

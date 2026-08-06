@@ -35,7 +35,7 @@
 ## Example
 
 ```ts
-import { AmountAdjustmentType, TransferEvent } from 'adyenlib';
+import { AmountAdjustmentType, TransferEvent } from 'adyen';
 
 const transferEvent: TransferEvent = {
   amount: {

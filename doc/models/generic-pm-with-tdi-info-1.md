@@ -19,7 +19,7 @@ Details to provide if `type` is **cup** (China Union Pay).
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo1, Type33 } from 'adyenlib';
+import { GenericPmWithTdiInfo1, Type33 } from 'adyen';
 
 const genericPmWithTdiInfo1: GenericPmWithTdiInfo1 = {
   transactionDescription: {

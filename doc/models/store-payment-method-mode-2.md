@@ -23,7 +23,7 @@ Indicates if the details of the payment method will be stored for the shopper. P
 ## Example
 
 ```ts
-import { StorePaymentMethodMode2 } from 'adyenlib';
+import { StorePaymentMethodMode2 } from 'adyen';
 
 const storePaymentMethodMode2 = StorePaymentMethodMode2.Enabled;
 ```

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { ReturnTransferResponse, Status61 } from 'adyenlib';
+import { ReturnTransferResponse, Status61 } from 'adyen';
 
 const returnTransferResponse: ReturnTransferResponse = {
   id: 'id8',

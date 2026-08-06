@@ -20,7 +20,7 @@ The status of the store. Possible values: **Pending**, **Active**, **Inactive**,
 ## Example
 
 ```ts
-import { Status } from 'adyenlib';
+import { Status } from 'adyen';
 
 const status = Status.InactiveWithModifications;
 ```

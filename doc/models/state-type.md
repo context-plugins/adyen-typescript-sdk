@@ -23,7 +23,7 @@ The state to be updated.
 ## Example
 
 ```ts
-import { StateType } from 'adyenlib';
+import { StateType } from 'adyen';
 
 const stateType = StateType.LimitlessPayout;
 ```

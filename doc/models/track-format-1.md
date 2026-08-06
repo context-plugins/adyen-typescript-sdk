@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { TrackFormat1 } from 'adyenlib';
+import { TrackFormat1 } from 'adyen';
 
 const trackFormat1 = TrackFormat1.Iso;
 ```

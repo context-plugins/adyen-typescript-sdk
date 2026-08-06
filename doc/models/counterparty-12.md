@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Counterparty12 } from 'adyenlib';
+import { Counterparty12 } from 'adyen';
 
 const counterparty12: Counterparty12 = {
   balanceAccountId: 'balanceAccountId4',

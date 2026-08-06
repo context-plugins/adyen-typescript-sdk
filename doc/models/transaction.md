@@ -32,7 +32,7 @@
 ## Example
 
 ```ts
-import { Transaction } from 'adyenlib';
+import { Transaction } from 'adyen';
 
 const transaction: Transaction = {
   amount: {

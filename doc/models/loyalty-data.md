@@ -26,7 +26,7 @@ import {
   IdentificationSupport1,
   IdentificationType11,
   LoyaltyData,
-} from 'adyenlib';
+} from 'adyen';
 
 const loyaltyData: LoyaltyData = {
   cardAcquisitionReference: {

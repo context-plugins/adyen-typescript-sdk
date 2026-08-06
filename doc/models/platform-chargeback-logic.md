@@ -21,7 +21,7 @@ Defines how to book chargebacks when using [Adyen for Platforms](https://docs.ad
 ## Example
 
 ```ts
-import { Behavior, PlatformChargebackLogic } from 'adyenlib';
+import { Behavior, PlatformChargebackLogic } from 'adyen';
 
 const platformChargebackLogic: PlatformChargebackLogic = {
   behavior: Behavior.DeductFromOneBalanceAccount,

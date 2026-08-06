@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DccAmount } from 'adyenlib';
+import { DccAmount } from 'adyen';
 
 const dccAmount: DccAmount = {
   currency: 'currency4',

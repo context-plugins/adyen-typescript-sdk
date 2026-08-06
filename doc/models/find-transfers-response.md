@@ -24,7 +24,7 @@ import {
   Priority,
   Status53,
   Type312,
-} from 'adyenlib';
+} from 'adyen';
 
 const findTransfersResponse: FindTransfersResponse = {
   links: {

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Capability, Type21, VerificationErrorRecursive } from 'adyenlib';
+import { Capability, Type21, VerificationErrorRecursive } from 'adyen';
 
 const verificationErrorRecursive: VerificationErrorRecursive = {
   capabilities: [

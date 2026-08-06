@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { InternalCategoryData, Type410 } from 'adyenlib';
+import { InternalCategoryData, Type410 } from 'adyen';
 
 const internalCategoryData: InternalCategoryData = {
   modificationMerchantReference: 'modificationMerchantReference4',

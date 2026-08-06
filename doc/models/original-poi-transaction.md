@@ -27,7 +27,7 @@ In the Payment Request message, it allows using the card of a previous CardAcqui
 ## Example
 
 ```ts
-import { OriginalPoiTransaction } from 'adyenlib';
+import { OriginalPoiTransaction } from 'adyen';
 
 const originalPoiTransaction: OriginalPoiTransaction = {
   saleId: 'SaleID4',

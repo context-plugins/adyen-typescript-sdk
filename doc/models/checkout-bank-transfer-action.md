@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { CheckoutBankTransferAction, Type503 } from 'adyenlib';
+import { CheckoutBankTransferAction, Type503 } from 'adyen';
 
 const checkoutBankTransferAction: CheckoutBankTransferAction = {
   type: Type503.BankTransfer,

@@ -20,7 +20,7 @@ Airline information.
 ## Example
 
 ```ts
-import { Airline11 } from 'adyenlib';
+import { Airline11 } from 'adyen';
 
 const airline11: Airline11 = {
   legs: [

@@ -22,7 +22,7 @@ Details to provide if `type` is **valuelink**.
 ## Example
 
 ```ts
-import { PinSupport, ValuelinkInfo2 } from 'adyenlib';
+import { PinSupport, ValuelinkInfo2 } from 'adyen';
 
 const valuelinkInfo2: ValuelinkInfo2 = {
   authorisationMid: 'authorisationMid2',

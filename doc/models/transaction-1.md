@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { Priority, Status71, Transaction1, Type312 } from 'adyenlib';
+import { Priority, Status71, Transaction1, Type312 } from 'adyen';
 
 const transaction1: Transaction1 = {
   accountHolder: {

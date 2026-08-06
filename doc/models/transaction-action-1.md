@@ -24,7 +24,7 @@ Action to realise on a transaction. In an `EnableService` request message:
 ## Example
 
 ```ts
-import { TransactionAction1 } from 'adyenlib';
+import { TransactionAction1 } from 'adyen';
 
 const transactionAction1 = TransactionAction1.StartTransaction;
 ```

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AttachDocumentResponse } from 'adyenlib';
+import { AttachDocumentResponse } from 'adyen';
 
 const attachDocumentResponse: AttachDocumentResponse = {
   attachmentId: 'attachmentId2',

@@ -21,7 +21,7 @@ Contains the card user's password and mobile phone number. This is required when
 ## Example
 
 ```ts
-import { Authentication1, Type4 } from 'adyenlib';
+import { Authentication1, Type4 } from 'adyen';
 
 const authentication1: Authentication1 = {
   email: 'email6',

@@ -17,7 +17,7 @@ The type of the entity the payment is processed for.
 ## Example
 
 ```ts
-import { EntityType } from 'adyenlib';
+import { EntityType } from 'adyen';
 
 const entityType = EntityType.NaturalPerson;
 ```

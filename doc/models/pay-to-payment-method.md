@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PayToPaymentMethod } from 'adyenlib';
+import { PayToPaymentMethod } from 'adyen';
 
 const payToPaymentMethod: PayToPaymentMethod = {
   shopperReference: 'shopperReference8',

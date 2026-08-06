@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SplitDcc } from 'adyenlib';
+import { SplitDcc } from 'adyen';
 
 const splitDcc: SplitDcc = {
   accountHolderPercentage: BigInt(140),

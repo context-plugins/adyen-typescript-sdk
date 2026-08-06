@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { RegisterScaRequest } from 'adyenlib';
+import { RegisterScaRequest } from 'adyen';
 
 const registerScaRequest: RegisterScaRequest = {
   paymentInstrumentId: 'paymentInstrumentId0',

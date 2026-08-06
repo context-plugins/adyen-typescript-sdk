@@ -20,7 +20,7 @@ Contains information about the resource that owns the document.
 ## Example
 
 ```ts
-import { OwnerEntity2 } from 'adyenlib';
+import { OwnerEntity2 } from 'adyen';
 
 const ownerEntity2: OwnerEntity2 = {
   id: 'id6',

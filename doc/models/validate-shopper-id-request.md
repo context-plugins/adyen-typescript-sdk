@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ValidateShopperIdRequest } from 'adyenlib';
+import { ValidateShopperIdRequest } from 'adyen';
 
 const validateShopperIdRequest: ValidateShopperIdRequest = {
   merchantAccount: 'merchantAccount0',

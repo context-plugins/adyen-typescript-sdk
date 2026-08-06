@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CashAppUpdateInfo } from 'adyenlib';
+import { CashAppUpdateInfo } from 'adyen';
 
 const cashAppUpdateInfo: CashAppUpdateInfo = {
   logoUrl: 'logoUrl4',

@@ -20,7 +20,7 @@ Possible values: `STANDARD`, `SAME_DAY`.
 ## Example
 
 ```ts
-import { PayoutSpeed4 } from 'adyenlib';
+import { PayoutSpeed4 } from 'adyen';
 
 const payoutSpeed4 = PayoutSpeed4.Instant;
 ```

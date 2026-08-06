@@ -34,7 +34,7 @@ Action to be taken for completing the payment.
 ## Example
 
 ```ts
-import { PaymentResponse9, Type493 } from 'adyenlib';
+import { PaymentResponse9, Type493 } from 'adyen';
 
 const paymentResponse9: PaymentResponse9 = {
   action: {

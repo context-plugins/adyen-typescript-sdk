@@ -33,7 +33,7 @@ Possible values:
 ## Example
 
 ```ts
-import { AccountType3 } from 'adyenlib';
+import { AccountType3 } from 'adyen';
 
 const accountType3 = AccountType3.Checking;
 ```

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { BcmcResponseInfo1, Type33 } from 'adyenlib';
+import { BcmcResponseInfo1, Type33 } from 'adyen';
 
 const bcmcResponseInfo1: BcmcResponseInfo1 = {
   enableBcmcMobile: false,

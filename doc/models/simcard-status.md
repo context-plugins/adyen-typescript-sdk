@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { SimcardStatus } from 'adyenlib';
+import { SimcardStatus } from 'adyen';
 
 const simcardStatus = SimcardStatus.Activated;
 ```

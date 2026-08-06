@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CharacterHeight1 } from 'adyenlib';
+import { CharacterHeight1 } from 'adyen';
 
 const characterHeight1 = CharacterHeight1.HalfHeight;
 ```

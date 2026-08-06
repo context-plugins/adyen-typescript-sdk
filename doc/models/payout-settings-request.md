@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PayoutSettingsRequest } from 'adyenlib';
+import { PayoutSettingsRequest } from 'adyen';
 
 const payoutSettingsRequest: PayoutSettingsRequest = {
   transferInstrumentId: 'transferInstrumentId2',

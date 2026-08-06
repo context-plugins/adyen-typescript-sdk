@@ -19,7 +19,7 @@ In 3D Secure 2, this is the `transStatus` from the challenge result. If the tran
 ## Example
 
 ```ts
-import { AuthenticationResponse } from 'adyenlib';
+import { AuthenticationResponse } from 'adyen';
 
 const authenticationResponse = AuthenticationResponse.U;
 ```

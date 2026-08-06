@@ -20,7 +20,7 @@ Information regarding the transaction description.
 ## Example
 
 ```ts
-import { TransactionDescriptionResponseInfo1, Type33 } from 'adyenlib';
+import { TransactionDescriptionResponseInfo1, Type33 } from 'adyen';
 
 const transactionDescriptionResponseInfo1: TransactionDescriptionResponseInfo1 = {
   doingBusinessAsName: 'doingBusinessAsName2',

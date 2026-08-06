@@ -58,7 +58,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MessageCategory } from 'adyenlib';
+import { MessageCategory } from 'adyen';
 
 const messageCategory = MessageCategory.EnableService;
 ```

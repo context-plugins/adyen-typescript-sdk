@@ -20,7 +20,7 @@ Possible values: **ios**, **android**, **browser**.
 ## Example
 
 ```ts
-import { Type10 } from 'adyenlib';
+import { Type10 } from 'adyen';
 
 const type10 = Type10.Ios;
 ```

@@ -33,7 +33,7 @@ The status of the terminal:
 ## Example
 
 ```ts
-import { TerminalStatus } from 'adyenlib';
+import { TerminalStatus } from 'adyen';
 
 const terminalStatus = TerminalStatus.OnlineLast1Day;
 ```

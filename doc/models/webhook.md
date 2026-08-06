@@ -38,7 +38,7 @@
 ## Example
 
 ```ts
-import { CommunicationFormat, Webhook } from 'adyenlib';
+import { CommunicationFormat, Webhook } from 'adyen';
 
 const webhook: Webhook = {
   active: false,

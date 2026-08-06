@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { PayByBankPlaidResponseInfo1, Type33 } from 'adyenlib';
+import { PayByBankPlaidResponseInfo1, Type33 } from 'adyen';
 
 const payByBankPlaidResponseInfo1: PayByBankPlaidResponseInfo1 = {
   logo: 'logo4',

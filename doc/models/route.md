@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Route } from 'adyenlib';
+import { Route } from 'adyen';
 
 const route: Route = {
   link: 'link2',

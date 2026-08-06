@@ -38,7 +38,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataCommon } from 'adyenlib';
+import { AdditionalDataCommon } from 'adyen';
 
 const additionalDataCommon: AdditionalDataCommon = {
   requestedTestAcquirerResponseCode: 'RequestedTestAcquirerResponseCode6',

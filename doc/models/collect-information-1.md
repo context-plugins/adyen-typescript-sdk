@@ -24,7 +24,7 @@ Contains indicators whether the page should only collect information for specifi
 ## Example
 
 ```ts
-import { CollectInformation1 } from 'adyenlib';
+import { CollectInformation1 } from 'adyen';
 
 const collectInformation1: CollectInformation1 = {
   bankDetails: false,

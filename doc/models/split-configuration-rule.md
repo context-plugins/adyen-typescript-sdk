@@ -32,7 +32,7 @@ import {
   FundingSource1,
   ShopperInteraction11,
   SplitConfigurationRule,
-} from 'adyenlib';
+} from 'adyen';
 
 const splitConfigurationRule: SplitConfigurationRule = {
   currency: 'currency6',

@@ -27,7 +27,7 @@ Conditions on which the transaction must be processed.
 ## Example
 
 ```ts
-import { LoyaltyHandling1, TransactionConditions } from 'adyenlib';
+import { LoyaltyHandling1, TransactionConditions } from 'adyen';
 
 const transactionConditions: TransactionConditions = {
   allowedPaymentBrand: [

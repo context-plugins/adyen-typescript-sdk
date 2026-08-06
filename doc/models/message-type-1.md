@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MessageType1 } from 'adyenlib';
+import { MessageType1 } from 'adyen';
 
 const messageType1 = MessageType1.Notification;
 ```

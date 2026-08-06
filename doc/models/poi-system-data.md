@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GlobalStatus1, PoiSystemData, PrinterStatus1 } from 'adyenlib';
+import { GlobalStatus1, PoiSystemData, PrinterStatus1 } from 'adyen';
 
 const poiSystemData: PoiSystemData = {
   dateTime: '2016-03-13T12:52:32.123Z',

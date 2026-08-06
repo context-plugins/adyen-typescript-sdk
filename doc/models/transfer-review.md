@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ScaOnApproval, TransferReview } from 'adyenlib';
+import { ScaOnApproval, TransferReview } from 'adyen';
 
 const transferReview: TransferReview = {
   numberOfApprovalsRequired: 244,

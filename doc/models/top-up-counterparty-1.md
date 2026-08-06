@@ -19,7 +19,7 @@ The details about the counterparty that is funding the top-up.
 ## Example
 
 ```ts
-import { TopUpCounterparty1 } from 'adyenlib';
+import { TopUpCounterparty1 } from 'adyen';
 
 const topUpCounterparty1: TopUpCounterparty1 = {
   transferInstrumentId: 'transferInstrumentId4',

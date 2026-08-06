@@ -20,7 +20,7 @@ In the US, `maestro` is not supported; use `maestro_usa` instead.
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo8, Type33 } from 'adyenlib';
+import { GenericPmWithTdiInfo8, Type33 } from 'adyen';
 
 const genericPmWithTdiInfo8: GenericPmWithTdiInfo8 = {
   transactionDescription: {

@@ -34,7 +34,7 @@ import {
   Interval,
   Type21,
   Type3,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountHolderCapability: AccountHolderCapability = {
   allowed: false,

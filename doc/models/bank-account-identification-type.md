@@ -34,7 +34,7 @@
 ## Example
 
 ```ts
-import { BankAccountIdentificationType } from 'adyenlib';
+import { BankAccountIdentificationType } from 'adyen';
 
 const bankAccountIdentificationType = BankAccountIdentificationType.PlLocal;
 ```

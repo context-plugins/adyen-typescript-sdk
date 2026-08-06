@@ -20,7 +20,7 @@ Contains information about the party that receives the payment funds.
 ## Example
 
 ```ts
-import { Counterparty1 } from 'adyenlib';
+import { Counterparty1 } from 'adyen';
 
 const counterparty1: Counterparty1 = {
   accountHolder: {

@@ -16,7 +16,7 @@ The status of your request. This will always have the value **received**.
 ## Example
 
 ```ts
-import { Status20 } from 'adyenlib';
+import { Status20 } from 'adyen';
 
 const status20 = Status20.Received;
 ```

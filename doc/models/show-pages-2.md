@@ -27,7 +27,7 @@ Contains indicators whether specific pages must be shown to the account holder.
 ## Example
 
 ```ts
-import { ShowPages2 } from 'adyenlib';
+import { ShowPages2 } from 'adyen';
 
 const showPages2: ShowPages2 = {
   bankDetailsSummaryPage: false,

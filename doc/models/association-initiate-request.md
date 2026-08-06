@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AssociationInitiateRequest, Type103 } from 'adyenlib';
+import { AssociationInitiateRequest, Type103 } from 'adyen';
 
 const associationInitiateRequest: AssociationInitiateRequest = {
   ids: [

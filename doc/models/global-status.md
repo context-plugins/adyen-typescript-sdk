@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { GlobalStatus } from 'adyenlib';
+import { GlobalStatus } from 'adyen';
 
 const globalStatus = GlobalStatus.Maintenance;
 ```

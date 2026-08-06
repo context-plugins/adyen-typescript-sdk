@@ -32,7 +32,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type6 } from 'adyenlib';
+import { Type6 } from 'adyen';
 
 const type6 = Type6.Cron;
 ```

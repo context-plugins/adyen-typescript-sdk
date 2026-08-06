@@ -32,7 +32,7 @@ Result of the 3D Secure 2 authentication.
 ## Example
 
 ```ts
-import { ChallengeCancel, ThreeDs2Result1 } from 'adyenlib';
+import { ChallengeCancel, ThreeDs2Result1 } from 'adyen';
 
 const threeDs2Result1: ThreeDs2Result1 = {
   authenticationValue: 'authenticationValue2',

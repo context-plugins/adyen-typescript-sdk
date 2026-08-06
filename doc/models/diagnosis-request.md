@@ -22,7 +22,7 @@ Content of the Diagnosis Request message.
 ## Example
 
 ```ts
-import { DiagnosisRequest } from 'adyenlib';
+import { DiagnosisRequest } from 'adyen';
 
 const diagnosisRequest: DiagnosisRequest = {
   poiid: 'POIID0',

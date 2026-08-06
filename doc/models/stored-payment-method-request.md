@@ -22,10 +22,7 @@
 ## Example
 
 ```ts
-import {
-  RecurringProcessingModel1,
-  StoredPaymentMethodRequest,
-} from 'adyenlib';
+import { RecurringProcessingModel1, StoredPaymentMethodRequest } from 'adyen';
 
 const storedPaymentMethodRequest: StoredPaymentMethodRequest = {
   merchantAccount: 'merchantAccount4',

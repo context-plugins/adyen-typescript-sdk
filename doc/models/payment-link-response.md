@@ -62,7 +62,7 @@
 ## Example
 
 ```ts
-import { PaymentLinkResponse, Status31 } from 'adyenlib';
+import { PaymentLinkResponse, Status31 } from 'adyen';
 
 const paymentLinkResponse: PaymentLinkResponse = {
   amount: {

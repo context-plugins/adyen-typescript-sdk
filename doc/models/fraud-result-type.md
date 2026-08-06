@@ -22,7 +22,7 @@ The fraud result properties of the payment. Possible values:
 ## Example
 
 ```ts
-import { FraudResultType } from 'adyenlib';
+import { FraudResultType } from 'adyen';
 
 const fraudResultType = FraudResultType.Green;
 ```

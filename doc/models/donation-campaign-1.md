@@ -31,7 +31,7 @@ import {
   DonationCampaignStatus2,
   DonationFlow4,
   DonationType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const donationCampaign1: DonationCampaign1 = {
   id: 'id6',

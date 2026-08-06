@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MinimumAmount } from 'adyenlib';
+import { MinimumAmount } from 'adyen';
 
 const minimumAmount: MinimumAmount = {
   currency: 'currency2',

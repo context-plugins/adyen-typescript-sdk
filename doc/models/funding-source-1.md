@@ -30,7 +30,7 @@ Possible values:
 ## Example
 
 ```ts
-import { FundingSource1 } from 'adyenlib';
+import { FundingSource1 } from 'adyen';
 
 const fundingSource1 = FundingSource1.Charged;
 ```

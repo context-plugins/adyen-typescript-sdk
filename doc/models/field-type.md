@@ -21,7 +21,7 @@ The type of error field.
 ## Example
 
 ```ts
-import { FieldName, FieldType } from 'adyenlib';
+import { FieldName, FieldType } from 'adyen';
 
 const fieldType: FieldType = {
   field: 'field6',

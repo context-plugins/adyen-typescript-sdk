@@ -26,7 +26,7 @@ Identifies the type of transaction being authenticated. Length: 2 characters. Al
 ## Example
 
 ```ts
-import { TransType } from 'adyenlib';
+import { TransType } from 'adyen';
 
 const transType = TransType.Enum01;
 ```

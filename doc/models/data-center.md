@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DataCenter } from 'adyenlib';
+import { DataCenter } from 'adyen';
 
 const dataCenter: DataCenter = {
   livePrefix: 'livePrefix0',

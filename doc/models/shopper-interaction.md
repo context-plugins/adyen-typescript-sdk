@@ -17,7 +17,7 @@ The sales channel. Possible values: **Ecommerce**, **POS**.
 ## Example
 
 ```ts
-import { ShopperInteraction } from 'adyenlib';
+import { ShopperInteraction } from 'adyen';
 
 const shopperInteraction = ShopperInteraction.Ecommerce;
 ```

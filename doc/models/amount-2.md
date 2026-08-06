@@ -20,7 +20,7 @@ The transaction amount used as a base for the cost estimation.
 ## Example
 
 ```ts
-import { Amount2 } from 'adyenlib';
+import { Amount2 } from 'adyen';
 
 const amount2: Amount2 = {
   currency: 'currency8',

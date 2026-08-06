@@ -29,7 +29,7 @@ import {
   DonationFlow1,
   DonationType,
   InPersonDonationSettingsUpdate,
-} from 'adyenlib';
+} from 'adyen';
 
 const inPersonDonationSettingsUpdate: InPersonDonationSettingsUpdate = {
   defaultAmount: {

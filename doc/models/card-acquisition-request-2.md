@@ -24,7 +24,7 @@ import {
   CardAcquisitionRequest2,
   ForceEntryMode,
   LoyaltyHandling2,
-} from 'adyenlib';
+} from 'adyen';
 
 const cardAcquisitionRequest2: CardAcquisitionRequest2 = {
   saleData: {

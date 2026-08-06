@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Device, Type10 } from 'adyenlib';
+import { Device, Type10 } from 'adyen';
 
 const device: Device = {
   id: 'id6',

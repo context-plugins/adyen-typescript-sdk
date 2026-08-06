@@ -21,7 +21,7 @@ Details to provide if `type` is **mealVoucher_FR**.
 ## Example
 
 ```ts
-import { MealVoucherFrInfo1 } from 'adyenlib';
+import { MealVoucherFrInfo1 } from 'adyen';
 
 const mealVoucherFrInfo1: MealVoucherFrInfo1 = {
   conecsId: 'conecsId4',

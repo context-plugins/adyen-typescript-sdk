@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Reason11 } from 'adyenlib';
+import { Reason11 } from 'adyen';
 
 const reason11 = Reason11.RefusedForRegulatoryReasons;
 ```

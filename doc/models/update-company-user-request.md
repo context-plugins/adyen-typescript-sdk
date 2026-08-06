@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { UpdateCompanyUserRequest } from 'adyenlib';
+import { UpdateCompanyUserRequest } from 'adyen';
 
 const updateCompanyUserRequest: UpdateCompanyUserRequest = {
   accountGroups: [

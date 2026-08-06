@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { FundingSource, PaymentMethod } from 'adyenlib';
+import { FundingSource, PaymentMethod } from 'adyen';
 
 const paymentMethod: PaymentMethod = {
   apps: [

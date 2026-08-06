@@ -17,10 +17,7 @@
 ## Example
 
 ```ts
-import {
-  BankAccountIdentificationValidationRequest,
-  Type413,
-} from 'adyenlib';
+import { BankAccountIdentificationValidationRequest, Type413 } from 'adyen';
 
 const bankAccountIdentificationValidationRequest: BankAccountIdentificationValidationRequest = {
   accountIdentification: {

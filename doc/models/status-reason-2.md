@@ -27,7 +27,7 @@ If the reason is **other**, you must also send the `statusComment` parameter des
 ## Example
 
 ```ts
-import { StatusReason2 } from 'adyenlib';
+import { StatusReason2 } from 'adyen';
 
 const statusReason2 = StatusReason2.AccountClosure;
 ```

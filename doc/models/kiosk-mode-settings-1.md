@@ -20,7 +20,7 @@ Settings for kiosk mode.
 ## Example
 
 ```ts
-import { KioskModeSettings1 } from 'adyenlib';
+import { KioskModeSettings1 } from 'adyen';
 
 const kioskModeSettings1: KioskModeSettings1 = {
   allowedAppsInKioskMode: [

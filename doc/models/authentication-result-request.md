@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AuthenticationResultRequest } from 'adyenlib';
+import { AuthenticationResultRequest } from 'adyen';
 
 const authenticationResultRequest: AuthenticationResultRequest = {
   merchantAccount: 'merchantAccount2',

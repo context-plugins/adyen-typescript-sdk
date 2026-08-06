@@ -21,7 +21,7 @@ Contains information about the repayment configuration of the grant.
 ## Example
 
 ```ts
-import { Repayment11 } from 'adyenlib';
+import { Repayment11 } from 'adyen';
 
 const repayment11: Repayment11 = {
   basisPoints: 238,

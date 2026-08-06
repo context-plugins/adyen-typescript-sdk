@@ -20,7 +20,7 @@ Identifiers relevant for the Rix (Russian Interbank eXchange) system, used for i
 ## Example
 
 ```ts
-import { RixAccountIdentifier2 } from 'adyenlib';
+import { RixAccountIdentifier2 } from 'adyen';
 
 const rixAccountIdentifier2: RixAccountIdentifier2 = {
   accountNumber: 'accountNumber8',

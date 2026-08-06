@@ -32,7 +32,7 @@
 ## Example
 
 ```ts
-import { PaymentResponse, Type493 } from 'adyenlib';
+import { PaymentResponse, Type493 } from 'adyen';
 
 const paymentResponse: PaymentResponse = {
   action: {

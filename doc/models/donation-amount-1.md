@@ -20,7 +20,7 @@ The default amount for donations.
 ## Example
 
 ```ts
-import { DonationAmount1 } from 'adyenlib';
+import { DonationAmount1 } from 'adyen';
 
 const donationAmount1: DonationAmount1 = {
   amounts: [

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ExchangeSide2, RateType2, RatesCalculateRequest } from 'adyenlib';
+import { ExchangeSide2, RateType2, RatesCalculateRequest } from 'adyen';
 
 const ratesCalculateRequest: RatesCalculateRequest = {
   exchangeCalculations: [

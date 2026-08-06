@@ -21,7 +21,7 @@ import {
   CreateNotificationConfigurationRequest,
   EventType,
   IncludeMode,
-} from 'adyenlib';
+} from 'adyen';
 
 const createNotificationConfigurationRequest: CreateNotificationConfigurationRequest = {
   configurationDetails: {

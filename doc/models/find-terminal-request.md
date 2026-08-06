@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { FindTerminalRequest } from 'adyenlib';
+import { FindTerminalRequest } from 'adyen';
 
 const findTerminalRequest: FindTerminalRequest = {
   terminal: 'terminal4',

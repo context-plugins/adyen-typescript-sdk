@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { DisplayTextField } from 'adyenlib';
+import { DisplayTextField } from 'adyen';
 
 const displayTextField = DisplayTextField.CauseName;
 ```

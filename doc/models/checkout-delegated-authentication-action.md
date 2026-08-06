@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CheckoutDelegatedAuthenticationAction, Type543 } from 'adyenlib';
+import { CheckoutDelegatedAuthenticationAction, Type543 } from 'adyen';
 
 const checkoutDelegatedAuthenticationAction: CheckoutDelegatedAuthenticationAction = {
   type: Type543.DelegatedAuthentication,

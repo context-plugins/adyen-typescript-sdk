@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PaymentResponse8 } from 'adyenlib';
+import { PaymentResponse8 } from 'adyen';
 
 const paymentResponse8: PaymentResponse8 = {
   brand: 'brand6',

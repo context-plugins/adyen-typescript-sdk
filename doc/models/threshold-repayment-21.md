@@ -19,7 +19,7 @@ Contains the minimum threshold amount that your user must repay every 30-day per
 ## Example
 
 ```ts
-import { ThresholdRepayment21 } from 'adyenlib';
+import { ThresholdRepayment21 } from 'adyen';
 
 const thresholdRepayment21: ThresholdRepayment21 = {
   amount: {

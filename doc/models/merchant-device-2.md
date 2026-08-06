@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { MerchantDevice2 } from 'adyenlib';
+import { MerchantDevice2 } from 'adyen';
 
 const merchantDevice2: MerchantDevice2 = {
   os: 'os2',

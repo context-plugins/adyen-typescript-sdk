@@ -35,7 +35,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Category3 } from 'adyenlib';
+import { Category3 } from 'adyen';
 
 const category3 = Category3.Bank;
 ```

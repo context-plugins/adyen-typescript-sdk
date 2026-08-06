@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { ReversalReason1, ReversalRequest3 } from 'adyenlib';
+import { ReversalReason1, ReversalRequest3 } from 'adyen';
 
 const reversalRequest3: ReversalRequest3 = {
   originalPoiTransaction: {

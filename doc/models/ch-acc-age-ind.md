@@ -27,7 +27,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ChAccAgeInd } from 'adyenlib';
+import { ChAccAgeInd } from 'adyen';
 
 const chAccAgeInd = ChAccAgeInd.Enum01;
 ```

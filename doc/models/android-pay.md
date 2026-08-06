@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AndroidPay, Type61 } from 'adyenlib';
+import { AndroidPay, Type61 } from 'adyen';
 
 const androidPay: AndroidPay = {
   checkoutAttemptId: 'checkoutAttemptId0',

@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { OpenInvoice } from 'adyenlib';
+import { OpenInvoice } from 'adyen';
 
 const openInvoice: OpenInvoice = {
   billingAddress: 'billingAddress4',

@@ -19,7 +19,7 @@ Details to provide if `type` is **clearpay**.
 ## Example
 
 ```ts
-import { ClearpayInfo1 } from 'adyenlib';
+import { ClearpayInfo1 } from 'adyen';
 
 const clearpayInfo1: ClearpayInfo1 = {
   supportUrl: 'supportUrl0',

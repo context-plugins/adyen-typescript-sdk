@@ -27,7 +27,7 @@ Details of the document being submitted.
 ## Example
 
 ```ts
-import { DocumentDetail1, DocumentType } from 'adyenlib';
+import { DocumentDetail1, DocumentType } from 'adyen';
 
 const documentDetail1: DocumentDetail1 = {
   documentType: DocumentType.BankStatement,

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Type18, WebhookSetting } from 'adyenlib';
+import { Type18, WebhookSetting } from 'adyen';
 
 const webhookSetting: WebhookSetting = {
   currency: 'currency2',

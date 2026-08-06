@@ -40,7 +40,7 @@ Permitted values:
 ## Example
 
 ```ts
-import { DocumentType } from 'adyenlib';
+import { DocumentType } from 'adyen';
 
 const documentType = DocumentType.BankStatement;
 ```

@@ -21,7 +21,7 @@ Details of the repayment configuration.
 ## Example
 
 ```ts
-import { Repayment2 } from 'adyenlib';
+import { Repayment2 } from 'adyen';
 
 const repayment2: Repayment2 = {
   basisPoints: 76,

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AllowedOriginsResponse } from 'adyenlib';
+import { AllowedOriginsResponse } from 'adyen';
 
 const allowedOriginsResponse: AllowedOriginsResponse = {
   data: [

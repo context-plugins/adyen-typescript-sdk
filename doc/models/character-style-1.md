@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CharacterStyle1 } from 'adyenlib';
+import { CharacterStyle1 } from 'adyen';
 
 const characterStyle1 = CharacterStyle1.Italic;
 ```

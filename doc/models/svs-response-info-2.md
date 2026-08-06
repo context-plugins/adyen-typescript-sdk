@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SvsResponseInfo2 } from 'adyenlib';
+import { SvsResponseInfo2 } from 'adyen';
 
 const svsResponseInfo2: SvsResponseInfo2 = {
   authorisationMid: 'authorisationMid8',

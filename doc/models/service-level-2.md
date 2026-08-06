@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ServiceLevel2 } from 'adyenlib';
+import { ServiceLevel2 } from 'adyen';
 
 const serviceLevel2 = ServiceLevel2.PaymentDesignatorContract;
 ```

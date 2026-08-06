@@ -18,7 +18,7 @@ The processing model used for the recurring transaction.
 ## Example
 
 ```ts
-import { RecurringProcessingModel7 } from 'adyenlib';
+import { RecurringProcessingModel7 } from 'adyen';
 
 const recurringProcessingModel7 = RecurringProcessingModel7.Subscription;
 ```

@@ -19,7 +19,7 @@ Details to provide if `type` is **pulse**.
 ## Example
 
 ```ts
-import { PulseUpdateInfo1, Type33 } from 'adyenlib';
+import { PulseUpdateInfo1, Type33 } from 'adyen';
 
 const pulseUpdateInfo1: PulseUpdateInfo1 = {
   transactionDescription: {

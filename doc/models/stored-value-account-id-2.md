@@ -28,7 +28,7 @@ import {
   IdentificationType11,
   StoredValueAccountId2,
   StoredValueAccountType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueAccountId2: StoredValueAccountId2 = {
   storedValueAccountType: StoredValueAccountType1.GiftCard,

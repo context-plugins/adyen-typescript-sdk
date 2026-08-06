@@ -20,7 +20,7 @@ Configuration for creating redundant payment tokens with third-party token vault
 ## Example
 
 ```ts
-import { ThirdPartyTokenRedundancyInfo1 } from 'adyenlib';
+import { ThirdPartyTokenRedundancyInfo1 } from 'adyen';
 
 const thirdPartyTokenRedundancyInfo1: ThirdPartyTokenRedundancyInfo1 = {
   requestTemplateCode: 'requestTemplateCode8',

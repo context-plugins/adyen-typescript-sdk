@@ -23,7 +23,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { RecurringProcessingModel1 } from 'adyenlib';
+import { RecurringProcessingModel1 } from 'adyen';
 
 const recurringProcessingModel1 = RecurringProcessingModel1.UnscheduledCardOnFile;
 ```

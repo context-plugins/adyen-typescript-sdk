@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { AchAccountIdentifier } from 'adyenlib';
+import { AchAccountIdentifier } from 'adyen';
 
 const achAccountIdentifier: AchAccountIdentifier = {
   accountNumber: 'accountNumber8',

@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { BillingAttemptsRule } from 'adyenlib';
+import { BillingAttemptsRule } from 'adyen';
 
 const billingAttemptsRule = BillingAttemptsRule.On;
 ```

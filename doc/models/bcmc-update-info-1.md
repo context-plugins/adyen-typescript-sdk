@@ -19,7 +19,7 @@ Details to provide if `type` is **bcmc** (Bancontact).
 ## Example
 
 ```ts
-import { BcmcUpdateInfo1, Type33 } from 'adyenlib';
+import { BcmcUpdateInfo1, Type33 } from 'adyen';
 
 const bcmcUpdateInfo1: BcmcUpdateInfo1 = {
   transactionDescription: {

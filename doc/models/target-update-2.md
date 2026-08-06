@@ -20,7 +20,7 @@ The type and ID of the resource about whose balance changes you want to be notif
 ## Example
 
 ```ts
-import { TargetUpdate2, Type18 } from 'adyenlib';
+import { TargetUpdate2, Type18 } from 'adyen';
 
 const targetUpdate2: TargetUpdate2 = {
   id: 'id0',

@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { CarRental1, RateType } from 'adyenlib';
+import { CarRental1, RateType } from 'adyen';
 
 const carRental1: CarRental1 = {
   renterName: 'renterName8',

@@ -32,7 +32,7 @@ import {
   MenuEntryTag1,
   OutputFormat1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const inputRequest2: InputRequest2 = {
   inputData: {

@@ -23,7 +23,7 @@ Possible values: **associationIncorporated**, **governmentalOrganization**, **li
 ## Example
 
 ```ts
-import { Type161 } from 'adyenlib';
+import { Type161 } from 'adyen';
 
 const type161 = Type161.AssociationIncorporated;
 ```

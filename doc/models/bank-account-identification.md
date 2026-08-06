@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BankAccountIdentification } from 'adyenlib';
+import { BankAccountIdentification } from 'adyen';
 
 const bankAccountIdentification: BankAccountIdentification = {
   type: 'BankAccountIdentification',

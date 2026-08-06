@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RiskScores } from 'adyenlib';
+import { RiskScores } from 'adyen';
 
 const riskScores: RiskScores = {
   mastercard: 2,

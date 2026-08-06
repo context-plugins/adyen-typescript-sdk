@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Type32 } from 'adyenlib';
+import { Type32 } from 'adyen';
 
 const type32 = Type32.LegalEntity;
 ```

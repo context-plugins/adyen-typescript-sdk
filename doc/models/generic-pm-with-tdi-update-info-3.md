@@ -20,7 +20,7 @@ For merchants operating in Japan, Diners payments are processed through the JCB 
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo3, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo3, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo3: GenericPmWithTdiUpdateInfo3 = {
   transactionDescription: {

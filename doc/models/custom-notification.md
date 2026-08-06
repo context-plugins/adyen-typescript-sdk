@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { CustomNotification } from 'adyenlib';
+import { CustomNotification } from 'adyen';
 
 const customNotification: CustomNotification = {
   amount: {

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ApplePaySessionRequest } from 'adyenlib';
+import { ApplePaySessionRequest } from 'adyen';
 
 const applePaySessionRequest: ApplePaySessionRequest = {
   displayName: 'displayName4',

@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Service } from 'adyenlib';
+import { Service } from 'adyen';
 
 const service = Service.Issuing;
 ```

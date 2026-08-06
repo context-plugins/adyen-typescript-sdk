@@ -20,7 +20,7 @@ Specifies the service level (settlement type) of this payment method. Required f
 ## Example
 
 ```ts
-import { ServiceLevel1 } from 'adyenlib';
+import { ServiceLevel1 } from 'adyen';
 
 const serviceLevel1 = ServiceLevel1.NoContract;
 ```

@@ -26,7 +26,7 @@ The delivery address for this order.
 ## Example
 
 ```ts
-import { DeliveryAddress5 } from 'adyenlib';
+import { DeliveryAddress5 } from 'adyen';
 
 const deliveryAddress5: DeliveryAddress5 = {
   city: 'city2',

@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Individual, Type132 } from 'adyenlib';
+import { Individual, Type132 } from 'adyen';
 
 const individual: Individual = {
   name: {

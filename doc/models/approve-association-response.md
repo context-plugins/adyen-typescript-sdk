@@ -21,7 +21,7 @@ import {
   ApproveAssociationResponse,
   AssociationStatus1,
   ScaEntityType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const approveAssociationResponse: ApproveAssociationResponse = {
   scaAssociations: [

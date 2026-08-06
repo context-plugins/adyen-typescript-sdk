@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataRatepay } from 'adyenlib';
+import { AdditionalDataRatepay } from 'adyen';
 
 const additionalDataRatepay: AdditionalDataRatepay = {
   ratepayInstallmentAmount: 'ratepay.installmentAmount2',

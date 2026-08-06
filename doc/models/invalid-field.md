@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { InvalidField } from 'adyenlib';
+import { InvalidField } from 'adyen';
 
 const invalidField: InvalidField = {
   message: 'message6',

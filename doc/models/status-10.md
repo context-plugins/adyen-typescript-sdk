@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Status10 } from 'adyenlib';
+import { Status10 } from 'adyen';
 
 const status10 = Status10.Active;
 ```

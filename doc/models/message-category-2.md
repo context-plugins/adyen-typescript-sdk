@@ -66,7 +66,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MessageCategory2 } from 'adyenlib';
+import { MessageCategory2 } from 'adyen';
 
 const messageCategory2 = MessageCategory2.StoredValue;
 ```

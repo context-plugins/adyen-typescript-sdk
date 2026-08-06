@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DataReviewConfirmationResponse } from 'adyenlib';
+import { DataReviewConfirmationResponse } from 'adyen';
 
 const dataReviewConfirmationResponse: DataReviewConfirmationResponse = {
   dataReviewedAt: 'dataReviewedAt0',

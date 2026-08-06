@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { IdentificationData, Type132 } from 'adyenlib';
+import { IdentificationData, Type132 } from 'adyen';
 
 const identificationData: IdentificationData = {
   type: Type132.NationalIdNumber,

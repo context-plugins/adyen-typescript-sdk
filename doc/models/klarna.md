@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Klarna, Type34 } from 'adyenlib';
+import { Klarna, Type34 } from 'adyen';
 
 const klarna: Klarna = {
   type: Type34.KlarnaB2B,

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PlLocalAccountIdentification, Type256 } from 'adyenlib';
+import { PlLocalAccountIdentification, Type256 } from 'adyen';
 
 const plLocalAccountIdentification: PlLocalAccountIdentification = {
   accountNumber: 'accountNumber6',

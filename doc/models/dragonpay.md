@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Dragonpay, Type28 } from 'adyenlib';
+import { Dragonpay, Type28 } from 'adyen';
 
 const dragonpay: Dragonpay = {
   issuer: 'issuer0',

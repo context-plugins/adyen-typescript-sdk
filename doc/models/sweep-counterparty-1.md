@@ -23,7 +23,7 @@ Either a `balanceAccountId`, `transferInstrumentId`, or `merchantAccount` is req
 ## Example
 
 ```ts
-import { SweepCounterparty1 } from 'adyenlib';
+import { SweepCounterparty1 } from 'adyen';
 
 const sweepCounterparty1: SweepCounterparty1 = {
   balanceAccountId: 'balanceAccountId6',

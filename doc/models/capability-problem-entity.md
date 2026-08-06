@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CapabilityProblemEntity, Type3 } from 'adyenlib';
+import { CapabilityProblemEntity, Type3 } from 'adyen';
 
 const capabilityProblemEntity: CapabilityProblemEntity = {
   documents: [

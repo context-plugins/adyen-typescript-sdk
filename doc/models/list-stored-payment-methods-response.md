@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ListStoredPaymentMethodsResponse } from 'adyenlib';
+import { ListStoredPaymentMethodsResponse } from 'adyen';
 
 const listStoredPaymentMethodsResponse: ListStoredPaymentMethodsResponse = {
   merchantAccount: 'merchantAccount0',

@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { LoginRequest3, TokenRequestedType1 } from 'adyenlib';
+import { LoginRequest3, TokenRequestedType1 } from 'adyen';
 
 const loginRequest3: LoginRequest3 = {
   dateTime: '2016-03-13T12:52:32.123Z',

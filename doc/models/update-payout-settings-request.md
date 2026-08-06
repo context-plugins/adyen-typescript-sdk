@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { UpdatePayoutSettingsRequest } from 'adyenlib';
+import { UpdatePayoutSettingsRequest } from 'adyen';
 
 const updatePayoutSettingsRequest: UpdatePayoutSettingsRequest = {
   enabled: false,

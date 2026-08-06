@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BalanceTransferResponse } from 'adyenlib';
+import { BalanceTransferResponse } from 'adyen';
 
 const balanceTransferResponse: BalanceTransferResponse = {
   createdAt: '2016-03-13T12:52:32.123Z',

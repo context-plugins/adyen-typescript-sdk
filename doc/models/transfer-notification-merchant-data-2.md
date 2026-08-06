@@ -26,7 +26,7 @@ Contains information about the merchant.
 ## Example
 
 ```ts
-import { TransferNotificationMerchantData2 } from 'adyenlib';
+import { TransferNotificationMerchantData2 } from 'adyen';
 
 const transferNotificationMerchantData2: TransferNotificationMerchantData2 = {
   acquirerId: 'acquirerId0',

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { RecurringDetailsResult } from 'adyenlib';
+import { RecurringDetailsResult } from 'adyen';
 
 const recurringDetailsResult: RecurringDetailsResult = {
   creationDate: '2016-03-13T12:52:32.123Z',

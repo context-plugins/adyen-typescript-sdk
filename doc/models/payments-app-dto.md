@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { PaymentsAppDto } from 'adyenlib';
+import { PaymentsAppDto } from 'adyen';
 
 const paymentsAppDto: PaymentsAppDto = {
   installationId: 'installationId6',

@@ -25,7 +25,7 @@ The address of the contact.
 ## Example
 
 ```ts
-import { DeliveryAddress2 } from 'adyenlib';
+import { DeliveryAddress2 } from 'adyen';
 
 const deliveryAddress2: DeliveryAddress2 = {
   country: 'country2',

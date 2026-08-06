@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { CalculatedGrantOffer, ContractType } from 'adyenlib';
+import { CalculatedGrantOffer, ContractType } from 'adyen';
 
 const calculatedGrantOffer: CalculatedGrantOffer = {
   accountHolderId: 'accountHolderId2',

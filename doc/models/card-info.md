@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { CardInfo, FormFactor1, PhoneType, Type4 } from 'adyenlib';
+import { CardInfo, FormFactor1, PhoneType, Type4 } from 'adyen';
 
 const cardInfo: CardInfo = {
   brand: 'brand6',

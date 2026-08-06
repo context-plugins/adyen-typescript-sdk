@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { FinishScaDeviceRegistrationRequest } from 'adyenlib';
+import { FinishScaDeviceRegistrationRequest } from 'adyen';
 
 const finishScaDeviceRegistrationRequest: FinishScaDeviceRegistrationRequest = {
   sdkOutput: 'sdkOutput0',

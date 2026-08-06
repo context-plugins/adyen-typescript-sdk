@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { HuLocalAccountIdentification, Type193 } from 'adyenlib';
+import { HuLocalAccountIdentification, Type193 } from 'adyen';
 
 const huLocalAccountIdentification: HuLocalAccountIdentification = {
   accountNumber: 'accountNumber6',

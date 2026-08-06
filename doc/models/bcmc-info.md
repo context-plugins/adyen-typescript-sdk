@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BcmcInfo } from 'adyenlib';
+import { BcmcInfo } from 'adyen';
 
 const bcmcInfo: BcmcInfo = {
   enableBcmcMobile: false,

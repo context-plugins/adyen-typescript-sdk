@@ -21,7 +21,7 @@ Additional data for merchants who don't use Adyen as the payment authorisation g
 ## Example
 
 ```ts
-import { MerchantDetails2 } from 'adyenlib';
+import { MerchantDetails2 } from 'adyen';
 
 const merchantDetails2: MerchantDetails2 = {
   countryCode: 'countryCode6',

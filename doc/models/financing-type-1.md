@@ -19,7 +19,7 @@ Possible values: **businessFinancing**
 ## Example
 
 ```ts
-import { FinancingType1 } from 'adyenlib';
+import { FinancingType1 } from 'adyen';
 
 const financingType1 = FinancingType1.HardwareFinancing;
 ```

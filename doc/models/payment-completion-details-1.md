@@ -38,7 +38,7 @@ Use this collection to submit the details that were returned as a result of the 
 ## Example
 
 ```ts
-import { PaymentCompletionDetails1 } from 'adyenlib';
+import { PaymentCompletionDetails1 } from 'adyen';
 
 const paymentCompletionDetails1: PaymentCompletionDetails1 = {
   md: 'MD0',

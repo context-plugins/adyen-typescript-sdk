@@ -20,7 +20,7 @@ Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks.
 ## Example
 
 ```ts
-import { WifiProfiles2 } from 'adyenlib';
+import { WifiProfiles2 } from 'adyen';
 
 const wifiProfiles2: WifiProfiles2 = {
   profiles: [

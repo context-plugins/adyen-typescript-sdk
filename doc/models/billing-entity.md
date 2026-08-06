@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { BillingEntity } from 'adyenlib';
+import { BillingEntity } from 'adyen';
 
 const billingEntity: BillingEntity = {
   address: {

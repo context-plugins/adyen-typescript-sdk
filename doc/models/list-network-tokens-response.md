@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ListNetworkTokensResponse } from 'adyenlib';
+import { ListNetworkTokensResponse } from 'adyen';
 
 const listNetworkTokensResponse: ListNetworkTokensResponse = {
   networkTokens: [

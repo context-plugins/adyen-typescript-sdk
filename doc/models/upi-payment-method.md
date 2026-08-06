@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { UpiPaymentMethod } from 'adyenlib';
+import { UpiPaymentMethod } from 'adyen';
 
 const upiPaymentMethod: UpiPaymentMethod = {
   virtualPaymentAddress: 'virtualPaymentAddress0',

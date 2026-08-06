@@ -20,7 +20,7 @@ Possible values: **ios**, **android**, **browser**.
 ## Example
 
 ```ts
-import { ScaDeviceType1 } from 'adyenlib';
+import { ScaDeviceType1 } from 'adyen';
 
 const scaDeviceType1 = ScaDeviceType1.Android;
 ```

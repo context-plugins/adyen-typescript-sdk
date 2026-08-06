@@ -23,12 +23,7 @@
 ## Example
 
 ```ts
-import {
-  Category35,
-  Priority,
-  TransferRouteRequest,
-  Type413,
-} from 'adyenlib';
+import { Category35, Priority, TransferRouteRequest, Type413 } from 'adyen';
 
 const transferRouteRequest: TransferRouteRequest = {
   balancePlatform: 'balancePlatform8',

@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type78 } from 'adyenlib';
+import { Type78 } from 'adyen';
 
 const type78 = Type78.UpiCollect;
 ```

@@ -25,7 +25,7 @@ Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, *
 ## Example
 
 ```ts
-import { ProcessingType1 } from 'adyenlib';
+import { ProcessingType1 } from 'adyen';
 
 const processingType1 = ProcessingType1.Pos;
 ```

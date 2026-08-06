@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { EnhancedSchemeData, RateType } from 'adyenlib';
+import { EnhancedSchemeData, RateType } from 'adyen';
 
 const enhancedSchemeData: EnhancedSchemeData = {
   airline: {

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ConfirmPaymentRequest } from 'adyenlib';
+import { ConfirmPaymentRequest } from 'adyen';
 
 const confirmPaymentRequest: ConfirmPaymentRequest = {
   balanceAccountId: 'BA00000000000000000000000',

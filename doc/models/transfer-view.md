@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Priority, TransferView, Type312 } from 'adyenlib';
+import { Priority, TransferView, Type312 } from 'adyen';
 
 const transferView: TransferView = {
   reference: 'reference2',

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SoundContent, SoundFormat1 } from 'adyenlib';
+import { SoundContent, SoundFormat1 } from 'adyen';
 
 const soundContent: SoundContent = {
   soundFormat: SoundFormat1.SoundRef,

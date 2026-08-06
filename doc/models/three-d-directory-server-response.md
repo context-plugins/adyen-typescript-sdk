@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ThreeDDirectoryServerResponse } from 'adyenlib';
+import { ThreeDDirectoryServerResponse } from 'adyen';
 
 const threeDDirectoryServerResponse = ThreeDDirectoryServerResponse.N;
 ```

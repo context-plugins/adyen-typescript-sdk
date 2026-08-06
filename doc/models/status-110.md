@@ -21,7 +21,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Status110 } from 'adyenlib';
+import { Status110 } from 'adyen';
 
 const status110 = Status110.Credited;
 ```

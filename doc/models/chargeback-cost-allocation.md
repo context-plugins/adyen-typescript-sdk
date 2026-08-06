@@ -19,7 +19,7 @@ Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
 ## Example
 
 ```ts
-import { ChargebackCostAllocation } from 'adyenlib';
+import { ChargebackCostAllocation } from 'adyen';
 
 const chargebackCostAllocation = ChargebackCostAllocation.DeductFromLiableAccount;
 ```

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentToken2, TokenRequestedType1 } from 'adyenlib';
+import { PaymentToken2, TokenRequestedType1 } from 'adyen';
 
 const paymentToken2: PaymentToken2 = {
   tokenRequestedType: TokenRequestedType1.Transaction,

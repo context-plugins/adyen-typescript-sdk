@@ -26,7 +26,7 @@ Contains the business account details. Returned when you create a payment instru
 ## Example
 
 ```ts
-import { BankAccountDetails1 } from 'adyenlib';
+import { BankAccountDetails1 } from 'adyen';
 
 const bankAccountDetails1: BankAccountDetails1 = {
   type: 'type2',

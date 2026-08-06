@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { UpdateStoreRequest } from 'adyenlib';
+import { UpdateStoreRequest } from 'adyen';
 
 const updateStoreRequest: UpdateStoreRequest = {
   address: {

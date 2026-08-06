@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ScheduleType1, Trigger } from 'adyenlib';
+import { ScheduleType1, Trigger } from 'adyen';
 
 const trigger: Trigger = {
   threshold: {

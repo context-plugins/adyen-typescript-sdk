@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataTemporaryServices } from 'adyenlib';
+import { AdditionalDataTemporaryServices } from 'adyen';
 
 const additionalDataTemporaryServices: AdditionalDataTemporaryServices = {
   enhancedSchemeDataCustomerReference: 'enhancedSchemeData.customerReference2',

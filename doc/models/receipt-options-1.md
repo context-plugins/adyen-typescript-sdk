@@ -23,7 +23,7 @@ Generic receipt settings.
 ## Example
 
 ```ts
-import { ReceiptOptions1 } from 'adyenlib';
+import { ReceiptOptions1 } from 'adyen';
 
 const receiptOptions1: ReceiptOptions1 = {
   headerLine1: 'headerLine16',

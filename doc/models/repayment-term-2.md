@@ -20,7 +20,7 @@ An object containing the details of the configuration for repayment term.
 ## Example
 
 ```ts
-import { RepaymentTerm2 } from 'adyenlib';
+import { RepaymentTerm2 } from 'adyen';
 
 const repaymentTerm2: RepaymentTerm2 = {
   estimatedDays: 100,

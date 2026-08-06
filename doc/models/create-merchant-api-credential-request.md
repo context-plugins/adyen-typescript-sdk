@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CreateMerchantApiCredentialRequest } from 'adyenlib';
+import { CreateMerchantApiCredentialRequest } from 'adyen';
 
 const createMerchantApiCredentialRequest: CreateMerchantApiCredentialRequest = {
   allowedOrigins: [

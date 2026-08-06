@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { UnSuspendAccountHolderRequest } from 'adyenlib';
+import { UnSuspendAccountHolderRequest } from 'adyen';
 
 const unSuspendAccountHolderRequest: UnSuspendAccountHolderRequest = {
   accountHolderCode: 'accountHolderCode0',

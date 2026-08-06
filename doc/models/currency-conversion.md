@@ -25,7 +25,7 @@ A currency conversion occurred in the payment, and the merchant needs to know in
 ## Example
 
 ```ts
-import { CurrencyConversion } from 'adyenlib';
+import { CurrencyConversion } from 'adyen';
 
 const currencyConversion: CurrencyConversion = {
   convertedAmount: {

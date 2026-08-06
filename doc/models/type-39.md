@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Type39 } from 'adyenlib';
+import { Type39 } from 'adyen';
 
 const type39 = Type39.Openinvoice;
 ```

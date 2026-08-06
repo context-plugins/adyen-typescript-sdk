@@ -22,7 +22,7 @@ If Result is Success, `ErrorCondition` is absent or not used in the processing o
 ## Example
 
 ```ts
-import { ErrorCondition1, Response1, Result11 } from 'adyenlib';
+import { ErrorCondition1, Response1, Result11 } from 'adyen';
 
 const response1: Response1 = {
   result: Result11.Failure,

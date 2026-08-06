@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentDetails2, Type43 } from 'adyenlib';
+import { PaymentDetails2, Type43 } from 'adyen';
 
 const paymentDetails2: PaymentDetails2 = {
   checkoutAttemptId: 'checkoutAttemptId0',

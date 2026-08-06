@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { UpdateCompanyApiCredentialRequest } from 'adyenlib';
+import { UpdateCompanyApiCredentialRequest } from 'adyen';
 
 const updateCompanyApiCredentialRequest: UpdateCompanyApiCredentialRequest = {
   active: false,

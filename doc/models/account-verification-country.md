@@ -34,7 +34,7 @@
 ## Example
 
 ```ts
-import { AccountVerificationCountry } from 'adyenlib';
+import { AccountVerificationCountry } from 'adyen';
 
 const accountVerificationCountry = AccountVerificationCountry.Pt;
 ```

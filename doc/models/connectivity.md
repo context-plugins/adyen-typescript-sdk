@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Connectivity, SimcardStatus } from 'adyenlib';
+import { Connectivity, SimcardStatus } from 'adyen';
 
 const connectivity: Connectivity = {
   simcardStatus: SimcardStatus.Activated,

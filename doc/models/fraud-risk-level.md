@@ -26,7 +26,7 @@ The risk level of the transaction as classified by the [machine learning](https:
 ## Example
 
 ```ts
-import { FraudRiskLevel } from 'adyenlib';
+import { FraudRiskLevel } from 'adyen';
 
 const fraudRiskLevel = FraudRiskLevel.Low;
 ```

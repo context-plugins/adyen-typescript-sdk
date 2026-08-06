@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Frequency2, PixRecurring } from 'adyenlib';
+import { Frequency2, PixRecurring } from 'adyen';
 
 const pixRecurring: PixRecurring = {
   billingDate: 'billingDate0',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AuthenticationSessionResponse } from 'adyenlib';
+import { AuthenticationSessionResponse } from 'adyen';
 
 const authenticationSessionResponse: AuthenticationSessionResponse = {
   id: 'id6',

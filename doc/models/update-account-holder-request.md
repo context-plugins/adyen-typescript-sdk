@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { Gender, LegalEntity, UpdateAccountHolderRequest } from 'adyenlib';
+import { Gender, LegalEntity, UpdateAccountHolderRequest } from 'adyen';
 
 const updateAccountHolderRequest: UpdateAccountHolderRequest = {
   accountHolderCode: 'accountHolderCode0',

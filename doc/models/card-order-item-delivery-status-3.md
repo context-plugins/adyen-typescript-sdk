@@ -23,7 +23,7 @@ Possible values: **created**, **rejected**, **processing**, **produced**, **ship
 ## Example
 
 ```ts
-import { CardOrderItemDeliveryStatus3, Status7 } from 'adyenlib';
+import { CardOrderItemDeliveryStatus3, Status7 } from 'adyen';
 
 const cardOrderItemDeliveryStatus3: CardOrderItemDeliveryStatus3 = {
   errorMessage: 'errorMessage2',

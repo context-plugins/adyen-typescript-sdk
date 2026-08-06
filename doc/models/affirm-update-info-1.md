@@ -19,7 +19,7 @@ Details to provide if `type` is **affirm**.
 ## Example
 
 ```ts
-import { AffirmUpdateInfo1 } from 'adyenlib';
+import { AffirmUpdateInfo1 } from 'adyen';
 
 const affirmUpdateInfo1: AffirmUpdateInfo1 = {
   pricePlan: 'pricePlan2',

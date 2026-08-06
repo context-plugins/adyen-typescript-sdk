@@ -19,7 +19,7 @@ Contains information about the counterparty of the cashout transfer.
 ## Example
 
 ```ts
-import { CashOutInfoCounterparty1 } from 'adyenlib';
+import { CashOutInfoCounterparty1 } from 'adyen';
 
 const cashOutInfoCounterparty1: CashOutInfoCounterparty1 = {
   transferInstrumentId: 'transferInstrumentId8',

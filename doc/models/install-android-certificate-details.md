@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { InstallAndroidCertificateDetails, Type42 } from 'adyenlib';
+import { InstallAndroidCertificateDetails, Type42 } from 'adyen';
 
 const installAndroidCertificateDetails: InstallAndroidCertificateDetails = {
   certificateId: 'certificateId2',

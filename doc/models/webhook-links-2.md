@@ -23,7 +23,7 @@ References to resources connected with this webhook.
 ## Example
 
 ```ts
-import { WebhookLinks2 } from 'adyenlib';
+import { WebhookLinks2 } from 'adyen';
 
 const webhookLinks2: WebhookLinks2 = {
   generateHmac: {

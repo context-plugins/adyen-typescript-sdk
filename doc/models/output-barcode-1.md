@@ -20,7 +20,7 @@ Mandatory if `OutputFormat` is Barcode, not allowed otherwise.
 ## Example
 
 ```ts
-import { OutputBarcode1 } from 'adyenlib';
+import { OutputBarcode1 } from 'adyen';
 
 const outputBarcode1: OutputBarcode1 = {
   barcodeValue: 'BarcodeValue0',

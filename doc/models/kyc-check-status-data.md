@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { KycCheckStatusData, Status3, Type2 } from 'adyenlib';
+import { KycCheckStatusData, Status3, Type2 } from 'adyen';
 
 const kycCheckStatusData: KycCheckStatusData = {
   status: Status3.Passed,

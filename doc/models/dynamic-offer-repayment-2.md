@@ -19,7 +19,7 @@ Contains information about the repayment configuration of the grant.
 ## Example
 
 ```ts
-import { DynamicOfferRepayment2 } from 'adyenlib';
+import { DynamicOfferRepayment2 } from 'adyen';
 
 const dynamicOfferRepayment2: DynamicOfferRepayment2 = {
   term: {

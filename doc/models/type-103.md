@@ -18,7 +18,7 @@ Possible value: **PaymentInstrument**
 ## Example
 
 ```ts
-import { Type103 } from 'adyenlib';
+import { Type103 } from 'adyen';
 
 const type103 = Type103.PaymentInstrument;
 ```

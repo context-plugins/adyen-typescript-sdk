@@ -22,7 +22,7 @@ The platform where a payment transaction takes place. This field can be used for
 ## Example
 
 ```ts
-import { Channel3 } from 'adyenlib';
+import { Channel3 } from 'adyen';
 
 const channel3 = Channel3.Web;
 ```

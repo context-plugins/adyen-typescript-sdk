@@ -25,7 +25,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { DeliveryAddressUsageIndicator } from 'adyenlib';
+import { DeliveryAddressUsageIndicator } from 'adyen';
 
 const deliveryAddressUsageIndicator = DeliveryAddressUsageIndicator.From30To60Days;
 ```

@@ -38,7 +38,7 @@ import {
   Type21,
   Type3,
   Type4,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountHolder2: AccountHolder2 = {
   id: 'id4',

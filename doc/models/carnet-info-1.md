@@ -20,7 +20,7 @@ Details to provide if `type` is **carnet**.
 ## Example
 
 ```ts
-import { CarnetInfo1, Type33 } from 'adyenlib';
+import { CarnetInfo1, Type33 } from 'adyen';
 
 const carnetInfo1: CarnetInfo1 = {
   addMccAcronym: false,

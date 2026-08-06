@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ScaEntity, ScaEntityType4 } from 'adyenlib';
+import { ScaEntity, ScaEntityType4 } from 'adyen';
 
 const scaEntity: ScaEntity = {
   id: 'AH9999Z99Z999999ZZZZ9999Z',

@@ -19,7 +19,7 @@ Settings to define the behaviour of the payment terminal.
 ## Example
 
 ```ts
-import { TerminalInstructions1 } from 'adyenlib';
+import { TerminalInstructions1 } from 'adyen';
 
 const terminalInstructions1: TerminalInstructions1 = {
   adyenAppRestart: false,

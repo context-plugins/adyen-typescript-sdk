@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type84 } from 'adyenlib';
+import { Type84 } from 'adyen';
 
 const type84 = Type84.Estimation;
 ```

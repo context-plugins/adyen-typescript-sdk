@@ -19,7 +19,7 @@ Content of the Logout Request message.
 ## Example
 
 ```ts
-import { LogoutRequest2 } from 'adyenlib';
+import { LogoutRequest2 } from 'adyen';
 
 const logoutRequest2: LogoutRequest2 = {
   maintenanceAllowed: false,

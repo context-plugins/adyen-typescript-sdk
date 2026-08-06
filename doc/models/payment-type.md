@@ -40,7 +40,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PaymentType } from 'adyenlib';
+import { PaymentType } from 'adyen';
 
 const paymentType = PaymentType.UpdateReservation;
 ```

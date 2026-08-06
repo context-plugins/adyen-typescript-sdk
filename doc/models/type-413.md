@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type413 } from 'adyenlib';
+import { Type413 } from 'adyen';
 
 const type413 = Type413.AuLocal;
 ```

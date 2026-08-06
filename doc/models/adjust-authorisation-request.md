@@ -33,7 +33,7 @@ import {
   Behavior,
   ChallengeCancel,
   DirectoryResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const adjustAuthorisationRequest: AdjustAuthorisationRequest = {
   merchantAccount: 'merchantAccount2',

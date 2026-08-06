@@ -21,7 +21,7 @@ The key you share with Adyen to secure local communications when using Terminal 
 ## Example
 
 ```ts
-import { Key1 } from 'adyenlib';
+import { Key1 } from 'adyen';
 
 const key1: Key1 = {
   identifier: 'identifier4',

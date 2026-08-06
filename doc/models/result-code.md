@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ResultCode } from 'adyenlib';
+import { ResultCode } from 'adyen';
 
 const resultCode = ResultCode.NotEnoughBalance;
 ```

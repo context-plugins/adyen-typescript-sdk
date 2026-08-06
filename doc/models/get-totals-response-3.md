@@ -24,7 +24,7 @@ import {
   GetTotalsResponse3,
   PaymentInstrumentType11,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const getTotalsResponse3: GetTotalsResponse3 = {
   response: {

@@ -35,7 +35,7 @@ Key-value pairs indicating the settings for the hosted onboarding page. The key 
 ## Example
 
 ```ts
-import { OnboardingLinkSettings2 } from 'adyenlib';
+import { OnboardingLinkSettings2 } from 'adyen';
 
 const onboardingLinkSettings2: OnboardingLinkSettings2 = {
   acceptedCountries: [

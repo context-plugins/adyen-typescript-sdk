@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { Airline1 } from 'adyenlib';
+import { Airline1 } from 'adyen';
 
 const airline1: Airline1 = {
   passengerName: 'passengerName4',

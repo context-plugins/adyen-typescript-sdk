@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AccountProcessingState } from 'adyenlib';
+import { AccountProcessingState } from 'adyen';
 
 const accountProcessingState: AccountProcessingState = {
   disableReason: 'disableReason0',

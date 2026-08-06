@@ -29,7 +29,7 @@ import {
   PaymentInstrumentType11,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentInstrumentData2: PaymentInstrumentData2 = {
   paymentInstrumentType: PaymentInstrumentType11.Check,

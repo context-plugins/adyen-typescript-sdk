@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TerminalConnectivityBluetooth } from 'adyenlib';
+import { TerminalConnectivityBluetooth } from 'adyen';
 
 const terminalConnectivityBluetooth: TerminalConnectivityBluetooth = {
   ipAddress: 'ipAddress6',

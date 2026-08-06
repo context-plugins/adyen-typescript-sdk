@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { TransferInstrumentReference } from 'adyenlib';
+import { TransferInstrumentReference } from 'adyen';
 
 const transferInstrumentReference: TransferInstrumentReference = {
   accountIdentifier: 'accountIdentifier8',

@@ -18,7 +18,7 @@ Status of the payment link. Possible values:
 ## Example
 
 ```ts
-import { Status28 } from 'adyenlib';
+import { Status28 } from 'adyen';
 
 const status28 = Status28.Expired;
 ```

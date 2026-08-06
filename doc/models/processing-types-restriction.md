@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ProcessingTypesRestriction, Value4 } from 'adyenlib';
+import { ProcessingTypesRestriction, Value4 } from 'adyen';
 
 const processingTypesRestriction: ProcessingTypesRestriction = {
   operation: 'operation6',

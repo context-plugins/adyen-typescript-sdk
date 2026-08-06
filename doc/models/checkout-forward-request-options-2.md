@@ -24,7 +24,7 @@ The customizations that can be applied when making a forward request.
 ## Example
 
 ```ts
-import { CheckoutForwardRequestOptions2 } from 'adyenlib';
+import { CheckoutForwardRequestOptions2 } from 'adyen';
 
 const checkoutForwardRequestOptions2: CheckoutForwardRequestOptions2 = {
   accountUpdate: false,

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { NetworkTokenRequestor } from 'adyenlib';
+import { NetworkTokenRequestor } from 'adyen';
 
 const networkTokenRequestor: NetworkTokenRequestor = {
   id: 'id0',

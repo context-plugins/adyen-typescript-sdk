@@ -19,7 +19,7 @@ Details to provide if `type` is **mc**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo13, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo13, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo13: GenericPmWithTdiUpdateInfo13 = {
   transactionDescription: {

@@ -30,7 +30,7 @@ Various amounts related to the payment response from the POI System. Amounts app
 ## Example
 
 ```ts
-import { AmountsResp1 } from 'adyenlib';
+import { AmountsResp1 } from 'adyen';
 
 const amountsResp1: AmountsResp1 = {
   authorizedAmount: 21.92,

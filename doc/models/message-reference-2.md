@@ -24,7 +24,7 @@ Present if it contains any data.
 ## Example
 
 ```ts
-import { MessageCategory2, MessageReference2 } from 'adyenlib';
+import { MessageCategory2, MessageReference2 } from 'adyen';
 
 const messageReference2: MessageReference2 = {
   messageCategory: MessageCategory2.EnableService,

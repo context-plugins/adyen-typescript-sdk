@@ -24,7 +24,7 @@ The final merchant who will receive the money, also known as a [sub-merchant](ht
 ## Example
 
 ```ts
-import { SubMerchant2 } from 'adyenlib';
+import { SubMerchant2 } from 'adyen';
 
 const subMerchant2: SubMerchant2 = {
   city: 'city8',

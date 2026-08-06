@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { TotalFilter } from 'adyenlib';
+import { TotalFilter } from 'adyen';
 
 const totalFilter: TotalFilter = {
   poiid: 'POIID6',

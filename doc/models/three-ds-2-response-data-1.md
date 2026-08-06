@@ -37,7 +37,7 @@ Response of the 3D Secure 2 authentication.
 ## Example
 
 ```ts
-import { ThreeDs2ResponseData1 } from 'adyenlib';
+import { ThreeDs2ResponseData1 } from 'adyen';
 
 const threeDs2ResponseData1: ThreeDs2ResponseData1 = {
   acsChallengeMandated: 'acsChallengeMandated0',

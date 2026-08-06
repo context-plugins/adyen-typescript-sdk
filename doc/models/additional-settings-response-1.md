@@ -21,7 +21,7 @@ Additional shopper and transaction information to be included in your [standard 
 ## Example
 
 ```ts
-import { AdditionalSettingsResponse1 } from 'adyenlib';
+import { AdditionalSettingsResponse1 } from 'adyen';
 
 const additionalSettingsResponse1: AdditionalSettingsResponse1 = {
   excludeEventCodes: [

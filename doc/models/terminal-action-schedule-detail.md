@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TerminalActionScheduleDetail } from 'adyenlib';
+import { TerminalActionScheduleDetail } from 'adyen';
 
 const terminalActionScheduleDetail: TerminalActionScheduleDetail = {
   id: 'id6',

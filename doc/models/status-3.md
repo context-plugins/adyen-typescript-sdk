@@ -26,7 +26,7 @@ Possible values: **AWAITING_DATA** , **DATA_PROVIDED**, **FAILED**, **INVALID_DA
 ## Example
 
 ```ts
-import { Status3 } from 'adyenlib';
+import { Status3 } from 'adyen';
 
 const status3 = Status3.DataProvided;
 ```

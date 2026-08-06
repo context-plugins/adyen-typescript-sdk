@@ -22,7 +22,7 @@ Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge)
 ## Example
 
 ```ts
-import { Surcharge21 } from 'adyenlib';
+import { Surcharge21 } from 'adyen';
 
 const surcharge21: Surcharge21 = {
   askConfirmation: false,

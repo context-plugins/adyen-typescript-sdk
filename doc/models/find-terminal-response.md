@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { FindTerminalResponse } from 'adyenlib';
+import { FindTerminalResponse } from 'adyen';
 
 const findTerminalResponse: FindTerminalResponse = {
   companyAccount: 'companyAccount6',

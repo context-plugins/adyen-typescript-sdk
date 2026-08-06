@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SetTaxElectronicDeliveryConsentRequest } from 'adyenlib';
+import { SetTaxElectronicDeliveryConsentRequest } from 'adyen';
 
 const setTaxElectronicDeliveryConsentRequest: SetTaxElectronicDeliveryConsentRequest = {
   us1099K: false,

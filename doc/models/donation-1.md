@@ -23,7 +23,7 @@ The object that contains the details of the donation.
 ## Example
 
 ```ts
-import { Donation1 } from 'adyenlib';
+import { Donation1 } from 'adyen';
 
 const donation1: Donation1 = {
   currency: 'currency0',

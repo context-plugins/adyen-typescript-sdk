@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Contract, RecurringDetailsRequest, TokenService } from 'adyenlib';
+import { Contract, RecurringDetailsRequest, TokenService } from 'adyen';
 
 const recurringDetailsRequest: RecurringDetailsRequest = {
   merchantAccount: 'merchantAccount6',

@@ -20,7 +20,7 @@ The condition that triggers the top-up. This can be a recurring schedule or a mi
 ## Example
 
 ```ts
-import { ScheduleType1, Trigger1 } from 'adyenlib';
+import { ScheduleType1, Trigger1 } from 'adyen';
 
 const trigger1: Trigger1 = {
   threshold: {

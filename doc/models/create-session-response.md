@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CreateSessionResponse } from 'adyenlib';
+import { CreateSessionResponse } from 'adyen';
 
 const createSessionResponse: CreateSessionResponse = {
   id: 'id0',

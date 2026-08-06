@@ -20,7 +20,7 @@ The operation performed on the source amount. Possible values:
 ## Example
 
 ```ts
-import { ExchangeSide2 } from 'adyenlib';
+import { ExchangeSide2 } from 'adyen';
 
 const exchangeSide2 = ExchangeSide2.Buy;
 ```

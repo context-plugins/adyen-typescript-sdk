@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type293 } from 'adyenlib';
+import { Type293 } from 'adyen';
 
 const type293 = Type293.BankAccountIdentificationTypeRequirement;
 ```

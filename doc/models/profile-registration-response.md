@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ProfileRegistrationResponse } from 'adyenlib';
+import { ProfileRegistrationResponse } from 'adyen';
 
 const profileRegistrationResponse: ProfileRegistrationResponse = {
   redirectUrl: {

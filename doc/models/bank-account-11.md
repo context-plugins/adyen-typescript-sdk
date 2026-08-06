@@ -29,7 +29,7 @@ The details of the bank account, from which the payment should be made.
 ## Example
 
 ```ts
-import { BankAccount11 } from 'adyenlib';
+import { BankAccount11 } from 'adyen';
 
 const bankAccount11: BankAccount11 = {
   bankAccountNumber: 'bankAccountNumber8',

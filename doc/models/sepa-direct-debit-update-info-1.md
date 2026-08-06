@@ -19,7 +19,7 @@ Details to provide if `type` is **sepadirectdebit**.
 ## Example
 
 ```ts
-import { SepaDirectDebitUpdateInfo1, Type33 } from 'adyenlib';
+import { SepaDirectDebitUpdateInfo1, Type33 } from 'adyen';
 
 const sepaDirectDebitUpdateInfo1: SepaDirectDebitUpdateInfo1 = {
   transactionDescription: {

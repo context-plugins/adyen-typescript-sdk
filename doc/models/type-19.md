@@ -17,7 +17,7 @@ The type of the action.
 ## Example
 
 ```ts
-import { Type19 } from 'adyenlib';
+import { Type19 } from 'adyen';
 
 const type19 = Type19.Sdk;
 ```

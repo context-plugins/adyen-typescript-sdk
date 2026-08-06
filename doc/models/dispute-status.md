@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DisputeStatus } from 'adyenlib';
+import { DisputeStatus } from 'adyen';
 
 const disputeStatus = DisputeStatus.Won;
 ```

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { DebitAccountHolderRequest, Type15 } from 'adyenlib';
+import { DebitAccountHolderRequest, Type15 } from 'adyen';
 
 const debitAccountHolderRequest: DebitAccountHolderRequest = {
   accountHolderCode: 'accountHolderCode8',

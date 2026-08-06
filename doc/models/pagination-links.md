@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PaginationLinks } from 'adyenlib';
+import { PaginationLinks } from 'adyen';
 
 const paginationLinks: PaginationLinks = {
   first: {

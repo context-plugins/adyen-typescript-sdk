@@ -20,7 +20,7 @@ Contains information to identify the counterparty.
 ## Example
 
 ```ts
-import { MandateBankAccount2 } from 'adyenlib';
+import { MandateBankAccount2 } from 'adyen';
 
 const mandateBankAccount2: MandateBankAccount2 = {
   accountHolder: {

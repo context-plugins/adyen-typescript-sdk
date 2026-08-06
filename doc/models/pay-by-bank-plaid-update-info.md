@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PayByBankPlaidUpdateInfo, Type33 } from 'adyenlib';
+import { PayByBankPlaidUpdateInfo, Type33 } from 'adyen';
 
 const payByBankPlaidUpdateInfo: PayByBankPlaidUpdateInfo = {
   transactionDescription: {

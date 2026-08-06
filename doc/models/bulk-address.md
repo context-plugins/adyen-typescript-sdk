@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { BulkAddress } from 'adyenlib';
+import { BulkAddress } from 'adyen';
 
 const bulkAddress: BulkAddress = {
   country: 'country0',

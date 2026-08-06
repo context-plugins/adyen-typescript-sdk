@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { WalletProviderAccountScoreRestriction } from 'adyenlib';
+import { WalletProviderAccountScoreRestriction } from 'adyen';
 
 const walletProviderAccountScoreRestriction: WalletProviderAccountScoreRestriction = {
   operation: 'operation0',

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Key } from 'adyenlib';
+import { Key } from 'adyen';
 
 const key: Key = {
   identifier: 'identifier8',

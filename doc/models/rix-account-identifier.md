@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RixAccountIdentifier } from 'adyenlib';
+import { RixAccountIdentifier } from 'adyen';
 
 const rixAccountIdentifier: RixAccountIdentifier = {
   accountNumber: 'accountNumber6',

@@ -46,7 +46,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ResultCode1 } from 'adyenlib';
+import { ResultCode1 } from 'adyen';
 
 const resultCode1 = ResultCode1.Pending;
 ```

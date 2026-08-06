@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { PaymentInstrumentGroup } from 'adyenlib';
+import { PaymentInstrumentGroup } from 'adyen';
 
 const paymentInstrumentGroup: PaymentInstrumentGroup = {
   balancePlatform: 'balancePlatform2',

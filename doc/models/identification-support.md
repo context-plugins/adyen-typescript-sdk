@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { IdentificationSupport } from 'adyenlib';
+import { IdentificationSupport } from 'adyen';
 
 const identificationSupport = IdentificationSupport.NoCard;
 ```

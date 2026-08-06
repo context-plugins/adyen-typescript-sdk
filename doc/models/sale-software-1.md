@@ -22,7 +22,7 @@ Information related to the software of the Sale System which manages the Sale to
 ## Example
 
 ```ts
-import { SaleSoftware1 } from 'adyenlib';
+import { SaleSoftware1 } from 'adyen';
 
 const saleSoftware1: SaleSoftware1 = {
   manufacturerId: 'ManufacturerID0',

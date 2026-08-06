@@ -20,7 +20,7 @@ The upper bound of the processing tier (i.e., an account holder must have proces
 ## Example
 
 ```ts
-import { Amount21 } from 'adyenlib';
+import { Amount21 } from 'adyen';
 
 const amount21: Amount21 = {
   currency: 'currency8',

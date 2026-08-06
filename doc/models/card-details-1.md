@@ -46,7 +46,7 @@ The payment method used by the shopper.
 ## Example
 
 ```ts
-import { CardDetails1 } from 'adyenlib';
+import { CardDetails1 } from 'adyen';
 
 const cardDetails1: CardDetails1 = {
   billingSequenceNumber: 'billingSequenceNumber4',

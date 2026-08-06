@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { StoredValueVoidRequest } from 'adyenlib';
+import { StoredValueVoidRequest } from 'adyen';
 
 const storedValueVoidRequest: StoredValueVoidRequest = {
   merchantAccount: 'merchantAccount2',

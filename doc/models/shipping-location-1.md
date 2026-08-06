@@ -22,7 +22,7 @@ The details of the location where the order is shipped to.
 ## Example
 
 ```ts
-import { ShippingLocation1 } from 'adyenlib';
+import { ShippingLocation1 } from 'adyen';
 
 const shippingLocation1: ShippingLocation1 = {
   address: {

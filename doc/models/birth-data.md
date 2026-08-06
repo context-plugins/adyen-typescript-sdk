@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BirthData } from 'adyenlib';
+import { BirthData } from 'adyen';
 
 const birthData: BirthData = {
   dateOfBirth: 'dateOfBirth8',

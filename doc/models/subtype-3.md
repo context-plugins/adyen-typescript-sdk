@@ -16,7 +16,7 @@ The external service from which to fetch the token. Supported only for specific 
 ## Example
 
 ```ts
-import { Subtype3 } from 'adyenlib';
+import { Subtype3 } from 'adyen';
 
 const subtype3 = Subtype3.Hilton;
 ```

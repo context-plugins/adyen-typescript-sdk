@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Behavior, DonationRequest } from 'adyenlib';
+import { Behavior, DonationRequest } from 'adyen';
 
 const donationRequest: DonationRequest = {
   donationAccount: 'donationAccount8',

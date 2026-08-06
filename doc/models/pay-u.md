@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { PayU, Type77 } from 'adyenlib';
+import { PayU, Type77 } from 'adyen';
 
 const payU: PayU = {
   type: Type77.PayuInUpi,

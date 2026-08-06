@@ -24,7 +24,7 @@ The address of the physical store where the account holder will process payments
 ## Example
 
 ```ts
-import { ViasAddress7 } from 'adyenlib';
+import { ViasAddress7 } from 'adyen';
 
 const viasAddress7: ViasAddress7 = {
   country: 'country6',

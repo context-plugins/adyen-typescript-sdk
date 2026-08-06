@@ -20,7 +20,7 @@ Only returned if `resultCode` is **Authorised** and if you have requested a paym
 ## Example
 
 ```ts
-import { PaymentResponse2, Status11 } from 'adyenlib';
+import { PaymentResponse2, Status11 } from 'adyen';
 
 const paymentResponse2: PaymentResponse2 = {
   name: {

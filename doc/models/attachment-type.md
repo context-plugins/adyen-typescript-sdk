@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { AttachmentType } from 'adyenlib';
+import { AttachmentType } from 'adyen';
 
 const attachmentType = AttachmentType.Other;
 ```

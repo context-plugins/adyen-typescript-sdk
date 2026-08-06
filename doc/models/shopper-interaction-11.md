@@ -28,7 +28,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ShopperInteraction11 } from 'adyenlib';
+import { ShopperInteraction11 } from 'adyen';
 
 const shopperInteraction11 = ShopperInteraction11.Ecommerce;
 ```

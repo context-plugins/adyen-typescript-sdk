@@ -36,7 +36,7 @@ See possible values for trusts in [Australia](https://docs.adyen.com/platforms/v
 ## Example
 
 ```ts
-import { Type171 } from 'adyenlib';
+import { Type171 } from 'adyen';
 
 const type171 = Type171.CharitableTrust;
 ```

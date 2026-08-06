@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransferNotificationValidationFact } from 'adyenlib';
+import { TransferNotificationValidationFact } from 'adyen';
 
 const transferNotificationValidationFact: TransferNotificationValidationFact = {
   result: 'result4',

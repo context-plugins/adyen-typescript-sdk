@@ -21,7 +21,7 @@ Details about the payment method used in the transaction.
 ## Example
 
 ```ts
-import { PaymentResponse3 } from 'adyenlib';
+import { PaymentResponse3 } from 'adyen';
 
 const paymentResponse3: PaymentResponse3 = {
   brand: 'brand6',

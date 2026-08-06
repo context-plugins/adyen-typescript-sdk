@@ -22,7 +22,7 @@ The type of transaction. Possible values:
 ## Example
 
 ```ts
-import { RateType2 } from 'adyenlib';
+import { RateType2 } from 'adyen';
 
 const rateType2 = RateType2.SplitPayment;
 ```

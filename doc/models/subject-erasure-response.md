@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Result2, SubjectErasureResponse } from 'adyenlib';
+import { Result2, SubjectErasureResponse } from 'adyen';
 
 const subjectErasureResponse: SubjectErasureResponse = {
   result: Result2.PaymentNotFound,

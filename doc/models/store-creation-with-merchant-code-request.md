@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { StoreCreationWithMerchantCodeRequest } from 'adyenlib';
+import { StoreCreationWithMerchantCodeRequest } from 'adyen';
 
 const storeCreationWithMerchantCodeRequest: StoreCreationWithMerchantCodeRequest = {
   address: {

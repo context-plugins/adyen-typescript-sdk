@@ -23,7 +23,7 @@ Possible values: **atmDispute**, **cancelledGoodsServices**, **cancelledRecurrin
 ## Example
 
 ```ts
-import { SubType11 } from 'adyenlib';
+import { SubType11 } from 'adyen';
 
 const subType11 = SubType11.Counterfeit;
 ```

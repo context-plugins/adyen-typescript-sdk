@@ -19,7 +19,7 @@ Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
 ## Example
 
 ```ts
-import { Remainder } from 'adyenlib';
+import { Remainder } from 'adyen';
 
 const remainder = Remainder.AddToLiableAccount;
 ```

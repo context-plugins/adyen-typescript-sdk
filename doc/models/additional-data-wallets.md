@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataWallets } from 'adyenlib';
+import { AdditionalDataWallets } from 'adyen';
 
 const additionalDataWallets: AdditionalDataWallets = {
   androidpayToken: 'androidpay.token2',

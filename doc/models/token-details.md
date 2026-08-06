@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TokenDetails } from 'adyenlib';
+import { TokenDetails } from 'adyen';
 
 const tokenDetails: TokenDetails = {
   tokenData: {

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DefenseReason } from 'adyenlib';
+import { DefenseReason } from 'adyen';
 
 const defenseReason: DefenseReason = {
   defenseReasonCode: 'defenseReasonCode2',

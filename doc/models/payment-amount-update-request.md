@@ -30,7 +30,7 @@ import {
   AdjustAuthType,
   IndustryUsage1,
   PaymentAmountUpdateRequest,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentAmountUpdateRequest: PaymentAmountUpdateRequest = {
   amount: {

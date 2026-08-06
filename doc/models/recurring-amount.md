@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RecurringAmount } from 'adyenlib';
+import { RecurringAmount } from 'adyen';
 
 const recurringAmount: RecurringAmount = {
   currency: 'currency0',

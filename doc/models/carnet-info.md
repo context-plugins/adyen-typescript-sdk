@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CarnetInfo, Type33 } from 'adyenlib';
+import { CarnetInfo, Type33 } from 'adyen';
 
 const carnetInfo: CarnetInfo = {
   addMccAcronym: false,

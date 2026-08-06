@@ -19,7 +19,7 @@ Details to provide if `type` is **carnet**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo1, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo1, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo1: GenericPmWithTdiUpdateInfo1 = {
   transactionDescription: {

@@ -30,7 +30,7 @@ import {
   PaymentData1,
   PaymentType1,
   PeriodUnit1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentData1: PaymentData1 = {
   paymentType: PaymentType1.OneTimeReservation,

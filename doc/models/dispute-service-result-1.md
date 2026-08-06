@@ -20,7 +20,7 @@ The result of the dispute service.
 ## Example
 
 ```ts
-import { DisputeServiceResult1 } from 'adyenlib';
+import { DisputeServiceResult1 } from 'adyen';
 
 const disputeServiceResult1: DisputeServiceResult1 = {
   success: false,

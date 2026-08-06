@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type5 } from 'adyenlib';
+import { Type5 } from 'adyen';
 
 const type5 = Type5.GbSortCode;
 ```

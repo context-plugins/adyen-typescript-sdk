@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BankCategoryData, Priority, Type312 } from 'adyenlib';
+import { BankCategoryData, Priority, Type312 } from 'adyen';
 
 const bankCategoryData: BankCategoryData = {
   priority: Priority.Instant,

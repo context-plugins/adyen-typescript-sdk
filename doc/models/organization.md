@@ -44,7 +44,7 @@
 ## Example
 
 ```ts
-import { Organization } from 'adyenlib';
+import { Organization } from 'adyen';
 
 const organization: Organization = {
   legalName: 'legalName2',

@@ -29,7 +29,7 @@ The shopper's browser information.
 ## Example
 
 ```ts
-import { BrowserInfo } from 'adyenlib';
+import { BrowserInfo } from 'adyen';
 
 const browserInfo: BrowserInfo = {
   acceptHeader: 'acceptHeader6',

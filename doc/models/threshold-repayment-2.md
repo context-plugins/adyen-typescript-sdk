@@ -19,7 +19,7 @@ An object containing the details of the 30-day repayment threshold.
 ## Example
 
 ```ts
-import { ThresholdRepayment2 } from 'adyenlib';
+import { ThresholdRepayment2 } from 'adyen';
 
 const thresholdRepayment2: ThresholdRepayment2 = {
   amount: {

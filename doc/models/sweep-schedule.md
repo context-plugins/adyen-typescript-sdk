@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SweepSchedule, Type6 } from 'adyenlib';
+import { SweepSchedule, Type6 } from 'adyen';
 
 const sweepSchedule: SweepSchedule = {
   type: Type6.Daily,

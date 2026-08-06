@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { CheckoutThreeDs2Action, Type583 } from 'adyenlib';
+import { CheckoutThreeDs2Action, Type583 } from 'adyen';
 
 const checkoutThreeDs2Action: CheckoutThreeDs2Action = {
   type: Type583.ThreeDs2,

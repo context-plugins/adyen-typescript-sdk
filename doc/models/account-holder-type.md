@@ -17,7 +17,7 @@ The account holder type (personal or business).
 ## Example
 
 ```ts
-import { AccountHolderType } from 'adyenlib';
+import { AccountHolderType } from 'adyen';
 
 const accountHolderType = AccountHolderType.Business;
 ```

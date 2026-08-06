@@ -19,7 +19,7 @@ The region of operation.
 ## Example
 
 ```ts
-import { Region1 } from 'adyenlib';
+import { Region1 } from 'adyen';
 
 const region1 = Region1.Eu;
 ```

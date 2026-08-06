@@ -20,7 +20,7 @@ The balance threshold that triggers the top-up. If the balance falls below this 
 ## Example
 
 ```ts
-import { PatchableAmountDto1 } from 'adyenlib';
+import { PatchableAmountDto1 } from 'adyen';
 
 const patchableAmountDto1: PatchableAmountDto1 = {
   currency: 'currency0',

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { StarUpdateInfo, Type33 } from 'adyenlib';
+import { StarUpdateInfo, Type33 } from 'adyen';
 
 const starUpdateInfo: StarUpdateInfo = {
   transactionDescription: {

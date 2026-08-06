@@ -32,7 +32,7 @@
 ## Example
 
 ```ts
-import { ReceiptPrinting } from 'adyenlib';
+import { ReceiptPrinting } from 'adyen';
 
 const receiptPrinting: ReceiptPrinting = {
   merchantApproved: false,

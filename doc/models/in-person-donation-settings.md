@@ -29,7 +29,7 @@ import {
   DonationFlow1,
   DonationType1,
   InPersonDonationSettings,
-} from 'adyenlib';
+} from 'adyen';
 
 const inPersonDonationSettings: InPersonDonationSettings = {
   displayTextField: DisplayTextField2.CauseName,

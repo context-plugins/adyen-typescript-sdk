@@ -22,7 +22,7 @@ The details of the direct debit.
 ## Example
 
 ```ts
-import { DirectDebitInformation1 } from 'adyenlib';
+import { DirectDebitInformation1 } from 'adyen';
 
 const directDebitInformation1: DirectDebitInformation1 = {
   dateOfSignature: '2016-03-13T12:52:32.123Z',

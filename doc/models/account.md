@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Account } from 'adyenlib';
+import { Account } from 'adyen';
 
 const account: Account = {
   accountCode: 'accountCode0',

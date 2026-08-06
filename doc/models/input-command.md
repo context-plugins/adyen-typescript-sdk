@@ -34,7 +34,7 @@ Possible values:
 ## Example
 
 ```ts
-import { InputCommand } from 'adyenlib';
+import { InputCommand } from 'adyen';
 
 const inputCommand = InputCommand.DecimalString;
 ```

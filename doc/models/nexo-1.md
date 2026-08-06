@@ -23,7 +23,7 @@ Settings for a Terminal API integration.
 ## Example
 
 ```ts
-import { Category1, Nexo1 } from 'adyenlib';
+import { Category1, Nexo1 } from 'adyen';
 
 const nexo1: Nexo1 = {
   displayUrls: {

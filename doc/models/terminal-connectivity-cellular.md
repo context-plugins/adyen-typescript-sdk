@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Status32, TerminalConnectivityCellular } from 'adyenlib';
+import { Status32, TerminalConnectivityCellular } from 'adyen';
 
 const terminalConnectivityCellular: TerminalConnectivityCellular = {
   iccid: 'iccid8',

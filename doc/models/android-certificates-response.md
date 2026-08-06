@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AndroidCertificatesResponse } from 'adyenlib';
+import { AndroidCertificatesResponse } from 'adyen';
 
 const androidCertificatesResponse: AndroidCertificatesResponse = {
   data: [

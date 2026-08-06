@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SepaDirectDebitUpdateInfo, Type33 } from 'adyenlib';
+import { SepaDirectDebitUpdateInfo, Type33 } from 'adyen';
 
 const sepaDirectDebitUpdateInfo: SepaDirectDebitUpdateInfo = {
   transactionDescription: {

@@ -21,7 +21,7 @@ The international bank account number as defined in the ISO-13616 standard.
 ## Example
 
 ```ts
-import { IbanAccountIdentifier2 } from 'adyenlib';
+import { IbanAccountIdentifier2 } from 'adyen';
 
 const ibanAccountIdentifier2: IbanAccountIdentifier2 = {
   bban: 'bban4',

@@ -23,7 +23,7 @@ A list of hyperlinks to resources related to this response.
 ## Example
 
 ```ts
-import { Link3 } from 'adyenlib';
+import { Link3 } from 'adyen';
 
 const link3: Link3 = {
   first: {

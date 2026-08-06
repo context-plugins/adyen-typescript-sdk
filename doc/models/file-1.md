@@ -20,7 +20,7 @@ For `authType` **wpa-eap** or **wpa2-eap**. The root certificate from the CA tha
 ## Example
 
 ```ts
-import { File1 } from 'adyenlib';
+import { File1 } from 'adyen';
 
 const file1: File1 = {
   data: 'data0',

@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { AndroidApp, Status15 } from 'adyenlib';
+import { AndroidApp, Status15 } from 'adyen';
 
 const androidApp: AndroidApp = {
   id: 'id2',

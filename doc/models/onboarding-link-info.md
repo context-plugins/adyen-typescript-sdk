@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { OnboardingLinkInfo } from 'adyenlib';
+import { OnboardingLinkInfo } from 'adyen';
 
 const onboardingLinkInfo: OnboardingLinkInfo = {
   locale: 'locale8',

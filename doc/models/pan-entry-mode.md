@@ -24,7 +24,7 @@ Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, 
 ## Example
 
 ```ts
-import { PanEntryMode } from 'adyenlib';
+import { PanEntryMode } from 'adyen';
 
 const panEntryMode = PanEntryMode.Token;
 ```

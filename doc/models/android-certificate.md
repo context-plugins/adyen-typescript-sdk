@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { AndroidCertificate } from 'adyenlib';
+import { AndroidCertificate } from 'adyen';
 
 const androidCertificate: AndroidCertificate = {
   id: 'id2',

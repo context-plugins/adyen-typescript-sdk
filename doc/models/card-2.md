@@ -28,7 +28,7 @@ Optional if `shopperReference` and `selectedRecurringDetailReference` are provid
 ## Example
 
 ```ts
-import { Card2 } from 'adyenlib';
+import { Card2 } from 'adyen';
 
 const card2: Card2 = {
   cvc: 'cvc4',

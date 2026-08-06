@@ -16,7 +16,7 @@ Type of terminal action: Uninstall an Android certificate.
 ## Example
 
 ```ts
-import { Type82 } from 'adyenlib';
+import { Type82 } from 'adyen';
 
 const type82 = Type82.UninstallAndroidCertificate;
 ```

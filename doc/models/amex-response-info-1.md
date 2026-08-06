@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AmexResponseInfo1 } from 'adyenlib';
+import { AmexResponseInfo1 } from 'adyen';
 
 const amexResponseInfo1: AmexResponseInfo1 = {
   midNumber: 'midNumber2',

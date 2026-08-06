@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { MandateAccountIdentification } from 'adyenlib';
+import { MandateAccountIdentification } from 'adyen';
 
 const mandateAccountIdentification: MandateAccountIdentification = {
   type: 'MandateAccountIdentification',

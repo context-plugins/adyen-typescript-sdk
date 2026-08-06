@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CheckoutForwardRequestOptions } from 'adyenlib';
+import { CheckoutForwardRequestOptions } from 'adyen';
 
 const checkoutForwardRequestOptions: CheckoutForwardRequestOptions = {
   accountUpdate: false,

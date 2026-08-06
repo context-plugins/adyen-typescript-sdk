@@ -22,7 +22,7 @@ Default Value: **public**.
 ## Example
 
 ```ts
-import { NetworkType } from 'adyenlib';
+import { NetworkType } from 'adyen';
 
 const networkType = NetworkType.Local;
 ```

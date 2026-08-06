@@ -21,7 +21,7 @@ The account holder associated with the balance account involved in the transfer.
 ## Example
 
 ```ts
-import { ResourceReference5 } from 'adyenlib';
+import { ResourceReference5 } from 'adyen';
 
 const resourceReference5: ResourceReference5 = {
   description: 'description8',

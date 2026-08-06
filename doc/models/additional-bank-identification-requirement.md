@@ -23,7 +23,7 @@ import {
   AdditionalBankIdentificationRequirement,
   AdditionalBankIdentificationType,
   Type610,
-} from 'adyenlib';
+} from 'adyen';
 
 const additionalBankIdentificationRequirement: AdditionalBankIdentificationRequirement = {
   type: Type610.AdditionalBankIdentificationRequirement,

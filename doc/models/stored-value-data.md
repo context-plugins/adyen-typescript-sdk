@@ -33,7 +33,7 @@ import {
   StoredValueAccountType1,
   StoredValueData,
   StoredValueTransactionType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueData: StoredValueData = {
   storedValueTransactionType: StoredValueTransactionType1.Reserve,

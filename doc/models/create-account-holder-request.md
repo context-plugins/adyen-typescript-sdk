@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CreateAccountHolderRequest, Gender, LegalEntity } from 'adyenlib';
+import { CreateAccountHolderRequest, Gender, LegalEntity } from 'adyen';
 
 const createAccountHolderRequest: CreateAccountHolderRequest = {
   accountHolderCode: 'accountHolderCode8',

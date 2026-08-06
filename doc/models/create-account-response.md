@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { CreateAccountResponse, FieldName } from 'adyenlib';
+import { CreateAccountResponse, FieldName } from 'adyen';
 
 const createAccountResponse: CreateAccountResponse = {
   accountCode: 'accountCode2',

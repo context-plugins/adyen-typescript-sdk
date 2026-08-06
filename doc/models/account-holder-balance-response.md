@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AccountHolderBalanceResponse, FieldName } from 'adyenlib';
+import { AccountHolderBalanceResponse, FieldName } from 'adyen';
 
 const accountHolderBalanceResponse: AccountHolderBalanceResponse = {
   balancePerAccount: [

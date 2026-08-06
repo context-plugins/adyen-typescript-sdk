@@ -27,7 +27,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { PaymentAccountIndicator } from 'adyenlib';
+import { PaymentAccountIndicator } from 'adyen';
 
 const paymentAccountIndicator = PaymentAccountIndicator.From30To60Days;
 ```

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Settings } from 'adyenlib';
+import { Settings } from 'adyen';
 
 const settings: Settings = {
   band: 'band0',

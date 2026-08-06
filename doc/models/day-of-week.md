@@ -24,7 +24,7 @@ Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday*
 ## Example
 
 ```ts
-import { DayOfWeek } from 'adyenlib';
+import { DayOfWeek } from 'adyen';
 
 const dayOfWeek = DayOfWeek.Wednesday;
 ```

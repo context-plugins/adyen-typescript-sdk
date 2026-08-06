@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ProcessedTo } from 'adyenlib';
+import { ProcessedTo } from 'adyen';
 
 const processedTo: ProcessedTo = {
   currency: 'currency2',

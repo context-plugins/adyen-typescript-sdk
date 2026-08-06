@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataInstallments } from 'adyenlib';
+import { ResponseAdditionalDataInstallments } from 'adyen';
 
 const responseAdditionalDataInstallments: ResponseAdditionalDataInstallments = {
   installmentPaymentDataInstallmentType: 'installmentPaymentData.installmentType8',

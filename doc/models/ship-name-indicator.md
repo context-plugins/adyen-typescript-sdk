@@ -21,7 +21,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ShipNameIndicator } from 'adyenlib';
+import { ShipNameIndicator } from 'adyen';
 
 const shipNameIndicator = ShipNameIndicator.Enum01;
 ```

@@ -22,7 +22,7 @@ Indicator informing the Access Control Server (ACS) and the Directory Server (DS
 ## Example
 
 ```ts
-import { ChallengeCancel } from 'adyenlib';
+import { ChallengeCancel } from 'adyen';
 
 const challengeCancel = ChallengeCancel.Enum06;
 ```

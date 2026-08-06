@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ReprocessAndroidAppResponse } from 'adyenlib';
+import { ReprocessAndroidAppResponse } from 'adyen';
 
 const reprocessAndroidAppResponse: ReprocessAndroidAppResponse = {
   message: 'Message6',

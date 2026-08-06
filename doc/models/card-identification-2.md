@@ -28,7 +28,7 @@ Card details used for the transfer, such as the Primary Account Number (PAN) or 
 ## Example
 
 ```ts
-import { CardIdentification2 } from 'adyenlib';
+import { CardIdentification2 } from 'adyen';
 
 const cardIdentification2: CardIdentification2 = {
   expiryMonth: 'expiryMonth8',

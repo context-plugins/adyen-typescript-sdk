@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SwishResponseInfo } from 'adyenlib';
+import { SwishResponseInfo } from 'adyen';
 
 const swishResponseInfo: SwishResponseInfo = {
   swishNumber: 'swishNumber4',

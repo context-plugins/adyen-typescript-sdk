@@ -19,7 +19,7 @@ Details to provide if `type` is **eft_directdebit_CA** (EFT PAD).
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo3, Type33 } from 'adyenlib';
+import { GenericPmWithTdiInfo3, Type33 } from 'adyen';
 
 const genericPmWithTdiInfo3: GenericPmWithTdiInfo3 = {
   transactionDescription: {

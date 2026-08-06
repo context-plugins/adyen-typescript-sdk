@@ -20,7 +20,7 @@ Contains information about the fee that your user would pay for the grant.
 ## Example
 
 ```ts
-import { GrantOfferFee1 } from 'adyenlib';
+import { GrantOfferFee1 } from 'adyen';
 
 const grantOfferFee1: GrantOfferFee1 = {
   amount: {

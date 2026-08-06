@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { Ratepay, Type48 } from 'adyenlib';
+import { Ratepay, Type48 } from 'adyen';
 
 const ratepay: Ratepay = {
   type: Type48.Ratepay,

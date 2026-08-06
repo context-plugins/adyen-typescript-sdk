@@ -20,7 +20,7 @@ Contains information about the resource to which the transaction rule applies.
 ## Example
 
 ```ts
-import { TransactionRuleSource2 } from 'adyenlib';
+import { TransactionRuleSource2 } from 'adyen';
 
 const transactionRuleSource2: TransactionRuleSource2 = {
   id: 'id8',

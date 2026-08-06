@@ -29,7 +29,7 @@ Additional information for raising a dispute of `type` **notDelivered**. Require
 ## Example
 
 ```ts
-import { NotDeliveredInfo1, ProductType2 } from 'adyenlib';
+import { NotDeliveredInfo1, ProductType2 } from 'adyen';
 
 const notDeliveredInfo1: NotDeliveredInfo1 = {
   descriptionOfIssue: 'descriptionOfIssue6',

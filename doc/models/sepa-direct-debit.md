@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { SepaDirectDebit } from 'adyenlib';
+import { SepaDirectDebit } from 'adyen';
 
 const sepaDirectDebit: SepaDirectDebit = {
   iban: 'iban0',

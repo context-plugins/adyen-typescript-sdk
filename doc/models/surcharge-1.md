@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Surcharge1 } from 'adyenlib';
+import { Surcharge1 } from 'adyen';
 
 const surcharge1: Surcharge1 = {
   askConfirmation: false,

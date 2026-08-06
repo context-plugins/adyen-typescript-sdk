@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { IdealAuthLinkResponse } from 'adyenlib';
+import { IdealAuthLinkResponse } from 'adyen';
 
 const idealAuthLinkResponse: IdealAuthLinkResponse = {
   redirectUrl: {

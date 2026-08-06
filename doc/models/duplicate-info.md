@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DuplicateInfo } from 'adyenlib';
+import { DuplicateInfo } from 'adyen';
 
 const duplicateInfo: DuplicateInfo = {
   duplicateTransactionId: 'duplicateTransactionId4',

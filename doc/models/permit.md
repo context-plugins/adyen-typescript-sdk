@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Permit } from 'adyenlib';
+import { Permit } from 'adyen';
 
 const permit: Permit = {
   partnerId: 'partnerId4',

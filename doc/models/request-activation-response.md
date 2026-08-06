@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RequestActivationResponse } from 'adyenlib';
+import { RequestActivationResponse } from 'adyen';
 
 const requestActivationResponse: RequestActivationResponse = {
   companyId: 'companyId4',

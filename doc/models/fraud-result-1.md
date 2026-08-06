@@ -20,7 +20,7 @@ The fraud result properties of the payment.
 ## Example
 
 ```ts
-import { FraudResult1 } from 'adyenlib';
+import { FraudResult1 } from 'adyen';
 
 const fraudResult1: FraudResult1 = {
   accountScore: 2,

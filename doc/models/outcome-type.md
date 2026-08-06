@@ -27,7 +27,7 @@ Possible values:
 ## Example
 
 ```ts
-import { OutcomeType } from 'adyenlib';
+import { OutcomeType } from 'adyen';
 
 const outcomeType = OutcomeType.EnforceSca;
 ```

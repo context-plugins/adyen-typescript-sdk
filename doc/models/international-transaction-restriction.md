@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { InternationalTransactionRestriction } from 'adyenlib';
+import { InternationalTransactionRestriction } from 'adyen';
 
 const internationalTransactionRestriction: InternationalTransactionRestriction = {
   operation: 'operation0',

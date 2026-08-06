@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DefenseDocument } from 'adyenlib';
+import { DefenseDocument } from 'adyen';
 
 const defenseDocument: DefenseDocument = {
   content: 'content0',

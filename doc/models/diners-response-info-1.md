@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { DinersResponseInfo1, Type33 } from 'adyenlib';
+import { DinersResponseInfo1, Type33 } from 'adyen';
 
 const dinersResponseInfo1: DinersResponseInfo1 = {
   midNumber: 'midNumber4',

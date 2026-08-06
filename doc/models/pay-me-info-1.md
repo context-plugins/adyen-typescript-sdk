@@ -21,7 +21,7 @@ Details to provide if `type` is **payme**.
 ## Example
 
 ```ts
-import { PayMeInfo1 } from 'adyenlib';
+import { PayMeInfo1 } from 'adyen';
 
 const payMeInfo1: PayMeInfo1 = {
   displayName: 'displayName0',

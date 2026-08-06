@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Lodging1 } from 'adyenlib';
+import { Lodging1 } from 'adyen';
 
 const lodging1: Lodging1 = {
   checkInDate: 'checkInDate0',

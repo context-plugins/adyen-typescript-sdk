@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { PoiSoftware1 } from 'adyenlib';
+import { PoiSoftware1 } from 'adyen';
 
 const poiSoftware1: PoiSoftware1 = {
   manufacturerId: 'ManufacturerID0',

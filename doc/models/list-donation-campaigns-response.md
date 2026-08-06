@@ -26,7 +26,7 @@ import {
   DonationFlow4,
   DonationType1,
   ListDonationCampaignsResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
   itemsTotal: 66,

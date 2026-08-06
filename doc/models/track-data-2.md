@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { TrackData2, TrackFormat1 } from 'adyenlib';
+import { TrackData2, TrackFormat1 } from 'adyen';
 
 const trackData2: TrackData2 = {
   trackValue: 'TrackValue0',

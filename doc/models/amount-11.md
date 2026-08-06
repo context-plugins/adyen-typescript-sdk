@@ -20,7 +20,7 @@ The lower bound of the processing tier (i.e., an account holder must have proces
 ## Example
 
 ```ts
-import { Amount11 } from 'adyenlib';
+import { Amount11 } from 'adyen';
 
 const amount11: Amount11 = {
   currency: 'currency0',

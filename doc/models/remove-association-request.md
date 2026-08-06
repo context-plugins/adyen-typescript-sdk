@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { RemoveAssociationRequest, ScaEntityType3 } from 'adyenlib';
+import { RemoveAssociationRequest, ScaEntityType3 } from 'adyen';
 
 const removeAssociationRequest: RemoveAssociationRequest = {
   entityId: 'entityId0',

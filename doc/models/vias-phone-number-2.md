@@ -21,7 +21,7 @@ The phone number of the entity.
 ## Example
 
 ```ts
-import { PhoneType, ViasPhoneNumber2 } from 'adyenlib';
+import { PhoneType, ViasPhoneNumber2 } from 'adyen';
 
 const viasPhoneNumber2: ViasPhoneNumber2 = {
   phoneCountryCode: 'phoneCountryCode8',

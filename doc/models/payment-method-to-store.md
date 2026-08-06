@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { PaymentMethodToStore } from 'adyenlib';
+import { PaymentMethodToStore } from 'adyen';
 
 const paymentMethodToStore: PaymentMethodToStore = {
   brand: 'brand8',

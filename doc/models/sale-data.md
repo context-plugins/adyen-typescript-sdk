@@ -30,7 +30,7 @@ Data associated with the Sale System, with a particular value during the process
 ## Example
 
 ```ts
-import { SaleData } from 'adyenlib';
+import { SaleData } from 'adyen';
 
 const saleData: SaleData = {
   saleTransactionId: {

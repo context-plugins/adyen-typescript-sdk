@@ -20,7 +20,7 @@ The amount of the payment.
 ## Example
 
 ```ts
-import { Amount1 } from 'adyenlib';
+import { Amount1 } from 'adyen';
 
 const amount1: Amount1 = {
   currency: 'EUR',

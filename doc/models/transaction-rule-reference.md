@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { TransactionRuleReference } from 'adyenlib';
+import { TransactionRuleReference } from 'adyen';
 
 const transactionRuleReference: TransactionRuleReference = {
   description: 'description2',

@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ReconciliationType1 } from 'adyenlib';
+import { ReconciliationType1 } from 'adyen';
 
 const reconciliationType1 = ReconciliationType1.SaleReconciliation;
 ```

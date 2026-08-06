@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Interbank } from 'adyenlib';
+import { Interbank } from 'adyen';
 
 const interbank: Interbank = {
   currency: 'currency4',

@@ -23,7 +23,7 @@ import {
   Priority2,
   TransferRouteResponse,
   Type610,
-} from 'adyenlib';
+} from 'adyen';
 
 const transferRouteResponse: TransferRouteResponse = {
   transferRoutes: [

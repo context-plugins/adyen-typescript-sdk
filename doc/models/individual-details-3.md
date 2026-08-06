@@ -21,7 +21,7 @@ Required when creating an account holder with `legalEntity` **Individual**.
 ## Example
 
 ```ts
-import { Gender, IndividualDetails3, Type } from 'adyenlib';
+import { Gender, IndividualDetails3, Type } from 'adyen';
 
 const individualDetails3: IndividualDetails3 = {
   name: {

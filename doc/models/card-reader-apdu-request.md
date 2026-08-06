@@ -25,7 +25,7 @@ Content of the Card Reader APDU Request message.
 ## Example
 
 ```ts
-import { CardReaderApduRequest } from 'adyenlib';
+import { CardReaderApduRequest } from 'adyen';
 
 const cardReaderApduRequest: CardReaderApduRequest = {
   apduClass: 'APDUClass2',

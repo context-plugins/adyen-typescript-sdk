@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DeleteLegalArrangementRequest } from 'adyenlib';
+import { DeleteLegalArrangementRequest } from 'adyen';
 
 const deleteLegalArrangementRequest: DeleteLegalArrangementRequest = {
   accountHolderCode: 'accountHolderCode2',

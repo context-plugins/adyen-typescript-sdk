@@ -19,7 +19,7 @@ Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
 ## Example
 
 ```ts
-import { SchemeFee } from 'adyenlib';
+import { SchemeFee } from 'adyen';
 
 const schemeFee = SchemeFee.DeductFromLiableAccount;
 ```

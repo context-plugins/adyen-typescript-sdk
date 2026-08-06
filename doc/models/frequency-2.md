@@ -20,7 +20,7 @@ The frequency at which the shopper will be charged.
 ## Example
 
 ```ts
-import { Frequency2 } from 'adyenlib';
+import { Frequency2 } from 'adyen';
 
 const frequency2 = Frequency2.Yearly;
 ```

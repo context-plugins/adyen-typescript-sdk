@@ -20,7 +20,7 @@ Required when creating an entity with `legalEntityType` **Individual**.
 ## Example
 
 ```ts
-import { Gender, IndividualDetails1, Type } from 'adyenlib';
+import { Gender, IndividualDetails1, Type } from 'adyen';
 
 const individualDetails1: IndividualDetails1 = {
   name: {

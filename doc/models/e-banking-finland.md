@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { EBankingFinland, Type60 } from 'adyenlib';
+import { EBankingFinland, Type60 } from 'adyen';
 
 const eBankingFinland: EBankingFinland = {
   type: Type60.EbankingFi,

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Value6 } from 'adyenlib';
+import { Value6 } from 'adyen';
 
 const value6 = Value6.Card;
 ```

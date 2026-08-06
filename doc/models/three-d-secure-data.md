@@ -35,7 +35,7 @@ import {
   ChallengeCancel,
   DirectoryResponse,
   ThreeDSecureData,
-} from 'adyenlib';
+} from 'adyen';
 
 const threeDSecureData: ThreeDSecureData = {
   authenticationResponse: AuthenticationResponse.U,

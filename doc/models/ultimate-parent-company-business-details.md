@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { UltimateParentCompanyBusinessDetails } from 'adyenlib';
+import { UltimateParentCompanyBusinessDetails } from 'adyen';
 
 const ultimateParentCompanyBusinessDetails: UltimateParentCompanyBusinessDetails = {
   legalBusinessName: 'legalBusinessName0',

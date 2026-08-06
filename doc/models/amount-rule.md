@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { AmountRule } from 'adyenlib';
+import { AmountRule } from 'adyen';
 
 const amountRule = AmountRule.Max;
 ```

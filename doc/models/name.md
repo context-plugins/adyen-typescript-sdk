@@ -20,7 +20,7 @@ The name of the person funding the money.
 ## Example
 
 ```ts
-import { Name } from 'adyenlib';
+import { Name } from 'adyen';
 
 const name: Name = {
   firstName: 'firstName4',

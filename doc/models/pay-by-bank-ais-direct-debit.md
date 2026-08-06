@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PayByBankAisDirectDebit, Type70 } from 'adyenlib';
+import { PayByBankAisDirectDebit, Type70 } from 'adyen';
 
 const payByBankAisDirectDebit: PayByBankAisDirectDebit = {
   type: Type70.PaybybankAisDd,

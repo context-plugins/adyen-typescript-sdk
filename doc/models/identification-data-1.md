@@ -25,7 +25,7 @@ Information about the individual's identification document.
 ## Example
 
 ```ts
-import { IdentificationData1, Type132 } from 'adyenlib';
+import { IdentificationData1, Type132 } from 'adyen';
 
 const identificationData1: IdentificationData1 = {
   type: Type132.NationalIdNumber,

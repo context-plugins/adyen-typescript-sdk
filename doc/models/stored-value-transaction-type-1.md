@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { StoredValueTransactionType1 } from 'adyenlib';
+import { StoredValueTransactionType1 } from 'adyen';
 
 const storedValueTransactionType1 = StoredValueTransactionType1.Load;
 ```

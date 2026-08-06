@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { InteracCardResponseInfo1, Type33 } from 'adyenlib';
+import { InteracCardResponseInfo1, Type33 } from 'adyen';
 
 const interacCardResponseInfo1: InteracCardResponseInfo1 = {
   transactionDescription: {

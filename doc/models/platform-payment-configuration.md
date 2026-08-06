@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PlatformPaymentConfiguration } from 'adyenlib';
+import { PlatformPaymentConfiguration } from 'adyen';
 
 const platformPaymentConfiguration: PlatformPaymentConfiguration = {
   salesDayClosingTime: '2016-03-13T12:52:32.123Z',

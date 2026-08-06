@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { InstallmentOption, Plan1 } from 'adyenlib';
+import { InstallmentOption, Plan1 } from 'adyen';
 
 const installmentOption: InstallmentOption = {
   maxValue: 72,

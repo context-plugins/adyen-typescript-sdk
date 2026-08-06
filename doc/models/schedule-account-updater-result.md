@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ScheduleAccountUpdaterResult } from 'adyenlib';
+import { ScheduleAccountUpdaterResult } from 'adyen';
 
 const scheduleAccountUpdaterResult: ScheduleAccountUpdaterResult = {
   pspReference: 'pspReference8',

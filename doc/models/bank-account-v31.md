@@ -21,7 +21,7 @@ Contains information about the counterparty bank account.
 ## Example
 
 ```ts
-import { BankAccountV31, Type413 } from 'adyenlib';
+import { BankAccountV31, Type413 } from 'adyen';
 
 const bankAccountV31: BankAccountV31 = {
   accountHolder: {

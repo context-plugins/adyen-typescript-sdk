@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { KycCheckSummary } from 'adyenlib';
+import { KycCheckSummary } from 'adyen';
 
 const kycCheckSummary: KycCheckSummary = {
   kycCheckCode: 164,

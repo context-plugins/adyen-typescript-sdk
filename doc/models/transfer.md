@@ -44,7 +44,7 @@ import {
   Transfer,
   Type312,
   Type413,
-} from 'adyenlib';
+} from 'adyen';
 
 const transfer: Transfer = {
   amount: {

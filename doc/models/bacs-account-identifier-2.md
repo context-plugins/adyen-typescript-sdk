@@ -20,7 +20,7 @@ Identifiers relevant for Bankers' Automated Clearing Services (BACS) payments, p
 ## Example
 
 ```ts
-import { BacsAccountIdentifier2 } from 'adyenlib';
+import { BacsAccountIdentifier2 } from 'adyen';
 
 const bacsAccountIdentifier2: BacsAccountIdentifier2 = {
   accountNumber: 'accountNumber8',

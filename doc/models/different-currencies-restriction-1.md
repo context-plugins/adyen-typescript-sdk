@@ -22,7 +22,7 @@ Supported operations: **equals**, **notEquals**.
 ## Example
 
 ```ts
-import { DifferentCurrenciesRestriction1 } from 'adyenlib';
+import { DifferentCurrenciesRestriction1 } from 'adyen';
 
 const differentCurrenciesRestriction1: DifferentCurrenciesRestriction1 = {
   operation: 'operation8',

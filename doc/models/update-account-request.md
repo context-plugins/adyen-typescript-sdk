@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { Action, Schedule1, UpdateAccountRequest } from 'adyenlib';
+import { Action, Schedule1, UpdateAccountRequest } from 'adyen';
 
 const updateAccountRequest: UpdateAccountRequest = {
   accountCode: 'accountCode0',

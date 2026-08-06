@@ -20,7 +20,7 @@ Details to provide if `type` is **wechatpay_pos**.
 ## Example
 
 ```ts
-import { WeChatPayPosInfo2 } from 'adyenlib';
+import { WeChatPayPosInfo2 } from 'adyen';
 
 const weChatPayPosInfo2: WeChatPayPosInfo2 = {
   contactPersonName: 'contactPersonName6',

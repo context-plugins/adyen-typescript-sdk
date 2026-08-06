@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type1 } from 'adyenlib';
+import { Type1 } from 'adyen';
 
 const type1 = Type1.SoleProprietorship;
 ```

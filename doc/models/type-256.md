@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type256 } from 'adyenlib';
+import { Type256 } from 'adyen';
 
 const type256 = Type256.PlLocal;
 ```

@@ -42,7 +42,7 @@ import {
   PeriodUnit1,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentResult11: PaymentResult11 = {
   paymentType: PaymentType1.OneTimeReservation,

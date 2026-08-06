@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Resource } from 'adyenlib';
+import { Resource } from 'adyen';
 
 const resource: Resource = {
   type: 'Resource',

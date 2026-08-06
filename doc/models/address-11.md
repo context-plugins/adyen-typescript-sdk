@@ -24,7 +24,7 @@ The residential address of the individual.
 ## Example
 
 ```ts
-import { Address11 } from 'adyenlib';
+import { Address11 } from 'adyen';
 
 const address11: Address11 = {
   country: 'country8',

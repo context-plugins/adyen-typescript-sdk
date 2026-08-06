@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { MerchantBalance } from 'adyenlib';
+import { MerchantBalance } from 'adyen';
 
 const merchantBalance: MerchantBalance = {
   availableFund: {

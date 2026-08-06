@@ -22,7 +22,7 @@ Returned if the response result is Success.
 ## Example
 
 ```ts
-import { GlobalStatus1, PoiSystemData1, PrinterStatus1 } from 'adyenlib';
+import { GlobalStatus1, PoiSystemData1, PrinterStatus1 } from 'adyen';
 
 const poiSystemData1: PoiSystemData1 = {
   dateTime: '2016-03-13T12:52:32.123Z',

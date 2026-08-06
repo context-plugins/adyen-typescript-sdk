@@ -100,7 +100,7 @@ The reason for the transfer status.
 ## Example
 
 ```ts
-import { Reason2 } from 'adyenlib';
+import { Reason2 } from 'adyen';
 
 const reason2 = Reason2.InvalidAuthorizationLifeCycle;
 ```

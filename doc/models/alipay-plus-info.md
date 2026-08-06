@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AlipayPlusInfo } from 'adyenlib';
+import { AlipayPlusInfo } from 'adyen';
 
 const alipayPlusInfo: AlipayPlusInfo = {
   settlementCurrencyCode: 'settlementCurrencyCode4',

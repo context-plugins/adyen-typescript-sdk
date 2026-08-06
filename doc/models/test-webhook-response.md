@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TestWebhookResponse } from 'adyenlib';
+import { TestWebhookResponse } from 'adyen';
 
 const testWebhookResponse: TestWebhookResponse = {
   data: [

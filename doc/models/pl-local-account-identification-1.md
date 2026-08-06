@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PlLocalAccountIdentification1 } from 'adyenlib';
+import { PlLocalAccountIdentification1 } from 'adyen';
 
 const plLocalAccountIdentification1: PlLocalAccountIdentification1 = {
   accountNumber: 'accountNumber0',

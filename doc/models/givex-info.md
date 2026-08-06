@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { GivexInfo, ShopperInteraction } from 'adyenlib';
+import { GivexInfo, ShopperInteraction } from 'adyen';
 
 const givexInfo: GivexInfo = {
   currencyCode: 'currencyCode6',

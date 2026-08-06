@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DetailsRequestAuthenticationData } from 'adyenlib';
+import { DetailsRequestAuthenticationData } from 'adyen';
 
 const detailsRequestAuthenticationData: DetailsRequestAuthenticationData = {
   authenticationOnly: false,

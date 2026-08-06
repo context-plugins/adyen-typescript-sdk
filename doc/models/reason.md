@@ -31,7 +31,7 @@ The reason for disabling the sweep.
 ## Example
 
 ```ts
-import { Reason } from 'adyenlib';
+import { Reason } from 'adyen';
 
 const reason = Reason.AccountHierarchyNotActive;
 ```

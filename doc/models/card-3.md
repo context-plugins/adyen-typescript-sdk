@@ -28,7 +28,7 @@ A container for card data.
 ## Example
 
 ```ts
-import { Card3 } from 'adyenlib';
+import { Card3 } from 'adyen';
 
 const card3: Card3 = {
   cvc: 'cvc0',

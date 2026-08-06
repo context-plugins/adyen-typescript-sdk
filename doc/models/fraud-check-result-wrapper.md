@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { FraudCheckResultWrapper } from 'adyenlib';
+import { FraudCheckResultWrapper } from 'adyen';
 
 const fraudCheckResultWrapper: FraudCheckResultWrapper = {
   fraudCheckResult: {

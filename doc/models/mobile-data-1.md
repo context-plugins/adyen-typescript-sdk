@@ -25,7 +25,7 @@ If PaymentInstrumentType is Mobile.
 ## Example
 
 ```ts
-import { MobileData1 } from 'adyenlib';
+import { MobileData1 } from 'adyen';
 
 const mobileData1: MobileData1 = {
   mobileCountryCode: 3,

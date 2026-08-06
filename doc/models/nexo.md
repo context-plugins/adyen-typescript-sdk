@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Category1, Nexo } from 'adyenlib';
+import { Category1, Nexo } from 'adyen';
 
 const nexo: Nexo = {
   displayUrls: {

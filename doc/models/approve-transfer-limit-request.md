@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ApproveTransferLimitRequest } from 'adyenlib';
+import { ApproveTransferLimitRequest } from 'adyen';
 
 const approveTransferLimitRequest: ApproveTransferLimitRequest = {
   transferLimitIds: [

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TotalDetail } from 'adyenlib';
+import { TotalDetail } from 'adyen';
 
 const totalDetail = TotalDetail.TotalsGroupId;
 ```

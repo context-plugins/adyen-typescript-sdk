@@ -17,7 +17,7 @@ Allowed authentication methods: Magswipe, Manual Entry.
 ## Example
 
 ```ts
-import { AuthenticationMethod } from 'adyenlib';
+import { AuthenticationMethod } from 'adyen';
 
 const authenticationMethod = AuthenticationMethod.Magswipe;
 ```

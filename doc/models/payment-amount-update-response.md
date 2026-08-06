@@ -31,7 +31,7 @@ import {
   PaymentAmountUpdateResponse,
   Status23,
   Type111,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentAmountUpdateResponse: PaymentAmountUpdateResponse = {
   amount: {

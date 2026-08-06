@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { PatchableFraudInfo } from 'adyenlib';
+import { PatchableFraudInfo } from 'adyen';
 
 const patchableFraudInfo: PatchableFraudInfo = {
   cardDoesNotBelongToCardholder: false,

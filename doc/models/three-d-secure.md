@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ThreeDSecure } from 'adyenlib';
+import { ThreeDSecure } from 'adyen';
 
 const threeDSecure: ThreeDSecure = {
   acsTransactionId: 'acsTransactionId8',

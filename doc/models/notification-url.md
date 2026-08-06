@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { NotificationUrl } from 'adyenlib';
+import { NotificationUrl } from 'adyen';
 
 const notificationUrl: NotificationUrl = {
   localUrls: [

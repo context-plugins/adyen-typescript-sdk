@@ -23,7 +23,7 @@ The [details of the request](https://docs.adyen.com/online-payments/tokenization
 ## Example
 
 ```ts
-import { CheckoutOutgoingForwardRequest2, HttpMethod } from 'adyenlib';
+import { CheckoutOutgoingForwardRequest2, HttpMethod } from 'adyen';
 
 const checkoutOutgoingForwardRequest2: CheckoutOutgoingForwardRequest2 = {
   body: 'body8',

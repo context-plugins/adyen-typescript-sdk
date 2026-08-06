@@ -20,7 +20,7 @@ Contains redirection URLs to guide the user to the appropriate page, after a suc
 ## Example
 
 ```ts
-import { Links1 } from 'adyenlib';
+import { Links1 } from 'adyen';
 
 const links1: Links1 = {
   cancel: {

@@ -21,7 +21,7 @@ The group where this payment method belongs to.
 ## Example
 
 ```ts
-import { PaymentMethodGroup2 } from 'adyenlib';
+import { PaymentMethodGroup2 } from 'adyen';
 
 const paymentMethodGroup2: PaymentMethodGroup2 = {
   name: 'name0',

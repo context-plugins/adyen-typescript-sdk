@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { LegalEntityAssociation, Type142 } from 'adyenlib';
+import { LegalEntityAssociation, Type142 } from 'adyen';
 
 const legalEntityAssociation: LegalEntityAssociation = {
   legalEntityId: 'legalEntityId4',

@@ -96,7 +96,7 @@ For example:
 ## Example
 
 ```ts
-import { Status53 } from 'adyenlib';
+import { Status53 } from 'adyen';
 
 const status53 = Status53.PaymentCost;
 ```

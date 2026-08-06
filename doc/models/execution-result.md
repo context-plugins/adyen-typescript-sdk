@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { ExecutionResult } from 'adyenlib';
+import { ExecutionResult } from 'adyen';
 
 const executionResult = ExecutionResult.Skipped;
 ```

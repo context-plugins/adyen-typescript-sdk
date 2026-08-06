@@ -19,7 +19,7 @@ Details to provide if `type` is **ticket** (Edenred Brazil).
 ## Example
 
 ```ts
-import { TicketInfo2 } from 'adyenlib';
+import { TicketInfo2 } from 'adyen';
 
 const ticketInfo2: TicketInfo2 = {
   requestorId: 'requestorId8',

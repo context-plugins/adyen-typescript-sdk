@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Result1, ValidateShopperIdResponse } from 'adyenlib';
+import { Result1, ValidateShopperIdResponse } from 'adyen';
 
 const validateShopperIdResponse: ValidateShopperIdResponse = {
   reason: 'reason2',

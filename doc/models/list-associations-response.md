@@ -25,7 +25,7 @@ import {
   ListAssociationsResponse,
   ScaDeviceType3,
   ScaEntityType2,
-} from 'adyenlib';
+} from 'adyen';
 
 const listAssociationsResponse: ListAssociationsResponse = {
   links: {

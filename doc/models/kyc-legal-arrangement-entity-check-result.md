@@ -19,11 +19,7 @@
 ## Example
 
 ```ts
-import {
-  KycLegalArrangementEntityCheckResult,
-  Status3,
-  Type2,
-} from 'adyenlib';
+import { KycLegalArrangementEntityCheckResult, Status3, Type2 } from 'adyen';
 
 const kycLegalArrangementEntityCheckResult: KycLegalArrangementEntityCheckResult = {
   checks: [

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Status16, UpdateNetworkTokenRequest } from 'adyenlib';
+import { Status16, UpdateNetworkTokenRequest } from 'adyen';
 
 const updateNetworkTokenRequest: UpdateNetworkTokenRequest = {
   status: Status16.Closed,

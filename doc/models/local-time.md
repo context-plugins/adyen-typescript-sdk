@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { LocalTime } from 'adyenlib';
+import { LocalTime } from 'adyen';
 
 const localTime: LocalTime = {
   hour: 74,

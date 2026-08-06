@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { AccountType12, PartyRole2, VerifiedAccount } from 'adyenlib';
+import { AccountType12, PartyRole2, VerifiedAccount } from 'adyen';
 
 const verifiedAccount: VerifiedAccount = {
   accountId: 'accountId8',

@@ -45,7 +45,7 @@ import {
   IdentificationType,
   TransactionRuleRestrictions,
   Value,
-} from 'adyenlib';
+} from 'adyen';
 
 const transactionRuleRestrictions: TransactionRuleRestrictions = {
   activeNetworkTokens: {

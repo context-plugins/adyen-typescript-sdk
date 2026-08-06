@@ -52,7 +52,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ErrorCondition1 } from 'adyenlib';
+import { ErrorCondition1 } from 'adyen';
 
 const errorCondition1 = ErrorCondition1.UnavailableService;
 ```

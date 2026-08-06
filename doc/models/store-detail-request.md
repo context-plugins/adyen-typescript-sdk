@@ -37,7 +37,7 @@ import {
   EntityType1,
   StoreDetailRequest,
   TokenService,
-} from 'adyenlib';
+} from 'adyen';
 
 const storeDetailRequest: StoreDetailRequest = {
   dateOfBirth: '2016-03-13T12:52:32.123Z',

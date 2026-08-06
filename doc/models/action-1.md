@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Action1 } from 'adyenlib';
+import { Action1 } from 'adyen';
 
 const action1: Action1 = {
   actionCode: 'actionCode2',

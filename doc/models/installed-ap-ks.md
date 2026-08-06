@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { InstalledApKs } from 'adyenlib';
+import { InstalledApKs } from 'adyen';
 
 const installedApKs: InstalledApKs = {
   confirmationDate: '2016-03-13T12:52:32.123Z',

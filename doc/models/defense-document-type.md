@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DefenseDocumentType } from 'adyenlib';
+import { DefenseDocumentType } from 'adyen';
 
 const defenseDocumentType: DefenseDocumentType = {
   available: false,

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { StoreSplitConfiguration } from 'adyenlib';
+import { StoreSplitConfiguration } from 'adyen';
 
 const storeSplitConfiguration: StoreSplitConfiguration = {
   balanceAccountId: 'balanceAccountId4',

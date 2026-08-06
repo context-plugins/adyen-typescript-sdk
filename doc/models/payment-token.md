@@ -23,7 +23,7 @@ the customer.
 ## Example
 
 ```ts
-import { PaymentToken, TokenRequestedType1 } from 'adyenlib';
+import { PaymentToken, TokenRequestedType1 } from 'adyen';
 
 const paymentToken: PaymentToken = {
   tokenRequestedType: TokenRequestedType1.Transaction,

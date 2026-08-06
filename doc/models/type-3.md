@@ -20,7 +20,7 @@ Possible values: **LegalEntity**, **BankAccount**, **Document**.
 ## Example
 
 ```ts
-import { Type3 } from 'adyenlib';
+import { Type3 } from 'adyen';
 
 const type3 = Type3.Document;
 ```

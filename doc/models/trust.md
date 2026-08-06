@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Trust, Type171 } from 'adyenlib';
+import { Trust, Type171 } from 'adyen';
 
 const trust: Trust = {
   countryOfGoverningLaw: 'countryOfGoverningLaw0',

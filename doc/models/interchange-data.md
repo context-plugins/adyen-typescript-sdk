@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { InterchangeData, Type85 } from 'adyenlib';
+import { InterchangeData, Type85 } from 'adyen';
 
 const interchangeData: InterchangeData = {
   type: Type85.InterchangeData,

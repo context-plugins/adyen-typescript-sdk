@@ -81,7 +81,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataCommon1 } from 'adyenlib';
+import { ResponseAdditionalDataCommon1 } from 'adyen';
 
 const responseAdditionalDataCommon1: ResponseAdditionalDataCommon1 = {
   acquirerAccountCode: 'acquirerAccountCode6',

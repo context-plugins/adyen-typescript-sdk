@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TestWebhook } from 'adyenlib';
+import { TestWebhook } from 'adyen';
 
 const testWebhook: TestWebhook = {
   href: 'href6',

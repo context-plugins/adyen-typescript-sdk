@@ -23,7 +23,7 @@ import {
   Status71,
   TransactionSearchResponse,
   Type312,
-} from 'adyenlib';
+} from 'adyen';
 
 const transactionSearchResponse: TransactionSearchResponse = {
   links: {

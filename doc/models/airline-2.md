@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Airline2 } from 'adyenlib';
+import { Airline2 } from 'adyen';
 
 const airline2: Airline2 = {
   legs: [

@@ -22,7 +22,7 @@ For merchants operating in Australia, New Zealand & Canada, JCB and American Exp
 ## Example
 
 ```ts
-import { AmexInfo1, ServiceLevel } from 'adyenlib';
+import { AmexInfo1, ServiceLevel } from 'adyen';
 
 const amexInfo1: AmexInfo1 = {
   serviceLevel: ServiceLevel.PaymentDesignatorContract,

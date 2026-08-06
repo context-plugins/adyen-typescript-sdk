@@ -22,7 +22,7 @@ The sub-merchant data relevant for registered payment facilitators transacting o
 ## Example
 
 ```ts
-import { SubMerchantData1 } from 'adyenlib';
+import { SubMerchantData1 } from 'adyen';
 
 const subMerchantData1: SubMerchantData1 = {
   email: 'email2',

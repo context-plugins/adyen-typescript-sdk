@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ApplePaySessionResponse } from 'adyenlib';
+import { ApplePaySessionResponse } from 'adyen';
 
 const applePaySessionResponse: ApplePaySessionResponse = {
   data: 'data0',

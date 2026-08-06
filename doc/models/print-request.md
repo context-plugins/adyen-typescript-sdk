@@ -27,7 +27,7 @@ import {
   OutputFormat1,
   PrintRequest,
   ResponseMode1,
-} from 'adyenlib';
+} from 'adyen';
 
 const printRequest: PrintRequest = {
   printOutput: {

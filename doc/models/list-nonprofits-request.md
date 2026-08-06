@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ListNonprofitsRequest } from 'adyenlib';
+import { ListNonprofitsRequest } from 'adyen';
 
 const listNonprofitsRequest: ListNonprofitsRequest = {
   accountHolderIds: [

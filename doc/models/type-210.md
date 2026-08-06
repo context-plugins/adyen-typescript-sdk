@@ -16,7 +16,7 @@ The type of terminal action. The value **ForceReboot** triggers an immediate reb
 ## Example
 
 ```ts
-import { Type210 } from 'adyenlib';
+import { Type210 } from 'adyen';
 
 const type210 = Type210.ForceReboot;
 ```

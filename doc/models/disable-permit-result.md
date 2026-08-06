@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DisablePermitResult } from 'adyenlib';
+import { DisablePermitResult } from 'adyen';
 
 const disablePermitResult: DisablePermitResult = {
   pspReference: 'pspReference8',

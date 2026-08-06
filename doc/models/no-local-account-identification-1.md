@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { NoLocalAccountIdentification1 } from 'adyenlib';
+import { NoLocalAccountIdentification1 } from 'adyen';
 
 const noLocalAccountIdentification1: NoLocalAccountIdentification1 = {
   accountNumber: 'accountNumber2',

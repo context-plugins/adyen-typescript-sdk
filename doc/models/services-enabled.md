@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { ServicesEnabled } from 'adyenlib';
+import { ServicesEnabled } from 'adyen';
 
 const servicesEnabled = ServicesEnabled.Loyalty;
 ```

@@ -23,7 +23,7 @@ The payment modification. Only applicable for [returned internal transfers](http
 ## Example
 
 ```ts
-import { Modification2, Status25 } from 'adyenlib';
+import { Modification2, Status25 } from 'adyen';
 
 const modification2: Modification2 = {
   direction: 'direction6',

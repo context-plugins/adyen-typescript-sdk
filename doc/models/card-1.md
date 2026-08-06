@@ -32,7 +32,7 @@ Contains information about the card payment instrument. Returned when you create
 ## Example
 
 ```ts
-import { Card1, FormFactor1, PhoneType, Type4 } from 'adyenlib';
+import { Card1, FormFactor1, PhoneType, Type4 } from 'adyen';
 
 const card1: Card1 = {
   brand: 'brand6',

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { BusinessLineInfoUpdate } from 'adyenlib';
+import { BusinessLineInfoUpdate } from 'adyen';
 
 const businessLineInfoUpdate: BusinessLineInfoUpdate = {
   industryCode: 'industryCode0',

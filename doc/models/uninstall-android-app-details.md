@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Type73, UninstallAndroidAppDetails } from 'adyenlib';
+import { Type73, UninstallAndroidAppDetails } from 'adyen';
 
 const uninstallAndroidAppDetails: UninstallAndroidAppDetails = {
   appId: 'appId0',

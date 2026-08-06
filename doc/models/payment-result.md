@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { PaymentResult } from 'adyenlib';
+import { PaymentResult } from 'adyen';
 
 const paymentResult: PaymentResult = {
   additionalData: {

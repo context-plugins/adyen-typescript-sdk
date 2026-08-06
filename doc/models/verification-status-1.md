@@ -29,7 +29,7 @@ Possible values:
 ## Example
 
 ```ts
-import { VerificationStatus1 } from 'adyenlib';
+import { VerificationStatus1 } from 'adyen';
 
 const verificationStatus1 = VerificationStatus1.Invalid;
 ```

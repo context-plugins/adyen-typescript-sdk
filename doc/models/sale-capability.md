@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { SaleCapability } from 'adyenlib';
+import { SaleCapability } from 'adyen';
 
 const saleCapability = SaleCapability.PrinterReceipt;
 ```

@@ -20,7 +20,7 @@ Details to provide if `type` is **nyce**.
 ## Example
 
 ```ts
-import { NyceInfo1, ProcessingType, Type33 } from 'adyenlib';
+import { NyceInfo1, ProcessingType, Type33 } from 'adyen';
 
 const nyceInfo1: NyceInfo1 = {
   processingType: ProcessingType.Pos,

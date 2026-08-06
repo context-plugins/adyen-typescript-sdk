@@ -19,7 +19,7 @@ List of allowed origins.
 ## Example
 
 ```ts
-import { Href2 } from 'adyenlib';
+import { Href2 } from 'adyen';
 
 const href2: Href2 = {
   href: 'href2',

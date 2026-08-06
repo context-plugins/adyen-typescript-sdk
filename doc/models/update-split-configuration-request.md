@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { UpdateSplitConfigurationRequest } from 'adyenlib';
+import { UpdateSplitConfigurationRequest } from 'adyen';
 
 const updateSplitConfigurationRequest: UpdateSplitConfigurationRequest = {
   description: 'description8',

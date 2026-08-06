@@ -44,7 +44,7 @@ The details of the bank account to where a payout was made.
 ## Example
 
 ```ts
-import { BankAccountDetail } from 'adyenlib';
+import { BankAccountDetail } from 'adyen';
 
 const bankAccountDetail: BankAccountDetail = {
   accountNumber: 'accountNumber8',

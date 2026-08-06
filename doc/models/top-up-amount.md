@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TopUpAmount } from 'adyenlib';
+import { TopUpAmount } from 'adyen';
 
 const topUpAmount: TopUpAmount = {
   fixed: {

@@ -22,7 +22,7 @@ For [Platform Experience components](https://docs.adyen.com/platforms/build-user
 ## Example
 
 ```ts
-import { ProductType21 } from 'adyenlib';
+import { ProductType21 } from 'adyen';
 
 const productType21 = ProductType21.Platform;
 ```

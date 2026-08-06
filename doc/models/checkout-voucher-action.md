@@ -37,7 +37,7 @@
 ## Example
 
 ```ts
-import { CheckoutVoucherAction, Type594 } from 'adyenlib';
+import { CheckoutVoucherAction, Type594 } from 'adyen';
 
 const checkoutVoucherAction: CheckoutVoucherAction = {
   type: Type594.Voucher,

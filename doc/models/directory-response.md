@@ -23,7 +23,7 @@ In 3D Secure 2, this is the `transStatus` from the `ARes`.
 ## Example
 
 ```ts
-import { DirectoryResponse } from 'adyenlib';
+import { DirectoryResponse } from 'adyen';
 
 const directoryResponse = DirectoryResponse.D;
 ```

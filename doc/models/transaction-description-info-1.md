@@ -22,7 +22,7 @@ Information regarding the transaction description.
 ## Example
 
 ```ts
-import { TransactionDescriptionInfo1, Type33 } from 'adyenlib';
+import { TransactionDescriptionInfo1, Type33 } from 'adyen';
 
 const transactionDescriptionInfo1: TransactionDescriptionInfo1 = {
   doingBusinessAsName: 'doingBusinessAsName4',

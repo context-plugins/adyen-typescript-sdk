@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AssociationInitiateResponse } from 'adyenlib';
+import { AssociationInitiateResponse } from 'adyen';
 
 const associationInitiateResponse: AssociationInitiateResponse = {
   sdkInput: 'sdkInput0',

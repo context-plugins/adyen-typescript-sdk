@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ThreeDs2ResultRequest } from 'adyenlib';
+import { ThreeDs2ResultRequest } from 'adyen';
 
 const threeDs2ResultRequest: ThreeDs2ResultRequest = {
   merchantAccount: 'merchantAccount6',

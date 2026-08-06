@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SodexoResponseInfo2 } from 'adyenlib';
+import { SodexoResponseInfo2 } from 'adyen';
 
 const sodexoResponseInfo2: SodexoResponseInfo2 = {
   merchantContactPhone: 'merchantContactPhone0',

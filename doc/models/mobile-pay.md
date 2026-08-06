@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { MobilePay, Type37 } from 'adyenlib';
+import { MobilePay, Type37 } from 'adyen';
 
 const mobilePay: MobilePay = {
   checkoutAttemptId: 'checkoutAttemptId6',

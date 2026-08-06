@@ -20,7 +20,7 @@ The type and unique identifier of the resource to which the rule applies.
 ## Example
 
 ```ts
-import { TransactionRuleEntityKey2 } from 'adyenlib';
+import { TransactionRuleEntityKey2 } from 'adyen';
 
 const transactionRuleEntityKey2: TransactionRuleEntityKey2 = {
   entityReference: 'entityReference8',

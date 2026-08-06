@@ -20,7 +20,7 @@ The details of the payout schedule added to the account.
 ## Example
 
 ```ts
-import { PayoutSchedule, PayoutScheduleResponse1 } from 'adyenlib';
+import { PayoutSchedule, PayoutScheduleResponse1 } from 'adyen';
 
 const payoutScheduleResponse1: PayoutScheduleResponse1 = {
   nextScheduledPayout: '2016-03-13T12:52:32.123Z',

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AuLocalAccountIdentification, Type413 } from 'adyenlib';
+import { AuLocalAccountIdentification, Type413 } from 'adyen';
 
 const auLocalAccountIdentification: AuLocalAccountIdentification = {
   accountNumber: 'accountNumber8',

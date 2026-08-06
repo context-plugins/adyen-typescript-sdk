@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Threshold2 } from 'adyenlib';
+import { Threshold2 } from 'adyen';
 
 const threshold2: Threshold2 = {
   currency: 'currency0',

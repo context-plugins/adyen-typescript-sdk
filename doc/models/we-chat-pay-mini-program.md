@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { WeChatPayMiniProgram } from 'adyenlib';
+import { WeChatPayMiniProgram } from 'adyen';
 
 const weChatPayMiniProgram: WeChatPayMiniProgram = {
   appId: 'appId8',

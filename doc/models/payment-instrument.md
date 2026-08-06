@@ -38,7 +38,7 @@ import {
   Type11,
   Type203,
   Type4,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentInstrument: PaymentInstrument = {
   balanceAccountId: 'balanceAccountId2',

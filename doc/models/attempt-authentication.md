@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { AttemptAuthentication } from 'adyenlib';
+import { AttemptAuthentication } from 'adyen';
 
 const attemptAuthentication = AttemptAuthentication.Always;
 ```

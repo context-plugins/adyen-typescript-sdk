@@ -24,7 +24,7 @@ The status of the transfer limit. Possible values:
 ## Example
 
 ```ts
-import { LimitStatus } from 'adyenlib';
+import { LimitStatus } from 'adyen';
 
 const limitStatus = LimitStatus.PendingSca;
 ```

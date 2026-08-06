@@ -17,7 +17,7 @@ The value is always **Success**.
 ## Example
 
 ```ts
-import { ResultCode23 } from 'adyenlib';
+import { ResultCode23 } from 'adyen';
 
 const resultCode23 = ResultCode23.Success;
 ```

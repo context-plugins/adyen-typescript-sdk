@@ -21,7 +21,7 @@ A resource that contains information about a device, including its unique ID, na
 ## Example
 
 ```ts
-import { ScaDevice, ScaDeviceType1 } from 'adyenlib';
+import { ScaDevice, ScaDeviceType1 } from 'adyen';
 
 const scaDevice: ScaDevice = {
   id: 'id2',

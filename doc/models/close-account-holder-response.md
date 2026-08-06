@@ -20,12 +20,7 @@
 ## Example
 
 ```ts
-import {
-  CloseAccountHolderResponse,
-  Event,
-  FieldName,
-  Status1,
-} from 'adyenlib';
+import { CloseAccountHolderResponse, Event, FieldName, Status1 } from 'adyen';
 
 const closeAccountHolderResponse: CloseAccountHolderResponse = {
   accountHolderStatus: {

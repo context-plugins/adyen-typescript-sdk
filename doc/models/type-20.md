@@ -16,7 +16,7 @@ The type of the webhook you are configuring. Set to **balance**.
 ## Example
 
 ```ts
-import { Type20 } from 'adyenlib';
+import { Type20 } from 'adyen';
 
 const type20 = Type20.Balance;
 ```

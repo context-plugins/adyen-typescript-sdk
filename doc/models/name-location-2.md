@@ -24,7 +24,7 @@ Contains the name and location of the merchant.
 ## Example
 
 ```ts
-import { NameLocation2 } from 'adyenlib';
+import { NameLocation2 } from 'adyen';
 
 const nameLocation2: NameLocation2 = {
   city: 'city6',

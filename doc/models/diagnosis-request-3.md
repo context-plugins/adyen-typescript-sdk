@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DiagnosisRequest3 } from 'adyenlib';
+import { DiagnosisRequest3 } from 'adyen';
 
 const diagnosisRequest3: DiagnosisRequest3 = {
   poiid: 'POIID4',

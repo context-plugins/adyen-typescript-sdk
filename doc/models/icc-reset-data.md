@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { IccResetData } from 'adyenlib';
+import { IccResetData } from 'adyen';
 
 const iccResetData: IccResetData = {
   atrValue: 'ATRValue8',

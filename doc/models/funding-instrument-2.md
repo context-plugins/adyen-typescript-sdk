@@ -22,7 +22,7 @@ Details of the card or token used to fund the pay-in transaction.
 ## Example
 
 ```ts
-import { FundingInstrument2, SourceOfFunds2 } from 'adyenlib';
+import { FundingInstrument2, SourceOfFunds2 } from 'adyen';
 
 const fundingInstrument2: FundingInstrument2 = {
   cardIdentification: {

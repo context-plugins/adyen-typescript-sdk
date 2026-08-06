@@ -27,7 +27,7 @@ Information about the owner of the bank account.
 ## Example
 
 ```ts
-import { PartyIdentification3 } from 'adyenlib';
+import { PartyIdentification3 } from 'adyen';
 
 const partyIdentification3: PartyIdentification3 = {
   address: {

@@ -19,7 +19,7 @@ A short-lived URL that redirects the user to the iDEAL page that is required for
 ## Example
 
 ```ts
-import { Href4 } from 'adyenlib';
+import { Href4 } from 'adyen';
 
 const href4: Href4 = {
   href: 'https://someUrl',

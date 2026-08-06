@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { GetStoresUnderAccountRequest } from 'adyenlib';
+import { GetStoresUnderAccountRequest } from 'adyen';
 
 const getStoresUnderAccountRequest: GetStoresUnderAccountRequest = {
   companyAccount: 'companyAccount2',

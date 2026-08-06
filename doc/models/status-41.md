@@ -21,7 +21,7 @@ Possible values: **active**, **closed**, **suspended**.
 ## Example
 
 ```ts
-import { Status41 } from 'adyenlib';
+import { Status41 } from 'adyen';
 
 const status41 = Status41.Active;
 ```

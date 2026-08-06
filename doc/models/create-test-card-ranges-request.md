@@ -23,7 +23,7 @@ import {
   CreateTestCardRangesRequest,
   ExpiryMonth,
   ThreeDDirectoryServerResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const createTestCardRangesRequest: CreateTestCardRangesRequest = {
   accountCode: 'accountCode6',

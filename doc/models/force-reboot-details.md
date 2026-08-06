@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ForceRebootDetails, Type210 } from 'adyenlib';
+import { ForceRebootDetails, Type210 } from 'adyen';
 
 const forceRebootDetails: ForceRebootDetails = {
   type: Type210.ForceReboot,

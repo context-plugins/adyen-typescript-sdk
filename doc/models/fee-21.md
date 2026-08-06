@@ -19,7 +19,7 @@ Contains information about the fee that your user must pay for the disbursement.
 ## Example
 
 ```ts
-import { Fee21 } from 'adyenlib';
+import { Fee21 } from 'adyen';
 
 const fee21: Fee21 = {
   amount: {

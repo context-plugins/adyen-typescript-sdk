@@ -22,7 +22,7 @@ Possible values: **individual**, **organization**, **soleProprietorship**, or **
 ## Example
 
 ```ts
-import { Type212 } from 'adyenlib';
+import { Type212 } from 'adyen';
 
 const type212 = Type212.SoleProprietorship;
 ```

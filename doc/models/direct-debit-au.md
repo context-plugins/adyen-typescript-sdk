@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { DirectDebitAu } from 'adyenlib';
+import { DirectDebitAu } from 'adyen';
 
 const directDebitAu: DirectDebitAu = {
   holderName: 'holderName6',

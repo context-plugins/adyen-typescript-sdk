@@ -24,7 +24,7 @@ To abort a transaction in progress or to request the status of a transaction fro
 ## Example
 
 ```ts
-import { MessageCategory2, MessageReference } from 'adyenlib';
+import { MessageCategory2, MessageReference } from 'adyen';
 
 const messageReference: MessageReference = {
   messageCategory: MessageCategory2.GetTotals,

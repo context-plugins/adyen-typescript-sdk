@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Healthcare } from 'adyenlib';
+import { Healthcare } from 'adyen';
 
 const healthcare: Healthcare = {
   totalHealthcareValue: BigInt(16),

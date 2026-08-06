@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Value3 } from 'adyenlib';
+import { Value3 } from 'adyen';
 
 const value3 = Value3.Currency;
 ```

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { LocalizedInformation } from 'adyenlib';
+import { LocalizedInformation } from 'adyen';
 
 const localizedInformation: LocalizedInformation = {
   localShopperStatement: [

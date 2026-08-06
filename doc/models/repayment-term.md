@@ -20,7 +20,7 @@ Contains information about the time period in which your user must repay the tot
 ## Example
 
 ```ts
-import { RepaymentTerm } from 'adyenlib';
+import { RepaymentTerm } from 'adyen';
 
 const repaymentTerm: RepaymentTerm = {
   estimatedDays: 34,

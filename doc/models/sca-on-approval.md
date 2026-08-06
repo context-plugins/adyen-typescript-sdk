@@ -20,7 +20,7 @@ Possible values: **required**, **notApplicable**.
 ## Example
 
 ```ts
-import { ScaOnApproval } from 'adyenlib';
+import { ScaOnApproval } from 'adyen';
 
 const scaOnApproval = ScaOnApproval.NotApplicable;
 ```

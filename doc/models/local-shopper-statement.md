@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { LocalShopperStatement } from 'adyenlib';
+import { LocalShopperStatement } from 'adyen';
 
 const localShopperStatement: LocalShopperStatement = {
   script: 'script4',

@@ -27,7 +27,7 @@ This field has the following possible values:
 ## Example
 
 ```ts
-import { ShopperInteraction1 } from 'adyenlib';
+import { ShopperInteraction1 } from 'adyen';
 
 const shopperInteraction1 = ShopperInteraction1.Ecommerce;
 ```

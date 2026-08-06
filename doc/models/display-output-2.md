@@ -34,7 +34,7 @@ import {
   MenuEntryTag1,
   OutputFormat1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const displayOutput2: DisplayOutput2 = {
   device: Device11.CashierDisplay,

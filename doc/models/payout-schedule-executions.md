@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ExecutionResult1, PayoutScheduleExecutions } from 'adyenlib';
+import { ExecutionResult1, PayoutScheduleExecutions } from 'adyen';
 
 const payoutScheduleExecutions: PayoutScheduleExecutions = {
   payoutScheduleExecutions: [

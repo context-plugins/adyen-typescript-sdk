@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { AccountSupportingEntityCapability, AllowedLevel } from 'adyenlib';
+import { AccountSupportingEntityCapability, AllowedLevel } from 'adyen';
 
 const accountSupportingEntityCapability: AccountSupportingEntityCapability = {
   allowed: false,

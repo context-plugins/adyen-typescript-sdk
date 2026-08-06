@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ExternalReason } from 'adyenlib';
+import { ExternalReason } from 'adyen';
 
 const externalReason: ExternalReason = {
   code: 'code6',

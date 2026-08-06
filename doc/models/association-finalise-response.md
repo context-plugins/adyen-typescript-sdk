@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AssociationFinaliseResponse, Type123 } from 'adyenlib';
+import { AssociationFinaliseResponse, Type123 } from 'adyen';
 
 const associationFinaliseResponse: AssociationFinaliseResponse = {
   type: Type123.PaymentInstrument,

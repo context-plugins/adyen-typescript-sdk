@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MccsRestriction } from 'adyenlib';
+import { MccsRestriction } from 'adyen';
 
 const mccsRestriction: MccsRestriction = {
   operation: 'operation0',

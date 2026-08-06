@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { PlatformPayment, PlatformPaymentType } from 'adyenlib';
+import { PlatformPayment, PlatformPaymentType } from 'adyen';
 
 const platformPayment: PlatformPayment = {
   modificationMerchantReference: 'modificationMerchantReference8',

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { UpdateMerchantApiCredentialRequest } from 'adyenlib';
+import { UpdateMerchantApiCredentialRequest } from 'adyen';
 
 const updateMerchantApiCredentialRequest: UpdateMerchantApiCredentialRequest = {
   active: false,

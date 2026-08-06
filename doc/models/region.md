@@ -19,7 +19,7 @@ The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
 ## Example
 
 ```ts
-import { Region } from 'adyenlib';
+import { Region } from 'adyen';
 
 const region = Region.Na;
 ```

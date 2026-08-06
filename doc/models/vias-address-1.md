@@ -24,7 +24,7 @@ Address of the ultimate parent company.
 ## Example
 
 ```ts
-import { ViasAddress1 } from 'adyenlib';
+import { ViasAddress1 } from 'adyen';
 
 const viasAddress1: ViasAddress1 = {
   country: 'country0',

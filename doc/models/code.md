@@ -38,7 +38,7 @@ The code for the status of the grant. Possible values:
 ## Example
 
 ```ts
-import { Code } from 'adyenlib';
+import { Code } from 'adyen';
 
 const code = Code.Cancelled;
 ```

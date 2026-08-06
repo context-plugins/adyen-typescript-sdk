@@ -19,7 +19,7 @@ Possible values: **Open**, **Closed**.
 ## Example
 
 ```ts
-import { Status6 } from 'adyenlib';
+import { Status6 } from 'adyen';
 
 const status6 = Status6.Closed;
 ```

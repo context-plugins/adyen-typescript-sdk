@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { TerminalReassignmentTarget } from 'adyenlib';
+import { TerminalReassignmentTarget } from 'adyen';
 
 const terminalReassignmentTarget: TerminalReassignmentTarget = {
   inventory: false,

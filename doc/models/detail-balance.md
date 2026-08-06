@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DetailBalance } from 'adyenlib';
+import { DetailBalance } from 'adyen';
 
 const detailBalance: DetailBalance = {
   balance: [

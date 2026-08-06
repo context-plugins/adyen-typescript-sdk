@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { MandatePartyIdentification } from 'adyenlib';
+import { MandatePartyIdentification } from 'adyen';
 
 const mandatePartyIdentification: MandatePartyIdentification = {
   fullName: 'fullName0',

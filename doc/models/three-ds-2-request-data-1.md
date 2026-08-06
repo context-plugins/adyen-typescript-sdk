@@ -62,7 +62,7 @@ import {
   ChAccChangeInd,
   ChAccPwChangeInd,
   ThreeDs2RequestData1,
-} from 'adyenlib';
+} from 'adyen';
 
 const threeDs2RequestData1: ThreeDs2RequestData1 = {
   deviceChannel: 'deviceChannel6',

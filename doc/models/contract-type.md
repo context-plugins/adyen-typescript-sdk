@@ -17,7 +17,7 @@ The contract type of the grant offer. Possible value: **cashAdvance**, **loan**.
 ## Example
 
 ```ts
-import { ContractType } from 'adyenlib';
+import { ContractType } from 'adyen';
 
 const contractType = ContractType.CashAdvance;
 ```

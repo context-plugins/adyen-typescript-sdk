@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { UpdateSplitConfigurationRuleRequest } from 'adyenlib';
+import { UpdateSplitConfigurationRuleRequest } from 'adyen';
 
 const updateSplitConfigurationRuleRequest: UpdateSplitConfigurationRuleRequest = {
   currency: 'currency0',

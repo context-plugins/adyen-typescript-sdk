@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { PaymentRefundResponse, Status20, Type111 } from 'adyenlib';
+import { PaymentRefundResponse, Status20, Type111 } from 'adyen';
 
 const paymentRefundResponse: PaymentRefundResponse = {
   amount: {

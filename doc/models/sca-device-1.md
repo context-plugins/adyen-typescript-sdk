@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ScaDevice1, ScaDeviceType1 } from 'adyenlib';
+import { ScaDevice1, ScaDeviceType1 } from 'adyen';
 
 const scaDevice1: ScaDevice1 = {
   id: 'id2',

@@ -20,7 +20,7 @@ For `eap` **tls**. The RSA private key for the client. Include the lines BEGIN R
 ## Example
 
 ```ts
-import { File3 } from 'adyenlib';
+import { File3 } from 'adyen';
 
 const file3: File3 = {
   data: 'data8',

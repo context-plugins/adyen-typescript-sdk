@@ -24,7 +24,7 @@ References to resources linked to the API credential.
 ## Example
 
 ```ts
-import { ApiCredentialLinks2 } from 'adyenlib';
+import { ApiCredentialLinks2 } from 'adyen';
 
 const apiCredentialLinks2: ApiCredentialLinks2 = {
   self: {

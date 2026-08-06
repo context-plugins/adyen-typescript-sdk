@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AcceptDisputeRequest } from 'adyenlib';
+import { AcceptDisputeRequest } from 'adyen';
 
 const acceptDisputeRequest: AcceptDisputeRequest = {
   disputePspReference: 'disputePspReference2',

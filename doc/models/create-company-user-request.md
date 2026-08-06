@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CreateCompanyUserRequest } from 'adyenlib';
+import { CreateCompanyUserRequest } from 'adyen';
 
 const createCompanyUserRequest: CreateCompanyUserRequest = {
   email: 'email4',

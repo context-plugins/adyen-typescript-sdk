@@ -20,7 +20,7 @@ For `eap` **tls**. The EAP intermediate certificate.
 ## Example
 
 ```ts
-import { File4 } from 'adyenlib';
+import { File4 } from 'adyen';
 
 const file4: File4 = {
   data: 'data4',

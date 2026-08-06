@@ -22,7 +22,7 @@ Supported operations: **anyMatch**, **noneMatch**.
 ## Example
 
 ```ts
-import { MccsRestriction1 } from 'adyenlib';
+import { MccsRestriction1 } from 'adyen';
 
 const mccsRestriction1: MccsRestriction1 = {
   operation: 'operation8',

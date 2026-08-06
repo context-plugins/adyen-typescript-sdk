@@ -23,7 +23,7 @@ Object that contains the document.
 ## Example
 
 ```ts
-import { Attachment1 } from 'adyenlib';
+import { Attachment1 } from 'adyen';
 
 const attachment1: Attachment1 = {
   content: 'content6',

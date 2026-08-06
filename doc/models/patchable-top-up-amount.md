@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PatchableTopUpAmount } from 'adyenlib';
+import { PatchableTopUpAmount } from 'adyen';
 
 const patchableTopUpAmount: PatchableTopUpAmount = {
   fixed: {

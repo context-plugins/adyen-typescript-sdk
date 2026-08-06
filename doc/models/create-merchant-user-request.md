@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { CreateMerchantUserRequest } from 'adyenlib';
+import { CreateMerchantUserRequest } from 'adyen';
 
 const createMerchantUserRequest: CreateMerchantUserRequest = {
   email: 'email2',

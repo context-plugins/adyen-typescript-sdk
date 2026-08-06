@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { IbanAccountIdentification } from 'adyenlib';
+import { IbanAccountIdentification } from 'adyen';
 
 const ibanAccountIdentification: IbanAccountIdentification = {
   iban: 'NL00AAAA0000000000',

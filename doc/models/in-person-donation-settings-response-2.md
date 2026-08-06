@@ -32,7 +32,7 @@ import {
   DonationFlow4,
   DonationType1,
   InPersonDonationSettingsResponse2,
-} from 'adyenlib';
+} from 'adyen';
 
 const inPersonDonationSettingsResponse2: InPersonDonationSettingsResponse2 = {
   amounts: [

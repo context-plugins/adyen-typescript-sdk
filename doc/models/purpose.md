@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Purpose } from 'adyenlib';
+import { Purpose } from 'adyen';
 
 const purpose = Purpose.Fraud;
 ```

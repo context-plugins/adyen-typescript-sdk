@@ -21,7 +21,7 @@ Contains information that explains why the transfer was rejected or returned by 
 ## Example
 
 ```ts
-import { Namespace, NetworkReason2 } from 'adyenlib';
+import { Namespace, NetworkReason2 } from 'adyen';
 
 const networkReason2: NetworkReason2 = {
   code: 'code4',

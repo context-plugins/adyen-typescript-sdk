@@ -35,7 +35,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Priority } from 'adyenlib';
+import { Priority } from 'adyen';
 
 const priority = Priority.Instant;
 ```

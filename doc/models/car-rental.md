@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { CarRental, RateType } from 'adyenlib';
+import { CarRental, RateType } from 'adyen';
 
 const carRental: CarRental = {
   renterName: 'renterName2',

@@ -22,7 +22,7 @@ Contains the scheme-agnostic match values returned by Adyen.
 ## Example
 
 ```ts
-import { PaymentValidationsNameResultResponse2 } from 'adyenlib';
+import { PaymentValidationsNameResultResponse2 } from 'adyen';
 
 const paymentValidationsNameResultResponse2: PaymentValidationsNameResultResponse2 = {
   firstName: 'firstName0',

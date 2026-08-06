@@ -58,7 +58,7 @@
 ## Example
 
 ```ts
-import { PaymentLinkRequest } from 'adyenlib';
+import { PaymentLinkRequest } from 'adyen';
 
 const paymentLinkRequest: PaymentLinkRequest = {
   amount: {

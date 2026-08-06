@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CheckoutOutgoingForwardRequest, HttpMethod } from 'adyenlib';
+import { CheckoutOutgoingForwardRequest, HttpMethod } from 'adyen';
 
 const checkoutOutgoingForwardRequest: CheckoutOutgoingForwardRequest = {
   body: 'body6',

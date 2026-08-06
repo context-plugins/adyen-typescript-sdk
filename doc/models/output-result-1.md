@@ -28,7 +28,7 @@ import {
   InfoQualify3,
   OutputResult1,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const outputResult1: OutputResult1 = {
   device: Device3.CashierInput,

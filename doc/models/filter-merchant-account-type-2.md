@@ -22,7 +22,7 @@ Shows how merchant accounts are filtered when configuring the webhook. Possible 
 ## Example
 
 ```ts
-import { FilterMerchantAccountType2 } from 'adyenlib';
+import { FilterMerchantAccountType2 } from 'adyen';
 
 const filterMerchantAccountType2 = FilterMerchantAccountType2.IncludeAccounts;
 ```

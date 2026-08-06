@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { MessageCategory2, MessageReference1 } from 'adyenlib';
+import { MessageCategory2, MessageReference1 } from 'adyen';
 
 const messageReference1: MessageReference1 = {
   messageCategory: MessageCategory2.CardAcquisition,

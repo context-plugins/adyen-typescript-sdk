@@ -20,7 +20,7 @@ The order request object that contains a pspReference that represents the order 
 ## Example
 
 ```ts
-import { EncryptedOrderData4 } from 'adyenlib';
+import { EncryptedOrderData4 } from 'adyen';
 
 const encryptedOrderData4: EncryptedOrderData4 = {
   orderData: 'orderData2',

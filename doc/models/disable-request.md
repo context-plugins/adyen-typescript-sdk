@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { DisableRequest } from 'adyenlib';
+import { DisableRequest } from 'adyen';
 
 const disableRequest: DisableRequest = {
   merchantAccount: 'merchantAccount4',

@@ -23,7 +23,7 @@ The person or entity funding the money.
 ## Example
 
 ```ts
-import { FundOrigin1 } from 'adyenlib';
+import { FundOrigin1 } from 'adyen';
 
 const fundOrigin1: FundOrigin1 = {
   billingAddress: {

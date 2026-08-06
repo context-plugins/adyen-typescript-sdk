@@ -33,7 +33,7 @@ import {
   MessageCategory2,
   OutputFormat1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const inputUpdate2: InputUpdate2 = {
   messageReference: {

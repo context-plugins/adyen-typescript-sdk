@@ -14,7 +14,7 @@
 ## Example
 
 ```ts
-import { SettingType } from 'adyenlib';
+import { SettingType } from 'adyen';
 
 const settingType = SettingType.Balance;
 ```

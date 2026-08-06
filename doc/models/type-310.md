@@ -16,7 +16,7 @@ Type of terminal action: Install an Android app.
 ## Example
 
 ```ts
-import { Type310 } from 'adyenlib';
+import { Type310 } from 'adyen';
 
 const type310 = Type310.InstallAndroidApp;
 ```

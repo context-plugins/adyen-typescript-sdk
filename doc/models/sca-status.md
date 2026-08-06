@@ -22,7 +22,7 @@ The status of Strong Customer Authentication (SCA). Possible values:
 ## Example
 
 ```ts
-import { ScaStatus } from 'adyenlib';
+import { ScaStatus } from 'adyen';
 
 const scaStatus = ScaStatus.Pending;
 ```

@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { Card6 } from 'adyenlib';
+import { Card6 } from 'adyen';
 
 const card6: Card6 = {
   cvc: 'cvc0',

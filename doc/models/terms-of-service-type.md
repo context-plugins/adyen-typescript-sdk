@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { TermsOfServiceType } from 'adyenlib';
+import { TermsOfServiceType } from 'adyen';
 
 const termsOfServiceType = TermsOfServiceType.AdyenForPlatformsAdvanced;
 ```

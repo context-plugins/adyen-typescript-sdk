@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { NzLocalAccountIdentification, Type233 } from 'adyenlib';
+import { NzLocalAccountIdentification, Type233 } from 'adyen';
 
 const nzLocalAccountIdentification: NzLocalAccountIdentification = {
   accountNumber: 'accountNumber6',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { UndefinedBeneficiary } from 'adyenlib';
+import { UndefinedBeneficiary } from 'adyen';
 
 const undefinedBeneficiary: UndefinedBeneficiary = {
   description: 'description6',

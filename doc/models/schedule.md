@@ -34,7 +34,7 @@ Possible values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`, `DAILY_
 ## Example
 
 ```ts
-import { Schedule } from 'adyenlib';
+import { Schedule } from 'adyen';
 
 const schedule = Schedule.WeeklyMonToFriUs;
 ```

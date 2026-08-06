@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Value } from 'adyenlib';
+import { Value } from 'adyen';
 
 const value = Value.BalanceAccount;
 ```

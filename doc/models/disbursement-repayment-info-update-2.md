@@ -20,7 +20,7 @@ Contains information about the basis points configured for repaying the disburse
 ## Example
 
 ```ts
-import { DisbursementRepaymentInfoUpdate2 } from 'adyenlib';
+import { DisbursementRepaymentInfoUpdate2 } from 'adyen';
 
 const disbursementRepaymentInfoUpdate2: DisbursementRepaymentInfoUpdate2 = {
   basisPoints: 152,

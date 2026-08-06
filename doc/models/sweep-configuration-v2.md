@@ -38,7 +38,7 @@ import {
   Reason,
   SweepConfigurationV2,
   Type6,
-} from 'adyenlib';
+} from 'adyen';
 
 const sweepConfigurationV2: SweepConfigurationV2 = {
   counterparty: {

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { WebData } from 'adyenlib';
+import { WebData } from 'adyen';
 
 const webData: WebData = {
   webAddress: 'webAddress4',

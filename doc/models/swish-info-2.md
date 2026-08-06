@@ -22,7 +22,7 @@ Details to provide if `type` is **swish**.
 ## Example
 
 ```ts
-import { SwishInfo2 } from 'adyenlib';
+import { SwishInfo2 } from 'adyen';
 
 const swishInfo2: SwishInfo2 = {
   swishNumber: 'swishNumber6',

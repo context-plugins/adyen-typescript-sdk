@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MatchingValuesRestriction, Value3 } from 'adyenlib';
+import { MatchingValuesRestriction, Value3 } from 'adyen';
 
 const matchingValuesRestriction: MatchingValuesRestriction = {
   operation: 'operation6',

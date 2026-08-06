@@ -24,7 +24,7 @@ The [time interval](https://docs.adyen.com/issuing/transaction-rules#time-interv
 ## Example
 
 ```ts
-import { DayOfWeek, TransactionRuleInterval1, Type13, Unit } from 'adyenlib';
+import { DayOfWeek, TransactionRuleInterval1, Type13, Unit } from 'adyen';
 
 const transactionRuleInterval1: TransactionRuleInterval1 = {
   type: Type13.Daily,

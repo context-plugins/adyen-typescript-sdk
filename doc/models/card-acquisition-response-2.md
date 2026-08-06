@@ -34,7 +34,7 @@ import {
   Result11,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const cardAcquisitionResponse2: CardAcquisitionResponse2 = {
   response: {

@@ -14,7 +14,7 @@
 ## Example
 
 ```ts
-import { MandateType } from 'adyenlib';
+import { MandateType } from 'adyen';
 
 const mandateType = MandateType.Bacs;
 ```

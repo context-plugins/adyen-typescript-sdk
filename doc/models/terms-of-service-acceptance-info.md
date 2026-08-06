@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { TermsOfServiceAcceptanceInfo, Type25 } from 'adyenlib';
+import { TermsOfServiceAcceptanceInfo, Type25 } from 'adyen';
 
 const termsOfServiceAcceptanceInfo: TermsOfServiceAcceptanceInfo = {
   acceptedBy: 'acceptedBy2',

@@ -21,7 +21,7 @@ Totals of the payment transaction during the reconciliation period.
 ## Example
 
 ```ts
-import { PaymentTotals, TransactionType11 } from 'adyenlib';
+import { PaymentTotals, TransactionType11 } from 'adyen';
 
 const paymentTotals: PaymentTotals = {
   transactionType: TransactionType11.Declined,

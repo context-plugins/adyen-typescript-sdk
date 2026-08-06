@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PaymentDetailsRequest } from 'adyenlib';
+import { PaymentDetailsRequest } from 'adyen';
 
 const paymentDetailsRequest: PaymentDetailsRequest = {
   method: 'PaymentDetailsRequest',

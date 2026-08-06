@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { AccountHolderType, AchDirectDebit, BankAccountType } from 'adyenlib';
+import { AccountHolderType, AchDirectDebit, BankAccountType } from 'adyen';
 
 const achDirectDebit: AchDirectDebit = {
   accountHolderType: AccountHolderType.Business,

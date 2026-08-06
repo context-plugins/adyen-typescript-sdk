@@ -31,7 +31,7 @@ Overrides the shipment bulk address defined in the card configuration profile.
 ## Example
 
 ```ts
-import { BulkAddress1 } from 'adyenlib';
+import { BulkAddress1 } from 'adyen';
 
 const bulkAddress1: BulkAddress1 = {
   country: 'country0',

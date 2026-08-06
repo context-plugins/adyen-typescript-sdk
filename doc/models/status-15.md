@@ -26,7 +26,7 @@ The status of the app. Possible values:
 ## Example
 
 ```ts
-import { Status15 } from 'adyenlib';
+import { Status15 } from 'adyen';
 
 const status15 = Status15.Invalid;
 ```

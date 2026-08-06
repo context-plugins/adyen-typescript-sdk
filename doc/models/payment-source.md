@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { PaymentSource } from 'adyenlib';
+import { PaymentSource } from 'adyen';
 
 const paymentSource = PaymentSource.Qr;
 ```

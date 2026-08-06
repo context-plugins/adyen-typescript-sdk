@@ -26,7 +26,7 @@ The nonprofit cause that the campaign supports.
 ## Example
 
 ```ts
-import { DonationCampaignNonprofitCause2 } from 'adyenlib';
+import { DonationCampaignNonprofitCause2 } from 'adyen';
 
 const donationCampaignNonprofitCause2: DonationCampaignNonprofitCause2 = {
   bannerUrl: 'bannerUrl0',

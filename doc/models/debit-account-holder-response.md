@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { DebitAccountHolderResponse, FieldName } from 'adyenlib';
+import { DebitAccountHolderResponse, FieldName } from 'adyen';
 
 const debitAccountHolderResponse: DebitAccountHolderResponse = {
   accountHolderCode: 'accountHolderCode2',

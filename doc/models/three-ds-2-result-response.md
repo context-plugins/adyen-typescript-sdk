@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ChallengeCancel, ThreeDs2ResultResponse } from 'adyenlib';
+import { ChallengeCancel, ThreeDs2ResultResponse } from 'adyen';
 
 const threeDs2ResultResponse: ThreeDs2ResultResponse = {
   threeDs2Result: {

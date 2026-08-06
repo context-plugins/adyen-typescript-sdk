@@ -26,7 +26,7 @@ import {
   PaymentInstrumentRequirement,
   PaymentInstrumentType,
   Type363,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentInstrumentRequirement: PaymentInstrumentRequirement = {
   type: Type363.PaymentInstrumentRequirement,

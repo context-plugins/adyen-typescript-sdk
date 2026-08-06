@@ -21,7 +21,7 @@ The information about the phone number of the device used to provision the the n
 ## Example
 
 ```ts
-import { PhoneInfo2 } from 'adyenlib';
+import { PhoneInfo2 } from 'adyen';
 
 const phoneInfo2: PhoneInfo2 = {
   hashedNumber: 'hashedNumber0',

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentCancelRequest } from 'adyenlib';
+import { PaymentCancelRequest } from 'adyen';
 
 const paymentCancelRequest: PaymentCancelRequest = {
   merchantAccount: 'merchantAccount2',

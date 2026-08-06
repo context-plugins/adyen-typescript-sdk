@@ -19,7 +19,7 @@ Result of the validation. Ex: valid, invalid, unknown
 ## Example
 
 ```ts
-import { Result1 } from 'adyenlib';
+import { Result1 } from 'adyen';
 
 const result1 = Result1.Valid;
 ```

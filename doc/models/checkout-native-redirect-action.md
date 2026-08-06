@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CheckoutNativeRedirectAction, Type553 } from 'adyenlib';
+import { CheckoutNativeRedirectAction, Type553 } from 'adyen';
 
 const checkoutNativeRedirectAction: CheckoutNativeRedirectAction = {
   type: Type553.NativeRedirect,

@@ -18,11 +18,7 @@
 ## Example
 
 ```ts
-import {
-  KycUltimateParentCompanyCheckResult,
-  Status3,
-  Type2,
-} from 'adyenlib';
+import { KycUltimateParentCompanyCheckResult, Status3, Type2 } from 'adyen';
 
 const kycUltimateParentCompanyCheckResult: KycUltimateParentCompanyCheckResult = {
   checks: [

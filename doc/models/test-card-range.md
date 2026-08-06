@@ -30,7 +30,7 @@ import {
   ExpiryMonth,
   TestCardRange,
   ThreeDDirectoryServerResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const testCardRange: TestCardRange = {
   cardHolderName: 'cardHolderName0',

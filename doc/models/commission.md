@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Commission } from 'adyenlib';
+import { Commission } from 'adyen';
 
 const commission: Commission = {
   fixedAmount: BigInt(112),

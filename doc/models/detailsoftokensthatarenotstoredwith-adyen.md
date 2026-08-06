@@ -28,7 +28,7 @@ import {
   DetailsoftokensthatarenotstoredwithAdyen,
   Subtype3,
   Type67,
-} from 'adyenlib';
+} from 'adyen';
 
 const detailsoftokensthatarenotstoredwithAdyen: DetailsoftokensthatarenotstoredwithAdyen = {
   storedPaymentMethodId: 'storedPaymentMethodId2',

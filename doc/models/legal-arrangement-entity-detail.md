@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { Gender, LegalArrangementEntityDetail, Type } from 'adyenlib';
+import { Gender, LegalArrangementEntityDetail, Type } from 'adyen';
 
 const legalArrangementEntityDetail: LegalArrangementEntityDetail = {
   address: {

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { KlarnaResponseInfo1, Region1 } from 'adyenlib';
+import { KlarnaResponseInfo1, Region1 } from 'adyen';
 
 const klarnaResponseInfo1: KlarnaResponseInfo1 = {
   autoCapture: false,

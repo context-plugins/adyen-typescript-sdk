@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Event, Gender, GetAccountHolderResponse, Status1 } from 'adyenlib';
+import { Event, Gender, GetAccountHolderResponse, Status1 } from 'adyen';
 
 const getAccountHolderResponse: GetAccountHolderResponse = {
   accountHolderCode: 'accountHolderCode4',

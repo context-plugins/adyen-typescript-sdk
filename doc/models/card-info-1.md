@@ -27,7 +27,7 @@ Contains information about the card. Required when you create a payment instrume
 ## Example
 
 ```ts
-import { CardInfo1, FormFactor1, PhoneType, Type4 } from 'adyenlib';
+import { CardInfo1, FormFactor1, PhoneType, Type4 } from 'adyen';
 
 const cardInfo1: CardInfo1 = {
   brand: 'brand4',

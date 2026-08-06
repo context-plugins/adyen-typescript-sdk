@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { AdditionalBankIdentificationType } from 'adyenlib';
+import { AdditionalBankIdentificationType } from 'adyen';
 
 const additionalBankIdentificationType = AdditionalBankIdentificationType.GbSortCode;
 ```

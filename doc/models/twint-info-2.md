@@ -19,7 +19,7 @@ Details to provide if `type` is **twint**.
 ## Example
 
 ```ts
-import { TwintInfo2 } from 'adyenlib';
+import { TwintInfo2 } from 'adyen';
 
 const twintInfo2: TwintInfo2 = {
   logo: 'logo6',

@@ -17,7 +17,7 @@ The Secure Remote Commerce scheme.
 ## Example
 
 ```ts
-import { Scheme } from 'adyenlib';
+import { Scheme } from 'adyen';
 
 const scheme = Scheme.Mc;
 ```

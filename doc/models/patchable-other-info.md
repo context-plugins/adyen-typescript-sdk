@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PatchableOtherInfo, ProductType1, SubType11 } from 'adyenlib';
+import { PatchableOtherInfo, ProductType1, SubType11 } from 'adyen';
 
 const patchableOtherInfo: PatchableOtherInfo = {
   descriptionOfIssue: 'descriptionOfIssue2',

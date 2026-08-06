@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GetNetworkTokenResponse } from 'adyenlib';
+import { GetNetworkTokenResponse } from 'adyen';
 
 const getNetworkTokenResponse: GetNetworkTokenResponse = {
   token: {

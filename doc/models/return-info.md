@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ReturnInfo } from 'adyenlib';
+import { ReturnInfo } from 'adyen';
 
 const returnInfo: ReturnInfo = {
   city: 'city2',

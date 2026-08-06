@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Fastlane, Type68 } from 'adyenlib';
+import { Fastlane, Type68 } from 'adyen';
 
 const fastlane: Fastlane = {
   fastlaneData: 'fastlaneData6',

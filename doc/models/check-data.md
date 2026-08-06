@@ -26,7 +26,7 @@ Allows the check information to be provided by the Sale System before requesting
 ## Example
 
 ```ts
-import { CheckData, TrackFormat1 } from 'adyenlib';
+import { CheckData, TrackFormat1 } from 'adyen';
 
 const checkData: CheckData = {
   bankId: 'BankID0',

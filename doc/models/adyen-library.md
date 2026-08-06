@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AdyenLibrary } from 'adyenlib';
+import { AdyenLibrary } from 'adyen';
 
 const adyenLibrary: AdyenLibrary = {
   name: 'name8',

@@ -19,7 +19,7 @@ paymentMethod
 ## Example
 
 ```ts
-import { ShopperIdPaymentMethod1 } from 'adyenlib';
+import { ShopperIdPaymentMethod1 } from 'adyen';
 
 const shopperIdPaymentMethod1: ShopperIdPaymentMethod1 = {
   type: 'ShopperIdPaymentMethod1',

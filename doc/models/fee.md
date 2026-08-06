@@ -19,7 +19,7 @@ Contains the currency and value of the cashout fee, in [minor units](https://doc
 ## Example
 
 ```ts
-import { Fee } from 'adyenlib';
+import { Fee } from 'adyen';
 
 const fee: Fee = {
   amount: {

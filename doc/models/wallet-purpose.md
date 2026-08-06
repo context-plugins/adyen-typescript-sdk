@@ -20,7 +20,7 @@ The purpose of a digital wallet transaction.
 ## Example
 
 ```ts
-import { WalletPurpose } from 'adyenlib';
+import { WalletPurpose } from 'adyen';
 
 const walletPurpose = WalletPurpose.TransferOwnWallet;
 ```

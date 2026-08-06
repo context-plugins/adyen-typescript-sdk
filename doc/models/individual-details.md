@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Gender, IndividualDetails, Type } from 'adyenlib';
+import { Gender, IndividualDetails, Type } from 'adyen';
 
 const individualDetails: IndividualDetails = {
   name: {

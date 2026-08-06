@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BacsAccountIdentifier } from 'adyenlib';
+import { BacsAccountIdentifier } from 'adyen';
 
 const bacsAccountIdentifier: BacsAccountIdentifier = {
   accountNumber: 'accountNumber0',

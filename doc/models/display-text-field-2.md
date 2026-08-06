@@ -17,7 +17,7 @@ The text shown on the payment terminal, either the name or the cause of the nonp
 ## Example
 
 ```ts
-import { DisplayTextField2 } from 'adyenlib';
+import { DisplayTextField2 } from 'adyen';
 
 const displayTextField2 = DisplayTextField2.CauseName;
 ```

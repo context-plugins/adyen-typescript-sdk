@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { SeLocalAccountIdentification1 } from 'adyenlib';
+import { SeLocalAccountIdentification1 } from 'adyen';
 
 const seLocalAccountIdentification1: SeLocalAccountIdentification1 = {
   accountNumber: 'accountNumber4',

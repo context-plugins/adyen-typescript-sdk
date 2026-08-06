@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SourceAccountTypesRestriction, Value5 } from 'adyenlib';
+import { SourceAccountTypesRestriction, Value5 } from 'adyen';
 
 const sourceAccountTypesRestriction: SourceAccountTypesRestriction = {
   operation: 'operation0',

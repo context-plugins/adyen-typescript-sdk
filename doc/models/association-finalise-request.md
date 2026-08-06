@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AssociationFinaliseRequest, Type103 } from 'adyenlib';
+import { AssociationFinaliseRequest, Type103 } from 'adyen';
 
 const associationFinaliseRequest: AssociationFinaliseRequest = {
   ids: [

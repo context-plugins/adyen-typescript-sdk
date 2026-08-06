@@ -20,7 +20,7 @@ Contains the status of the grant.
 ## Example
 
 ```ts
-import { Code, Status22 } from 'adyenlib';
+import { Code, Status22 } from 'adyen';
 
 const status22: Status22 = {
   code: Code.Requested,

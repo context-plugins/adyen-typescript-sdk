@@ -33,7 +33,7 @@ import {
   LegalEntityInfo,
   Type132,
   Type142,
-} from 'adyenlib';
+} from 'adyen';
 
 const legalEntityInfo: LegalEntityInfo = {
   capabilities: {

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Hardware } from 'adyenlib';
+import { Hardware } from 'adyen';
 
 const hardware: Hardware = {
   displayMaximumBackLight: 142,

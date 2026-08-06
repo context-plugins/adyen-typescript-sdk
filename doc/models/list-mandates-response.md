@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ListMandatesResponse } from 'adyenlib';
+import { ListMandatesResponse } from 'adyen';
 
 const listMandatesResponse: ListMandatesResponse = {
   link: {

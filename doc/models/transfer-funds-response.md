@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { FieldName, TransferFundsResponse } from 'adyenlib';
+import { FieldName, TransferFundsResponse } from 'adyen';
 
 const transferFundsResponse: TransferFundsResponse = {
   invalidFields: [

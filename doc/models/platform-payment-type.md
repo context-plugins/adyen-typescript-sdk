@@ -67,7 +67,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PlatformPaymentType } from 'adyenlib';
+import { PlatformPaymentType } from 'adyen';
 
 const platformPaymentType = PlatformPaymentType.TopUp;
 ```

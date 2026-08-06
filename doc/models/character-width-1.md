@@ -21,7 +21,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CharacterWidth1 } from 'adyenlib';
+import { CharacterWidth1 } from 'adyen';
 
 const characterWidth1 = CharacterWidth1.SingleWidth;
 ```

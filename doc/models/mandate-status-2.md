@@ -20,7 +20,7 @@ Possible values: **pending**, **approved**, **cancelled**.
 ## Example
 
 ```ts
-import { MandateStatus2 } from 'adyenlib';
+import { MandateStatus2 } from 'adyen';
 
 const mandateStatus2 = MandateStatus2.Cancelled;
 ```

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Twint } from 'adyenlib';
+import { Twint } from 'adyen';
 
 const twint: Twint = {
   checkoutAttemptId: 'checkoutAttemptId4',

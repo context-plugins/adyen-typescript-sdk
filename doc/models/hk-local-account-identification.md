@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { HkLocalAccountIdentification, Type1810 } from 'adyenlib';
+import { HkLocalAccountIdentification, Type1810 } from 'adyen';
 
 const hkLocalAccountIdentification: HkLocalAccountIdentification = {
   accountNumber: 'accountNumber6',

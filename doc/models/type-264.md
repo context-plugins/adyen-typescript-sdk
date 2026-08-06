@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type264 } from 'adyenlib';
+import { Type264 } from 'adyen';
 
 const type264 = Type264.SeLocal;
 ```

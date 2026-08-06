@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DefendDisputeRequest } from 'adyenlib';
+import { DefendDisputeRequest } from 'adyen';
 
 const defendDisputeRequest: DefendDisputeRequest = {
   defenseReasonCode: 'defenseReasonCode2',

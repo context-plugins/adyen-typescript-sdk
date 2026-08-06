@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { UtilityRequest } from 'adyenlib';
+import { UtilityRequest } from 'adyen';
 
 const utilityRequest: UtilityRequest = {
   originDomains: [

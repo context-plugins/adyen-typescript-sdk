@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ListExternalTerminalActionsResponse } from 'adyenlib';
+import { ListExternalTerminalActionsResponse } from 'adyen';
 
 const listExternalTerminalActionsResponse: ListExternalTerminalActionsResponse = {
   data: [

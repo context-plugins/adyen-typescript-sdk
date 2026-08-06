@@ -19,7 +19,7 @@ The link to the list page you are currently viewing.
 ## Example
 
 ```ts
-import { Href51 } from 'adyenlib';
+import { Href51 } from 'adyen';
 
 const href51: Href51 = {
   href: 'href6',

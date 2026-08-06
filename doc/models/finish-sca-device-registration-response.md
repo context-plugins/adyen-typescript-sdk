@@ -17,10 +17,7 @@
 ## Example
 
 ```ts
-import {
-  FinishScaDeviceRegistrationResponse,
-  ScaDeviceType1,
-} from 'adyenlib';
+import { FinishScaDeviceRegistrationResponse, ScaDeviceType1 } from 'adyen';
 
 const finishScaDeviceRegistrationResponse: FinishScaDeviceRegistrationResponse = {
   scaDevice: {

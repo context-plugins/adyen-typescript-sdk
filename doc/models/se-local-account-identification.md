@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SeLocalAccountIdentification, Type264 } from 'adyenlib';
+import { SeLocalAccountIdentification, Type264 } from 'adyen';
 
 const seLocalAccountIdentification: SeLocalAccountIdentification = {
   accountNumber: 'accountNumber8',

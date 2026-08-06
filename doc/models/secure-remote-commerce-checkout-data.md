@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Scheme, SecureRemoteCommerceCheckoutData } from 'adyenlib';
+import { Scheme, SecureRemoteCommerceCheckoutData } from 'adyen';
 
 const secureRemoteCommerceCheckoutData: SecureRemoteCommerceCheckoutData = {
   checkoutPayload: 'checkoutPayload4',

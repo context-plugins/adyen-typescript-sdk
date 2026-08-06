@@ -20,7 +20,7 @@ The condition that triggers the top-up. This can be a recurring schedule or a mi
 ## Example
 
 ```ts
-import { PatchableTrigger2, ScheduleType1 } from 'adyenlib';
+import { PatchableTrigger2, ScheduleType1 } from 'adyen';
 
 const patchableTrigger2: PatchableTrigger2 = {
   schedule: {

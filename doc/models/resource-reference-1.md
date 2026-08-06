@@ -21,7 +21,7 @@ Contains information about the balance account involved in the transfer.
 ## Example
 
 ```ts
-import { ResourceReference1 } from 'adyenlib';
+import { ResourceReference1 } from 'adyen';
 
 const resourceReference1: ResourceReference1 = {
   description: 'description6',

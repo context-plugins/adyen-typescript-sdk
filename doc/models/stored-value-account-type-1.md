@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { StoredValueAccountType1 } from 'adyenlib';
+import { StoredValueAccountType1 } from 'adyen';
 
 const storedValueAccountType1 = StoredValueAccountType1.Other;
 ```

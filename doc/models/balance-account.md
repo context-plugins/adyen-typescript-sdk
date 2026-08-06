@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { BalanceAccount } from 'adyenlib';
+import { BalanceAccount } from 'adyen';
 
 const balanceAccount: BalanceAccount = {
   accountHolderId: 'accountHolderId4',

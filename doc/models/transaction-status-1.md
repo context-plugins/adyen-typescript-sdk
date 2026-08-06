@@ -67,7 +67,7 @@ The status of the transaction.
 ## Example
 
 ```ts
-import { TransactionStatus1 } from 'adyenlib';
+import { TransactionStatus1 } from 'adyen';
 
 const transactionStatus1 = TransactionStatus1.ReCredited;
 ```

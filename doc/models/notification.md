@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Category1, Notification } from 'adyenlib';
+import { Category1, Notification } from 'adyen';
 
 const notification: Notification = {
   category: Category1.SaleWakeUp,

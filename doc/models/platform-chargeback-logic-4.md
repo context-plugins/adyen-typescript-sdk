@@ -21,7 +21,7 @@ Dictates the behavior of how a potential chargeback should be booked when using 
 ## Example
 
 ```ts
-import { Behavior, PlatformChargebackLogic4 } from 'adyenlib';
+import { Behavior, PlatformChargebackLogic4 } from 'adyen';
 
 const platformChargebackLogic4: PlatformChargebackLogic4 = {
   behavior: Behavior.DeductFromOneBalanceAccount,

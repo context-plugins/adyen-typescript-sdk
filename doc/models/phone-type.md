@@ -21,7 +21,7 @@ The type of the phone number.
 ## Example
 
 ```ts
-import { PhoneType } from 'adyenlib';
+import { PhoneType } from 'adyen';
 
 const phoneType = PhoneType.Mobile;
 ```

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Split1, Type15 } from 'adyenlib';
+import { Split1, Type15 } from 'adyen';
 
 const split1: Split1 = {
   type: Type15.PaymentFee,

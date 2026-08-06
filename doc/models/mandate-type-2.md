@@ -16,7 +16,7 @@ The type of mandate. Possible value: **bacs**.
 ## Example
 
 ```ts
-import { MandateType2 } from 'adyenlib';
+import { MandateType2 } from 'adyen';
 
 const mandateType2 = MandateType2.Bacs;
 ```

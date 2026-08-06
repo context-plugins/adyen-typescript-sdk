@@ -20,7 +20,7 @@ Details to provide if `type` is **star**.
 ## Example
 
 ```ts
-import { ProcessingType, StarInfo2, Type33 } from 'adyenlib';
+import { ProcessingType, StarInfo2, Type33 } from 'adyen';
 
 const starInfo2: StarInfo2 = {
   processingType: ProcessingType.Billpay,

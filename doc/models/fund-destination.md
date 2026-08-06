@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { FundDestination } from 'adyenlib';
+import { FundDestination } from 'adyen';
 
 const fundDestination: FundDestination = {
   iban: 'IBAN2',

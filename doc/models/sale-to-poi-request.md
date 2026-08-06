@@ -61,7 +61,7 @@ import {
   SaleToPoiRequest,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const saleToPoiRequest: SaleToPoiRequest = {
   messageHeader: {

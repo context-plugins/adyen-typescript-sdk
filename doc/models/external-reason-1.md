@@ -21,7 +21,7 @@ The external reason for the transfer status.
 ## Example
 
 ```ts
-import { ExternalReason1 } from 'adyenlib';
+import { ExternalReason1 } from 'adyen';
 
 const externalReason1: ExternalReason1 = {
   code: 'code4',

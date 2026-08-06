@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { TaxInformation } from 'adyenlib';
+import { TaxInformation } from 'adyen';
 
 const taxInformation: TaxInformation = {
   country: 'country4',

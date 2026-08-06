@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BrandVariantsRestriction } from 'adyenlib';
+import { BrandVariantsRestriction } from 'adyen';
 
 const brandVariantsRestriction: BrandVariantsRestriction = {
   operation: 'operation4',

@@ -21,7 +21,7 @@ The details of the response Adyen received from the third party.
 ## Example
 
 ```ts
-import { CheckoutForwardResponseFromUrl2 } from 'adyenlib';
+import { CheckoutForwardResponseFromUrl2 } from 'adyen';
 
 const checkoutForwardResponseFromUrl2: CheckoutForwardResponseFromUrl2 = {
   body: 'body4',

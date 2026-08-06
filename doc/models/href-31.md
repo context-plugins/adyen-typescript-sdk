@@ -19,7 +19,7 @@ The link to the next page of the list.
 ## Example
 
 ```ts
-import { Href31 } from 'adyenlib';
+import { Href31 } from 'adyen';
 
 const href31: Href31 = {
   href: 'href8',

@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { IdentificationType1 } from 'adyenlib';
+import { IdentificationType1 } from 'adyen';
 
 const identificationType1 = IdentificationType1.IsoTrack2;
 ```

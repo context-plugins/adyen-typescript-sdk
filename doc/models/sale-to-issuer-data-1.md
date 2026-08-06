@@ -20,7 +20,7 @@ Send to the Acquirer if present.
 ## Example
 
 ```ts
-import { SaleToIssuerData1 } from 'adyenlib';
+import { SaleToIssuerData1 } from 'adyen';
 
 const saleToIssuerData1: SaleToIssuerData1 = {
   statementReference: 'StatementReference4',

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GeneratePciDescriptionResponse } from 'adyenlib';
+import { GeneratePciDescriptionResponse } from 'adyen';
 
 const generatePciDescriptionResponse: GeneratePciDescriptionResponse = {
   content: 'content0',

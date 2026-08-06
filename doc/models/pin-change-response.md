@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PinChangeResponse, Status13 } from 'adyenlib';
+import { PinChangeResponse, Status13 } from 'adyen';
 
 const pinChangeResponse: PinChangeResponse = {
   status: Status13.Completed,

@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ResponseMode } from 'adyenlib';
+import { ResponseMode } from 'adyen';
 
 const responseMode = ResponseMode.PrintEnd;
 ```

@@ -20,7 +20,7 @@ The status of the webhook setting. Possible values:
 ## Example
 
 ```ts
-import { Status19 } from 'adyenlib';
+import { Status19 } from 'adyen';
 
 const status19 = Status19.Active;
 ```

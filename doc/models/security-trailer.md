@@ -24,7 +24,7 @@ SecurityTrailer as used by Adyen.
 ## Example
 
 ```ts
-import { SecurityTrailer } from 'adyenlib';
+import { SecurityTrailer } from 'adyen';
 
 const securityTrailer: SecurityTrailer = {
   adyenCryptoVersion: 88,

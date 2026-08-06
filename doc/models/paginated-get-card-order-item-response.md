@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaginatedGetCardOrderItemResponse, Status7 } from 'adyenlib';
+import { PaginatedGetCardOrderItemResponse, Status7 } from 'adyen';
 
 const paginatedGetCardOrderItemResponse: PaginatedGetCardOrderItemResponse = {
   data: [

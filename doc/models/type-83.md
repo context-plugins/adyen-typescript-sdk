@@ -53,7 +53,7 @@ The type of transfer or transaction. For example, **refund**, **payment**, **int
 ## Example
 
 ```ts
-import { Type83 } from 'adyenlib';
+import { Type83 } from 'adyen';
 
 const type83 = Type83.Grant;
 ```

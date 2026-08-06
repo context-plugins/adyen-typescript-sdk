@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { ForceEntryMode } from 'adyenlib';
+import { ForceEntryMode } from 'adyen';
 
 const forceEntryMode = ForceEntryMode.Manual;
 ```

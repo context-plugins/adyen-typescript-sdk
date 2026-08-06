@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CardAcquisitionReference } from 'adyenlib';
+import { CardAcquisitionReference } from 'adyen';
 
 const cardAcquisitionReference: CardAcquisitionReference = {
   transactionId: 'TransactionID4',

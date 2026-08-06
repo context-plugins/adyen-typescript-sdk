@@ -32,7 +32,7 @@
 ## Example
 
 ```ts
-import { Category, UpdateSweepConfigurationV2 } from 'adyenlib';
+import { Category, UpdateSweepConfigurationV2 } from 'adyen';
 
 const updateSweepConfigurationV2: UpdateSweepConfigurationV2 = {
   category: Category.Bank,

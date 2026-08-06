@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CheckoutQrCodeAction, Type563 } from 'adyenlib';
+import { CheckoutQrCodeAction, Type563 } from 'adyen';
 
 const checkoutQrCodeAction: CheckoutQrCodeAction = {
   type: Type563.QrCode,

@@ -41,7 +41,7 @@ import {
   StoredValueAccountType1,
   TerminalApiRequest,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const terminalApiRequest: TerminalApiRequest = {
   saleToPoiRequest: {

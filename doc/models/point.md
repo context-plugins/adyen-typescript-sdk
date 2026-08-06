@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Point } from 'adyenlib';
+import { Point } from 'adyen';
 
 const point: Point = {
   x: 'X6',

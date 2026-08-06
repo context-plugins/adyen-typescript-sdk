@@ -21,7 +21,7 @@ The phone number of the person.
 ## Example
 
 ```ts
-import { PhoneType, ViasPhoneNumber1 } from 'adyenlib';
+import { PhoneType, ViasPhoneNumber1 } from 'adyen';
 
 const viasPhoneNumber1: ViasPhoneNumber1 = {
   phoneCountryCode: 'phoneCountryCode6',

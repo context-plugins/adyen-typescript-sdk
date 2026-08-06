@@ -24,7 +24,7 @@ Information about your application. For more details, see [Building Adyen soluti
 ## Example
 
 ```ts
-import { ApplicationInfo } from 'adyenlib';
+import { ApplicationInfo } from 'adyen';
 
 const applicationInfo: ApplicationInfo = {
   adyenLibrary: {

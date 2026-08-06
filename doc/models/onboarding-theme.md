@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { OnboardingTheme } from 'adyenlib';
+import { OnboardingTheme } from 'adyen';
 
 const onboardingTheme: OnboardingTheme = {
   createdAt: '2016-03-13T12:52:32.123Z',

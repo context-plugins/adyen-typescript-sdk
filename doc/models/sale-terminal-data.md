@@ -20,7 +20,7 @@ Sent in the Login Request if a Sale Terminal is involved in the login. In other 
 ## Example
 
 ```ts
-import { SaleTerminalData } from 'adyenlib';
+import { SaleTerminalData } from 'adyen';
 
 const saleTerminalData: SaleTerminalData = {
   totalsGroupId: 'TotalsGroupID4',

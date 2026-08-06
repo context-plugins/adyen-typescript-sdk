@@ -21,7 +21,7 @@ The phone number of the legal entity.
 ## Example
 
 ```ts
-import { PhoneNumber2 } from 'adyenlib';
+import { PhoneNumber2 } from 'adyen';
 
 const phoneNumber2: PhoneNumber2 = {
   number: 'number6',

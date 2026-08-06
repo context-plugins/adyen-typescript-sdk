@@ -22,11 +22,7 @@
 ## Example
 
 ```ts
-import {
-  FieldName,
-  PayoutAccountHolderResponse,
-  PayoutSpeed,
-} from 'adyenlib';
+import { FieldName, PayoutAccountHolderResponse, PayoutSpeed } from 'adyen';
 
 const payoutAccountHolderResponse: PayoutAccountHolderResponse = {
   bankAccountUuid: 'bankAccountUUID6',

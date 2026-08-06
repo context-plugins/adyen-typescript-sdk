@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SupplyDefenseDocumentRequest } from 'adyenlib';
+import { SupplyDefenseDocumentRequest } from 'adyen';
 
 const supplyDefenseDocumentRequest: SupplyDefenseDocumentRequest = {
   defenseDocuments: [

@@ -27,7 +27,7 @@ import {
   PaymentData,
   PaymentType1,
   PeriodUnit1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentData: PaymentData = {
   paymentType: PaymentType1.Recurring,

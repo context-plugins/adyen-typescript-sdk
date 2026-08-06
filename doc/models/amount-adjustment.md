@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AmountAdjustment, AmountAdjustmentType } from 'adyenlib';
+import { AmountAdjustment, AmountAdjustmentType } from 'adyen';
 
 const amountAdjustment: AmountAdjustment = {
   amount: {

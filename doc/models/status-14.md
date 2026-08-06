@@ -20,7 +20,7 @@ Possible values: **active**, **inactive**.
 ## Example
 
 ```ts
-import { Status14 } from 'adyenlib';
+import { Status14 } from 'adyen';
 
 const status14 = Status14.Active;
 ```

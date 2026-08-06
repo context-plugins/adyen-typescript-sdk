@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CreateTestCardRangesResult, CreationResultCode } from 'adyenlib';
+import { CreateTestCardRangesResult, CreationResultCode } from 'adyen';
 
 const createTestCardRangesResult: CreateTestCardRangesResult = {
   rangeCreationResults: [

@@ -24,7 +24,7 @@ The payout state of the account holder.
 ## Example
 
 ```ts
-import { AccountPayoutState2 } from 'adyenlib';
+import { AccountPayoutState2 } from 'adyen';
 
 const accountPayoutState2: AccountPayoutState2 = {
   allowPayout: false,

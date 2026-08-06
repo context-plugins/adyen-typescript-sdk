@@ -26,7 +26,7 @@ Indicates if the modification request has been received for processing.
 ## Example
 
 ```ts
-import { Response } from 'adyenlib';
+import { Response } from 'adyen';
 
 const response = Response.EnumRefundreceived;
 ```

@@ -27,7 +27,7 @@ Define the type of balance about which you want to get notified. Possible values
 ## Example
 
 ```ts
-import { BalanceType } from 'adyenlib';
+import { BalanceType } from 'adyen';
 
 const balanceType = BalanceType.Pending;
 ```

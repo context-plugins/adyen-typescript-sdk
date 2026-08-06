@@ -24,7 +24,7 @@ Data related to the response from the payment Acquirer.
 ## Example
 
 ```ts
-import { PaymentAcquirerData } from 'adyenlib';
+import { PaymentAcquirerData } from 'adyen';
 
 const paymentAcquirerData: PaymentAcquirerData = {
   merchantId: 'MerchantID0',

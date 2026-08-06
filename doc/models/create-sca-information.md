@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CreateScaInformation, ScaExemption } from 'adyenlib';
+import { CreateScaInformation, ScaExemption } from 'adyen';
 
 const createScaInformation: CreateScaInformation = {
   exemption: ScaExemption.InitialLimit,

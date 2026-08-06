@@ -30,7 +30,7 @@ The details of the bank account, from which the payment should be made.
 ## Example
 
 ```ts
-import { AccountType11, CheckoutBankAccount1 } from 'adyenlib';
+import { AccountType11, CheckoutBankAccount1 } from 'adyen';
 
 const checkoutBankAccount1: CheckoutBankAccount1 = {
   accountType: AccountType11.Savings,

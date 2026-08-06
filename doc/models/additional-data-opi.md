@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataOpi } from 'adyenlib';
+import { AdditionalDataOpi } from 'adyen';
 
 const additionalDataOpi: AdditionalDataOpi = {
   opiIncludeTransToken: 'opi.includeTransToken6',

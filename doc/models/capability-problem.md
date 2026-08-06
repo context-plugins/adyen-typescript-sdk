@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Capability, CapabilityProblem, Type21, Type3 } from 'adyenlib';
+import { Capability, CapabilityProblem, Type21, Type3 } from 'adyen';
 
 const capabilityProblem: CapabilityProblem = {
   entity: {

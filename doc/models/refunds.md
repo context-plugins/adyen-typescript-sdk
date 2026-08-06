@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Refunds } from 'adyenlib';
+import { Refunds } from 'adyen';
 
 const refunds: Refunds = {
   referenced: {

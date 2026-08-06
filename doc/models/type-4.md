@@ -19,7 +19,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type4 } from 'adyenlib';
+import { Type4 } from 'adyen';
 
 const type4 = Type4.Landline;
 ```

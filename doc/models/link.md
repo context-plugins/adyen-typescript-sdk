@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Link } from 'adyenlib';
+import { Link } from 'adyen';
 
 const link: Link = {
   first: {

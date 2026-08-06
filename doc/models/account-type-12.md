@@ -21,7 +21,7 @@ The type of the bank account. Possible values are **CURRENT**, **SAVINGS**, **BU
 ## Example
 
 ```ts
-import { AccountType12 } from 'adyenlib';
+import { AccountType12 } from 'adyen';
 
 const accountType12 = AccountType12.Current;
 ```

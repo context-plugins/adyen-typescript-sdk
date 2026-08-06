@@ -23,7 +23,7 @@ Contains information about the legal entity's bank account.
 ## Example
 
 ```ts
-import { BankAccountInfo1, Type413 } from 'adyenlib';
+import { BankAccountInfo1, Type413 } from 'adyen';
 
 const bankAccountInfo1: BankAccountInfo1 = {
   accountIdentification: {

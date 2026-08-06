@@ -27,7 +27,7 @@ Possible values:
 ## Example
 
 ```ts
-import { LoyaltyHandling2 } from 'adyenlib';
+import { LoyaltyHandling2 } from 'adyen';
 
 const loyaltyHandling2 = LoyaltyHandling2.Processed;
 ```

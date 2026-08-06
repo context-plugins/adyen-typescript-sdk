@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Category3, Priority, TransferInfo, Type413 } from 'adyenlib';
+import { Category3, Priority, TransferInfo, Type413 } from 'adyen';
 
 const transferInfo: TransferInfo = {
   amount: {

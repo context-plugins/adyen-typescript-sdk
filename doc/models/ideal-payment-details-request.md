@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { IdealPaymentDetailsRequest, PaymentSource2 } from 'adyenlib';
+import { IdealPaymentDetailsRequest, PaymentSource2 } from 'adyen';
 
 const idealPaymentDetailsRequest: IdealPaymentDetailsRequest = {
   payload: 'https://somePayload',

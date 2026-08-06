@@ -20,7 +20,7 @@
 import {
   CalculateTermsOfServiceStatusResponse,
   TermsOfServiceType,
-} from 'adyenlib';
+} from 'adyen';
 
 const calculateTermsOfServiceStatusResponse: CalculateTermsOfServiceStatusResponse = {
   termsOfServiceTypes: [

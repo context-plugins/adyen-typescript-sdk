@@ -19,7 +19,7 @@ Possible values: **UnscheduledRepayment**, **Revocation**.
 ## Example
 
 ```ts
-import { FundsCollectionType2 } from 'adyenlib';
+import { FundsCollectionType2 } from 'adyen';
 
 const fundsCollectionType2 = FundsCollectionType2.UnscheduledRepayment;
 ```

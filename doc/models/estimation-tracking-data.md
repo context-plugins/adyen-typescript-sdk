@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { EstimationTrackingData, Type84 } from 'adyenlib';
+import { EstimationTrackingData, Type84 } from 'adyen';
 
 const estimationTrackingData: EstimationTrackingData = {
   estimatedArrivalTime: '2016-03-13T12:52:32.123Z',

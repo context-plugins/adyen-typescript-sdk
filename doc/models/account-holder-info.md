@@ -34,7 +34,7 @@ import {
   Type21,
   Type3,
   Type4,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountHolderInfo: AccountHolderInfo = {
   legalEntityId: 'legalEntityId4',

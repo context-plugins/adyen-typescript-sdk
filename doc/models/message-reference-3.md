@@ -24,7 +24,7 @@ If `Response.Result` is Success.
 ## Example
 
 ```ts
-import { MessageCategory2, MessageReference3 } from 'adyenlib';
+import { MessageCategory2, MessageReference3 } from 'adyen';
 
 const messageReference3: MessageReference3 = {
   messageCategory: MessageCategory2.BalanceInquiry,

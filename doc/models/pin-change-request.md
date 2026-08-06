@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { PinChangeRequest } from 'adyenlib';
+import { PinChangeRequest } from 'adyen';
 
 const pinChangeRequest: PinChangeRequest = {
   encryptedKey: 'encryptedKey0',

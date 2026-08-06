@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AccountParty, PartyRole2 } from 'adyenlib';
+import { AccountParty, PartyRole2 } from 'adyen';
 
 const accountParty: AccountParty = {
   identity: {

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AddressRequirement, RequiredAddressField, Type710 } from 'adyenlib';
+import { AddressRequirement, RequiredAddressField, Type710 } from 'adyen';
 
 const addressRequirement: AddressRequirement = {
   type: Type710.AddressRequirement,

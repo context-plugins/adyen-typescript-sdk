@@ -30,7 +30,7 @@ The details of the sub-merchant that you want to process transactions for.Requir
 ## Example
 
 ```ts
-import { SubMerchantData21 } from 'adyenlib';
+import { SubMerchantData21 } from 'adyen';
 
 const subMerchantData21: SubMerchantData21 = {
   displayName: 'displayName6',

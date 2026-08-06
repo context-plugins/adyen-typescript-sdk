@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { SubInputDetail } from 'adyenlib';
+import { SubInputDetail } from 'adyen';
 
 const subInputDetail: SubInputDetail = {
   configuration: {

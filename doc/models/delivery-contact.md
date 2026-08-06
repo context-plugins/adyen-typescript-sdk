@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { DeliveryContact, PhoneType } from 'adyenlib';
+import { DeliveryContact, PhoneType } from 'adyen';
 
 const deliveryContact: DeliveryContact = {
   address: {

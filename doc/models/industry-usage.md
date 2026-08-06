@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { IndustryUsage } from 'adyenlib';
+import { IndustryUsage } from 'adyen';
 
 const industryUsage = IndustryUsage.NoShow;
 ```

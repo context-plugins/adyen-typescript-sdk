@@ -29,7 +29,7 @@ the person or entity receiving the money
 ## Example
 
 ```ts
-import { FundDestination1 } from 'adyenlib';
+import { FundDestination1 } from 'adyen';
 
 const fundDestination1: FundDestination1 = {
   iban: 'IBAN0',

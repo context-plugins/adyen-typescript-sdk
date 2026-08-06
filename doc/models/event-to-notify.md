@@ -53,7 +53,7 @@ Possible values:
 ## Example
 
 ```ts
-import { EventToNotify } from 'adyenlib';
+import { EventToNotify } from 'adyen';
 
 const eventToNotify = EventToNotify.StopAssistance;
 ```

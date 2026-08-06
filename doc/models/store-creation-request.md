@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { StoreCreationRequest } from 'adyenlib';
+import { StoreCreationRequest } from 'adyen';
 
 const storeCreationRequest: StoreCreationRequest = {
   address: {

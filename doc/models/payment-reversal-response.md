@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PaymentReversalResponse, Status20 } from 'adyenlib';
+import { PaymentReversalResponse, Status20 } from 'adyen';
 
 const paymentReversalResponse: PaymentReversalResponse = {
   merchantAccount: 'merchantAccount4',

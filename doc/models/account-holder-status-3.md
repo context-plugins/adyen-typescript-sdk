@@ -23,7 +23,7 @@ The status of the account holder.
 ## Example
 
 ```ts
-import { AccountHolderStatus3, Event, Status1 } from 'adyenlib';
+import { AccountHolderStatus3, Event, Status1 } from 'adyen';
 
 const accountHolderStatus3: AccountHolderStatus3 = {
   status: Status1.Active,

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { TransferNotificationCounterParty, Type413 } from 'adyenlib';
+import { TransferNotificationCounterParty, Type413 } from 'adyen';
 
 const transferNotificationCounterParty: TransferNotificationCounterParty = {
   balanceAccountId: 'balanceAccountId2',

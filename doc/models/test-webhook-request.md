@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TestWebhookRequest } from 'adyenlib';
+import { TestWebhookRequest } from 'adyen';
 
 const testWebhookRequest: TestWebhookRequest = {
   notification: {

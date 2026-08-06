@@ -25,7 +25,7 @@ Possible values: **adhoc**, **daily**, **weekly**, **biWeekly**, **monthly**, **
 ## Example
 
 ```ts
-import { Frequency1 } from 'adyenlib';
+import { Frequency1 } from 'adyen';
 
 const frequency1 = Frequency1.Weekly;
 ```

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { ListMerchantApiCredentialsResponse } from 'adyenlib';
+import { ListMerchantApiCredentialsResponse } from 'adyen';
 
 const listMerchantApiCredentialsResponse: ListMerchantApiCredentialsResponse = {
   itemsTotal: 126,

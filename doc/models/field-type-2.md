@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { FieldName, FieldType2 } from 'adyenlib';
+import { FieldName, FieldType2 } from 'adyen';
 
 const fieldType2: FieldType2 = {
   field: 'field8',

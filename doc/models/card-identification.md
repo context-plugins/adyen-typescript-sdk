@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { CardIdentification } from 'adyenlib';
+import { CardIdentification } from 'adyen';
 
 const cardIdentification: CardIdentification = {
   expiryMonth: 'expiryMonth2',

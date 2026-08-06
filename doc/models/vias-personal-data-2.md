@@ -21,7 +21,7 @@ Personal information of the individual.
 ## Example
 
 ```ts
-import { Type, ViasPersonalData2 } from 'adyenlib';
+import { Type, ViasPersonalData2 } from 'adyen';
 
 const viasPersonalData2: ViasPersonalData2 = {
   dateOfBirth: 'dateOfBirth4',

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Fee2 } from 'adyenlib';
+import { Fee2 } from 'adyen';
 
 const fee2: Fee2 = {
   amount: {

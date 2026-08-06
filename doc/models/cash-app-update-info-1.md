@@ -20,7 +20,7 @@ Details to provide if `type` is **cashapp**.
 ## Example
 
 ```ts
-import { CashAppUpdateInfo1 } from 'adyenlib';
+import { CashAppUpdateInfo1 } from 'adyen';
 
 const cashAppUpdateInfo1: CashAppUpdateInfo1 = {
   logoUrl: 'logoUrl6',

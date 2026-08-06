@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { CardBin } from 'adyenlib';
+import { CardBin } from 'adyen';
 
 const cardBin: CardBin = {
   bin: 'bin6',

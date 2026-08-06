@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Type54, Vipps } from 'adyenlib';
+import { Type54, Vipps } from 'adyen';
 
 const vipps: Vipps = {
   telephoneNumber: 'telephoneNumber8',

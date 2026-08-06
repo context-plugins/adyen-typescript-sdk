@@ -16,7 +16,7 @@ Type of terminal action: Update Release.
 ## Example
 
 ```ts
-import { Type62 } from 'adyenlib';
+import { Type62 } from 'adyen';
 
 const type62 = Type62.ReleaseUpdate;
 ```

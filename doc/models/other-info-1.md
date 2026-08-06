@@ -23,7 +23,7 @@ Additional information for raising a dispute of `type` **other**. Required for d
 ## Example
 
 ```ts
-import { OtherInfo1, ProductType1, SubType11 } from 'adyenlib';
+import { OtherInfo1, ProductType1, SubType11 } from 'adyen';
 
 const otherInfo1: OtherInfo1 = {
   descriptionOfIssue: 'descriptionOfIssue6',

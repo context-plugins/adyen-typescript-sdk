@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { OnboardingThemes } from 'adyenlib';
+import { OnboardingThemes } from 'adyen';
 
 const onboardingThemes: OnboardingThemes = {
   themes: [

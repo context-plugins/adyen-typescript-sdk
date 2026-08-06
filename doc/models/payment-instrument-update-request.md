@@ -28,7 +28,7 @@ import {
   Status10,
   StatusReason2,
   Type4,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentInstrumentUpdateRequest: PaymentInstrumentUpdateRequest = {
   balanceAccountId: 'balanceAccountId0',

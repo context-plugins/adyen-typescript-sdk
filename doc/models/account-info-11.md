@@ -44,7 +44,7 @@ import {
   AccountChangeIndicator,
   AccountInfo11,
   AccountType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountInfo11: AccountInfo11 = {
   accountAgeIndicator: AccountAgeIndicator.LessThan30Days,

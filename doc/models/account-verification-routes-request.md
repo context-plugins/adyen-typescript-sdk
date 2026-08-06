@@ -23,7 +23,7 @@
 import {
   AccountVerificationCountry2,
   AccountVerificationRoutesRequest,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountVerificationRoutesRequest: AccountVerificationRoutesRequest = {
   country: AccountVerificationCountry2.Se,

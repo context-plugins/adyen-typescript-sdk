@@ -32,7 +32,7 @@ import {
   MessageCategory2,
   OutputFormat1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const abortRequest: AbortRequest = {
   messageReference: {

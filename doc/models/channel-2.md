@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Channel2 } from 'adyenlib';
+import { Channel2 } from 'adyen';
 
 const channel2 = Channel2.Android;
 ```

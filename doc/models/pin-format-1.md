@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PinFormat1 } from 'adyenlib';
+import { PinFormat1 } from 'adyen';
 
 const pinFormat1 = PinFormat1.Iso0;
 ```

@@ -19,7 +19,7 @@ Content of the Logout Response message.
 ## Example
 
 ```ts
-import { ErrorCondition1, LogoutResponse2, Result11 } from 'adyenlib';
+import { ErrorCondition1, LogoutResponse2, Result11 } from 'adyen';
 
 const logoutResponse2: LogoutResponse2 = {
   response: {

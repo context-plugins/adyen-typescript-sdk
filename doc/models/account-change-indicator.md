@@ -25,7 +25,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { AccountChangeIndicator } from 'adyenlib';
+import { AccountChangeIndicator } from 'adyen';
 
 const accountChangeIndicator = AccountChangeIndicator.From30To60Days;
 ```

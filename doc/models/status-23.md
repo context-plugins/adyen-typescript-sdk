@@ -26,7 +26,7 @@ Otherwise, the value is **received**.
 ## Example
 
 ```ts
-import { Status23 } from 'adyenlib';
+import { Status23 } from 'adyen';
 
 const status23 = Status23.Received;
 ```

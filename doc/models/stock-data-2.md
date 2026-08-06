@@ -21,7 +21,7 @@ Information about the organization's publicly traded stock. Provide this object 
 ## Example
 
 ```ts
-import { StockData2 } from 'adyenlib';
+import { StockData2 } from 'adyen';
 
 const stockData2: StockData2 = {
   marketIdentifier: 'marketIdentifier4',

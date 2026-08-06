@@ -21,7 +21,7 @@ Specifies how payment methods should be filtered based on the `store` parameter:
 ## Example
 
 ```ts
-import { StoreFiltrationMode2 } from 'adyenlib';
+import { StoreFiltrationMode2 } from 'adyen';
 
 const storeFiltrationMode2 = StoreFiltrationMode2.Inclusive;
 ```

@@ -24,7 +24,7 @@ The person or entity funding the money.
 ## Example
 
 ```ts
-import { FundSource1 } from 'adyenlib';
+import { FundSource1 } from 'adyen';
 
 const fundSource1: FundSource1 = {
   additionalData: {

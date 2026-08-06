@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Surcharge } from 'adyenlib';
+import { Surcharge } from 'adyen';
 
 const surcharge: Surcharge = {
   value: BigInt(224),

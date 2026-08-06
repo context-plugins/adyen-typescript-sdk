@@ -32,7 +32,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MerchantRefundReason } from 'adyenlib';
+import { MerchantRefundReason } from 'adyen';
 
 const merchantRefundReason = MerchantRefundReason.Fraud;
 ```

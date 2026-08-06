@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { CompanyUser } from 'adyenlib';
+import { CompanyUser } from 'adyen';
 
 const companyUser: CompanyUser = {
   email: 'email2',

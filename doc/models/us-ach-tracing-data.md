@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Type89, UsAchTracingData } from 'adyenlib';
+import { Type89, UsAchTracingData } from 'adyen';
 
 const usAchTracingData: UsAchTracingData = {
   traceNumber: 'traceNumber4',

@@ -17,7 +17,7 @@ Sets the allowed payment instrument for Pay at table transactions.  Can be: **ca
 ## Example
 
 ```ts
-import { PaymentInstrument1 } from 'adyenlib';
+import { PaymentInstrument1 } from 'adyen';
 
 const paymentInstrument1 = PaymentInstrument1.Cash;
 ```

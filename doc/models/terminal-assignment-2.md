@@ -23,7 +23,7 @@ Indicates the account level to which the terminal is assigned, the [assignment s
 ## Example
 
 ```ts
-import { Status24, TerminalAssignment2 } from 'adyenlib';
+import { Status24, TerminalAssignment2 } from 'adyen';
 
 const terminalAssignment2: TerminalAssignment2 = {
   companyId: 'companyId0',

@@ -20,7 +20,7 @@ If content is not empty.
 ## Example
 
 ```ts
-import { SaleTerminalData1 } from 'adyenlib';
+import { SaleTerminalData1 } from 'adyen';
 
 const saleTerminalData1: SaleTerminalData1 = {
   totalsGroupId: 'TotalsGroupID6',

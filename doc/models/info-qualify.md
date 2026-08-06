@@ -36,7 +36,7 @@ Possible values:
 ## Example
 
 ```ts
-import { InfoQualify } from 'adyenlib';
+import { InfoQualify } from 'adyen';
 
 const infoQualify = InfoQualify.CustomerAssistance;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { EntryModesRestriction, Value2 } from 'adyenlib';
+import { EntryModesRestriction, Value2 } from 'adyen';
 
 const entryModesRestriction: EntryModesRestriction = {
   operation: 'operation4',

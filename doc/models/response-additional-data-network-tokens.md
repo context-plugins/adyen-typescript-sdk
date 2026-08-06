@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataNetworkTokens } from 'adyenlib';
+import { ResponseAdditionalDataNetworkTokens } from 'adyen';
 
 const responseAdditionalDataNetworkTokens: ResponseAdditionalDataNetworkTokens = {
   networkTokenAvailable: 'networkToken.available6',

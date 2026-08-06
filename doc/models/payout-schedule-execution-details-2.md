@@ -21,7 +21,7 @@ Contains information about the result of the payout execution.
 ## Example
 
 ```ts
-import { PayoutScheduleExecutionDetails2 } from 'adyenlib';
+import { PayoutScheduleExecutionDetails2 } from 'adyen';
 
 const payoutScheduleExecutionDetails2: PayoutScheduleExecutionDetails2 = {
   reason: 'reason8',

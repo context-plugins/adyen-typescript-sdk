@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { EntityReference } from 'adyenlib';
+import { EntityReference } from 'adyen';
 
 const entityReference: EntityReference = {
   id: 'id6',

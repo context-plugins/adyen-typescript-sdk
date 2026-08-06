@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ApplePayInfo } from 'adyenlib';
+import { ApplePayInfo } from 'adyen';
 
 const applePayInfo: ApplePayInfo = {
   domains: [

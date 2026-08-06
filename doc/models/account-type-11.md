@@ -22,7 +22,7 @@ The type of the bank account.
 ## Example
 
 ```ts
-import { AccountType11 } from 'adyenlib';
+import { AccountType11 } from 'adyen';
 
 const accountType11 = AccountType11.Deposit;
 ```

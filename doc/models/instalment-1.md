@@ -28,7 +28,7 @@ Information related an instalment transaction. To request an instalment to the i
 ## Example
 
 ```ts
-import { Instalment1, InstalmentType, PeriodUnit1 } from 'adyenlib';
+import { Instalment1, InstalmentType, PeriodUnit1 } from 'adyen';
 
 const instalment1: Instalment1 = {
   instalmentType: InstalmentType.EqualInstalments,

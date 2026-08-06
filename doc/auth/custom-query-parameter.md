@@ -22,7 +22,7 @@ Documentation for accessing and setting credentials for clientKey.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```ts
-import { Client } from 'adyenlib';
+import { Client } from 'adyen';
 
 const client = new Client({
   clientKeyCredentials: {

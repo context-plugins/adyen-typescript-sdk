@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { Document, Type81 } from 'adyenlib';
+import { Document, Type81 } from 'adyen';
 
 const document: Document = {
   description: 'description6',

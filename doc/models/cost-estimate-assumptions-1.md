@@ -21,7 +21,7 @@ Assumptions made for the expected characteristics of the transaction, for which 
 ## Example
 
 ```ts
-import { CostEstimateAssumptions1 } from 'adyenlib';
+import { CostEstimateAssumptions1 } from 'adyen';
 
 const costEstimateAssumptions1: CostEstimateAssumptions1 = {
   assume3DSecureAuthenticated: false,

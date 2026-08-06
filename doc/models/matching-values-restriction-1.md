@@ -36,7 +36,7 @@ Supported value inputs:
 ## Example
 
 ```ts
-import { MatchingValuesRestriction1, Value3 } from 'adyenlib';
+import { MatchingValuesRestriction1, Value3 } from 'adyen';
 
 const matchingValuesRestriction1: MatchingValuesRestriction1 = {
   operation: 'operation0',

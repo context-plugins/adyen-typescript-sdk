@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { GetOnboardingUrlRequest } from 'adyenlib';
+import { GetOnboardingUrlRequest } from 'adyen';
 
 const getOnboardingUrlRequest: GetOnboardingUrlRequest = {
   accountHolderCode: 'accountHolderCode4',

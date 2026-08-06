@@ -22,7 +22,7 @@ The `sdkEphemPubKey` value as received from the 3D Secure 2 SDK.
 ## Example
 
 ```ts
-import { SdkEphemPubKey1 } from 'adyenlib';
+import { SdkEphemPubKey1 } from 'adyen';
 
 const sdkEphemPubKey1: SdkEphemPubKey1 = {
   crv: 'crv2',

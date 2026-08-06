@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { AccountHolderTransactionListResponse, FieldName } from 'adyenlib';
+import { AccountHolderTransactionListResponse, FieldName } from 'adyen';
 
 const accountHolderTransactionListResponse: AccountHolderTransactionListResponse = {
   accountTransactionLists: [

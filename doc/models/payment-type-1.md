@@ -41,7 +41,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PaymentType1 } from 'adyenlib';
+import { PaymentType1 } from 'adyen';
 
 const paymentType1 = PaymentType1.UpdateReservation;
 ```

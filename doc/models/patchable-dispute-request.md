@@ -26,7 +26,7 @@ import {
   PatchableDisputeRequest,
   ProductType1,
   SubType11,
-} from 'adyenlib';
+} from 'adyen';
 
 const patchableDisputeRequest: PatchableDisputeRequest = {
   duplicateInfo: {

@@ -31,7 +31,7 @@ import {
   LegalForm,
   Type,
   Type1,
-} from 'adyenlib';
+} from 'adyen';
 
 const legalArrangementDetail: LegalArrangementDetail = {
   address: {

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SodexoResponseInfo } from 'adyenlib';
+import { SodexoResponseInfo } from 'adyen';
 
 const sodexoResponseInfo: SodexoResponseInfo = {
   merchantContactPhone: 'merchantContactPhone8',

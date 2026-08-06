@@ -86,7 +86,7 @@ import {
   AccountChangeIndicator,
   AccountType1,
   CreateCheckoutSessionResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const createCheckoutSessionResponse: CreateCheckoutSessionResponse = {
   amount: {

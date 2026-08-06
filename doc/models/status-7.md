@@ -23,7 +23,7 @@ The status of the PIN delivery.
 ## Example
 
 ```ts
-import { Status7 } from 'adyenlib';
+import { Status7 } from 'adyen';
 
 const status7 = Status7.Shipped;
 ```

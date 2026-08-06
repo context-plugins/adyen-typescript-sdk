@@ -27,7 +27,7 @@ Possible values:
 ## Example
 
 ```ts
-import { IdentificationType11 } from 'adyenlib';
+import { IdentificationType11 } from 'adyen';
 
 const identificationType11 = IdentificationType11.BarCode;
 ```

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CashOutTransfer, Type122 } from 'adyenlib';
+import { CashOutTransfer, Type122 } from 'adyen';
 
 const cashOutTransfer: CashOutTransfer = {
   amount: {

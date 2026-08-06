@@ -30,7 +30,7 @@ This object must have:
 ## Example
 
 ```ts
-import { Phone1, Type4 } from 'adyenlib';
+import { Phone1, Type4 } from 'adyen';
 
 const phone1: Phone1 = {
   number: 'number0',

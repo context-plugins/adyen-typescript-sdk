@@ -25,7 +25,7 @@ import {
   FieldName,
   GetNotificationConfigurationListResponse,
   IncludeMode,
-} from 'adyenlib';
+} from 'adyen';
 
 const getNotificationConfigurationListResponse: GetNotificationConfigurationListResponse = {
   configurations: [

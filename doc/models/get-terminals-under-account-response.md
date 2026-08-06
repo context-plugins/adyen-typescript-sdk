@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GetTerminalsUnderAccountResponse } from 'adyenlib';
+import { GetTerminalsUnderAccountResponse } from 'adyen';
 
 const getTerminalsUnderAccountResponse: GetTerminalsUnderAccountResponse = {
   companyAccount: 'companyAccount6',

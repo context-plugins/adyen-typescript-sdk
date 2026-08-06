@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ProfileRegistrationRequest } from 'adyenlib';
+import { ProfileRegistrationRequest } from 'adyen';
 
 const profileRegistrationRequest: ProfileRegistrationRequest = {
   accountHolderId: 'AH00000000000000000000000',

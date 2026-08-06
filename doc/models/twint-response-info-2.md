@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { TwintResponseInfo2 } from 'adyenlib';
+import { TwintResponseInfo2 } from 'adyen';
 
 const twintResponseInfo2: TwintResponseInfo2 = {
   logo: 'logo2',

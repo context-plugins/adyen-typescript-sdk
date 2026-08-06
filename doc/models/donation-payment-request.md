@@ -65,7 +65,7 @@ import {
   DonationPaymentRequest,
   NativeThreeDs,
   ThreeDsVersion,
-} from 'adyenlib';
+} from 'adyen';
 
 const donationPaymentRequest: DonationPaymentRequest = {
   amount: {

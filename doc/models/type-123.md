@@ -16,7 +16,7 @@ The type of resource that you associated with the SCA device.
 ## Example
 
 ```ts
-import { Type123 } from 'adyenlib';
+import { Type123 } from 'adyen';
 
 const type123 = Type123.PaymentInstrument;
 ```

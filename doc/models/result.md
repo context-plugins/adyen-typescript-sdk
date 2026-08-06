@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Result } from 'adyenlib';
+import { Result } from 'adyen';
 
 const result = Result.Valid;
 ```

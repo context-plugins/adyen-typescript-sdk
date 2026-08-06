@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { CustomerOrderReq } from 'adyenlib';
+import { CustomerOrderReq } from 'adyen';
 
 const customerOrderReq = CustomerOrderReq.Open;
 ```

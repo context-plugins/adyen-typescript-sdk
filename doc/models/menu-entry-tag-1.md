@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { MenuEntryTag1 } from 'adyenlib';
+import { MenuEntryTag1 } from 'adyen';
 
 const menuEntryTag1 = MenuEntryTag1.Selectable;
 ```

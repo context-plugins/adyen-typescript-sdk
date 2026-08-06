@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { UtmCoordinates } from 'adyenlib';
+import { UtmCoordinates } from 'adyen';
 
 const utmCoordinates: UtmCoordinates = {
   utmZone: 'UTMZone0',

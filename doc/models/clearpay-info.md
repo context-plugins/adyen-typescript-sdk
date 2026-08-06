@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ClearpayInfo } from 'adyenlib';
+import { ClearpayInfo } from 'adyen';
 
 const clearpayInfo: ClearpayInfo = {
   supportUrl: 'supportUrl2',

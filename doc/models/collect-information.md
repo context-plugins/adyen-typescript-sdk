@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CollectInformation } from 'adyenlib';
+import { CollectInformation } from 'adyen';
 
 const collectInformation: CollectInformation = {
   bankDetails: false,

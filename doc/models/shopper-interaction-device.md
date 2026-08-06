@@ -21,7 +21,7 @@ Shopper interaction device, such as terminal, mobile device or web browser, to i
 ## Example
 
 ```ts
-import { ShopperInteractionDevice } from 'adyenlib';
+import { ShopperInteractionDevice } from 'adyen';
 
 const shopperInteractionDevice: ShopperInteractionDevice = {
   locale: 'locale2',

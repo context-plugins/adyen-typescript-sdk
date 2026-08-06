@@ -21,7 +21,7 @@ Possible values: **authorization**, **authentication**, **tokenization**, **bank
 ## Example
 
 ```ts
-import { RequestType } from 'adyenlib';
+import { RequestType } from 'adyen';
 
 const requestType = RequestType.BankTransfer;
 ```

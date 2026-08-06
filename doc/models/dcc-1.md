@@ -19,7 +19,7 @@ Settings for Dynamic Currency Conversion (DCC).
 ## Example
 
 ```ts
-import { Dcc1 } from 'adyenlib';
+import { Dcc1 } from 'adyen';
 
 const dcc1: Dcc1 = {
   enableDcc: false,

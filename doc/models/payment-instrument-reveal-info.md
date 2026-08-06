@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentInstrumentRevealInfo } from 'adyenlib';
+import { PaymentInstrumentRevealInfo } from 'adyen';
 
 const paymentInstrumentRevealInfo: PaymentInstrumentRevealInfo = {
   cvc: 'cvc0',

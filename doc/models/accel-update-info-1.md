@@ -19,7 +19,7 @@ Details to provide if `type` is **accel**.
 ## Example
 
 ```ts
-import { AccelUpdateInfo1, Type33 } from 'adyenlib';
+import { AccelUpdateInfo1, Type33 } from 'adyen';
 
 const accelUpdateInfo1: AccelUpdateInfo1 = {
   transactionDescription: {

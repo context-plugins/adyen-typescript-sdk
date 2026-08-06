@@ -24,7 +24,7 @@ Contains updated information regarding the order in case order information was p
 ## Example
 
 ```ts
-import { CheckoutOrderResponse1 } from 'adyenlib';
+import { CheckoutOrderResponse1 } from 'adyen';
 
 const checkoutOrderResponse1: CheckoutOrderResponse1 = {
   pspReference: 'pspReference0',

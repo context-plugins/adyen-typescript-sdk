@@ -21,7 +21,7 @@ Settings for localization.
 ## Example
 
 ```ts
-import { Localization1 } from 'adyenlib';
+import { Localization1 } from 'adyen';
 
 const localization1: Localization1 = {
   language: 'language2',

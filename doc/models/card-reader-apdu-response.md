@@ -22,7 +22,7 @@ It contains the result of the requested service, APDU response sent by the chip 
 ## Example
 
 ```ts
-import { CardReaderApduResponse, ErrorCondition1, Result11 } from 'adyenlib';
+import { CardReaderApduResponse, ErrorCondition1, Result11 } from 'adyen';
 
 const cardReaderApduResponse: CardReaderApduResponse = {
   response: {

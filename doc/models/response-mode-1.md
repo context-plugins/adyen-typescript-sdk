@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ResponseMode1 } from 'adyenlib';
+import { ResponseMode1 } from 'adyen';
 
 const responseMode1 = ResponseMode1.NotRequired;
 ```

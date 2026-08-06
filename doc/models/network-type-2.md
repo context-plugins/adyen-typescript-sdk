@@ -17,7 +17,7 @@ Network type for Terminal API details webhooks.
 ## Example
 
 ```ts
-import { NetworkType2 } from 'adyenlib';
+import { NetworkType2 } from 'adyen';
 
 const networkType2 = NetworkType2.Local;
 ```

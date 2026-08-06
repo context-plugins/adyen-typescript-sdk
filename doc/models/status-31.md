@@ -25,7 +25,7 @@ Status of the payment link. Possible values:
 ## Example
 
 ```ts
-import { Status31 } from 'adyenlib';
+import { Status31 } from 'adyen';
 
 const status31 = Status31.PaymentPending;
 ```

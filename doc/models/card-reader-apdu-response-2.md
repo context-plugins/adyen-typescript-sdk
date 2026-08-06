@@ -21,7 +21,7 @@ Content of the Card Reader APDU Response message.
 ## Example
 
 ```ts
-import { CardReaderApduResponse2, ErrorCondition1, Result11 } from 'adyenlib';
+import { CardReaderApduResponse2, ErrorCondition1, Result11 } from 'adyen';
 
 const cardReaderApduResponse2: CardReaderApduResponse2 = {
   response: {

@@ -37,7 +37,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataRisk } from 'adyenlib';
+import { AdditionalDataRisk } from 'adyen';
 
 const additionalDataRisk: AdditionalDataRisk = {
   riskdataCustomFieldName: Liquid error: Value cannot be null. (Parameter 'key'),

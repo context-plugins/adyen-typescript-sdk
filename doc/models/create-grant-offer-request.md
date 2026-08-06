@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CreateGrantOfferRequest } from 'adyenlib';
+import { CreateGrantOfferRequest } from 'adyen';
 
 const createGrantOfferRequest: CreateGrantOfferRequest = {
   amount: {

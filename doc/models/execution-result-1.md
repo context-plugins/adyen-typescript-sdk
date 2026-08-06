@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ExecutionResult1 } from 'adyenlib';
+import { ExecutionResult1 } from 'adyen';
 
 const executionResult1 = ExecutionResult1.Skipped;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ScaExemption, ScaInformation, ScaStatus } from 'adyenlib';
+import { ScaExemption, ScaInformation, ScaStatus } from 'adyen';
 
 const scaInformation: ScaInformation = {
   status: ScaStatus.Pending,

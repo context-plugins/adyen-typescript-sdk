@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentMethodIssuer } from 'adyenlib';
+import { PaymentMethodIssuer } from 'adyen';
 
 const paymentMethodIssuer: PaymentMethodIssuer = {
   id: 'id2',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { WeChatPayResponseInfo } from 'adyenlib';
+import { WeChatPayResponseInfo } from 'adyen';
 
 const weChatPayResponseInfo: WeChatPayResponseInfo = {
   contactPersonName: 'contactPersonName8',

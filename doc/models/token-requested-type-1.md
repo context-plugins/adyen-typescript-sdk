@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { TokenRequestedType1 } from 'adyenlib';
+import { TokenRequestedType1 } from 'adyen';
 
 const tokenRequestedType1 = TokenRequestedType1.Transaction;
 ```

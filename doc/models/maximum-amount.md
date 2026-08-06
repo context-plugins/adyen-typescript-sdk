@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MaximumAmount } from 'adyenlib';
+import { MaximumAmount } from 'adyen';
 
 const maximumAmount: MaximumAmount = {
   currency: 'currency0',

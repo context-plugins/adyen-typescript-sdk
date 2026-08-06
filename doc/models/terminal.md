@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { Status24, Status32, Terminal } from 'adyenlib';
+import { Status24, Status32, Terminal } from 'adyen';
 
 const terminal: Terminal = {
   assignment: {

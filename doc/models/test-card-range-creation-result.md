@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CreationResultCode, TestCardRangeCreationResult } from 'adyenlib';
+import { CreationResultCode, TestCardRangeCreationResult } from 'adyen';
 
 const testCardRangeCreationResult: TestCardRangeCreationResult = {
   cardNumberRangeEnd: 'cardNumberRangeEnd6',

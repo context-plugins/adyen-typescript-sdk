@@ -40,7 +40,7 @@ import {
   StoredValueAccountType1,
   StoredValueTransactionType2,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const repeatedResponseMessageBody: RepeatedResponseMessageBody = {
   loyaltyResponse: {

@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { BalanceAccountConfigurationUpdate, Frequency } from 'adyenlib';
+import { BalanceAccountConfigurationUpdate, Frequency } from 'adyen';
 
 const balanceAccountConfigurationUpdate: BalanceAccountConfigurationUpdate = {
   description: 'description2',

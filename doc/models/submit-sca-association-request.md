@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ScaEntityType4, SubmitScaAssociationRequest } from 'adyenlib';
+import { ScaEntityType4, SubmitScaAssociationRequest } from 'adyen';
 
 const submitScaAssociationRequest: SubmitScaAssociationRequest = {
   entities: [

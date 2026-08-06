@@ -21,7 +21,7 @@ The support phone number of the legal entity. Required if you have a platform se
 ## Example
 
 ```ts
-import { PhoneNumber1 } from 'adyenlib';
+import { PhoneNumber1 } from 'adyen';
 
 const phoneNumber1: PhoneNumber1 = {
   number: 'number0',

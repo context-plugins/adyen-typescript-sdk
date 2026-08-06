@@ -23,7 +23,7 @@ The details of the entity that the order is billed to.
 ## Example
 
 ```ts
-import { BillingEntity1 } from 'adyenlib';
+import { BillingEntity1 } from 'adyen';
 
 const billingEntity1: BillingEntity1 = {
   address: {

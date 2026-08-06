@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PayoutMethod } from 'adyenlib';
+import { PayoutMethod } from 'adyen';
 
 const payoutMethod: PayoutMethod = {
   merchantAccount: 'merchantAccount4',

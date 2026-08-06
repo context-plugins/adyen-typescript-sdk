@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { Type79, UpiIntent } from 'adyenlib';
+import { Type79, UpiIntent } from 'adyen';
 
 const upiIntent: UpiIntent = {
   type: Type79.UpiIntent,

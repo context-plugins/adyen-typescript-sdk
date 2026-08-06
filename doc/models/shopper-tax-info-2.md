@@ -20,7 +20,7 @@ The tax info of the shopper
 ## Example
 
 ```ts
-import { ShopperTaxInfo2 } from 'adyenlib';
+import { ShopperTaxInfo2 } from 'adyen';
 
 const shopperTaxInfo2: ShopperTaxInfo2 = {
   taxCountryCode: 'taxCountryCode4',

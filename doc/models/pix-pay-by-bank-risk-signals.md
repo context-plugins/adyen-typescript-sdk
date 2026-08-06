@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { PixPayByBankRiskSignals } from 'adyenlib';
+import { PixPayByBankRiskSignals } from 'adyen';
 
 const pixPayByBankRiskSignals: PixPayByBankRiskSignals = {
   confidenceScore: {

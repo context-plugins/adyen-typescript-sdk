@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { FeeType } from 'adyenlib';
+import { FeeType } from 'adyen';
 
 const feeType = FeeType.MerchantPays;
 ```

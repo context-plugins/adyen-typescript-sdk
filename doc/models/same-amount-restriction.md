@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SameAmountRestriction } from 'adyenlib';
+import { SameAmountRestriction } from 'adyen';
 
 const sameAmountRestriction: SameAmountRestriction = {
   operation: 'operation4',

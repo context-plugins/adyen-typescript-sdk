@@ -19,7 +19,7 @@ References to resources linked to the allowed origin.
 ## Example
 
 ```ts
-import { Links21 } from 'adyenlib';
+import { Links21 } from 'adyen';
 
 const links21: Links21 = {
   self: {

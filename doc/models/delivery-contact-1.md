@@ -25,7 +25,7 @@ The delivery contact (name and address) for physical card delivery.
 ## Example
 
 ```ts
-import { DeliveryContact1, PhoneType } from 'adyenlib';
+import { DeliveryContact1, PhoneType } from 'adyen';
 
 const deliveryContact1: DeliveryContact1 = {
   address: {

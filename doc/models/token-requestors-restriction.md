@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TokenRequestorsRestriction } from 'adyenlib';
+import { TokenRequestorsRestriction } from 'adyen';
 
 const tokenRequestorsRestriction: TokenRequestorsRestriction = {
   operation: 'operation0',

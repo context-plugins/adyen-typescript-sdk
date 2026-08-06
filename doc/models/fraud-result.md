@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { FraudResult } from 'adyenlib';
+import { FraudResult } from 'adyen';
 
 const fraudResult: FraudResult = {
   accountScore: 232,

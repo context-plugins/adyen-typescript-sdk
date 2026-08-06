@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { FieldName, GetPciUrlResponse } from 'adyenlib';
+import { FieldName, GetPciUrlResponse } from 'adyen';
 
 const getPciUrlResponse: GetPciUrlResponse = {
   invalidFields: [

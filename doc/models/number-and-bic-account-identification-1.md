@@ -26,7 +26,7 @@
 import {
   AdditionalBankIdentificationType,
   NumberAndBicAccountIdentification1,
-} from 'adyenlib';
+} from 'adyen';
 
 const numberAndBicAccountIdentification1: NumberAndBicAccountIdentification1 = {
   accountNumber: 'accountNumber6',

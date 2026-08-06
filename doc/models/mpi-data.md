@@ -33,7 +33,7 @@ import {
   ChallengeCancel,
   DirectoryResponse,
   MpiData,
-} from 'adyenlib';
+} from 'adyen';
 
 const mpiData: MpiData = {
   authenticationResponse: AuthenticationResponse.U,

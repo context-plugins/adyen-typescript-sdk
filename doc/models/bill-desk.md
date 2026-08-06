@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { BillDesk, Type121 } from 'adyenlib';
+import { BillDesk, Type121 } from 'adyen';
 
 const billDesk: BillDesk = {
   issuer: 'issuer0',

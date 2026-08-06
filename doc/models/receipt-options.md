@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ReceiptOptions } from 'adyenlib';
+import { ReceiptOptions } from 'adyen';
 
 const receiptOptions: ReceiptOptions = {
   headerLine1: 'headerLine16',

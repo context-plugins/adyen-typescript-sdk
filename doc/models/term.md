@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Term } from 'adyenlib';
+import { Term } from 'adyen';
 
 const term: Term = {
   estimatedDays: 248,

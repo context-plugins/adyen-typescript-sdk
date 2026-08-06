@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { StoredValueIssueResponse } from 'adyenlib';
+import { StoredValueIssueResponse } from 'adyen';
 
 const storedValueIssueResponse: StoredValueIssueResponse = {
   authCode: 'authCode8',

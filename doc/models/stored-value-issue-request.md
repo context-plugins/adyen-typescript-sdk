@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { ShopperInteraction1, StoredValueIssueRequest } from 'adyenlib';
+import { ShopperInteraction1, StoredValueIssueRequest } from 'adyen';
 
 const storedValueIssueRequest: StoredValueIssueRequest = {
   merchantAccount: 'merchantAccount6',

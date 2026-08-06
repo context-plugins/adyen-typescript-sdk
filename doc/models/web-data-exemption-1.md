@@ -19,7 +19,7 @@ The reason why the web data is not provided.
 ## Example
 
 ```ts
-import { Reason1, WebDataExemption1 } from 'adyenlib';
+import { Reason1, WebDataExemption1 } from 'adyen';
 
 const webDataExemption1: WebDataExemption1 = {
   reason: Reason1.NoOnlinePresence,

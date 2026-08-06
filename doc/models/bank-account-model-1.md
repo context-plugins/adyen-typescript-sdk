@@ -19,7 +19,7 @@ Contains the business account details.
 ## Example
 
 ```ts
-import { BankAccountModel1 } from 'adyenlib';
+import { BankAccountModel1 } from 'adyen';
 
 const bankAccountModel1: BankAccountModel1 = {
   formFactor: { 'key1': 'val1', 'key2': 'val2' },

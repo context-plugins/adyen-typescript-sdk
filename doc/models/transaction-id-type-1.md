@@ -20,7 +20,7 @@ Identification of a Sale transaction.
 ## Example
 
 ```ts
-import { TransactionIdType1 } from 'adyenlib';
+import { TransactionIdType1 } from 'adyen';
 
 const transactionIdType1: TransactionIdType1 = {
   transactionId: 'TransactionID6',

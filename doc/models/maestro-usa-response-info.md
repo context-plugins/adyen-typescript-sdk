@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { MaestroUsaResponseInfo, Type33 } from 'adyenlib';
+import { MaestroUsaResponseInfo, Type33 } from 'adyen';
 
 const maestroUsaResponseInfo: MaestroUsaResponseInfo = {
   transactionDescription: {

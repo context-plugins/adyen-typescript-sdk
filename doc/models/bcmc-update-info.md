@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BcmcUpdateInfo, Type33 } from 'adyenlib';
+import { BcmcUpdateInfo, Type33 } from 'adyen';
 
 const bcmcUpdateInfo: BcmcUpdateInfo = {
   transactionDescription: {

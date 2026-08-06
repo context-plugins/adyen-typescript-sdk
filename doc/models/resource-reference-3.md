@@ -21,7 +21,7 @@ Contains information about the account holder associated with the `balanceAccoun
 ## Example
 
 ```ts
-import { ResourceReference3 } from 'adyenlib';
+import { ResourceReference3 } from 'adyen';
 
 const resourceReference3: ResourceReference3 = {
   description: 'description8',

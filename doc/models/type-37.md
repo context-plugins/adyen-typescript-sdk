@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type37 } from 'adyenlib';
+import { Type37 } from 'adyen';
 
 const type37 = Type37.Mobilepay;
 ```

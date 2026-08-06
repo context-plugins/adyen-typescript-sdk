@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Type49 } from 'adyenlib';
+import { Type49 } from 'adyen';
 
 const type49 = Type49.RivertyInstallments;
 ```

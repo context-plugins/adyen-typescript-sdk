@@ -74,7 +74,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type191 } from 'adyenlib';
+import { Type191 } from 'adyen';
 
 const type191 = Type191.Vof;
 ```

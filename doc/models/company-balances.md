@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CompanyBalances } from 'adyenlib';
+import { CompanyBalances } from 'adyen';
 
 const companyBalances: CompanyBalances = {
   merchantBalancesOverview: [

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SofortInfo } from 'adyenlib';
+import { SofortInfo } from 'adyen';
 
 const sofortInfo: SofortInfo = {
   currencyCode: 'currencyCode6',

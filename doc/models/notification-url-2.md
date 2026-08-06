@@ -20,7 +20,7 @@ The list of local and public URLs to send display notifications to when using Te
 ## Example
 
 ```ts
-import { NotificationUrl2 } from 'adyenlib';
+import { NotificationUrl2 } from 'adyen';
 
 const notificationUrl2: NotificationUrl2 = {
   localUrls: [

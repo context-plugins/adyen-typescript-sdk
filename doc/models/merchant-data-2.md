@@ -23,7 +23,7 @@ Contains information about the merchant.
 ## Example
 
 ```ts
-import { MerchantData2 } from 'adyenlib';
+import { MerchantData2 } from 'adyen';
 
 const merchantData2: MerchantData2 = {
   acquirerId: 'acquirerId6',

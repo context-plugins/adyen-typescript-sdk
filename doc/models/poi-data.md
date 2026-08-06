@@ -21,7 +21,7 @@ In the Message Response, identification of the POI transaction.
 ## Example
 
 ```ts
-import { PoiData } from 'adyenlib';
+import { PoiData } from 'adyen';
 
 const poiData: PoiData = {
   poiTransactionId: {

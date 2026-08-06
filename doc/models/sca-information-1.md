@@ -20,7 +20,7 @@ Information for the Strong Customer Authentication (SCA)
 ## Example
 
 ```ts
-import { ScaExemption, ScaInformation1, ScaStatus } from 'adyenlib';
+import { ScaExemption, ScaInformation1, ScaStatus } from 'adyen';
 
 const scaInformation1: ScaInformation1 = {
   status: ScaStatus.Performed,

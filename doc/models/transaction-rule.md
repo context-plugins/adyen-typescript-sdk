@@ -41,7 +41,7 @@ import {
   Type14,
   Unit,
   Value,
-} from 'adyenlib';
+} from 'adyen';
 
 const transactionRule: TransactionRule = {
   description: 'description2',

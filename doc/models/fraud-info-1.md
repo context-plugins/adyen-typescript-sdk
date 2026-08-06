@@ -22,7 +22,7 @@ Additional information for raising a dispute of `type` **fraud**. Required for d
 ## Example
 
 ```ts
-import { FraudInfo1 } from 'adyenlib';
+import { FraudInfo1 } from 'adyen';
 
 const fraudInfo1: FraudInfo1 = {
   cardDoesNotBelongToCardholder: false,

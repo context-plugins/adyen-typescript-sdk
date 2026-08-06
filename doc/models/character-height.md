@@ -22,7 +22,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CharacterHeight } from 'adyenlib';
+import { CharacterHeight } from 'adyen';
 
 const characterHeight = CharacterHeight.SingleHeight;
 ```

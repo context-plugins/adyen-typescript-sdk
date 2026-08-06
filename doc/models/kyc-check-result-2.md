@@ -19,7 +19,7 @@ The results of the checks on the account holder.
 ## Example
 
 ```ts
-import { KycCheckResult2, Status3, Type2 } from 'adyenlib';
+import { KycCheckResult2, Status3, Type2 } from 'adyen';
 
 const kycCheckResult2: KycCheckResult2 = {
   checks: [

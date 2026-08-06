@@ -68,7 +68,7 @@
 ## Example
 
 ```ts
-import { Capability } from 'adyenlib';
+import { Capability } from 'adyen';
 
 const capability = Capability.Payout;
 ```

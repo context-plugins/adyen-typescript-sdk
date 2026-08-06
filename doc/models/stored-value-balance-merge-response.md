@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ResultCode3, StoredValueBalanceMergeResponse } from 'adyenlib';
+import { ResultCode3, StoredValueBalanceMergeResponse } from 'adyen';
 
 const storedValueBalanceMergeResponse: StoredValueBalanceMergeResponse = {
   authCode: 'authCode8',

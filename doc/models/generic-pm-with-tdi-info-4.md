@@ -19,7 +19,7 @@ Details to provide if `type` is **eftpos_australia**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo4, Type33 } from 'adyenlib';
+import { GenericPmWithTdiInfo4, Type33 } from 'adyen';
 
 const genericPmWithTdiInfo4: GenericPmWithTdiInfo4 = {
   transactionDescription: {

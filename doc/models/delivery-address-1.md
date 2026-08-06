@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { DeliveryAddress1 } from 'adyenlib';
+import { DeliveryAddress1 } from 'adyen';
 
 const deliveryAddress1: DeliveryAddress1 = {
   city: 'city6',

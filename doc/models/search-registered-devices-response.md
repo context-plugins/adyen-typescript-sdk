@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SearchRegisteredDevicesResponse, Type10 } from 'adyenlib';
+import { SearchRegisteredDevicesResponse, Type10 } from 'adyen';
 
 const searchRegisteredDevicesResponse: SearchRegisteredDevicesResponse = {
   data: [

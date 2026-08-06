@@ -19,7 +19,7 @@ Specifies a role or capacity of the party in relation to the bank account.
 ## Example
 
 ```ts
-import { PartyRole2 } from 'adyenlib';
+import { PartyRole2 } from 'adyen';
 
 const partyRole2 = PartyRole2.Other;
 ```

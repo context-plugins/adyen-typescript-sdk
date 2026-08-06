@@ -22,7 +22,7 @@ Contains information about the balances of the disbursement.
 ## Example
 
 ```ts
-import { CapitalBalance } from 'adyenlib';
+import { CapitalBalance } from 'adyen';
 
 const capitalBalance: CapitalBalance = {
   currency: 'currency2',

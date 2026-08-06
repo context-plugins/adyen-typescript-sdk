@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CartesBancairesInfo, Type33 } from 'adyenlib';
+import { CartesBancairesInfo, Type33 } from 'adyen';
 
 const cartesBancairesInfo: CartesBancairesInfo = {
   siret: 'siret6',

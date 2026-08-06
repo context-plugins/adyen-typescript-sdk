@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AffirmResponseInfo1 } from 'adyenlib';
+import { AffirmResponseInfo1 } from 'adyen';
 
 const affirmResponseInfo1: AffirmResponseInfo1 = {
   publicApiKey: 'publicApiKey6',

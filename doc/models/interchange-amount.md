@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { InterchangeAmount } from 'adyenlib';
+import { InterchangeAmount } from 'adyen';
 
 const interchangeAmount: InterchangeAmount = {
   currency: 'currency2',

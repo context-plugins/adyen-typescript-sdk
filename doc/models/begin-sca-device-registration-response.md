@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BeginScaDeviceRegistrationResponse, ScaDeviceType1 } from 'adyenlib';
+import { BeginScaDeviceRegistrationResponse, ScaDeviceType1 } from 'adyen';
 
 const beginScaDeviceRegistrationResponse: BeginScaDeviceRegistrationResponse = {
   scaDevice: {

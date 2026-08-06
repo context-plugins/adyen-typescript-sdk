@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { MigratedStores } from 'adyenlib';
+import { MigratedStores } from 'adyen';
 
 const migratedStores: MigratedStores = {
   businessLineId: 'businessLineId2',

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PartyRole } from 'adyenlib';
+import { PartyRole } from 'adyen';
 
 const partyRole = PartyRole.Holder;
 ```

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GetTaxFormRequest } from 'adyenlib';
+import { GetTaxFormRequest } from 'adyen';
 
 const getTaxFormRequest: GetTaxFormRequest = {
   accountHolderCode: 'accountHolderCode6',

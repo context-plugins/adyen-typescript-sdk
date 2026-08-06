@@ -20,7 +20,7 @@ Details to provide if `type` is **accel**.
 ## Example
 
 ```ts
-import { AccelInfo1, ProcessingType, Type33 } from 'adyenlib';
+import { AccelInfo1, ProcessingType, Type33 } from 'adyen';
 
 const accelInfo1: AccelInfo1 = {
   processingType: ProcessingType.Billpay,

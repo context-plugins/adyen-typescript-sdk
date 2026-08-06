@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenerateClientKeyResponse } from 'adyenlib';
+import { GenerateClientKeyResponse } from 'adyen';
 
 const generateClientKeyResponse: GenerateClientKeyResponse = {
   clientKey: 'clientKey8',

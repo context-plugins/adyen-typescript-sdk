@@ -20,7 +20,7 @@ Data related to the POI System.
 ## Example
 
 ```ts
-import { PoiData1 } from 'adyenlib';
+import { PoiData1 } from 'adyen';
 
 const poiData1: PoiData1 = {
   poiTransactionId: {

@@ -27,7 +27,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Contract } from 'adyenlib';
+import { Contract } from 'adyen';
 
 const contract = Contract.Oneclick;
 ```

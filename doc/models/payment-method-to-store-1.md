@@ -30,7 +30,7 @@ Contains the information required to store a payment method.
 ## Example
 
 ```ts
-import { PaymentMethodToStore1 } from 'adyenlib';
+import { PaymentMethodToStore1 } from 'adyen';
 
 const paymentMethodToStore1: PaymentMethodToStore1 = {
   brand: 'brand4',

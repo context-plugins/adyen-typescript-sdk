@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DeleteDefenseDocumentRequest } from 'adyenlib';
+import { DeleteDefenseDocumentRequest } from 'adyen';
 
 const deleteDefenseDocumentRequest: DeleteDefenseDocumentRequest = {
   defenseDocumentType: 'defenseDocumentType4',

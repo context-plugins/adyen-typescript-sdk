@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { FilterMerchantAccountType } from 'adyenlib';
+import { FilterMerchantAccountType } from 'adyen';
 
 const filterMerchantAccountType = FilterMerchantAccountType.ExcludeAccounts;
 ```

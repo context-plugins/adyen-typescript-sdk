@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { FraudInfo } from 'adyenlib';
+import { FraudInfo } from 'adyen';
 
 const fraudInfo: FraudInfo = {
   cardDoesNotBelongToCardholder: false,

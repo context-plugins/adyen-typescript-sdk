@@ -26,7 +26,7 @@ import {
   IdentificationSupport1,
   IdentificationType11,
   LoyaltyAccount,
-} from 'adyenlib';
+} from 'adyen';
 
 const loyaltyAccount: LoyaltyAccount = {
   loyaltyAccountId: {

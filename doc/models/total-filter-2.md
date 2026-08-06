@@ -24,7 +24,7 @@ Used for the Get Totals, to request totals for a (or a combination of) particula
 ## Example
 
 ```ts
-import { TotalFilter2 } from 'adyenlib';
+import { TotalFilter2 } from 'adyen';
 
 const totalFilter2: TotalFilter2 = {
   poiid: 'POIID4',

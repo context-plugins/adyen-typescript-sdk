@@ -32,7 +32,7 @@ import {
   ChallengeCancel,
   DirectoryResponse,
   VoidPendingRefundRequest,
-} from 'adyenlib';
+} from 'adyen';
 
 const voidPendingRefundRequest: VoidPendingRefundRequest = {
   merchantAccount: 'merchantAccount4',

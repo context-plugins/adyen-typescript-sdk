@@ -27,7 +27,7 @@ import {
   MainSourceOfIncome,
   TaxReportingClassification2,
   Type151,
-} from 'adyenlib';
+} from 'adyen';
 
 const taxReportingClassification2: TaxReportingClassification2 = {
   businessType: BusinessType.Other,

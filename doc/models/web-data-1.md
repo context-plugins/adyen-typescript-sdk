@@ -20,7 +20,7 @@ The website and app URL of the legal entity.
 ## Example
 
 ```ts
-import { WebData1 } from 'adyenlib';
+import { WebData1 } from 'adyen';
 
 const webData1: WebData1 = {
   webAddress: 'webAddress4',

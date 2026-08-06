@@ -19,7 +19,7 @@ Contains the bank account details of the counterparty. The fields required in th
 ## Example
 
 ```ts
-import { MandateAccountIdentification2 } from 'adyenlib';
+import { MandateAccountIdentification2 } from 'adyen';
 
 const mandateAccountIdentification2: MandateAccountIdentification2 = {
   type: 'MandateAccountIdentification2',

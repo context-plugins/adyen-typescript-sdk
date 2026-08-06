@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MerchantApplication } from 'adyenlib';
+import { MerchantApplication } from 'adyen';
 
 const merchantApplication: MerchantApplication = {
   name: 'name2',

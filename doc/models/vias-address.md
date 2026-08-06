@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ViasAddress } from 'adyenlib';
+import { ViasAddress } from 'adyen';
 
 const viasAddress: ViasAddress = {
   country: 'country2',

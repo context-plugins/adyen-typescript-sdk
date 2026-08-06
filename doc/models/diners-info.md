@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { DinersInfo, ServiceLevel1, Type33 } from 'adyenlib';
+import { DinersInfo, ServiceLevel1, Type33 } from 'adyen';
 
 const dinersInfo: DinersInfo = {
   reuseMidNumber: false,

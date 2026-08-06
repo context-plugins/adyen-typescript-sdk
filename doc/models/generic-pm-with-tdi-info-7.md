@@ -19,7 +19,7 @@ Details to provide if `type` is **interac_card**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo7, Type33 } from 'adyenlib';
+import { GenericPmWithTdiInfo7, Type33 } from 'adyen';
 
 const genericPmWithTdiInfo7: GenericPmWithTdiInfo7 = {
   transactionDescription: {

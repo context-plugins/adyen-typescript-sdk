@@ -41,7 +41,7 @@ import {
   BillingAttemptsRule,
   Frequency1,
   TokenMandate,
-} from 'adyenlib';
+} from 'adyen';
 
 const tokenMandate: TokenMandate = {
   amount: 'amount4',

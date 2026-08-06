@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { WebhookLinks } from 'adyenlib';
+import { WebhookLinks } from 'adyen';
 
 const webhookLinks: WebhookLinks = {
   generateHmac: {

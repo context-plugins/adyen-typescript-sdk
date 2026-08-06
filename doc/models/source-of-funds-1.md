@@ -31,7 +31,7 @@ Contains information about the source of your user's funds. Required only if the
 ## Example
 
 ```ts
-import { SourceOfFunds1 } from 'adyenlib';
+import { SourceOfFunds1 } from 'adyen';
 
 const sourceOfFunds1: SourceOfFunds1 = {
   adyenProcessedFunds: false,

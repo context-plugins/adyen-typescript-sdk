@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { FieldName, GetTaxFormResponse } from 'adyenlib';
+import { FieldName, GetTaxFormResponse } from 'adyen';
 
 const getTaxFormResponse: GetTaxFormResponse = {
   content: 'content4',

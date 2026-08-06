@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { DisputeResponse } from 'adyenlib';
+import { DisputeResponse } from 'adyen';
 
 const disputeResponse: DisputeResponse = {
   transactionId: 'transactionId0',

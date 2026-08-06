@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { MolPay, Type38 } from 'adyenlib';
+import { MolPay, Type38 } from 'adyen';
 
 const molPay: MolPay = {
   issuer: 'issuer6',

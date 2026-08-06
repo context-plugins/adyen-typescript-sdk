@@ -19,7 +19,7 @@ The status of the balance account, set to **active** by default.
 ## Example
 
 ```ts
-import { Status21 } from 'adyenlib';
+import { Status21 } from 'adyen';
 
 const status21 = Status21.Inactive;
 ```

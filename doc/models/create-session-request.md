@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CreateSessionRequest } from 'adyenlib';
+import { CreateSessionRequest } from 'adyen';
 
 const createSessionRequest: CreateSessionRequest = {
   merchantAccount: 'merchantAccount6',

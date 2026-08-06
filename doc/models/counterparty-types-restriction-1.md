@@ -29,7 +29,7 @@ Supported value inputs:
 ## Example
 
 ```ts
-import { CounterpartyTypesRestriction1, Value } from 'adyenlib';
+import { CounterpartyTypesRestriction1, Value } from 'adyen';
 
 const counterpartyTypesRestriction1: CounterpartyTypesRestriction1 = {
   operation: 'operation4',

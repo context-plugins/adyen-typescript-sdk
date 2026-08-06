@@ -20,7 +20,7 @@ Unique identification of a POI transaction for a POI.
 ## Example
 
 ```ts
-import { TransactionIdType2 } from 'adyenlib';
+import { TransactionIdType2 } from 'adyen';
 
 const transactionIdType2: TransactionIdType2 = {
   transactionId: 'TransactionID2',

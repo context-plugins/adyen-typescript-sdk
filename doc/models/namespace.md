@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Namespace } from 'adyenlib';
+import { Namespace } from 'adyen';
 
 const namespace = Namespace.UkFpsReturnReasonCode;
 ```

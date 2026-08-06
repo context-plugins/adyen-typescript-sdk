@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DynamicOfferRepayment } from 'adyenlib';
+import { DynamicOfferRepayment } from 'adyen';
 
 const dynamicOfferRepayment: DynamicOfferRepayment = {
   term: {

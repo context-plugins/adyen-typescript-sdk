@@ -17,7 +17,7 @@ PIN Support. For ecommerce, PIN is required.
 ## Example
 
 ```ts
-import { PinSupport } from 'adyenlib';
+import { PinSupport } from 'adyen';
 
 const pinSupport = PinSupport.Pin;
 ```

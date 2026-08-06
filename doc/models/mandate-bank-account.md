@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MandateBankAccount } from 'adyenlib';
+import { MandateBankAccount } from 'adyen';
 
 const mandateBankAccount: MandateBankAccount = {
   accountHolder: {

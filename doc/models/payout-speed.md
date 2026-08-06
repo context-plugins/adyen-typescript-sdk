@@ -18,7 +18,7 @@ Speed with which payouts for this account are processed. Permitted values: `STAN
 ## Example
 
 ```ts
-import { PayoutSpeed } from 'adyenlib';
+import { PayoutSpeed } from 'adyen';
 
 const payoutSpeed = PayoutSpeed.SameDay;
 ```

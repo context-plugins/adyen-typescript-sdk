@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { CompanyApiCredential } from 'adyenlib';
+import { CompanyApiCredential } from 'adyen';
 
 const companyApiCredential: CompanyApiCredential = {
   active: false,

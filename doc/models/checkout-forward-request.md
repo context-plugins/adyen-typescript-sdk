@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { CheckoutForwardRequest, HttpMethod } from 'adyenlib';
+import { CheckoutForwardRequest, HttpMethod } from 'adyen';
 
 const checkoutForwardRequest: CheckoutForwardRequest = {
   baseUrl: 'baseUrl2',

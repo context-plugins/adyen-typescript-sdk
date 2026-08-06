@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { PayTo } from 'adyenlib';
+import { PayTo } from 'adyen';
 
 const payTo: PayTo = {
   checkoutAttemptId: 'checkoutAttemptId4',

@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CardOrderItem, Status7 } from 'adyenlib';
+import { CardOrderItem, Status7 } from 'adyen';
 
 const cardOrderItem: CardOrderItem = {
   balancePlatform: 'balancePlatform4',

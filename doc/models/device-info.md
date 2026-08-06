@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { DeviceInfo } from 'adyenlib';
+import { DeviceInfo } from 'adyen';
 
 const deviceInfo: DeviceInfo = {
   formFactor: 'formFactor2',

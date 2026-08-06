@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type573 } from 'adyenlib';
+import { Type573 } from 'adyen';
 
 const type573 = Type573.Redirect;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PermitResult } from 'adyenlib';
+import { PermitResult } from 'adyen';
 
 const permitResult: PermitResult = {
   resultKey: 'resultKey4',

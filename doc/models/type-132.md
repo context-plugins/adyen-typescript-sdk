@@ -29,7 +29,7 @@ Type of identity data. For individuals, the following types are supported. See o
 ## Example
 
 ```ts
-import { Type132 } from 'adyenlib';
+import { Type132 } from 'adyen';
 
 const type132 = Type132.DriversLicense;
 ```

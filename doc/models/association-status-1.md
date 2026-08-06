@@ -19,7 +19,7 @@ Possible values: **active** or **pendingApproval**.
 ## Example
 
 ```ts
-import { AssociationStatus1 } from 'adyenlib';
+import { AssociationStatus1 } from 'adyen';
 
 const associationStatus1 = AssociationStatus1.PendingApproval;
 ```

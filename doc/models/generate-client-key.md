@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenerateClientKey } from 'adyenlib';
+import { GenerateClientKey } from 'adyen';
 
 const generateClientKey: GenerateClientKey = {
   href: 'href4',

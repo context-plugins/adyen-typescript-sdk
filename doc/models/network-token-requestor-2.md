@@ -20,7 +20,7 @@ The token requestor is an entity who requested tokenization of the card for secu
 ## Example
 
 ```ts
-import { NetworkTokenRequestor2 } from 'adyenlib';
+import { NetworkTokenRequestor2 } from 'adyen';
 
 const networkTokenRequestor2: NetworkTokenRequestor2 = {
   id: 'id0',

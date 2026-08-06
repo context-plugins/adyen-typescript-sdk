@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Opi } from 'adyenlib';
+import { Opi } from 'adyen';
 
 const opi: Opi = {
   enablePayAtTable: false,

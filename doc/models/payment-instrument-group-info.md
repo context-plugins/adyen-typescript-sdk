@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PaymentInstrumentGroupInfo } from 'adyenlib';
+import { PaymentInstrumentGroupInfo } from 'adyen';
 
 const paymentInstrumentGroupInfo: PaymentInstrumentGroupInfo = {
   balancePlatform: 'balancePlatform0',

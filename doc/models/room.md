@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Room } from 'adyenlib';
+import { Room } from 'adyen';
 
 const room: Room = {
   numberOfNights: 138,

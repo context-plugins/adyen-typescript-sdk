@@ -34,7 +34,7 @@ import {
   Scope,
   TransferLimit,
   TransferType,
-} from 'adyenlib';
+} from 'adyen';
 
 const transferLimit: TransferLimit = {
   amount: {

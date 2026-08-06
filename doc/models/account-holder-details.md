@@ -32,7 +32,7 @@
 ## Example
 
 ```ts
-import { AccountHolderDetails, Gender } from 'adyenlib';
+import { AccountHolderDetails, Gender } from 'adyen';
 
 const accountHolderDetails: AccountHolderDetails = {
   address: {

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AccountHolder } from 'adyenlib';
+import { AccountHolder } from 'adyen';
 
 const accountHolder: AccountHolder = {
   fullName: 'John Doe',

@@ -24,7 +24,7 @@ Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **gre
 ## Example
 
 ```ts
-import { RiskScoresRestriction1 } from 'adyenlib';
+import { RiskScoresRestriction1 } from 'adyen';
 
 const riskScoresRestriction1: RiskScoresRestriction1 = {
   operation: 'operation0',

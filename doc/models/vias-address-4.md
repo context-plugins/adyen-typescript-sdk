@@ -24,7 +24,7 @@ The address of the legal arrangement.
 ## Example
 
 ```ts
-import { ViasAddress4 } from 'adyenlib';
+import { ViasAddress4 } from 'adyen';
 
 const viasAddress4: ViasAddress4 = {
   country: 'country4',

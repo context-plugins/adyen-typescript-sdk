@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ResultCode2 } from 'adyenlib';
+import { ResultCode2 } from 'adyen';
 
 const resultCode2 = ResultCode2.Authorised;
 ```

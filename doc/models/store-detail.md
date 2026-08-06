@@ -31,7 +31,7 @@
 ## Example
 
 ```ts
-import { PhoneType, ShopperInteraction, StoreDetail } from 'adyenlib';
+import { PhoneType, ShopperInteraction, StoreDetail } from 'adyen';
 
 const storeDetail: StoreDetail = {
   address: {

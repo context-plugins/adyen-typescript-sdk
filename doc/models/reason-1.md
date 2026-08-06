@@ -17,7 +17,7 @@ The reason why the web data was not provided. Possible value: **noOnlinePresence
 ## Example
 
 ```ts
-import { Reason1 } from 'adyenlib';
+import { Reason1 } from 'adyen';
 
 const reason1 = Reason1.NoOnlinePresence;
 ```

@@ -24,7 +24,7 @@ import {
   AccountVerificationCountry1,
   AccountVerificationReportResponse,
   PartyRole2,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountVerificationReportResponse: AccountVerificationReportResponse = {
   accounts: [

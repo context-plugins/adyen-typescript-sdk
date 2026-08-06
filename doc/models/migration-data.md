@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { MigrationData } from 'adyenlib';
+import { MigrationData } from 'adyen';
 
 const migrationData: MigrationData = {
   accountHolderId: 'accountHolderId0',

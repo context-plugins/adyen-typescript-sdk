@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { TerminalOrder } from 'adyenlib';
+import { TerminalOrder } from 'adyen';
 
 const terminalOrder: TerminalOrder = {
   billingEntity: {

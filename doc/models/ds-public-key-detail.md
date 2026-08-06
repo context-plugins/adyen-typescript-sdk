@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { DsPublicKeyDetail } from 'adyenlib';
+import { DsPublicKeyDetail } from 'adyen';
 
 const dsPublicKeyDetail: DsPublicKeyDetail = {
   brand: 'brand6',

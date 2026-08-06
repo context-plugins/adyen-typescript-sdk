@@ -20,7 +20,7 @@ The recipient of the funds transfer. A bank account or a transfer instrument.
 ## Example
 
 ```ts
-import { Counterparty11, Type413 } from 'adyenlib';
+import { Counterparty11, Type413 } from 'adyen';
 
 const counterparty11: Counterparty11 = {
   bankAccount: {

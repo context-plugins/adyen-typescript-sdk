@@ -18,7 +18,7 @@ The type of flow to initiate.
 ## Example
 
 ```ts
-import { Subtype } from 'adyenlib';
+import { Subtype } from 'adyen';
 
 const subtype = Subtype.Redirect;
 ```

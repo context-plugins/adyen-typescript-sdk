@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ExternalPlatform2 } from 'adyenlib';
+import { ExternalPlatform2 } from 'adyen';
 
 const externalPlatform2: ExternalPlatform2 = {
   integrator: 'integrator0',

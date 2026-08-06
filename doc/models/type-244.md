@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type244 } from 'adyenlib';
+import { Type244 } from 'adyen';
 
 const type244 = Type244.NumberAndBic;
 ```

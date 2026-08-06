@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Instalment, InstalmentType, PeriodUnit1 } from 'adyenlib';
+import { Instalment, InstalmentType, PeriodUnit1 } from 'adyen';
 
 const instalment: Instalment = {
   instalmentType: InstalmentType.DeferredInstalments,

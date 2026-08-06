@@ -34,7 +34,7 @@ Details of the account holder.
 ## Example
 
 ```ts
-import { AccountHolderDetails3, Gender } from 'adyenlib';
+import { AccountHolderDetails3, Gender } from 'adyen';
 
 const accountHolderDetails3: AccountHolderDetails3 = {
   address: {

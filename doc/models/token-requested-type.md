@@ -21,7 +21,7 @@ Possible values:
 ## Example
 
 ```ts
-import { TokenRequestedType } from 'adyenlib';
+import { TokenRequestedType } from 'adyen';
 
 const tokenRequestedType = TokenRequestedType.Transaction;
 ```

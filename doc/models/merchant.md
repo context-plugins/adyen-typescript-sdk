@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Merchant } from 'adyenlib';
+import { Merchant } from 'adyen';
 
 const merchant: Merchant = {
   links: {

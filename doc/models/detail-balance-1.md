@@ -21,7 +21,7 @@ The total balance of the account holder.
 ## Example
 
 ```ts
-import { DetailBalance1 } from 'adyenlib';
+import { DetailBalance1 } from 'adyen';
 
 const detailBalance1: DetailBalance1 = {
   balance: [

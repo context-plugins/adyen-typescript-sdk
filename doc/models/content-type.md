@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ContentType } from 'adyenlib';
+import { ContentType } from 'adyen';
 
 const contentType = ContentType.EnumApplicationpdf;
 ```

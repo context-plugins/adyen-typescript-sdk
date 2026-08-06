@@ -27,7 +27,7 @@ Supported value inputs:
 ## Example
 
 ```ts
-import { SourceAccountTypesRestriction1, Value5 } from 'adyenlib';
+import { SourceAccountTypesRestriction1, Value5 } from 'adyen';
 
 const sourceAccountTypesRestriction1: SourceAccountTypesRestriction1 = {
   operation: 'operation6',

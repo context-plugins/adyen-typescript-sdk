@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CheckoutSdkAction, Type19 } from 'adyenlib';
+import { CheckoutSdkAction, Type19 } from 'adyen';
 
 const checkoutSdkAction: CheckoutSdkAction = {
   type: Type19.Sdk,

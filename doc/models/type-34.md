@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Type34 } from 'adyenlib';
+import { Type34 } from 'adyen';
 
 const type34 = Type34.KlarnapaymentsAccount;
 ```

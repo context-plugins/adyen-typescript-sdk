@@ -23,7 +23,7 @@ import {
   ErrorCondition1,
   PrintResponse3,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const printResponse3: PrintResponse3 = {
   documentQualifier: DocumentQualifier2.Voucher,

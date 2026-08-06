@@ -20,7 +20,7 @@ The object that contains the details for forwarding a network token.
 ## Example
 
 ```ts
-import { CheckoutNetworkTokenOption2 } from 'adyenlib';
+import { CheckoutNetworkTokenOption2 } from 'adyen';
 
 const checkoutNetworkTokenOption2: CheckoutNetworkTokenOption2 = {
   includeCryptogram: false,

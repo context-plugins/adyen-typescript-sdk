@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RefundNotPaidOutTransfersRequest } from 'adyenlib';
+import { RefundNotPaidOutTransfersRequest } from 'adyen';
 
 const refundNotPaidOutTransfersRequest: RefundNotPaidOutTransfersRequest = {
   accountCode: 'accountCode4',

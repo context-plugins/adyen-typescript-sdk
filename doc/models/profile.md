@@ -35,7 +35,7 @@
 ## Example
 
 ```ts
-import { Profile } from 'adyenlib';
+import { Profile } from 'adyen';
 
 const profile: Profile = {
   authType: 'authType0',

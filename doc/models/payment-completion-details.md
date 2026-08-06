@@ -36,7 +36,7 @@
 ## Example
 
 ```ts
-import { PaymentCompletionDetails } from 'adyenlib';
+import { PaymentCompletionDetails } from 'adyen';
 
 const paymentCompletionDetails: PaymentCompletionDetails = {
   md: 'MD8',

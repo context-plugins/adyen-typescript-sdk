@@ -21,7 +21,7 @@ Possible values:
 ## Example
 
 ```ts
-import { IncludeMode } from 'adyenlib';
+import { IncludeMode } from 'adyen';
 
 const includeMode = IncludeMode.Exclude;
 ```

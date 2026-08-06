@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Signature } from 'adyenlib';
+import { Signature } from 'adyen';
 
 const signature: Signature = {
   askSignatureOnScreen: false,

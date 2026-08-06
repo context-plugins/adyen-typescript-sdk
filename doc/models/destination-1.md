@@ -21,7 +21,7 @@ The destination address information.
 ## Example
 
 ```ts
-import { Destination1 } from 'adyenlib';
+import { Destination1 } from 'adyen';
 
 const destination1: Destination1 = {
   countryCode: 'countryCode6',

@@ -21,7 +21,7 @@ If provided by the Host.
 ## Example
 
 ```ts
-import { TransactionIdType7 } from 'adyenlib';
+import { TransactionIdType7 } from 'adyen';
 
 const transactionIdType7: TransactionIdType7 = {
   transactionId: 'TransactionID2',

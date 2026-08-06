@@ -27,7 +27,7 @@ import {
   InputCommand1,
   InputResult,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const inputResult: InputResult = {
   device: Device4.CashierDisplay,

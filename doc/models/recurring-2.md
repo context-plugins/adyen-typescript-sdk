@@ -23,7 +23,7 @@ The recurring settings for the payment. Use this property when you want to enabl
 ## Example
 
 ```ts
-import { Contract, Recurring2, TokenService } from 'adyenlib';
+import { Contract, Recurring2, TokenService } from 'adyen';
 
 const recurring2: Recurring2 = {
   contract: Contract.Payout,

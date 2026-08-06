@@ -19,7 +19,7 @@ Details to provide if `type` is **sodexo**.
 ## Example
 
 ```ts
-import { SodexoInfo2 } from 'adyenlib';
+import { SodexoInfo2 } from 'adyen';
 
 const sodexoInfo2: SodexoInfo2 = {
   merchantContactPhone: 'merchantContactPhone6',

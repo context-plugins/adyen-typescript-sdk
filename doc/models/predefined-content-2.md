@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PredefinedContent2 } from 'adyenlib';
+import { PredefinedContent2 } from 'adyen';
 
 const predefinedContent2: PredefinedContent2 = {
   referenceId: 'ReferenceID2',

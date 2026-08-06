@@ -21,7 +21,7 @@ Settings for the home screen.
 ## Example
 
 ```ts
-import { HomeScreenSettings1 } from 'adyenlib';
+import { HomeScreenSettings1 } from 'adyen';
 
 const homeScreenSettings1: HomeScreenSettings1 = {
   hideNavigationBar: false,

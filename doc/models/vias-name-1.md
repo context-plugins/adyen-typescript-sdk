@@ -22,7 +22,7 @@ The name of the person.
 ## Example
 
 ```ts
-import { Gender, ViasName1 } from 'adyenlib';
+import { Gender, ViasName1 } from 'adyen';
 
 const viasName1: ViasName1 = {
   firstName: 'firstName8',

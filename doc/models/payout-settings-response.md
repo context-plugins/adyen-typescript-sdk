@@ -17,11 +17,7 @@
 ## Example
 
 ```ts
-import {
-  PayoutSettingsResponse,
-  Priority1,
-  VerificationStatus,
-} from 'adyenlib';
+import { PayoutSettingsResponse, Priority1, VerificationStatus } from 'adyen';
 
 const payoutSettingsResponse: PayoutSettingsResponse = {
   data: [

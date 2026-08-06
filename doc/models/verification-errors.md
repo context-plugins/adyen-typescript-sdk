@@ -17,13 +17,7 @@
 ## Example
 
 ```ts
-import {
-  Capability,
-  Type3,
-  Type32,
-  Type59,
-  VerificationErrors,
-} from 'adyenlib';
+import { Capability, Type3, Type32, Type59, VerificationErrors } from 'adyen';
 
 const verificationErrors: VerificationErrors = {
   problems: [

@@ -39,7 +39,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataCarRental } from 'adyenlib';
+import { AdditionalDataCarRental } from 'adyen';
 
 const additionalDataCarRental: AdditionalDataCarRental = {
   carRentalCheckOutDate: 'carRental.checkOutDate8',

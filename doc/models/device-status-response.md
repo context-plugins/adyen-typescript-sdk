@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DeviceStatus1, DeviceStatusResponse } from 'adyenlib';
+import { DeviceStatus1, DeviceStatusResponse } from 'adyen';
 
 const deviceStatusResponse: DeviceStatusResponse = {
   deviceId: 'deviceId8',

@@ -23,7 +23,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ProcessingType } from 'adyenlib';
+import { ProcessingType } from 'adyen';
 
 const processingType = ProcessingType.Ecom;
 ```

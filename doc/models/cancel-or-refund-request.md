@@ -31,7 +31,7 @@ import {
   CancelOrRefundRequest,
   ChallengeCancel,
   DirectoryResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const cancelOrRefundRequest: CancelOrRefundRequest = {
   merchantAccount: 'merchantAccount6',

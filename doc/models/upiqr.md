@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { Type80, Upiqr } from 'adyenlib';
+import { Type80, Upiqr } from 'adyen';
 
 const upiqr: Upiqr = {
   type: Type80.UpiQr,

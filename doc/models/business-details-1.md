@@ -28,7 +28,7 @@ Required when creating an entity with `legalEntityType` **Business**, **NonProfi
 ## Example
 
 ```ts
-import { BusinessDetails1, Gender } from 'adyenlib';
+import { BusinessDetails1, Gender } from 'adyen';
 
 const businessDetails1: BusinessDetails1 = {
   doingBusinessAs: 'doingBusinessAs4',

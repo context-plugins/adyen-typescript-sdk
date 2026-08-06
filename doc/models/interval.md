@@ -18,7 +18,7 @@ The period when the rule conditions apply.
 ## Example
 
 ```ts
-import { Interval } from 'adyenlib';
+import { Interval } from 'adyen';
 
 const interval = Interval.Weekly;
 ```

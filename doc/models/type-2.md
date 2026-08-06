@@ -44,7 +44,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type2 } from 'adyenlib';
+import { Type2 } from 'adyen';
 
 const type2 = Type2.NonprofitVerification;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CounterpartyTypesRestriction, Value } from 'adyenlib';
+import { CounterpartyTypesRestriction, Value } from 'adyen';
 
 const counterpartyTypesRestriction: CounterpartyTypesRestriction = {
   operation: 'operation4',

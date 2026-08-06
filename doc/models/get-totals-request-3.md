@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { GetTotalsRequest3, TotalDetail } from 'adyenlib';
+import { GetTotalsRequest3, TotalDetail } from 'adyen';
 
 const getTotalsRequest3: GetTotalsRequest3 = {
   totalDetails: [

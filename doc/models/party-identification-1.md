@@ -27,7 +27,7 @@ Contains information about the cardholder.
 ## Example
 
 ```ts
-import { PartyIdentification1 } from 'adyenlib';
+import { PartyIdentification1 } from 'adyen';
 
 const partyIdentification1: PartyIdentification1 = {
   address: {

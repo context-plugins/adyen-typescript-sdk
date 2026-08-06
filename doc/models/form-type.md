@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { FormType } from 'adyenlib';
+import { FormType } from 'adyen';
 
 const formType = FormType.Us1099K;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CancelOrderRequest } from 'adyenlib';
+import { CancelOrderRequest } from 'adyen';
 
 const cancelOrderRequest: CancelOrderRequest = {
   merchantAccount: 'merchantAccount4',

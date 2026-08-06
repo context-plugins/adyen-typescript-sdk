@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RequiredAddressField } from 'adyenlib';
+import { RequiredAddressField } from 'adyen';
 
 const requiredAddressField = RequiredAddressField.Line1;
 ```

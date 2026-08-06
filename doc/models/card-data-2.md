@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CardData2, EntryMode } from 'adyenlib';
+import { CardData2, EntryMode } from 'adyen';
 
 const cardData2: CardData2 = {
   paymentBrand: 'PaymentBrand8',

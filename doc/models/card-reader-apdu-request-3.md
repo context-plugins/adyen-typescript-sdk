@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CardReaderApduRequest3 } from 'adyenlib';
+import { CardReaderApduRequest3 } from 'adyen';
 
 const cardReaderApduRequest3: CardReaderApduRequest3 = {
   apduClass: 'APDUClass2',

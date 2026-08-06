@@ -34,7 +34,7 @@ Possible values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`, `DAILY_
 ## Example
 
 ```ts
-import { PayoutSchedule } from 'adyenlib';
+import { PayoutSchedule } from 'adyen';
 
 const payoutSchedule = PayoutSchedule.WeeklySunToThuUs;
 ```

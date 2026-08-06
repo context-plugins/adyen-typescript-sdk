@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { OnboardingLink } from 'adyenlib';
+import { OnboardingLink } from 'adyen';
 
 const onboardingLink: OnboardingLink = {
   url: 'url2',

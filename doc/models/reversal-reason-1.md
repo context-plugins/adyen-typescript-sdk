@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ReversalReason1 } from 'adyenlib';
+import { ReversalReason1 } from 'adyen';
 
 const reversalReason1 = ReversalReason1.Malfunction;
 ```

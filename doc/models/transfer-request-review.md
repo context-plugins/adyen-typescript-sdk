@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransferRequestReview } from 'adyenlib';
+import { TransferRequestReview } from 'adyen';
 
 const transferRequestReview: TransferRequestReview = {
   numberOfApprovalsRequired: 114,

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CheckoutSessionInstallmentOption, Plan1 } from 'adyenlib';
+import { CheckoutSessionInstallmentOption, Plan1 } from 'adyen';
 
 const checkoutSessionInstallmentOption: CheckoutSessionInstallmentOption = {
   plans: [

@@ -22,7 +22,7 @@ Shows how merchant accounts are included in company-level webhooks. Possible val
 ## Example
 
 ```ts
-import { FilterMerchantAccountType1 } from 'adyenlib';
+import { FilterMerchantAccountType1 } from 'adyen';
 
 const filterMerchantAccountType1 = FilterMerchantAccountType1.ExcludeAccounts;
 ```

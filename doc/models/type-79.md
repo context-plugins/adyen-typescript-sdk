@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type79 } from 'adyenlib';
+import { Type79 } from 'adyen';
 
 const type79 = Type79.UpiIntent;
 ```

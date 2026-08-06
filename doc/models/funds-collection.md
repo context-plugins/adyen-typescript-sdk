@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { FundsCollection, FundsCollectionType2 } from 'adyenlib';
+import { FundsCollection, FundsCollectionType2 } from 'adyen';
 
 const fundsCollection: FundsCollection = {
   accountIdentification: {

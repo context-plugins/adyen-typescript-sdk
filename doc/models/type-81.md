@@ -47,7 +47,7 @@ Type of document, used when providing an ID number or uploading a document. The 
 ## Example
 
 ```ts
-import { Type81 } from 'adyenlib';
+import { Type81 } from 'adyen';
 
 const type81 = Type81.BankStatement;
 ```

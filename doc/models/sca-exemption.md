@@ -26,7 +26,7 @@ The type of exemption for Strong Customer Authentication (SCA). Possible values:
 ## Example
 
 ```ts
-import { ScaExemption } from 'adyenlib';
+import { ScaExemption } from 'adyen';
 
 const scaExemption = ScaExemption.InitialLimit;
 ```

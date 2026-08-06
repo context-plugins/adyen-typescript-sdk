@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ActiveNetworkTokensRestriction } from 'adyenlib';
+import { ActiveNetworkTokensRestriction } from 'adyen';
 
 const activeNetworkTokensRestriction: ActiveNetworkTokensRestriction = {
   operation: 'operation8',

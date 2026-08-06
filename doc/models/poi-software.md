@@ -22,7 +22,7 @@ Information related to the software of the POI System which manages the Sale to 
 ## Example
 
 ```ts
-import { PoiSoftware } from 'adyenlib';
+import { PoiSoftware } from 'adyen';
 
 const poiSoftware: PoiSoftware = {
   manufacturerId: 'ManufacturerID4',

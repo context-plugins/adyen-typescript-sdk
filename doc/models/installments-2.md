@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Installments2, Plan } from 'adyenlib';
+import { Installments2, Plan } from 'adyen';
 
 const installments2: Installments2 = {
   value: 8,

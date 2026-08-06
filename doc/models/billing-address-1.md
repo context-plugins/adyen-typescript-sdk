@@ -24,7 +24,7 @@ The address where to send the invoice.
 ## Example
 
 ```ts
-import { BillingAddress1 } from 'adyenlib';
+import { BillingAddress1 } from 'adyen';
 
 const billingAddress1: BillingAddress1 = {
   city: 'city6',

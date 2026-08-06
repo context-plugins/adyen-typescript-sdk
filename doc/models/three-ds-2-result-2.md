@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { ChallengeCancel, ThreeDs2Result2 } from 'adyenlib';
+import { ChallengeCancel, ThreeDs2Result2 } from 'adyen';
 
 const threeDs2Result2: ThreeDs2Result2 = {
   authenticationValue: 'authenticationValue8',

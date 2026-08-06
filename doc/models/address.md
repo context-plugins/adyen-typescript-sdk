@@ -29,7 +29,7 @@ The address where to send the invoice.
 ## Example
 
 ```ts
-import { Address } from 'adyenlib';
+import { Address } from 'adyen';
 
 const address: Address = {
   city: 'city6',

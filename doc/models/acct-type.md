@@ -22,7 +22,7 @@ Indicates the type of account. For example, for a multi-account card product. Le
 ## Example
 
 ```ts
-import { AcctType } from 'adyenlib';
+import { AcctType } from 'adyen';
 
 const acctType = AcctType.Enum02;
 ```

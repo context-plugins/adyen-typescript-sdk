@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { MerchantPurchaseData, Type87 } from 'adyenlib';
+import { MerchantPurchaseData, Type87 } from 'adyen';
 
 const merchantPurchaseData: MerchantPurchaseData = {
   type: Type87.MerchantPurchaseData,

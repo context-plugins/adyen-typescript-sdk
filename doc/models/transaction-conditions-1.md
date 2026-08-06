@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { LoyaltyHandling1, TransactionConditions1 } from 'adyenlib';
+import { LoyaltyHandling1, TransactionConditions1 } from 'adyen';
 
 const transactionConditions1: TransactionConditions1 = {
   allowedPaymentBrand: [

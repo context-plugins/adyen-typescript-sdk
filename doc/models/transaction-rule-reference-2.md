@@ -23,7 +23,7 @@ Contains information about the transaction rule.
 ## Example
 
 ```ts
-import { TransactionRuleReference2 } from 'adyenlib';
+import { TransactionRuleReference2 } from 'adyen';
 
 const transactionRuleReference2: TransactionRuleReference2 = {
   description: 'description8',

@@ -23,7 +23,7 @@ The other party in the transfer.
 ## Example
 
 ```ts
-import { TransferNotificationCounterParty2, Type413 } from 'adyenlib';
+import { TransferNotificationCounterParty2, Type413 } from 'adyen';
 
 const transferNotificationCounterParty2: TransferNotificationCounterParty2 = {
   balanceAccountId: 'balanceAccountId6',

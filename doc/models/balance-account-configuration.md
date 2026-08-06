@@ -33,7 +33,7 @@
 ## Example
 
 ```ts
-import { BalanceAccountConfiguration } from 'adyenlib';
+import { BalanceAccountConfiguration } from 'adyen';
 
 const balanceAccountConfiguration: BalanceAccountConfiguration = {
   balanceAccountId: 'balanceAccountId0',

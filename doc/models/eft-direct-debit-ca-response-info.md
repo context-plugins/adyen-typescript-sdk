@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { EftDirectDebitCaResponseInfo, Type33 } from 'adyenlib';
+import { EftDirectDebitCaResponseInfo, Type33 } from 'adyen';
 
 const eftDirectDebitCaResponseInfo: EftDirectDebitCaResponseInfo = {
   transactionDescription: {

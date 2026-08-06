@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Behavior, PlatformChargebackLogic1 } from 'adyenlib';
+import { Behavior, PlatformChargebackLogic1 } from 'adyen';
 
 const platformChargebackLogic1: PlatformChargebackLogic1 = {
   behavior: Behavior.DeductFromOneBalanceAccount,

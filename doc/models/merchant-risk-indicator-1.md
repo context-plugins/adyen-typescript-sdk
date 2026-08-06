@@ -38,7 +38,7 @@ import {
   DeliveryAddressIndicator,
   DeliveryTimeframe,
   MerchantRiskIndicator1,
-} from 'adyenlib';
+} from 'adyen';
 
 const merchantRiskIndicator1: MerchantRiskIndicator1 = {
   addressMatch: false,

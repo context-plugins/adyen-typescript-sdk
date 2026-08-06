@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { BoardingTokenRequest } from 'adyenlib';
+import { BoardingTokenRequest } from 'adyen';
 
 const boardingTokenRequest: BoardingTokenRequest = {
   boardingRequestToken: 'boardingRequestToken4',

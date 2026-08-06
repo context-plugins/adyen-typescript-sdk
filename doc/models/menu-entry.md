@@ -31,7 +31,7 @@ import {
   MenuEntry,
   MenuEntryTag1,
   OutputFormat2,
-} from 'adyenlib';
+} from 'adyen';
 
 const menuEntry: MenuEntry = {
   outputFormat: OutputFormat2.MessageRef,

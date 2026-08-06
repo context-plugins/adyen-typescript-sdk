@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ModifyRequest } from 'adyenlib';
+import { ModifyRequest } from 'adyen';
 
 const modifyRequest: ModifyRequest = {
   merchantAccount: 'merchantAccount0',

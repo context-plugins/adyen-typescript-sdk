@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SensitiveCardData2, TrackFormat1 } from 'adyenlib';
+import { SensitiveCardData2, TrackFormat1 } from 'adyen';
 
 const sensitiveCardData2: SensitiveCardData2 = {
   pan: 14,

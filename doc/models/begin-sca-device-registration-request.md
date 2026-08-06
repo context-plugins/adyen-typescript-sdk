@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BeginScaDeviceRegistrationRequest } from 'adyenlib';
+import { BeginScaDeviceRegistrationRequest } from 'adyen';
 
 const beginScaDeviceRegistrationRequest: BeginScaDeviceRegistrationRequest = {
   name: 'name0',

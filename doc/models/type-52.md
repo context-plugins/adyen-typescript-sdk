@@ -46,7 +46,7 @@ The payment method type.
 ## Example
 
 ```ts
-import { Type52 } from 'adyenlib';
+import { Type52 } from 'adyen';
 
 const type52 = Type52.GrabpayPh;
 ```

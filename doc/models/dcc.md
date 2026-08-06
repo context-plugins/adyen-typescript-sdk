@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Dcc } from 'adyenlib';
+import { Dcc } from 'adyen';
 
 const dcc: Dcc = {
   enableDcc: false,

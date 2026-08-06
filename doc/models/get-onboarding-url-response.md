@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { FieldName, GetOnboardingUrlResponse } from 'adyenlib';
+import { FieldName, GetOnboardingUrlResponse } from 'adyen';
 
 const getOnboardingUrlResponse: GetOnboardingUrlResponse = {
   invalidFields: [

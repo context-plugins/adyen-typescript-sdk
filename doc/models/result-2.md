@@ -19,7 +19,7 @@ The result of this operation.
 ## Example
 
 ```ts
-import { Result2 } from 'adyenlib';
+import { Result2 } from 'adyen';
 
 const result2 = Result2.ActiveRecurringTokenExists;
 ```

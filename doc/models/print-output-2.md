@@ -30,7 +30,7 @@ import {
   OutputFormat1,
   PrintOutput2,
   ResponseMode1,
-} from 'adyenlib';
+} from 'adyen';
 
 const printOutput2: PrintOutput2 = {
   documentQualifier: DocumentQualifier2.CustomerReceipt,

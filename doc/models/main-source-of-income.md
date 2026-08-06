@@ -22,7 +22,7 @@ Possible values: **businessOperation**, **realEstateSales**, **investmentInteres
 ## Example
 
 ```ts
-import { MainSourceOfIncome } from 'adyenlib';
+import { MainSourceOfIncome } from 'adyen';
 
 const mainSourceOfIncome = MainSourceOfIncome.PropertyRental;
 ```

@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { NotDeliveredInfo, ProductType2 } from 'adyenlib';
+import { NotDeliveredInfo, ProductType2 } from 'adyen';
 
 const notDeliveredInfo: NotDeliveredInfo = {
   descriptionOfIssue: 'descriptionOfIssue6',

@@ -19,7 +19,7 @@ Possible values: **incoming**, **outgoing**.
 ## Example
 
 ```ts
-import { Direction } from 'adyenlib';
+import { Direction } from 'adyen';
 
 const direction = Direction.Incoming;
 ```

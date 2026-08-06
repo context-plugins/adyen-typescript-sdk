@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { BalanceType, Condition, ConditionType } from 'adyenlib';
+import { BalanceType, Condition, ConditionType } from 'adyen';
 
 const condition: Condition = {
   balanceType: BalanceType.Balance,

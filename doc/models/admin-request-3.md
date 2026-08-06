@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AdminRequest3 } from 'adyenlib';
+import { AdminRequest3 } from 'adyen';
 
 const adminRequest3: AdminRequest3 = {
   serviceIdentification: 'ServiceIdentification0',

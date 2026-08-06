@@ -19,7 +19,7 @@ Details to provide if `type` is **alipay_plus**.
 ## Example
 
 ```ts
-import { AlipayPlusInfo1 } from 'adyenlib';
+import { AlipayPlusInfo1 } from 'adyen';
 
 const alipayPlusInfo1: AlipayPlusInfo1 = {
   settlementCurrencyCode: 'settlementCurrencyCode2',

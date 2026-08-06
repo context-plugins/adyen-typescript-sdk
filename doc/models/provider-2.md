@@ -20,7 +20,7 @@ Metadata about the selected provider, including the name and company logo. You c
 ## Example
 
 ```ts
-import { Provider2 } from 'adyenlib';
+import { Provider2 } from 'adyen';
 
 const provider2: Provider2 = {
   logoUrl: 'logoURL6',

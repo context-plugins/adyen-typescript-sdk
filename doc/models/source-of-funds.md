@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { SourceOfFunds } from 'adyenlib';
+import { SourceOfFunds } from 'adyen';
 
 const sourceOfFunds: SourceOfFunds = {
   adyenProcessedFunds: false,

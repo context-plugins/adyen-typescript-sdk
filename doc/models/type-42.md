@@ -16,7 +16,7 @@ Type of terminal action: Install an Android certificate.
 ## Example
 
 ```ts
-import { Type42 } from 'adyenlib';
+import { Type42 } from 'adyen';
 
 const type42 = Type42.InstallAndroidCertificate;
 ```

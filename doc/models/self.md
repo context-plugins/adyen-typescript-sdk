@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Self } from 'adyenlib';
+import { Self } from 'adyen';
 
 const self: Self = {
   href: 'href0',

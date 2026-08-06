@@ -20,7 +20,7 @@ The user's full name.
 ## Example
 
 ```ts
-import { Name221 } from 'adyenlib';
+import { Name221 } from 'adyen';
 
 const name221: Name221 = {
   firstName: 'firstName0',

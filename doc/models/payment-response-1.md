@@ -21,7 +21,7 @@ Only returned if `resultCode` is **Authorised**.
 ## Example
 
 ```ts
-import { PaymentResponse1 } from 'adyenlib';
+import { PaymentResponse1 } from 'adyen';
 
 const paymentResponse1: PaymentResponse1 = {
   brand: 'brand2',

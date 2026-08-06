@@ -20,7 +20,7 @@ Settings for payment features.
 ## Example
 
 ```ts
-import { Payment11 } from 'adyenlib';
+import { Payment11 } from 'adyen';
 
 const payment11: Payment11 = {
   contactlessCurrency: 'contactlessCurrency6',

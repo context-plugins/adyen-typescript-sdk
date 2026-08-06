@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Target5 } from 'adyenlib';
+import { Target5 } from 'adyen';
 
 const target5: Target5 = {
   currency: 'currency4',

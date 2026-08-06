@@ -21,7 +21,7 @@ Permit level restriction overrides.
 ## Example
 
 ```ts
-import { PermitRestriction2 } from 'adyenlib';
+import { PermitRestriction2 } from 'adyen';
 
 const permitRestriction2: PermitRestriction2 = {
   maxAmount: {

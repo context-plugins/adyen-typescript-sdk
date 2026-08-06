@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Value4 } from 'adyenlib';
+import { Value4 } from 'adyen';
 
 const value4 = Value4.Pos;
 ```

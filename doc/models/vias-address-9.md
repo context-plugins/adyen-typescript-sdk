@@ -24,7 +24,7 @@ The address of the account holder.
 ## Example
 
 ```ts
-import { ViasAddress9 } from 'adyenlib';
+import { ViasAddress9 } from 'adyen';
 
 const viasAddress9: ViasAddress9 = {
   country: 'country6',

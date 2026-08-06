@@ -20,7 +20,7 @@ Contains the identity details of the party.
 ## Example
 
 ```ts
-import { Identity2 } from 'adyenlib';
+import { Identity2 } from 'adyen';
 
 const identity2: Identity2 = {
   fullLegalName: 'fullLegalName2',

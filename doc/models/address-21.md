@@ -24,7 +24,7 @@ The address where the organization operates from. Provide this if the principal 
 ## Example
 
 ```ts
-import { Address21 } from 'adyenlib';
+import { Address21 } from 'adyen';
 
 const address21: Address21 = {
   country: 'country4',

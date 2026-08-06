@@ -22,7 +22,7 @@ The bank account type (checking, savings...).
 ## Example
 
 ```ts
-import { BankAccountType } from 'adyenlib';
+import { BankAccountType } from 'adyen';
 
 const bankAccountType = BankAccountType.Payment;
 ```

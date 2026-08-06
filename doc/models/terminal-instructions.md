@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TerminalInstructions } from 'adyenlib';
+import { TerminalInstructions } from 'adyen';
 
 const terminalInstructions: TerminalInstructions = {
   adyenAppRestart: false,

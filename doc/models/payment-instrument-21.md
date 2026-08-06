@@ -22,7 +22,7 @@ Contains information about the payment instrument that was used for the transact
 ## Example
 
 ```ts
-import { PaymentInstrument21 } from 'adyenlib';
+import { PaymentInstrument21 } from 'adyen';
 
 const paymentInstrument21: PaymentInstrument21 = {
   description: 'description2',

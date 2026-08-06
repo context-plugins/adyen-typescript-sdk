@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { KycVerificationResult, Status3, Type2 } from 'adyenlib';
+import { KycVerificationResult, Status3, Type2 } from 'adyen';
 
 const kycVerificationResult: KycVerificationResult = {
   accountHolder: {

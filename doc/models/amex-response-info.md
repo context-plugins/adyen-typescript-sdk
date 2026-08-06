@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AmexResponseInfo } from 'adyenlib';
+import { AmexResponseInfo } from 'adyen';
 
 const amexResponseInfo: AmexResponseInfo = {
   midNumber: 'midNumber4',

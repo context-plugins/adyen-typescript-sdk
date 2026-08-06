@@ -34,7 +34,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataOpenInvoice } from 'adyenlib';
+import { AdditionalDataOpenInvoice } from 'adyen';
 
 const additionalDataOpenInvoice: AdditionalDataOpenInvoice = {
   openinvoicedataMerchantData: 'openinvoicedata.merchantData2',

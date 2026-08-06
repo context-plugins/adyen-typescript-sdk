@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataSepa } from 'adyenlib';
+import { ResponseAdditionalDataSepa } from 'adyen';
 
 const responseAdditionalDataSepa: ResponseAdditionalDataSepa = {
   sepadirectdebitDateOfSignature: 'sepadirectdebit.dateOfSignature8',

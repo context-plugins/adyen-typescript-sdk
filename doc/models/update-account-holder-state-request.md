@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { StateType, UpdateAccountHolderStateRequest } from 'adyenlib';
+import { StateType, UpdateAccountHolderStateRequest } from 'adyen';
 
 const updateAccountHolderStateRequest: UpdateAccountHolderStateRequest = {
   accountHolderCode: 'accountHolderCode6',

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Type29 } from 'adyenlib';
+import { Type29 } from 'adyen';
 
 const type29 = Type29.EcontextStores;
 ```

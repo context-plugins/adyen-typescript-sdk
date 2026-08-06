@@ -20,7 +20,7 @@ The app identifier information containing iOS scheme and Android package ID.
 ## Example
 
 ```ts
-import { AppIdentifierInfo1 } from 'adyenlib';
+import { AppIdentifierInfo1 } from 'adyen';
 
 const appIdentifierInfo1: AppIdentifierInfo1 = {
   androidPackageId: 'androidPackageId2',

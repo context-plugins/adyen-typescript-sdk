@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ScheduleAccountUpdaterRequest } from 'adyenlib';
+import { ScheduleAccountUpdaterRequest } from 'adyen';
 
 const scheduleAccountUpdaterRequest: ScheduleAccountUpdaterRequest = {
   merchantAccount: 'merchantAccount2',

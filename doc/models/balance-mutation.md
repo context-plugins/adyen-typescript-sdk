@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { BalanceMutation } from 'adyenlib';
+import { BalanceMutation } from 'adyen';
 
 const balanceMutation: BalanceMutation = {
   balance: BigInt(132),

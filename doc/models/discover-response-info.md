@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DiscoverResponseInfo, Type33 } from 'adyenlib';
+import { DiscoverResponseInfo, Type33 } from 'adyen';
 
 const discoverResponseInfo: DiscoverResponseInfo = {
   transactionDescription: {

@@ -21,7 +21,7 @@ Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) featu
 ## Example
 
 ```ts
-import { AuthenticationMethod, PayAtTable1 } from 'adyenlib';
+import { AuthenticationMethod, PayAtTable1 } from 'adyen';
 
 const payAtTable1: PayAtTable1 = {
   authenticationMethod: AuthenticationMethod.Magswipe,

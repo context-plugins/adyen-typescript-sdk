@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AndroidAppError } from 'adyenlib';
+import { AndroidAppError } from 'adyen';
 
 const androidAppError: AndroidAppError = {
   errorCode: 'errorCode0',

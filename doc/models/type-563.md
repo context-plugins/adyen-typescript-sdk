@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type563 } from 'adyenlib';
+import { Type563 } from 'adyen';
 
 const type563 = Type563.QrCode;
 ```

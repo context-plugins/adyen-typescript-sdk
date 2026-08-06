@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { SaleToIssuerData2 } from 'adyenlib';
+import { SaleToIssuerData2 } from 'adyen';
 
 const saleToIssuerData2: SaleToIssuerData2 = {
   statementReference: 'StatementReference2',

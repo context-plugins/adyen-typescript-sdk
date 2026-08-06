@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { CapitalGrant, Status18 } from 'adyenlib';
+import { CapitalGrant, Status18 } from 'adyen';
 
 const capitalGrant: CapitalGrant = {
   balances: {

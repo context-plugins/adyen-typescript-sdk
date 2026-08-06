@@ -46,7 +46,7 @@
 ## Example
 
 ```ts
-import { Type33, UpdatePaymentMethodInfo } from 'adyenlib';
+import { Type33, UpdatePaymentMethodInfo } from 'adyen';
 
 const updatePaymentMethodInfo: UpdatePaymentMethodInfo = {
   accel: {

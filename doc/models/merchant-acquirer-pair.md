@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MerchantAcquirerPair } from 'adyenlib';
+import { MerchantAcquirerPair } from 'adyen';
 
 const merchantAcquirerPair: MerchantAcquirerPair = {
   acquirerId: 'acquirerId0',

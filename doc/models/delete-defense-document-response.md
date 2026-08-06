@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DeleteDefenseDocumentResponse } from 'adyenlib';
+import { DeleteDefenseDocumentResponse } from 'adyen';
 
 const deleteDefenseDocumentResponse: DeleteDefenseDocumentResponse = {
   disputeServiceResult: {

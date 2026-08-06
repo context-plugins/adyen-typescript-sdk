@@ -22,7 +22,7 @@ Restriction of product payable by a card.
 ## Example
 
 ```ts
-import { PaymentToken1, TokenRequestedType1 } from 'adyenlib';
+import { PaymentToken1, TokenRequestedType1 } from 'adyen';
 
 const paymentToken1: PaymentToken1 = {
   tokenRequestedType: TokenRequestedType1.Transaction,

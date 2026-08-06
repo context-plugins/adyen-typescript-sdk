@@ -20,7 +20,7 @@ Defines your platform's commission for the processed payments as a fixed amount 
 ## Example
 
 ```ts
-import { Commission1 } from 'adyenlib';
+import { Commission1 } from 'adyen';
 
 const commission1: Commission1 = {
   fixedAmount: BigInt(106),

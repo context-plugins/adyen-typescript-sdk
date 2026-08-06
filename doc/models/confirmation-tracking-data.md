@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ConfirmationTrackingData, Status110, Type834 } from 'adyenlib';
+import { ConfirmationTrackingData, Status110, Type834 } from 'adyen';
 
 const confirmationTrackingData: ConfirmationTrackingData = {
   status: Status110.Credited,

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PciDocumentInfo } from 'adyenlib';
+import { PciDocumentInfo } from 'adyen';
 
 const pciDocumentInfo: PciDocumentInfo = {
   createdAt: '2016-03-13T12:52:32.123Z',

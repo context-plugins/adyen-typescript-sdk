@@ -19,7 +19,7 @@ Details to provide if `type` is **ideal**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo8, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo8, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo8: GenericPmWithTdiUpdateInfo8 = {
   transactionDescription: {

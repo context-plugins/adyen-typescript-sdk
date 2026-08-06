@@ -20,7 +20,7 @@ The order information required for partial payments.
 ## Example
 
 ```ts
-import { EncryptedOrderData2 } from 'adyenlib';
+import { EncryptedOrderData2 } from 'adyen';
 
 const encryptedOrderData2: EncryptedOrderData2 = {
   orderData: 'orderData0',

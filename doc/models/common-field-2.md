@@ -20,7 +20,7 @@ Merchant developed software, such as cashier application, used to interact with 
 ## Example
 
 ```ts
-import { CommonField2 } from 'adyenlib';
+import { CommonField2 } from 'adyen';
 
 const commonField2: CommonField2 = {
   name: 'name2',

@@ -18,7 +18,7 @@ The current status of the donation campaign.
 ## Example
 
 ```ts
-import { DonationCampaignStatus2 } from 'adyenlib';
+import { DonationCampaignStatus2 } from 'adyen';
 
 const donationCampaignStatus2 = DonationCampaignStatus2.Ended;
 ```

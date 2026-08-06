@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ConnectedDevicesResponse } from 'adyenlib';
+import { ConnectedDevicesResponse } from 'adyen';
 
 const connectedDevicesResponse: ConnectedDevicesResponse = {
   uniqueDeviceIds: [

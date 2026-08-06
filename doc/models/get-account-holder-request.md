@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GetAccountHolderRequest } from 'adyenlib';
+import { GetAccountHolderRequest } from 'adyen';
 
 const getAccountHolderRequest: GetAccountHolderRequest = {
   accountCode: 'accountCode2',

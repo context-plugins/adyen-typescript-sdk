@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type94 } from 'adyenlib';
+import { Type94 } from 'adyen';
 
 const type94 = Type94.AmountNonZeroDecimalsRequirement;
 ```

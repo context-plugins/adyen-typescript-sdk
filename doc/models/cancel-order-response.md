@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { CancelOrderResponse, ResultCode18 } from 'adyenlib';
+import { CancelOrderResponse, ResultCode18 } from 'adyen';
 
 const cancelOrderResponse: CancelOrderResponse = {
   pspReference: 'pspReference0',

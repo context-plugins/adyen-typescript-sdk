@@ -20,7 +20,7 @@ Adyen creates a local IBAN for business accounts when the `formFactor` value is 
 ## Example
 
 ```ts
-import { FormFactor } from 'adyenlib';
+import { FormFactor } from 'adyen';
 
 const formFactor = FormFactor.Virtual;
 ```

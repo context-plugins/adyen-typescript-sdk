@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { DonationType } from 'adyenlib';
+import { DonationType } from 'adyen';
 
 const donationType = DonationType.Roundup;
 ```

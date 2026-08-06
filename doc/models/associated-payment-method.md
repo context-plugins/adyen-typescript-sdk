@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AssociatedPaymentMethod } from 'adyenlib';
+import { AssociatedPaymentMethod } from 'adyen';
 
 const associatedPaymentMethod: AssociatedPaymentMethod = {
   enabled: false,

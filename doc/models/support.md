@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Support } from 'adyenlib';
+import { Support } from 'adyen';
 
 const support: Support = {
   email: 'email6',

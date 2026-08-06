@@ -19,7 +19,7 @@ Details to provide if `type` is **maestro_usa** details
 ## Example
 
 ```ts
-import { MaestroUsaResponseInfo1, Type33 } from 'adyenlib';
+import { MaestroUsaResponseInfo1, Type33 } from 'adyen';
 
 const maestroUsaResponseInfo1: MaestroUsaResponseInfo1 = {
   transactionDescription: {

@@ -37,7 +37,7 @@ Reach out to your Adyen contact to get the values that you can send in this obje
 ## Example
 
 ```ts
-import { CardConfiguration2 } from 'adyenlib';
+import { CardConfiguration2 } from 'adyen';
 
 const cardConfiguration2: CardConfiguration2 = {
   configurationProfileId: 'configurationProfileId2',

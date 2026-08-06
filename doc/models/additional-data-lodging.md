@@ -33,7 +33,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataLodging } from 'adyenlib';
+import { AdditionalDataLodging } from 'adyen';
 
 const additionalDataLodging: AdditionalDataLodging = {
   lodgingSpecialProgramCode: 'lodging.SpecialProgramCode6',

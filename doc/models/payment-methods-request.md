@@ -34,7 +34,7 @@
 ## Example
 
 ```ts
-import { PaymentMethodsRequest } from 'adyenlib';
+import { PaymentMethodsRequest } from 'adyen';
 
 const paymentMethodsRequest: PaymentMethodsRequest = {
   merchantAccount: 'merchantAccount4',

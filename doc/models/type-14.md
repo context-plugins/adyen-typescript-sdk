@@ -27,7 +27,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type14 } from 'adyenlib';
+import { Type14 } from 'adyen';
 
 const type14 = Type14.Velocity;
 ```

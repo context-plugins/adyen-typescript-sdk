@@ -20,7 +20,7 @@ Contains information required for triggering transfer reviews.
 ## Example
 
 ```ts
-import { TransferRequestReview2 } from 'adyenlib';
+import { TransferRequestReview2 } from 'adyen';
 
 const transferRequestReview2: TransferRequestReview2 = {
   numberOfApprovalsRequired: 232,

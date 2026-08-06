@@ -24,7 +24,7 @@ The status of the reassignment. Possible values:
 ## Example
 
 ```ts
-import { Status24 } from 'adyenlib';
+import { Status24 } from 'adyen';
 
 const status24 = Status24.Boarded;
 ```

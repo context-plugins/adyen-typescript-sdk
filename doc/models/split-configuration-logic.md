@@ -40,7 +40,7 @@ import {
   AdyenFees,
   AdyenMarkup,
   SplitConfigurationLogic,
-} from 'adyenlib';
+} from 'adyen';
 
 const splitConfigurationLogic: SplitConfigurationLogic = {
   commission: {

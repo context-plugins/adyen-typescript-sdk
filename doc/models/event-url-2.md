@@ -20,7 +20,7 @@ The list of local and public URLs to send event notifications to when using Term
 ## Example
 
 ```ts
-import { EventUrl2 } from 'adyenlib';
+import { EventUrl2 } from 'adyen';
 
 const eventUrl2: EventUrl2 = {
   eventLocalUrls: [

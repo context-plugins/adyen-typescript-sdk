@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DeletePayoutMethodRequest } from 'adyenlib';
+import { DeletePayoutMethodRequest } from 'adyen';
 
 const deletePayoutMethodRequest: DeletePayoutMethodRequest = {
   accountHolderCode: 'accountHolderCode2',

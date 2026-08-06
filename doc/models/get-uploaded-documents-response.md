@@ -20,11 +20,7 @@
 ## Example
 
 ```ts
-import {
-  DocumentType,
-  FieldName,
-  GetUploadedDocumentsResponse,
-} from 'adyenlib';
+import { DocumentType, FieldName, GetUploadedDocumentsResponse } from 'adyen';
 
 const getUploadedDocumentsResponse: GetUploadedDocumentsResponse = {
   documentDetails: [

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { Url } from 'adyenlib';
+import { Url } from 'adyen';
 
 const url: Url = {
   encrypted: false,

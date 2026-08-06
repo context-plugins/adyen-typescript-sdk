@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { DonationCampaignStatus } from 'adyenlib';
+import { DonationCampaignStatus } from 'adyen';
 
 const donationCampaignStatus = DonationCampaignStatus.Ended;
 ```

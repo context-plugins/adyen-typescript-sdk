@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Duration, Unit } from 'adyenlib';
+import { Duration, Unit } from 'adyen';
 
 const duration: Duration = {
   unit: Unit.Weeks,

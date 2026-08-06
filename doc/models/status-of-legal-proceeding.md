@@ -23,7 +23,7 @@ If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfL
 ## Example
 
 ```ts
-import { StatusOfLegalProceeding } from 'adyenlib';
+import { StatusOfLegalProceeding } from 'adyen';
 
 const statusOfLegalProceeding = StatusOfLegalProceeding.NoLegalActionsTaken;
 ```

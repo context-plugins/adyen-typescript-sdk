@@ -21,7 +21,7 @@ Content of the Diagnosis Request message.
 ## Example
 
 ```ts
-import { DiagnosisRequest2 } from 'adyenlib';
+import { DiagnosisRequest2 } from 'adyen';
 
 const diagnosisRequest2: DiagnosisRequest2 = {
   poiid: 'POIID6',

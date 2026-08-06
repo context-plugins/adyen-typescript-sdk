@@ -18,10 +18,7 @@
 ## Example
 
 ```ts
-import {
-  AdditionalSalesChannel,
-  GeneratePciDescriptionRequest,
-} from 'adyenlib';
+import { AdditionalSalesChannel, GeneratePciDescriptionRequest } from 'adyen';
 
 const generatePciDescriptionRequest: GeneratePciDescriptionRequest = {
   additionalSalesChannels: [

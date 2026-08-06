@@ -18,7 +18,7 @@ The format of the Terms of Service document.
 ## Example
 
 ```ts
-import { TermsOfServiceDocumentFormat } from 'adyenlib';
+import { TermsOfServiceDocumentFormat } from 'adyen';
 
 const termsOfServiceDocumentFormat = TermsOfServiceDocumentFormat.Pdf;
 ```

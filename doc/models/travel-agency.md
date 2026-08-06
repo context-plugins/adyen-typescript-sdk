@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TravelAgency } from 'adyenlib';
+import { TravelAgency } from 'adyen';
 
 const travelAgency: TravelAgency = {
   code: 'code4',

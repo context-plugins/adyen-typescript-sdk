@@ -23,7 +23,7 @@ A JSON object containing the settings that are allowed for the account holder.
 ## Example
 
 ```ts
-import { CapabilitySettings3, FundingSource, Interval } from 'adyenlib';
+import { CapabilitySettings3, FundingSource, Interval } from 'adyen';
 
 const capabilitySettings3: CapabilitySettings3 = {
   amountPerIndustry: {

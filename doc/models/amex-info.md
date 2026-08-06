@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AmexInfo, ServiceLevel } from 'adyenlib';
+import { AmexInfo, ServiceLevel } from 'adyen';
 
 const amexInfo: AmexInfo = {
   serviceLevel: ServiceLevel.GatewayContract,

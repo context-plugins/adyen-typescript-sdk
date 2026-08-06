@@ -27,7 +27,7 @@ The details of the network token.
 ## Example
 
 ```ts
-import { NetworkToken2 } from 'adyenlib';
+import { NetworkToken2 } from 'adyen';
 
 const networkToken2: NetworkToken2 = {
   brandVariant: 'brandVariant4',

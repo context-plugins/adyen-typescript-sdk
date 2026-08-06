@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { HkLocalAccountIdentification1 } from 'adyenlib';
+import { HkLocalAccountIdentification1 } from 'adyen';
 
 const hkLocalAccountIdentification1: HkLocalAccountIdentification1 = {
   accountNumber: 'accountNumber2',

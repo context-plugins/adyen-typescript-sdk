@@ -21,7 +21,7 @@ Contains information about the device used to provision the network token.
 ## Example
 
 ```ts
-import { DeviceInfo1 } from 'adyenlib';
+import { DeviceInfo1 } from 'adyen';
 
 const deviceInfo1: DeviceInfo1 = {
   formFactor: 'formFactor0',

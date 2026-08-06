@@ -28,7 +28,7 @@ Possible values:
 ## Example
 
 ```ts
-import { StoredValueTransactionType } from 'adyenlib';
+import { StoredValueTransactionType } from 'adyen';
 
 const storedValueTransactionType = StoredValueTransactionType.Reverse;
 ```

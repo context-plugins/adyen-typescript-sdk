@@ -17,7 +17,7 @@ The status of the request. This indicates whether the order was successfully upd
 ## Example
 
 ```ts
-import { Status42 } from 'adyenlib';
+import { Status42 } from 'adyen';
 
 const status42 = Status42.Error;
 ```

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Status28, UpdatePaymentLinkRequest } from 'adyenlib';
+import { Status28, UpdatePaymentLinkRequest } from 'adyen';
 
 const updatePaymentLinkRequest: UpdatePaymentLinkRequest = {
   status: Status28.Expired,

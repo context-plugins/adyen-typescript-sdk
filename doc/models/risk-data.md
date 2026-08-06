@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { RiskData } from 'adyenlib';
+import { RiskData } from 'adyen';
 
 const riskData: RiskData = {
   clientData: 'clientData8',

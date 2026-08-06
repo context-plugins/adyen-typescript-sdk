@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { StoreAndForward } from 'adyenlib';
+import { StoreAndForward } from 'adyen';
 
 const storeAndForward: StoreAndForward = {
   maxAmount: [

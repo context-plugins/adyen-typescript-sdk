@@ -19,7 +19,7 @@ Details to provide if `type` is **girocard**.
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo5, Type33 } from 'adyenlib';
+import { GenericPmWithTdiInfo5, Type33 } from 'adyen';
 
 const genericPmWithTdiInfo5: GenericPmWithTdiInfo5 = {
   transactionDescription: {

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CheckoutForwardResponseFromUrl } from 'adyenlib';
+import { CheckoutForwardResponseFromUrl } from 'adyen';
 
 const checkoutForwardResponseFromUrl: CheckoutForwardResponseFromUrl = {
   body: 'body6',

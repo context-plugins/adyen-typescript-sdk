@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CheckoutAwaitAction, Type493 } from 'adyenlib';
+import { CheckoutAwaitAction, Type493 } from 'adyen';
 
 const checkoutAwaitAction: CheckoutAwaitAction = {
   type: Type493.Await,

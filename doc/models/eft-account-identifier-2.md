@@ -21,7 +21,7 @@ Identifiers relevant for Electronic Funds Transfer (EFT) payments, commonly used
 ## Example
 
 ```ts
-import { EftAccountIdentifier2 } from 'adyenlib';
+import { EftAccountIdentifier2 } from 'adyen';
 
 const eftAccountIdentifier2: EftAccountIdentifier2 = {
   accountNumber: 'accountNumber0',

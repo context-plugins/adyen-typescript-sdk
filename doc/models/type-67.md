@@ -16,7 +16,7 @@ The type of token. Allowed value: **externalToken**.
 ## Example
 
 ```ts
-import { Type67 } from 'adyenlib';
+import { Type67 } from 'adyen';
 
 const type67 = Type67.ExternalToken;
 ```

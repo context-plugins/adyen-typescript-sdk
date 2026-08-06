@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { BankAccountDetails } from 'adyenlib';
+import { BankAccountDetails } from 'adyen';
 
 const bankAccountDetails: BankAccountDetails = {
   type: 'type6',

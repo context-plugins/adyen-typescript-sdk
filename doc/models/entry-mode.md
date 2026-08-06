@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { EntryMode } from 'adyenlib';
+import { EntryMode } from 'adyen';
 
 const entryMode = EntryMode.SynchronousIcc;
 ```

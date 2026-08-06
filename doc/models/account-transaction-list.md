@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AccountTransactionList } from 'adyenlib';
+import { AccountTransactionList } from 'adyen';
 
 const accountTransactionList: AccountTransactionList = {
   accountCode: 'accountCode0',

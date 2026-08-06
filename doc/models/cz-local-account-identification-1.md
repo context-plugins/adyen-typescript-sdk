@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CzLocalAccountIdentification1 } from 'adyenlib';
+import { CzLocalAccountIdentification1 } from 'adyen';
 
 const czLocalAccountIdentification1: CzLocalAccountIdentification1 = {
   accountNumber: 'accountNumber8',

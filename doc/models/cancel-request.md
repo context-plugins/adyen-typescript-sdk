@@ -32,7 +32,7 @@ import {
   CancelRequest,
   ChallengeCancel,
   DirectoryResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const cancelRequest: CancelRequest = {
   merchantAccount: 'merchantAccount8',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AdditionalSettings } from 'adyenlib';
+import { AdditionalSettings } from 'adyen';
 
 const additionalSettings: AdditionalSettings = {
   includeEventCodes: [

@@ -25,7 +25,7 @@ The address details of the shipping location.
 ## Example
 
 ```ts
-import { Address22 } from 'adyenlib';
+import { Address22 } from 'adyen';
 
 const address22: Address22 = {
   city: 'city8',

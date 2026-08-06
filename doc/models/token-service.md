@@ -19,7 +19,7 @@ The name of the token service.
 ## Example
 
 ```ts
-import { TokenService } from 'adyenlib';
+import { TokenService } from 'adyen';
 
 const tokenService = TokenService.Visatokenservice;
 ```

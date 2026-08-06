@@ -24,7 +24,7 @@ import {
   Reason11,
   Status44,
   Type90,
-} from 'adyenlib';
+} from 'adyen';
 
 const internalReviewTrackingData: InternalReviewTrackingData = {
   status: Status44.Pending,

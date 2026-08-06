@@ -45,7 +45,7 @@
 ## Example
 
 ```ts
-import { AdditionalDataAirline } from 'adyenlib';
+import { AdditionalDataAirline } from 'adyen';
 
 const additionalDataAirline: AdditionalDataAirline = {
   airlinePassengerName: 'airline.passenger_name6',

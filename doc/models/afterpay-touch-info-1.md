@@ -20,7 +20,7 @@ Details to provide if `type` is **afterpaytouch**.
 ## Example
 
 ```ts
-import { AfterpayTouchInfo1 } from 'adyenlib';
+import { AfterpayTouchInfo1 } from 'adyen';
 
 const afterpayTouchInfo1: AfterpayTouchInfo1 = {
   supportUrl: 'supportUrl2',

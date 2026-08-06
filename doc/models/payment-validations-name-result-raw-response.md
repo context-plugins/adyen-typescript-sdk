@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PaymentValidationsNameResultRawResponse } from 'adyenlib';
+import { PaymentValidationsNameResultRawResponse } from 'adyen';
 
 const paymentValidationsNameResultRawResponse: PaymentValidationsNameResultRawResponse = {
   firstName: 'firstName6',

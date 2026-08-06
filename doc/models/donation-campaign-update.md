@@ -25,7 +25,7 @@ import {
   DonationCampaignUpdate,
   DonationFlow1,
   DonationType,
-} from 'adyenlib';
+} from 'adyen';
 
 const donationCampaignUpdate: DonationCampaignUpdate = {
   accountHolderIds: [

@@ -21,7 +21,7 @@ An object containing the details of the receiving party of the grant.
 ## Example
 
 ```ts
-import { GrantCounterparty } from 'adyenlib';
+import { GrantCounterparty } from 'adyen';
 
 const grantCounterparty: GrantCounterparty = {
   accountHolderId: 'accountHolderId2',

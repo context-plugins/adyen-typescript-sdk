@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Type9 } from 'adyenlib';
+import { Type9 } from 'adyen';
 
 const type9 = Type9.Ach;
 ```

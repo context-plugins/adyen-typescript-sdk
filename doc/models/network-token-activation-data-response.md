@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { NetworkTokenActivationDataResponse } from 'adyenlib';
+import { NetworkTokenActivationDataResponse } from 'adyen';
 
 const networkTokenActivationDataResponse: NetworkTokenActivationDataResponse = {
   sdkInput: 'sdkInput6',

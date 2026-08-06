@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type30 } from 'adyenlib';
+import { Type30 } from 'adyen';
 
 const type30 = Type30.EftDirectdebitCa;
 ```

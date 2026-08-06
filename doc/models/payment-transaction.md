@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { LoyaltyHandling1, PaymentTransaction } from 'adyenlib';
+import { LoyaltyHandling1, PaymentTransaction } from 'adyen';
 
 const paymentTransaction: PaymentTransaction = {
   amountsReq: {

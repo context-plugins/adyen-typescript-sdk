@@ -23,7 +23,7 @@ For merchants operating in Japan, Diners payments are processed through the JCB 
 ## Example
 
 ```ts
-import { DinersInfo1, ServiceLevel1, Type33 } from 'adyenlib';
+import { DinersInfo1, ServiceLevel1, Type33 } from 'adyen';
 
 const dinersInfo1: DinersInfo1 = {
   reuseMidNumber: false,

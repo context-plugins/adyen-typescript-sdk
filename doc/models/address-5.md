@@ -24,7 +24,7 @@ The address registered at the registrar, such as the Chamber of Commerce.
 ## Example
 
 ```ts
-import { Address5 } from 'adyenlib';
+import { Address5 } from 'adyen';
 
 const address5: Address5 = {
   country: 'country0',

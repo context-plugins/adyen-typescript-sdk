@@ -31,7 +31,7 @@ Information about the unincorporated partnership. Required if `type` is **uninco
 ## Example
 
 ```ts
-import { UnincorporatedPartnership1 } from 'adyenlib';
+import { UnincorporatedPartnership1 } from 'adyen';
 
 const unincorporatedPartnership1: UnincorporatedPartnership1 = {
   countryOfGoverningLaw: 'countryOfGoverningLaw6',

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { StoredPaymentMethod1, Type27 } from 'adyenlib';
+import { StoredPaymentMethod1, Type27 } from 'adyen';
 
 const storedPaymentMethod1: StoredPaymentMethod1 = {
   checkoutAttemptId: 'checkoutAttemptId0',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DeleteBankAccountRequest } from 'adyenlib';
+import { DeleteBankAccountRequest } from 'adyen';
 
 const deleteBankAccountRequest: DeleteBankAccountRequest = {
   accountHolderCode: 'accountHolderCode2',

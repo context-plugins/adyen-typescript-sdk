@@ -20,7 +20,7 @@ Indicates if the device has an active cloud connection. Possible values:
 ## Example
 
 ```ts
-import { DeviceStatus1 } from 'adyenlib';
+import { DeviceStatus1 } from 'adyen';
 
 const deviceStatus1 = DeviceStatus1.Online;
 ```

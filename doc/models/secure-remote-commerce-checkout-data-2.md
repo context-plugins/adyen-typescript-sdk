@@ -24,7 +24,7 @@ Checkout data for a Secure Remote Commerce payment.
 ## Example
 
 ```ts
-import { Scheme, SecureRemoteCommerceCheckoutData2 } from 'adyenlib';
+import { Scheme, SecureRemoteCommerceCheckoutData2 } from 'adyen';
 
 const secureRemoteCommerceCheckoutData2: SecureRemoteCommerceCheckoutData2 = {
   checkoutPayload: 'checkoutPayload6',

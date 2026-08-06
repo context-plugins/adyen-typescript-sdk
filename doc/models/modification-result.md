@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ModificationResult, Response } from 'adyenlib';
+import { ModificationResult, Response } from 'adyen';
 
 const modificationResult: ModificationResult = {
   pspReference: 'pspReference4',

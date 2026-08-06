@@ -24,7 +24,7 @@ The address of the organization registered at their registrar (such as the Chamb
 ## Example
 
 ```ts
-import { Address3 } from 'adyenlib';
+import { Address3 } from 'adyen';
 
 const address3: Address3 = {
   country: 'country4',

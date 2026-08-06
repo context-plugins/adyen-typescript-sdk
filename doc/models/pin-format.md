@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PinFormat } from 'adyenlib';
+import { PinFormat } from 'adyen';
 
 const pinFormat = PinFormat.Iso2;
 ```

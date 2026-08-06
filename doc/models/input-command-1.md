@@ -35,7 +35,7 @@ Possible values:
 ## Example
 
 ```ts
-import { InputCommand1 } from 'adyenlib';
+import { InputCommand1 } from 'adyen';
 
 const inputCommand1 = InputCommand1.GetMenuEntry;
 ```

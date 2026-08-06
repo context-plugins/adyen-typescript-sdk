@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CardholderReceipt } from 'adyenlib';
+import { CardholderReceipt } from 'adyen';
 
 const cardholderReceipt: CardholderReceipt = {
   headerForAuthorizedReceipt: 'headerForAuthorizedReceipt8',

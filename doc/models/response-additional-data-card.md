@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataCard } from 'adyenlib';
+import { ResponseAdditionalDataCard } from 'adyen';
 
 const responseAdditionalDataCard: ResponseAdditionalDataCard = {
   cardAltId: 'cardAltID2',

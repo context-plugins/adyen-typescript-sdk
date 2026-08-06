@@ -20,7 +20,7 @@ The legal entity of the account holder.
 ## Example
 
 ```ts
-import { LegalEntity2 } from 'adyenlib';
+import { LegalEntity2 } from 'adyen';
 
 const legalEntity2 = LegalEntity2.Business;
 ```

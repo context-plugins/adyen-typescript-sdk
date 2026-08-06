@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { EftDirectDebit } from 'adyenlib';
+import { EftDirectDebit } from 'adyen';
 
 const eftDirectDebit: EftDirectDebit = {
   bankAccountNumber: 'bankAccountNumber2',

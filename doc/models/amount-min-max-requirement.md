@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { AmountMinMaxRequirement, Type810 } from 'adyenlib';
+import { AmountMinMaxRequirement, Type810 } from 'adyen';
 
 const amountMinMaxRequirement: AmountMinMaxRequirement = {
   type: Type810.AmountMinMaxRequirement,

@@ -21,7 +21,7 @@ The individual's name.
 ## Example
 
 ```ts
-import { Name21 } from 'adyenlib';
+import { Name21 } from 'adyen';
 
 const name21: Name21 = {
   firstName: 'firstName6',

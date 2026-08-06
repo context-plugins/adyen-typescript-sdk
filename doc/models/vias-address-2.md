@@ -24,7 +24,7 @@ The address of the person.
 ## Example
 
 ```ts
-import { ViasAddress2 } from 'adyenlib';
+import { ViasAddress2 } from 'adyen';
 
 const viasAddress2: ViasAddress2 = {
   country: 'country0',

@@ -39,7 +39,7 @@ The possible values depend on the `type`.
 ## Example
 
 ```ts
-import { LegalForm } from 'adyenlib';
+import { LegalForm } from 'adyen';
 
 const legalForm = LegalForm.DeceasedEstate;
 ```

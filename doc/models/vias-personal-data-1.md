@@ -21,7 +21,7 @@ Contains information about the person.
 ## Example
 
 ```ts
-import { Type, ViasPersonalData1 } from 'adyenlib';
+import { Type, ViasPersonalData1 } from 'adyen';
 
 const viasPersonalData1: ViasPersonalData1 = {
   dateOfBirth: 'dateOfBirth0',

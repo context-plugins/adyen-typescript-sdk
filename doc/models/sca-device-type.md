@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { ScaDeviceType } from 'adyenlib';
+import { ScaDeviceType } from 'adyen';
 
 const scaDeviceType = ScaDeviceType.Ios;
 ```

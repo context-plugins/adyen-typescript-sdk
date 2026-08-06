@@ -16,7 +16,7 @@ The type of the action.
 ## Example
 
 ```ts
-import { Type503 } from 'adyenlib';
+import { Type503 } from 'adyen';
 
 const type503 = Type503.BankTransfer;
 ```

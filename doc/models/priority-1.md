@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Priority1 } from 'adyenlib';
+import { Priority1 } from 'adyen';
 
 const priority1 = Priority1.First;
 ```

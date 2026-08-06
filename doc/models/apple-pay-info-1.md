@@ -19,7 +19,7 @@ Details to provide if `type` is **applepay**.
 ## Example
 
 ```ts
-import { ApplePayInfo1 } from 'adyenlib';
+import { ApplePayInfo1 } from 'adyen';
 
 const applePayInfo1: ApplePayInfo1 = {
   domains: [

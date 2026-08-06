@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Destination } from 'adyenlib';
+import { Destination } from 'adyen';
 
 const destination: Destination = {
   countryCode: 'countryCode0',

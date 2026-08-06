@@ -29,7 +29,7 @@ Content of the `LoginRequest` message.
 ## Example
 
 ```ts
-import { LoginRequest, TokenRequestedType1 } from 'adyenlib';
+import { LoginRequest, TokenRequestedType1 } from 'adyen';
 
 const loginRequest: LoginRequest = {
   dateTime: '2016-03-13T12:52:32.123Z',

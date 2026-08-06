@@ -19,7 +19,7 @@ Settings to define the header of the shopper receipt.
 ## Example
 
 ```ts
-import { CardholderReceipt1 } from 'adyenlib';
+import { CardholderReceipt1 } from 'adyen';
 
 const cardholderReceipt1: CardholderReceipt1 = {
   headerForAuthorizedReceipt: 'headerForAuthorizedReceipt6',

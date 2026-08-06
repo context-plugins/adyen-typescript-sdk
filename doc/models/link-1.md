@@ -23,7 +23,7 @@ Contains links to the list pages.
 ## Example
 
 ```ts
-import { Link1 } from 'adyenlib';
+import { Link1 } from 'adyen';
 
 const link1: Link1 = {
   first: {

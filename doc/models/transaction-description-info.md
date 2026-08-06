@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransactionDescriptionInfo, Type33 } from 'adyenlib';
+import { TransactionDescriptionInfo, Type33 } from 'adyen';
 
 const transactionDescriptionInfo: TransactionDescriptionInfo = {
   doingBusinessAsName: 'doingBusinessAsName6',

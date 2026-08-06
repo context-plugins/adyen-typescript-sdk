@@ -24,7 +24,7 @@ Information about how the 3DS Requestor authenticated the cardholder before or d
 import {
   ThreeDsReqAuthMethod,
   ThreeDsRequestorAuthenticationInfo,
-} from 'adyenlib';
+} from 'adyen';
 
 const threeDsRequestorAuthenticationInfo: ThreeDsRequestorAuthenticationInfo = {
   threeDsReqAuthData: 'threeDSReqAuthData8',

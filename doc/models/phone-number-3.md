@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PhoneNumber3, PhoneType } from 'adyenlib';
+import { PhoneNumber3, PhoneType } from 'adyen';
 
 const phoneNumber3: PhoneNumber3 = {
   phoneCountryCode: 'phoneCountryCode8',

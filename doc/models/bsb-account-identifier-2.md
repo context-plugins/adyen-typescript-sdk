@@ -20,7 +20,7 @@ Identifiers relevant for Australian banking, specifically for BSB (Bank-State-Br
 ## Example
 
 ```ts
-import { BsbAccountIdentifier2 } from 'adyenlib';
+import { BsbAccountIdentifier2 } from 'adyen';
 
 const bsbAccountIdentifier2: BsbAccountIdentifier2 = {
   accountNumber: 'accountNumber2',

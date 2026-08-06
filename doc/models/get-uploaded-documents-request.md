@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GetUploadedDocumentsRequest } from 'adyenlib';
+import { GetUploadedDocumentsRequest } from 'adyen';
 
 const getUploadedDocumentsRequest: GetUploadedDocumentsRequest = {
   accountHolderCode: 'accountHolderCode0',

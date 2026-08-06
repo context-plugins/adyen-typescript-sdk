@@ -20,7 +20,7 @@ The expiration date of the card.
 ## Example
 
 ```ts
-import { Expiry2 } from 'adyenlib';
+import { Expiry2 } from 'adyen';
 
 const expiry2: Expiry2 = {
   month: 'month2',

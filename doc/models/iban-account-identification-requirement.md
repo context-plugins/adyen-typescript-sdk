@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { IbanAccountIdentificationRequirement, Type303 } from 'adyenlib';
+import { IbanAccountIdentificationRequirement, Type303 } from 'adyen';
 
 const ibanAccountIdentificationRequirement: IbanAccountIdentificationRequirement = {
   type: Type303.IbanAccountIdentificationRequirement,

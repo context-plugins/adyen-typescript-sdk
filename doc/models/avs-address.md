@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AvsAddress } from 'adyenlib';
+import { AvsAddress } from 'adyen';
 
 const avsAddress: AvsAddress = {
   streetAddress: 'streetAddress6',

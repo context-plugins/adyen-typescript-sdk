@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransactionRuleSource } from 'adyenlib';
+import { TransactionRuleSource } from 'adyen';
 
 const transactionRuleSource: TransactionRuleSource = {
   id: 'id4',

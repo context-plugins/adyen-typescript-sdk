@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { TerminalOrderRequest } from 'adyenlib';
+import { TerminalOrderRequest } from 'adyen';
 
 const terminalOrderRequest: TerminalOrderRequest = {
   billingEntityId: 'billingEntityId8',

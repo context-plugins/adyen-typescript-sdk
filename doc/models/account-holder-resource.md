@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AccountHolderResource } from 'adyenlib';
+import { AccountHolderResource } from 'adyen';
 
 const accountHolderResource: AccountHolderResource = {
   accountHolderId: 'accountHolderId8',

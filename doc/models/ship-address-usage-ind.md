@@ -25,7 +25,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ShipAddressUsageInd } from 'adyenlib';
+import { ShipAddressUsageInd } from 'adyen';
 
 const shipAddressUsageInd = ShipAddressUsageInd.Enum01;
 ```

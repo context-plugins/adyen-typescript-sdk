@@ -20,7 +20,7 @@ Indicates where the funds used for the transfer originated. Possible values are:
 ## Example
 
 ```ts
-import { SourceOfFunds2 } from 'adyenlib';
+import { SourceOfFunds2 } from 'adyen';
 
 const sourceOfFunds2 = SourceOfFunds2.Debit;
 ```

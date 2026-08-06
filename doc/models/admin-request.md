@@ -20,7 +20,7 @@ Content of the Custom Admin Request message.
 ## Example
 
 ```ts
-import { AdminRequest } from 'adyenlib';
+import { AdminRequest } from 'adyen';
 
 const adminRequest: AdminRequest = {
   serviceIdentification: 'ServiceIdentification4',

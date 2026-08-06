@@ -85,7 +85,7 @@ The status of the transfer event.
 ## Example
 
 ```ts
-import { Status25 } from 'adyenlib';
+import { Status25 } from 'adyen';
 
 const status25 = Status25.AuthAdjustmentRefused;
 ```

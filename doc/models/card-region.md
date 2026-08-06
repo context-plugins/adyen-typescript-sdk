@@ -32,7 +32,7 @@ Possible values:
 ## Example
 
 ```ts
-import { CardRegion } from 'adyenlib';
+import { CardRegion } from 'adyen';
 
 const cardRegion = CardRegion.International;
 ```

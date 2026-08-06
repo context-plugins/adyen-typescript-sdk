@@ -23,7 +23,7 @@ Content of the Reversal Request message.
 ## Example
 
 ```ts
-import { ReversalReason1, ReversalRequest } from 'adyenlib';
+import { ReversalReason1, ReversalRequest } from 'adyen';
 
 const reversalRequest: ReversalRequest = {
   originalPoiTransaction: {

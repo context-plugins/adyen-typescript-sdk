@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { PseLatam, Type46 } from 'adyenlib';
+import { PseLatam, Type46 } from 'adyen';
 
 const pseLatam: PseLatam = {
   bank: 'bank2',

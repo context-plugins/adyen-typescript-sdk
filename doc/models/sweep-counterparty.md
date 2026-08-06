@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SweepCounterparty } from 'adyenlib';
+import { SweepCounterparty } from 'adyen';
 
 const sweepCounterparty: SweepCounterparty = {
   balanceAccountId: 'balanceAccountId0',

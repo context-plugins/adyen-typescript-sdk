@@ -23,7 +23,7 @@ Additional identification codes of the bank. Some banks may require these identi
 import {
   AdditionalBankIdentification1,
   AdditionalBankIdentificationType,
-} from 'adyenlib';
+} from 'adyen';
 
 const additionalBankIdentification1: AdditionalBankIdentification1 = {
   code: 'code4',

@@ -25,12 +25,7 @@
 ## Example
 
 ```ts
-import {
-  AmountRule,
-  BillingAttemptsRule,
-  Frequency1,
-  Mandate1,
-} from 'adyenlib';
+import { AmountRule, BillingAttemptsRule, Frequency1, Mandate1 } from 'adyen';
 
 const mandate1: Mandate1 = {
   amount: 'amount0',

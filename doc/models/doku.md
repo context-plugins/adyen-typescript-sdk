@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Doku, Type23 } from 'adyenlib';
+import { Doku, Type23 } from 'adyen';
 
 const doku: Doku = {
   firstName: 'firstName8',

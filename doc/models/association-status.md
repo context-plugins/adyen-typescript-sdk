@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { AssociationStatus } from 'adyenlib';
+import { AssociationStatus } from 'adyen';
 
 const associationStatus = AssociationStatus.PendingApproval;
 ```

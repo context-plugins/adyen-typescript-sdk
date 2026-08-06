@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ResultCode18 } from 'adyenlib';
+import { ResultCode18 } from 'adyen';
 
 const resultCode18 = ResultCode18.Received;
 ```

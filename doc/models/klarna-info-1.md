@@ -29,7 +29,7 @@ You can use the following payment method `type` values for Klarna:
 ## Example
 
 ```ts
-import { KlarnaInfo1, Region } from 'adyenlib';
+import { KlarnaInfo1, Region } from 'adyen';
 
 const klarnaInfo1: KlarnaInfo1 = {
   disputeEmail: 'disputeEmail0',

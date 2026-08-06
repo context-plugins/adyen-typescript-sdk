@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ContentType, GetTaxFormResponse1 } from 'adyenlib';
+import { ContentType, GetTaxFormResponse1 } from 'adyen';
 
 const getTaxFormResponse1: GetTaxFormResponse1 = {
   content: 'content8',

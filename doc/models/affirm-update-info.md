@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AffirmUpdateInfo } from 'adyenlib';
+import { AffirmUpdateInfo } from 'adyen';
 
 const affirmUpdateInfo: AffirmUpdateInfo = {
   pricePlan: 'pricePlan2',

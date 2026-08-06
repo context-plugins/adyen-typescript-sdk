@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CreateAllowedOriginRequest } from 'adyenlib';
+import { CreateAllowedOriginRequest } from 'adyen';
 
 const createAllowedOriginRequest: CreateAllowedOriginRequest = {
   domain: 'https://adyen.com',

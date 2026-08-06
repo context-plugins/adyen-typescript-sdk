@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { First } from 'adyenlib';
+import { First } from 'adyen';
 
 const first: First = {
   href: 'href2',

@@ -21,7 +21,7 @@ Additional information for raising a dispute of `type` **duplicate**. Required f
 ## Example
 
 ```ts
-import { DuplicateInfo1 } from 'adyenlib';
+import { DuplicateInfo1 } from 'adyen';
 
 const duplicateInfo1: DuplicateInfo1 = {
   duplicateTransactionId: 'duplicateTransactionId2',

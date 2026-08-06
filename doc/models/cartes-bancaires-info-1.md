@@ -20,7 +20,7 @@ Details to provide if `type` is **cartebancaire**.
 ## Example
 
 ```ts
-import { CartesBancairesInfo1, Type33 } from 'adyenlib';
+import { CartesBancairesInfo1, Type33 } from 'adyen';
 
 const cartesBancairesInfo1: CartesBancairesInfo1 = {
   siret: 'siret6',

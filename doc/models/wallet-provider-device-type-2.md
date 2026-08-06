@@ -40,7 +40,7 @@ Supported value inputs:
 ## Example
 
 ```ts
-import { Value6, WalletProviderDeviceType2 } from 'adyenlib';
+import { Value6, WalletProviderDeviceType2 } from 'adyen';
 
 const walletProviderDeviceType2: WalletProviderDeviceType2 = {
   operation: 'operation4',

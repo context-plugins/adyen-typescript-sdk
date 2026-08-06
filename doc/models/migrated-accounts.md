@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { MigratedAccounts } from 'adyenlib';
+import { MigratedAccounts } from 'adyen';
 
 const migratedAccounts: MigratedAccounts = {
   accountCode: 'accountCode6',

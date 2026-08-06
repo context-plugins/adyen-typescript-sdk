@@ -20,7 +20,7 @@ Contains key-value pairs to configure the sales day closing time and settlement 
 ## Example
 
 ```ts
-import { PlatformPaymentConfiguration1 } from 'adyenlib';
+import { PlatformPaymentConfiguration1 } from 'adyen';
 
 const platformPaymentConfiguration1: PlatformPaymentConfiguration1 = {
   salesDayClosingTime: '2016-03-13T12:52:32.123Z',

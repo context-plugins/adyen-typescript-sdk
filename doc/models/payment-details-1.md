@@ -22,7 +22,7 @@ The details of the payment. You must show your user these details before they co
 ## Example
 
 ```ts
-import { PaymentDetails1 } from 'adyenlib';
+import { PaymentDetails1 } from 'adyen';
 
 const paymentDetails1: PaymentDetails1 = {
   amount: {

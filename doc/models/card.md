@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Card, FormFactor1, PhoneType, Type4 } from 'adyenlib';
+import { Card, FormFactor1, PhoneType, Type4 } from 'adyen';
 
 const card: Card = {
   brand: 'brand0',

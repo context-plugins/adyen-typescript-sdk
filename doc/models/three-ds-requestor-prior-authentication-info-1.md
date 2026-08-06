@@ -23,7 +23,7 @@
 import {
   ThreeDsReqPriorAuthMethod,
   ThreeDsRequestorPriorAuthenticationInfo1,
-} from 'adyenlib';
+} from 'adyen';
 
 const threeDsRequestorPriorAuthenticationInfo1: ThreeDsRequestorPriorAuthenticationInfo1 = {
   threeDsReqPriorAuthData: 'threeDSReqPriorAuthData8',

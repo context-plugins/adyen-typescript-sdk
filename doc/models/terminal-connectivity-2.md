@@ -22,7 +22,7 @@ Information about bluetooth, cellular, ethernet and wifi connectivity for the te
 ## Example
 
 ```ts
-import { Status32, TerminalConnectivity2 } from 'adyenlib';
+import { Status32, TerminalConnectivity2 } from 'adyen';
 
 const terminalConnectivity2: TerminalConnectivity2 = {
   bluetooth: {

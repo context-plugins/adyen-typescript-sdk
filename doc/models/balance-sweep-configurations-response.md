@@ -25,7 +25,7 @@ import {
   Priority,
   Reason,
   Type6,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceSweepConfigurationsResponse: BalanceSweepConfigurationsResponse = {
   hasNext: false,

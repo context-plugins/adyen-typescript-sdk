@@ -19,7 +19,7 @@ The type of string matching operation. Possible values:  **startsWith**, **endsW
 ## Example
 
 ```ts
-import { Operation } from 'adyenlib';
+import { Operation } from 'adyen';
 
 const operation = Operation.IsEqualTo;
 ```

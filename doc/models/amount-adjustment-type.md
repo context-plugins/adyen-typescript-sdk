@@ -21,7 +21,7 @@ Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup
 ## Example
 
 ```ts
-import { AmountAdjustmentType } from 'adyenlib';
+import { AmountAdjustmentType } from 'adyen';
 
 const amountAdjustmentType = AmountAdjustmentType.AtmMarkup;
 ```

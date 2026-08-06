@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { SubMerchantData2 } from 'adyenlib';
+import { SubMerchantData2 } from 'adyen';
 
 const subMerchantData2: SubMerchantData2 = {
   displayName: 'displayName2',

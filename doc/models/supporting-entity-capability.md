@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { SupportingEntityCapability } from 'adyenlib';
+import { SupportingEntityCapability } from 'adyen';
 
 const supportingEntityCapability: SupportingEntityCapability = {
   allowed: false,

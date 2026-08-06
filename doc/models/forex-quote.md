@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { ForexQuote } from 'adyenlib';
+import { ForexQuote } from 'adyen';
 
 const forexQuote: ForexQuote = {
   basePoints: 82,

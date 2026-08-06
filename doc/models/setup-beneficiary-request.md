@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SetupBeneficiaryRequest } from 'adyenlib';
+import { SetupBeneficiaryRequest } from 'adyen';
 
 const setupBeneficiaryRequest: SetupBeneficiaryRequest = {
   destinationAccountCode: 'destinationAccountCode4',

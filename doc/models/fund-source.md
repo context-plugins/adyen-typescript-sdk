@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { FundSource } from 'adyenlib';
+import { FundSource } from 'adyen';
 
 const fundSource: FundSource = {
   additionalData: {

@@ -22,7 +22,7 @@ Specifies the service level (settlement type) of this payment method. Possible v
 ## Example
 
 ```ts
-import { ServiceLevel } from 'adyenlib';
+import { ServiceLevel } from 'adyen';
 
 const serviceLevel = ServiceLevel.GatewayContract;
 ```

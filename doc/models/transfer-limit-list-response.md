@@ -24,7 +24,7 @@ import {
   Scope,
   TransferLimitListResponse,
   TransferType,
-} from 'adyenlib';
+} from 'adyen';
 
 const transferLimitListResponse: TransferLimitListResponse = {
   transferLimits: [

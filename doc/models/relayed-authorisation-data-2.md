@@ -20,7 +20,7 @@ If you are using relayed authorisation, this object contains information from th
 ## Example
 
 ```ts
-import { RelayedAuthorisationData2 } from 'adyenlib';
+import { RelayedAuthorisationData2 } from 'adyen';
 
 const relayedAuthorisationData2: RelayedAuthorisationData2 = {
   metadata: {

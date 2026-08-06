@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Passenger } from 'adyenlib';
+import { Passenger } from 'adyen';
 
 const passenger: Passenger = {
   dateOfBirth: '2016-03-13T12:52:32.123Z',

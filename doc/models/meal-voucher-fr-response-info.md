@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { MealVoucherFrResponseInfo } from 'adyenlib';
+import { MealVoucherFrResponseInfo } from 'adyen';
 
 const mealVoucherFrResponseInfo: MealVoucherFrResponseInfo = {
   conecsId: 'conecsId6',

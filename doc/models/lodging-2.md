@@ -32,7 +32,7 @@
 ## Example
 
 ```ts
-import { Lodging2 } from 'adyenlib';
+import { Lodging2 } from 'adyen';
 
 const lodging2: Lodging2 = {
   checkInDate: '2016-03-13T12:52:32.123Z',

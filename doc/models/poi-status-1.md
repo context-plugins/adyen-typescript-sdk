@@ -26,7 +26,7 @@ If `Response.Result` is Success.
 ## Example
 
 ```ts
-import { GlobalStatus1, PoiStatus1, PrinterStatus1 } from 'adyenlib';
+import { GlobalStatus1, PoiStatus1, PrinterStatus1 } from 'adyen';
 
 const poiStatus1: PoiStatus1 = {
   globalStatus: GlobalStatus1.Maintenance,

@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalDataBillingAddress } from 'adyenlib';
+import { ResponseAdditionalDataBillingAddress } from 'adyen';
 
 const responseAdditionalDataBillingAddress: ResponseAdditionalDataBillingAddress = {
   billingAddressCity: 'billingAddress.city6',

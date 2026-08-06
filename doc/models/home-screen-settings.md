@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { HomeScreenSettings } from 'adyenlib';
+import { HomeScreenSettings } from 'adyen';
 
 const homeScreenSettings: HomeScreenSettings = {
   hideNavigationBar: false,

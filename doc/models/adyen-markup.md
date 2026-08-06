@@ -19,7 +19,7 @@ Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
 ## Example
 
 ```ts
-import { AdyenMarkup } from 'adyenlib';
+import { AdyenMarkup } from 'adyen';
 
 const adyenMarkup = AdyenMarkup.DeductFromLiableAccount;
 ```

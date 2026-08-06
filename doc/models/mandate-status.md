@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { MandateStatus } from 'adyenlib';
+import { MandateStatus } from 'adyen';
 
 const mandateStatus = MandateStatus.Approved;
 ```

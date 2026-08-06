@@ -21,7 +21,7 @@ The status of the account holder.
 ## Example
 
 ```ts
-import { Status1 } from 'adyenlib';
+import { Status1 } from 'adyen';
 
 const status1 = Status1.Inactive;
 ```

@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CardHolderPin, PinFormat1 } from 'adyenlib';
+import { CardHolderPin, PinFormat1 } from 'adyen';
 
 const cardHolderPin: CardHolderPin = {
   encrPinBlock: 'EncrPINBlock6',

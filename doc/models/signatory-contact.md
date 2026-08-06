@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { Gender, SignatoryContact } from 'adyenlib';
+import { Gender, SignatoryContact } from 'adyen';
 
 const signatoryContact: SignatoryContact = {
   address: {

@@ -20,7 +20,7 @@ Content of the Enable Service Response message.
 ## Example
 
 ```ts
-import { EnableServiceResponse, ErrorCondition1, Result11 } from 'adyenlib';
+import { EnableServiceResponse, ErrorCondition1, Result11 } from 'adyen';
 
 const enableServiceResponse: EnableServiceResponse = {
   response: {

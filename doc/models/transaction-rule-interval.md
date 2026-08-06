@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { DayOfWeek, TransactionRuleInterval, Type13, Unit } from 'adyenlib';
+import { DayOfWeek, TransactionRuleInterval, Type13, Unit } from 'adyen';
 
 const transactionRuleInterval: TransactionRuleInterval = {
   type: Type13.Rolling,

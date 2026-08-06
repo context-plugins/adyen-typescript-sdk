@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AffirmResponseInfo } from 'adyenlib';
+import { AffirmResponseInfo } from 'adyen';
 
 const affirmResponseInfo: AffirmResponseInfo = {
   publicApiKey: 'publicApiKey8',

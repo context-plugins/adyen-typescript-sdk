@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { TerminalReassignmentRequest } from 'adyenlib';
+import { TerminalReassignmentRequest } from 'adyen';
 
 const terminalReassignmentRequest: TerminalReassignmentRequest = {
   companyId: 'companyId8',

@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { Riverty, Type49 } from 'adyenlib';
+import { Riverty, Type49 } from 'adyen';
 
 const riverty: Riverty = {
   type: Type49.Riverty,

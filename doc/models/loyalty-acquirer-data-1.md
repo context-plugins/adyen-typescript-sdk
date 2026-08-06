@@ -23,7 +23,7 @@ If content not empty.
 ## Example
 
 ```ts
-import { LoyaltyAcquirerData1 } from 'adyenlib';
+import { LoyaltyAcquirerData1 } from 'adyen';
 
 const loyaltyAcquirerData1: LoyaltyAcquirerData1 = {
   loyaltyAcquirerId: 'LoyaltyAcquirerID4',

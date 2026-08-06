@@ -19,7 +19,7 @@ Possible values: **addToLiableAccount**, **addToOneBalanceAccount**
 ## Example
 
 ```ts
-import { Surcharge3 } from 'adyenlib';
+import { Surcharge3 } from 'adyen';
 
 const surcharge3 = Surcharge3.AddToLiableAccount;
 ```

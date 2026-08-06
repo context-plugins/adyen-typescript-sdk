@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { IdealAuthenticateRequest } from 'adyenlib';
+import { IdealAuthenticateRequest } from 'adyen';
 
 const idealAuthenticateRequest: IdealAuthenticateRequest = {
   accountHolderId: 'AH00000000000000000000000',

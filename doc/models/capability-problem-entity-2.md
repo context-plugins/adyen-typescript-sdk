@@ -22,7 +22,7 @@ Contains the type of the entity and the corresponding ID.
 ## Example
 
 ```ts
-import { CapabilityProblemEntity2, Type3 } from 'adyenlib';
+import { CapabilityProblemEntity2, Type3 } from 'adyen';
 
 const capabilityProblemEntity2: CapabilityProblemEntity2 = {
   documents: [

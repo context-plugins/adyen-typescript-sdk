@@ -22,7 +22,7 @@ The status of the store. Possible values are:
 ## Example
 
 ```ts
-import { Status17 } from 'adyenlib';
+import { Status17 } from 'adyen';
 
 const status17 = Status17.Active;
 ```

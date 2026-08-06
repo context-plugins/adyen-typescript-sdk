@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CostEstimateAssumptions } from 'adyenlib';
+import { CostEstimateAssumptions } from 'adyen';
 
 const costEstimateAssumptions: CostEstimateAssumptions = {
   assume3DSecureAuthenticated: false,

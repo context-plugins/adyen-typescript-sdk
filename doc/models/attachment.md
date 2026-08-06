@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Attachment } from 'adyenlib';
+import { Attachment } from 'adyen';
 
 const attachment: Attachment = {
   content: 'content2',

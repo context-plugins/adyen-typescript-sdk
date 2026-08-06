@@ -20,7 +20,7 @@ Identification of a transaction for the Sale System or the POI System.
 ## Example
 
 ```ts
-import { TransactionIdType } from 'adyenlib';
+import { TransactionIdType } from 'adyen';
 
 const transactionIdType: TransactionIdType = {
   transactionId: 'TransactionID0',

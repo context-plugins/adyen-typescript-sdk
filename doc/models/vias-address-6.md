@@ -24,7 +24,7 @@ The principal business address of the account holder.
 ## Example
 
 ```ts
-import { ViasAddress6 } from 'adyenlib';
+import { ViasAddress6 } from 'adyen';
 
 const viasAddress6: ViasAddress6 = {
   country: 'country4',

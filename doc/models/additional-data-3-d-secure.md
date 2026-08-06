@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { AdditionalData3DSecure, ChallengeWindowSize } from 'adyenlib';
+import { AdditionalData3DSecure, ChallengeWindowSize } from 'adyen';
 
 const additionalData3DSecure: AdditionalData3DSecure = {
   allow3Ds2: 'allow3DS26',

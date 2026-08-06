@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { CreateApiCredentialResponse } from 'adyenlib';
+import { CreateApiCredentialResponse } from 'adyen';
 
 const createApiCredentialResponse: CreateApiCredentialResponse = {
   active: false,

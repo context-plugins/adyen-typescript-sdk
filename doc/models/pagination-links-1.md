@@ -23,7 +23,7 @@ Pagination references.
 ## Example
 
 ```ts
-import { PaginationLinks1 } from 'adyenlib';
+import { PaginationLinks1 } from 'adyen';
 
 const paginationLinks1: PaginationLinks1 = {
   first: {

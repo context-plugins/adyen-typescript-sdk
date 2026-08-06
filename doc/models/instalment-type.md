@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { InstalmentType } from 'adyenlib';
+import { InstalmentType } from 'adyen';
 
 const instalmentType = InstalmentType.EqualInstalments;
 ```

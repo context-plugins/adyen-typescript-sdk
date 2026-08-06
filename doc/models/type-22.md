@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Type22 } from 'adyenlib';
+import { Type22 } from 'adyen';
 
 const type22 = Type22.AfterpayB2B;
 ```

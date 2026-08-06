@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Operation, StringMatch } from 'adyenlib';
+import { Operation, StringMatch } from 'adyen';
 
 const stringMatch: StringMatch = {
   operation: Operation.IsEqualTo,

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { DelegatedAuthenticationData } from 'adyenlib';
+import { DelegatedAuthenticationData } from 'adyen';
 
 const delegatedAuthenticationData: DelegatedAuthenticationData = {
   sdkOutput: 'sdkOutput2',

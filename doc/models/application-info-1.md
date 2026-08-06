@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ApplicationInfo1 } from 'adyenlib';
+import { ApplicationInfo1 } from 'adyen';
 
 const applicationInfo1: ApplicationInfo1 = {
   adyenLibrary: {

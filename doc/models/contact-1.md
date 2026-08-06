@@ -23,7 +23,7 @@ The contact details for the shipping location.
 ## Example
 
 ```ts
-import { Contact1 } from 'adyenlib';
+import { Contact1 } from 'adyen';
 
 const contact1: Contact1 = {
   email: 'email6',

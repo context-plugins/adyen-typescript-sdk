@@ -27,7 +27,7 @@ Allows acquisition of the card data by the Sale System before the Payment, CardA
 ## Example
 
 ```ts
-import { CardData, EntryMode } from 'adyenlib';
+import { CardData, EntryMode } from 'adyen';
 
 const cardData: CardData = {
   paymentBrand: 'PaymentBrand6',

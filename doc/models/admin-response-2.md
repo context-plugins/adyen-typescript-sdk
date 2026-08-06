@@ -19,7 +19,7 @@ Content of the Admin Response message.
 ## Example
 
 ```ts
-import { AdminResponse2, ErrorCondition1, Result11 } from 'adyenlib';
+import { AdminResponse2, ErrorCondition1, Result11 } from 'adyen';
 
 const adminResponse2: AdminResponse2 = {
   response: {

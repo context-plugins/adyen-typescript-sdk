@@ -25,7 +25,7 @@ import {
   LoginResponse3,
   PrinterStatus1,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const loginResponse3: LoginResponse3 = {
   response: {

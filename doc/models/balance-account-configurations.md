@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BalanceAccountConfigurations } from 'adyenlib';
+import { BalanceAccountConfigurations } from 'adyen';
 
 const balanceAccountConfigurations: BalanceAccountConfigurations = {
   balanceAccountPayoutSchedules: [

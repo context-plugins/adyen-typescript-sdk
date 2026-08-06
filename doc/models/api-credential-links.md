@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ApiCredentialLinks } from 'adyenlib';
+import { ApiCredentialLinks } from 'adyen';
 
 const apiCredentialLinks: ApiCredentialLinks = {
   self: {

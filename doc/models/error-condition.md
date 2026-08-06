@@ -50,7 +50,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ErrorCondition } from 'adyenlib';
+import { ErrorCondition } from 'adyen';
 
 const errorCondition = ErrorCondition.DeviceOut;
 ```

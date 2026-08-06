@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PatchableCreateRecurringTopUp, ScheduleType1 } from 'adyenlib';
+import { PatchableCreateRecurringTopUp, ScheduleType1 } from 'adyen';
 
 const patchableCreateRecurringTopUp: PatchableCreateRecurringTopUp = {
   description: 'description0',

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { OutputBarcode } from 'adyenlib';
+import { OutputBarcode } from 'adyen';
 
 const outputBarcode: OutputBarcode = {
   barcodeValue: 'BarcodeValue2',

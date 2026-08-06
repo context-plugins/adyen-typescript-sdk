@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Namespace, NetworkReason } from 'adyenlib';
+import { Namespace, NetworkReason } from 'adyen';
 
 const networkReason: NetworkReason = {
   code: 'code0',

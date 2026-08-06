@@ -23,7 +23,7 @@ The other party in the transfer.
 ## Example
 
 ```ts
-import { CounterpartyV31, Type413 } from 'adyenlib';
+import { CounterpartyV31, Type413 } from 'adyen';
 
 const counterpartyV31: CounterpartyV31 = {
   balanceAccountId: 'balanceAccountId8',

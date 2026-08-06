@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CardreaderapduResponse4, ErrorCondition1, Result11 } from 'adyenlib';
+import { CardreaderapduResponse4, ErrorCondition1, Result11 } from 'adyen';
 
 const cardreaderapduResponse4: CardreaderapduResponse4 = {
   response: {

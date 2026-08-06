@@ -22,7 +22,7 @@ Indicates where the terminal is in the process of being reassigned to.
 ## Example
 
 ```ts
-import { TerminalReassignmentTarget2 } from 'adyenlib';
+import { TerminalReassignmentTarget2 } from 'adyen';
 
 const terminalReassignmentTarget2: TerminalReassignmentTarget2 = {
   inventory: false,

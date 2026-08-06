@@ -30,7 +30,7 @@
 ## Example
 
 ```ts
-import { Contract, PayoutRequest, TokenService } from 'adyenlib';
+import { Contract, PayoutRequest, TokenService } from 'adyen';
 
 const payoutRequest: PayoutRequest = {
   amount: {

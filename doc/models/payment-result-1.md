@@ -39,7 +39,7 @@ import {
   PeriodUnit1,
   StoredValueAccountType1,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentResult1: PaymentResult1 = {
   paymentType: PaymentType1.IssuerInstalment,

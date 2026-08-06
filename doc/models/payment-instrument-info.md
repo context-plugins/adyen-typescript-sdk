@@ -33,7 +33,7 @@ import {
   PhoneType,
   Type11,
   Type4,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentInstrumentInfo: PaymentInstrumentInfo = {
   balanceAccountId: 'balanceAccountId2',

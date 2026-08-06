@@ -22,7 +22,7 @@ References to resources connected with this company.
 ## Example
 
 ```ts
-import { CompanyLinks2 } from 'adyenlib';
+import { CompanyLinks2 } from 'adyen';
 
 const companyLinks2: CompanyLinks2 = {
   self: {

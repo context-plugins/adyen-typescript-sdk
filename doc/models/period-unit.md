@@ -25,7 +25,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PeriodUnit } from 'adyenlib';
+import { PeriodUnit } from 'adyen';
 
 const periodUnit = PeriodUnit.Monthly;
 ```

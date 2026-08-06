@@ -34,7 +34,7 @@
 ## Example
 
 ```ts
-import { RecurringDetail } from 'adyenlib';
+import { RecurringDetail } from 'adyen';
 
 const recurringDetail: RecurringDetail = {
   recurringDetailReference: 'recurringDetailReference4',

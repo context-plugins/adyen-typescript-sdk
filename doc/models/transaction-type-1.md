@@ -54,7 +54,7 @@ Possible values:
 ## Example
 
 ```ts
-import { TransactionType1 } from 'adyenlib';
+import { TransactionType1 } from 'adyen';
 
 const transactionType1 = TransactionType1.CompletedReservation;
 ```

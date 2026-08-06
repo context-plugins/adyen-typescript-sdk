@@ -20,7 +20,7 @@ The POI System receives this information and sends it to the Acquirer for the Is
 ## Example
 
 ```ts
-import { SaleToIssuerData } from 'adyenlib';
+import { SaleToIssuerData } from 'adyen';
 
 const saleToIssuerData: SaleToIssuerData = {
   statementReference: 'StatementReference0',

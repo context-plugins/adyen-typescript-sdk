@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Counterparty10 } from 'adyenlib';
+import { Counterparty10 } from 'adyen';
 
 const counterparty10: Counterparty10 = {
   accountHolderId: 'accountHolderId6',

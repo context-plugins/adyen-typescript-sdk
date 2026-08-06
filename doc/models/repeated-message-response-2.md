@@ -42,7 +42,7 @@ import {
   StoredValueAccountType1,
   StoredValueTransactionType2,
   TrackFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const repeatedMessageResponse2: RepeatedMessageResponse2 = {
   messageHeader: {

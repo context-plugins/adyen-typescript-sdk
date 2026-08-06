@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { InstallAndroidAppDetails, Type310 } from 'adyenlib';
+import { InstallAndroidAppDetails, Type310 } from 'adyen';
 
 const installAndroidAppDetails: InstallAndroidAppDetails = {
   appId: 'appId8',

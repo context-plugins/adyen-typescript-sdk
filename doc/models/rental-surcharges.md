@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { RentalSurcharges } from 'adyenlib';
+import { RentalSurcharges } from 'adyen';
 
 const rentalSurcharges: RentalSurcharges = {
   fuel: BigInt(178),

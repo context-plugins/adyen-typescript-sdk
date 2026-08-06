@@ -30,7 +30,7 @@ Result of the Sale to POI Reconciliation processing.
 ## Example
 
 ```ts
-import { PaymentInstrumentType11, TransactionTotals } from 'adyenlib';
+import { PaymentInstrumentType11, TransactionTotals } from 'adyen';
 
 const transactionTotals: TransactionTotals = {
   paymentInstrumentType: PaymentInstrumentType11.Card,

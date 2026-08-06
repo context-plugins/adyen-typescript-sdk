@@ -20,7 +20,7 @@ Size of an area. Contain the size of the pad area where the signature is written
 ## Example
 
 ```ts
-import { AreaSize1 } from 'adyenlib';
+import { AreaSize1 } from 'adyen';
 
 const areaSize1: AreaSize1 = {
   x: 'X4',

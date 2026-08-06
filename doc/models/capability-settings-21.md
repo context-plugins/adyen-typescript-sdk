@@ -23,7 +23,7 @@ The settings that are requested for the legal entity.
 ## Example
 
 ```ts
-import { CapabilitySettings21, FundingSource, Interval } from 'adyenlib';
+import { CapabilitySettings21, FundingSource, Interval } from 'adyen';
 
 const capabilitySettings21: CapabilitySettings21 = {
   amountPerIndustry: {

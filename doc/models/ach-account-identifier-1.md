@@ -22,7 +22,7 @@ Identifiers relevant for Automated Clearing House (ACH) payments, primarily used
 ## Example
 
 ```ts
-import { AchAccountIdentifier1 } from 'adyenlib';
+import { AchAccountIdentifier1 } from 'adyen';
 
 const achAccountIdentifier1: AchAccountIdentifier1 = {
   accountNumber: 'accountNumber8',

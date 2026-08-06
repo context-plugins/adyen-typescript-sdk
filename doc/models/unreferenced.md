@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Unreferenced } from 'adyenlib';
+import { Unreferenced } from 'adyen';
 
 const unreferenced: Unreferenced = {
   enableUnreferencedRefunds: false,

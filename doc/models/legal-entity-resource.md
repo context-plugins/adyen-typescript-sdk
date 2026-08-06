@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { LegalEntityResource } from 'adyenlib';
+import { LegalEntityResource } from 'adyen';
 
 const legalEntityResource: LegalEntityResource = {
   legalEntityId: 'legalEntityId6',

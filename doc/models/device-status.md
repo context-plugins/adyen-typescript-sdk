@@ -15,7 +15,7 @@
 ## Example
 
 ```ts
-import { DeviceStatus } from 'adyenlib';
+import { DeviceStatus } from 'adyen';
 
 const deviceStatus = DeviceStatus.Online;
 ```

@@ -19,7 +19,7 @@ Settings for referenced refunds.
 ## Example
 
 ```ts
-import { Referenced1 } from 'adyenlib';
+import { Referenced1 } from 'adyen';
 
 const referenced1: Referenced1 = {
   enableStandaloneRefunds: false,

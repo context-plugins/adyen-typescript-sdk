@@ -21,7 +21,7 @@ Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **no
 ## Example
 
 ```ts
-import { Type151 } from 'adyenlib';
+import { Type151 } from 'adyen';
 
 const type151 = Type151.NonFinancialActive;
 ```

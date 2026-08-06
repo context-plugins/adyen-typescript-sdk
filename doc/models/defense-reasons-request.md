@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { DefenseReasonsRequest } from 'adyenlib';
+import { DefenseReasonsRequest } from 'adyen';
 
 const defenseReasonsRequest: DefenseReasonsRequest = {
   disputePspReference: 'disputePspReference8',

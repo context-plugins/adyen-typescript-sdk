@@ -20,7 +20,7 @@ Rules for Adyen for Platforms merchants to split the transaction amount and fees
 ## Example
 
 ```ts
-import { StoreSplitConfiguration1 } from 'adyenlib';
+import { StoreSplitConfiguration1 } from 'adyen';
 
 const storeSplitConfiguration1: StoreSplitConfiguration1 = {
   balanceAccountId: 'balanceAccountId8',

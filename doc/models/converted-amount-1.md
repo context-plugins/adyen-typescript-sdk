@@ -20,7 +20,7 @@ Amount after a currency conversion.
 ## Example
 
 ```ts
-import { ConvertedAmount1 } from 'adyenlib';
+import { ConvertedAmount1 } from 'adyen';
 
 const convertedAmount1: ConvertedAmount1 = {
   amountValue: 13.36,

@@ -20,7 +20,7 @@ For merchants operating in Japan, request [Diners](https://docs.adyen.com/api-ex
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo4, Type33 } from 'adyenlib';
+import { GenericPmWithTdiUpdateInfo4, Type33 } from 'adyen';
 
 const genericPmWithTdiUpdateInfo4: GenericPmWithTdiUpdateInfo4 = {
   transactionDescription: {

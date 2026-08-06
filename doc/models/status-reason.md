@@ -27,7 +27,7 @@ If the reason is **other**, you must also send the `statusComment` parameter des
 ## Example
 
 ```ts
-import { StatusReason } from 'adyenlib';
+import { StatusReason } from 'adyen';
 
 const statusReason = StatusReason.Other;
 ```

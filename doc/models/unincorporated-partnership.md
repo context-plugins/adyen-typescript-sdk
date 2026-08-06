@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { UnincorporatedPartnership } from 'adyenlib';
+import { UnincorporatedPartnership } from 'adyen';
 
 const unincorporatedPartnership: UnincorporatedPartnership = {
   countryOfGoverningLaw: 'countryOfGoverningLaw6',

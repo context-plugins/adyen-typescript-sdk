@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { ModifyResponse } from 'adyenlib';
+import { ModifyResponse } from 'adyen';
 
 const modifyResponse: ModifyResponse = {
   pspReference: 'pspReference6',

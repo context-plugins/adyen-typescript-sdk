@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { CheckoutOrderResponse } from 'adyenlib';
+import { CheckoutOrderResponse } from 'adyen';
 
 const checkoutOrderResponse: CheckoutOrderResponse = {
   pspReference: 'pspReference8',

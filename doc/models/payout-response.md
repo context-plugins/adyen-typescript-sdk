@@ -27,7 +27,7 @@
 ## Example
 
 ```ts
-import { PayoutResponse } from 'adyenlib';
+import { PayoutResponse } from 'adyen';
 
 const payoutResponse: PayoutResponse = {
   additionalData: {

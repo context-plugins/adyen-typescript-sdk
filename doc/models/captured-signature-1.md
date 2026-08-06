@@ -23,7 +23,7 @@ Numeric value of a handwritten signature. Contains the value of a handwritten si
 ## Example
 
 ```ts
-import { CapturedSignature1 } from 'adyenlib';
+import { CapturedSignature1 } from 'adyen';
 
 const capturedSignature1: CapturedSignature1 = {
   areaSize: {

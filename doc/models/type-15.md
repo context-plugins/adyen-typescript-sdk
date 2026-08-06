@@ -50,7 +50,7 @@ Possible values for the [Classic Platforms integration](https://docs.adyen.com/c
 ## Example
 
 ```ts
-import { Type15 } from 'adyenlib';
+import { Type15 } from 'adyen';
 
 const type15 = Type15.AdyenCommission;
 ```

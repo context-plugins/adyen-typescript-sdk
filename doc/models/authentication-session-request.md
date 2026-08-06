@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AuthenticationSessionRequest, ProductType21 } from 'adyenlib';
+import { AuthenticationSessionRequest, ProductType21 } from 'adyen';
 
 const authenticationSessionRequest: AuthenticationSessionRequest = {
   allowOrigin: 'allowOrigin0',

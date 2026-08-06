@@ -28,7 +28,7 @@ import {
   ScaExemption,
   Scope,
   TransferType,
-} from 'adyenlib';
+} from 'adyen';
 
 const createTransferLimitRequest: CreateTransferLimitRequest = {
   amount: {

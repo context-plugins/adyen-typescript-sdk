@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AccountType, CaLocalAccountIdentification, Type153 } from 'adyenlib';
+import { AccountType, CaLocalAccountIdentification, Type153 } from 'adyen';
 
 const caLocalAccountIdentification: CaLocalAccountIdentification = {
   accountNumber: 'accountNumber2',

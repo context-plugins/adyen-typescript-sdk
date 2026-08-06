@@ -19,7 +19,7 @@ Total tax amount from the order.
 ## Example
 
 ```ts
-import { TaxTotal2 } from 'adyenlib';
+import { TaxTotal2 } from 'adyen';
 
 const taxTotal2: TaxTotal2 = {
   amount: {

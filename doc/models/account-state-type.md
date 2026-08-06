@@ -23,7 +23,7 @@ The state required for the account holder.
 ## Example
 
 ```ts
-import { AccountStateType } from 'adyenlib';
+import { AccountStateType } from 'adyen';
 
 const accountStateType = AccountStateType.Payout;
 ```

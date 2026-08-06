@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { BalanceAccountConfigurationRequest, Frequency } from 'adyenlib';
+import { BalanceAccountConfigurationRequest, Frequency } from 'adyen';
 
 const balanceAccountConfigurationRequest: BalanceAccountConfigurationRequest = {
   balancePlatformPayoutScheduleId: 'balancePlatformPayoutScheduleId4',

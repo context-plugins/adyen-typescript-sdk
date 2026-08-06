@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { OwnerEntity } from 'adyenlib';
+import { OwnerEntity } from 'adyen';
 
 const ownerEntity: OwnerEntity = {
   id: 'id8',

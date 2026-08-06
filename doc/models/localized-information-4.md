@@ -19,7 +19,7 @@ The localized information of the store.
 ## Example
 
 ```ts
-import { LocalizedInformation4 } from 'adyenlib';
+import { LocalizedInformation4 } from 'adyen';
 
 const localizedInformation4: LocalizedInformation4 = {
   localShopperStatement: [

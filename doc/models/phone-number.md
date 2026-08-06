@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PhoneNumber } from 'adyenlib';
+import { PhoneNumber } from 'adyen';
 
 const phoneNumber: PhoneNumber = {
   number: 'number8',

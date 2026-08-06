@@ -74,7 +74,7 @@
 ## Example
 
 ```ts
-import { ManagementPaymentMethod, ProcessingType, Type33 } from 'adyenlib';
+import { ManagementPaymentMethod, ProcessingType, Type33 } from 'adyen';
 
 const managementPaymentMethod: ManagementPaymentMethod = {
   id: 'id6',

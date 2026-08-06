@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ScreenDimensions } from 'adyenlib';
+import { ScreenDimensions } from 'adyen';
 
 const screenDimensions: ScreenDimensions = {
   height: 252,

@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { DonationType1, OnlineDonationSettings } from 'adyenlib';
+import { DonationType1, OnlineDonationSettings } from 'adyen';
 
 const onlineDonationSettings: OnlineDonationSettings = {
   defaultAmount: {

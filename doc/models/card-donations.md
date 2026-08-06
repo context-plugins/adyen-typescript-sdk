@@ -44,7 +44,7 @@
 ## Example
 
 ```ts
-import { CardDonations } from 'adyenlib';
+import { CardDonations } from 'adyen';
 
 const cardDonations: CardDonations = {
   billingSequenceNumber: 'billingSequenceNumber0',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { ReturnTransferRequest } from 'adyenlib';
+import { ReturnTransferRequest } from 'adyen';
 
 const returnTransferRequest: ReturnTransferRequest = {
   amount: {

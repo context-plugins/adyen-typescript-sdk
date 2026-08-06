@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Reason1, WebDataExemption } from 'adyenlib';
+import { Reason1, WebDataExemption } from 'adyen';
 
 const webDataExemption: WebDataExemption = {
   reason: Reason1.NoOnlinePresence,

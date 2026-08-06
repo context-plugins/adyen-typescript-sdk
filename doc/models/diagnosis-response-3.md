@@ -25,7 +25,7 @@ import {
   GlobalStatus1,
   PrinterStatus1,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const diagnosisResponse3: DiagnosisResponse3 = {
   response: {

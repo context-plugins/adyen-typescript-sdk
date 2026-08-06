@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { NonprofitCause } from 'adyenlib';
+import { NonprofitCause } from 'adyen';
 
 const nonprofitCause: NonprofitCause = {
   bannerUrl: 'bannerUrl4',

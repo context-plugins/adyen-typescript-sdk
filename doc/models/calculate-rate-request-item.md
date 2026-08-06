@@ -22,7 +22,7 @@ The request parameters required to calculate an amount in a different currency.
 ## Example
 
 ```ts
-import { CalculateRateRequestItem, ExchangeSide2, RateType2 } from 'adyenlib';
+import { CalculateRateRequestItem, ExchangeSide2, RateType2 } from 'adyen';
 
 const calculateRateRequestItem: CalculateRateRequestItem = {
   exchangeSide: ExchangeSide2.Buy,

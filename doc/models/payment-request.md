@@ -102,7 +102,7 @@ import {
   NativeThreeDs,
   PaymentRequest,
   ThreeDsVersion,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentRequest: PaymentRequest = {
   amount: {

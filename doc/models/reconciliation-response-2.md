@@ -28,7 +28,7 @@ import {
   ReconciliationResponse2,
   ReconciliationType1,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const reconciliationResponse2: ReconciliationResponse2 = {
   response: {

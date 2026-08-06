@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { GetTermsOfServiceDocumentRequest, Type25 } from 'adyenlib';
+import { GetTermsOfServiceDocumentRequest, Type25 } from 'adyen';
 
 const getTermsOfServiceDocumentRequest: GetTermsOfServiceDocumentRequest = {
   language: 'language0',

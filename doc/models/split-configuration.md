@@ -28,7 +28,7 @@ import {
   FundingSource1,
   ShopperInteraction11,
   SplitConfiguration,
-} from 'adyenlib';
+} from 'adyen';
 
 const splitConfiguration: SplitConfiguration = {
   description: 'description0',

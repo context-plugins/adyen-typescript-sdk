@@ -26,7 +26,7 @@ Identification of a previous POI transaction.
 ## Example
 
 ```ts
-import { OriginalPoiTransaction2 } from 'adyenlib';
+import { OriginalPoiTransaction2 } from 'adyen';
 
 const originalPoiTransaction2: OriginalPoiTransaction2 = {
   saleId: 'SaleID8',

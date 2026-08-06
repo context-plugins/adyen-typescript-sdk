@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { LogoutRequest3 } from 'adyenlib';
+import { LogoutRequest3 } from 'adyen';
 
 const logoutRequest3: LogoutRequest3 = {
   maintenanceAllowed: false,

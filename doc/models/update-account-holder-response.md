@@ -33,7 +33,7 @@ import {
   Gender,
   Status1,
   UpdateAccountHolderResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const updateAccountHolderResponse: UpdateAccountHolderResponse = {
   accountHolderCode: 'accountHolderCode2',

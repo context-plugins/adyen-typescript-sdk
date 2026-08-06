@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { RegisterScaFinalResponse } from 'adyenlib';
+import { RegisterScaFinalResponse } from 'adyen';
 
 const registerScaFinalResponse: RegisterScaFinalResponse = {
   success: false,

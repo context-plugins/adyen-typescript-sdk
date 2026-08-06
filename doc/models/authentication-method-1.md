@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { AuthenticationMethod1 } from 'adyenlib';
+import { AuthenticationMethod1 } from 'adyen';
 
 const authenticationMethod1 = AuthenticationMethod1.PaperSignature;
 ```

@@ -22,7 +22,7 @@ Contains risk data, such as client-side data, used to identify risk for a transa
 ## Example
 
 ```ts
-import { RiskData4 } from 'adyenlib';
+import { RiskData4 } from 'adyen';
 
 const riskData4: RiskData4 = {
   clientData: 'clientData4',

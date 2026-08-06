@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { GlobalStatus1, PoiStatus2, PrinterStatus1 } from 'adyenlib';
+import { GlobalStatus1, PoiStatus2, PrinterStatus1 } from 'adyen';
 
 const poiStatus2: PoiStatus2 = {
   globalStatus: GlobalStatus1.Maintenance,

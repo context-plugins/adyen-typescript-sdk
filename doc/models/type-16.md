@@ -16,7 +16,7 @@ cashapp
 ## Example
 
 ```ts
-import { Type16 } from 'adyenlib';
+import { Type16 } from 'adyen';
 
 const type16 = Type16.Cashapp;
 ```

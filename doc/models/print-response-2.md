@@ -25,7 +25,7 @@ import {
   ErrorCondition1,
   PrintResponse2,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const printResponse2: PrintResponse2 = {
   documentQualifier: DocumentQualifier2.CustomerReceipt,

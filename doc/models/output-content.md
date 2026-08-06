@@ -29,7 +29,7 @@ import {
   CharacterWidth1,
   OutputContent,
   OutputFormat1,
-} from 'adyenlib';
+} from 'adyen';
 
 const outputContent: OutputContent = {
   outputFormat: OutputFormat1.MessageRef,

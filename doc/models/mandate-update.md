@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { MandateUpdate } from 'adyenlib';
+import { MandateUpdate } from 'adyen';
 
 const mandateUpdate: MandateUpdate = {
   paymentInstrumentId: 'paymentInstrumentId4',

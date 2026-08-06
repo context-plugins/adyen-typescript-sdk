@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Amount64 } from 'adyenlib';
+import { Amount64 } from 'adyen';
 
 const amount64: Amount64 = {
   currency: 'currency2',

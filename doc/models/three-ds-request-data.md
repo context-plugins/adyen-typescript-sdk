@@ -26,7 +26,7 @@ import {
   NativeThreeDs,
   ThreeDsRequestData,
   ThreeDsVersion,
-} from 'adyenlib';
+} from 'adyen';
 
 const threeDsRequestData: ThreeDsRequestData = {
   challengeWindowSize: ChallengeWindowSize.Enum03,

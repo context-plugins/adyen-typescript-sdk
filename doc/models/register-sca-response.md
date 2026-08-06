@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { RegisterScaResponse } from 'adyenlib';
+import { RegisterScaResponse } from 'adyen';
 
 const registerScaResponse: RegisterScaResponse = {
   id: 'id4',

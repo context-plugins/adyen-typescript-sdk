@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ResponseAdditionalData3DSecure } from 'adyenlib';
+import { ResponseAdditionalData3DSecure } from 'adyen';
 
 const responseAdditionalData3DSecure: ResponseAdditionalData3DSecure = {
   cardHolderInfo: 'cardHolderInfo0',

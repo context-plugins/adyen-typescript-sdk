@@ -22,7 +22,7 @@ Notification message. It informs about the outcome of the operation. Possible va
 ## Example
 
 ```ts
-import { CreationResultCode } from 'adyenlib';
+import { CreationResultCode } from 'adyen';
 
 const creationResultCode = CreationResultCode.AlreadyExists;
 ```

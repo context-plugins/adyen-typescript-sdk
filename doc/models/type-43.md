@@ -100,7 +100,7 @@ The payment method type.
 ## Example
 
 ```ts
-import { Type43 } from 'adyenlib';
+import { Type43 } from 'adyen';
 
 const type43 = Type43.MolpayCimb;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Folio } from 'adyenlib';
+import { Folio } from 'adyen';
 
 const folio: Folio = {
   cashAdvances: BigInt(122),

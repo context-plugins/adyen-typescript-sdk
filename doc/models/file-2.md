@@ -20,7 +20,7 @@ For `eap` **tls**. The certificate chain for the terminals. All terminals in the
 ## Example
 
 ```ts
-import { File2 } from 'adyenlib';
+import { File2 } from 'adyen';
 
 const file2: File2 = {
   data: 'data2',

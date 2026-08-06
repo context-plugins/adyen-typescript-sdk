@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CloseAccountResponse, FieldName, Status2 } from 'adyenlib';
+import { CloseAccountResponse, FieldName, Status2 } from 'adyen';
 
 const closeAccountResponse: CloseAccountResponse = {
   accountCode: 'accountCode4',

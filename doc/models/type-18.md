@@ -24,7 +24,7 @@ The resource for which you want to receive notifications. Possible values:
 ## Example
 
 ```ts
-import { Type18 } from 'adyenlib';
+import { Type18 } from 'adyen';
 
 const type18 = Type18.AccountHolder;
 ```

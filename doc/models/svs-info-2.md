@@ -20,7 +20,7 @@ Details to provide if `type` is **svs**.
 ## Example
 
 ```ts
-import { SvsInfo2 } from 'adyenlib';
+import { SvsInfo2 } from 'adyen';
 
 const svsInfo2: SvsInfo2 = {
   authorisationMid: 'authorisationMid6',

@@ -22,7 +22,7 @@ The settings for online donations collected as part of the campaign.
 ## Example
 
 ```ts
-import { DonationType1, OnlineDonationSettings2 } from 'adyenlib';
+import { DonationType1, OnlineDonationSettings2 } from 'adyen';
 
 const onlineDonationSettings2: OnlineDonationSettings2 = {
   defaultAmount: {

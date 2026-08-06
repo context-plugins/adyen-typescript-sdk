@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Links2 } from 'adyenlib';
+import { Links2 } from 'adyen';
 
 const links2: Links2 = {
   self: {

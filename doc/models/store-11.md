@@ -24,7 +24,7 @@ The store that the terminal is assigned to.
 ## Example
 
 ```ts
-import { Store11 } from 'adyenlib';
+import { Store11 } from 'adyen';
 
 const store11: Store11 = {
   store: 'store4',

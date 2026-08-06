@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { PayPay, Type40 } from 'adyenlib';
+import { PayPay, Type40 } from 'adyen';
 
 const payPay: PayPay = {
   checkoutAttemptId: 'checkoutAttemptId4',

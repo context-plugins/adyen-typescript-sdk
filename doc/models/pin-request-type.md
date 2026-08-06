@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { PinRequestType } from 'adyenlib';
+import { PinRequestType } from 'adyen';
 
 const pinRequestType = PinRequestType.PinVerify;
 ```

@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { UpdateMerchantWebhookRequest } from 'adyenlib';
+import { UpdateMerchantWebhookRequest } from 'adyen';
 
 const updateMerchantWebhookRequest: UpdateMerchantWebhookRequest = {
   acceptsExpiredCertificate: false,

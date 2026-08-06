@@ -42,7 +42,7 @@ Possible values: **ACCOUNT_CLOSED**, **ACCOUNT_CREATED**, **ACCOUNT_FUNDS_BELOW_
 ## Example
 
 ```ts
-import { EventType } from 'adyenlib';
+import { EventType } from 'adyen';
 
 const eventType = EventType.AccountClosed;
 ```

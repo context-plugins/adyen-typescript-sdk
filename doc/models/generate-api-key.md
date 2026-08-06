@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GenerateApiKey } from 'adyenlib';
+import { GenerateApiKey } from 'adyen';
 
 const generateApiKey: GenerateApiKey = {
   href: 'href6',

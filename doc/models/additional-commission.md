@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AdditionalCommission } from 'adyenlib';
+import { AdditionalCommission } from 'adyen';
 
 const additionalCommission: AdditionalCommission = {
   balanceAccountId: 'balanceAccountId0',

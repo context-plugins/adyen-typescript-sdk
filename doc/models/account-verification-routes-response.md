@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AccountVerificationRoutesResponse } from 'adyenlib';
+import { AccountVerificationRoutesResponse } from 'adyen';
 
 const accountVerificationRoutesResponse: AccountVerificationRoutesResponse = {
   routes: [

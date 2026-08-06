@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Action } from 'adyenlib';
+import { Action } from 'adyen';
 
 const action = Action.Close;
 ```

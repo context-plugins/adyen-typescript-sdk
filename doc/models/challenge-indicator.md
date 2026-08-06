@@ -25,7 +25,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ChallengeIndicator } from 'adyenlib';
+import { ChallengeIndicator } from 'adyen';
 
 const challengeIndicator = ChallengeIndicator.RequestChallenge;
 ```

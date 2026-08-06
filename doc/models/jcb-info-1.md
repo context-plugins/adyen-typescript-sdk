@@ -25,7 +25,7 @@ For merchants operating in Australia, New Zealand & Canada, JCB and American Exp
 ## Example
 
 ```ts
-import { JcbInfo1, ServiceLevel2, Type33 } from 'adyenlib';
+import { JcbInfo1, ServiceLevel2, Type33 } from 'adyen';
 
 const jcbInfo1: JcbInfo1 = {
   midNumber: 'midNumber8',

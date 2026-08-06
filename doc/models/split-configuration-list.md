@@ -26,7 +26,7 @@ import {
   FundingSource1,
   ShopperInteraction11,
   SplitConfigurationList,
-} from 'adyenlib';
+} from 'adyen';
 
 const splitConfigurationList: SplitConfigurationList = {
   data: [

@@ -25,7 +25,7 @@ Custom test notification object. Required when the [`types`](https://docs.adyen.
 ## Example
 
 ```ts
-import { CustomNotification1 } from 'adyenlib';
+import { CustomNotification1 } from 'adyen';
 
 const customNotification1: CustomNotification1 = {
   amount: {

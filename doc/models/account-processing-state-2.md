@@ -23,7 +23,7 @@ The processing state of the account holder.
 ## Example
 
 ```ts
-import { AccountProcessingState2 } from 'adyenlib';
+import { AccountProcessingState2 } from 'adyen';
 
 const accountProcessingState2: AccountProcessingState2 = {
   disableReason: 'disableReason2',

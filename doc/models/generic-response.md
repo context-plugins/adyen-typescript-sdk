@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { FieldName, GenericResponse } from 'adyenlib';
+import { FieldName, GenericResponse } from 'adyen';
 
 const genericResponse: GenericResponse = {
   invalidFields: [

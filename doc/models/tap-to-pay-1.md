@@ -19,7 +19,7 @@ Settings for Tap to Pay.
 ## Example
 
 ```ts
-import { TapToPay1 } from 'adyenlib';
+import { TapToPay1 } from 'adyen';
 
 const tapToPay1: TapToPay1 = {
   merchantDisplayName: 'merchantDisplayName2',

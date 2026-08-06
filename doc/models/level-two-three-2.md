@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { LevelTwoThree2 } from 'adyenlib';
+import { LevelTwoThree2 } from 'adyen';
 
 const levelTwoThree2: LevelTwoThree2 = {
   customerReferenceNumber: 'customerReferenceNumber0',

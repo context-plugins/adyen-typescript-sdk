@@ -25,7 +25,7 @@ Default value: **asc**.
 ## Example
 
 ```ts
-import { SortOrder2 } from 'adyenlib';
+import { SortOrder2 } from 'adyen';
 
 const sortOrder2 = SortOrder2.Asc;
 ```

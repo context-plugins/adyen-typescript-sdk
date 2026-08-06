@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PayoutScheduleExecutionDetails } from 'adyenlib';
+import { PayoutScheduleExecutionDetails } from 'adyen';
 
 const payoutScheduleExecutionDetails: PayoutScheduleExecutionDetails = {
   reason: 'reason4',

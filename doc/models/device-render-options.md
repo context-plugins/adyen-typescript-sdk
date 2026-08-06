@@ -21,7 +21,7 @@ Optional and only for `deviceChannel` **app**.
 ## Example
 
 ```ts
-import { DeviceRenderOptions, SdkInterface, SdkUiType } from 'adyenlib';
+import { DeviceRenderOptions, SdkInterface, SdkUiType } from 'adyen';
 
 const deviceRenderOptions: DeviceRenderOptions = {
   sdkInterface: SdkInterface.Both,

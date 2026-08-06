@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Name1 } from 'adyenlib';
+import { Name1 } from 'adyen';
 
 const name1: Name1 = {
   firstName: 'firstName4',

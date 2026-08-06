@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TapToPay } from 'adyenlib';
+import { TapToPay } from 'adyen';
 
 const tapToPay: TapToPay = {
   merchantDisplayName: 'merchantDisplayName2',

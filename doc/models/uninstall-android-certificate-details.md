@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Type82, UninstallAndroidCertificateDetails } from 'adyenlib';
+import { Type82, UninstallAndroidCertificateDetails } from 'adyen';
 
 const uninstallAndroidCertificateDetails: UninstallAndroidCertificateDetails = {
   certificateId: 'certificateId0',

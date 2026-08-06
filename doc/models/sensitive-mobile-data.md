@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { SensitiveMobileData } from 'adyenlib';
+import { SensitiveMobileData } from 'adyen';
 
 const sensitiveMobileData: SensitiveMobileData = {
   msisdn: 66,

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AreaSize } from 'adyenlib';
+import { AreaSize } from 'adyen';
 
 const areaSize: AreaSize = {
   x: 'X4',

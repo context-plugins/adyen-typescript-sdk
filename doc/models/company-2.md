@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { Company2 } from 'adyenlib';
+import { Company2 } from 'adyen';
 
 const company2: Company2 = {
   links: {

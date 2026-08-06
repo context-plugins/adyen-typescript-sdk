@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AccountHolderStatus, Event, Status1 } from 'adyenlib';
+import { AccountHolderStatus, Event, Status1 } from 'adyen';
 
 const accountHolderStatus: AccountHolderStatus = {
   status: Status1.Inactive,

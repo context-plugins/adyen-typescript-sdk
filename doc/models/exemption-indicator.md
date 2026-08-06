@@ -25,7 +25,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { ExemptionIndicator } from 'adyenlib';
+import { ExemptionIndicator } from 'adyen';
 
 const exemptionIndicator = ExemptionIndicator.TrustedBeneficiary;
 ```

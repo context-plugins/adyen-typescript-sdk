@@ -24,7 +24,7 @@ Information regarding the company.
 ## Example
 
 ```ts
-import { Company1 } from 'adyenlib';
+import { Company1 } from 'adyen';
 
 const company1: Company1 = {
   homepage: 'homepage4',

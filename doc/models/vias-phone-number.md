@@ -21,7 +21,7 @@ The phone number of the contact.
 ## Example
 
 ```ts
-import { PhoneType, ViasPhoneNumber } from 'adyenlib';
+import { PhoneType, ViasPhoneNumber } from 'adyen';
 
 const viasPhoneNumber: ViasPhoneNumber = {
   phoneCountryCode: 'phoneCountryCode6',

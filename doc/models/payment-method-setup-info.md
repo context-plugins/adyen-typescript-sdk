@@ -75,7 +75,7 @@ import {
   ServiceLevel,
   Type33,
   Type510,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentMethodSetupInfo: PaymentMethodSetupInfo = {
   type: Type510.Abrapetite,

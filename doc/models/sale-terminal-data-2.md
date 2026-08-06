@@ -20,7 +20,7 @@ Present if the login involve a Sale Terminal.
 ## Example
 
 ```ts
-import { SaleTerminalData2 } from 'adyenlib';
+import { SaleTerminalData2 } from 'adyen';
 
 const saleTerminalData2: SaleTerminalData2 = {
   totalsGroupId: 'TotalsGroupID4',

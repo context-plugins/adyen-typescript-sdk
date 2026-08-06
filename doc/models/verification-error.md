@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Capability, Type21, VerificationError } from 'adyenlib';
+import { Capability, Type21, VerificationError } from 'adyen';
 
 const verificationError: VerificationError = {
   capabilities: [

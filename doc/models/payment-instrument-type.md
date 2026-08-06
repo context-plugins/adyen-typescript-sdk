@@ -17,7 +17,7 @@ The type of the payment instrument. For example, "BankAccount" or "Card".
 ## Example
 
 ```ts
-import { PaymentInstrumentType } from 'adyenlib';
+import { PaymentInstrumentType } from 'adyen';
 
 const paymentInstrumentType = PaymentInstrumentType.BankAccount;
 ```

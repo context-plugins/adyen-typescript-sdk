@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { SdkUiType } from 'adyenlib';
+import { SdkUiType } from 'adyen';
 
 const sdkUiType = SdkUiType.SingleSelect;
 ```

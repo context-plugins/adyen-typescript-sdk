@@ -23,7 +23,7 @@
 import {
   GetAcceptedTermsOfServiceDocumentResponse,
   TermsOfServiceDocumentFormat,
-} from 'adyenlib';
+} from 'adyen';
 
 const getAcceptedTermsOfServiceDocumentResponse: GetAcceptedTermsOfServiceDocumentResponse = {
   document: 'document2',

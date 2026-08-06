@@ -19,7 +19,7 @@ Contains the details about the schedule that determines when the top up is execu
 ## Example
 
 ```ts
-import { Schedule21, ScheduleType1 } from 'adyenlib';
+import { Schedule21, ScheduleType1 } from 'adyen';
 
 const schedule21: Schedule21 = {
   type: ScheduleType1.Monthly,

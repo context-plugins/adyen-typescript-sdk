@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Status24, TerminalAssignment } from 'adyenlib';
+import { Status24, TerminalAssignment } from 'adyen';
 
 const terminalAssignment: TerminalAssignment = {
   companyId: 'companyId0',

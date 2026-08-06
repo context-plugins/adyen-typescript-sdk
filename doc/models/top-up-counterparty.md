@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { TopUpCounterparty } from 'adyenlib';
+import { TopUpCounterparty } from 'adyen';
 
 const topUpCounterparty: TopUpCounterparty = {
   transferInstrumentId: 'transferInstrumentId2',

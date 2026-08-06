@@ -19,7 +19,7 @@ The individual's birth information.
 ## Example
 
 ```ts
-import { BirthData1 } from 'adyenlib';
+import { BirthData1 } from 'adyen';
 
 const birthData1: BirthData1 = {
   dateOfBirth: 'dateOfBirth8',

@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PaymentValidations } from 'adyenlib';
+import { PaymentValidations } from 'adyen';
 
 const paymentValidations: PaymentValidations = {
   name: {

@@ -22,7 +22,7 @@ It conveys Information related to the Reconciliation requested by the Sale Syste
 ## Example
 
 ```ts
-import { ReconciliationRequest, ReconciliationType1 } from 'adyenlib';
+import { ReconciliationRequest, ReconciliationType1 } from 'adyen';
 
 const reconciliationRequest: ReconciliationRequest = {
   reconciliationType: ReconciliationType1.AcquirerReconciliation,

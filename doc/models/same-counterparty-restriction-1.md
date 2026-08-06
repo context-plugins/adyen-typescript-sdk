@@ -30,7 +30,7 @@ Supported operations: **equals**.
 ## Example
 
 ```ts
-import { SameCounterpartyRestriction1 } from 'adyenlib';
+import { SameCounterpartyRestriction1 } from 'adyen';
 
 const sameCounterpartyRestriction1: SameCounterpartyRestriction1 = {
   operation: 'operation6',

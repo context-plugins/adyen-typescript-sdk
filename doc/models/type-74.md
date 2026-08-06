@@ -18,7 +18,7 @@ The type of the transfer event. Possible values: **accounting**, **tracking**.
 ## Example
 
 ```ts
-import { Type74 } from 'adyenlib';
+import { Type74 } from 'adyen';
 
 const type74 = Type74.Accounting;
 ```

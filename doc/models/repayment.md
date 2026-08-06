@@ -21,7 +21,7 @@ An object containing the details of the 30-day repayment threshold.
 ## Example
 
 ```ts
-import { Repayment } from 'adyenlib';
+import { Repayment } from 'adyen';
 
 const repayment: Repayment = {
   basisPoints: 18,

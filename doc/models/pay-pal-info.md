@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PayPalInfo } from 'adyenlib';
+import { PayPalInfo } from 'adyen';
 
 const payPalInfo: PayPalInfo = {
   payerId: 'payerId0',

@@ -25,7 +25,7 @@ Contains the identification details of the card.
 ## Example
 
 ```ts
-import { CardIdentification3 } from 'adyenlib';
+import { CardIdentification3 } from 'adyen';
 
 const cardIdentification3: CardIdentification3 = {
   expiryMonth: 'expiryMonth8',

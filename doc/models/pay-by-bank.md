@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { PayByBank, Type75 } from 'adyenlib';
+import { PayByBank, Type75 } from 'adyen';
 
 const payByBank: PayByBank = {
   type: Type75.Paybybank,

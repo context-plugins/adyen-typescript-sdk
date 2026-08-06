@@ -24,7 +24,7 @@ Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor
 ## Example
 
 ```ts
-import { ThreeDsReqPriorAuthMethod } from 'adyenlib';
+import { ThreeDsReqPriorAuthMethod } from 'adyen';
 
 const threeDsReqPriorAuthMethod = ThreeDsReqPriorAuthMethod.Enum03;
 ```

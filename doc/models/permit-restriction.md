@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PermitRestriction } from 'adyenlib';
+import { PermitRestriction } from 'adyen';
 
 const permitRestriction: PermitRestriction = {
   maxAmount: {

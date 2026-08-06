@@ -36,7 +36,7 @@
 ## Example
 
 ```ts
-import { BalancePlatformConfiguration } from 'adyenlib';
+import { BalancePlatformConfiguration } from 'adyen';
 
 const balancePlatformConfiguration: BalancePlatformConfiguration = {
   balancePlatformId: 'balancePlatformId2',

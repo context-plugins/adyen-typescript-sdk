@@ -22,7 +22,7 @@ Required when `category` is **card**. In this case, the value must be **individu
 ## Example
 
 ```ts
-import { Type110 } from 'adyenlib';
+import { Type110 } from 'adyen';
 
 const type110 = Type110.Individual;
 ```

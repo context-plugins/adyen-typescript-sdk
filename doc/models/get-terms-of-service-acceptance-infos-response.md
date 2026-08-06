@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { GetTermsOfServiceAcceptanceInfosResponse, Type25 } from 'adyenlib';
+import { GetTermsOfServiceAcceptanceInfosResponse, Type25 } from 'adyen';
 
 const getTermsOfServiceAcceptanceInfosResponse: GetTermsOfServiceAcceptanceInfosResponse = {
   data: [

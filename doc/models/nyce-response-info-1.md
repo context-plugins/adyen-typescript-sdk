@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { NyceResponseInfo1, ProcessingType, Type33 } from 'adyenlib';
+import { NyceResponseInfo1, ProcessingType, Type33 } from 'adyen';
 
 const nyceResponseInfo1: NyceResponseInfo1 = {
   processingType: ProcessingType.Ecom,

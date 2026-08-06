@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { PayToResponseInfo } from 'adyenlib';
+import { PayToResponseInfo } from 'adyen';
 
 const payToResponseInfo: PayToResponseInfo = {
   merchantName: 'merchantName8',

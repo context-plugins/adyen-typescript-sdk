@@ -26,7 +26,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type21 } from 'adyenlib';
+import { Type21 } from 'adyen';
 
 const type21 = Type21.InvalidInput;
 ```

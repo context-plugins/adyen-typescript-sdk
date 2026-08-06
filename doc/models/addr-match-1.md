@@ -20,7 +20,7 @@ Indicates whether the cardholder shipping Address and cardholder billing address
 ## Example
 
 ```ts
-import { AddrMatch1 } from 'adyenlib';
+import { AddrMatch1 } from 'adyen';
 
 const addrMatch1 = AddrMatch1.Y;
 ```

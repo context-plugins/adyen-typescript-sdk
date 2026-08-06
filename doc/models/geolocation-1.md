@@ -21,7 +21,7 @@ If data available.
 ## Example
 
 ```ts
-import { Geolocation1 } from 'adyenlib';
+import { Geolocation1 } from 'adyen';
 
 const geolocation1: Geolocation1 = {
   geographicCoordinates: {

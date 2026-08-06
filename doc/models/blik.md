@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { Blik } from 'adyenlib';
+import { Blik } from 'adyen';
 
 const blik: Blik = {
   blikCode: 'blikCode0',

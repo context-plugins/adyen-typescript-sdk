@@ -19,7 +19,7 @@ Possible values: **merchant**, **cardholder**.
 ## Example
 
 ```ts
-import { CancellingEntity1 } from 'adyenlib';
+import { CancellingEntity1 } from 'adyen';
 
 const cancellingEntity1 = CancellingEntity1.Merchant;
 ```

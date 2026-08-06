@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { Leg } from 'adyenlib';
+import { Leg } from 'adyen';
 
 const leg: Leg = {
   carrierCode: 'carrierCode0',

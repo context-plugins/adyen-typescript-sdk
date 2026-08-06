@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { GrantOfferFee } from 'adyenlib';
+import { GrantOfferFee } from 'adyen';
 
 const grantOfferFee: GrantOfferFee = {
   amount: {

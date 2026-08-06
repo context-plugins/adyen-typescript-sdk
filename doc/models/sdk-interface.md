@@ -23,7 +23,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { SdkInterface } from 'adyenlib';
+import { SdkInterface } from 'adyen';
 
 const sdkInterface = SdkInterface.Html;
 ```

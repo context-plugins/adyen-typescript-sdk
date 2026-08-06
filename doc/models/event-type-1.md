@@ -38,7 +38,7 @@
 ## Example
 
 ```ts
-import { EventType1 } from 'adyenlib';
+import { EventType1 } from 'adyen';
 
 const eventType1 = EventType1.AccountHolderLimitReached;
 ```

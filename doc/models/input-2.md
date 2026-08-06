@@ -25,7 +25,7 @@ Data entered by the user, related to the input command.
 ## Example
 
 ```ts
-import { Input2, InputCommand1 } from 'adyenlib';
+import { Input2, InputCommand1 } from 'adyen';
 
 const input2: Input2 = {
   inputCommand: InputCommand1.DecimalString,

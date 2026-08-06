@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { PatchableSchedule, ScheduleType1 } from 'adyenlib';
+import { PatchableSchedule, ScheduleType1 } from 'adyen';
 
 const patchableSchedule: PatchableSchedule = {
   type: ScheduleType1.Weekdays,

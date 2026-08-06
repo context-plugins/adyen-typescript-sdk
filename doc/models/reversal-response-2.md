@@ -31,7 +31,7 @@ import {
   OutputFormat1,
   Result11,
   ReversalResponse2,
-} from 'adyenlib';
+} from 'adyen';
 
 const reversalResponse2: ReversalResponse2 = {
   response: {

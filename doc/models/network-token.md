@@ -25,7 +25,7 @@
 ## Example
 
 ```ts
-import { NetworkToken } from 'adyenlib';
+import { NetworkToken } from 'adyen';
 
 const networkToken: NetworkToken = {
   brandVariant: 'brandVariant0',

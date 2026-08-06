@@ -22,7 +22,7 @@
 import {
   AccountHolderTransactionListRequest,
   TransactionStatus,
-} from 'adyenlib';
+} from 'adyen';
 
 const accountHolderTransactionListRequest: AccountHolderTransactionListRequest = {
   accountHolderCode: 'accountHolderCode0',

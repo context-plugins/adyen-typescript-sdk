@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { TransactionRuleEntityKey } from 'adyenlib';
+import { TransactionRuleEntityKey } from 'adyen';
 
 const transactionRuleEntityKey: TransactionRuleEntityKey = {
   entityReference: 'entityReference2',

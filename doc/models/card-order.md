@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { CardOrder } from 'adyenlib';
+import { CardOrder } from 'adyen';
 
 const cardOrder: CardOrder = {
   beginDate: '2016-03-13T12:52:32.123Z',

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { GeographicCoordinates } from 'adyenlib';
+import { GeographicCoordinates } from 'adyen';
 
 const geographicCoordinates: GeographicCoordinates = {
   latitude: 'Latitude6',

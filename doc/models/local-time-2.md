@@ -22,7 +22,7 @@ The time when the payout funds are settled in your user's transfer instrument.
 ## Example
 
 ```ts
-import { LocalTime2 } from 'adyenlib';
+import { LocalTime2 } from 'adyen';
 
 const localTime2: LocalTime2 = {
   hour: 94,

@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ResultCode2, SessionResultResponse, Status52 } from 'adyenlib';
+import { ResultCode2, SessionResultResponse, Status52 } from 'adyen';
 
 const sessionResultResponse: SessionResultResponse = {
   additionalData: {

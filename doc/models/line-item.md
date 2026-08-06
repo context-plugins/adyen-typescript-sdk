@@ -41,7 +41,7 @@
 ## Example
 
 ```ts
-import { LineItem } from 'adyenlib';
+import { LineItem } from 'adyen';
 
 const lineItem: LineItem = {
   amountExcludingTax: BigInt(242),

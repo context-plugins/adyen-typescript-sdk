@@ -16,7 +16,7 @@
 ## Example
 
 ```ts
-import { Type383 } from 'adyenlib';
+import { Type383 } from 'adyen';
 
 const type383 = Type383.UsInternationalAchAddressRequirement;
 ```

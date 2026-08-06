@@ -22,7 +22,7 @@ For `type` **business**, provide the annual turn over of the business. For `type
 ## Example
 
 ```ts
-import { PatchableAmountDto } from 'adyenlib';
+import { PatchableAmountDto } from 'adyen';
 
 const patchableAmountDto: PatchableAmountDto = {
   currency: 'currency8',

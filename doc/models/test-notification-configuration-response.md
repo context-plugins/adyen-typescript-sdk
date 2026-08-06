@@ -28,7 +28,7 @@ import {
   EventType1,
   FieldName,
   TestNotificationConfigurationResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const testNotificationConfigurationResponse: TestNotificationConfigurationResponse = {
   notificationId: BigInt(76),

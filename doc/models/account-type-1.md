@@ -23,7 +23,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { AccountType1 } from 'adyenlib';
+import { AccountType1 } from 'adyen';
 
 const accountType1 = AccountType1.Debit;
 ```

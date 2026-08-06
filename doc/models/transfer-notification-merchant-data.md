@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { TransferNotificationMerchantData } from 'adyenlib';
+import { TransferNotificationMerchantData } from 'adyen';
 
 const transferNotificationMerchantData: TransferNotificationMerchantData = {
   acquirerId: 'acquirerId2',

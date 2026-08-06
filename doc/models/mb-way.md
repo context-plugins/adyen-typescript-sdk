@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { MbWay, Type36 } from 'adyenlib';
+import { MbWay, Type36 } from 'adyen';
 
 const mbWay: MbWay = {
   shopperEmail: 'shopperEmail4',

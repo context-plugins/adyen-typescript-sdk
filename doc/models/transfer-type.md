@@ -20,7 +20,7 @@ The type of transfer to which the limit applies. Possible values:
 ## Example
 
 ```ts
-import { TransferType } from 'adyenlib';
+import { TransferType } from 'adyen';
 
 const transferType = TransferType.Instant;
 ```

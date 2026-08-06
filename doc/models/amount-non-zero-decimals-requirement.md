@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { AmountNonZeroDecimalsRequirement, Type94 } from 'adyenlib';
+import { AmountNonZeroDecimalsRequirement, Type94 } from 'adyen';
 
 const amountNonZeroDecimalsRequirement: AmountNonZeroDecimalsRequirement = {
   type: Type94.AmountNonZeroDecimalsRequirement,

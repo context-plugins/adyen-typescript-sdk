@@ -22,7 +22,7 @@ The type of transaction description you want to use:
 ## Example
 
 ```ts
-import { Type33 } from 'adyenlib';
+import { Type33 } from 'adyen';
 
 const type33 = Type33.Append;
 ```

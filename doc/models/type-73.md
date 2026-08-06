@@ -16,7 +16,7 @@ Type of terminal action: Uninstall an Android app.
 ## Example
 
 ```ts
-import { Type73 } from 'adyenlib';
+import { Type73 } from 'adyen';
 
 const type73 = Type73.UninstallAndroidApp;
 ```

@@ -16,7 +16,7 @@ The type of the delivery method.
 ## Example
 
 ```ts
-import { Type211 } from 'adyenlib';
+import { Type211 } from 'adyen';
 
 const type211 = Type211.Shipping;
 ```

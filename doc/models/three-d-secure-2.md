@@ -19,7 +19,7 @@ The data of the result from the 3DS authentication.
 ## Example
 
 ```ts
-import { ThreeDSecure2 } from 'adyenlib';
+import { ThreeDSecure2 } from 'adyen';
 
 const threeDSecure2: ThreeDSecure2 = {
   acsTransactionId: 'acsTransactionId6',

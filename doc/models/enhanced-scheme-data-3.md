@@ -24,7 +24,7 @@
 ## Example
 
 ```ts
-import { EnhancedSchemeData3, RateType } from 'adyenlib';
+import { EnhancedSchemeData3, RateType } from 'adyen';
 
 const enhancedSchemeData3: EnhancedSchemeData3 = {
   airline: {

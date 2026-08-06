@@ -20,7 +20,7 @@ Contains the billing address of the card holder. The address details need to be 
 ## Example
 
 ```ts
-import { AvsAddress1 } from 'adyenlib';
+import { AvsAddress1 } from 'adyen';
 
 const avsAddress1: AvsAddress1 = {
   streetAddress: 'streetAddress6',

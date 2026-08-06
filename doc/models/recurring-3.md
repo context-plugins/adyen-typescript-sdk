@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { Contract, Recurring3, TokenService } from 'adyenlib';
+import { Contract, Recurring3, TokenService } from 'adyen';
 
 const recurring3: Recurring3 = {
   contract: Contract.External,

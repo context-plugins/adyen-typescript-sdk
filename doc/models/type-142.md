@@ -47,7 +47,7 @@ Possible values for unincorporated partnership members: **secondaryPartner**, **
 ## Example
 
 ```ts
-import { Type142 } from 'adyenlib';
+import { Type142 } from 'adyen';
 
 const type142 = Type142.TrustOwnership;
 ```

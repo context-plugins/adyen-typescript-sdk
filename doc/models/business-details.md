@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { BusinessDetails, Gender } from 'adyenlib';
+import { BusinessDetails, Gender } from 'adyen';
 
 const businessDetails: BusinessDetails = {
   doingBusinessAs: 'doingBusinessAs6',

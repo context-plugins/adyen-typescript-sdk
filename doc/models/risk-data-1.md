@@ -22,7 +22,7 @@ Any risk-related settings to apply to the payment.
 ## Example
 
 ```ts
-import { RiskData1 } from 'adyenlib';
+import { RiskData1 } from 'adyen';
 
 const riskData1: RiskData1 = {
   clientData: 'clientData2',

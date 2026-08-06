@@ -17,7 +17,7 @@ Required to trigger the [data-only flow](https://docs.adyen.com/online-payments/
 ## Example
 
 ```ts
-import { DataOnly } from 'adyenlib';
+import { DataOnly } from 'adyen';
 
 const dataOnly = DataOnly.False;
 ```

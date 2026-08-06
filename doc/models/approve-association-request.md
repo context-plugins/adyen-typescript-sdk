@@ -24,7 +24,7 @@ import {
   ApproveAssociationRequest,
   AssociationStatus1,
   ScaEntityType2,
-} from 'adyenlib';
+} from 'adyen';
 
 const approveAssociationRequest: ApproveAssociationRequest = {
   entityId: 'entityId8',

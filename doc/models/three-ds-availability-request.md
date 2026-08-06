@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { ThreeDsAvailabilityRequest } from 'adyenlib';
+import { ThreeDsAvailabilityRequest } from 'adyen';
 
 const threeDsAvailabilityRequest: ThreeDsAvailabilityRequest = {
   merchantAccount: 'merchantAccount0',

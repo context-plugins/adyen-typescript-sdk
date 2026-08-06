@@ -22,7 +22,7 @@ The work phone number provided by the cardholder. The phone number must consist 
 ## Example
 
 ```ts
-import { Phone21 } from 'adyenlib';
+import { Phone21 } from 'adyen';
 
 const phone21: Phone21 = {
   cc: 'cc0',

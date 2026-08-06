@@ -28,7 +28,7 @@ import {
   DataOnly,
   NativeThreeDs,
   ThreeDsVersion,
-} from 'adyenlib';
+} from 'adyen';
 
 const authenticationData3: AuthenticationData3 = {
   attemptAuthentication: AttemptAuthentication.Always,

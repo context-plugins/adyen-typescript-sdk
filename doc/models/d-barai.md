@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { DBarai, Type201 } from 'adyenlib';
+import { DBarai, Type201 } from 'adyen';
 
 const dBarai: DBarai = {
   checkoutAttemptId: 'checkoutAttemptId8',

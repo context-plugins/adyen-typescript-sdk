@@ -28,7 +28,7 @@ The card details.
 ## Example
 
 ```ts
-import { CheckoutForwardRequestCard2 } from 'adyenlib';
+import { CheckoutForwardRequestCard2 } from 'adyen';
 
 const checkoutForwardRequestCard2: CheckoutForwardRequestCard2 = {
   cvc: 'cvc0',

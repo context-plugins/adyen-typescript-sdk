@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Phone, Type4 } from 'adyenlib';
+import { Phone, Type4 } from 'adyen';
 
 const phone: Phone = {
   number: 'number8',

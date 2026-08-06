@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { RecurringDetailWrapper } from 'adyenlib';
+import { RecurringDetailWrapper } from 'adyen';
 
 const recurringDetailWrapper: RecurringDetailWrapper = {
   recurringDetail: {

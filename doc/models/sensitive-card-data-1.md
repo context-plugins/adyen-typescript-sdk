@@ -23,7 +23,7 @@ If structure non empty and unprotected.
 ## Example
 
 ```ts
-import { SensitiveCardData1, TrackFormat1 } from 'adyenlib';
+import { SensitiveCardData1, TrackFormat1 } from 'adyen';
 
 const sensitiveCardData1: SensitiveCardData1 = {
   pan: 28,

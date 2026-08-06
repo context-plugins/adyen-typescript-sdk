@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RiskScoresRestriction } from 'adyenlib';
+import { RiskScoresRestriction } from 'adyen';
 
 const riskScoresRestriction: RiskScoresRestriction = {
   operation: 'operation8',

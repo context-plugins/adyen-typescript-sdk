@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { KycSignatoryCheckResult, Status3, Type2 } from 'adyenlib';
+import { KycSignatoryCheckResult, Status3, Type2 } from 'adyen';
 
 const kycSignatoryCheckResult: KycSignatoryCheckResult = {
   checks: [

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Code, Status8 } from 'adyenlib';
+import { Code, Status8 } from 'adyen';
 
 const status8: Status8 = {
   code: Code.Pending,

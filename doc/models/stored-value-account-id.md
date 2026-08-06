@@ -30,7 +30,7 @@ import {
   IdentificationType11,
   StoredValueAccountId,
   StoredValueAccountType1,
-} from 'adyenlib';
+} from 'adyen';
 
 const storedValueAccountId: StoredValueAccountId = {
   storedValueAccountType: StoredValueAccountType1.Other,

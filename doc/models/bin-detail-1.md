@@ -19,7 +19,7 @@ Bin Group Details
 ## Example
 
 ```ts
-import { BinDetail1 } from 'adyenlib';
+import { BinDetail1 } from 'adyen';
 
 const binDetail1: BinDetail1 = {
   issuerCountry: 'issuerCountry0',

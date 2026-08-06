@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Type, ViasPersonalData } from 'adyenlib';
+import { Type, ViasPersonalData } from 'adyen';
 
 const viasPersonalData: ViasPersonalData = {
   dateOfBirth: 'dateOfBirth6',

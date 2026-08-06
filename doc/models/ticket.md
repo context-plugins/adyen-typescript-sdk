@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Ticket } from 'adyenlib';
+import { Ticket } from 'adyen';
 
 const ticket: Ticket = {
   issueAddress: 'issueAddress8',

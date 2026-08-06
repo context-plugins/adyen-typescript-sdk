@@ -29,7 +29,7 @@ import {
   InputCommand1,
   InputResponse2,
   Result11,
-} from 'adyenlib';
+} from 'adyen';
 
 const inputResponse2: InputResponse2 = {
   inputResult: {

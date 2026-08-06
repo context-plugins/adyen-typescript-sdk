@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { Repayment1 } from 'adyenlib';
+import { Repayment1 } from 'adyen';
 
 const repayment1: Repayment1 = {
   basisPoints: 36,

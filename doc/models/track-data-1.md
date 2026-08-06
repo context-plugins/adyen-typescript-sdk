@@ -22,7 +22,7 @@ Mandatory if CheckNumber absent.
 ## Example
 
 ```ts
-import { TrackData1, TrackFormat1 } from 'adyenlib';
+import { TrackData1, TrackFormat1 } from 'adyen';
 
 const trackData1: TrackData1 = {
   trackValue: 'TrackValue2',

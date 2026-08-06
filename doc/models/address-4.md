@@ -24,7 +24,7 @@ The business address. Required if the principal place of business is different f
 ## Example
 
 ```ts
-import { Address4 } from 'adyenlib';
+import { Address4 } from 'adyen';
 
 const address4: Address4 = {
   country: 'country8',

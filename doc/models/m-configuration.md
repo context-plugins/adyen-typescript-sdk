@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { MConfiguration } from 'adyenlib';
+import { MConfiguration } from 'adyen';
 
 const configuration: MConfiguration = {
   brand: 'brand0',

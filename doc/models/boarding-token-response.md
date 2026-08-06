@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { BoardingTokenResponse } from 'adyenlib';
+import { BoardingTokenResponse } from 'adyen';
 
 const boardingTokenResponse: BoardingTokenResponse = {
   boardingToken: 'boardingToken4',

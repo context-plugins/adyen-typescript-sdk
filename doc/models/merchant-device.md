@@ -21,7 +21,7 @@ Merchant device information.
 ## Example
 
 ```ts
-import { MerchantDevice } from 'adyenlib';
+import { MerchantDevice } from 'adyen';
 
 const merchantDevice: MerchantDevice = {
   os: 'os4',

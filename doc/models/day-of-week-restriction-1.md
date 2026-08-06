@@ -20,7 +20,7 @@ List of week days and the operation. Supported operations: **anyMatch**, **noneM
 ## Example
 
 ```ts
-import { DayOfWeekRestriction1, Value1 } from 'adyenlib';
+import { DayOfWeekRestriction1, Value1 } from 'adyen';
 
 const dayOfWeekRestriction1: DayOfWeekRestriction1 = {
   operation: 'operation6',

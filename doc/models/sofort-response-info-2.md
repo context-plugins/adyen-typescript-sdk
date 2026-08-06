@@ -20,7 +20,7 @@ Sofort details.
 ## Example
 
 ```ts
-import { SofortResponseInfo2 } from 'adyenlib';
+import { SofortResponseInfo2 } from 'adyen';
 
 const sofortResponseInfo2: SofortResponseInfo2 = {
   currencyCode: 'currencyCode6',

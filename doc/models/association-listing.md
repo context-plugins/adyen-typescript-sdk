@@ -28,7 +28,7 @@ import {
   AssociationStatus1,
   ScaDeviceType3,
   ScaEntityType2,
-} from 'adyenlib';
+} from 'adyen';
 
 const associationListing: AssociationListing = {
   createdAt: '2016-03-13T12:52:32.123Z',

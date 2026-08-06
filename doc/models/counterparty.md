@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Counterparty } from 'adyenlib';
+import { Counterparty } from 'adyen';
 
 const counterparty: Counterparty = {
   accountHolder: {

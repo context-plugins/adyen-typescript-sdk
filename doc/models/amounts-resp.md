@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { AmountsResp } from 'adyenlib';
+import { AmountsResp } from 'adyen';
 
 const amountsResp: AmountsResp = {
   authorizedAmount: 166.9,

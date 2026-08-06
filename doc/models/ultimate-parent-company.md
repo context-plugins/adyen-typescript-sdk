@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { UltimateParentCompany } from 'adyenlib';
+import { UltimateParentCompany } from 'adyen';
 
 const ultimateParentCompany: UltimateParentCompany = {
   address: {

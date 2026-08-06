@@ -19,7 +19,7 @@ Details to provide if `type` is **paybybank_plaid**.
 ## Example
 
 ```ts
-import { PayByBankPlaidUpdateInfo1, Type33 } from 'adyenlib';
+import { PayByBankPlaidUpdateInfo1, Type33 } from 'adyen';
 
 const payByBankPlaidUpdateInfo1: PayByBankPlaidUpdateInfo1 = {
   transactionDescription: {

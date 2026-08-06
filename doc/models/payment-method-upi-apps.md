@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { PaymentMethodUpiApps } from 'adyenlib';
+import { PaymentMethodUpiApps } from 'adyen';
 
 const paymentMethodUpiApps: PaymentMethodUpiApps = {
   id: 'id0',

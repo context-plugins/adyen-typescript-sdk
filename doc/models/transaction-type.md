@@ -20,7 +20,7 @@ Identify the type of the transaction being authenticated.
 ## Example
 
 ```ts
-import { TransactionType } from 'adyenlib';
+import { TransactionType } from 'adyen';
 
 const transactionType = TransactionType.PrepaidActivationAndLoad;
 ```

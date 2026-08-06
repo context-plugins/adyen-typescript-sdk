@@ -29,7 +29,7 @@
 ## Example
 
 ```ts
-import { SoleProprietorship } from 'adyenlib';
+import { SoleProprietorship } from 'adyen';
 
 const soleProprietorship: SoleProprietorship = {
   countryOfGoverningLaw: 'countryOfGoverningLaw2',

@@ -20,7 +20,7 @@ Informs you if the name validation was performed. Possible values:
 ## Example
 
 ```ts
-import { Status11 } from 'adyenlib';
+import { Status11 } from 'adyen';
 
 const status11 = Status11.Performed;
 ```

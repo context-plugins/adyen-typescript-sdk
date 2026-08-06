@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { EventUrl } from 'adyenlib';
+import { EventUrl } from 'adyen';
 
 const eventUrl: EventUrl = {
   eventLocalUrls: [

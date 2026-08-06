@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CalculateGrantOfferRequest } from 'adyenlib';
+import { CalculateGrantOfferRequest } from 'adyen';
 
 const calculateGrantOfferRequest: CalculateGrantOfferRequest = {
   amount: {

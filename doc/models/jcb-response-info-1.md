@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { JcbResponseInfo1, Type33 } from 'adyenlib';
+import { JcbResponseInfo1, Type33 } from 'adyen';
 
 const jcbResponseInfo1: JcbResponseInfo1 = {
   midNumber: 'midNumber8',

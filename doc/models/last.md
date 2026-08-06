@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { Last } from 'adyenlib';
+import { Last } from 'adyen';
 
 const last: Last = {
   href: 'href2',

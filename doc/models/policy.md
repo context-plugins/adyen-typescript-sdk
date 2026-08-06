@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { Policy } from 'adyenlib';
+import { Policy } from 'adyen';
 
 const policy: Policy = {
   resources: [

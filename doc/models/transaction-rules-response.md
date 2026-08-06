@@ -26,7 +26,7 @@ import {
   Type14,
   Unit,
   Value,
-} from 'adyenlib';
+} from 'adyen';
 
 const transactionRulesResponse: TransactionRulesResponse = {
   transactionRules: [

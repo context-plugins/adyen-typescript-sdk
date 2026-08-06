@@ -20,7 +20,7 @@ The amount of the transfer.
 ## Example
 
 ```ts
-import { Amount12 } from 'adyenlib';
+import { Amount12 } from 'adyen';
 
 const amount12: Amount12 = {
   currency: 'currency0',

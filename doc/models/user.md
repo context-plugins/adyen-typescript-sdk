@@ -26,7 +26,7 @@
 ## Example
 
 ```ts
-import { User } from 'adyenlib';
+import { User } from 'adyen';
 
 const user: User = {
   email: 'email6',

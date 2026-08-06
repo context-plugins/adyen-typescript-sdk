@@ -20,7 +20,7 @@ Details to provide if `type` is **vipps**.
 ## Example
 
 ```ts
-import { VippsInfo2 } from 'adyenlib';
+import { VippsInfo2 } from 'adyen';
 
 const vippsInfo2: VippsInfo2 = {
   logo: 'logo8',

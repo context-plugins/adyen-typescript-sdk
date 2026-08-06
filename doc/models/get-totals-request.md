@@ -21,7 +21,7 @@ Content of the Get Totals Request message.
 ## Example
 
 ```ts
-import { GetTotalsRequest, TotalDetail } from 'adyenlib';
+import { GetTotalsRequest, TotalDetail } from 'adyen';
 
 const getTotalsRequest: GetTotalsRequest = {
   totalDetails: [

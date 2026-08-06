@@ -31,7 +31,7 @@ Information about the sole proprietorship. Required if `type` is **soleProprieto
 ## Example
 
 ```ts
-import { SoleProprietorship1 } from 'adyenlib';
+import { SoleProprietorship1 } from 'adyen';
 
 const soleProprietorship1: SoleProprietorship1 = {
   countryOfGoverningLaw: 'countryOfGoverningLaw2',

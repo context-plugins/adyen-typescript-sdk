@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { SupportedCardTypes } from 'adyenlib';
+import { SupportedCardTypes } from 'adyen';
 
 const supportedCardTypes: SupportedCardTypes = {
   credit: false,

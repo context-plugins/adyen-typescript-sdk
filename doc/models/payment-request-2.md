@@ -33,7 +33,7 @@ import {
   PaymentRequest2,
   PaymentType1,
   PeriodUnit1,
-} from 'adyenlib';
+} from 'adyen';
 
 const paymentRequest2: PaymentRequest2 = {
   saleData: {

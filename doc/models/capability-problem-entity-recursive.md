@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { CapabilityProblemEntityRecursive, Type3 } from 'adyenlib';
+import { CapabilityProblemEntityRecursive, Type3 } from 'adyen';
 
 const capabilityProblemEntityRecursive: CapabilityProblemEntityRecursive = {
   documents: [

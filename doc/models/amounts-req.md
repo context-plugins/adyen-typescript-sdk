@@ -26,7 +26,7 @@ Various amounts related to the payment request from the Sale System.
 ## Example
 
 ```ts
-import { AmountsReq } from 'adyenlib';
+import { AmountsReq } from 'adyen';
 
 const amountsReq: AmountsReq = {
   currency: 'Currency2',

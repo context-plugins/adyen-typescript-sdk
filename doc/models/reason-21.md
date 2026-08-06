@@ -100,7 +100,7 @@ Additional information about the status of the transfer.
 ## Example
 
 ```ts
-import { Reason21 } from 'adyenlib';
+import { Reason21 } from 'adyen';
 
 const reason21 = Reason21.InvalidAmount;
 ```

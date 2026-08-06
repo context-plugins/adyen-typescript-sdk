@@ -20,7 +20,7 @@
 ## Example
 
 ```ts
-import { CostEstimateResponse } from 'adyenlib';
+import { CostEstimateResponse } from 'adyen';
 
 const costEstimateResponse: CostEstimateResponse = {
   cardBin: {

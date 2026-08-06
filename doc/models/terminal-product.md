@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { TerminalProduct } from 'adyenlib';
+import { TerminalProduct } from 'adyen';
 
 const terminalProduct: TerminalProduct = {
   description: 'description0',

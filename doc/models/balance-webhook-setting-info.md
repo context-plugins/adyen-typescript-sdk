@@ -28,7 +28,7 @@ import {
   Status19,
   Type18,
   Type20,
-} from 'adyenlib';
+} from 'adyen';
 
 const balanceWebhookSettingInfo: BalanceWebhookSettingInfo = {
   currency: 'currency8',

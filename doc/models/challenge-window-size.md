@@ -28,7 +28,7 @@ Possible values:
 ## Example
 
 ```ts
-import { ChallengeWindowSize } from 'adyenlib';
+import { ChallengeWindowSize } from 'adyen';
 
 const challengeWindowSize = ChallengeWindowSize.Enum02;
 ```

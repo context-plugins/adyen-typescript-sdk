@@ -21,7 +21,7 @@ Data related to the payment and loyalty transaction.
 ## Example
 
 ```ts
-import { LoyaltyHandling1, PaymentTransaction1 } from 'adyenlib';
+import { LoyaltyHandling1, PaymentTransaction1 } from 'adyen';
 
 const paymentTransaction1: PaymentTransaction1 = {
   amountsReq: {

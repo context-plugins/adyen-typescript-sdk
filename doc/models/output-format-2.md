@@ -24,7 +24,7 @@ Possible values:
 ## Example
 
 ```ts
-import { OutputFormat2 } from 'adyenlib';
+import { OutputFormat2 } from 'adyen';
 
 const outputFormat2 = OutputFormat2.MessageRef;
 ```

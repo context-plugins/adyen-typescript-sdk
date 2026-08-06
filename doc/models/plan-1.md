@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { Plan1 } from 'adyenlib';
+import { Plan1 } from 'adyen';
 
 const plan1 = Plan1.Bonus;
 ```

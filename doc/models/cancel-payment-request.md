@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { CancelPaymentRequest } from 'adyenlib';
+import { CancelPaymentRequest } from 'adyen';
 
 const cancelPaymentRequest: CancelPaymentRequest = {
   token: 'ewoJIlNvbWVUb2tlbiIgOiAiU29tZUluZm8iCn0=',

@@ -21,7 +21,7 @@ Result of a message request processing.
 ## Example
 
 ```ts
-import { ErrorCondition1, Response11, Result11 } from 'adyenlib';
+import { ErrorCondition1, Response11, Result11 } from 'adyen';
 
 const response11: Response11 = {
   result: Result11.Partial,

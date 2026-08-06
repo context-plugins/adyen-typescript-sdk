@@ -22,7 +22,7 @@
 ## Example
 
 ```ts
-import { PinSupport, ValuelinkResponseInfo2 } from 'adyenlib';
+import { PinSupport, ValuelinkResponseInfo2 } from 'adyen';
 
 const valuelinkResponseInfo2: ValuelinkResponseInfo2 = {
   authorisationMid: 'authorisationMid6',

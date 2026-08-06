@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { AdditionalSettingsResponse } from 'adyenlib';
+import { AdditionalSettingsResponse } from 'adyen';
 
 const additionalSettingsResponse: AdditionalSettingsResponse = {
   excludeEventCodes: [

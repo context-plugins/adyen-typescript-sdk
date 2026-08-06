@@ -19,7 +19,7 @@
 ## Example
 
 ```ts
-import { TransactionEventViolation } from 'adyenlib';
+import { TransactionEventViolation } from 'adyen';
 
 const transactionEventViolation: TransactionEventViolation = {
   reason: 'reason8',

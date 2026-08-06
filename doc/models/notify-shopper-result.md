@@ -23,7 +23,7 @@
 ## Example
 
 ```ts
-import { NotifyShopperResult } from 'adyenlib';
+import { NotifyShopperResult } from 'adyen';
 
 const notifyShopperResult: NotifyShopperResult = {
   displayedReference: 'displayedReference8',

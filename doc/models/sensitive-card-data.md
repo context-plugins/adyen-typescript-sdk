@@ -27,7 +27,7 @@ by the Sale System.
 ## Example
 
 ```ts
-import { SensitiveCardData, TrackFormat1 } from 'adyenlib';
+import { SensitiveCardData, TrackFormat1 } from 'adyen';
 
 const sensitiveCardData: SensitiveCardData = {
   pan: 28,

@@ -19,7 +19,7 @@ Contains the account number to which the payment funds are sent.
 ## Example
 
 ```ts
-import { AccountIdentification1 } from 'adyenlib';
+import { AccountIdentification1 } from 'adyen';
 
 const accountIdentification1: AccountIdentification1 = {
   type: 'AccountIdentification1',

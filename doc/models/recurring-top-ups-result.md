@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { RecurringTopUpsResult, ScheduleType1, Status211 } from 'adyenlib';
+import { RecurringTopUpsResult, ScheduleType1, Status211 } from 'adyen';
 
 const recurringTopUpsResult: RecurringTopUpsResult = {
   link: {

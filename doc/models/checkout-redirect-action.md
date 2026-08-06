@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { CheckoutRedirectAction, Type573 } from 'adyenlib';
+import { CheckoutRedirectAction, Type573 } from 'adyen';
 
 const checkoutRedirectAction: CheckoutRedirectAction = {
   type: Type573.Redirect,

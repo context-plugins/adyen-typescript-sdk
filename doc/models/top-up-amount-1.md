@@ -20,7 +20,7 @@ The currency and value to be added to the balance account, specified in minor un
 ## Example
 
 ```ts
-import { TopUpAmount1 } from 'adyenlib';
+import { TopUpAmount1 } from 'adyen';
 
 const topUpAmount1: TopUpAmount1 = {
   fixed: {

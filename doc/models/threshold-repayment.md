@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { ThresholdRepayment } from 'adyenlib';
+import { ThresholdRepayment } from 'adyen';
 
 const thresholdRepayment: ThresholdRepayment = {
   amount: {

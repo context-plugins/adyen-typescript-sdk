@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type86 } from 'adyenlib';
+import { Type86 } from 'adyen';
 
 const type86 = Type86.IssuingTransactionData;
 ```

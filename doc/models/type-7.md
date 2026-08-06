@@ -23,7 +23,7 @@ Possible values:
 ## Example
 
 ```ts
-import { Type7 } from 'adyenlib';
+import { Type7 } from 'adyen';
 
 const type7 = Type7.Pull;
 ```

@@ -18,7 +18,7 @@
 ## Example
 
 ```ts
-import { WifiProfiles } from 'adyenlib';
+import { WifiProfiles } from 'adyen';
 
 const wifiProfiles: WifiProfiles = {
   profiles: [

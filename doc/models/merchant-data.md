@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { MerchantData } from 'adyenlib';
+import { MerchantData } from 'adyen';
 
 const merchantData: MerchantData = {
   acquirerId: 'acquirerId6',

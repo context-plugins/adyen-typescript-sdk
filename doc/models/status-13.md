@@ -20,7 +20,7 @@ Possible values: **completed**, **pending**, **unavailable**.
 ## Example
 
 ```ts
-import { Status13 } from 'adyenlib';
+import { Status13 } from 'adyen';
 
 const status13 = Status13.Unavailable;
 ```

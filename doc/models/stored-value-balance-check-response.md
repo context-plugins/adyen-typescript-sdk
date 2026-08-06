@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { ResultCode3, StoredValueBalanceCheckResponse } from 'adyenlib';
+import { ResultCode3, StoredValueBalanceCheckResponse } from 'adyen';
 
 const storedValueBalanceCheckResponse: StoredValueBalanceCheckResponse = {
   currentBalance: {

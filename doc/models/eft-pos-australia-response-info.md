@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { EftPosAustraliaResponseInfo, Type33 } from 'adyenlib';
+import { EftPosAustraliaResponseInfo, Type33 } from 'adyen';
 
 const eftPosAustraliaResponseInfo: EftPosAustraliaResponseInfo = {
   transactionDescription: {

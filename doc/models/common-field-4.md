@@ -20,7 +20,7 @@ Adyen-developed software, such as libraries and plugins, used to interact with t
 ## Example
 
 ```ts
-import { CommonField4 } from 'adyenlib';
+import { CommonField4 } from 'adyen';
 
 const commonField4: CommonField4 = {
   name: 'name6',

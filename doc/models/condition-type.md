@@ -27,7 +27,7 @@ Define when you want to get notified about a balance change. Possible values:
 ## Example
 
 ```ts
-import { ConditionType } from 'adyenlib';
+import { ConditionType } from 'adyen';
 
 const conditionType = ConditionType.GreaterThan;
 ```

@@ -25,7 +25,7 @@ import {
   FieldName,
   Status1,
   UnSuspendAccountHolderResponse,
-} from 'adyenlib';
+} from 'adyen';
 
 const unSuspendAccountHolderResponse: UnSuspendAccountHolderResponse = {
   accountHolderStatus: {

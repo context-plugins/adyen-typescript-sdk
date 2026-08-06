@@ -17,7 +17,7 @@
 ## Example
 
 ```ts
-import { AssignTerminalsResponse } from 'adyenlib';
+import { AssignTerminalsResponse } from 'adyen';
 
 const assignTerminalsResponse: AssignTerminalsResponse = {
   results: {

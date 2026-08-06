@@ -22,7 +22,7 @@ Contains the results of the evaluation of the transaction rules.
 ## Example
 
 ```ts
-import { TransactionRulesResult2 } from 'adyenlib';
+import { TransactionRulesResult2 } from 'adyen';
 
 const transactionRulesResult2: TransactionRulesResult2 = {
   advice: 'advice4',

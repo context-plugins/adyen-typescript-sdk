@@ -20,7 +20,7 @@ Possible values:
 ## Example
 
 ```ts
-import { TypeCode } from 'adyenlib';
+import { TypeCode } from 'adyen';
 
 const typeCode = TypeCode.Personal;
 ```

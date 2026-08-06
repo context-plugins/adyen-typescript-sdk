@@ -31,7 +31,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { DeliveryAddressIndicator } from 'adyenlib';
+import { DeliveryAddressIndicator } from 'adyen';
 
 const deliveryAddressIndicator = DeliveryAddressIndicator.GoodsNotShipped;
 ```

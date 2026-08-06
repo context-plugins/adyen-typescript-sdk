@@ -21,7 +21,7 @@ Contains information about the status of the PIN delivery.
 ## Example
 
 ```ts
-import { CardOrderItemDeliveryStatus1, Status7 } from 'adyenlib';
+import { CardOrderItemDeliveryStatus1, Status7 } from 'adyen';
 
 const cardOrderItemDeliveryStatus1: CardOrderItemDeliveryStatus1 = {
   errorMessage: 'errorMessage0',

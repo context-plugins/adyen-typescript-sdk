@@ -21,7 +21,7 @@
 ## Example
 
 ```ts
-import { AssignTerminalsRequest } from 'adyenlib';
+import { AssignTerminalsRequest } from 'adyen';
 
 const assignTerminalsRequest: AssignTerminalsRequest = {
   companyAccount: 'companyAccount4',

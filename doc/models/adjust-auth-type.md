@@ -21,7 +21,7 @@ The type of adjustment. Possible values:
 ## Example
 
 ```ts
-import { AdjustAuthType } from 'adyenlib';
+import { AdjustAuthType } from 'adyen';
 
 const adjustAuthType = AdjustAuthType.CardholderInitiatedTransaction;
 ```

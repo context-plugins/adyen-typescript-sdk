@@ -21,7 +21,7 @@ Mandatory, if `OutputFormat` is MessageRef, not allowed otherwise.
 ## Example
 
 ```ts
-import { PredefinedContent1 } from 'adyenlib';
+import { PredefinedContent1 } from 'adyen';
 
 const predefinedContent1: PredefinedContent1 = {
   referenceId: 'ReferenceID6',

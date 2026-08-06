@@ -27,7 +27,7 @@ Allowed values:
 ## Example
 
 ```ts
-import { PasswordChangeIndicator } from 'adyenlib';
+import { PasswordChangeIndicator } from 'adyen';
 
 const passwordChangeIndicator = PasswordChangeIndicator.NotApplicable;
 ```

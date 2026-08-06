@@ -19,7 +19,7 @@ A short-lived URL that redirects the user to the iDEAL profile registration page
 ## Example
 
 ```ts
-import { Href5 } from 'adyenlib';
+import { Href5 } from 'adyen';
 
 const href5: Href5 = {
   href: 'https://someUrl',

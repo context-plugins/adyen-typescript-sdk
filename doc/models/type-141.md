@@ -21,7 +21,7 @@ Default payment method details. Common for scheme payment methods, and for simpl
 ## Example
 
 ```ts
-import { Type141 } from 'adyenlib';
+import { Type141 } from 'adyen';
 
 const type141 = Type141.NetworkToken;
 ```
