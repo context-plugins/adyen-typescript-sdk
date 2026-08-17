@@ -7,32 +7,30 @@
 import {
   isMappedValueValidForSchema,
   lazy,
-  nullable,
   oneOf,
   Schema,
-  unknown,
 } from '../../schema.js';
 import {
-  PatchableAmountDto,
-  patchableAmountDtoSchema,
-} from '../patchableAmountDto.js';
+  PatchableAmountDTO,
+  patchableAmountDTOSchema,
+} from '../patchableAmountDTO.js';
 
 /** This is a container type for one-of types. */
-export type PatchableTopUpAmount2Fixed = PatchableAmountDto | unknown | null;
+export type PatchableTopUpAmount2Fixed = PatchableAmountDTO;
 
 export const patchableTopUpAmount2FixedSchema: Schema<PatchableTopUpAmount2Fixed> = lazy(
-  () => oneOf([patchableAmountDtoSchema, nullable(unknown())])
+  () => oneOf([patchableAmountDTOSchema])
 );
 
 export namespace PatchableTopUpAmount2Fixed {
   /**
-   * Validation method to narrow down union type to PatchableAmountDto type case.
+   * Validation method to narrow down union type to PatchableAmountDTO type case.
    *
    * This is PatchableAmountDTO case.
    */
-  export function isPatchableAmountDto(
+  export function isPatchableAmountDTO(
     value: unknown
-  ): value is PatchableAmountDto {
-    return isMappedValueValidForSchema(value, patchableAmountDtoSchema);
+  ): value is PatchableAmountDTO {
+    return isMappedValueValidForSchema(value, patchableAmountDTOSchema);
   }
 }

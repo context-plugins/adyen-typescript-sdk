@@ -9,16 +9,18 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Device11, device11Schema } from './device11.js';
-import { InfoQualify1, infoQualify1Schema } from './infoQualify1.js';
+import { Device11Enum, device11EnumSchema } from './device11Enum.js';
+import {
+  InfoQualify1Enum,
+  infoQualify1EnumSchema,
+} from './infoQualify1Enum.js';
 import { MenuEntry, menuEntrySchema } from './menuEntry.js';
-import { OutputContent2, outputContent2Schema } from './outputContent2.js';
+import { OutputContent1, outputContent1Schema } from './outputContent1.js';
 
 /**
  * Information to display and the way to process the display.
@@ -29,9 +31,32 @@ export interface DisplayOutput1 {
   responseRequiredFlag?: boolean;
   /** Number of seconds the message has to be displayed. */
   minimumDisplayTime?: number;
-  device: Device11;
-  infoQualify: InfoQualify1;
-  outputContent: OutputContent2;
+  /**
+   * Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information to output (display, print, or store), or input (keyboard) for the Cashier or the Customer.
+   * Possible values:
+   * * **CashierDisplay**
+   * * **CashierInput**
+   * * **CustomerDisplay**
+   * * **CustomerInput**
+   */
+  device: Device11Enum;
+  /**
+   * Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send the information to a particular physical device or to present the information accordingly.
+   * Possible values:
+   * * **CustomerAssistance**
+   * * **Display**
+   * * **Document**
+   * * **Error**
+   * * **Input**
+   * * **POIReplication**
+   * * **Receipt**
+   * * **Sound**
+   * * **Status**
+   * * **Voucher**
+   */
+  infoQualify: InfoQualify1Enum;
+  /** Content to display or print. */
+  outputContent: OutputContent1;
   /** An entry of the menu to present to the Cashier. It conveys the message text and parameters of the menu entry. This output data could be only provided for an input command, in order to choose an entryof the menu. */
   menuEntry?: MenuEntry[];
   /**
@@ -39,21 +64,16 @@ export interface DisplayOutput1 {
    * If protection has to be provided to the vendor on the text to display or print.
    */
   outputSignature?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const displayOutput1Schema: Schema<DisplayOutput1> = lazy(() =>
-  typedExpandoObject(
-    {
-      responseRequiredFlag: ['ResponseRequiredFlag', optional(boolean())],
-      minimumDisplayTime: ['MinimumDisplayTime', optional(number())],
-      device: ['Device', device11Schema],
-      infoQualify: ['InfoQualify', infoQualify1Schema],
-      outputContent: ['OutputContent', outputContent2Schema],
-      menuEntry: ['MenuEntry', optional(array(menuEntrySchema))],
-      outputSignature: ['OutputSignature', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    responseRequiredFlag: ['ResponseRequiredFlag', optional(boolean())],
+    minimumDisplayTime: ['MinimumDisplayTime', optional(number())],
+    device: ['Device', device11EnumSchema],
+    infoQualify: ['InfoQualify', infoQualify1EnumSchema],
+    outputContent: ['OutputContent', outputContent1Schema],
+    menuEntry: ['MenuEntry', optional(array(menuEntrySchema))],
+    outputSignature: ['OutputSignature', optional(string())],
+  })
 );

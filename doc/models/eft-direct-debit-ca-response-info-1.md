@@ -1,36 +1,27 @@
 
-# Eft Direct Debit Ca Response Info 1
+# EFT Direct Debit CA Response Info 1
 
 **eft_directdebit_CA** (EFT PAD) details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`EftDirectDebitCaResponseInfo1`
+`EFTDirectDebitCAResponseInfo1`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionResponseInfo1 \| undefined`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```ts
-import { EftDirectDebitCaResponseInfo1, Type33 } from 'adyen';
+import { EFTDirectDebitCAResponseInfo1, Type8Enum } from 'adyen';
 
-const eftDirectDebitCaResponseInfo1: EftDirectDebitCaResponseInfo1 = {
+const eFTDirectDebitCAResponseInfo1: EFTDirectDebitCAResponseInfo1 = {
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

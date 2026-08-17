@@ -8,294 +8,412 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  AccelResponseInfo,
-  accelResponseInfoSchema,
-} from './accelResponseInfo.js';
-import { AccelUpdateInfo, accelUpdateInfoSchema } from './accelUpdateInfo.js';
+  AccelResponseInfo1,
+  accelResponseInfo1Schema,
+} from './accelResponseInfo1.js';
 import {
-  AffirmResponseInfo,
-  affirmResponseInfoSchema,
-} from './affirmResponseInfo.js';
+  AffirmResponseInfo1,
+  affirmResponseInfo1Schema,
+} from './affirmResponseInfo1.js';
 import {
-  AfterpayTouchResponseInfo,
-  afterpayTouchResponseInfoSchema,
-} from './afterpayTouchResponseInfo.js';
+  AfterpayTouchResponseInfo1,
+  afterpayTouchResponseInfo1Schema,
+} from './afterpayTouchResponseInfo1.js';
 import {
-  AlipayPlusResponseInfo,
-  alipayPlusResponseInfoSchema,
-} from './alipayPlusResponseInfo.js';
+  AlipayPlusResponseInfo1,
+  alipayPlusResponseInfo1Schema,
+} from './alipayPlusResponseInfo1.js';
 import {
-  AmexResponseInfo,
-  amexResponseInfoSchema,
-} from './amexResponseInfo.js';
+  AmexResponseInfo1,
+  amexResponseInfo1Schema,
+} from './amexResponseInfo1.js';
 import {
-  ApplePayResponseInfo,
-  applePayResponseInfoSchema,
-} from './applePayResponseInfo.js';
+  ApplePayResponseInfo1,
+  applePayResponseInfo1Schema,
+} from './applePayResponseInfo1.js';
 import {
   AssociatedPaymentMethod,
   associatedPaymentMethodSchema,
 } from './associatedPaymentMethod.js';
 import {
-  BcmcResponseInfo,
-  bcmcResponseInfoSchema,
-} from './bcmcResponseInfo.js';
+  BcmcResponseInfo1,
+  bcmcResponseInfo1Schema,
+} from './bcmcResponseInfo1.js';
 import {
-  CartesBancairesResponseInfo,
-  cartesBancairesResponseInfoSchema,
-} from './cartesBancairesResponseInfo.js';
+  CarnetResponseInfo1,
+  carnetResponseInfo1Schema,
+} from './carnetResponseInfo1.js';
 import {
-  ClearpayResponseInfo,
-  clearpayResponseInfoSchema,
-} from './clearpayResponseInfo.js';
+  CartesBancairesResponseInfo1,
+  cartesBancairesResponseInfo1Schema,
+} from './cartesBancairesResponseInfo1.js';
 import {
-  DinersResponseInfo,
-  dinersResponseInfoSchema,
-} from './dinersResponseInfo.js';
+  ClearpayResponseInfo1,
+  clearpayResponseInfo1Schema,
+} from './clearpayResponseInfo1.js';
 import {
-  GivexResponseInfo,
-  givexResponseInfoSchema,
-} from './givexResponseInfo.js';
+  CupResponseInfo1,
+  cupResponseInfo1Schema,
+} from './cupResponseInfo1.js';
 import {
-  GooglePayResponseInfo,
-  googlePayResponseInfoSchema,
-} from './googlePayResponseInfo.js';
-import { JcbResponseInfo, jcbResponseInfoSchema } from './jcbResponseInfo.js';
+  DinersResponseInfo1,
+  dinersResponseInfo1Schema,
+} from './dinersResponseInfo1.js';
 import {
-  KlarnaResponseInfo,
-  klarnaResponseInfoSchema,
-} from './klarnaResponseInfo.js';
+  DiscoverResponseInfo1,
+  discoverResponseInfo1Schema,
+} from './discoverResponseInfo1.js';
 import {
-  MealVoucherFrResponseInfo,
-  mealVoucherFrResponseInfoSchema,
-} from './mealVoucherFrResponseInfo.js';
+  EFTDirectDebitCAResponseInfo1,
+  eFTDirectDebitCAResponseInfo1Schema,
+} from './eFTDirectDebitCAResponseInfo1.js';
 import {
-  PayByBankPlaidResponseInfo,
-  payByBankPlaidResponseInfoSchema,
-} from './payByBankPlaidResponseInfo.js';
+  EftPosAustraliaResponseInfo1,
+  eftPosAustraliaResponseInfo1Schema,
+} from './eftPosAustraliaResponseInfo1.js';
 import {
-  PayMeResponseInfo,
-  payMeResponseInfoSchema,
-} from './payMeResponseInfo.js';
+  GirocardResponseInfo1,
+  girocardResponseInfo1Schema,
+} from './girocardResponseInfo1.js';
 import {
-  PayPalResponseInfo,
-  payPalResponseInfoSchema,
-} from './payPalResponseInfo.js';
+  GivexResponseInfo1,
+  givexResponseInfo1Schema,
+} from './givexResponseInfo1.js';
 import {
-  PayToResponseInfo,
-  payToResponseInfoSchema,
-} from './payToResponseInfo.js';
+  GooglePayResponseInfo1,
+  googlePayResponseInfo1Schema,
+} from './googlePayResponseInfo1.js';
 import {
-  SepaDirectDebitInfo,
-  sepaDirectDebitInfoSchema,
-} from './sepaDirectDebitInfo.js';
+  IdealResponseInfo1,
+  idealResponseInfo1Schema,
+} from './idealResponseInfo1.js';
 import {
-  SodexoResponseInfo,
-  sodexoResponseInfoSchema,
-} from './sodexoResponseInfo.js';
+  InteracCardResponseInfo1,
+  interacCardResponseInfo1Schema,
+} from './interacCardResponseInfo1.js';
 import {
-  SofortResponseInfo,
-  sofortResponseInfoSchema,
-} from './sofortResponseInfo.js';
-import { SvsResponseInfo, svsResponseInfoSchema } from './svsResponseInfo.js';
+  JCBResponseInfo1,
+  jCBResponseInfo1Schema,
+} from './jCBResponseInfo1.js';
 import {
-  SwishResponseInfo,
-  swishResponseInfoSchema,
-} from './swishResponseInfo.js';
-import { TicketInfo, ticketInfoSchema } from './ticketInfo.js';
+  KlarnaResponseInfo1,
+  klarnaResponseInfo1Schema,
+} from './klarnaResponseInfo1.js';
 import {
-  TwintResponseInfo,
-  twintResponseInfoSchema,
-} from './twintResponseInfo.js';
+  MaestroResponseInfo1,
+  maestroResponseInfo1Schema,
+} from './maestroResponseInfo1.js';
 import {
-  ValuelinkResponseInfo,
-  valuelinkResponseInfoSchema,
-} from './valuelinkResponseInfo.js';
+  MaestroUSAResponseInfo1,
+  maestroUSAResponseInfo1Schema,
+} from './maestroUSAResponseInfo1.js';
+import { MCResponseInfo1, mCResponseInfo1Schema } from './mCResponseInfo1.js';
 import {
-  VerificationStatus,
-  verificationStatusSchema,
-} from './verificationStatus.js';
+  MealVoucherFRResponseInfo1,
+  mealVoucherFRResponseInfo1Schema,
+} from './mealVoucherFRResponseInfo1.js';
 import {
-  VippsResponseInfo,
-  vippsResponseInfoSchema,
-} from './vippsResponseInfo.js';
+  NyceResponseInfo1,
+  nyceResponseInfo1Schema,
+} from './nyceResponseInfo1.js';
 import {
-  WeChatPayPosResponseInfo,
-  weChatPayPosResponseInfoSchema,
-} from './weChatPayPosResponseInfo.js';
+  PayByBankPlaidResponseInfo1,
+  payByBankPlaidResponseInfo1Schema,
+} from './payByBankPlaidResponseInfo1.js';
+import {
+  PayMeResponseInfo1,
+  payMeResponseInfo1Schema,
+} from './payMeResponseInfo1.js';
+import {
+  PayPalResponseInfo1,
+  payPalResponseInfo1Schema,
+} from './payPalResponseInfo1.js';
+import {
+  PayToResponseInfo1,
+  payToResponseInfo1Schema,
+} from './payToResponseInfo1.js';
+import {
+  PulseResponseInfo2,
+  pulseResponseInfo2Schema,
+} from './pulseResponseInfo2.js';
+import {
+  SepaDirectDebitResponseInfo2,
+  sepaDirectDebitResponseInfo2Schema,
+} from './sepaDirectDebitResponseInfo2.js';
+import {
+  SodexoResponseInfo2,
+  sodexoResponseInfo2Schema,
+} from './sodexoResponseInfo2.js';
+import {
+  SofortResponseInfo2,
+  sofortResponseInfo2Schema,
+} from './sofortResponseInfo2.js';
+import {
+  StarResponseInfo2,
+  starResponseInfo2Schema,
+} from './starResponseInfo2.js';
+import {
+  SvsResponseInfo2,
+  svsResponseInfo2Schema,
+} from './svsResponseInfo2.js';
+import {
+  SwishResponseInfo2,
+  swishResponseInfo2Schema,
+} from './swishResponseInfo2.js';
+import {
+  TicketResponseInfo2,
+  ticketResponseInfo2Schema,
+} from './ticketResponseInfo2.js';
+import {
+  TwintResponseInfo2,
+  twintResponseInfo2Schema,
+} from './twintResponseInfo2.js';
+import {
+  ValuelinkResponseInfo2,
+  valuelinkResponseInfo2Schema,
+} from './valuelinkResponseInfo2.js';
+import {
+  VerificationStatusEnum,
+  verificationStatusEnumSchema,
+} from './verificationStatusEnum.js';
+import {
+  VippsResponseInfo2,
+  vippsResponseInfo2Schema,
+} from './vippsResponseInfo2.js';
+import {
+  VisaResponseInfo2,
+  visaResponseInfo2Schema,
+} from './visaResponseInfo2.js';
+import {
+  WeChatPayPosResponseInfo2,
+  weChatPayPosResponseInfo2Schema,
+} from './weChatPayPosResponseInfo2.js';
+import {
+  WeChatPayResponseInfo2,
+  weChatPayResponseInfo2Schema,
+} from './weChatPayResponseInfo2.js';
 
 export interface ManagementPaymentMethod {
-  accel?: AccelResponseInfo;
-  affirm?: AffirmResponseInfo;
-  afterpayTouch?: AfterpayTouchResponseInfo;
-  alipayPlus?: AlipayPlusResponseInfo;
+  /** **accel** details */
+  accel?: AccelResponseInfo1;
+  /** *affirm** details */
+  affirm?: AffirmResponseInfo1;
+  /** **afterpaytouch** details */
+  afterpayTouch?: AfterpayTouchResponseInfo1;
+  /** **alipay_plus** details */
+  alipayPlus?: AlipayPlusResponseInfo1;
   /** Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account. */
   allowed?: boolean;
-  amex?: AmexResponseInfo;
-  applePay?: ApplePayResponseInfo;
+  /** **amex** details */
+  amex?: AmexResponseInfo1;
+  /** **applepay** details */
+  applePay?: ApplePayResponseInfo1;
   /** Payment methods that were also updated as part of an associated transition. */
   associatedPaymentMethods?: AssociatedPaymentMethod[];
-  bcmc?: BcmcResponseInfo;
+  /** **bcmc** (Bancontact) details */
+  bcmc?: BcmcResponseInfo1;
   /** The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms). */
   businessLineId?: string;
-  carnet?: AccelUpdateInfo;
-  cartesBancaires?: CartesBancairesResponseInfo;
-  clearpay?: ClearpayResponseInfo;
+  /** **carnet** details */
+  carnet?: CarnetResponseInfo1;
+  /** **cartesbancaire** details */
+  cartesBancaires?: CartesBancairesResponseInfo1;
+  /** **clearpay** details */
+  clearpay?: ClearpayResponseInfo1;
   /** The list of countries where a payment method is available. By default, all countries supported by the payment method. */
   countries?: string[];
-  cup?: AccelUpdateInfo;
+  /** **cup** (China Union Pay) details */
+  cup?: CupResponseInfo1;
   /** The list of currencies that a payment method supports. By default, all currencies supported by the payment method. */
   currencies?: string[];
   /** The list of custom routing flags to route payment to the intended acquirer. */
   customRoutingFlags?: string[];
-  diners?: DinersResponseInfo;
-  discover?: AccelUpdateInfo;
-  eftDirectdebitCa?: AccelUpdateInfo;
-  eftposAustralia?: AccelUpdateInfo;
+  /** **diners** details */
+  diners?: DinersResponseInfo1;
+  /** **discover**. details */
+  discover?: DiscoverResponseInfo1;
+  /** **eft_directdebit_CA** (EFT PAD) details */
+  eftDirectdebitCA?: EFTDirectDebitCAResponseInfo1;
+  /** **eftpos_australia** details */
+  eftposAustralia?: EftPosAustraliaResponseInfo1;
   /** Indicates whether the payment method is enabled (**true**) or disabled (**false**). */
   enabled?: boolean;
-  girocard?: AccelUpdateInfo;
-  givex?: GivexResponseInfo;
-  googlePay?: GooglePayResponseInfo;
+  /** **girocard** details */
+  girocard?: GirocardResponseInfo1;
+  /** **givex** details */
+  givex?: GivexResponseInfo1;
+  /** **googlepay** details */
+  googlePay?: GooglePayResponseInfo1;
   /** The identifier of the resource. */
   id: string;
-  ideal?: AccelUpdateInfo;
-  interacCard?: AccelUpdateInfo;
-  jcb?: JcbResponseInfo;
-  klarna?: KlarnaResponseInfo;
-  maestro?: AccelUpdateInfo;
-  maestroUsa?: AccelUpdateInfo;
-  mc?: AccelUpdateInfo;
-  mealVoucherFr?: MealVoucherFrResponseInfo;
-  nyce?: AccelResponseInfo;
-  paybybankPlaid?: PayByBankPlaidResponseInfo;
-  payme?: PayMeResponseInfo;
-  paypal?: PayPalResponseInfo;
-  payto?: PayToResponseInfo;
-  pulse?: AccelResponseInfo;
+  /** **ideal** details */
+  ideal?: IdealResponseInfo1;
+  /** **interac_card** details */
+  interacCard?: InteracCardResponseInfo1;
+  /** **jcb** details */
+  jcb?: JCBResponseInfo1;
+  /** **klarna** or its variant details */
+  klarna?: KlarnaResponseInfo1;
+  /** **maestro** details */
+  maestro?: MaestroResponseInfo1;
+  /** Details to provide if `type` is **maestro_usa** details */
+  maestroUsa?: MaestroUSAResponseInfo1;
+  /** **mc** details */
+  mc?: MCResponseInfo1;
+  /** **mealVoucher_FR** details */
+  mealVoucherFR?: MealVoucherFRResponseInfo1;
+  /** **nyce** details */
+  nyce?: NyceResponseInfo1;
+  /** **paybybank_plaid** details */
+  paybybankPlaid?: PayByBankPlaidResponseInfo1;
+  /** **payme** details */
+  payme?: PayMeResponseInfo1;
+  /** **paypal** details */
+  paypal?: PayPalResponseInfo1;
+  /** **payto** details */
+  payto?: PayToResponseInfo1;
+  /** **pulse** details */
+  pulse?: PulseResponseInfo2;
   /** Your reference for the payment method. Supported characters a-z, A-Z, 0-9. */
   reference?: string;
-  sepadirectdebit?: SepaDirectDebitInfo;
+  /** **sepadirectdebit** details */
+  sepadirectdebit?: SepaDirectDebitResponseInfo2;
   /** The sales channel. */
   shopperInteraction?: string;
-  sodexo?: SodexoResponseInfo;
-  sofort?: SofortResponseInfo;
-  star?: AccelResponseInfo;
+  /** **sodexo** details */
+  sodexo?: SodexoResponseInfo2;
+  /** Sofort details. */
+  sofort?: SofortResponseInfo2;
+  /** **star** details */
+  star?: StarResponseInfo2;
   /** The unique identifier of the store for which to configure the payment method, if any. */
   storeIds?: string[];
-  svs?: SvsResponseInfo;
-  swish?: SwishResponseInfo;
-  ticket?: TicketInfo;
-  twint?: TwintResponseInfo;
+  /** **svs** details */
+  svs?: SvsResponseInfo2;
+  /** **swish** or its variant details */
+  swish?: SwishResponseInfo2;
+  /** **ticket** (Edenred Brazil) details */
+  ticket?: TicketResponseInfo2;
+  /** **twint** details */
+  twint?: TwintResponseInfo2;
   /** Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). */
   type?: string;
-  valuelink?: ValuelinkResponseInfo;
-  verificationStatus?: VerificationStatus;
-  vipps?: VippsResponseInfo;
-  visa?: AccelUpdateInfo;
-  wechatpay?: WeChatPayPosResponseInfo;
-  wechatpayPos?: WeChatPayPosResponseInfo;
-  additionalProperties?: Record<string, unknown>;
+  /** **valuelink** details */
+  valuelink?: ValuelinkResponseInfo2;
+  /**
+   * Payment method status. Possible values:
+   * * **valid**
+   * * **pending**
+   * * **invalid**
+   * * **rejected**
+   */
+  verificationStatus?: VerificationStatusEnum;
+  /** **vipps** details */
+  vipps?: VippsResponseInfo2;
+  /** **visa** details */
+  visa?: VisaResponseInfo2;
+  /** **wechatpay** details */
+  wechatpay?: WeChatPayResponseInfo2;
+  /** **wechatpay_pos** details */
+  wechatpayPos?: WeChatPayPosResponseInfo2;
 }
 
 export const managementPaymentMethodSchema: Schema<ManagementPaymentMethod> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accel: ['accel', optional(accelResponseInfoSchema)],
-        affirm: ['affirm', optional(affirmResponseInfoSchema)],
-        afterpayTouch: [
-          'afterpayTouch',
-          optional(afterpayTouchResponseInfoSchema),
-        ],
-        alipayPlus: ['alipayPlus', optional(alipayPlusResponseInfoSchema)],
-        allowed: ['allowed', optional(boolean())],
-        amex: ['amex', optional(amexResponseInfoSchema)],
-        applePay: ['applePay', optional(applePayResponseInfoSchema)],
-        associatedPaymentMethods: [
-          'associatedPaymentMethods',
-          optional(array(associatedPaymentMethodSchema)),
-        ],
-        bcmc: ['bcmc', optional(bcmcResponseInfoSchema)],
-        businessLineId: ['businessLineId', optional(string())],
-        carnet: ['carnet', optional(accelUpdateInfoSchema)],
-        cartesBancaires: [
-          'cartesBancaires',
-          optional(cartesBancairesResponseInfoSchema),
-        ],
-        clearpay: ['clearpay', optional(clearpayResponseInfoSchema)],
-        countries: ['countries', optional(array(string()))],
-        cup: ['cup', optional(accelUpdateInfoSchema)],
-        currencies: ['currencies', optional(array(string()))],
-        customRoutingFlags: ['customRoutingFlags', optional(array(string()))],
-        diners: ['diners', optional(dinersResponseInfoSchema)],
-        discover: ['discover', optional(accelUpdateInfoSchema)],
-        eftDirectdebitCa: [
-          'eft_directdebit_CA',
-          optional(accelUpdateInfoSchema),
-        ],
-        eftposAustralia: ['eftpos_australia', optional(accelUpdateInfoSchema)],
-        enabled: ['enabled', optional(boolean())],
-        girocard: ['girocard', optional(accelUpdateInfoSchema)],
-        givex: ['givex', optional(givexResponseInfoSchema)],
-        googlePay: ['googlePay', optional(googlePayResponseInfoSchema)],
-        id: ['id', string()],
-        ideal: ['ideal', optional(accelUpdateInfoSchema)],
-        interacCard: ['interac_card', optional(accelUpdateInfoSchema)],
-        jcb: ['jcb', optional(jcbResponseInfoSchema)],
-        klarna: ['klarna', optional(klarnaResponseInfoSchema)],
-        maestro: ['maestro', optional(accelUpdateInfoSchema)],
-        maestroUsa: ['maestro_usa', optional(accelUpdateInfoSchema)],
-        mc: ['mc', optional(accelUpdateInfoSchema)],
-        mealVoucherFr: [
-          'mealVoucher_FR',
-          optional(mealVoucherFrResponseInfoSchema),
-        ],
-        nyce: ['nyce', optional(accelResponseInfoSchema)],
-        paybybankPlaid: [
-          'paybybank_plaid',
-          optional(payByBankPlaidResponseInfoSchema),
-        ],
-        payme: ['payme', optional(payMeResponseInfoSchema)],
-        paypal: ['paypal', optional(payPalResponseInfoSchema)],
-        payto: ['payto', optional(payToResponseInfoSchema)],
-        pulse: ['pulse', optional(accelResponseInfoSchema)],
-        reference: ['reference', optional(string())],
-        sepadirectdebit: [
-          'sepadirectdebit',
-          optional(sepaDirectDebitInfoSchema),
-        ],
-        shopperInteraction: ['shopperInteraction', optional(string())],
-        sodexo: ['sodexo', optional(sodexoResponseInfoSchema)],
-        sofort: ['sofort', optional(sofortResponseInfoSchema)],
-        star: ['star', optional(accelResponseInfoSchema)],
-        storeIds: ['storeIds', optional(array(string()))],
-        svs: ['svs', optional(svsResponseInfoSchema)],
-        swish: ['swish', optional(swishResponseInfoSchema)],
-        ticket: ['ticket', optional(ticketInfoSchema)],
-        twint: ['twint', optional(twintResponseInfoSchema)],
-        type: ['type', optional(string())],
-        valuelink: ['valuelink', optional(valuelinkResponseInfoSchema)],
-        verificationStatus: [
-          'verificationStatus',
-          optional(verificationStatusSchema),
-        ],
-        vipps: ['vipps', optional(vippsResponseInfoSchema)],
-        visa: ['visa', optional(accelUpdateInfoSchema)],
-        wechatpay: ['wechatpay', optional(weChatPayPosResponseInfoSchema)],
-        wechatpayPos: [
-          'wechatpay_pos',
-          optional(weChatPayPosResponseInfoSchema),
-        ],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accel: ['accel', optional(accelResponseInfo1Schema)],
+      affirm: ['affirm', optional(affirmResponseInfo1Schema)],
+      afterpayTouch: [
+        'afterpayTouch',
+        optional(afterpayTouchResponseInfo1Schema),
+      ],
+      alipayPlus: ['alipayPlus', optional(alipayPlusResponseInfo1Schema)],
+      allowed: ['allowed', optional(boolean())],
+      amex: ['amex', optional(amexResponseInfo1Schema)],
+      applePay: ['applePay', optional(applePayResponseInfo1Schema)],
+      associatedPaymentMethods: [
+        'associatedPaymentMethods',
+        optional(array(associatedPaymentMethodSchema)),
+      ],
+      bcmc: ['bcmc', optional(bcmcResponseInfo1Schema)],
+      businessLineId: ['businessLineId', optional(string())],
+      carnet: ['carnet', optional(carnetResponseInfo1Schema)],
+      cartesBancaires: [
+        'cartesBancaires',
+        optional(cartesBancairesResponseInfo1Schema),
+      ],
+      clearpay: ['clearpay', optional(clearpayResponseInfo1Schema)],
+      countries: ['countries', optional(array(string()))],
+      cup: ['cup', optional(cupResponseInfo1Schema)],
+      currencies: ['currencies', optional(array(string()))],
+      customRoutingFlags: ['customRoutingFlags', optional(array(string()))],
+      diners: ['diners', optional(dinersResponseInfo1Schema)],
+      discover: ['discover', optional(discoverResponseInfo1Schema)],
+      eftDirectdebitCA: [
+        'eft_directdebit_CA',
+        optional(eFTDirectDebitCAResponseInfo1Schema),
+      ],
+      eftposAustralia: [
+        'eftpos_australia',
+        optional(eftPosAustraliaResponseInfo1Schema),
+      ],
+      enabled: ['enabled', optional(boolean())],
+      girocard: ['girocard', optional(girocardResponseInfo1Schema)],
+      givex: ['givex', optional(givexResponseInfo1Schema)],
+      googlePay: ['googlePay', optional(googlePayResponseInfo1Schema)],
+      id: ['id', string()],
+      ideal: ['ideal', optional(idealResponseInfo1Schema)],
+      interacCard: ['interac_card', optional(interacCardResponseInfo1Schema)],
+      jcb: ['jcb', optional(jCBResponseInfo1Schema)],
+      klarna: ['klarna', optional(klarnaResponseInfo1Schema)],
+      maestro: ['maestro', optional(maestroResponseInfo1Schema)],
+      maestroUsa: ['maestro_usa', optional(maestroUSAResponseInfo1Schema)],
+      mc: ['mc', optional(mCResponseInfo1Schema)],
+      mealVoucherFR: [
+        'mealVoucher_FR',
+        optional(mealVoucherFRResponseInfo1Schema),
+      ],
+      nyce: ['nyce', optional(nyceResponseInfo1Schema)],
+      paybybankPlaid: [
+        'paybybank_plaid',
+        optional(payByBankPlaidResponseInfo1Schema),
+      ],
+      payme: ['payme', optional(payMeResponseInfo1Schema)],
+      paypal: ['paypal', optional(payPalResponseInfo1Schema)],
+      payto: ['payto', optional(payToResponseInfo1Schema)],
+      pulse: ['pulse', optional(pulseResponseInfo2Schema)],
+      reference: ['reference', optional(string())],
+      sepadirectdebit: [
+        'sepadirectdebit',
+        optional(sepaDirectDebitResponseInfo2Schema),
+      ],
+      shopperInteraction: ['shopperInteraction', optional(string())],
+      sodexo: ['sodexo', optional(sodexoResponseInfo2Schema)],
+      sofort: ['sofort', optional(sofortResponseInfo2Schema)],
+      star: ['star', optional(starResponseInfo2Schema)],
+      storeIds: ['storeIds', optional(array(string()))],
+      svs: ['svs', optional(svsResponseInfo2Schema)],
+      swish: ['swish', optional(swishResponseInfo2Schema)],
+      ticket: ['ticket', optional(ticketResponseInfo2Schema)],
+      twint: ['twint', optional(twintResponseInfo2Schema)],
+      type: ['type', optional(string())],
+      valuelink: ['valuelink', optional(valuelinkResponseInfo2Schema)],
+      verificationStatus: [
+        'verificationStatus',
+        optional(verificationStatusEnumSchema),
+      ],
+      vipps: ['vipps', optional(vippsResponseInfo2Schema)],
+      visa: ['visa', optional(visaResponseInfo2Schema)],
+      wechatpay: ['wechatpay', optional(weChatPayResponseInfo2Schema)],
+      wechatpayPos: [
+        'wechatpay_pos',
+        optional(weChatPayPosResponseInfo2Schema),
+      ],
+    })
 );

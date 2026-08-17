@@ -1,8 +1,6 @@
 
 # Approve Association Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ApproveAssociationRequest`
@@ -12,32 +10,28 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `entityId` | `string` | Required | The unique identifier of the entity.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `100` |
-| `entityType` | [`ScaEntityType2`](../../doc/models/sca-entity-type-2.md) | Required | - |
+| `entityType` | [`ScaEntityType2Enum`](../../doc/models/sca-entity-type-2-enum.md) | Required | The type of the entity.<br><br>Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**. |
 | `scaDeviceIds` | `string[]` | Required | List of device ids associated to the entity that will be approved.<br><br>**Constraints**: *Minimum Items*: `0`, *Maximum Items*: `5`, *Minimum Length*: `30`, *Maximum Length*: `30` |
-| `status` | [`AssociationStatus1`](../../doc/models/association-status-1.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`AssociationStatus1Enum`](../../doc/models/association-status-1-enum.md) | Required | The status of the association.<br><br>Possible values: **active** or **pendingApproval**. |
 
 ## Example
 
 ```ts
 import {
   ApproveAssociationRequest,
-  AssociationStatus1,
-  ScaEntityType2,
+  AssociationStatus1Enum,
+  ScaEntityType2Enum,
 } from 'adyen';
 
 const approveAssociationRequest: ApproveAssociationRequest = {
   entityId: 'entityId8',
-  entityType: ScaEntityType2.PaymentInstrument,
+  entityType: ScaEntityType2Enum.PaymentInstrument,
   scaDeviceIds: [
     'scaDeviceIds4',
     'scaDeviceIds5',
     'scaDeviceIds6'
   ],
-  status: AssociationStatus1.PendingApproval,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  status: AssociationStatus1Enum.PendingApproval,
 };
 ```
 

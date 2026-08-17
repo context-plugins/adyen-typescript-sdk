@@ -10,8 +10,6 @@ Supported value inputs:
 - **balanceAccount**
 - **businessAccount**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SourceAccountTypesRestriction1`
@@ -21,23 +19,19 @@ Supported value inputs:
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value5[] \| undefined`](../../doc/models/value-5.md) | Optional | The list of source account types to be evaluated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`Value5Enum[] \| undefined`](../../doc/models/value-5-enum.md) | Optional | The list of source account types to be evaluated. |
 
 ## Example
 
 ```ts
-import { SourceAccountTypesRestriction1, Value5 } from 'adyen';
+import { SourceAccountTypesRestriction1, Value5Enum } from 'adyen';
 
 const sourceAccountTypesRestriction1: SourceAccountTypesRestriction1 = {
   operation: 'operation6',
   value: [
-    Value5.BalanceAccount,
-    Value5.BusinessAccount
+    Value5Enum.BalanceAccount,
+    Value5Enum.BusinessAccount
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -24,6 +24,7 @@
 
 ```ts
 const value: ScheduleTerminalActionsResponseActionDetails = {
+  type: Type210Enum.ForceReboot,
 };
 ```
 
@@ -35,6 +36,7 @@ const value: ScheduleTerminalActionsResponseActionDetails = {
 
 ```ts
 const value: ScheduleTerminalActionsResponseActionDetails = {
+  type: Type32Enum.InstallAndroidApp,
 };
 ```
 
@@ -46,6 +48,7 @@ const value: ScheduleTerminalActionsResponseActionDetails = {
 
 ```ts
 const value: ScheduleTerminalActionsResponseActionDetails = {
+  type: Type42Enum.InstallAndroidCertificate,
 };
 ```
 
@@ -57,6 +60,7 @@ const value: ScheduleTerminalActionsResponseActionDetails = {
 
 ```ts
 const value: ScheduleTerminalActionsResponseActionDetails = {
+  type: Type61Enum.ReleaseUpdate,
 };
 ```
 
@@ -68,6 +72,7 @@ const value: ScheduleTerminalActionsResponseActionDetails = {
 
 ```ts
 const value: ScheduleTerminalActionsResponseActionDetails = {
+  type: Type71Enum.UninstallAndroidApp,
 };
 ```
 
@@ -79,6 +84,7 @@ const value: ScheduleTerminalActionsResponseActionDetails = {
 
 ```ts
 const value: ScheduleTerminalActionsResponseActionDetails = {
+  type: Type81Enum.UninstallAndroidCertificate,
 };
 ```
 

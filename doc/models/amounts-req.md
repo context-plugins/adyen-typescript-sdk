@@ -3,8 +3,6 @@
 
 Various amounts related to the payment request from the Sale System.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AmountsReq`
@@ -21,7 +19,6 @@ Various amounts related to the payment request from the Sale System.
 | `minimumAmountToDeliver` | `number \| undefined` | Optional | Minimum amount the Sale System is allowed to deliver for this payment. For the OneTimeReservation, when the maximum amount is unknown, the Sale System indicates the minimum amount it allows.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `maximumCashBackAmount` | `number \| undefined` | Optional | Maximum amount which could be requested for cash-back to the Sale System. Allows the Cashier<br>to limit the amount value of cash-back to deliver to the Customer.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `minimumSplitAmount` | `number \| undefined` | Optional | Minimum amount of a split, which could be requested by a Customer.Allows the Merchant to limit the number of split requested by the Customer.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const amountsReq: AmountsReq = {
   paidAmount: 119.66,
   minimumAmountToDeliver: 209.06,
   maximumCashBackAmount: 98.86,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

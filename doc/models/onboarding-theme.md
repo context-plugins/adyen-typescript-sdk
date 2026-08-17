@@ -1,8 +1,6 @@
 
 # Onboarding Theme
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OnboardingTheme`
@@ -16,7 +14,6 @@
 | `id` | `string` | Required | The unique identifier of the theme. |
 | `properties` | `Record<string, string>` | Required | The properties of the theme. |
 | `updatedAt` | `string \| undefined` | Optional | The date when the theme was last updated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const onboardingTheme: OnboardingTheme = {
   },
   description: 'description4',
   updatedAt: '2016-03-13T12:52:32.123Z',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Uninstall Android Certificate Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UninstallAndroidCertificateDetails`
@@ -12,20 +10,16 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `certificateId` | `string \| undefined` | Optional | The unique identifier of the certificate to be uninstalled. |
-| `type` | [`Type82 \| undefined`](../../doc/models/type-82.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type81Enum \| undefined`](../../doc/models/type-81-enum.md) | Optional | Type of terminal action: Uninstall an Android certificate.<br><br>**Default**: `Type81Enum.UninstallAndroidCertificate` |
 
 ## Example
 
 ```ts
-import { Type82, UninstallAndroidCertificateDetails } from 'adyen';
+import { Type81Enum, UninstallAndroidCertificateDetails } from 'adyen';
 
 const uninstallAndroidCertificateDetails: UninstallAndroidCertificateDetails = {
   certificateId: 'certificateId0',
-  type: Type82.UninstallAndroidCertificate,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type81Enum.UninstallAndroidCertificate,
 };
 ```
 

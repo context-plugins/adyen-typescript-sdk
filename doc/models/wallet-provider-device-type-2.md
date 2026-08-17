@@ -23,8 +23,6 @@ Supported value inputs:
 
 - **UNKNOWN**
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `WalletProviderDeviceType2`
@@ -34,24 +32,20 @@ Supported value inputs:
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value6[] \| undefined`](../../doc/models/value-6.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`Value6Enum[] \| undefined`](../../doc/models/value-6-enum.md) | Optional | - |
 
 ## Example
 
 ```ts
-import { Value6, WalletProviderDeviceType2 } from 'adyen';
+import { Value6Enum, WalletProviderDeviceType2 } from 'adyen';
 
 const walletProviderDeviceType2: WalletProviderDeviceType2 = {
   operation: 'operation4',
   value: [
-    Value6.WatchOrWristband,
-    Value6.Wearable,
-    Value6.Card
+    Value6Enum.WATCHORWRISTBAND,
+    Value6Enum.WEARABLE,
+    Value6Enum.CARD
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

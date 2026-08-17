@@ -4,8 +4,6 @@
 Data related to the instrument of payment for the transaction.
 If this type of payment card is configured to send information if the CardAcquisition response.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrumentData1`
@@ -14,105 +12,77 @@ If this type of payment card is configured to send information if the CardAcquis
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `paymentInstrumentType` | [`PaymentInstrumentType11`](../../doc/models/payment-instrument-type-11.md) | Required | - |
+| `paymentInstrumentType` | [`PaymentInstrumentType11Enum`](../../doc/models/payment-instrument-type-11-enum.md) | Required | Type of payment instrument.<br>Possible values:<br><br>* **Card**<br>* **Cash**<br>* **Check**<br>* **Mobile**<br>* **StoredValue** |
 | `protectedCardData` | `string \| undefined` | Optional | Sensitive information related to the payment card, protected by CMS.<br>SensitiveCardData protected by CMS EnvelopedData. |
-| `cardData` | [`CardData2 \| undefined`](../../doc/models/card-data-2.md) | Optional | - |
-| `checkData` | [`CheckData2 \| undefined`](../../doc/models/check-data-2.md) | Optional | - |
-| `mobileData` | [`MobileData2 \| undefined`](../../doc/models/mobile-data-2.md) | Optional | - |
-| `storedValueAccountId` | [`StoredValueAccountId2 \| undefined`](../../doc/models/stored-value-account-id-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `cardData` | [`CardData1 \| undefined`](../../doc/models/card-data-1.md) | Optional | Information related to the payment card used for the transaction.<br>If PaymentInstrumentType is Card. |
+| `checkData` | [`CheckData1 \| undefined`](../../doc/models/check-data-1.md) | Optional | Information related to the paper check used for the transaction.<br>If PaymentInstrumentType is Check. |
+| `mobileData` | [`MobileData1 \| undefined`](../../doc/models/mobile-data-1.md) | Optional | Information related to the mobile for the payment transaction.<br>If PaymentInstrumentType is Mobile. |
+| `storedValueAccountID` | [`StoredValueAccountID \| undefined`](../../doc/models/stored-value-account-id.md) | Optional | Identification of the stored value account or the stored value card and the associated product sold by the Sale System for stored value requests. |
 
 ## Example
 
 ```ts
 import {
-  EntryMode,
-  IdentificationType11,
+  EntryModeEnum,
+  IdentificationType11Enum,
   PaymentInstrumentData1,
-  PaymentInstrumentType11,
-  StoredValueAccountType1,
-  TrackFormat1,
+  PaymentInstrumentType11Enum,
+  StoredValueAccountType1Enum,
+  TrackFormat1Enum,
 } from 'adyen';
 
 const paymentInstrumentData1: PaymentInstrumentData1 = {
-  paymentInstrumentType: PaymentInstrumentType11.Check,
+  paymentInstrumentType: PaymentInstrumentType11Enum.Check,
   protectedCardData: 'ProtectedCardData6',
   cardData: {
     paymentBrand: 'PaymentBrand0',
     maskedPan: 'MaskedPan0',
     paymentAccountRef: 'PaymentAccountRef8',
     entryMode: [
-      EntryMode.Manual,
-      EntryMode.Keyed
+      EntryModeEnum.Manual,
+      EntryModeEnum.Keyed
     ],
     cardCountryCode: 3,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   checkData: {
-    bankId: 'BankID0',
+    bankID: 'BankID0',
     accountNumber: 'AccountNumber6',
     checkNumber: 'CheckNumber2',
     trackData: {
       trackValue: 'TrackValue6',
       trackNumb: 3,
-      trackFormat: TrackFormat1.Jisii,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      trackFormat: TrackFormat1Enum.JISII,
     },
     checkCardNumber: 'CheckCardNumber6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   mobileData: {
     mobileCountryCode: 3,
     mobileNetworkCode: 3,
-    maskedMsisdn: 22,
+    maskedMSISDN: 22,
     geolocation: {
       geographicCoordinates: {
         latitude: 'Latitude4',
         longitude: 'Longitude2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      utmCoordinates: {
-        utmZone: 'UTMZone6',
-        utmEastward: 'UTMEastward0',
-        utmNorthward: 'UTMNorthward0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+      uTMCoordinates: {
+        uTMZone: 'UTMZone6',
+        uTMEastward: 'UTMEastward0',
+        uTMNorthward: 'UTMNorthward0',
       },
     },
     protectedMobileData: 'ProtectedMobileData0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  storedValueAccountId: {
-    storedValueAccountType: StoredValueAccountType1.PhoneCard,
+  storedValueAccountID: {
+    storedValueAccountType: StoredValueAccountType1Enum.PhoneCard,
     entryMode: [
-      EntryMode.MagStripe,
-      EntryMode.Scanned
+      EntryModeEnum.MagStripe,
+      EntryModeEnum.Scanned
     ],
-    identificationType: IdentificationType11.PhoneNumber,
-    storedValueId: 'StoredValueID8',
+    identificationType: IdentificationType11Enum.PhoneNumber,
+    storedValueID: 'StoredValueID8',
     storedValueProvider: 'StoredValueProvider4',
     ownerName: 'OwnerName0',
     expiryDate: 4,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

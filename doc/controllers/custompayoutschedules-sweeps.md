@@ -168,14 +168,14 @@ const body: CreateSweepConfigurationV2 = {
   },
   currency: 'EUR',
   schedule: {
-    type: Type6.Balance,
+    type: Type62Enum.Balance,
   },
-  status: Status51.Active,
+  status: Status6Enum.Active,
   triggerAmount: {
     currency: 'EUR',
     value: BigInt(50000),
   },
-  type: Type7.Pull,
+  type: Type72Enum.Pull,
 };
 
 try {
@@ -461,7 +461,7 @@ const balanceAccountId = 'balanceAccountId8';
 const sweepId = 'sweepId4';
 
 const body: UpdateSweepConfigurationV2 = {
-  status: Status51.Inactive,
+  status: Status6Enum.Inactive,
 };
 
 try {

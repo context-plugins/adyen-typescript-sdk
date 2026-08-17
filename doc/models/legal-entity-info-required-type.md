@@ -1,8 +1,6 @@
 
 # Legal Entity Info Required Type
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LegalEntityInfoRequiredType`
@@ -13,89 +11,62 @@
 |  --- | --- | --- | --- |
 | `capabilities` | [`Record<string, LegalEntityCapability> \| undefined`](../../doc/models/legal-entity-capability.md) | Optional | Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability. |
 | `entityAssociations` | [`LegalEntityAssociation[] \| undefined`](../../doc/models/legal-entity-association.md) | Optional | List of legal entities associated with the current legal entity.<br>For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories. |
-| `individual` | [`Individual \| undefined`](../../doc/models/individual.md) | Optional | - |
-| `organization` | [`Organization \| undefined`](../../doc/models/organization.md) | Optional | - |
+| `individual` | [`Individual1 \| undefined`](../../doc/models/individual-1.md) | Optional | Information about the individual. Required if `type` is **individual**. |
+| `organization` | [`Organization1 \| undefined`](../../doc/models/organization-1.md) | Optional | Information about the organization. Required if `type` is **organization**. |
 | `reference` | `string \| undefined` | Optional | Your reference for the legal entity, maximum 150 characters.<br><br>**Constraints**: *Maximum Length*: `150` |
-| `soleProprietorship` | [`SoleProprietorship \| undefined`](../../doc/models/sole-proprietorship.md) | Optional | - |
-| `trust` | [`Trust \| undefined`](../../doc/models/trust.md) | Optional | - |
-| `type` | [`Type212`](../../doc/models/type-212.md) | Required | - |
-| `unincorporatedPartnership` | [`UnincorporatedPartnership \| undefined`](../../doc/models/unincorporated-partnership.md) | Optional | - |
+| `soleProprietorship` | [`SoleProprietorship1 \| undefined`](../../doc/models/sole-proprietorship-1.md) | Optional | Information about the sole proprietorship. Required if `type` is **soleProprietorship**. |
+| `trust` | [`Trust1 \| undefined`](../../doc/models/trust-1.md) | Optional | Information about the trust. Required if `type` is **trust**. |
+| `type` | [`Type213Enum`](../../doc/models/type-213-enum.md) | Required | The type of legal entity.<br><br>Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**. |
+| `unincorporatedPartnership` | [`UnincorporatedPartnership1 \| undefined`](../../doc/models/unincorporated-partnership-1.md) | Optional | Information about the unincorporated partnership. Required if `type` is **unincorporatedPartnership**. |
 | `verificationPlan` | `string \| undefined` | Optional | A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  AllowedLevel,
-  FundingSource,
-  Interval,
+  FundingSourceEnum,
+  IntervalEnum,
   LegalEntityInfoRequiredType,
-  Type132,
-  Type142,
-  Type212,
+  Type132Enum,
+  Type142Enum,
+  Type213Enum,
 } from 'adyen';
 
 const legalEntityInfoRequiredType: LegalEntityInfoRequiredType = {
-  type: Type212.Individual,
+  type: Type213Enum.Individual,
   capabilities: {
     'key0': {
-      allowed: false,
-      allowedLevel: AllowedLevel.High,
       allowedSettings: {
         amountPerIndustry: {
           'key0': {
             currency: 'currency8',
             value: BigInt(56),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           'key1': {
             currency: 'currency8',
             value: BigInt(56),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         },
         authorizedCardUsers: false,
         fundingSource: [
-          FundingSource.Credit,
-          FundingSource.Debit,
-          FundingSource.Prepaid
+          FundingSourceEnum.Credit,
+          FundingSourceEnum.Debit,
+          FundingSourceEnum.Prepaid
         ],
-        interval: Interval.Daily,
+        interval: IntervalEnum.Daily,
         maxAmount: {
           currency: 'currency4',
           value: BigInt(160),
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      requested: false,
-      requestedLevel: AllowedLevel.High,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   },
   entityAssociations: [
     {
       legalEntityId: 'legalEntityId4',
-      type: Type142.ImmediateParentCompany,
-      associatorId: 'associatorId2',
-      entityType: 'entityType8',
+      type: Type142Enum.ImmediateParentCompany,
       jobTitle: 'jobTitle4',
-      name: 'name0',
       nominee: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   individual: {
@@ -103,9 +74,6 @@ const legalEntityInfoRequiredType: LegalEntityInfoRequiredType = {
       firstName: 'firstName4',
       lastName: 'lastName4',
       infix: 'infix4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     residentialAddress: {
       country: 'country6',
@@ -114,39 +82,23 @@ const legalEntityInfoRequiredType: LegalEntityInfoRequiredType = {
       stateOrProvince: 'stateOrProvince0',
       street: 'street2',
       street2: 'street28',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     birthData: {
       dateOfBirth: 'dateOfBirth8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     email: 'email0',
     identificationData: {
-      type: Type132.NationalIdNumber,
+      type: Type132Enum.NationalIdNumber,
       cardNumber: 'cardNumber6',
       expiryDate: 'expiryDate8',
       issuerCountry: 'issuerCountry6',
       issuerState: 'issuerState6',
       nationalIdExempt: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     nationality: 'nationality4',
     phone: {
       number: 'number8',
-      phoneCountryCode: 'phoneCountryCode8',
       type: 'type0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   organization: {
@@ -158,23 +110,14 @@ const legalEntityInfoRequiredType: LegalEntityInfoRequiredType = {
       stateOrProvince: 'stateOrProvince8',
       street: 'street0',
       street2: 'street24',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     countryOfGoverningLaw: 'countryOfGoverningLaw8',
     dateOfIncorporation: 'dateOfIncorporation4',
     dateOfInitiationOfLegalProceeding: 'dateOfInitiationOfLegalProceeding6',
     description: 'description6',
     doingBusinessAs: 'doingBusinessAs4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   reference: 'reference4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

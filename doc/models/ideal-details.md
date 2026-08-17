@@ -1,8 +1,6 @@
 
 # Ideal Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `IdealDetails`
@@ -16,13 +14,12 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`A2APaymentMethod \| undefined`](../../doc/models/a2-a-payment-method.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type25Enum \| undefined`](../../doc/models/type-25-enum.md) | Optional | **ideal**<br><br>**Default**: `Type25Enum.Ideal` |
 
 ## Example
 
 ```ts
-import { IdealDetails } from 'adyen';
+import { IdealDetails, Type25Enum } from 'adyen';
 
 const idealDetails: IdealDetails = {
   checkoutAttemptId: 'checkoutAttemptId4',
@@ -30,9 +27,7 @@ const idealDetails: IdealDetails = {
   recurringDetailReference: 'recurringDetailReference8',
   sdkData: 'sdkData2',
   storedPaymentMethodId: 'storedPaymentMethodId2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type25Enum.Ideal,
 };
 ```
 

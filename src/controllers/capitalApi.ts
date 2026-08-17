@@ -6,11 +6,132 @@
 
 import { ApiResponse, RequestOptions } from '../core.js';
 import { CapitalGrant, capitalGrantSchema } from '../models/capitalGrant.js';
-import { string } from '../schema.js';
+import {
+  CapitalGrantInfo,
+  capitalGrantInfoSchema,
+} from '../models/capitalGrantInfo.js';
+import { CapitalGrants, capitalGrantsSchema } from '../models/capitalGrants.js';
+import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
 import { RestServiceError } from '../errors/restServiceError.js';
 
 export class CapitalApi extends BaseApi {
+  /**
+   * Returns a list of grants with status and outstanding balances.
+   *
+   * @param counterpartyAccountHolderId The counterparty account holder id.
+   * @return Response from the API call
+   * @deprecated
+   */
+  async getGrants(
+    counterpartyAccountHolderId?: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<CapitalGrants>> {
+    const req = this.createRequest('GET', '/grants');
+    req.baseUrl('default14');
+    const mapped = req.prepareArgs({
+      counterpartyAccountHolderId: [
+        counterpartyAccountHolderId,
+        optional(string()),
+      ],
+    });
+    req.query(
+      'counterpartyAccountHolderId',
+      mapped.counterpartyAccountHolderId
+    );
+    req.deprecated('CapitalApi.getGrants');
+    req.throwOn(
+      400,
+      RestServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(
+      401,
+      RestServiceError,
+      'Unauthorized - authentication required.'
+    );
+    req.throwOn(
+      403,
+      RestServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(404, RestServiceError, 'Not Found - the payment was not found');
+    req.throwOn(
+      422,
+      RestServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      RestServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([
+      { clientKey: true },
+      { basicAuth: true },
+      { apiKeyAuth: true },
+    ]);
+    return req.callAsJson(capitalGrantsSchema, requestOptions);
+  }
+
+  /**
+   * Requests the payout of the selected grant offer.
+   *
+   * @param idempotencyKey  A unique identifier for the message with a maximum of 64
+   *                                                   characters (we recommend a UUID).
+   * @param body
+   * @return Response from the API call
+   * @deprecated
+   */
+  async postGrants(
+    idempotencyKey?: string,
+    body?: CapitalGrantInfo,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<CapitalGrant>> {
+    const req = this.createRequest('POST', '/grants');
+    req.baseUrl('default14');
+    const mapped = req.prepareArgs({
+      idempotencyKey: [idempotencyKey, optional(string())],
+      body: [body, optional(capitalGrantInfoSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.header('Idempotency-Key', mapped.idempotencyKey);
+    req.json(mapped.body);
+    req.deprecated('CapitalApi.postGrants');
+    req.throwOn(
+      400,
+      RestServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(
+      401,
+      RestServiceError,
+      'Unauthorized - authentication required.'
+    );
+    req.throwOn(
+      403,
+      RestServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(404, RestServiceError, 'Not Found - the payment was not found');
+    req.throwOn(
+      422,
+      RestServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      RestServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([
+      { clientKey: true },
+      { basicAuth: true },
+      { apiKeyAuth: true },
+    ]);
+    return req.callAsJson(capitalGrantSchema, requestOptions);
+  }
+
   /**
    * Returns the details of a capital account specified in the path.
    *
@@ -23,6 +144,7 @@ export class CapitalApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CapitalGrant>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/grants/${mapped.id}`;
     req.deprecated('CapitalApi.getGrantsId');

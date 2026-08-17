@@ -3,8 +3,6 @@
 
 Information regarding the transaction description.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransactionDescriptionResponseInfo1`
@@ -14,20 +12,16 @@ Information regarding the transaction description.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `doingBusinessAsName` | `string \| undefined` | Optional | The text to be shown on the shopper's bank statement.<br>We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.<br>Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /**.<br><br>**Constraints**: *Maximum Length*: `22` |
-| `type` | [`Type33 \| undefined`](../../doc/models/type-33.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type8Enum \| undefined`](../../doc/models/type-8-enum.md) | Optional | The type of transaction description you want to use:<br><br>- **fixed**: The transaction description set in this request is used for all payments with this payment method.<br>- **append**: The transaction description set in this request is used as a base for all payments with this payment method. The [transaction description set in the request to process the payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#request-shopperStatement) is appended to this base description. Note that if the combined length exceeds 22 characters, banks may truncate the string.<br>- **dynamic**: Only the [transaction description set in the request to process the payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#request-shopperStatement) is used for payments with this payment method.<br><br>**Default**: `Type8Enum.Dynamic` |
 
 ## Example
 
 ```ts
-import { TransactionDescriptionResponseInfo1, Type33 } from 'adyen';
+import { TransactionDescriptionResponseInfo1, Type8Enum } from 'adyen';
 
 const transactionDescriptionResponseInfo1: TransactionDescriptionResponseInfo1 = {
   doingBusinessAsName: 'doingBusinessAsName2',
-  type: Type33.Append,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type8Enum.Dynamic,
 };
 ```
 

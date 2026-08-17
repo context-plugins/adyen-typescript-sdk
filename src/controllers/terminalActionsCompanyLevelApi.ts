@@ -49,6 +49,7 @@ export class TerminalActionsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListExternalTerminalActionsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       pageNumber: [pageNumber, optional(number())],
@@ -114,6 +115,7 @@ export class TerminalActionsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ExternalTerminalAction>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       actionId: [actionId, string()],

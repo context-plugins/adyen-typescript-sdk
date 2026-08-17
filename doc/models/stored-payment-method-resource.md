@@ -1,8 +1,6 @@
 
 # Stored Payment Method Resource
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredPaymentMethodResource`
@@ -13,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `alias` | `string \| undefined` | Optional | The alias of the credit card number.<br><br>Applies only to recurring contracts storing credit card details |
 | `aliasType` | `string \| undefined` | Optional | The alias type of the credit card number.<br><br>Applies only to recurring contracts storing credit card details. |
-| `billingAddress` | [`BillingAddress7 \| undefined`](../../doc/models/billing-address-7.md) | Optional | - |
+| `billingAddress` | [`Address5 \| undefined`](../../doc/models/address-5.md) | Optional | The billing address associated with the stored payment method. |
 | `brand` | `string \| undefined` | Optional | The brand of the card. |
 | `cardBin` | `string \| undefined` | Optional | The bank identification number (BIN) of the card. |
 | `createdAt` | `string \| undefined` | Optional | The date when the recurring details were created. |
@@ -27,7 +25,7 @@
 | `id` | `string \| undefined` | Optional | A unique identifier of this stored payment method. |
 | `issuerName` | `string \| undefined` | Optional | The name of the issuer of token or card. |
 | `lastFour` | `string \| undefined` | Optional | The last four digits of the PAN. |
-| `mandate` | [`TokenMandate \| undefined`](../../doc/models/token-mandate.md) | Optional | - |
+| `mandate` | [`TokenMandate2 \| undefined`](../../doc/models/token-mandate-2.md) | Optional | Mandate details for the stored payment method. |
 | `name` | `string \| undefined` | Optional | The display name of the stored payment method. |
 | `networkTxReference` | `string \| undefined` | Optional | Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.<br><br>This contains either the Mastercard Trace ID or the Visa Transaction ID. |
 | `ownerName` | `string \| undefined` | Optional | The name of the bank account holder. |
@@ -35,7 +33,6 @@
 | `shopperReference` | `string \| undefined` | Optional | Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.<br><br>> Your reference must not include personally identifiable information (PII) such as name or email address.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `256` |
 | `supportedRecurringProcessingModels` | `string[] \| undefined` | Optional | Defines a recurring payment type.<br>Allowed values:<br><br>* `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule.<br>* `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction.<br>* `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. |
 | `type` | `string \| undefined` | Optional | The type of payment method. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -52,15 +49,9 @@ const storedPaymentMethodResource: StoredPaymentMethodResource = {
     postalCode: 'postalCode6',
     street: 'street2',
     stateOrProvince: 'stateOrProvince0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   brand: 'brand6',
   cardBin: 'cardBin8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

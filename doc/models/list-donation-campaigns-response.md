@@ -1,8 +1,6 @@
 
 # List Donation Campaigns Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ListDonationCampaignsResponse`
@@ -11,20 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`PaginationLinks \| undefined`](../../doc/models/pagination-links.md) | Optional | - |
+| `links` | [`PaginationLinks1 \| undefined`](../../doc/models/pagination-links-1.md) | Optional | Pagination references. |
 | `campaigns` | [`DonationCampaign1[] \| undefined`](../../doc/models/donation-campaign-1.md) | Optional | The list of donation campaigns. |
 | `itemsTotal` | `number` | Required | Total number of items. |
 | `pagesTotal` | `number` | Required | Total number of pages. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  DisplayTextField1,
-  DonationCampaignStatus2,
-  DonationFlow4,
-  DonationType1,
+  DisplayTextField1Enum,
+  DonationCampaignStatus2Enum,
+  DonationFlow4Enum,
+  DonationType1Enum,
   ListDonationCampaignsResponse,
 } from 'adyen';
 
@@ -34,41 +31,23 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
   links: {
     first: {
       href: 'href2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     last: {
       href: 'href2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     self: {
       href: 'href0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     next: {
       href: 'href4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     prev: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   campaigns: [
     {
-      id: 'id6',
+      id: '',
       name: 'name6',
       nonprofitCause: {
         bannerUrl: 'bannerUrl4',
@@ -78,18 +57,13 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
         goals: [
           'goals9'
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      status: DonationCampaignStatus2.Active,
+      status: DonationCampaignStatus2Enum.Active,
       accountHolderIds: [
         'accountHolderIds1',
         'accountHolderIds2',
         'accountHolderIds3'
       ],
-      activatedAt: '2016-03-13T12:52:32.123Z',
-      endedAt: '2016-03-13T12:52:32.123Z',
       inPerson: {
         amounts: [
           {
@@ -99,18 +73,12 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         defaultCurrency: 'defaultCurrency0',
-        displayTextField: DisplayTextField1.CauseName,
-        donationFlow: DonationFlow4.OneStep,
-        donationType: DonationType1.FixedAmountsRoundup,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        displayTextField: DisplayTextField1Enum.CauseName,
+        donationFlow: DonationFlow4Enum.OneStep,
+        donationType: DonationType1Enum.FixedAmountsRoundup,
       },
       online: {
         amounts: [
@@ -121,9 +89,6 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             amounts: [
@@ -132,9 +97,6 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             amounts: [
@@ -143,13 +105,10 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         defaultCurrency: 'defaultCurrency0',
-        donationType: DonationType1.FixedAmounts,
+        donationType: DonationType1Enum.FixedAmounts,
         merchantAccounts: [
           'merchantAccounts4',
           'merchantAccounts3',
@@ -160,16 +119,10 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
           'storeIds0',
           'storeIds1'
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
-      id: 'id6',
+      id: '',
       name: 'name6',
       nonprofitCause: {
         bannerUrl: 'bannerUrl4',
@@ -179,18 +132,13 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
         goals: [
           'goals9'
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      status: DonationCampaignStatus2.Active,
+      status: DonationCampaignStatus2Enum.Active,
       accountHolderIds: [
         'accountHolderIds1',
         'accountHolderIds2',
         'accountHolderIds3'
       ],
-      activatedAt: '2016-03-13T12:52:32.123Z',
-      endedAt: '2016-03-13T12:52:32.123Z',
       inPerson: {
         amounts: [
           {
@@ -200,18 +148,12 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         defaultCurrency: 'defaultCurrency0',
-        displayTextField: DisplayTextField1.CauseName,
-        donationFlow: DonationFlow4.OneStep,
-        donationType: DonationType1.FixedAmountsRoundup,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        displayTextField: DisplayTextField1Enum.CauseName,
+        donationFlow: DonationFlow4Enum.OneStep,
+        donationType: DonationType1Enum.FixedAmountsRoundup,
       },
       online: {
         amounts: [
@@ -222,9 +164,6 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             amounts: [
@@ -233,9 +172,6 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             amounts: [
@@ -244,13 +180,10 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         defaultCurrency: 'defaultCurrency0',
-        donationType: DonationType1.FixedAmounts,
+        donationType: DonationType1Enum.FixedAmounts,
         merchantAccounts: [
           'merchantAccounts4',
           'merchantAccounts3',
@@ -261,16 +194,10 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
           'storeIds0',
           'storeIds1'
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
-      id: 'id6',
+      id: '',
       name: 'name6',
       nonprofitCause: {
         bannerUrl: 'bannerUrl4',
@@ -280,18 +207,13 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
         goals: [
           'goals9'
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      status: DonationCampaignStatus2.Active,
+      status: DonationCampaignStatus2Enum.Active,
       accountHolderIds: [
         'accountHolderIds1',
         'accountHolderIds2',
         'accountHolderIds3'
       ],
-      activatedAt: '2016-03-13T12:52:32.123Z',
-      endedAt: '2016-03-13T12:52:32.123Z',
       inPerson: {
         amounts: [
           {
@@ -301,18 +223,12 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         defaultCurrency: 'defaultCurrency0',
-        displayTextField: DisplayTextField1.CauseName,
-        donationFlow: DonationFlow4.OneStep,
-        donationType: DonationType1.FixedAmountsRoundup,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        displayTextField: DisplayTextField1Enum.CauseName,
+        donationFlow: DonationFlow4Enum.OneStep,
+        donationType: DonationType1Enum.FixedAmountsRoundup,
       },
       online: {
         amounts: [
@@ -323,9 +239,6 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             amounts: [
@@ -334,9 +247,6 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             amounts: [
@@ -345,13 +255,10 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
               BigInt(50)
             ],
             currencyCode: 'currencyCode6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         defaultCurrency: 'defaultCurrency0',
-        donationType: DonationType1.FixedAmounts,
+        donationType: DonationType1Enum.FixedAmounts,
         merchantAccounts: [
           'merchantAccounts4',
           'merchantAccounts3',
@@ -362,18 +269,9 @@ const listDonationCampaignsResponse: ListDonationCampaignsResponse = {
           'storeIds0',
           'storeIds1'
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

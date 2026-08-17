@@ -1,9 +1,7 @@
 
 # Address 5
 
-The address registered at the registrar, such as the Chamber of Commerce.
-
-*This model accepts additional fields of type unknown.*
+The billing address associated with the stored payment method.
 
 ## Structure
 
@@ -13,13 +11,12 @@ The address registered at the registrar, such as the Chamber of Commerce.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `city` | `string \| undefined` | Optional | The name of the city. Required if `stateOrProvince` is provided.<br><br>If you specify the city, you must also send `postalCode` and `street`. |
-| `country` | `string` | Required | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. |
-| `postalCode` | `string \| undefined` | Optional | The postal code. Required if `stateOrProvince` and/or `city` is provided.<br><br>When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or SW1A 1AA. |
-| `stateOrProvince` | `string \| undefined` | Optional | The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for Australia and New Zealand.<br><br>If you specify the state or province, you must also send `city`, `postalCode`, and `street`. |
-| `street` | `string \| undefined` | Optional | The name of the street, and the house or building number. Required if `stateOrProvince` and/or `city` is provided. |
-| `street2` | `string \| undefined` | Optional | The apartment, unit, or suite number. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `city` | `string` | Required | The name of the city. Maximum length: 3000 characters.<br><br>**Constraints**: *Maximum Length*: `3000` |
+| `country` | `string` | Required | The two-character ISO-3166-1 alpha-2 country code. For example, **US**.<br><br>> If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`. |
+| `houseNumberOrName` | `string` | Required | The number or name of the house. Maximum length: 3000 characters.<br><br>**Constraints**: *Maximum Length*: `3000` |
+| `postalCode` | `string` | Required | A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries. |
+| `stateOrProvince` | `string \| undefined` | Optional | The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.<br><br>> Required for the US and Canada. |
+| `street` | `string` | Required | The name of the street. Maximum length: 3000 characters.<br><br>> The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.<br><br>**Constraints**: *Maximum Length*: `3000` |
 
 ## Example
 
@@ -27,15 +24,12 @@ The address registered at the registrar, such as the Chamber of Commerce.
 import { Address5 } from 'adyen';
 
 const address5: Address5 = {
-  country: 'country0',
   city: 'city6',
+  country: 'country0',
+  houseNumberOrName: 'houseNumberOrName4',
   postalCode: 'postalCode8',
-  stateOrProvince: 'stateOrProvince4',
   street: 'street6',
-  street2: 'street22',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  stateOrProvince: 'stateOrProvince4',
 };
 ```
 

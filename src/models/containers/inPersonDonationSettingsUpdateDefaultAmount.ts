@@ -7,10 +7,8 @@
 import {
   isMappedValueValidForSchema,
   lazy,
-  nullable,
   oneOf,
   Schema,
-  unknown,
 } from '../../schema.js';
 import {
   DonationAmountUpdate,
@@ -18,13 +16,10 @@ import {
 } from '../donationAmountUpdate.js';
 
 /** This is a container type for one-of types. */
-export type InPersonDonationSettingsUpdateDefaultAmount =
-  | DonationAmountUpdate
-  | unknown
-  | null;
+export type InPersonDonationSettingsUpdateDefaultAmount = DonationAmountUpdate;
 
 export const inPersonDonationSettingsUpdateDefaultAmountSchema: Schema<InPersonDonationSettingsUpdateDefaultAmount> = lazy(
-  () => oneOf([donationAmountUpdateSchema, nullable(unknown())])
+  () => oneOf([donationAmountUpdateSchema])
 );
 
 export namespace InPersonDonationSettingsUpdateDefaultAmount {

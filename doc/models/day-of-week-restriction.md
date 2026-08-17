@@ -1,8 +1,6 @@
 
 # Day of Week Restriction
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DayOfWeekRestriction`
@@ -12,23 +10,19 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value1[] \| undefined`](../../doc/models/value-1.md) | Optional | List of days of the week.<br><br>Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`Value1Enum[] \| undefined`](../../doc/models/value-1-enum.md) | Optional | List of days of the week.<br><br>Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**. |
 
 ## Example
 
 ```ts
-import { DayOfWeekRestriction, Value1 } from 'adyen';
+import { DayOfWeekRestriction, Value1Enum } from 'adyen';
 
 const dayOfWeekRestriction: DayOfWeekRestriction = {
   operation: 'operation2',
   value: [
-    Value1.Thursday,
-    Value1.Tuesday
+    Value1Enum.Thursday,
+    Value1Enum.Tuesday
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

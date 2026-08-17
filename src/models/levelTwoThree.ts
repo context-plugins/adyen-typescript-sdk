@@ -8,13 +8,12 @@ import {
   array,
   bigint,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Destination, destinationSchema } from './destination.js';
+import { Destination1, destination1Schema } from './destination1.js';
 import { ItemDetailLine, itemDetailLineSchema } from './itemDetailLine.js';
 
 export interface LevelTwoThree {
@@ -27,7 +26,8 @@ export interface LevelTwoThree {
    * * **additionalData key:** `enhancedSchemeData.customerReference`
    */
   customerReferenceNumber?: string;
-  destination?: Destination;
+  /** The destination address information. */
+  destination?: Destination1;
   /**
    * The duty tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * * For example, 2000 means USD 20.00.
@@ -73,25 +73,17 @@ export interface LevelTwoThree {
    * * **additionalData key:** `enhancedSchemeData.totalTaxAmount`
    */
   totalTaxAmount?: bigint;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const levelTwoThreeSchema: Schema<LevelTwoThree> = lazy(() =>
-  typedExpandoObject(
-    {
-      customerReferenceNumber: ['customerReferenceNumber', optional(string())],
-      destination: ['destination', optional(destinationSchema)],
-      dutyAmount: ['dutyAmount', optional(bigint())],
-      freightAmount: ['freightAmount', optional(bigint())],
-      itemDetailLines: [
-        'itemDetailLines',
-        optional(array(itemDetailLineSchema)),
-      ],
-      orderDate: ['orderDate', optional(string())],
-      shipFromPostalCode: ['shipFromPostalCode', optional(string())],
-      totalTaxAmount: ['totalTaxAmount', optional(bigint())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    customerReferenceNumber: ['customerReferenceNumber', optional(string())],
+    destination: ['destination', optional(destination1Schema)],
+    dutyAmount: ['dutyAmount', optional(bigint())],
+    freightAmount: ['freightAmount', optional(bigint())],
+    itemDetailLines: ['itemDetailLines', optional(array(itemDetailLineSchema))],
+    orderDate: ['orderDate', optional(string())],
+    shipFromPostalCode: ['shipFromPostalCode', optional(string())],
+    totalTaxAmount: ['totalTaxAmount', optional(bigint())],
+  })
 );

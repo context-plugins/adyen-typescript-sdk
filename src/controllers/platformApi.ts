@@ -33,6 +33,7 @@ export class PlatformApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalancePlatform>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/balancePlatforms/${mapped.id}`;
     req.throwOn(
@@ -88,6 +89,7 @@ export class PlatformApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaginatedAccountHoldersResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       offset: [offset, optional(number())],
@@ -143,6 +145,7 @@ export class PlatformApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRulesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/balancePlatforms/${mapped.id}/transactionRules`;
     req.throwOn(

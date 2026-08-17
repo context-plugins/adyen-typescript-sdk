@@ -1,8 +1,6 @@
 
 # Ratepay
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Ratepay`
@@ -18,24 +16,20 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type48`](../../doc/models/type-48.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type48Enum`](../../doc/models/type-48-enum.md) | Required | **ratepay**<br><br>**Default**: `Type48Enum.Ratepay` |
 
 ## Example
 
 ```ts
-import { Ratepay, Type48 } from 'adyen';
+import { Ratepay, Type48Enum } from 'adyen';
 
 const ratepay: Ratepay = {
-  type: Type48.Ratepay,
+  type: Type48Enum.Ratepay,
   billingAddress: 'billingAddress0',
   checkoutAttemptId: 'checkoutAttemptId8',
   deliveryAddress: 'deliveryAddress8',
   personalDetails: 'personalDetails0',
   recurringDetailReference: 'recurringDetailReference2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

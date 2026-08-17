@@ -1,8 +1,6 @@
 
 # Grant Account
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GrantAccount`
@@ -14,8 +12,7 @@
 | `balances` | [`CapitalBalance[] \| undefined`](../../doc/models/capital-balance.md) | Optional | Contains the sum of the balances of all grants tracked by this grant account. The balances are separated by currency. |
 | `fundingBalanceAccountId` | `string \| undefined` | Optional | The unique identifier of the balance account used to fund the grant. |
 | `id` | `string \| undefined` | Optional | The unique identifier of the grant account. |
-| `limits` | [`GrantLimit[] \| undefined`](../../doc/models/grant-limit.md) | Optional | Contains the maximum amount of funds that you can disburse for grants. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `limits` | [`GrantLimit1[] \| undefined`](../../doc/models/grant-limit-1.md) | Optional | Contains the maximum amount of funds that you can disburse for grants. |
 
 ## Example
 
@@ -29,9 +26,6 @@ const grantAccount: GrantAccount = {
       fee: BigInt(72),
       principal: BigInt(110),
       total: BigInt(150),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   fundingBalanceAccountId: 'fundingBalanceAccountId0',
@@ -41,18 +35,9 @@ const grantAccount: GrantAccount = {
       amount: {
         currency: 'currency2',
         value: BigInt(110),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -8,18 +8,17 @@ import {
   array,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { EntryMode, entryModeSchema } from './entryMode.js';
-import { PaymentToken2, paymentToken2Schema } from './paymentToken2.js';
+import { EntryModeEnum, entryModeEnumSchema } from './entryModeEnum.js';
+import { PaymentToken1, paymentToken1Schema } from './paymentToken1.js';
 import {
-  SensitiveCardData2,
-  sensitiveCardData2Schema,
-} from './sensitiveCardData2.js';
+  SensitiveCardData1,
+  sensitiveCardData1Schema,
+} from './sensitiveCardData1.js';
 
 /**
  * Information related to the payment card used for the transaction.
@@ -54,7 +53,7 @@ export interface CardData {
    * * **SynchronousICC**
    * * **Tapped**
    */
-  entryMode?: EntryMode[];
+  entryMode?: EntryModeEnum[];
   /**
    * Country Code attached to the card (3 numerics).
    * If available in the card.
@@ -65,27 +64,30 @@ export interface CardData {
    * SensitiveCardData protected by CMS EnvelopedData.
    */
   protectedCardData?: string;
-  sensitiveCardData?: SensitiveCardData2;
-  paymentToken?: PaymentToken2;
-  additionalProperties?: Record<string, unknown>;
+  /**
+   * Sensitive information related to the payment card, entered or read by the Sale System.
+   * If structure non empty and unprotected.
+   */
+  sensitiveCardData?: SensitiveCardData1;
+  /**
+   * Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean of the customer. It allows, for a merchant, to identify the customer.
+   * Restriction of product payable by a card.
+   */
+  paymentToken?: PaymentToken1;
 }
 
 export const cardDataSchema: Schema<CardData> = lazy(() =>
-  typedExpandoObject(
-    {
-      paymentBrand: ['PaymentBrand', optional(string())],
-      maskedPan: ['MaskedPan', optional(string())],
-      paymentAccountRef: ['PaymentAccountRef', optional(string())],
-      entryMode: ['EntryMode', optional(array(entryModeSchema))],
-      cardCountryCode: ['CardCountryCode', optional(number())],
-      protectedCardData: ['ProtectedCardData', optional(string())],
-      sensitiveCardData: [
-        'SensitiveCardData',
-        optional(sensitiveCardData2Schema),
-      ],
-      paymentToken: ['PaymentToken', optional(paymentToken2Schema)],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    paymentBrand: ['PaymentBrand', optional(string())],
+    maskedPan: ['MaskedPan', optional(string())],
+    paymentAccountRef: ['PaymentAccountRef', optional(string())],
+    entryMode: ['EntryMode', optional(array(entryModeEnumSchema))],
+    cardCountryCode: ['CardCountryCode', optional(number())],
+    protectedCardData: ['ProtectedCardData', optional(string())],
+    sensitiveCardData: [
+      'SensitiveCardData',
+      optional(sensitiveCardData1Schema),
+    ],
+    paymentToken: ['PaymentToken', optional(paymentToken1Schema)],
+  })
 );

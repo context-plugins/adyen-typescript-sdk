@@ -1,8 +1,6 @@
 
 # Store and Forward
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoreAndForward`
@@ -13,8 +11,7 @@
 |  --- | --- | --- | --- |
 | `maxAmount` | [`MinorUnitsMonetaryValue[] \| undefined`](../../doc/models/minor-units-monetary-value.md) | Optional | The maximum amount that the terminal accepts for a single store-and-forward payment. |
 | `maxPayments` | `number \| undefined` | Optional | The maximum number of store-and-forward transactions per terminal that you can process while offline. |
-| `supportedCardTypes` | [`SupportedCardTypes \| undefined`](../../doc/models/supported-card-types.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `supportedCardTypes` | [`SupportedCardTypes2 \| undefined`](../../doc/models/supported-card-types-2.md) | Optional | The type of card for which the terminal accepts store-and-forward payments. You can specify multiple card types. |
 
 ## Example
 
@@ -26,9 +23,6 @@ const storeAndForward: StoreAndForward = {
     {
       amount: 50,
       currencyCode: 'currencyCode4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   maxPayments: 110,
@@ -38,12 +32,6 @@ const storeAndForward: StoreAndForward = {
     deferredDebit: false,
     prepaid: false,
     unknown: false,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

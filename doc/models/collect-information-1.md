@@ -3,8 +3,6 @@
 
 Contains indicators whether the page should only collect information for specific [KYC checks](https://docs.adyen.com/classic-platforms/verification-checks). By default, the page collects information for all KYC checks that apply to the [legal entity type](https://docs.adyen.com/classic-platforms/account-holders-and-accounts#legal-entity-types).
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CollectInformation1`
@@ -19,7 +17,6 @@ Contains indicators whether the page should only collect information for specifi
 | `legalArrangementDetails` | `boolean \| undefined` | Optional | Indicates whether [legal arrangement details](https://docs.adyen.com/classic-platforms/verification-checks/legal-arrangements) must be collected. Default is **true**. |
 | `pciQuestionnaire` | `boolean \| undefined` | Optional | Indicates whether answers to a [PCI questionnaire](https://docs.adyen.com/classic-platforms/platforms-for-partners#onboard-partner-platform) must be collected. Applies only to partner platforms. Default is **true**. |
 | `shareholderDetails` | `boolean \| undefined` | Optional | Indicates whether [shareholder details](https://docs.adyen.com/classic-platforms/verification-process/accepted-data-format/#individuals) must be collected. Defaults to **true**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const collectInformation1: CollectInformation1 = {
   individualDetails: false,
   legalArrangementDetails: false,
   pciQuestionnaire: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

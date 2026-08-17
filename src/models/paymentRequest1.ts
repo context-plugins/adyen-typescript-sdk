@@ -10,89 +10,116 @@ import {
   dict,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { AccountInfo2, accountInfo2Schema } from './accountInfo2.js';
+import { AccountInfo, accountInfoSchema } from './accountInfo.js';
+import { Address, addressSchema } from './address.js';
+import { Amount, amountSchema } from './amount.js';
+import { ApplicationInfo, applicationInfoSchema } from './applicationInfo.js';
+import { BankAccount1, bankAccount1Schema } from './bankAccount1.js';
+import { BrowserInfo, browserInfoSchema } from './browserInfo.js';
+import { Card3, card3Schema } from './card3.js';
+import { EntityTypeEnum, entityTypeEnumSchema } from './entityTypeEnum.js';
+import { ForexQuote11, forexQuote11Schema } from './forexQuote11.js';
 import {
-  AdditionalAmount,
-  additionalAmountSchema,
-} from './additionalAmount.js';
-import { Amount16, amount16Schema } from './amount16.js';
+  FundDestination1,
+  fundDestination1Schema,
+} from './fundDestination1.js';
 import {
-  ApplicationInfo1,
-  applicationInfo1Schema,
-} from './applicationInfo1.js';
-import { BankAccount9, bankAccount9Schema } from './bankAccount9.js';
-import { BillingAddress7, billingAddress7Schema } from './billingAddress7.js';
-import { BrowserInfo2, browserInfo2Schema } from './browserInfo2.js';
-import { Card6, card6Schema } from './card6.js';
+  FundingSourceEnum,
+  fundingSourceEnumSchema,
+} from './fundingSourceEnum.js';
+import { FundSource1, fundSource1Schema } from './fundSource1.js';
+import { Installments, installmentsSchema } from './installments.js';
+import { Mandate, mandateSchema } from './mandate.js';
 import {
-  DeliveryAddress6,
-  deliveryAddress6Schema,
-} from './deliveryAddress6.js';
-import { EntityType, entityTypeSchema } from './entityType.js';
-import { ForexQuote, forexQuoteSchema } from './forexQuote.js';
-import { FundDestination, fundDestinationSchema } from './fundDestination.js';
-import { FundingSource, fundingSourceSchema } from './fundingSource.js';
-import { FundSource, fundSourceSchema } from './fundSource.js';
-import { Installments2, installments2Schema } from './installments2.js';
-import { Mandate1, mandate1Schema } from './mandate1.js';
+  MerchantRiskIndicator11,
+  merchantRiskIndicator11Schema,
+} from './merchantRiskIndicator11.js';
+import { Name, nameSchema } from './name.js';
 import {
-  MerchantRiskIndicator,
-  merchantRiskIndicatorSchema,
-} from './merchantRiskIndicator.js';
-import { MpiData, mpiDataSchema } from './mpiData.js';
+  PlatformChargebackLogic,
+  platformChargebackLogicSchema,
+} from './platformChargebackLogic.js';
+import { Recurring, recurringSchema } from './recurring.js';
 import {
-  PlatformChargebackLogic1,
-  platformChargebackLogic1Schema,
-} from './platformChargebackLogic1.js';
-import { Recurring3, recurring3Schema } from './recurring3.js';
+  RecurringProcessingModelEnum,
+  recurringProcessingModelEnumSchema,
+} from './recurringProcessingModelEnum.js';
 import {
-  RecurringProcessingModel,
-  recurringProcessingModelSchema,
-} from './recurringProcessingModel.js';
+  SecureRemoteCommerceCheckoutData2,
+  secureRemoteCommerceCheckoutData2Schema,
+} from './secureRemoteCommerceCheckoutData2.js';
 import {
-  SecureRemoteCommerceCheckoutData,
-  secureRemoteCommerceCheckoutDataSchema,
-} from './secureRemoteCommerceCheckoutData.js';
-import {
-  ShopperInteraction1,
-  shopperInteraction1Schema,
-} from './shopperInteraction1.js';
-import { ShopperName, shopperNameSchema } from './shopperName.js';
+  ShopperInteractionEnum,
+  shopperInteractionEnumSchema,
+} from './shopperInteractionEnum.js';
 import { Split, splitSchema } from './split.js';
 import {
-  ThreeDs2RequestData1,
-  threeDs2RequestData1Schema,
-} from './threeDs2RequestData1.js';
+  ThreeDS2RequestData11,
+  threeDS2RequestData11Schema,
+} from './threeDS2RequestData11.js';
+import {
+  ThreeDSecureData,
+  threeDSecureDataSchema,
+} from './threeDSecureData.js';
 
 export interface PaymentRequest1 {
-  accountInfo?: AccountInfo2;
-  additionalAmount?: AdditionalAmount;
+  /**
+   * Shopper account information for 3D Secure 2.
+   * > For 3D Secure 2 transactions, we recommend that you include this object to increase the chances of achieving a frictionless flow.
+   */
+  accountInfo?: AccountInfo;
+  /**
+   * If you want a [BIN or card verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification) request to use a non-zero value, assign this value to `additionalAmount` (while the amount must be still set to 0 to trigger BIN or card verification).
+   * Required to be in the same currency as the `amount`.
+   */
+  additionalAmount?: Amount;
   /**
    * This field contains additional data, which may be required for a particular payment request.
    * The `additionalData` object consists of entries, each of which includes the key and value.
    */
   additionalData?: Record<string, string>;
-  amount: Amount16;
-  applicationInfo?: ApplicationInfo1;
-  bankAccount?: BankAccount9;
-  billingAddress?: BillingAddress7;
-  browserInfo?: BrowserInfo2;
+  /** The amount information for the transaction (in [minor units](https://docs.adyen.com/development-resources/currency-codes)). For [BIN or card verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification) requests, set amount to 0 (zero). */
+  amount: Amount;
+  /** Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions). */
+  applicationInfo?: ApplicationInfo;
+  /**
+   * The details of the bank account, from which the payment should be made.
+   * > Either `bankAccount` or `card` field must be provided in a payment request.
+   */
+  bankAccount?: BankAccount1;
+  /**
+   * The address where to send the invoice.
+   * > The `billingAddress` object is required in the following scenarios. Include all of the fields within this object.
+   * >* For 3D Secure 2 transactions in all browser-based and mobile implementations.
+   * >* For cross-border payouts to and from Canada.
+   */
+  billingAddress?: Address;
+  /**
+   * The shopper's browser information.
+   * > For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the `userAgent` and `acceptHeader` fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
+   */
+  browserInfo?: BrowserInfo;
   /** The delay between the authorisation and scheduled auto-capture, specified in hours. */
   captureDelayHours?: number;
-  card?: Card6;
+  /**
+   * A container for card data.
+   * > Either `bankAccount` or `card` field must be provided in a payment request.
+   */
+  card?: Card3;
   /**
    * The shopper's date of birth.
    * Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    */
   dateOfBirth?: string;
-  dccQuote?: ForexQuote;
-  deliveryAddress?: DeliveryAddress6;
+  /** The forex quote as returned in the response of the forex service. */
+  dccQuote?: ForexQuote11;
+  /** The address where the purchased goods should be delivered. */
+  deliveryAddress?: Address;
   /**
    * The date and time the purchased goods should be delivered.
    * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD
@@ -101,20 +128,26 @@ export interface PaymentRequest1 {
   deliveryDate?: string;
   /** A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting). */
   deviceFingerprint?: string;
-  entityType?: EntityType;
+  /** The type of the entity the payment is processed for. */
+  entityType?: EntityTypeEnum;
   /** An integer value that is added to the normal fraud score. The value can be either positive or negative. */
   fraudOffset?: number;
-  fundDestination?: FundDestination;
-  fundSource?: FundSource;
-  fundingSource?: FundingSource;
-  installments?: Installments2;
+  /** the person or entity receiving the money */
+  fundDestination?: FundDestination1;
+  /** The person or entity funding the money. */
+  fundSource?: FundSource1;
+  /** The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**. */
+  fundingSource?: FundingSourceEnum;
+  /** Contains installment settings. For more information, refer to [Installments](https://docs.adyen.com/payment-methods/cards/credit-card-installments). */
+  installments?: Installments;
   /**
    * The `localizedShopperStatement` field lets you use dynamic values for your shopper statement in a local character set. If this parameter is left empty, not provided, or not applicable (in case of cross-border transactions), then **shopperStatement** is used.
    * Currently, `localizedShopperStatement` is only supported for payments with Visa, Mastercard, JCB, Diners, and Discover.
    * **Supported characters**: Hiragana, Katakana, Kanji, and alphanumeric.
    */
   localizedShopperStatement?: Record<string, string>;
-  mandate?: Mandate1;
+  /** The mandate details to initiate recurring transaction. */
+  mandate?: Mandate;
   /** The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant. */
   mcc?: string;
   /** The merchant account identifier, with which you want to process the transaction. */
@@ -125,7 +158,11 @@ export interface PaymentRequest1 {
    * > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `PaymentRequest.additionalData`.
    */
   merchantOrderReference?: string;
-  merchantRiskIndicator?: MerchantRiskIndicator;
+  /**
+   * Additional risk fields for 3D Secure 2.
+   * > For 3D Secure 2 transactions, we recommend that you include this object to increase the chances of achieving a frictionless flow.
+   */
+  merchantRiskIndicator?: MerchantRiskIndicator11;
   /**
    * Metadata consists of entries, each of which includes a key and a value.
    * Limits:
@@ -134,21 +171,32 @@ export interface PaymentRequest1 {
    * * Maximum 80 characters per value.
    */
   metadata?: Record<string, string>;
-  mpiData?: MpiData;
+  /** Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires). */
+  mpiData?: ThreeDSecureData;
   /** The two-character country code of the shopper's nationality. */
   nationality?: string;
   /** When you are doing multiple partial (gift card) payments, this is the `pspReference` of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the `merchantOrderReference`instead. */
   orderReference?: string;
-  platformChargebackLogic?: PlatformChargebackLogic1;
-  recurring?: Recurring3;
-  recurringProcessingModel?: RecurringProcessingModel;
+  /** Defines how to book chargebacks when using [Adyen for Platforms](https://docs.adyen.com/adyen-for-platforms-model). */
+  platformChargebackLogic?: PlatformChargebackLogic;
+  /** The recurring settings for the payment. Use this property when you want to enable [recurring payments](https://docs.adyen.com/classic-integration/recurring-payments). */
+  recurring?: Recurring;
+  /**
+   * Defines a recurring payment type. Required when creating a token to store payment details or using stored payment details.
+   * Allowed values:
+   * * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule.
+   * * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction.
+   * * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
+   */
+  recurringProcessingModel?: RecurringProcessingModelEnum;
   /**
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement.
    * If you need to provide multiple references for a transaction, separate them with hyphens ("-").
    * Maximum length: 80 characters.
    */
   reference: string;
-  secureRemoteCommerceCheckoutData?: SecureRemoteCommerceCheckoutData;
+  /** Checkout data for a Secure Remote Commerce payment. */
+  secureRemoteCommerceCheckoutData?: SecureRemoteCommerceCheckoutData2;
   /**
    * Some payment methods require defining a value for this field to specify how to process the transaction.
    * For the Bancontact payment method, it can be set to:
@@ -166,14 +214,24 @@ export interface PaymentRequest1 {
    * The shopper's IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks).
    * > Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and mobile integrations, if you did not include the `shopperEmail`. For native mobile integrations, the field is required to support cases where authentication is routed to the redirect flow. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    */
-  shopperIp?: string;
-  shopperInteraction?: ShopperInteraction1;
+  shopperIP?: string;
+  /**
+   * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer.
+   * For the web service API, Adyen assumes Ecommerce shopper interaction by default.
+   * This field has the following possible values:
+   * * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request.
+   * * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment).
+   * * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone.
+   * * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+   */
+  shopperInteraction?: ShopperInteractionEnum;
   /**
    * The language for the payment. The value combines the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code with the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code. For example, **nl-NL**.
    * When using Drop-in/Components, the specified language appears if your front-end global configuration does not set the `locale`.
    */
   shopperLocale?: string;
-  shopperName?: ShopperName;
+  /** The shopper's full name. */
+  shopperName?: Name;
   /**
    * Required for recurring payments.
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.
@@ -198,102 +256,98 @@ export interface PaymentRequest1 {
    * > Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`.
    */
   telephoneNumber?: string;
-  threeDs2RequestData?: ThreeDs2RequestData1;
+  /** Request fields for 3D Secure 2. To check if any of the following fields are required for your integration, refer to [Online payments](https://docs.adyen.com/online-payments) or [Classic integration](https://docs.adyen.com/classic-integration) documentation. */
+  threeDS2RequestData?: ThreeDS2RequestData11;
   /** Required to trigger the [authentication-only flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the payment authorization.Default: **false**. */
-  threeDsAuthenticationOnly?: boolean;
+  threeDSAuthenticationOnly?: boolean;
   /** The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available). */
   totalsGroup?: string;
   /** Set to true if the payment should be routed to a trusted MID. */
   trustedShopper?: boolean;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const paymentRequest1Schema: Schema<PaymentRequest1> = lazy(() =>
-  typedExpandoObject(
-    {
-      accountInfo: ['accountInfo', optional(accountInfo2Schema)],
-      additionalAmount: ['additionalAmount', optional(additionalAmountSchema)],
-      additionalData: ['additionalData', optional(dict(string()))],
-      amount: ['amount', amount16Schema],
-      applicationInfo: ['applicationInfo', optional(applicationInfo1Schema)],
-      bankAccount: ['bankAccount', optional(bankAccount9Schema)],
-      billingAddress: ['billingAddress', optional(billingAddress7Schema)],
-      browserInfo: ['browserInfo', optional(browserInfo2Schema)],
-      captureDelayHours: ['captureDelayHours', optional(number())],
-      card: ['card', optional(card6Schema)],
-      dateOfBirth: ['dateOfBirth', optional(string())],
-      dccQuote: ['dccQuote', optional(forexQuoteSchema)],
-      deliveryAddress: ['deliveryAddress', optional(deliveryAddress6Schema)],
-      deliveryDate: ['deliveryDate', optional(string())],
-      deviceFingerprint: ['deviceFingerprint', optional(string())],
-      entityType: ['entityType', optional(entityTypeSchema)],
-      fraudOffset: ['fraudOffset', optional(number())],
-      fundDestination: ['fundDestination', optional(fundDestinationSchema)],
-      fundSource: ['fundSource', optional(fundSourceSchema)],
-      fundingSource: ['fundingSource', optional(fundingSourceSchema)],
-      installments: ['installments', optional(installments2Schema)],
-      localizedShopperStatement: [
-        'localizedShopperStatement',
-        optional(dict(string())),
-      ],
-      mandate: ['mandate', optional(mandate1Schema)],
-      mcc: ['mcc', optional(string())],
-      merchantAccount: ['merchantAccount', string()],
-      merchantOrderReference: ['merchantOrderReference', optional(string())],
-      merchantRiskIndicator: [
-        'merchantRiskIndicator',
-        optional(merchantRiskIndicatorSchema),
-      ],
-      metadata: ['metadata', optional(dict(string()))],
-      mpiData: ['mpiData', optional(mpiDataSchema)],
-      nationality: ['nationality', optional(string())],
-      orderReference: ['orderReference', optional(string())],
-      platformChargebackLogic: [
-        'platformChargebackLogic',
-        optional(platformChargebackLogic1Schema),
-      ],
-      recurring: ['recurring', optional(recurring3Schema)],
-      recurringProcessingModel: [
-        'recurringProcessingModel',
-        optional(recurringProcessingModelSchema),
-      ],
-      reference: ['reference', string()],
-      secureRemoteCommerceCheckoutData: [
-        'secureRemoteCommerceCheckoutData',
-        optional(secureRemoteCommerceCheckoutDataSchema),
-      ],
-      selectedBrand: ['selectedBrand', optional(string())],
-      selectedRecurringDetailReference: [
-        'selectedRecurringDetailReference',
-        optional(string()),
-      ],
-      sessionId: ['sessionId', optional(string())],
-      shopperEmail: ['shopperEmail', optional(string())],
-      shopperIp: ['shopperIP', optional(string())],
-      shopperInteraction: [
-        'shopperInteraction',
-        optional(shopperInteraction1Schema),
-      ],
-      shopperLocale: ['shopperLocale', optional(string())],
-      shopperName: ['shopperName', optional(shopperNameSchema)],
-      shopperReference: ['shopperReference', optional(string())],
-      shopperStatement: ['shopperStatement', optional(string())],
-      socialSecurityNumber: ['socialSecurityNumber', optional(string())],
-      splits: ['splits', optional(array(splitSchema))],
-      store: ['store', optional(string())],
-      telephoneNumber: ['telephoneNumber', optional(string())],
-      threeDs2RequestData: [
-        'threeDS2RequestData',
-        optional(threeDs2RequestData1Schema),
-      ],
-      threeDsAuthenticationOnly: [
-        'threeDSAuthenticationOnly',
-        optional(boolean()),
-      ],
-      totalsGroup: ['totalsGroup', optional(string())],
-      trustedShopper: ['trustedShopper', optional(boolean())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    accountInfo: ['accountInfo', optional(accountInfoSchema)],
+    additionalAmount: ['additionalAmount', optional(amountSchema)],
+    additionalData: ['additionalData', optional(dict(string()))],
+    amount: ['amount', amountSchema],
+    applicationInfo: ['applicationInfo', optional(applicationInfoSchema)],
+    bankAccount: ['bankAccount', optional(bankAccount1Schema)],
+    billingAddress: ['billingAddress', optional(addressSchema)],
+    browserInfo: ['browserInfo', optional(browserInfoSchema)],
+    captureDelayHours: ['captureDelayHours', optional(number())],
+    card: ['card', optional(card3Schema)],
+    dateOfBirth: ['dateOfBirth', optional(string())],
+    dccQuote: ['dccQuote', optional(forexQuote11Schema)],
+    deliveryAddress: ['deliveryAddress', optional(addressSchema)],
+    deliveryDate: ['deliveryDate', optional(string())],
+    deviceFingerprint: ['deviceFingerprint', optional(string())],
+    entityType: ['entityType', optional(entityTypeEnumSchema)],
+    fraudOffset: ['fraudOffset', optional(number())],
+    fundDestination: ['fundDestination', optional(fundDestination1Schema)],
+    fundSource: ['fundSource', optional(fundSource1Schema)],
+    fundingSource: ['fundingSource', optional(fundingSourceEnumSchema)],
+    installments: ['installments', optional(installmentsSchema)],
+    localizedShopperStatement: [
+      'localizedShopperStatement',
+      optional(dict(string())),
+    ],
+    mandate: ['mandate', optional(mandateSchema)],
+    mcc: ['mcc', optional(string())],
+    merchantAccount: ['merchantAccount', string()],
+    merchantOrderReference: ['merchantOrderReference', optional(string())],
+    merchantRiskIndicator: [
+      'merchantRiskIndicator',
+      optional(merchantRiskIndicator11Schema),
+    ],
+    metadata: ['metadata', optional(dict(string()))],
+    mpiData: ['mpiData', optional(threeDSecureDataSchema)],
+    nationality: ['nationality', optional(string())],
+    orderReference: ['orderReference', optional(string())],
+    platformChargebackLogic: [
+      'platformChargebackLogic',
+      optional(platformChargebackLogicSchema),
+    ],
+    recurring: ['recurring', optional(recurringSchema)],
+    recurringProcessingModel: [
+      'recurringProcessingModel',
+      optional(recurringProcessingModelEnumSchema),
+    ],
+    reference: ['reference', string()],
+    secureRemoteCommerceCheckoutData: [
+      'secureRemoteCommerceCheckoutData',
+      optional(secureRemoteCommerceCheckoutData2Schema),
+    ],
+    selectedBrand: ['selectedBrand', optional(string())],
+    selectedRecurringDetailReference: [
+      'selectedRecurringDetailReference',
+      optional(string()),
+    ],
+    sessionId: ['sessionId', optional(string())],
+    shopperEmail: ['shopperEmail', optional(string())],
+    shopperIP: ['shopperIP', optional(string())],
+    shopperInteraction: [
+      'shopperInteraction',
+      optional(shopperInteractionEnumSchema),
+    ],
+    shopperLocale: ['shopperLocale', optional(string())],
+    shopperName: ['shopperName', optional(nameSchema)],
+    shopperReference: ['shopperReference', optional(string())],
+    shopperStatement: ['shopperStatement', optional(string())],
+    socialSecurityNumber: ['socialSecurityNumber', optional(string())],
+    splits: ['splits', optional(array(splitSchema))],
+    store: ['store', optional(string())],
+    telephoneNumber: ['telephoneNumber', optional(string())],
+    threeDS2RequestData: [
+      'threeDS2RequestData',
+      optional(threeDS2RequestData11Schema),
+    ],
+    threeDSAuthenticationOnly: [
+      'threeDSAuthenticationOnly',
+      optional(boolean()),
+    ],
+    totalsGroup: ['totalsGroup', optional(string())],
+    trustedShopper: ['trustedShopper', optional(boolean())],
+  })
 );

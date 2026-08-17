@@ -4,8 +4,6 @@
 In the message response, it contains the result of the output, if required in the message request.
 Information related to the result the output (display, print, input).
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OutputResult`
@@ -14,35 +12,28 @@ Information related to the result the output (display, print, input).
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `device` | [`Device3`](../../doc/models/device-3.md) | Required | - |
-| `infoQualify` | [`InfoQualify3`](../../doc/models/info-qualify-3.md) | Required | - |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `device` | [`Device3Enum`](../../doc/models/device-3-enum.md) | Required | Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer.<br>Copy.<br>Possible values:<br><br>* **CashierDisplay**<br>* **CashierInput**<br>* **CustomerDisplay**<br>* **CustomerInput** |
+| `infoQualify` | [`InfoQualify3Enum`](../../doc/models/info-qualify-3-enum.md) | Required | Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer.<br>Copy.<br>Possible values:<br><br>* **CustomerAssistance**<br>* **Display**<br>* **Document**<br>* **Error**<br>* **Input**<br>* **POIReplication**<br>* **Receipt**<br>* **Sound**<br>* **Status**<br>* **Voucher** |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
 
 ## Example
 
 ```ts
 import {
-  Device3,
-  ErrorCondition1,
-  InfoQualify3,
+  Device3Enum,
+  ErrorCondition1Enum,
+  InfoQualify3Enum,
   OutputResult,
-  Result11,
+  Result11Enum,
 } from 'adyen';
 
 const outputResult: OutputResult = {
-  device: Device3.CashierInput,
-  infoQualify: InfoQualify3.Document,
+  device: Device3Enum.CashierInput,
+  infoQualify: InfoQualify3Enum.Document,
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

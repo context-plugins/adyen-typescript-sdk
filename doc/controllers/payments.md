@@ -10,12 +10,10 @@ const paymentsApi = new PaymentsApi(client);
 
 ## Methods
 
-* [Post-Payments-Cancel](../../doc/controllers/payments.md#post-payments-cancel)
-* [Post-Payments-Confirm](../../doc/controllers/payments.md#post-payments-confirm)
-* [Post-Payments-Details](../../doc/controllers/payments.md#post-payments-details)
 * [Post-Card Details](../../doc/controllers/payments.md#post-card-details)
 * [Post-Payment Methods](../../doc/controllers/payments.md#post-payment-methods)
 * [Post-Payments](../../doc/controllers/payments.md#post-payments)
+* [Post-Payments-Details](../../doc/controllers/payments.md#post-payments-details)
 * [Post-Sessions](../../doc/controllers/payments.md#post-sessions)
 * [Get-Sessions-Session Id](../../doc/controllers/payments.md#get-sessions-session-id)
 * [Post-Authorise](../../doc/controllers/payments.md#post-authorise)
@@ -23,291 +21,9 @@ const paymentsApi = new PaymentsApi(client);
 * [Post-Authorise 3 Ds 2](../../doc/controllers/payments.md#post-authorise-3-ds-2)
 * [Post-Get Authentication Result](../../doc/controllers/payments.md#post-get-authentication-result)
 * [Post-Retrieve 3 Ds 2 Result](../../doc/controllers/payments.md#post-retrieve-3-ds-2-result)
-
-
-# Post-Payments-Cancel
-
-Cancels the payment. Returns a URL for user redirection.
-
-:information_source: **Note** This endpoint does not require authentication.
-
-```ts
-async postPaymentsCancel(
-  body: CancelPaymentRequest,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<CancelPaymentResponse>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`CancelPaymentRequest`](../../doc/models/cancel-payment-request.md) | Body, Required | - |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-**200**: OK - The request has succeeded.
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CancelPaymentResponse`](../../doc/models/cancel-payment-response.md).
-
-## Example Usage
-
-```ts
-const body: CancelPaymentRequest = {
-  token: 'TOKEN_PLACEHOLDER',
-};
-
-try {
-  const response = await paymentsApi.postPaymentsCancel(body);
-
-  // Extracting fully parsed response body.
-  console.log(response.result);
-
-  // Extracting response status code.
-  console.log(response.statusCode);
-  // Extracting response headers.
-  console.log(response.headers);
-  // Extracting response body of type `string | Stream`
-  console.log(response.body);
-} catch (error) {
-  if (error instanceof ApiError) {
-    // Extracting response error status code.
-    console.log(error.statusCode);
-    // Extracting response error headers.
-    console.log(error.headers);
-    // Extracting response error body of type `string | Stream`.
-    console.log(error.body);
-    if (error instanceof PaymentsCancel400Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsCancel422Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsCancel500Error) {
-      console.log(error.result);
-    }
-  }
-}
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "links": {
-    "cancel": {
-      "href": "https://cancelUrl.com"
-    }
-  }
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`PaymentsCancel400Error`](../../doc/models/payments-cancel-400-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`PaymentsCancel422Error`](../../doc/models/payments-cancel-422-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`PaymentsCancel500Error`](../../doc/models/payments-cancel-500-error.md) |
-
-
-# Post-Payments-Confirm
-
-Confirms the payment using Strong Customer Authentication (SCA).
-
-    To confirm a payment you must make this request two times:
-    
-    1. Make this request to initiate SCA and receive the WWW-Authenticate header.
-    2. After the user completes the SCA challenge, make this request again, including the updated WWW-Authenticate header.
-    
-    The second response provides a redirection URL that guides the user to a payment success or failure page.
-
-For more information, see our [documentation](https://docs.adyen.com/business-accounts/send-funds-ideal-integration).
-
-:information_source: **Note** This endpoint does not require authentication.
-
-```ts
-async postPaymentsConfirm(
-  body: ConfirmPaymentRequest,
-  wwwAuthenticate?: string,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<ConfirmPaymentResponse>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`ConfirmPaymentRequest`](../../doc/models/confirm-payment-request.md) | Body, Required | - |
-| `wwwAuthenticate` | `string \| undefined` | Header, Optional | Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments. |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-**200**: OK - The request has succeeded.
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ConfirmPaymentResponse`](../../doc/models/confirm-payment-response.md).
-
-## Example Usage
-
-```ts
-const body: ConfirmPaymentRequest = {
-  balanceAccountId: 'BA00000000000000000000000',
-  token: 'TOKEN_PLACEHOLDER',
-};
-
-try {
-  const response = await paymentsApi.postPaymentsConfirm(body);
-
-  // Extracting fully parsed response body.
-  console.log(response.result);
-
-  // Extracting response status code.
-  console.log(response.statusCode);
-  // Extracting response headers.
-  console.log(response.headers);
-  // Extracting response body of type `string | Stream`
-  console.log(response.body);
-} catch (error) {
-  if (error instanceof ApiError) {
-    // Extracting response error status code.
-    console.log(error.statusCode);
-    // Extracting response error headers.
-    console.log(error.headers);
-    // Extracting response error body of type `string | Stream`.
-    console.log(error.body);
-    if (error instanceof PaymentsConfirm400Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsConfirm401Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsConfirm422Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsConfirm500Error) {
-      console.log(error.result);
-    }
-  }
-}
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "links": {
-    "success": {
-      "href": "https://successUrl.com"
-    }
-  }
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`PaymentsConfirm400Error`](../../doc/models/payments-confirm-400-error.md) |
-| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`PaymentsConfirm401Error`](../../doc/models/payments-confirm-401-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`PaymentsConfirm422Error`](../../doc/models/payments-confirm-422-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`PaymentsConfirm500Error`](../../doc/models/payments-confirm-500-error.md) |
-
-
-# Post-Payments-Details
-
-Returns the details of an open payment, which you must show to the user. Also provides a token required to [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm) or [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel) the payment.
-
-:information_source: **Note** This endpoint does not require authentication.
-
-```ts
-async postPaymentsDetails(
-  body: IdealPaymentDetailsRequest,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<PaymentDetailsResponse>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`IdealPaymentDetailsRequest`](../../doc/models/ideal-payment-details-request.md) | Body, Required | - |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-**200**: OK - The request has succeeded.
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentDetailsResponse`](../../doc/models/payment-details-response.md).
-
-## Example Usage
-
-```ts
-const body: IdealPaymentDetailsRequest = {
-  payload: 'https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI',
-  source: PaymentSource2.Redirect,
-  method: 'ideal',
-};
-
-try {
-  const response = await paymentsApi.postPaymentsDetails(body);
-
-  // Extracting fully parsed response body.
-  console.log(response.result);
-
-  // Extracting response status code.
-  console.log(response.statusCode);
-  // Extracting response headers.
-  console.log(response.headers);
-  // Extracting response body of type `string | Stream`
-  console.log(response.body);
-} catch (error) {
-  if (error instanceof ApiError) {
-    // Extracting response error status code.
-    console.log(error.statusCode);
-    // Extracting response error headers.
-    console.log(error.headers);
-    // Extracting response error body of type `string | Stream`.
-    console.log(error.body);
-    if (error instanceof PaymentsDetails400Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsDetails422Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentsDetails500Error) {
-      console.log(error.result);
-    }
-  }
-}
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "details": {
-    "amount": {
-      "currency": "EUR",
-      "value": 200
-    },
-    "counterparty": {
-      "accountHolder": {
-        "fullName": "Test company"
-      },
-      "accountIdentification": {
-        "iban": "NL29ADYX0000000000",
-        "type": "iban"
-      }
-    },
-    "description": "MyStoreDemo-Donation-1754056596388",
-    "expiresAt": "2025-08-01T14:16:42.887Z"
-  },
-  "token": "TOKEN_PLACEHOLDER"
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`PaymentsDetails400Error`](../../doc/models/payments-details-400-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`PaymentsDetails422Error`](../../doc/models/payments-details-422-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`PaymentsDetails500Error`](../../doc/models/payments-details-500-error.md) |
+* [Post-Payments-Cancel](../../doc/controllers/payments.md#post-payments-cancel)
+* [Post-Payments-Confirm](../../doc/controllers/payments.md#post-payments-confirm)
+* [Post-Payments-Details 1](../../doc/controllers/payments.md#post-payments-details-1)
 
 
 # Post-Card Details
@@ -481,7 +197,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -1549,11 +1265,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
 
 
 # Post-Payments
@@ -1601,7 +1317,7 @@ const body: PaymentRequest = {
   merchantAccount: 'YOUR_MERCHANT_ACCOUNT',
   paymentMethod: {
     applePayToken: 'VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...',
-    type: Type71.Applepay,
+    type: Type7Enum.Applepay,
   },
   reference: 'Your order number',
   returnUrl: 'https://your-company.example.com/...',
@@ -1630,7 +1346,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -1657,11 +1373,100 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+
+
+# Post-Payments-Details
+
+Submits details for a payment created using `/payments`. This step is only needed when no final state has been reached on the `/payments` request, for example when the shopper was redirected to another page to complete the payment.
+
+```ts
+async postPaymentsDetails(
+  idempotencyKey?: string,
+  body?: PaymentDetailsRequest,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<PaymentDetailsResponse>>
+```
+
+## Authentication
+
+This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR** [ApiKeyAuth](../../doc/auth/custom-header-signature.md)
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `idempotencyKey` | `string \| undefined` | Header, Optional | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID). |
+| `body` | [`PaymentDetailsRequest \| undefined`](../../doc/models/payment-details-request.md) | Body, Optional | - |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+**200**: OK - the request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentDetailsResponse`](../../doc/models/payment-details-response.md).
+
+## Example Usage
+
+```ts
+const body: PaymentDetailsRequest = {
+  details: {
+    redirectResult: 'X6XtfGC3!Y...',
+  },
+};
+
+try {
+  const response = await paymentsApi.postPaymentsDetails(
+    undefined,
+    body
+  );
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
+} catch (error) {
+  if (error instanceof ApiError) {
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
+    if (error instanceof ServiceError) {
+      console.log(error.result);
+    }
+  }
+}
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "resultCode": "Authorised",
+  "pspReference": "V4HZ4RBFJGXXGN82"
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
 
 
 # Post-Sessions
@@ -1906,10 +1711,10 @@ const body: PaymentRequest1 = {
     number: '4917610000000000',
   },
   shopperEmail: 's.hopper@test.com',
-  shopperIp: '192.0.2.1',
-  threeDs2RequestData: {
+  shopperIP: '192.0.2.1',
+  threeDS2RequestData: {
     deviceChannel: 'browser',
-    notificationUrl: 'https://www.example.com/YOUR_3DS_NOTIFICATION_URL',
+    notificationURL: 'https://www.example.com/YOUR_3DS_NOTIFICATION_URL',
   },
 };
 
@@ -1933,7 +1738,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -1944,11 +1749,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
 
 
 # Post-Authorise 3 D
@@ -1963,8 +1768,8 @@ For an authenticated 3D Secure session, completes the payment authorisation. Thi
 > The Checkout API enables your [online payments](https://docs.adyen.com/online-payments) integration to accept all supported payment methods, use the latest features, and access more benefits.
 
 ```ts
-async postAuthorise3D(
-  body?: PaymentRequest3D,
+async postAuthorise3d(
+  body?: PaymentRequest3d,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PaymentResult>>
 ```
@@ -1977,7 +1782,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentRequest3D \| undefined`](../../doc/models/payment-request-3-d.md) | Body, Optional | - |
+| `body` | [`PaymentRequest3d \| undefined`](../../doc/models/payment-request-3-d.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -1989,15 +1794,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-const body: PaymentRequest3D = {
+const body: PaymentRequest3d = {
   md: '31h..........vOXek7w',
   merchantAccount: 'YOUR_MERCHANT_ACCOUNT',
   paResponse: 'eNqtmF........wGVA4Ch',
-  shopperIp: '61.294.12.12',
+  shopperIP: '61.294.12.12',
 };
 
 try {
-  const response = await paymentsApi.postAuthorise3D(body);
+  const response = await paymentsApi.postAuthorise3d(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -2016,7 +1821,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -2027,11 +1832,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
 
 
 # Post-Authorise 3 Ds 2
@@ -2046,8 +1851,8 @@ For an authenticated 3D Secure 2 session, completes the payment authorisation. T
 > The Checkout API enables your [online payments](https://docs.adyen.com/online-payments) integration to accept all supported payment methods, use the latest features, and access more benefits.
 
 ```ts
-async postAuthorise3Ds2(
-  body?: PaymentRequest3Ds2,
+async postAuthorise3ds2(
+  body?: PaymentRequest3ds2,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PaymentResult>>
 ```
@@ -2060,7 +1865,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentRequest3Ds2 \| undefined`](../../doc/models/payment-request-3-ds-2.md) | Body, Optional | - |
+| `body` | [`PaymentRequest3ds2 \| undefined`](../../doc/models/payment-request-3-ds-2.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -2072,22 +1877,22 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-const body: PaymentRequest3Ds2 = {
+const body: PaymentRequest3ds2 = {
   amount: {
     currency: 'EUR',
     value: BigInt(1000),
   },
   merchantAccount: 'YOUR_MERCHANT_ACCOUNT',
   reference: 'YOUR_ORDER_NUMBER',
-  threeDs2RequestData: {
+  threeDS2RequestData: {
     deviceChannel: 'app',
-    threeDsCompInd: 'Y',
+    threeDSCompInd: 'Y',
   },
-  threeDs2Token: '— - BINARY DATA - -',
+  threeDS2Token: '— - BINARY DATA - -',
 };
 
 try {
-  const response = await paymentsApi.postAuthorise3Ds2(body);
+  const response = await paymentsApi.postAuthorise3ds2(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -2106,7 +1911,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -2117,11 +1922,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
 
 
 # Post-Get Authentication Result
@@ -2180,7 +1985,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -2191,11 +1996,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
 
 
 # Post-Retrieve 3 Ds 2 Result
@@ -2203,10 +2008,10 @@ try {
 Retrieves the `threeDS2Result` after doing a 3D Secure 2 authentication only.
 
 ```ts
-async postRetrieve3Ds2Result(
-  body?: ThreeDs2ResultRequest,
+async postRetrieve3ds2Result(
+  body?: ThreeDS2ResultRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<ThreeDs2ResultResponse>>
+): Promise<ApiResponse<ThreeDS2ResultResponse>>
 ```
 
 ## Authentication
@@ -2217,25 +2022,25 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`ThreeDs2ResultRequest \| undefined`](../../doc/models/three-ds-2-result-request.md) | Body, Optional | - |
+| `body` | [`ThreeDS2ResultRequest \| undefined`](../../doc/models/three-ds-2-result-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ThreeDs2ResultResponse`](../../doc/models/three-ds-2-result-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ThreeDS2ResultResponse`](../../doc/models/three-ds-2-result-response.md).
 
 ## Example Usage
 
 ```ts
-const body: ThreeDs2ResultRequest = {
+const body: ThreeDS2ResultRequest = {
   merchantAccount: 'YOUR_MERCHANT_ACCOUNT',
   pspReference: '9935272408535455',
 };
 
 try {
-  const response = await paymentsApi.postRetrieve3Ds2Result(body);
+  const response = await paymentsApi.postRetrieve3ds2Result(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -2254,7 +2059,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError1Error) {
+    if (error instanceof ServiceError) {
       console.log(error.result);
     }
   }
@@ -2265,9 +2070,280 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Error`](../../doc/models/service-error-1-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+
+
+# Post-Payments-Cancel
+
+Cancels the payment. Returns a URL for user redirection.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```ts
+async postPaymentsCancel(
+  body: CancelPaymentRequest,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<CancelPaymentResponse>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`CancelPaymentRequest`](../../doc/models/cancel-payment-request.md) | Body, Required | - |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CancelPaymentResponse`](../../doc/models/cancel-payment-response.md).
+
+## Example Usage
+
+```ts
+const body: CancelPaymentRequest = {
+  token: 'TOKEN_PLACEHOLDER',
+};
+
+try {
+  const response = await paymentsApi.postPaymentsCancel(body);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
+} catch (error) {
+  if (error instanceof ApiError) {
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
+    if (error instanceof DefaultErrorResponseEntityError) {
+      console.log(error.result);
+    }
+  }
+}
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "links": {
+    "cancel": {
+      "href": "https://cancelUrl.com"
+    }
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+
+
+# Post-Payments-Confirm
+
+Confirms the payment using Strong Customer Authentication (SCA).
+
+    To confirm a payment you must make this request two times:
+    
+    1. Make this request to initiate SCA and receive the WWW-Authenticate header.
+    2. After the user completes the SCA challenge, make this request again, including the updated WWW-Authenticate header.
+    
+    The second response provides a redirection URL that guides the user to a payment success or failure page.
+
+For more information, see our [documentation](https://docs.adyen.com/business-accounts/send-funds-ideal-integration).
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```ts
+async postPaymentsConfirm(
+  body: ConfirmPaymentRequest,
+  wWWAuthenticate?: string,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<ConfirmPaymentResponse>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`ConfirmPaymentRequest`](../../doc/models/confirm-payment-request.md) | Body, Required | - |
+| `wWWAuthenticate` | `string \| undefined` | Header, Optional | Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments. |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ConfirmPaymentResponse`](../../doc/models/confirm-payment-response.md).
+
+## Example Usage
+
+```ts
+const body: ConfirmPaymentRequest = {
+  balanceAccountId: 'BA00000000000000000000000',
+  token: 'TOKEN_PLACEHOLDER',
+};
+
+try {
+  const response = await paymentsApi.postPaymentsConfirm(body);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
+} catch (error) {
+  if (error instanceof ApiError) {
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
+    if (error instanceof DefaultErrorResponseEntityError) {
+      console.log(error.result);
+    }
+  }
+}
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "links": {
+    "success": {
+      "href": "https://successUrl.com"
+    }
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+
+
+# Post-Payments-Details 1
+
+Returns the details of an open payment, which you must show to the user. Also provides a token required to [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm) or [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel) the payment.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```ts
+async postPaymentsDetails1(
+  body: IdealPaymentDetailsRequest,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<PaymentDetailsResponse1>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`IdealPaymentDetailsRequest`](../../doc/models/ideal-payment-details-request.md) | Body, Required | - |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentDetailsResponse1`](../../doc/models/payment-details-response-1.md).
+
+## Example Usage
+
+```ts
+const body: IdealPaymentDetailsRequest = {
+  payload: 'https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI',
+  source: PaymentSource2Enum.Redirect,
+  method: 'ideal',
+};
+
+try {
+  const response = await paymentsApi.postPaymentsDetails1(body);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
+} catch (error) {
+  if (error instanceof ApiError) {
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
+    if (error instanceof DefaultErrorResponseEntityError) {
+      console.log(error.result);
+    }
+  }
+}
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "details": {
+    "amount": {
+      "currency": "EUR",
+      "value": 200
+    },
+    "counterparty": {
+      "accountHolder": {
+        "fullName": "Test company"
+      },
+      "accountIdentification": {
+        "iban": "NL29ADYX0000000000",
+        "type": "iban"
+      }
+    },
+    "description": "MyStoreDemo-Donation-1754056596388",
+    "expiresAt": "2025-08-01T14:16:42.887Z"
+  },
+  "token": "TOKEN_PLACEHOLDER"
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

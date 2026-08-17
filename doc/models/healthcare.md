@@ -1,8 +1,6 @@
 
 # Healthcare
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Healthcare`
@@ -16,7 +14,6 @@
 | `prescriptionValue` | `bigint \| undefined` | Optional | The prescription/Rx amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000 |
 | `totalHealthcareValue` | `bigint` | Required | The total healthcare amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000 |
 | `visionPrescriptionValue` | `bigint \| undefined` | Optional | The vision/optical prescription amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000 |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const healthcare: Healthcare = {
   otherMedicalValue: BigInt(150),
   prescriptionValue: BigInt(116),
   visionPrescriptionValue: BigInt(166),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Update Company Api Credential Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdateCompanyApiCredentialRequest`
@@ -16,8 +14,7 @@
 | `associatedMerchantAccounts` | `string[] \| undefined` | Optional | List of merchant accounts that the API credential has access to. |
 | `description` | `string \| undefined` | Optional | Description of the API credential. |
 | `roles` | `string[] \| undefined` | Optional | List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials. |
-| `subjectDn` | `string \| undefined` | Optional | The subject DN of the certificate issued by Adyen. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `subjectDN` | `string \| undefined` | Optional | The subject DN of the certificate issued by Adyen. |
 
 ## Example
 
@@ -38,9 +35,6 @@ const updateCompanyApiCredentialRequest: UpdateCompanyApiCredentialRequest = {
     'roles2',
     'roles1'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

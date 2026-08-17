@@ -3,8 +3,6 @@
 
 Content of the Enable Service Request message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `EnableServiceRequest2`
@@ -13,44 +11,40 @@ Content of the Enable Service Request message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionAction` | [`TransactionAction1`](../../doc/models/transaction-action-1.md) | Required | - |
-| `servicesEnabled` | [`ServicesEnabled[] \| undefined`](../../doc/models/services-enabled.md) | Optional | Services which are enabled before the start-up of a transaction.<br>Mandatory if `TransactionAction` is `StartTransaction`, absent if not.<br>Possible values:<br><br>* **CardAcquisition**<br>* **Loyalty**<br>* **Payment** |
-| `displayOutput` | [`DisplayOutput3 \| undefined`](../../doc/models/display-output-3.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionAction` | [`TransactionAction1Enum`](../../doc/models/transaction-action-1-enum.md) | Required | Action to realise on a transaction. In an `EnableService` request message:<br><br>- Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.<br>- Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction.<br>  Possible values:<br><br>* **AbortTransaction**<br>* **StartTransaction** |
+| `servicesEnabled` | [`ServicesEnabledEnum[] \| undefined`](../../doc/models/services-enabled-enum.md) | Optional | Services which are enabled before the start-up of a transaction.<br>Mandatory if `TransactionAction` is `StartTransaction`, absent if not.<br>Possible values:<br><br>* **CardAcquisition**<br>* **Loyalty**<br>* **Payment** |
+| `displayOutput` | [`DisplayOutput2 \| undefined`](../../doc/models/display-output-2.md) | Optional | Information to display and the way to process the display. |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  Device11,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  Device11Enum,
   EnableServiceRequest2,
-  InfoQualify1,
-  MenuEntryTag1,
-  OutputFormat1,
-  OutputFormat2,
-  ServicesEnabled,
-  TransactionAction1,
+  InfoQualify1Enum,
+  MenuEntryTag1Enum,
+  OutputFormat1Enum,
+  OutputFormat2Enum,
+  ServicesEnabledEnum,
+  TransactionAction1Enum,
 } from 'adyen';
 
 const enableServiceRequest2: EnableServiceRequest2 = {
-  transactionAction: TransactionAction1.StartTransaction,
+  transactionAction: TransactionAction1Enum.StartTransaction,
   servicesEnabled: [
-    ServicesEnabled.Loyalty,
-    ServicesEnabled.CardAcquisition
+    ServicesEnabledEnum.Loyalty,
+    ServicesEnabledEnum.CardAcquisition
   ],
   displayOutput: {
-    device: Device11.CashierDisplay,
-    infoQualify: InfoQualify1.Status,
+    device: Device11Enum.CashierDisplay,
+    infoQualify: InfoQualify1Enum.Status,
     outputContent: {
-      outputFormat: OutputFormat1.Xhtml,
+      outputFormat: OutputFormat1Enum.XHTML,
       predefinedContent: {
-        referenceId: 'ReferenceID0',
+        referenceID: 'ReferenceID0',
         language: 'Language2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       outputText: [
         {
@@ -58,37 +52,25 @@ const enableServiceRequest2: EnableServiceRequest2 = {
           characterSet: 194,
           startRow: 74,
           startColumn: 220,
-          characterWidth: CharacterWidth1.SingleWidth,
-          characterHeight: CharacterHeight1.SingleHeight,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          characterWidth: CharacterWidth1Enum.SingleWidth,
+          characterHeight: CharacterHeight1Enum.SingleHeight,
         }
       ],
-      outputXhtml: 'OutputXHTML2',
+      outputXHTML: 'OutputXHTML2',
       outputBarcode: {
         barcodeValue: 'BarcodeValue2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     responseRequiredFlag: false,
     minimumDisplayTime: 110,
     menuEntry: [
       {
-        outputFormat: OutputFormat2.Xhtml,
-        menuEntryTag: MenuEntryTag1.SubMenu,
+        outputFormat: OutputFormat2Enum.XHTML,
+        menuEntryTag: MenuEntryTag1Enum.SubMenu,
         defaultSelectedFlag: false,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -96,39 +78,27 @@ const enableServiceRequest2: EnableServiceRequest2 = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           },
           {
             text: 'Text6',
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        outputXHTML: 'OutputXHTML8',
       },
       {
-        outputFormat: OutputFormat2.Xhtml,
-        menuEntryTag: MenuEntryTag1.SubMenu,
+        outputFormat: OutputFormat2Enum.XHTML,
+        menuEntryTag: MenuEntryTag1Enum.SubMenu,
         defaultSelectedFlag: false,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -136,37 +106,22 @@ const enableServiceRequest2: EnableServiceRequest2 = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           },
           {
             text: 'Text6',
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        outputXHTML: 'OutputXHTML8',
       }
     ],
     outputSignature: 'OutputSignature4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

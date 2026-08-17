@@ -1,8 +1,6 @@
 
 # Cash Out Transfer
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CashOutTransfer`
@@ -11,29 +9,22 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The amount of the cashout instruction transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
 | `id` | `string` | Required | The reference of the cashout transfer. |
-| `type` | [`Type122`](../../doc/models/type-122.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type121Enum`](../../doc/models/type-121-enum.md) | Required | The type of the cashout transfer.<br><br>Possible values:<br><br>- **cashoutRepayment**: Corresponds to the transfer created to deduct the cashout amount after settlement.<br>- **cashoutFee**: Corresponds to the transfer created to debit the cashout fee form the user's balance account. |
 
 ## Example
 
 ```ts
-import { CashOutTransfer, Type122 } from 'adyen';
+import { CashOutTransfer, Type121Enum } from 'adyen';
 
 const cashOutTransfer: CashOutTransfer = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   id: 'id2',
-  type: Type122.CashoutRepayment,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type121Enum.CashoutRepayment,
 };
 ```
 

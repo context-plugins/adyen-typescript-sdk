@@ -1,8 +1,6 @@
 
 # Calculated Grant Offer
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CalculatedGrantOffer`
@@ -12,72 +10,47 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderId` | `string` | Required | The unique identifier of the account holder that the dynamic offer is for. |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `contractType` | [`ContractType`](../../doc/models/contract-type.md) | Required | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The financing amount that would be paid out to your user. |
+| `contractType` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Required | The contract type of the offer.<br><br>Possible values:<br><br>* **loan**<br>* **cashAdvance** |
 | `expiresAt` | `string` | Required | The expiration date and time of the offer validity period. |
-| `fee` | [`GrantOfferFee`](../../doc/models/grant-offer-fee.md) | Required | - |
-| `repayment` | [`Repayment1`](../../doc/models/repayment-1.md) | Required | - |
+| `fee` | [`GrantOfferFee1`](../../doc/models/grant-offer-fee-1.md) | Required | Contains information about the fee that your user would pay for the grant. |
+| `repayment` | [`Repayment11`](../../doc/models/repayment-11.md) | Required | Contains information about the repayment configuration of the grant. |
 | `startsAt` | `string` | Required | The starting date and time of the offer validity period. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CalculatedGrantOffer, ContractType } from 'adyen';
+import { CalculatedGrantOffer, ContractTypeEnum } from 'adyen';
 
 const calculatedGrantOffer: CalculatedGrantOffer = {
   accountHolderId: 'accountHolderId2',
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  contractType: ContractType.CashAdvance,
+  contractType: ContractTypeEnum.CashAdvance,
   expiresAt: '2016-03-13T12:52:32.123Z',
   fee: {
     amount: {
       currency: 'currency2',
       value: BigInt(110),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     aprBasisPoints: 142,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   repayment: {
     basisPoints: 18,
     term: {
       estimatedDays: 248,
       maximumDays: 24,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     threshold: {
       amount: {
         currency: 'currency2',
         value: BigInt(110),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   startsAt: '2016-03-13T12:52:32.123Z',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

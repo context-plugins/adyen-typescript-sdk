@@ -1,8 +1,6 @@
 
 # Payment Response 7
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentResponse7`
@@ -11,13 +9,12 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | [`PaymentValidationsNameResponse \| undefined`](../../doc/models/payment-validations-name-response.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `name` | [`PaymentValidationsNameResponse2 \| undefined`](../../doc/models/payment-validations-name-response-2.md) | Optional | Object that contains the status and outcomes of the [name validation](https://docs.adyen.com/payment-methods/cards/name-validation). |
 
 ## Example
 
 ```ts
-import { PaymentResponse7, Status11 } from 'adyen';
+import { PaymentResponse7, StatusEnum } from 'adyen';
 
 const paymentResponse7: PaymentResponse7 = {
   name: {
@@ -27,26 +24,14 @@ const paymentResponse7: PaymentResponse7 = {
       lastName: 'lastName8',
       middleName: 'middleName2',
       status: 'status6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     result: {
       firstName: 'firstName8',
       fullName: 'fullName6',
       lastName: 'lastName0',
       middleName: 'middleName4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    status: Status11.NotPerformed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    status: StatusEnum.NotPerformed,
   },
 };
 ```

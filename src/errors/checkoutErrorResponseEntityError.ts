@@ -15,7 +15,6 @@ interface CheckoutErrorResponseEntity {
   message: string;
   pspReference?: string;
   status?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export class CheckoutErrorResponseEntityError extends ApiError<

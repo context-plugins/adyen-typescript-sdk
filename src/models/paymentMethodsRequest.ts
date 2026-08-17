@@ -9,23 +9,22 @@ import {
   boolean,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount16, amount16Schema } from './amount16.js';
-import { BrowserInfo2, browserInfo2Schema } from './browserInfo2.js';
-import { Channel3, channel3Schema } from './channel3.js';
+import { Amount2, amount2Schema } from './amount2.js';
+import { BrowserInfo, browserInfoSchema } from './browserInfo.js';
+import { Channel3Enum, channel3EnumSchema } from './channel3Enum.js';
 import {
-  EncryptedOrderData,
-  encryptedOrderDataSchema,
-} from './encryptedOrderData.js';
+  EncryptedOrderData2,
+  encryptedOrderData2Schema,
+} from './encryptedOrderData2.js';
 import {
-  StoreFiltrationMode2,
-  storeFiltrationMode2Schema,
-} from './storeFiltrationMode2.js';
+  StoreFiltrationMode2Enum,
+  storeFiltrationMode2EnumSchema,
+} from './storeFiltrationMode2Enum.js';
 
 export interface PaymentMethodsRequest {
   /**
@@ -38,14 +37,25 @@ export interface PaymentMethodsRequest {
    * Example: `"allowedPaymentMethods":["ideal","applepay"]`
    */
   allowedPaymentMethods?: string[];
-  amount?: Amount16;
+  /** The amount information for the transaction (in [minor units](https://docs.adyen.com/development-resources/currency-codes)). For [BIN or card verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification) requests, set amount to 0 (zero). */
+  amount?: Amount2;
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).
    * Example: `"blockedPaymentMethods":["ideal","applepay"]`
    */
   blockedPaymentMethods?: string[];
-  browserInfo?: BrowserInfo2;
-  channel?: Channel3;
+  /**
+   * The shopper's browser information.
+   * > For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the `userAgent` and `acceptHeader` fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
+   */
+  browserInfo?: BrowserInfo;
+  /**
+   * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values:
+   * * iOS
+   * * Android
+   * * Web
+   */
+  channel?: Channel3Enum;
   /**
    * The shopper country code.
    * Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
@@ -54,7 +64,8 @@ export interface PaymentMethodsRequest {
   countryCode?: string;
   /** The merchant account identifier, with which you want to process the transaction. */
   merchantAccount: string;
-  order?: EncryptedOrderData;
+  /** The order information required for partial payments. */
+  order?: EncryptedOrderData2;
   /** A unique ID to [connect the shopper to a single checkout session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id) that uses multiple API requests. You can use this to get insights into conversion rates. */
   shopperConversionId?: string;
   /** The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > Required for Visa and JCB transactions that require 3D Secure 2 authentication if you did not include the `telephoneNumber`. */
@@ -63,7 +74,7 @@ export interface PaymentMethodsRequest {
    * The shopper's IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks).
    * > Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and mobile integrations, if you did not include the `shopperEmail`. For native mobile integrations, the field is required to support cases where authentication is routed to the redirect flow. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    */
-  shopperIp?: string;
+  shopperIP?: string;
   /**
    * The language for the payment. The value combines the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code with the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code. For example, **nl-NL**.
    * When using Drop-in/Components, the specified language appears if your front-end global configuration does not set the `locale`.
@@ -79,52 +90,49 @@ export interface PaymentMethodsRequest {
   splitCardFundingSources?: boolean;
   /** Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment. */
   store?: string;
-  storeFiltrationMode?: StoreFiltrationMode2;
+  /**
+   * Specifies how payment methods should be filtered based on the `store` parameter:
+   *   - **exclusive**: Only payment methods belonging to the specified `store` are returned.
+   *   - **inclusive**: Payment methods from the `store` and those not associated with any other store are returned.
+   */
+  storeFiltrationMode?: StoreFiltrationMode2Enum;
   /**
    * The shopper's telephone number.
    *  The phone number must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not follow the guidelines, we do not submit it for authentication.
    * > Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`.
    */
   telephoneNumber?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const paymentMethodsRequestSchema: Schema<PaymentMethodsRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        additionalData: ['additionalData', optional(dict(string()))],
-        allowedPaymentMethods: [
-          'allowedPaymentMethods',
-          optional(array(string())),
-        ],
-        amount: ['amount', optional(amount16Schema)],
-        blockedPaymentMethods: [
-          'blockedPaymentMethods',
-          optional(array(string())),
-        ],
-        browserInfo: ['browserInfo', optional(browserInfo2Schema)],
-        channel: ['channel', optional(channel3Schema)],
-        countryCode: ['countryCode', optional(string())],
-        merchantAccount: ['merchantAccount', string()],
-        order: ['order', optional(encryptedOrderDataSchema)],
-        shopperConversionId: ['shopperConversionId', optional(string())],
-        shopperEmail: ['shopperEmail', optional(string())],
-        shopperIp: ['shopperIP', optional(string())],
-        shopperLocale: ['shopperLocale', optional(string())],
-        shopperReference: ['shopperReference', optional(string())],
-        splitCardFundingSources: [
-          'splitCardFundingSources',
-          optional(boolean()),
-        ],
-        store: ['store', optional(string())],
-        storeFiltrationMode: [
-          'storeFiltrationMode',
-          optional(storeFiltrationMode2Schema),
-        ],
-        telephoneNumber: ['telephoneNumber', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      additionalData: ['additionalData', optional(dict(string()))],
+      allowedPaymentMethods: [
+        'allowedPaymentMethods',
+        optional(array(string())),
+      ],
+      amount: ['amount', optional(amount2Schema)],
+      blockedPaymentMethods: [
+        'blockedPaymentMethods',
+        optional(array(string())),
+      ],
+      browserInfo: ['browserInfo', optional(browserInfoSchema)],
+      channel: ['channel', optional(channel3EnumSchema)],
+      countryCode: ['countryCode', optional(string())],
+      merchantAccount: ['merchantAccount', string()],
+      order: ['order', optional(encryptedOrderData2Schema)],
+      shopperConversionId: ['shopperConversionId', optional(string())],
+      shopperEmail: ['shopperEmail', optional(string())],
+      shopperIP: ['shopperIP', optional(string())],
+      shopperLocale: ['shopperLocale', optional(string())],
+      shopperReference: ['shopperReference', optional(string())],
+      splitCardFundingSources: ['splitCardFundingSources', optional(boolean())],
+      store: ['store', optional(string())],
+      storeFiltrationMode: [
+        'storeFiltrationMode',
+        optional(storeFiltrationMode2EnumSchema),
+      ],
+      telephoneNumber: ['telephoneNumber', optional(string())],
+    })
 );

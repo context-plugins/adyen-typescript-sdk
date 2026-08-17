@@ -9,18 +9,18 @@
 
 | Type |
 |  --- |
-| [`AchDirectDebit`](../../../doc/models/ach-direct-debit.md) |
+| [`ACHDirectDebit`](../../../doc/models/ach-direct-debit.md) |
 | [`Affirm`](../../../doc/models/affirm.md) |
 | [`Afterpay`](../../../doc/models/afterpay.md) |
 | [`Alma`](../../../doc/models/alma.md) |
 | [`AmazonPay`](../../../doc/models/amazon-pay.md) |
-| [`Ancv`](../../../doc/models/ancv.md) |
+| [`ANCV`](../../../doc/models/ancv.md) |
 | [`AndroidPay`](../../../doc/models/android-pay.md) |
 | [`ApplePayDetails`](../../../doc/models/apple-pay-details.md) |
 | [`AuPay`](../../../doc/models/au-pay.md) |
-| [`BacsDirectDebit`](../../../doc/models/bacs-direct-debit.md) |
+| [`BACSDirectDebit`](../../../doc/models/bacs-direct-debit.md) |
 | [`BillDesk`](../../../doc/models/bill-desk.md) |
-| [`Blik`](../../../doc/models/blik.md) |
+| [`BLIK`](../../../doc/models/blik.md) |
 | [`CardDetails`](../../../doc/models/card-details.md) |
 | [`StoredPaymentMethod`](../../../doc/models/stored-payment-method.md) |
 | [`Cellulant`](../../../doc/models/cellulant.md) |
@@ -30,8 +30,8 @@
 | [`Dragonpay`](../../../doc/models/dragonpay.md) |
 | [`EBankingFinland`](../../../doc/models/e-banking-finland.md) |
 | [`Voucher`](../../../doc/models/voucher.md) |
-| [`EftDirectDebit`](../../../doc/models/eft-direct-debit.md) |
-| [`DetailsoftokensthatarenotstoredwithAdyen`](../../../doc/models/detailsoftokensthatarenotstoredwith-adyen.md) |
+| [`EFTDirectDebit`](../../../doc/models/eft-direct-debit.md) |
+| [`DetailsOfTokensThatAreNotStoredWithAdyen`](../../../doc/models/details-of-tokens-that-are-not-stored-with-adyen.md) |
 | [`Fastlane`](../../../doc/models/fastlane.md) |
 | [`StoredPaymentMethod2`](../../../doc/models/stored-payment-method-2.md) |
 | [`GooglePayDetails`](../../../doc/models/google-pay-details.md) |
@@ -39,38 +39,38 @@
 | [`Klarna`](../../../doc/models/klarna.md) |
 | [`KlarnaNetwork`](../../../doc/models/klarna-network.md) |
 | [`Masterpass`](../../../doc/models/masterpass.md) |
-| [`MbWay`](../../../doc/models/mb-way.md) |
+| [`MBWay`](../../../doc/models/mb-way.md) |
 | [`MobilePay`](../../../doc/models/mobile-pay.md) |
-| [`MolPay`](../../../doc/models/mol-pay.md) |
+| [`MOLPay`](../../../doc/models/mol-pay.md) |
 | [`OpenInvoice`](../../../doc/models/open-invoice.md) |
-| [`PayByBankAisDirectDebit`](../../../doc/models/pay-by-bank-ais-direct-debit.md) |
+| [`PayByBankAISDirectDebit`](../../../doc/models/pay-by-bank-ais-direct-debit.md) |
 | [`PayByBank`](../../../doc/models/pay-by-bank.md) |
 | [`PayPal`](../../../doc/models/pay-pal.md) |
 | [`PayPay`](../../../doc/models/pay-pay.md) |
 | [`PayTo`](../../../doc/models/pay-to.md) |
 | [`PayU`](../../../doc/models/pay-u.md) |
 | [`PayWithGoogleDetails`](../../../doc/models/pay-with-google-details.md) |
-| [`PaymentDetails2`](../../../doc/models/payment-details-2.md) |
+| [`PaymentDetails`](../../../doc/models/payment-details.md) |
 | [`StoredPaymentMethod4`](../../../doc/models/stored-payment-method-4.md) |
 | [`StoredPaymentMethod5`](../../../doc/models/stored-payment-method-5.md) |
-| [`PseLatam`](../../../doc/models/pse-latam.md) |
+| [`PSELatam`](../../../doc/models/pse-latam.md) |
 | [`RakutenPay`](../../../doc/models/rakuten-pay.md) |
 | [`Ratepay`](../../../doc/models/ratepay.md) |
 | [`Riverty`](../../../doc/models/riverty.md) |
 | [`SamsungPay`](../../../doc/models/samsung-pay.md) |
-| [`SepaDirectDebit`](../../../doc/models/sepa-direct-debit.md) |
+| [`SEPADirectDebit`](../../../doc/models/sepa-direct-debit.md) |
 | [`StoredPaymentMethod6`](../../../doc/models/stored-payment-method-6.md) |
 | [`Twint`](../../../doc/models/twint.md) |
-| [`UpiCollect`](../../../doc/models/upi-collect.md) |
-| [`UpiIntent`](../../../doc/models/upi-intent.md) |
-| [`Upiqr`](../../../doc/models/upiqr.md) |
+| [`UPICollect`](../../../doc/models/upi-collect.md) |
+| [`UPIIntent`](../../../doc/models/upi-intent.md) |
+| [`UPIQR`](../../../doc/models/upiqr.md) |
 | [`Vipps`](../../../doc/models/vipps.md) |
 | [`VisaCheckout`](../../../doc/models/visa-checkout.md) |
 | [`WeChatPay`](../../../doc/models/we-chat-pay.md) |
 | [`WeChatPayMiniProgram`](../../../doc/models/we-chat-pay-mini-program.md) |
 | [`Zip`](../../../doc/models/zip.md) |
 
-## AchDirectDebit
+## ACHDirectDebit
 
 ### Initialization Code
 
@@ -78,6 +78,7 @@
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: TypeEnum.Ach,
 };
 ```
 
@@ -89,6 +90,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type1Enum.Affirm,
 };
 ```
 
@@ -100,7 +102,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type22.AfterpayB2B,
+  type: Type2Enum.AfterpayDefault,
 };
 ```
 
@@ -123,10 +125,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type4Enum.Amazonpay,
 };
 ```
 
-## Ancv
+## ANCV
 
 ### Initialization Code
 
@@ -145,6 +148,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type6Enum.Androidpay,
 };
 ```
 
@@ -157,6 +161,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   applePayToken: 'applePayToken0',
+  type: Type7Enum.Applepay,
 };
 ```
 
@@ -168,10 +173,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type9Enum.Aupay,
 };
 ```
 
-## BacsDirectDebit
+## BACSDirectDebit
 
 ### Initialization Code
 
@@ -179,6 +185,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type10Enum.DirectdebitGB,
 };
 ```
 
@@ -191,11 +198,11 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   issuer: 'issuer0',
-  type: Type121.BilldeskOnline,
+  type: Type12Enum.BilldeskOnline,
 };
 ```
 
-## Blik
+## BLIK
 
 ### Initialization Code
 
@@ -214,6 +221,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type14Enum.Scheme,
 };
 ```
 
@@ -225,6 +233,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type16Enum.Cashapp,
 };
 ```
 
@@ -236,6 +245,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type17Enum.Cellulant,
 };
 ```
 
@@ -247,6 +257,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type20Enum.Dbarai,
 };
 ```
 
@@ -259,6 +270,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   holderName: 'holderName0',
+  type: Type22Enum.DirectdebitAU,
 };
 ```
 
@@ -273,7 +285,7 @@ const value: PaymentRequestPaymentMethod = {
   firstName: 'firstName6',
   lastName: 'lastName2',
   shopperEmail: 'shopperEmail8',
-  type: Type23.DokuBniVa,
+  type: Type23Enum.DokuBniVa,
 };
 ```
 
@@ -286,7 +298,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   issuer: 'issuer2',
-  type: Type28.DragonpayOtcNonBanking,
+  type: Type28Enum.DragonpayOtcNonBanking,
 };
 ```
 
@@ -298,7 +310,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type60.EbankingFi,
+  type: 'ebanking_FI',
 };
 ```
 
@@ -314,11 +326,11 @@ const value: PaymentRequestPaymentMethod = {
   lastName: 'lastName2',
   shopperEmail: 'shopperEmail2',
   telephoneNumber: 'telephoneNumber0',
-  type: Type29.EcontextStores,
+  type: Type29Enum.EcontextStores,
 };
 ```
 
-## EftDirectDebit
+## EFTDirectDebit
 
 ### Initialization Code
 
@@ -326,10 +338,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type30Enum.EftDirectdebitCA,
 };
 ```
 
-## DetailsoftokensthatarenotstoredwithAdyen
+## DetailsOfTokensThatAreNotStoredWithAdyen
 
 ### Initialization Code
 
@@ -337,9 +350,9 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  storedPaymentMethodId: 'storedPaymentMethodId2',
-  subtype: Subtype3.Hilton,
-  type: Type67.ExternalToken,
+  storedPaymentMethodId: 'storedPaymentMethodId8',
+  subtype: 'hilton',
+  type: 'externalToken',
 };
 ```
 
@@ -352,7 +365,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   fastlaneData: 'fastlaneData2',
-  type: Type68.Fastlane,
+  type: 'fastlane',
 };
 ```
 
@@ -364,8 +377,8 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  issuer: 'issuer2',
-  type: Type311.OnlineBankingCz,
+  issuer: 'issuer4',
+  type: Type31Enum.Eps,
 };
 ```
 
@@ -378,6 +391,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   googlePayToken: 'googlePayToken8',
+  type: Type24Enum.Googlepay,
 };
 ```
 
@@ -389,6 +403,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type25Enum.Ideal,
 };
 ```
 
@@ -400,7 +415,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type34.KlarnaB2B,
+  type: Type34Enum.Klarna,
 };
 ```
 
@@ -412,7 +427,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type69.KlarnaNetwork,
+  type: 'klarna_network',
 };
 ```
 
@@ -425,10 +440,11 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   masterpassTransactionId: 'masterpassTransactionId0',
+  type: Type35Enum.Masterpass,
 };
 ```
 
-## MbWay
+## MBWay
 
 ### Initialization Code
 
@@ -438,6 +454,7 @@ const value: PaymentRequestPaymentMethod = {
 const value: PaymentRequestPaymentMethod = {
   shopperEmail: 'shopperEmail4',
   telephoneNumber: 'telephoneNumber4',
+  type: Type36Enum.Mbway,
 };
 ```
 
@@ -449,10 +466,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type37Enum.Mobilepay,
 };
 ```
 
-## MolPay
+## MOLPay
 
 ### Initialization Code
 
@@ -461,7 +479,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   issuer: 'issuer0',
-  type: Type38.MolpayEbankingFpxMy,
+  type: Type38Enum.MolpayEbankingFpxMY,
 };
 ```
 
@@ -473,10 +491,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type39Enum.Openinvoice,
 };
 ```
 
-## PayByBankAisDirectDebit
+## PayByBankAISDirectDebit
 
 ### Initialization Code
 
@@ -484,7 +503,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type70.PaybybankAisDd,
+  type: 'paybybank_AIS_DD',
 };
 ```
 
@@ -496,7 +515,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type75.Paybybank,
+  type: 'paybybank',
 };
 ```
 
@@ -508,7 +527,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type76.Paypal,
+  type: 'paypal',
 };
 ```
 
@@ -520,6 +539,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type40Enum.Paypay,
 };
 ```
 
@@ -531,6 +551,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type41Enum.Payto,
 };
 ```
 
@@ -542,7 +563,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type77.PayuInUpi,
+  type: 'payu_IN_upi',
 };
 ```
 
@@ -555,10 +576,11 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   googlePayToken: 'googlePayToken0',
+  type: Type26Enum.Paywithgoogle,
 };
 ```
 
-## PaymentDetails2
+## PaymentDetails
 
 ### Initialization Code
 
@@ -588,10 +610,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type45Enum.PaybybankPix,
 };
 ```
 
-## PseLatam
+## PSELatam
 
 ### Initialization Code
 
@@ -599,10 +622,10 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  bank: 'bank2',
-  clientType: 'clientType8',
-  identification: 'identification8',
-  identificationType: 'identificationType6',
+  bank: 'bank4',
+  clientType: 'clientType4',
+  identification: 'identification4',
+  identificationType: 'identificationType8',
 };
 ```
 
@@ -614,6 +637,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type47Enum.Rakutenpay,
 };
 ```
 
@@ -625,7 +649,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type48.Ratepay,
+  type: Type48Enum.Ratepay,
 };
 ```
 
@@ -637,7 +661,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type49.RivertyInstallments,
+  type: Type49Enum.Riverty,
 };
 ```
 
@@ -649,11 +673,12 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  samsungPayToken: 'samsungPayToken8',
+  samsungPayToken: 'samsungPayToken6',
+  type: Type50Enum.Samsungpay,
 };
 ```
 
-## SepaDirectDebit
+## SEPADirectDebit
 
 ### Initialization Code
 
@@ -661,8 +686,9 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  iban: 'iban8',
-  ownerName: 'ownerName8',
+  iban: 'iban4',
+  ownerName: 'ownerName4',
+  type: Type51Enum.Sepadirectdebit,
 };
 ```
 
@@ -688,7 +714,7 @@ const value: PaymentRequestPaymentMethod = {
 };
 ```
 
-## UpiCollect
+## UPICollect
 
 ### Initialization Code
 
@@ -696,11 +722,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type78.UpiCollect,
+  type: 'upi_collect',
 };
 ```
 
-## UpiIntent
+## UPIIntent
 
 ### Initialization Code
 
@@ -708,11 +734,11 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type79.UpiIntent,
+  type: 'upi_intent',
 };
 ```
 
-## Upiqr
+## UPIQR
 
 ### Initialization Code
 
@@ -720,7 +746,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  type: Type80.UpiQr,
+  type: 'upi_qr',
 };
 ```
 
@@ -733,6 +759,7 @@ const value: PaymentRequestPaymentMethod = {
 ```ts
 const value: PaymentRequestPaymentMethod = {
   telephoneNumber: 'telephoneNumber0',
+  type: Type54Enum.Vipps,
 };
 ```
 
@@ -744,7 +771,8 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
-  visaCheckoutCallId: 'visaCheckoutCallId6',
+  visaCheckoutCallId: 'visaCheckoutCallId0',
+  type: Type55Enum.Visacheckout,
 };
 ```
 
@@ -756,6 +784,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type56Enum.Wechatpay,
 };
 ```
 
@@ -767,6 +796,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type57Enum.WechatpayMiniProgram,
 };
 ```
 
@@ -778,6 +808,7 @@ const value: PaymentRequestPaymentMethod = {
 
 ```ts
 const value: PaymentRequestPaymentMethod = {
+  type: Type58Enum.Zip,
 };
 ```
 

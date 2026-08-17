@@ -1,8 +1,6 @@
 
 # Payout Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PayoutRequest`
@@ -11,34 +9,30 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16`](../../doc/models/amount-16.md) | Required | - |
-| `billingAddress` | [`BillingAddress7 \| undefined`](../../doc/models/billing-address-7.md) | Optional | - |
-| `card` | [`Card6 \| undefined`](../../doc/models/card-6.md) | Optional | - |
+| `amount` | [`Amount`](../../doc/models/amount.md) | Required | The amount information for the transaction (in [minor units](https://docs.adyen.com/development-resources/currency-codes)). For [BIN or card verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification) requests, set amount to 0 (zero). |
+| `billingAddress` | [`Address \| undefined`](../../doc/models/address.md) | Optional | The address where to send the invoice.<br><br>> The `billingAddress` object is required in the following scenarios. Include all of the fields within this object.<br>> <br>> * For 3D Secure 2 transactions in all browser-based and mobile implementations.<br>> * For cross-border payouts to and from Canada. |
+| `card` | [`Card \| undefined`](../../doc/models/card.md) | Optional | A container for card data.<br><br>> Either `bankAccount` or `card` field must be provided in a payment request. |
 | `fraudOffset` | `number \| undefined` | Optional | An integer value that is added to the normal fraud score. The value can be either positive or negative. |
-| `fundSource` | [`FundSource \| undefined`](../../doc/models/fund-source.md) | Optional | - |
+| `fundSource` | [`FundSource11 \| undefined`](../../doc/models/fund-source-11.md) | Optional | The person or entity funding the money. |
 | `merchantAccount` | `string` | Required | The merchant account identifier, with which you want to process the transaction. |
-| `recurring` | [`Recurring3 \| undefined`](../../doc/models/recurring-3.md) | Optional | - |
+| `recurring` | [`Recurring \| undefined`](../../doc/models/recurring.md) | Optional | The recurring settings for the payment. Use this property when you want to enable [recurring payments](https://docs.adyen.com/classic-integration/recurring-payments). |
 | `reference` | `string` | Required | The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement.<br>If you need to provide multiple references for a transaction, separate them with hyphens ("-").<br>Maximum length: 80 characters. |
 | `selectedRecurringDetailReference` | `string \| undefined` | Optional | The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail. |
 | `shopperEmail` | `string \| undefined` | Optional | The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > Required for Visa and JCB transactions that require 3D Secure 2 authentication if you did not include the `telephoneNumber`. |
-| `shopperInteraction` | [`ShopperInteraction1 \| undefined`](../../doc/models/shopper-interaction-1.md) | Optional | - |
-| `shopperName` | [`ShopperName \| undefined`](../../doc/models/shopper-name.md) | Optional | - |
+| `shopperInteraction` | [`ShopperInteractionEnum \| undefined`](../../doc/models/shopper-interaction-enum.md) | Optional | Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer.<br>For the web service API, Adyen assumes Ecommerce shopper interaction by default.<br><br>This field has the following possible values:<br><br>* `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request.<br>* `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment).<br>* `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone.<br>* `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal. |
+| `shopperName` | [`Name \| undefined`](../../doc/models/name.md) | Optional | The shopper's full name. |
 | `shopperReference` | `string \| undefined` | Optional | Required for recurring payments.<br>Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.<br><br>> Your reference must not include personally identifiable information (PII) such as name or email address. |
 | `telephoneNumber` | `string \| undefined` | Optional | The shopper's telephone number.<br>The phone number must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Contract, PayoutRequest, TokenService } from 'adyen';
+import { ContractEnum, PayoutRequest, TokenServiceEnum } from 'adyen';
 
 const payoutRequest: PayoutRequest = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   merchantAccount: 'merchantAccount8',
   reference: 'reference8',
@@ -49,9 +43,6 @@ const payoutRequest: PayoutRequest = {
     postalCode: 'postalCode6',
     street: 'street2',
     stateOrProvince: 'stateOrProvince0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   card: {
     cvc: 'cvc0',
@@ -59,9 +50,6 @@ const payoutRequest: PayoutRequest = {
     expiryYear: 'expiryYear0',
     holderName: 'holderName2',
     issueNumber: 'issueNumber8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   fraudOffset: 166,
   fundSource: {
@@ -75,9 +63,6 @@ const payoutRequest: PayoutRequest = {
       postalCode: 'postalCode6',
       street: 'street2',
       stateOrProvince: 'stateOrProvince0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     card: {
       cvc: 'cvc0',
@@ -85,34 +70,19 @@ const payoutRequest: PayoutRequest = {
       expiryYear: 'expiryYear0',
       holderName: 'holderName2',
       issueNumber: 'issueNumber8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     shopperEmail: 'shopperEmail4',
     shopperName: {
       firstName: 'firstName2',
       lastName: 'lastName6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   recurring: {
-    contract: Contract.EnumOneclickrecurring,
+    contract: ContractEnum.EnumONECLICKRECURRING,
     recurringDetailName: 'recurringDetailName2',
     recurringExpiry: '2016-03-13T12:52:32.123Z',
     recurringFrequency: 'recurringFrequency0',
-    tokenService: TokenService.Visatokenservice,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    tokenService: TokenServiceEnum.VISATOKENSERVICE,
   },
 };
 ```

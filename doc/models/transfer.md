@@ -1,8 +1,6 @@
 
 # Transfer
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Transfer`
@@ -11,50 +9,45 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountHolder` | [`ResourceReference \| undefined`](../../doc/models/resource-reference.md) | Optional | - |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `balanceAccount` | [`ResourceReference \| undefined`](../../doc/models/resource-reference.md) | Optional | - |
-| `category` | [`Category3`](../../doc/models/category-3.md) | Required | - |
+| `accountHolder` | [`ResourceReference5 \| undefined`](../../doc/models/resource-reference-5.md) | Optional | The account holder associated with the balance account involved in the transfer. |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The amount of the transfer. |
+| `balanceAccount` | [`ResourceReference1 \| undefined`](../../doc/models/resource-reference-1.md) | Optional | Contains information about the balance account involved in the transfer. |
+| `category` | [`Category3Enum`](../../doc/models/category-3-enum.md) | Required | The category of the transfer.<br><br>Possible values:<br><br>- **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.<br><br>- **card**: A transfer involving a third-party card.<br><br>- **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.<br><br>- **issuedCard**: A transfer initiated by an Adyen-issued card.<br><br>- **platformPayment**: Funds movements related to payments that are acquired for your users.<br><br>- **topUp**: An incoming transfer initiated by your user to top up their balance account. |
 | `categoryData` | [`TransferCategoryData \| undefined`](../../doc/models/containers/transfer-category-data.md) | Optional | This is a container for one-of cases. |
-| `counterparty` | [`CounterpartyV3`](../../doc/models/counterparty-v3.md) | Required | - |
+| `counterparty` | [`CounterpartyV31`](../../doc/models/counterparty-v31.md) | Required | The other party in the transfer. |
 | `createdAt` | `string \| undefined` | Optional | The date and time when the transfer was created, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. |
 | `creationDate` | `string \| undefined` | Optional | The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. |
 | `description` | `string \| undefined` | Optional | Your description for the transfer. It is used by most banks as the transfer description. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.<br><br>Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , ' + Space**<br><br>Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] & $ % # @** **~ = + - _ ' " ! ?** |
-| `directDebitInformation` | [`DirectDebitInformation \| undefined`](../../doc/models/direct-debit-information.md) | Optional | - |
-| `direction` | [`Direction \| undefined`](../../doc/models/direction.md) | Optional | - |
-| `executionDate` | [`ExecutionDate \| undefined`](../../doc/models/execution-date.md) | Optional | - |
+| `directDebitInformation` | [`DirectDebitInformation1 \| undefined`](../../doc/models/direct-debit-information-1.md) | Optional | The details of the direct debit. |
+| `direction` | [`DirectionEnum \| undefined`](../../doc/models/direction-enum.md) | Optional | The direction of the transfer.<br><br>Possible values: **incoming**, **outgoing**. |
+| `executionDate` | [`ExecutionDate1 \| undefined`](../../doc/models/execution-date-1.md) | Optional | Contains information about the date when the transfer will be processed. The execution date must be within 30 days of the current date.<br><br>Until the execution date:<br><br>- The `status` of the transfer remains as **received**.<br>- The `reason` of the transfer remains as **pending**. |
 | `id` | `string \| undefined` | Optional | The ID of the resource. |
-| `paymentInstrument` | [`PaymentInstrument2 \| undefined`](../../doc/models/payment-instrument-2.md) | Optional | - |
-| `reason` | [`Reason21 \| undefined`](../../doc/models/reason-21.md) | Optional | - |
+| `paymentInstrument` | [`PaymentInstrument3 \| undefined`](../../doc/models/payment-instrument-3.md) | Optional | Contains information about the payment instrument used in the transfer. |
+| `reason` | [`Reason2Enum \| undefined`](../../doc/models/reason-2-enum.md) | Optional | Additional information about the status of the transfer. |
 | `reference` | `string \| undefined` | Optional | Your reference for the transfer, used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference.<br><br>**Constraints**: *Maximum Length*: `80` |
 | `referenceForBeneficiary` | `string \| undefined` | Optional | A reference that is sent to the recipient. This reference is also sent in all webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.<br><br>Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the `category`.<br><br>- **internal**: 80 characters<br><br>- **bank**: 35 characters when transferring to an IBAN, 15 characters for others. |
-| `review` | [`TransferReview \| undefined`](../../doc/models/transfer-review.md) | Optional | - |
-| `status` | [`Status53`](../../doc/models/status-53.md) | Required | - |
-| `type` | [`Type83 \| undefined`](../../doc/models/type-83.md) | Optional | - |
-| `ultimateParty` | [`UltimatePartyIdentification \| undefined`](../../doc/models/ultimate-party-identification.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `review` | [`TransferReview1 \| undefined`](../../doc/models/transfer-review-1.md) | Optional | Contains status updates related to additional reviews. |
+| `status` | [`Status51Enum`](../../doc/models/status-51-enum.md) | Required | The result of the transfer.<br><br>For example:<br><br>- **received**: an outgoing transfer request is created.<br>- **refused**: the transfer request is rejected by Adyen for one of the following reasons:<br>  - Transfer limit exceeded.<br>  - Transaction rule requirements violated.<br>- **authorised**: the transfer request is authorized and the funds are reserved.<br>- **booked**: the funds are deducted from your user's balance account.<br>- **failed**: the transfer is rejected by the counterparty's bank.<br>- **returned**: the transfer is returned by the counterparty's bank. |
+| `type` | [`Type83Enum \| undefined`](../../doc/models/type-83-enum.md) | Optional | The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**. |
+| `ultimateParty` | [`UltimatePartyIdentification1 \| undefined`](../../doc/models/ultimate-party-identification-1.md) | Optional | The ultimate sender of the funds of the transfer (ultimate debtor). |
 
 ## Example
 
 ```ts
 import {
-  Category3,
-  Priority,
-  Status53,
+  Category3Enum,
+  Priority1Enum,
+  Status51Enum,
   Transfer,
-  Type312,
-  Type413,
+  Type310Enum,
 } from 'adyen';
 
 const transfer: Transfer = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  category: Category3.PlatformPayment,
+  category: Category3Enum.PlatformPayment,
   counterparty: {
     balanceAccountId: 'balanceAccountId0',
     bankAccount: {
@@ -66,30 +59,18 @@ const transfer: Transfer = {
           line2: 'line20',
           postalCode: 'postalCode8',
           stateOrProvince: 'stateOrProvince4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         dateOfBirth: '2016-03-13T12:52:32.123Z',
         email: 'email6',
         firstName: 'firstName4',
         fullName: 'fullName0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       accountIdentification: {
         accountNumber: 'accountNumber4',
         bsbCode: 'bsbCode8',
-        type: Type413.AuLocal,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        type: 'type2',
       },
       storedPaymentMethodId: 'storedPaymentMethodId2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     card: {
       cardHolder: {
@@ -100,17 +81,11 @@ const transfer: Transfer = {
           line2: 'line20',
           postalCode: 'postalCode8',
           stateOrProvince: 'stateOrProvince4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         dateOfBirth: '2016-03-13T12:52:32.123Z',
         email: 'email0',
         firstName: 'firstName8',
         fullName: 'fullName6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       cardIdentification: {
         expiryMonth: 'expiryMonth2',
@@ -118,12 +93,6 @@ const transfer: Transfer = {
         issueNumber: 'issueNumber0',
         number: 'number6',
         startMonth: 'startMonth8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     merchant: {
@@ -136,49 +105,28 @@ const transfer: Transfer = {
         countryOfOrigin: 'countryOfOrigin0',
         name: 'name4',
         rawData: 'rawData0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       postalCode: 'postalCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     transferInstrumentId: 'transferInstrumentId4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  status: Status53.Booked,
+  status: Status51Enum.Booked,
   accountHolder: {
     description: 'description0',
     id: 'id0',
     reference: 'reference4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   balanceAccount: {
     description: 'description2',
     id: 'id2',
     reference: 'reference2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   categoryData: {
-    priority: Priority.Instant,
-    type: Type312.Bank,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    priority: Priority1Enum.Instant,
+    type: Type310Enum.Bank,
   },
   createdAt: '2016-03-13T12:52:32.123Z',
   creationDate: '2016-03-13T12:52:32.123Z',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

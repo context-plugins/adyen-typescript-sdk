@@ -1,8 +1,6 @@
 
 # Device Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeviceInfo`
@@ -13,8 +11,7 @@
 |  --- | --- | --- | --- |
 | `formFactor` | `string \| undefined` | Optional | The type of device used to provision the network token. |
 | `osName` | `string \| undefined` | Optional | The operating system of the device used to provision the network token. |
-| `phone` | [`PhoneInfo \| undefined`](../../doc/models/phone-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `phone` | [`PhoneInfo2 \| undefined`](../../doc/models/phone-info-2.md) | Optional | The information about the phone number of the device used to provision the the network token. This object is conditionally returned and is available for up to 24 hours after the provisioning request (access to this field requires a specific user role, please contact your Adyen representative to request permission). |
 
 ## Example
 
@@ -28,12 +25,6 @@ const deviceInfo: DeviceInfo = {
     hashedNumber: 'hashedNumber2',
     lastFourDigits: 'lastFourDigits8',
     number: 'number8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

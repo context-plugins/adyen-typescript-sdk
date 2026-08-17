@@ -1,8 +1,6 @@
 
 # Alma
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Alma`
@@ -12,24 +10,20 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `checkoutAttemptId` | `string \| undefined` | Optional | The checkout attempt identifier. |
-| `feeType` | [`FeeType \| undefined`](../../doc/models/fee-type.md) | Optional | - |
+| `feeType` | [`FeeTypeEnum \| undefined`](../../doc/models/fee-type-enum.md) | Optional | **Alma payment request fee type** |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
-| `type` | [`Type31 \| undefined`](../../doc/models/type-31.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type3Enum \| undefined`](../../doc/models/type-3-enum.md) | Optional | The payment method type. |
 
 ## Example
 
 ```ts
-import { Alma, FeeType, Type31 } from 'adyen';
+import { Alma, FeeTypeEnum, Type3Enum } from 'adyen';
 
 const alma: Alma = {
   checkoutAttemptId: 'checkoutAttemptId2',
-  feeType: FeeType.MerchantPays,
+  feeType: FeeTypeEnum.MerchantPays,
   sdkData: 'sdkData4',
-  type: Type31.Alma,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type3Enum.Alma,
 };
 ```
 

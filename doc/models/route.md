@@ -1,8 +1,6 @@
 
 # Route
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Route`
@@ -12,8 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `link` | `string` | Required | The redirection link. You can use this link to redirect the user to the open banking flow when the user selects it.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `provider` | [`Provider`](../../doc/models/provider.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `provider` | [`Provider2`](../../doc/models/provider-2.md) | Required | Metadata about the selected provider, including the name and company logo. You can use this information to inform the user about the provider they will be redirected to when they select the link. |
 
 ## Example
 
@@ -23,14 +20,8 @@ import { Route } from 'adyen';
 const route: Route = {
   link: 'link2',
   provider: {
-    logoUrl: 'logoURL6',
+    logoURL: 'logoURL6',
     name: 'name8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

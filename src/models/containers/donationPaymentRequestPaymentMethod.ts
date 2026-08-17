@@ -105,7 +105,7 @@ export namespace DonationPaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to StoredPaymentMethod1 type case.
    *
-   * This is StoredPaymentMethod1 case.
+   * This is Stored Payment Method1 case.
    */
   export function isStoredPaymentMethod1(
     value: unknown

@@ -1,8 +1,6 @@
 
 # Screen Dimensions
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ScreenDimensions`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `height` | `number \| undefined` | Optional | - |
 | `width` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { ScreenDimensions } from 'adyen';
 const screenDimensions: ScreenDimensions = {
   height: 252,
   width: 152,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,11 +1,9 @@
 
-# Ca Local Account Identification 1
-
-*This model accepts additional fields of type unknown.*
+# CA Local Account Identification 1
 
 ## Structure
 
-`CaLocalAccountIdentification1`
+`CALocalAccountIdentification1`
 
 ## Inherits From
 
@@ -16,25 +14,21 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The 5- to 12-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `5`, *Maximum Length*: `12` |
-| `accountType` | [`AccountType \| undefined`](../../doc/models/account-type.md) | Optional | - |
+| `accountType` | [`AccountType2Enum \| undefined`](../../doc/models/account-type-2-enum.md) | Optional | The bank account type.<br><br>Possible values: **checking** or **savings**. Defaults to **checking**. |
 | `institutionNumber` | `string` | Required | The 3-digit institution number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
 | `transitNumber` | `string` | Required | The 5-digit transit number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `5`, *Maximum Length*: `5` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AccountType, CaLocalAccountIdentification1 } from 'adyen';
+import { AccountType2Enum, CALocalAccountIdentification1 } from 'adyen';
 
-const caLocalAccountIdentification1: CaLocalAccountIdentification1 = {
-  accountNumber: 'accountNumber6',
+const cALocalAccountIdentification1: CALocalAccountIdentification1 = {
+  accountNumber: 'accountNumber4',
   institutionNumber: 'institutionNumber2',
   transitNumber: 'transitNumber4',
-  accountType: AccountType.Checking,
+  accountType: AccountType2Enum.Checking,
   type: 'caLocal',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

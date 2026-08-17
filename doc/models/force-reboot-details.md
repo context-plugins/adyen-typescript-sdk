@@ -1,8 +1,6 @@
 
 # Force Reboot Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ForceRebootDetails`
@@ -11,19 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type210 \| undefined`](../../doc/models/type-210.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type210Enum \| undefined`](../../doc/models/type-210-enum.md) | Optional | The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).<br><br>**Default**: `Type210Enum.ForceReboot` |
 
 ## Example
 
 ```ts
-import { ForceRebootDetails, Type210 } from 'adyen';
+import { ForceRebootDetails, Type210Enum } from 'adyen';
 
 const forceRebootDetails: ForceRebootDetails = {
-  type: Type210.ForceReboot,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type210Enum.ForceReboot,
 };
 ```
 

@@ -150,7 +150,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 async postCompaniesCompanyIdAndroidApps(
   companyId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<EntityReference>>
+): Promise<ApiResponse<UploadAndroidAppResponse>>
 ```
 
 ## Authentication
@@ -168,7 +168,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`EntityReference`](../../doc/models/entity-reference.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UploadAndroidAppResponse`](../../doc/models/upload-android-app-response.md).
 
 ## Example Usage
 
@@ -508,7 +508,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 async postCompaniesCompanyIdAndroidCertificates(
   companyId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<EntityReference>>
+): Promise<ApiResponse<UploadAndroidCertificateResponse>>
 ```
 
 ## Authentication
@@ -526,7 +526,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`EntityReference`](../../doc/models/entity-reference.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UploadAndroidCertificateResponse`](../../doc/models/upload-android-certificate-response.md).
 
 ## Example Usage
 

@@ -1,8 +1,6 @@
 
 # Amount Adjustment
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AmountAdjustment`
@@ -11,29 +9,22 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5 \| undefined`](../../doc/models/amount-5.md) | Optional | - |
-| `amountAdjustmentType` | [`AmountAdjustmentType \| undefined`](../../doc/models/amount-adjustment-type.md) | Optional | - |
+| `amount` | [`Amount17 \| undefined`](../../doc/models/amount-17.md) | Optional | The adjustment amount. |
+| `amountAdjustmentType` | [`AmountAdjustmentTypeEnum \| undefined`](../../doc/models/amount-adjustment-type-enum.md) | Optional | The type of markup that is applied to an authorised payment.<br><br>Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**. |
 | `basepoints` | `number \| undefined` | Optional | The basepoints associated with the applied markup. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AmountAdjustment, AmountAdjustmentType } from 'adyen';
+import { AmountAdjustment, AmountAdjustmentTypeEnum } from 'adyen';
 
 const amountAdjustment: AmountAdjustment = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  amountAdjustmentType: AmountAdjustmentType.Exchange,
+  amountAdjustmentType: AmountAdjustmentTypeEnum.Exchange,
   basepoints: 76,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

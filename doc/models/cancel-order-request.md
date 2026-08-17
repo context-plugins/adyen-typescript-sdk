@@ -1,8 +1,6 @@
 
 # Cancel Order Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CancelOrderRequest`
@@ -12,8 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `merchantAccount` | `string` | Required | The merchant account identifier that orderData belongs to. |
-| `order` | [`EncryptedOrderData`](../../doc/models/encrypted-order-data.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `order` | [`EncryptedOrderData4`](../../doc/models/encrypted-order-data-4.md) | Required | The order request object that contains a pspReference that represents the order and the matching encrypted order data. |
 
 ## Example
 
@@ -25,12 +22,6 @@ const cancelOrderRequest: CancelOrderRequest = {
   order: {
     orderData: 'orderData8',
     pspReference: 'pspReference8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # We Chat Pay Pos Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `WeChatPayPosInfo`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `contactPersonName` | `string` | Required | The name of the contact person from merchant support. |
 | `email` | `string` | Required | The email address of merchant support. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { WeChatPayPosInfo } from 'adyen';
 const weChatPayPosInfo: WeChatPayPosInfo = {
   contactPersonName: 'contactPersonName4',
   email: 'email6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

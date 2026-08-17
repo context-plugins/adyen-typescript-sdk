@@ -1,31 +1,25 @@
 
-# No Local Account Identification
-
-*This model accepts additional fields of type unknown.*
+# NO Local Account Identification
 
 ## Structure
 
-`NoLocalAccountIdentification`
+`NOLocalAccountIdentification`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The 11-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `11`, *Maximum Length*: `11` |
-| `type` | [`Type223`](../../doc/models/type-223.md) | Required | **noLocal** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **noLocal**<br><br>**Value**: `'noLocal'` |
 
 ## Example
 
 ```ts
-import { NoLocalAccountIdentification, Type223 } from 'adyen';
+import { NOLocalAccountIdentification } from 'adyen';
 
-const noLocalAccountIdentification: NoLocalAccountIdentification = {
-  accountNumber: 'accountNumber6',
-  type: Type223.NoLocal,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const nOLocalAccountIdentification: NOLocalAccountIdentification = {
+  accountNumber: 'accountNumber8',
+  type: 'noLocal',
 };
 ```
 

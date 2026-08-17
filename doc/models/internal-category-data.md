@@ -1,8 +1,6 @@
 
 # Internal Category Data
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `InternalCategoryData`
@@ -13,21 +11,17 @@
 |  --- | --- | --- | --- |
 | `modificationMerchantReference` | `string \| undefined` | Optional | The capture's merchant reference included in the transfer. |
 | `modificationPspReference` | `string \| undefined` | Optional | The capture reference included in the transfer. |
-| `type` | [`Type410 \| undefined`](../../doc/models/type-410.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type411Enum \| undefined`](../../doc/models/type-411-enum.md) | Optional | **internal**<br><br>**Default**: `Type411Enum.Internal` |
 
 ## Example
 
 ```ts
-import { InternalCategoryData, Type410 } from 'adyen';
+import { InternalCategoryData, Type411Enum } from 'adyen';
 
 const internalCategoryData: InternalCategoryData = {
   modificationMerchantReference: 'modificationMerchantReference4',
   modificationPspReference: 'modificationPspReference6',
-  type: Type410.Internal,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type411Enum.Internal,
 };
 ```
 

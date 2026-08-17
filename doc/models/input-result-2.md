@@ -3,8 +3,6 @@
 
 Contains the result and the content of the input.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `InputResult2`
@@ -13,48 +11,38 @@ Contains the result and the content of the input.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `device` | [`Device4`](../../doc/models/device-4.md) | Required | - |
-| `infoQualify` | [`InfoQualify2`](../../doc/models/info-qualify-2.md) | Required | - |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `input` | [`Input \| undefined`](../../doc/models/input.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `device` | [`Device4Enum`](../../doc/models/device-4-enum.md) | Required | Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer.<br>Possible values:<br><br>* **CashierDisplay**<br>* **CashierInput**<br>* **CustomerDisplay**<br>* **CustomerInput** |
+| `infoQualify` | [`InfoQualify2Enum`](../../doc/models/info-qualify-2-enum.md) | Required | Qualification of the information to send to an output logical device, to display or print to the Cashier or the Customer.<br>Possible values:<br><br>* **CustomerAssistance**<br>* **Display**<br>* **Document**<br>* **Error**<br>* **Input**<br>* **POIReplication**<br>* **Receipt**<br>* **Sound**<br>* **Status**<br>* **Voucher** |
+| `response` | [`Response1`](../../doc/models/response-1.md) | Required | Result of a message request processing.<br>If Result is Success, `ErrorCondition` is absent or not used in the processing of the message. In the other cases, the `ErrorCondition` has to be present and can refine the processing of the message response. `AdditionalResponse` gives more information about the success or the failure of the message request processing, for logging without real time involvements. |
+| `input` | [`Input2 \| undefined`](../../doc/models/input-2.md) | Optional | Data entered by the user, related to the input command. |
 
 ## Example
 
 ```ts
 import {
-  Device4,
-  ErrorCondition1,
-  InfoQualify2,
-  InputCommand1,
+  Device4Enum,
+  ErrorCondition1Enum,
+  InfoQualify2Enum,
+  InputCommand1Enum,
   InputResult2,
-  Result11,
+  Result11Enum,
 } from 'adyen';
 
 const inputResult2: InputResult2 = {
-  device: Device4.CashierDisplay,
-  infoQualify: InfoQualify2.Display,
+  device: Device4Enum.CashierDisplay,
+  infoQualify: InfoQualify2Enum.Display,
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   input: {
-    inputCommand: InputCommand1.GetMenuEntry,
+    inputCommand: InputCommand1Enum.GetMenuEntry,
     confirmedFlag: false,
     functionKey: 134,
     textInput: 'TextInput4',
     digitInput: 152,
     password: 'Password0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

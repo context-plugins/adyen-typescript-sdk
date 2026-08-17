@@ -1,8 +1,6 @@
 
 # Trigger
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Trigger`
@@ -11,31 +9,21 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `schedule` | [`Schedule2 \| undefined`](../../doc/models/schedule-2.md) | Optional | - |
-| `threshold` | [`Threshold2`](../../doc/models/threshold-2.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `schedule` | [`Schedule21 \| undefined`](../../doc/models/schedule-21.md) | Optional | Contains the details about the schedule that determines when the top up is executed. |
+| `threshold` | [`Amount17`](../../doc/models/amount-17.md) | Required | The balance threshold that triggers the top-up. If the balance falls below this amount, a top-up is initiated. |
 
 ## Example
 
 ```ts
-import { ScheduleType1, Trigger } from 'adyen';
+import { ScheduleType1Enum, Trigger } from 'adyen';
 
 const trigger: Trigger = {
   threshold: {
     currency: 'currency8',
     value: BigInt(32),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   schedule: {
-    type: ScheduleType1.Weekdays,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: ScheduleType1Enum.Weekdays,
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # Pay Pay
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PayPay`
@@ -15,23 +13,19 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type40 \| undefined`](../../doc/models/type-40.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type40Enum \| undefined`](../../doc/models/type-40-enum.md) | Optional | **paypay**<br><br>**Default**: `Type40Enum.Paypay` |
 
 ## Example
 
 ```ts
-import { PayPay, Type40 } from 'adyen';
+import { PayPay, Type40Enum } from 'adyen';
 
 const payPay: PayPay = {
   checkoutAttemptId: 'checkoutAttemptId4',
   recurringDetailReference: 'recurringDetailReference8',
   sdkData: 'sdkData8',
   storedPaymentMethodId: 'storedPaymentMethodId2',
-  type: Type40.Paypay,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type40Enum.Paypay,
 };
 ```
 

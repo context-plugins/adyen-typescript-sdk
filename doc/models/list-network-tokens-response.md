@@ -1,8 +1,6 @@
 
 # List Network Tokens Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ListNetworkTokensResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `networkTokens` | [`NetworkToken[] \| undefined`](../../doc/models/network-token.md) | Optional | List of network tokens. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,19 +28,10 @@ const listNetworkTokensResponse: ListNetworkTokensResponse = {
           hashedNumber: 'hashedNumber2',
           lastFourDigits: 'lastFourDigits8',
           number: 'number8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       id: 'id6',
       paymentInstrumentId: 'paymentInstrumentId8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       brandVariant: 'brandVariant8',
@@ -55,19 +43,10 @@ const listNetworkTokensResponse: ListNetworkTokensResponse = {
           hashedNumber: 'hashedNumber2',
           lastFourDigits: 'lastFourDigits8',
           number: 'number8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       id: 'id6',
       paymentInstrumentId: 'paymentInstrumentId8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       brandVariant: 'brandVariant8',
@@ -79,24 +58,12 @@ const listNetworkTokensResponse: ListNetworkTokensResponse = {
           hashedNumber: 'hashedNumber2',
           lastFourDigits: 'lastFourDigits8',
           number: 'number8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       id: 'id6',
       paymentInstrumentId: 'paymentInstrumentId8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -5,15 +5,7 @@
  */
 
 import { discriminatedResourceSchema } from '../models/discriminatedSchemas.js';
-import {
-  array,
-  lazy,
-  optional,
-  Schema,
-  string,
-  typedExpandoObject,
-  unknown,
-} from '../schema.js';
+import { array, lazy, object, optional, Schema, string } from '../schema.js';
 import { Resource } from './resource.js';
 
 export interface Policy {
@@ -25,16 +17,11 @@ export interface Policy {
   resources?: Resource[];
   /** The name of the role required to use the component. */
   roles?: string[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const policySchema: Schema<Policy> = lazy(() =>
-  typedExpandoObject(
-    {
-      resources: ['resources', optional(array(discriminatedResourceSchema))],
-      roles: ['roles', optional(array(string()))],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    resources: ['resources', optional(array(discriminatedResourceSchema))],
+    roles: ['roles', optional(array(string()))],
+  })
 );

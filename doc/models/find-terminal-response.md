@@ -1,8 +1,6 @@
 
 # Find Terminal Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FindTerminalResponse`
@@ -16,7 +14,6 @@
 | `merchantInventory` | `boolean \| undefined` | Optional | Boolean that indicates if the terminal is assigned to the merchant inventory. This is returned when the terminal is assigned to a merchant account.<br><br>- If **true**, this indicates that the terminal is in the merchant inventory. This also means that the terminal cannot be boarded.<br><br>- If **false**, this indicates that the terminal is assigned to the merchant account as an in-store terminal. This means that the terminal is ready to be boarded, or is already boarded. |
 | `store` | `string \| undefined` | Optional | The store code of the store that the terminal is assigned to. |
 | `terminal` | `string` | Required | The unique terminal ID. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const findTerminalResponse: FindTerminalResponse = {
   merchantAccount: 'merchantAccount6',
   merchantInventory: false,
   store: 'store8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

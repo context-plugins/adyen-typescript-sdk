@@ -1,11 +1,9 @@
 
-# Installed Ap Ks
-
-*This model accepts additional fields of type unknown.*
+# Installed AP Ks
 
 ## Structure
 
-`InstalledApKs`
+`InstalledAPKs`
 
 ## Fields
 
@@ -14,20 +12,16 @@
 | `confirmationDate` | `string \| undefined` | Optional | The date and time when the app was installed. |
 | `packageName` | `string \| undefined` | Optional | The package name of the app. |
 | `versionName` | `string \| undefined` | Optional | The version name of the app. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { InstalledApKs } from 'adyen';
+import { InstalledAPKs } from 'adyen';
 
-const installedApKs: InstalledApKs = {
+const installedAPKs: InstalledAPKs = {
   confirmationDate: '2016-03-13T12:52:32.123Z',
-  packageName: 'packageName4',
-  versionName: 'versionName4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  packageName: 'packageName6',
+  versionName: 'versionName6',
 };
 ```
 

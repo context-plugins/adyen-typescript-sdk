@@ -9,7 +9,7 @@ Documentation for accessing and setting credentials for ApiKeyAuth.
 
 | Name | Type | Description | Setter |
 |  --- | --- | --- | --- |
-| X-API-Key | `string` | - | `xApiKey` |
+| X-API-Key | `string` | - | `xAPIKey` |
 
 
 

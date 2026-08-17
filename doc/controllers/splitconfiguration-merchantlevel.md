@@ -230,9 +230,9 @@ const body: SplitConfiguration = {
   rules: [
     {
       currency: 'ANY',
-      fundingSource: FundingSource1.Any,
+      fundingSource: FundingSource1Enum.ANY,
       paymentMethod: 'ANY',
-      shopperInteraction: ShopperInteraction11.Any,
+      shopperInteraction: ShopperInteraction11Enum.ANY,
       splitLogic: {
         commission: {
           fixedAmount: BigInt(10),
@@ -243,10 +243,10 @@ const body: SplitConfiguration = {
           fixedAmount: BigInt(10),
           variablePercentage: BigInt(50),
         },
-        chargeback: Behavior.DeductFromLiableAccount,
-        paymentFee: PaymentFee.DeductFromLiableAccount,
-        remainder: Remainder.AddToOneBalanceAccount,
-        tip: Tip.AddToOneBalanceAccount,
+        chargeback: BehaviorEnum.DeductFromLiableAccount,
+        paymentFee: PaymentFeeEnum.DeductFromLiableAccount,
+        remainder: RemainderEnum.AddToOneBalanceAccount,
+        tip: TipEnum.AddToOneBalanceAccount,
       },
     }
   ],
@@ -511,9 +511,9 @@ const splitConfigurationId = 'splitConfigurationId4';
 
 const body: SplitConfigurationRule = {
   currency: 'USD',
-  fundingSource: FundingSource1.Any,
+  fundingSource: FundingSource1Enum.ANY,
   paymentMethod: 'visa',
-  shopperInteraction: ShopperInteraction11.Pos,
+  shopperInteraction: ShopperInteraction11Enum.POS,
   splitLogic: {
     commission: {
       fixedAmount: BigInt(10),
@@ -524,10 +524,10 @@ const body: SplitConfigurationRule = {
       fixedAmount: BigInt(10),
       variablePercentage: BigInt(50),
     },
-    chargeback: Behavior.DeductFromLiableAccount,
-    paymentFee: PaymentFee.DeductFromLiableAccount,
-    remainder: Remainder.AddToLiableAccount,
-    tip: Tip.AddToOneBalanceAccount,
+    chargeback: BehaviorEnum.DeductFromLiableAccount,
+    paymentFee: PaymentFeeEnum.DeductFromLiableAccount,
+    remainder: RemainderEnum.AddToLiableAccount,
+    tip: TipEnum.AddToOneBalanceAccount,
   },
 };
 
@@ -1113,7 +1113,7 @@ async patchMerchantsSplitConfigurationsRulesSplitLogic(
   splitConfigurationId: string,
   ruleId: string,
   splitLogicId: string,
-  body?: SplitConfigurationLogic,
+  body?: UpdateSplitConfigurationLogicRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SplitConfiguration>>
 ```
@@ -1130,7 +1130,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 | `splitConfigurationId` | `string` | Template, Required | The unique identifier of the split configuration. |
 | `ruleId` | `string` | Template, Required | The unique identifier of the split configuration rule. |
 | `splitLogicId` | `string` | Template, Required | The unique identifier of the split configuration split. |
-| `body` | [`SplitConfigurationLogic \| undefined`](../../doc/models/split-configuration-logic.md) | Body, Optional | - |
+| `body` | [`UpdateSplitConfigurationLogicRequest \| undefined`](../../doc/models/update-split-configuration-logic-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -1150,7 +1150,7 @@ const ruleId = 'ruleId4';
 
 const splitLogicId = 'splitLogicId4';
 
-const body: SplitConfigurationLogic = {
+const body: UpdateSplitConfigurationLogicRequest = {
   commission: {
     fixedAmount: BigInt(100),
     variablePercentage: BigInt(100),
@@ -1160,10 +1160,10 @@ const body: SplitConfigurationLogic = {
     fixedAmount: BigInt(100),
     variablePercentage: BigInt(0),
   },
-  chargeback: Behavior.DeductFromLiableAccount,
-  paymentFee: PaymentFee.DeductFromLiableAccount,
-  remainder: Remainder.AddToLiableAccount,
-  tip: Tip.AddToLiableAccount,
+  chargeback: BehaviorEnum.DeductFromLiableAccount,
+  paymentFee: PaymentFeeEnum.DeductFromLiableAccount,
+  remainder: RemainderEnum.AddToLiableAccount,
+  tip: TipEnum.AddToLiableAccount,
 };
 
 try {

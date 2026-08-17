@@ -1,8 +1,6 @@
 
 # Balance Sweep Configurations Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalanceSweepConfigurationsResponse`
@@ -14,17 +12,16 @@
 | `hasNext` | `boolean` | Required | Indicates whether there are more items on the next page. |
 | `hasPrevious` | `boolean` | Required | Indicates whether there are more items on the previous page. |
 | `sweeps` | [`SweepConfigurationV2[]`](../../doc/models/sweep-configuration-v2.md) | Required | List of sweeps associated with the balance account. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
   BalanceSweepConfigurationsResponse,
-  Category,
-  Priority,
-  Reason,
-  Type6,
+  Category1Enum,
+  Priority1Enum,
+  Type62Enum,
+  Type72Enum,
 } from 'adyen';
 
 const balanceSweepConfigurationsResponse: BalanceSweepConfigurationsResponse = {
@@ -36,36 +33,23 @@ const balanceSweepConfigurationsResponse: BalanceSweepConfigurationsResponse = {
         balanceAccountId: 'balanceAccountId0',
         merchantAccount: 'merchantAccount0',
         transferInstrumentId: 'transferInstrumentId4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       currency: 'currency2',
-      id: 'id2',
+      id: '',
       schedule: {
-        type: Type6.Weekly,
+        type: Type62Enum.Weekly,
         cronExpression: 'cronExpression4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      category: Category.PlatformPayment,
+      category: Category1Enum.PlatformPayment,
       description: 'description2',
       priorities: [
-        Priority.Regular,
-        Priority.Wire,
-        Priority.CrossBorder
+        Priority1Enum.Regular,
+        Priority1Enum.Wire,
+        Priority1Enum.CrossBorder
       ],
-      reason: Reason.AccountHierarchyNotActive,
-      reasonDetail: 'reasonDetail8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      type: Type72Enum.Push,
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Patchable Not Delivered Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PatchableNotDeliveredInfo`
@@ -20,9 +18,8 @@
 | `isMerchantBankrupt` | `boolean \| null \| undefined` | Optional | Indicates if the transaction was processed by a bankrupt merchant.<br><br>Possible values: **true**, **false**. |
 | `isNonFiatOrNft` | `boolean \| null \| undefined` | Optional | Indicates if the transaction is non-fiat or non-fungible token (NFT) related.<br><br>Possible values: **true**, **false**. |
 | `lastExpectedDate` | `string \| undefined` | Optional | The date the undelivered goods or services were expected to be delivered in YYYY-MM-DD format. |
-| `whatWasNotDelivered` | [`ProductType2 \| undefined`](../../doc/models/product-type-2.md) | Optional | - |
-| `whoCancelled` | [`PatchableNotDeliveredInfoWhoCancelled \| undefined`](../../doc/models/containers/patchable-not-delivered-info-who-cancelled.md) | Optional | This is a container for one-of cases. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `whatWasNotDelivered` | [`ProductType21Enum \| undefined`](../../doc/models/product-type-21-enum.md) | Optional | The type of product that you expected to receive.<br><br>Possible values: **goods**, **services**. |
+| `whoCancelled` | [`PatchableNotDeliveredInfoWhoCancelled \| null \| undefined`](../../doc/models/containers/patchable-not-delivered-info-who-cancelled.md) | Optional | This is a container for one-of cases. |
 
 ## Example
 
@@ -35,9 +32,6 @@ const patchableNotDeliveredInfo: PatchableNotDeliveredInfo = {
   deliveredToWrongLocation: false,
   descriptionOfIssue: 'descriptionOfIssue0',
   didCardholderReturn: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

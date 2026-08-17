@@ -1,8 +1,6 @@
 
 # Capital Grant
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CapitalGrant`
@@ -11,21 +9,20 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5 \| undefined`](../../doc/models/amount-5.md) | Optional | - |
-| `balances` | [`Balances`](../../doc/models/balances.md) | Required | - |
-| `counterparty` | [`Counterparty10 \| undefined`](../../doc/models/counterparty-10.md) | Optional | - |
-| `fee` | [`Fee2 \| undefined`](../../doc/models/fee-2.md) | Optional | - |
+| `amount` | [`Amount17 \| undefined`](../../doc/models/amount-17.md) | Optional | An object containing the amount of the grant, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
+| `balances` | [`CapitalBalance`](../../doc/models/capital-balance.md) | Required | An object containing the details of the existing grant. |
+| `counterparty` | [`GrantCounterparty2 \| undefined`](../../doc/models/grant-counterparty-2.md) | Optional | An object containing the details of the receiving party of the grant. |
+| `fee` | [`Fee4 \| undefined`](../../doc/models/fee-4.md) | Optional | An object containing the fee currency and value, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
 | `grantAccountId` | `string` | Required | The identifier of the grant account used for the grant. |
 | `grantOfferId` | `string` | Required | The identifier of the grant offer that has been selected and from which the grant details will be used. |
 | `id` | `string` | Required | The identifier of the grant reference. |
-| `repayment` | [`Repayment8 \| undefined`](../../doc/models/repayment-8.md) | Optional | - |
-| `status` | [`Status18`](../../doc/models/status-18.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `repayment` | [`Repayment \| undefined`](../../doc/models/repayment.md) | Optional | An object containing the details of the 30-day repayment threshold. |
+| `status` | [`Status14Enum`](../../doc/models/status-14-enum.md) | Required | The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**, **WrittenOff**, **Failed**, **Revoked**. |
 
 ## Example
 
 ```ts
-import { CapitalGrant, Status18 } from 'adyen';
+import { CapitalGrant, Status14Enum } from 'adyen';
 
 const capitalGrant: CapitalGrant = {
   balances: {
@@ -33,39 +30,24 @@ const capitalGrant: CapitalGrant = {
     fee: BigInt(72),
     principal: BigInt(110),
     total: BigInt(150),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   grantAccountId: 'grantAccountId8',
   grantOfferId: 'grantOfferId4',
   id: 'id2',
-  status: Status18.Pending,
+  status: Status14Enum.Pending,
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   counterparty: {
     accountHolderId: 'accountHolderId0',
     balanceAccountId: 'balanceAccountId0',
     transferInstrumentId: 'transferInstrumentId4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   fee: {
     amount: {
       currency: 'currency2',
       value: BigInt(110),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   repayment: {
@@ -73,28 +55,13 @@ const capitalGrant: CapitalGrant = {
     term: {
       estimatedDays: 248,
       maximumDays: 24,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     threshold: {
       amount: {
         currency: 'currency2',
         value: BigInt(110),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

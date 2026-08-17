@@ -15,7 +15,7 @@ import {
 } from '../models/transferInstrumentInfo.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class TransferInstrumentsApi extends BaseApi {
   /**
@@ -52,6 +52,7 @@ export class TransferInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferInstrument>> {
     const req = this.createRequest('POST', '/transferInstruments');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       xRequestedVerificationCode: [
         xRequestedVerificationCode,
@@ -67,23 +68,27 @@ export class TransferInstrumentsApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -111,27 +116,32 @@ export class TransferInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferInstrument>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/transferInstruments/${mapped.id}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -159,27 +169,32 @@ export class TransferInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/transferInstruments/${mapped.id}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -216,6 +231,7 @@ export class TransferInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferInstrument>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       id: [id, string()],
       xRequestedVerificationCode: [
@@ -233,23 +249,27 @@ export class TransferInstrumentsApi extends BaseApi {
     req.appendTemplatePath`/transferInstruments/${mapped.id}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

@@ -1,8 +1,6 @@
 
 # Account Holder Balance Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountHolderBalanceResponse`
@@ -15,13 +13,12 @@
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `totalBalance` | [`DetailBalance \| undefined`](../../doc/models/detail-balance.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `totalBalance` | [`DetailBalance1 \| undefined`](../../doc/models/detail-balance-1.md) | Optional | The total balance of the account holder. |
 
 ## Example
 
 ```ts
-import { AccountHolderBalanceResponse, FieldName } from 'adyen';
+import { AccountHolderBalanceResponse, FieldNameEnum } from 'adyen';
 
 const accountHolderBalanceResponse: AccountHolderBalanceResponse = {
   balancePerAccount: [
@@ -32,56 +29,32 @@ const accountHolderBalanceResponse: AccountHolderBalanceResponse = {
           {
             currency: 'currency4',
             value: BigInt(128),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             currency: 'currency4',
             value: BigInt(128),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         onHoldBalance: [
           {
             currency: 'currency8',
             value: BigInt(72),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             currency: 'currency8',
             value: BigInt(72),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           {
             currency: 'currency8',
             value: BigInt(72),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
         pendingBalance: [
           {
             currency: 'currency2',
             value: BigInt(254),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           }
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
@@ -91,14 +64,8 @@ const accountHolderBalanceResponse: AccountHolderBalanceResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
@@ -109,56 +76,32 @@ const accountHolderBalanceResponse: AccountHolderBalanceResponse = {
       {
         currency: 'currency4',
         value: BigInt(128),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     onHoldBalance: [
       {
         currency: 'currency8',
         value: BigInt(72),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         currency: 'currency8',
         value: BigInt(72),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         currency: 'currency8',
         value: BigInt(72),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     pendingBalance: [
       {
         currency: 'currency2',
         value: BigInt(254),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         currency: 'currency2',
         value: BigInt(254),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

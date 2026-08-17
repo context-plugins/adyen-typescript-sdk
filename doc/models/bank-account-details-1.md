@@ -3,8 +3,6 @@
 
 Contains the business account details. Returned when you create a payment instrument with `type` **bankAccount**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BankAccountDetails1`
@@ -20,8 +18,7 @@ Contains the business account details. Returned when you create a payment instru
 | `iban` | `string \| undefined` | Optional | The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard. |
 | `routingNumber` | `string \| undefined` | Optional | The [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace. |
 | `sortCode` | `string \| undefined` | Optional | The [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace. |
-| `type` | `string` | Required | **iban** or **usLocal** or **ukLocal** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required | **iban** or **usLocal** or **ukLocal**<br><br>**Default**: `'iban'` |
 
 ## Example
 
@@ -29,15 +26,12 @@ Contains the business account details. Returned when you create a payment instru
 import { BankAccountDetails1 } from 'adyen';
 
 const bankAccountDetails1: BankAccountDetails1 = {
-  type: 'type2',
+  type: 'iban',
   accountNumber: 'accountNumber4',
   accountType: 'checking',
   branchNumber: 'branchNumber8',
   formFactor: 'physical',
   iban: 'iban2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

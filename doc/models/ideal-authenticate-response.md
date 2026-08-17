@@ -1,8 +1,6 @@
 
 # Ideal Authenticate Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `IdealAuthenticateResponse`
@@ -11,8 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `redirectUrl` | [`Href \| undefined`](../../doc/models/href.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `redirectUrl` | [`Href4 \| undefined`](../../doc/models/href-4.md) | Optional | A short-lived URL that redirects the user to the iDEAL page that is required for authentication. |
 
 ## Example
 
@@ -22,12 +19,6 @@ import { IdealAuthenticateResponse } from 'adyen';
 const idealAuthenticateResponse: IdealAuthenticateResponse = {
   redirectUrl: {
     href: 'href8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

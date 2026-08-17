@@ -8,14 +8,16 @@ import {
   boolean,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Store1, store1Schema } from './store1.js';
-import { TerminalStatus, terminalStatusSchema } from './terminalStatus.js';
+import { Store11, store11Schema } from './store11.js';
+import {
+  TerminalStatusEnum,
+  terminalStatusEnumSchema,
+} from './terminalStatusEnum.js';
 
 export interface GetTerminalDetailsResponse {
   /** The Bluetooth IP address of the terminal. */
@@ -66,54 +68,56 @@ export interface GetTerminalDetailsResponse {
   simStatus?: string | null;
   /** The store code of the store that the terminal is assigned to. */
   store?: string;
-  storeDetails?: Store1;
+  /** The store that the terminal is assigned to. */
+  storeDetails?: Store11;
   /** The unique terminal ID. */
   terminal: string;
-  terminalStatus?: TerminalStatus;
+  /**
+   * The status of the terminal:
+   * - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.
+   * - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.
+   * - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned.
+   */
+  terminalStatus?: TerminalStatusEnum;
   /** The terminal's IP address in your Wi-Fi network. */
   wifiIp?: string;
   /** The terminal's MAC address in your Wi-Fi network. */
   wifiMac?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const getTerminalDetailsResponseSchema: Schema<GetTerminalDetailsResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        bluetoothIp: ['bluetoothIp', optional(string())],
-        bluetoothMac: ['bluetoothMac', optional(string())],
-        companyAccount: ['companyAccount', string()],
-        country: ['country', optional(string())],
-        deviceModel: ['deviceModel', optional(string())],
-        dhcpEnabled: ['dhcpEnabled', optional(boolean())],
-        displayLabel: ['displayLabel', optional(nullable(string()))],
-        ethernetIp: ['ethernetIp', optional(nullable(string()))],
-        ethernetMac: ['ethernetMac', optional(nullable(string()))],
-        firmwareVersion: ['firmwareVersion', optional(string())],
-        iccid: ['iccid', optional(nullable(string()))],
-        lastActivityDateTime: [
-          'lastActivityDateTime',
-          optional(nullable(string())),
-        ],
-        lastTransactionDateTime: [
-          'lastTransactionDateTime',
-          optional(nullable(string())),
-        ],
-        linkNegotiation: ['linkNegotiation', optional(nullable(string()))],
-        merchantAccount: ['merchantAccount', optional(string())],
-        merchantInventory: ['merchantInventory', optional(boolean())],
-        permanentTerminalId: ['permanentTerminalId', optional(string())],
-        serialNumber: ['serialNumber', optional(string())],
-        simStatus: ['simStatus', optional(nullable(string()))],
-        store: ['store', optional(string())],
-        storeDetails: ['storeDetails', optional(store1Schema)],
-        terminal: ['terminal', string()],
-        terminalStatus: ['terminalStatus', optional(terminalStatusSchema)],
-        wifiIp: ['wifiIp', optional(string())],
-        wifiMac: ['wifiMac', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      bluetoothIp: ['bluetoothIp', optional(string())],
+      bluetoothMac: ['bluetoothMac', optional(string())],
+      companyAccount: ['companyAccount', string()],
+      country: ['country', optional(string())],
+      deviceModel: ['deviceModel', optional(string())],
+      dhcpEnabled: ['dhcpEnabled', optional(boolean())],
+      displayLabel: ['displayLabel', optional(nullable(string()))],
+      ethernetIp: ['ethernetIp', optional(nullable(string()))],
+      ethernetMac: ['ethernetMac', optional(nullable(string()))],
+      firmwareVersion: ['firmwareVersion', optional(string())],
+      iccid: ['iccid', optional(nullable(string()))],
+      lastActivityDateTime: [
+        'lastActivityDateTime',
+        optional(nullable(string())),
+      ],
+      lastTransactionDateTime: [
+        'lastTransactionDateTime',
+        optional(nullable(string())),
+      ],
+      linkNegotiation: ['linkNegotiation', optional(nullable(string()))],
+      merchantAccount: ['merchantAccount', optional(string())],
+      merchantInventory: ['merchantInventory', optional(boolean())],
+      permanentTerminalId: ['permanentTerminalId', optional(string())],
+      serialNumber: ['serialNumber', optional(string())],
+      simStatus: ['simStatus', optional(nullable(string()))],
+      store: ['store', optional(string())],
+      storeDetails: ['storeDetails', optional(store11Schema)],
+      terminal: ['terminal', string()],
+      terminalStatus: ['terminalStatus', optional(terminalStatusEnumSchema)],
+      wifiIp: ['wifiIp', optional(string())],
+      wifiMac: ['wifiMac', optional(string())],
+    })
 );

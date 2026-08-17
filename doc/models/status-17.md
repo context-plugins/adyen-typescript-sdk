@@ -1,29 +1,34 @@
 
 # Status 17
 
-The status of the store. Possible values are:
-
-- **active**. This value is assigned automatically when a store is created.
-- **inactive**. The terminals under the store are blocked from accepting new transactions, but capturing outstanding transactions is still possible.
-- **closed**. This status is irreversible. The terminals under the store are reassigned to the merchant inventory.
-
-## Enumeration
+## Structure
 
 `Status17`
 
 ## Fields
 
-| Name |
-|  --- |
-| `Active` |
-| `Closed` |
-| `Inactive` |
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `actions` | [`Action1[] \| undefined`](../../doc/models/action-1.md) | Optional | A list of actions that need to be completed to proceed with the grant. |
+| `code` | [`CodeEnum`](../../doc/models/code-enum.md) | Required | The code for the status of the grant. Possible values:<br><br>- **Pending**<br>- **Active**<br>- **Repaid**<br>- **WrittenOff**<br>- **Failed**<br>- **Revoked**<br>- **Requested**<br>- **Reviewing**<br>- **Approved**<br>- **Rejected**<br>- **Cancelled** |
 
 ## Example
 
 ```ts
-import { Status17 } from 'adyen';
+import { CodeEnum, Status17 } from 'adyen';
 
-const status17 = Status17.Active;
+const status17: Status17 = {
+  code: CodeEnum.Revoked,
+  actions: [
+    {
+      actionCode: 'actionCode6',
+      resolved: false,
+    },
+    {
+      actionCode: 'actionCode6',
+      resolved: false,
+    }
+  ],
+};
 ```
 

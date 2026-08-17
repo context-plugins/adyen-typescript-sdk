@@ -45,6 +45,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       reference: [reference, string()],
@@ -114,6 +115,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       reference: [reference, string()],
@@ -181,6 +183,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       reference: [reference, string()],
@@ -249,6 +252,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       reference: [reference, string()],
@@ -314,6 +318,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       storeId: [storeId, string()],
       model: [model, string()],
@@ -380,6 +385,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       storeId: [storeId, string()],
       model: [model, string()],
@@ -444,6 +450,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ storeId: [storeId, string()] });
     req.appendTemplatePath`/stores/${mapped.storeId}/terminalSettings`;
     req.throwOn(
@@ -507,6 +514,7 @@ export class TerminalSettingsStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       storeId: [storeId, string()],
       body: [body, optional(terminalSettingsSchema)],

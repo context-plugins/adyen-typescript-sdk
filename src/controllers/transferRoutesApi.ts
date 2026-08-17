@@ -32,6 +32,7 @@ export class TransferRoutesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferRouteResponse>> {
     const req = this.createRequest('POST', '/transferRoutes/calculate');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(transferRouteRequestSchema)],
     });

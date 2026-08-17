@@ -1,8 +1,6 @@
 
 # Open Invoice
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OpenInvoice`
@@ -18,13 +16,12 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type39 \| undefined`](../../doc/models/type-39.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type39Enum \| undefined`](../../doc/models/type-39-enum.md) | Optional | **openinvoice**<br><br>**Default**: `Type39Enum.Openinvoice` |
 
 ## Example
 
 ```ts
-import { OpenInvoice } from 'adyen';
+import { OpenInvoice, Type39Enum } from 'adyen';
 
 const openInvoice: OpenInvoice = {
   billingAddress: 'billingAddress4',
@@ -32,9 +29,7 @@ const openInvoice: OpenInvoice = {
   deliveryAddress: 'deliveryAddress2',
   personalDetails: 'personalDetails4',
   recurringDetailReference: 'recurringDetailReference6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type39Enum.Openinvoice,
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Valuelink Response Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ValuelinkResponseInfo`
@@ -12,24 +10,20 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `authorisationMid` | `string \| undefined` | Optional | Authorisation Mid |
-| `pinSupport` | [`PinSupport \| undefined`](../../doc/models/pin-support.md) | Optional | - |
+| `pinSupport` | [`PinSupportEnum \| undefined`](../../doc/models/pin-support-enum.md) | Optional | PIN Support. For ecommerce, PIN is required. |
 | `submitterId` | `string \| undefined` | Optional | Submitter ID |
 | `terminalId` | `string \| undefined` | Optional | Terminal ID |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { PinSupport, ValuelinkResponseInfo } from 'adyen';
+import { PinSupportEnum, ValuelinkResponseInfo } from 'adyen';
 
 const valuelinkResponseInfo: ValuelinkResponseInfo = {
   authorisationMid: 'authorisationMid6',
-  pinSupport: PinSupport.Pin,
+  pinSupport: PinSupportEnum.PIN,
   submitterId: 'submitterId2',
   terminalId: 'terminalId8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

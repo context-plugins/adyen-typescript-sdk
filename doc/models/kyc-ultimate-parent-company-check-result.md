@@ -1,30 +1,31 @@
 
-# Kyc Ultimate Parent Company Check Result
-
-*This model accepts additional fields of type unknown.*
+# KYC Ultimate Parent Company Check Result
 
 ## Structure
 
-`KycUltimateParentCompanyCheckResult`
+`KYCUltimateParentCompanyCheckResult`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checks` | [`KycCheckStatusData[] \| undefined`](../../doc/models/kyc-check-status-data.md) | Optional | A list of the checks and their statuses. |
+| `checks` | [`KYCCheckStatusData[] \| undefined`](../../doc/models/kyc-check-status-data.md) | Optional | A list of the checks and their statuses. |
 | `ultimateParentCompanyCode` | `string \| undefined` | Optional | The code of the Ultimate Parent Company to which the check applies. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { KycUltimateParentCompanyCheckResult, Status3, Type2 } from 'adyen';
+import {
+  KYCUltimateParentCompanyCheckResult,
+  Status32Enum,
+  Type211Enum,
+} from 'adyen';
 
-const kycUltimateParentCompanyCheckResult: KycUltimateParentCompanyCheckResult = {
+const kYCUltimateParentCompanyCheckResult: KYCUltimateParentCompanyCheckResult = {
   checks: [
     {
-      status: Status3.InvalidData,
-      type: Type2.PassportVerification,
+      status: Status32Enum.INVALIDDATA,
+      type: Type211Enum.PASSPORTVERIFICATION,
       requiredFields: [
         'requiredFields0',
         'requiredFields1'
@@ -32,19 +33,22 @@ const kycUltimateParentCompanyCheckResult: KycUltimateParentCompanyCheckResult =
       summary: {
         kycCheckCode: 128,
         kycCheckDescription: 'kycCheckDescription8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    },
+    {
+      status: Status32Enum.INVALIDDATA,
+      type: Type211Enum.PASSPORTVERIFICATION,
+      requiredFields: [
+        'requiredFields0',
+        'requiredFields1'
+      ],
+      summary: {
+        kycCheckCode: 128,
+        kycCheckDescription: 'kycCheckDescription8',
       },
     }
   ],
-  ultimateParentCompanyCode: 'ultimateParentCompanyCode8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  ultimateParentCompanyCode: 'ultimateParentCompanyCode0',
 };
 ```
 

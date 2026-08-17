@@ -13,8 +13,6 @@ To use this restriction, you must:
 
 Supported operation: **equals**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SameAmountRestriction1`
@@ -25,7 +23,6 @@ Supported operation: **equals**.
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | `boolean \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -35,9 +32,6 @@ import { SameAmountRestriction1 } from 'adyen';
 const sameAmountRestriction1: SameAmountRestriction1 = {
   operation: 'operation6',
   value: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

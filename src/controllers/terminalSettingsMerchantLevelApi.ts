@@ -43,6 +43,7 @@ export class TerminalSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       model: [model, string()],
@@ -108,6 +109,7 @@ export class TerminalSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       model: [model, string()],
@@ -172,6 +174,7 @@ export class TerminalSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ merchantId: [merchantId, string()] });
     req.appendTemplatePath`/merchants/${mapped.merchantId}/terminalSettings`;
     req.throwOn(
@@ -238,6 +241,7 @@ export class TerminalSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(terminalSettingsSchema)],

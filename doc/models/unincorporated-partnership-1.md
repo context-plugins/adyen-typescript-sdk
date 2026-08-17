@@ -3,8 +3,6 @@
 
 Information about the unincorporated partnership. Required if `type` is **unincorporatedPartnership**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UnincorporatedPartnership1`
@@ -19,14 +17,13 @@ Information about the unincorporated partnership. Required if `type` is **uninco
 | `doingBusinessAs` | `string \| undefined` | Optional | The registered name, if different from the `name`. |
 | `doingBusinessAsAbsent` | `boolean \| null \| undefined` | Optional | Set this to **true** if the legal arrangement does not have a `Doing business as` name. |
 | `name` | `string` | Required | The legal name. |
-| `principalPlaceOfBusiness` | [`Address1 \| undefined`](../../doc/models/address-1.md) | Optional | - |
-| `registeredAddress` | [`Address1`](../../doc/models/address-1.md) | Required | - |
+| `principalPlaceOfBusiness` | [`Address41 \| undefined`](../../doc/models/address-41.md) | Optional | The business address. Required if the principal place of business is different from the `registeredAddress`. |
+| `registeredAddress` | [`Address51`](../../doc/models/address-51.md) | Required | The address registered at the registrar, such as the Chamber of Commerce. |
 | `registrationNumber` | `string \| undefined` | Optional | The registration number. |
 | `taxInformation` | [`TaxInformation[] \| undefined`](../../doc/models/tax-information.md) | Optional | The tax information of the entity. |
-| `type` | [`Type191 \| undefined`](../../doc/models/type-191.md) | Optional, Read-only | - |
-| `vatAbsenceReason` | [`VatAbsenceReason1 \| undefined`](../../doc/models/vat-absence-reason-1.md) | Optional | - |
+| `type` | [`Type191Enum \| undefined`](../../doc/models/type-191-enum.md) | Optional, Read-only | Type of Partnership.<br><br>Possible values:<br><br>* **limitedPartnership**<br>* **generalPartnership**<br>* **familyPartnership**<br>* **commercialPartnership**<br>* **publicPartnership**<br>* **otherPartnership**<br>* **gbr**<br>* **gmbh**<br>* **kgaa**<br>* **cv**<br>* **vof**<br>* **maatschap**<br>* **privateFundLimitedPartnership**<br>* **businessTrustEntity**<br>* **businessPartnership**<br>* **limitedLiabilityPartnership**<br>* **eg**<br>* **cooperative**<br>* **vos**<br>* **comunidadDeBienes**<br>* **herenciaYacente**<br>* **comunidadDePropietarios**<br>* **sep**<br>* **sca**<br>* **bt**<br>* **kkt**<br>* **scs**<br>* **snc** |
+| `vatAbsenceReason` | [`VatAbsenceReason1Enum \| undefined`](../../doc/models/vat-absence-reason-1-enum.md) | Optional | The reason for not providing a VAT number.<br><br>Possible values: **industryExemption**, **belowTaxThreshold**. |
 | `vatNumber` | `string \| undefined` | Optional | The VAT number. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -43,9 +40,6 @@ const unincorporatedPartnership1: UnincorporatedPartnership1 = {
     stateOrProvince: 'stateOrProvince8',
     street: 'street0',
     street2: 'street24',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   dateOfIncorporation: 'dateOfIncorporation8',
   description: 'description8',
@@ -58,12 +52,6 @@ const unincorporatedPartnership1: UnincorporatedPartnership1 = {
     stateOrProvince: 'stateOrProvince0',
     street: 'street2',
     street2: 'street22',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

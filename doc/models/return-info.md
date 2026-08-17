@@ -1,8 +1,6 @@
 
 # Return Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ReturnInfo`
@@ -16,7 +14,6 @@
 | `date` | `string \| undefined` | Optional | The date by which the car must be returned.<br><br>* minLength: 10 characters<br>* maxLength: 10 characters<br>* Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd<br>* **additionalData key:** `carRental.returnDate` |
 | `locationId` | `string \| undefined` | Optional | The agency code, phone number, or address abbreviation.<br><br>* Format: ASCII<br>* maxLength: 10 characters<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `carRental.returnLocationId` |
 | `stateOrProvince` | `string \| undefined` | Optional | The state or province where the car must be returned.<br><br>* Format: ASCII<br>* maxLength: 3 characters<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `carRental.returnStateProvince` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const returnInfo: ReturnInfo = {
   date: '2016-03-13T12:52:32.123Z',
   locationId: 'locationId4',
   stateOrProvince: 'stateOrProvince0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -8,13 +8,12 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Individual, individualSchema } from './individual.js';
+import { Individual1, individual1Schema } from './individual1.js';
 import {
   LegalEntityAssociation,
   legalEntityAssociationSchema,
@@ -23,17 +22,17 @@ import {
   LegalEntityCapability,
   legalEntityCapabilitySchema,
 } from './legalEntityCapability.js';
-import { Organization, organizationSchema } from './organization.js';
+import { Organization1, organization1Schema } from './organization1.js';
 import {
-  SoleProprietorship,
-  soleProprietorshipSchema,
-} from './soleProprietorship.js';
-import { Trust, trustSchema } from './trust.js';
-import { Type212, type212Schema } from './type212.js';
+  SoleProprietorship1,
+  soleProprietorship1Schema,
+} from './soleProprietorship1.js';
+import { Trust1, trust1Schema } from './trust1.js';
+import { Type213Enum, type213EnumSchema } from './type213Enum.js';
 import {
-  UnincorporatedPartnership,
-  unincorporatedPartnershipSchema,
-} from './unincorporatedPartnership.js';
+  UnincorporatedPartnership1,
+  unincorporatedPartnership1Schema,
+} from './unincorporatedPartnership1.js';
 
 export interface LegalEntityInfoRequiredType {
   /** Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability. */
@@ -43,47 +42,51 @@ export interface LegalEntityInfoRequiredType {
    * For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    */
   entityAssociations?: LegalEntityAssociation[];
-  individual?: Individual;
-  organization?: Organization;
+  /** Information about the individual. Required if `type` is **individual**. */
+  individual?: Individual1;
+  /** Information about the organization. Required if `type` is **organization**. */
+  organization?: Organization1;
   /** Your reference for the legal entity, maximum 150 characters. */
   reference?: string;
-  soleProprietorship?: SoleProprietorship;
-  trust?: Trust;
-  type: Type212;
-  unincorporatedPartnership?: UnincorporatedPartnership;
+  /** Information about the sole proprietorship. Required if `type` is **soleProprietorship**. */
+  soleProprietorship?: SoleProprietorship1;
+  /** Information about the trust. Required if `type` is **trust**. */
+  trust?: Trust1;
+  /**
+   * The type of legal entity.
+   *  Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
+   */
+  type: Type213Enum;
+  /** Information about the unincorporated partnership. Required if `type` is **unincorporatedPartnership**. */
+  unincorporatedPartnership?: UnincorporatedPartnership1;
   /** A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification). */
   verificationPlan?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const legalEntityInfoRequiredTypeSchema: Schema<LegalEntityInfoRequiredType> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        capabilities: [
-          'capabilities',
-          optional(dict(legalEntityCapabilitySchema)),
-        ],
-        entityAssociations: [
-          'entityAssociations',
-          optional(array(legalEntityAssociationSchema)),
-        ],
-        individual: ['individual', optional(individualSchema)],
-        organization: ['organization', optional(organizationSchema)],
-        reference: ['reference', optional(string())],
-        soleProprietorship: [
-          'soleProprietorship',
-          optional(soleProprietorshipSchema),
-        ],
-        trust: ['trust', optional(trustSchema)],
-        type: ['type', type212Schema],
-        unincorporatedPartnership: [
-          'unincorporatedPartnership',
-          optional(unincorporatedPartnershipSchema),
-        ],
-        verificationPlan: ['verificationPlan', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      capabilities: [
+        'capabilities',
+        optional(dict(legalEntityCapabilitySchema)),
+      ],
+      entityAssociations: [
+        'entityAssociations',
+        optional(array(legalEntityAssociationSchema)),
+      ],
+      individual: ['individual', optional(individual1Schema)],
+      organization: ['organization', optional(organization1Schema)],
+      reference: ['reference', optional(string())],
+      soleProprietorship: [
+        'soleProprietorship',
+        optional(soleProprietorship1Schema),
+      ],
+      trust: ['trust', optional(trust1Schema)],
+      type: ['type', type213EnumSchema],
+      unincorporatedPartnership: [
+        'unincorporatedPartnership',
+        optional(unincorporatedPartnership1Schema),
+      ],
+      verificationPlan: ['verificationPlan', optional(string())],
+    })
 );

@@ -1,11 +1,9 @@
 
-# Three Ds 2 Card Range Detail
-
-*This model accepts additional fields of type unknown.*
+# Three DS 2 Card Range Detail
 
 ## Structure
 
-`ThreeDs2CardRangeDetail`
+`ThreeDS2CardRangeDetail`
 
 ## Fields
 
@@ -15,31 +13,25 @@
 | `brandCode` | `string \| undefined` | Optional | Card brand. |
 | `endRange` | `string \| undefined` | Optional | BIN end range. |
 | `startRange` | `string \| undefined` | Optional | BIN start range. |
-| `threeDs2Versions` | `string[] \| undefined` | Optional | Supported 3D Secure protocol versions |
-| `threeDsMethodUrl` | `string \| undefined` | Optional | In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `threeDS2Versions` | `string[] \| undefined` | Optional | Supported 3D Secure protocol versions |
+| `threeDSMethodURL` | `string \| undefined` | Optional | In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to. |
 
 ## Example
 
 ```ts
-import { ThreeDs2CardRangeDetail } from 'adyen';
+import { ThreeDS2CardRangeDetail } from 'adyen';
 
-const threeDs2CardRangeDetail: ThreeDs2CardRangeDetail = {
+const threeDS2CardRangeDetail: ThreeDS2CardRangeDetail = {
   acsInfoInd: [
-    'acsInfoInd7',
-    'acsInfoInd8'
+    'acsInfoInd5',
+    'acsInfoInd6'
   ],
   brandCode: 'brandCode2',
-  endRange: 'endRange0',
-  startRange: 'startRange8',
-  threeDs2Versions: [
-    'threeDS2Versions7',
-    'threeDS2Versions8',
-    'threeDS2Versions9'
+  endRange: 'endRange4',
+  startRange: 'startRange6',
+  threeDS2Versions: [
+    'threeDS2Versions3'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

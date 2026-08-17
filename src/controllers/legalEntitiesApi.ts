@@ -25,7 +25,7 @@ import {
 } from '../models/verificationErrors.js';
 import { optional, string, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class LegalEntitiesApi extends BaseApi {
   /**
@@ -59,6 +59,7 @@ export class LegalEntitiesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<LegalEntity3>> {
     const req = this.createRequest('POST', '/legalEntities');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       xRequestedVerificationCode: [
         xRequestedVerificationCode,
@@ -74,23 +75,27 @@ export class LegalEntitiesApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -118,27 +123,32 @@ export class LegalEntitiesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<LegalEntity3>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -179,6 +189,7 @@ export class LegalEntitiesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<LegalEntity3>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       id: [id, string()],
       xRequestedVerificationCode: [
@@ -196,23 +207,27 @@ export class LegalEntitiesApi extends BaseApi {
     req.appendTemplatePath`/legalEntities/${mapped.id}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -240,27 +255,32 @@ export class LegalEntitiesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BusinessLines>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}/businessLines`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -288,27 +308,32 @@ export class LegalEntitiesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<VerificationErrors>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}/checkVerificationErrors`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -338,27 +363,32 @@ export class LegalEntitiesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DataReviewConfirmationResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}/confirmDataReview`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -374,11 +404,12 @@ export class LegalEntitiesApi extends BaseApi {
   async postLegalEntitiesIdRequestPeriodicReview(
     id: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<unknown | undefined>> {
+  ): Promise<ApiResponse<unknown>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}/requestPeriodicReview`;
     req.authenticate([]);
-    return req.callAsJson(optional(unknown()), requestOptions);
+    return req.callAsJson(unknown(), requestOptions);
   }
 }

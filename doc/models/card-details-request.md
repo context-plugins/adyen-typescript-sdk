@@ -1,8 +1,6 @@
 
 # Card Details Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardDetailsRequest`
@@ -16,7 +14,6 @@
 | `encryptedCardNumber` | `string \| undefined` | Optional | The encrypted card number.<br><br>**Constraints**: *Maximum Length*: `15000` |
 | `merchantAccount` | `string` | Required | The merchant account identifier, with which you want to process the transaction. |
 | `supportedBrands` | `string[] \| undefined` | Optional | The card brands you support. This is the [`brands`](https://docs.adyen.com/api-explorer/Checkout/latest/post/paymentMethods#responses-200-paymentMethods-brands) array from your [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.<br><br>If not included, our API uses the ones configured for your merchant account and, if provided, the country code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const cardDetailsRequest: CardDetailsRequest = {
     'supportedBrands8',
     'supportedBrands7'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 Content of the Card Acquisition Request message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardAcquisitionRequest2`
@@ -13,40 +11,30 @@ Content of the Card Acquisition Request message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `saleData` | [`SaleData2`](../../doc/models/sale-data-2.md) | Required | - |
-| `cardAcquisitionTransaction` | [`CardAcquisitionTransaction`](../../doc/models/card-acquisition-transaction.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `saleData` | [`SaleData1`](../../doc/models/sale-data-1.md) | Required | Data related to the Sale System. |
+| `cardAcquisitionTransaction` | [`CardAcquisitionTransaction1`](../../doc/models/card-acquisition-transaction-1.md) | Required | Data related to the payment and loyalty card acquisition. |
 
 ## Example
 
 ```ts
 import {
   CardAcquisitionRequest2,
-  ForceEntryMode,
-  LoyaltyHandling2,
+  ForceEntryModeEnum,
+  LoyaltyHandling2Enum,
 } from 'adyen';
 
 const cardAcquisitionRequest2: CardAcquisitionRequest2 = {
   saleData: {
-    saleTransactionId: {
-      transactionId: 'TransactionID2',
+    saleTransactionID: {
+      transactionID: 'TransactionID2',
       timeStamp: '2016-03-13T12:52:32.123Z',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    operatorId: 'OperatorID8',
+    operatorID: 'OperatorID8',
     operatorLanguage: 'OperatorLanguage2',
     shiftNumber: 'ShiftNumber0',
-    saleReferenceId: 'SaleReferenceID8',
+    saleReferenceID: 'SaleReferenceID8',
     saleTerminalData: {
-      totalsGroupId: 'TotalsGroupID4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+      totalsGroupID: 'TotalsGroupID4',
     },
   },
   cardAcquisitionTransaction: {
@@ -57,17 +45,11 @@ const cardAcquisitionRequest2: CardAcquisitionRequest2 = {
     allowedLoyaltyBrand: [
       'AllowedLoyaltyBrand4'
     ],
-    loyaltyHandling: LoyaltyHandling2.Processed,
+    loyaltyHandling: LoyaltyHandling2Enum.Processed,
     customerLanguage: 'CustomerLanguage8',
     forceEntryMode: [
-      ForceEntryMode.Icc
+      ForceEntryModeEnum.ICC
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

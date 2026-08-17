@@ -1,92 +1,36 @@
 
 # Status 25
 
-The status of the transfer event.
+Contains the status of the grant.
 
-## Enumeration
+## Structure
 
 `Status25`
 
 ## Fields
 
-| Name |
-|  --- |
-| `ApprovalPending` |
-| `AtmWithdrawal` |
-| `AtmWithdrawalReversalPending` |
-| `AtmWithdrawalReversed` |
-| `AuthAdjustmentAuthorised` |
-| `AuthAdjustmentError` |
-| `AuthAdjustmentRefused` |
-| `Authorised` |
-| `BankTransfer` |
-| `BankTransferPending` |
-| `Booked` |
-| `BookingPending` |
-| `Cancelled` |
-| `CapturePending` |
-| `CaptureReversalPending` |
-| `CaptureReversed` |
-| `Captured` |
-| `CapturedExternally` |
-| `Chargeback` |
-| `ChargebackExternally` |
-| `ChargebackPending` |
-| `ChargebackReversalPending` |
-| `ChargebackReversed` |
-| `Credited` |
-| `DepositCorrection` |
-| `DepositCorrectionPending` |
-| `Dispute` |
-| `DisputeClosed` |
-| `DisputeExpired` |
-| `DisputeNeedsReview` |
-| `Error` |
-| `Expired` |
-| `Failed` |
-| `Fee` |
-| `FeePending` |
-| `InterchangeAdjusted` |
-| `InternalTransfer` |
-| `InternalTransferPending` |
-| `InvoiceDeduction` |
-| `InvoiceDeductionPending` |
-| `ManualCorrectionPending` |
-| `ManuallyCorrected` |
-| `MatchedStatement` |
-| `MatchedStatementPending` |
-| `MerchantPayin` |
-| `MerchantPayinPending` |
-| `MerchantPayinReversed` |
-| `MerchantPayinReversedPending` |
-| `MiscCost` |
-| `MiscCostPending` |
-| `PaymentCost` |
-| `PaymentCostPending` |
-| `Pending` |
-| `PendingApproval` |
-| `PendingExecution` |
-| `Received` |
-| `RefundPending` |
-| `RefundReversalPending` |
-| `RefundReversed` |
-| `Refunded` |
-| `RefundedExternally` |
-| `Refused` |
-| `Rejected` |
-| `ReserveAdjustment` |
-| `ReserveAdjustmentPending` |
-| `Returned` |
-| `Reversed` |
-| `SecondChargeback` |
-| `SecondChargebackPending` |
-| `Undefined` |
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `actions` | [`Action1[] \| undefined`](../../doc/models/action-1.md) | Optional | A list of actions that need to be completed to proceed with the grant. |
+| `code` | [`CodeEnum`](../../doc/models/code-enum.md) | Required | The code for the status of the grant. Possible values:<br><br>- **Pending**<br>- **Active**<br>- **Repaid**<br>- **WrittenOff**<br>- **Failed**<br>- **Revoked**<br>- **Requested**<br>- **Reviewing**<br>- **Approved**<br>- **Rejected**<br>- **Cancelled** |
 
 ## Example
 
 ```ts
-import { Status25 } from 'adyen';
+import { CodeEnum, Status25 } from 'adyen';
 
-const status25 = Status25.AuthAdjustmentRefused;
+const status25: Status25 = {
+  code: CodeEnum.Repaid,
+  actions: [
+    {
+      actionCode: 'actionCode6',
+      resolved: false,
+    },
+    {
+      actionCode: 'actionCode6',
+      resolved: false,
+    }
+  ],
+};
 ```
 

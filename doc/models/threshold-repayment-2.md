@@ -3,8 +3,6 @@
 
 An object containing the details of the 30-day repayment threshold.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ThresholdRepayment2`
@@ -13,8 +11,7 @@ An object containing the details of the 30-day repayment threshold.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The amount to be repaid on a 30-day basis. |
 
 ## Example
 
@@ -25,12 +22,6 @@ const thresholdRepayment2: ThresholdRepayment2 = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # Additional Data Airline
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataAirline`
@@ -40,7 +38,6 @@
 | `airlineTicketNumber` | `string \| undefined` | Optional | The ticket's unique identifier.<br><br>* minLength: 1 character<br>* maxLength: 15 characters<br>* Must not be all spaces<br>* Must not be all zeros. |
 | `airlineTravelAgencyCode` | `string \| undefined` | Optional | The unique identifier from IATA or ARC for the travel agency that issues the ticket.<br><br>* Encoding: ASCII<br>* minLength: 1 character<br>* maxLength: 8 characters<br>* Must not be all spaces<br>* Must not be all zeros. |
 | `airlineTravelAgencyName` | `string \| undefined` | Optional | The name of the travel agency.<br><br>* Encoding: ASCII<br>* minLength: 1 character<br>* maxLength: 25 characters<br>* Must not be all spaces<br>* Must not be all zeros. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -54,9 +51,6 @@ const additionalDataAirline: AdditionalDataAirline = {
   airlineAirlineCode: 'airline.airline_code6',
   airlineAirlineDesignatorCode: 'airline.airline_designator_code8',
   airlineBoardingFee: 'airline.boarding_fee6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 **clearpay** details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ClearpayResponseInfo1`
@@ -14,7 +12,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `supportUrl` | `string \| undefined` | Optional | Support Url |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { ClearpayResponseInfo1 } from 'adyen';
 
 const clearpayResponseInfo1: ClearpayResponseInfo1 = {
   supportUrl: 'supportUrl8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

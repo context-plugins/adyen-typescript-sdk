@@ -1,8 +1,6 @@
 
 # Exchange Message
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ExchangeMessage`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `messageCode` | `string \| undefined` | Optional | - |
 | `messageDescription` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { ExchangeMessage } from 'adyen';
 const exchangeMessage: ExchangeMessage = {
   messageCode: 'messageCode0',
   messageDescription: 'messageDescription6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

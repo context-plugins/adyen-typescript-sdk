@@ -69,13 +69,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Mandates401Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates403Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates422Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -86,10 +80,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`Mandates401Error`](../../doc/models/mandates-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`Mandates403Error`](../../doc/models/mandates-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`Mandates422Error`](../../doc/models/mandates-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`Mandates500Error`](../../doc/models/mandates-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Mandates-Mandate Id
@@ -102,7 +96,7 @@ Returns the details of the specified [direct debit mandate](https://docs.adyen.c
 async getMandatesMandateId(
   mandateId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<Mandate>>
+): Promise<ApiResponse<Mandate1>>
 ```
 
 ## Parameters
@@ -116,7 +110,7 @@ async getMandatesMandateId(
 
 **200**: OK - The request has succeeded
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Mandate`](../../doc/models/mandate.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Mandate1`](../../doc/models/mandate-1.md).
 
 ## Example Usage
 
@@ -143,15 +137,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Mandates401Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates403Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates404Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates422Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -162,11 +148,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`Mandates401Error`](../../doc/models/mandates-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`Mandates403Error`](../../doc/models/mandates-403-error.md) |
-| 404 | The mandate was not found. | [`Mandates404Error`](../../doc/models/mandates-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`Mandates422Error`](../../doc/models/mandates-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`Mandates500Error`](../../doc/models/mandates-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | The mandate was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Mandates-Mandate Id
@@ -228,15 +214,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Mandates401Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates403Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates404Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates422Error) {
-      console.log(error.result);
-    } else if (error instanceof Mandates500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -247,11 +225,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`Mandates401Error`](../../doc/models/mandates-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`Mandates403Error`](../../doc/models/mandates-403-error.md) |
-| 404 | The mandate was not found | [`Mandates404Error`](../../doc/models/mandates-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`Mandates422Error`](../../doc/models/mandates-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`Mandates500Error`](../../doc/models/mandates-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | The mandate was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Mandates-Mandate Id-Cancel
@@ -305,15 +283,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof MandatesCancel401Error) {
-      console.log(error.result);
-    } else if (error instanceof MandatesCancel403Error) {
-      console.log(error.result);
-    } else if (error instanceof MandatesCancel404Error) {
-      console.log(error.result);
-    } else if (error instanceof MandatesCancel422Error) {
-      console.log(error.result);
-    } else if (error instanceof MandatesCancel500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -324,9 +294,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`MandatesCancel401Error`](../../doc/models/mandates-cancel-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MandatesCancel403Error`](../../doc/models/mandates-cancel-403-error.md) |
-| 404 | The mandate was not found. | [`MandatesCancel404Error`](../../doc/models/mandates-cancel-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MandatesCancel422Error`](../../doc/models/mandates-cancel-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MandatesCancel500Error`](../../doc/models/mandates-cancel-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | The mandate was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

@@ -3,8 +3,6 @@
 
 Information about the trust. Required if `type` is **trust**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Trust1`
@@ -19,20 +17,19 @@ Information about the trust. Required if `type` is **trust**.
 | `doingBusinessAs` | `string \| undefined` | Optional | The registered name, if different from the `name`. |
 | `doingBusinessAsAbsent` | `boolean \| null \| undefined` | Optional | Set this to **true** if the legal arrangement does not have a `Doing business as` name. |
 | `name` | `string` | Required | The legal name. |
-| `principalPlaceOfBusiness` | [`Address1 \| undefined`](../../doc/models/address-1.md) | Optional | - |
-| `registeredAddress` | [`Address1`](../../doc/models/address-1.md) | Required | - |
+| `principalPlaceOfBusiness` | [`Address41 \| undefined`](../../doc/models/address-41.md) | Optional | The business address. Required if the principal place of business is different from the `registeredAddress`. |
+| `registeredAddress` | [`Address51`](../../doc/models/address-51.md) | Required | The address registered at the registrar, such as the Chamber of Commerce. |
 | `registrationNumber` | `string \| undefined` | Optional | The registration number. |
 | `taxInformation` | [`TaxInformation[] \| undefined`](../../doc/models/tax-information.md) | Optional | The tax information of the entity. |
-| `type` | [`Type171`](../../doc/models/type-171.md) | Required | - |
+| `type` | [`Type171Enum`](../../doc/models/type-171-enum.md) | Required | Type of trust.<br><br>See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-new-zealand). |
 | `undefinedBeneficiaryInfo` | [`UndefinedBeneficiary[] \| undefined`](../../doc/models/undefined-beneficiary.md) | Optional | The undefined beneficiary information of the entity. |
-| `vatAbsenceReason` | [`VatAbsenceReason1 \| undefined`](../../doc/models/vat-absence-reason-1.md) | Optional | - |
+| `vatAbsenceReason` | [`VatAbsenceReason1Enum \| undefined`](../../doc/models/vat-absence-reason-1-enum.md) | Optional | The reason for not providing a VAT number.<br><br>Possible values: **industryExemption**, **belowTaxThreshold**. |
 | `vatNumber` | `string \| undefined` | Optional | The VAT number. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Trust1, Type171 } from 'adyen';
+import { Trust1, Type171Enum } from 'adyen';
 
 const trust1: Trust1 = {
   countryOfGoverningLaw: 'countryOfGoverningLaw2',
@@ -44,11 +41,8 @@ const trust1: Trust1 = {
     stateOrProvince: 'stateOrProvince8',
     street: 'street0',
     street2: 'street24',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  type: Type171.DeceasedEstate,
+  type: Type171Enum.DeceasedEstate,
   dateOfIncorporation: 'dateOfIncorporation6',
   description: 'description6',
   doingBusinessAs: 'doingBusinessAs4',
@@ -60,12 +54,6 @@ const trust1: Trust1 = {
     stateOrProvince: 'stateOrProvince0',
     street: 'street2',
     street2: 'street22',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

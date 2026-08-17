@@ -1,8 +1,6 @@
 
 # Additional Data Ratepay
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataRatepay`
@@ -19,7 +17,6 @@
 | `ratepaydataDueDate` | `string \| undefined` | Optional | Date by which the customer must settle the payment. |
 | `ratepaydataInvoiceDate` | `string \| undefined` | Optional | Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date. |
 | `ratepaydataInvoiceId` | `string \| undefined` | Optional | Identification name or number for the invoice, defined by the merchant. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const additionalDataRatepay: AdditionalDataRatepay = {
   ratepayLastInstallmentAmount: 'ratepay.lastInstallmentAmount8',
   ratepayPaymentFirstday: 'ratepay.paymentFirstday0',
   ratepaydataDeliveryDate: 'ratepaydata.deliveryDate0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

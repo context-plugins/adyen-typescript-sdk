@@ -1,8 +1,6 @@
 
 # Klarna Network
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `KlarnaNetwork`
@@ -17,24 +15,20 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type69`](../../doc/models/type-69.md) | Required | **klarna_network** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **klarna_network**<br><br>**Value**: `'klarna_network'` |
 
 ## Example
 
 ```ts
-import { KlarnaNetwork, Type69 } from 'adyen';
+import { KlarnaNetwork } from 'adyen';
 
 const klarnaNetwork: KlarnaNetwork = {
-  type: Type69.KlarnaNetwork,
+  type: 'klarna_network',
   checkoutAttemptId: 'checkoutAttemptId8',
   klarnaNetworkData: 'klarnaNetworkData8',
   klarnaNetworkSessionToken: 'klarnaNetworkSessionToken4',
   recurringDetailReference: 'recurringDetailReference2',
   sdkData: 'sdkData8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

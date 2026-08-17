@@ -1,11 +1,9 @@
 
-# Hk Local Account Identification 1
-
-*This model accepts additional fields of type unknown.*
+# HK Local Account Identification 1
 
 ## Structure
 
-`HkLocalAccountIdentification1`
+`HKLocalAccountIdentification1`
 
 ## Inherits From
 
@@ -17,20 +15,16 @@
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The 9- to 17-digit bank account number, without separators or whitespace. Starts with the 3-digit branch code.<br><br>**Constraints**: *Minimum Length*: `9`, *Maximum Length*: `17` |
 | `clearingCode` | `string` | Required | The 3-digit clearing code, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { HkLocalAccountIdentification1 } from 'adyen';
+import { HKLocalAccountIdentification1 } from 'adyen';
 
-const hkLocalAccountIdentification1: HkLocalAccountIdentification1 = {
-  accountNumber: 'accountNumber2',
-  clearingCode: 'clearingCode8',
+const hKLocalAccountIdentification1: HKLocalAccountIdentification1 = {
+  accountNumber: 'accountNumber0',
+  clearingCode: 'clearingCode4',
   type: 'hkLocal',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

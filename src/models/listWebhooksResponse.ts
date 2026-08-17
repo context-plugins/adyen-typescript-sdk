@@ -8,17 +8,20 @@ import {
   array,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { PaginationLinks, paginationLinksSchema } from './paginationLinks.js';
+import {
+  PaginationLinks1,
+  paginationLinks1Schema,
+} from './paginationLinks1.js';
 import { Webhook, webhookSchema } from './webhook.js';
 
 export interface ListWebhooksResponse {
-  links?: PaginationLinks;
+  /** Pagination references. */
+  links?: PaginationLinks1;
   /** Reference to the account. */
   accountReference?: string;
   /** The list of webhooks configured for this account. */
@@ -27,20 +30,15 @@ export interface ListWebhooksResponse {
   itemsTotal: number;
   /** Total number of pages. */
   pagesTotal: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const listWebhooksResponseSchema: Schema<ListWebhooksResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        links: ['_links', optional(paginationLinksSchema)],
-        accountReference: ['accountReference', optional(string())],
-        data: ['data', optional(array(webhookSchema))],
-        itemsTotal: ['itemsTotal', number()],
-        pagesTotal: ['pagesTotal', number()],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      links: ['_links', optional(paginationLinks1Schema)],
+      accountReference: ['accountReference', optional(string())],
+      data: ['data', optional(array(webhookSchema))],
+      itemsTotal: ['itemsTotal', number()],
+      pagesTotal: ['pagesTotal', number()],
+    })
 );

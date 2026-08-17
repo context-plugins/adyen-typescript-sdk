@@ -1,7 +1,7 @@
 
 # Amount 16
 
-*This model accepts additional fields of type unknown.*
+The total amount (initial plus surcharge amount).
 
 ## Structure
 
@@ -11,9 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `currency` | `string` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
-| `value` | `bigint` | Required | The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `currency` | `string` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
+| `value` | `bigint` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
 
 ## Example
 
@@ -23,9 +22,6 @@ import { Amount16 } from 'adyen';
 const amount16: Amount16 = {
   currency: 'currency0',
   value: BigInt(72),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

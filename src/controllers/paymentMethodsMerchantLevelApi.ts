@@ -57,6 +57,7 @@ export class PaymentMethodsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentMethodResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       storeId: [storeId, optional(string())],
@@ -120,6 +121,7 @@ export class PaymentMethodsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ManagementPaymentMethod>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(paymentMethodSetupInfoSchema)],
@@ -175,6 +177,7 @@ export class PaymentMethodsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ManagementPaymentMethod>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       paymentMethodId: [paymentMethodId, string()],
@@ -234,6 +237,7 @@ export class PaymentMethodsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ManagementPaymentMethod>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       paymentMethodId: [paymentMethodId, string()],
@@ -295,6 +299,7 @@ export class PaymentMethodsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       paymentMethodId: [paymentMethodId, string()],
@@ -353,6 +358,7 @@ export class PaymentMethodsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApplePayResponseInfo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       paymentMethodId: [paymentMethodId, string()],

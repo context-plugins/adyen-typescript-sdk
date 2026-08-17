@@ -1,8 +1,6 @@
 
 # Counterparty 2
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Counterparty2`
@@ -11,32 +9,20 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bankAccount` | [`BankAccount \| undefined`](../../doc/models/bank-account.md) | Optional | - |
-| `transferInstrumentId` | `string \| undefined` | Optional | The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `accountHolder` | [`AccountHolder11`](../../doc/models/account-holder-11.md) | Required | Contains the full name of the person or entity that receives the payment funds). |
+| `accountIdentification` | [`AccountIdentification1`](../../doc/models/account-identification-1.md) | Required | Contains the account number to which the payment funds are sent. |
 
 ## Example
 
 ```ts
-import { Counterparty2, Type413 } from 'adyen';
+import { Counterparty2 } from 'adyen';
 
 const counterparty2: Counterparty2 = {
-  bankAccount: {
-    accountIdentification: {
-      accountNumber: 'accountNumber4',
-      bsbCode: 'bsbCode8',
-      type: Type413.AuLocal,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+  accountHolder: {
+    fullName: 'John Doe',
   },
-  transferInstrumentId: 'transferInstrumentId2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  accountIdentification: {
+    type: 'AccountIdentification1',
   },
 };
 ```

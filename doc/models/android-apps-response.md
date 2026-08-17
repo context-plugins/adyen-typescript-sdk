@@ -1,8 +1,6 @@
 
 # Android Apps Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AndroidAppsResponse`
@@ -12,18 +10,17 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `data` | [`AndroidApp[] \| undefined`](../../doc/models/android-app.md) | Optional | Apps uploaded for Android payment terminals. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AndroidAppsResponse, Status15 } from 'adyen';
+import { AndroidAppsResponse, Status7Enum } from 'adyen';
 
 const androidAppsResponse: AndroidAppsResponse = {
   data: [
     {
       id: 'id0',
-      status: Status15.Invalid,
+      status: Status7Enum.Invalid,
       description: 'description0',
       errorCode: 'errorCode6',
       errors: [
@@ -33,21 +30,12 @@ const androidAppsResponse: AndroidAppsResponse = {
             'terminalModels3',
             'terminalModels4'
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       label: 'label0',
       packageName: 'packageName6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

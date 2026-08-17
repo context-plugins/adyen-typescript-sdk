@@ -3,8 +3,6 @@
 
 Content of the Display Request message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DisplayRequest2`
@@ -14,35 +12,31 @@ Content of the Display Request message.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `displayOutput` | [`DisplayOutput[]`](../../doc/models/display-output.md) | Required | Information to display and the way to process the display.<br>Complete display content for output devices. At most one DisplayOutput per Device/ InfoQualify pair. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  Device11,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  Device11Enum,
   DisplayRequest2,
-  InfoQualify1,
-  MenuEntryTag1,
-  OutputFormat1,
-  OutputFormat2,
+  InfoQualify1Enum,
+  MenuEntryTag1Enum,
+  OutputFormat1Enum,
+  OutputFormat2Enum,
 } from 'adyen';
 
 const displayRequest2: DisplayRequest2 = {
   displayOutput: [
     {
-      device: Device11.CashierDisplay,
-      infoQualify: InfoQualify1.Status,
+      device: Device11Enum.CashierDisplay,
+      infoQualify: InfoQualify1Enum.Status,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -50,37 +44,25 @@ const displayRequest2: DisplayRequest2 = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       responseRequiredFlag: true,
       minimumDisplayTime: 0,
       menuEntry: [
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -88,39 +70,27 @@ const displayRequest2: DisplayRequest2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         },
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -128,39 +98,24 @@ const displayRequest2: DisplayRequest2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         }
       ],
       outputSignature: 'OutputSignature4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

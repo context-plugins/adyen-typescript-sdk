@@ -1,8 +1,6 @@
 
 # Defense Reasons Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DefenseReasonsResponse`
@@ -12,8 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `defenseReasons` | [`DefenseReason[] \| undefined`](../../doc/models/defense-reason.md) | Optional | The defense reasons that can be used to defend the dispute. |
-| `disputeServiceResult` | [`DisputeServiceResult`](../../doc/models/dispute-service-result.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `disputeServiceResult` | [`DisputeServiceResult1`](../../doc/models/dispute-service-result-1.md) | Required | The result of the dispute service. |
 
 ## Example
 
@@ -24,9 +21,6 @@ const defenseReasonsResponse: DefenseReasonsResponse = {
   disputeServiceResult: {
     success: false,
     errorMessage: 'errorMessage8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   defenseReasons: [
     {
@@ -37,22 +31,13 @@ const defenseReasonsResponse: DefenseReasonsResponse = {
           available: false,
           defenseDocumentTypeCode: 'defenseDocumentTypeCode0',
           requirementLevel: 'requirementLevel4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           available: false,
           defenseDocumentTypeCode: 'defenseDocumentTypeCode0',
           requirementLevel: 'requirementLevel4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       defenseReasonCode: 'defenseReasonCode0',
@@ -62,22 +47,13 @@ const defenseReasonsResponse: DefenseReasonsResponse = {
           available: false,
           defenseDocumentTypeCode: 'defenseDocumentTypeCode0',
           requirementLevel: 'requirementLevel4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           available: false,
           defenseDocumentTypeCode: 'defenseDocumentTypeCode0',
           requirementLevel: 'requirementLevel4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       defenseReasonCode: 'defenseReasonCode0',
@@ -87,27 +63,15 @@ const defenseReasonsResponse: DefenseReasonsResponse = {
           available: false,
           defenseDocumentTypeCode: 'defenseDocumentTypeCode0',
           requirementLevel: 'requirementLevel4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           available: false,
           defenseDocumentTypeCode: 'defenseDocumentTypeCode0',
           requirementLevel: 'requirementLevel4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Passenger
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Passenger`
@@ -16,7 +14,6 @@
 | `lastName` | `string \| undefined` | Optional | The passenger's last name.<br><br>> This field is required if the airline data includes passenger details or leg details.<br><br>* Encoding: ASCII<br>* **additionalData key:** `airline.passenger[N].last_name` |
 | `phoneNumber` | `string \| undefined` | Optional | The passenger's phone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs.<br><br>* Encoding: ASCII<br>* minLength: 3 characters<br>* maxLength: 30 characters<br>* **additionalData key:** `airline.passenger[N].phone_number` |
 | `travellerType` | `string \| undefined` | Optional | The IATA passenger type code (PTC).<br><br>* Encoding: ASCII<br>* minLength: 3 characters<br>* maxLength: 6 characters<br>* **additionalData key:** `airline.passenger[N].traveller_type` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const passenger: Passenger = {
   lastName: 'lastName4',
   phoneNumber: 'phoneNumber0',
   travellerType: 'travellerType8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

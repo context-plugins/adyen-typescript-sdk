@@ -8,25 +8,43 @@ import {
   array,
   bigint,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  DisplayTextField2,
-  displayTextField2Schema,
-} from './displayTextField2.js';
-import { DonationAmount, donationAmountSchema } from './donationAmount.js';
-import { DonationFlow1, donationFlow1Schema } from './donationFlow1.js';
-import { DonationType1, donationType1Schema } from './donationType1.js';
+  DisplayTextField2Enum,
+  displayTextField2EnumSchema,
+} from './displayTextField2Enum.js';
+import { DonationAmount1, donationAmount1Schema } from './donationAmount1.js';
+import {
+  DonationFlow1Enum,
+  donationFlow1EnumSchema,
+} from './donationFlow1Enum.js';
+import {
+  DonationType1Enum,
+  donationType1EnumSchema,
+} from './donationType1Enum.js';
 
 export interface InPersonDonationSettings {
-  defaultAmount?: DonationAmount;
-  displayTextField: DisplayTextField2;
-  donationFlow: DonationFlow1;
-  donationType?: DonationType1;
+  /** The default amount for donations. */
+  defaultAmount?: DonationAmount1;
+  /** The text shown on the payment terminal, either the name or the cause of the nonprofit organization. */
+  displayTextField: DisplayTextField2Enum;
+  /**
+   * The interaction flow for in-person donations. Possible values:
+   * - **oneStep**: The shopper presents their payment method for the payment and the donation in one go, after the donation.
+   * - **twoStep**: The shopper presents their payment method twice: after the payment and after the donation.
+   */
+  donationFlow: DonationFlow1Enum;
+  /**
+   * The type of donation to collect from the shopper. Possible values:
+   * - **roundup**: Round up the transaction amount.
+   * - **fixedAmounts**: Choose a fixed amount.
+   * - **fixedAmountsRoundup**: Round up, or choose a fixed amount.
+   */
+  donationType?: DonationType1Enum;
   /** The merchant accounts for this sales channel that are associated with the donation campaign. */
   merchantAccounts?: string[];
   /** Required if `donationFlow` is set to **twoStep**. The time, in milliseconds, that the terminal waits for the shopper to present their card. Defaults to **10000** (10 seconds). Range: 5000 to 15000. */
@@ -35,23 +53,18 @@ export interface InPersonDonationSettings {
   promptTimeoutMs?: bigint;
   /** The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation campaign. */
   storeIds?: string[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const inPersonDonationSettingsSchema: Schema<InPersonDonationSettings> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        defaultAmount: ['defaultAmount', optional(donationAmountSchema)],
-        displayTextField: ['displayTextField', displayTextField2Schema],
-        donationFlow: ['donationFlow', donationFlow1Schema],
-        donationType: ['donationType', optional(donationType1Schema)],
-        merchantAccounts: ['merchantAccounts', optional(array(string()))],
-        presentCardTimeoutMs: ['presentCardTimeoutMs', optional(bigint())],
-        promptTimeoutMs: ['promptTimeoutMs', optional(bigint())],
-        storeIds: ['storeIds', optional(array(string()))],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      defaultAmount: ['defaultAmount', optional(donationAmount1Schema)],
+      displayTextField: ['displayTextField', displayTextField2EnumSchema],
+      donationFlow: ['donationFlow', donationFlow1EnumSchema],
+      donationType: ['donationType', optional(donationType1EnumSchema)],
+      merchantAccounts: ['merchantAccounts', optional(array(string()))],
+      presentCardTimeoutMs: ['presentCardTimeoutMs', optional(bigint())],
+      promptTimeoutMs: ['promptTimeoutMs', optional(bigint())],
+      storeIds: ['storeIds', optional(array(string()))],
+    })
 );

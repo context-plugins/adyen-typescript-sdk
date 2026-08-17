@@ -8,21 +8,21 @@ import {
   dict,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount16, amount16Schema } from './amount16.js';
-import { EntityType2, entityType2Schema } from './entityType2.js';
-import { Recurring3, recurring3Schema } from './recurring3.js';
-import { ShopperName, shopperNameSchema } from './shopperName.js';
+import { Amount, amountSchema } from './amount.js';
+import { EntityType2Enum, entityType2EnumSchema } from './entityType2Enum.js';
+import { Name, nameSchema } from './name.js';
+import { Recurring, recurringSchema } from './recurring.js';
 
 export interface SubmitRequest {
   /** This field contains additional data, which may be required for a particular request. */
   additionalData?: Record<string, string>;
-  amount: Amount16;
+  /** A container object for the payable amount information of the transaction. */
+  amount: Amount;
   /**
    * The date of birth.
    * Format: ISO-8601; example: YYYY-MM-DD
@@ -31,7 +31,14 @@ export interface SubmitRequest {
    * > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.
    */
   dateOfBirth?: string;
-  entityType?: EntityType2;
+  /**
+   * The type of the entity the payout is processed for.
+   * Allowed values:
+   * * NaturalPerson
+   * * Company
+   * > This field is required to update the existing `entityType` that is associated with this recurring contract.
+   */
+  entityType?: EntityType2Enum;
   /** An integer value that is added to the normal fraud score. The value can be either positive or negative. */
   fraudOffset?: number;
   /** The merchant account identifier you want to process the transaction request with. */
@@ -42,7 +49,11 @@ export interface SubmitRequest {
    * > This field is required to update the existing nationality that is associated with this recurring contract.
    */
   nationality?: string;
-  recurring: Recurring3;
+  /**
+   * A container for the type of recurring contract to be retrieved.
+   * The `recurring.contract` must be set to "PAYOUT".
+   */
+  recurring: Recurring;
   /** The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement. */
   reference: string;
   /**
@@ -52,39 +63,39 @@ export interface SubmitRequest {
   selectedRecurringDetailReference: string;
   /** The shopper's email address. */
   shopperEmail: string;
-  shopperName?: ShopperName;
+  /**
+   * The shopper's name.
+   * In case the `entityType` is `Company`, the `shopperName.lastName` must contain the company name.
+   * > This field is required to update the existing `shopperName` associated with a recurring contract.
+   */
+  shopperName?: Name;
   /** The shopper's reference for the payout transaction. */
   shopperReference: string;
   /** The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method). */
   shopperStatement?: string;
   /** The shopper's social security number. */
   socialSecurityNumber?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const submitRequestSchema: Schema<SubmitRequest> = lazy(() =>
-  typedExpandoObject(
-    {
-      additionalData: ['additionalData', optional(dict(string()))],
-      amount: ['amount', amount16Schema],
-      dateOfBirth: ['dateOfBirth', optional(string())],
-      entityType: ['entityType', optional(entityType2Schema)],
-      fraudOffset: ['fraudOffset', optional(number())],
-      merchantAccount: ['merchantAccount', string()],
-      nationality: ['nationality', optional(string())],
-      recurring: ['recurring', recurring3Schema],
-      reference: ['reference', string()],
-      selectedRecurringDetailReference: [
-        'selectedRecurringDetailReference',
-        string(),
-      ],
-      shopperEmail: ['shopperEmail', string()],
-      shopperName: ['shopperName', optional(shopperNameSchema)],
-      shopperReference: ['shopperReference', string()],
-      shopperStatement: ['shopperStatement', optional(string())],
-      socialSecurityNumber: ['socialSecurityNumber', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    additionalData: ['additionalData', optional(dict(string()))],
+    amount: ['amount', amountSchema],
+    dateOfBirth: ['dateOfBirth', optional(string())],
+    entityType: ['entityType', optional(entityType2EnumSchema)],
+    fraudOffset: ['fraudOffset', optional(number())],
+    merchantAccount: ['merchantAccount', string()],
+    nationality: ['nationality', optional(string())],
+    recurring: ['recurring', recurringSchema],
+    reference: ['reference', string()],
+    selectedRecurringDetailReference: [
+      'selectedRecurringDetailReference',
+      string(),
+    ],
+    shopperEmail: ['shopperEmail', string()],
+    shopperName: ['shopperName', optional(nameSchema)],
+    shopperReference: ['shopperReference', string()],
+    shopperStatement: ['shopperStatement', optional(string())],
+    socialSecurityNumber: ['socialSecurityNumber', optional(string())],
+  })
 );

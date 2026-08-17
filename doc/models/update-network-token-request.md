@@ -1,8 +1,6 @@
 
 # Update Network Token Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdateNetworkTokenRequest`
@@ -11,19 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | [`Status16 \| undefined`](../../doc/models/status-16.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`Status16Enum \| undefined`](../../doc/models/status-16-enum.md) | Optional | The new status of the network token. Possible values: **active**, **suspended**, **closed**. The **closed** status is final and cannot be changed. |
 
 ## Example
 
 ```ts
-import { Status16, UpdateNetworkTokenRequest } from 'adyen';
+import { Status16Enum, UpdateNetworkTokenRequest } from 'adyen';
 
 const updateNetworkTokenRequest: UpdateNetworkTokenRequest = {
-  status: Status16.Closed,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  status: Status16Enum.Closed,
 };
 ```
 

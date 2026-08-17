@@ -1,8 +1,6 @@
 
 # Payments App Dto
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentsAppDto`
@@ -15,7 +13,6 @@
 | `merchantAccountCode` | `string` | Required | The account code associated with the Payments App instance. |
 | `merchantStoreCode` | `string \| undefined` | Optional | The store code associated with the Payments App instance. |
 | `status` | `string` | Required | The status of the Payments App instance. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const paymentsAppDto: PaymentsAppDto = {
   merchantAccountCode: 'merchantAccountCode2',
   status: 'status2',
   merchantStoreCode: 'merchantStoreCode8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

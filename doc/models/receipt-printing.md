@@ -1,8 +1,6 @@
 
 # Receipt Printing
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ReceiptPrinting`
@@ -27,7 +25,6 @@
 | `shopperRefundRefused` | `boolean \| undefined` | Optional | Print a shopper receipt when the refund is refused. |
 | `shopperRefused` | `boolean \| undefined` | Optional | Print a shopper receipt when the payment is refused. |
 | `shopperVoid` | `boolean \| undefined` | Optional | Print a shopper receipt when a previous transaction is voided. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -40,9 +37,6 @@ const receiptPrinting: ReceiptPrinting = {
   merchantCaptureApproved: false,
   merchantCaptureRefused: false,
   merchantRefundApproved: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

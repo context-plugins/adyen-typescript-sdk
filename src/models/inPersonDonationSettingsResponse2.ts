@@ -8,19 +8,24 @@ import {
   array,
   bigint,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  DisplayTextField1,
-  displayTextField1Schema,
-} from './displayTextField1.js';
+  DisplayTextField1Enum,
+  displayTextField1EnumSchema,
+} from './displayTextField1Enum.js';
 import { DonationAmount, donationAmountSchema } from './donationAmount.js';
-import { DonationFlow4, donationFlow4Schema } from './donationFlow4.js';
-import { DonationType1, donationType1Schema } from './donationType1.js';
+import {
+  DonationFlow4Enum,
+  donationFlow4EnumSchema,
+} from './donationFlow4Enum.js';
+import {
+  DonationType1Enum,
+  donationType1EnumSchema,
+} from './donationType1Enum.js';
 
 /** The settings for in-person donations collected as part of the campaign. */
 export interface InPersonDonationSettingsResponse2 {
@@ -28,9 +33,17 @@ export interface InPersonDonationSettingsResponse2 {
   amounts?: DonationAmount[];
   /** The currency that was used in the request to set fixed donation amounts. Format: three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes). */
   defaultCurrency?: string;
-  displayTextField?: DisplayTextField1;
-  donationFlow?: DonationFlow4;
-  donationType?: DonationType1;
+  /** The text shown on the payment terminal, asking the shopper for a donation. */
+  displayTextField?: DisplayTextField1Enum;
+  /** The interaction flow for in-person donations: complete payment for the purchase and the donation in one go, or separately. */
+  donationFlow?: DonationFlow4Enum;
+  /**
+   * The type of donation to collect from the shopper. Possible values:
+   * - **roundup**: Round up the transaction amount.
+   * - **fixedAmounts**: Choose a fixed amount.
+   * - **fixedAmountsRoundup**: Round up, or choose a fixed amount.
+   */
+  donationType?: DonationType1Enum;
   /** The merchant accounts for this sales channel that are associated with the donation campaign. */
   merchantAccounts?: string[];
   /** The time, in milliseconds, that the terminal waits for the shopper to present their card. */
@@ -39,27 +52,22 @@ export interface InPersonDonationSettingsResponse2 {
   promptTimeoutMs?: bigint;
   /** The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation campaign. */
   storeIds?: string[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const inPersonDonationSettingsResponse2Schema: Schema<InPersonDonationSettingsResponse2> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        amounts: ['amounts', optional(array(donationAmountSchema))],
-        defaultCurrency: ['defaultCurrency', optional(string())],
-        displayTextField: [
-          'displayTextField',
-          optional(displayTextField1Schema),
-        ],
-        donationFlow: ['donationFlow', optional(donationFlow4Schema)],
-        donationType: ['donationType', optional(donationType1Schema)],
-        merchantAccounts: ['merchantAccounts', optional(array(string()))],
-        presentCardTimeoutMs: ['presentCardTimeoutMs', optional(bigint())],
-        promptTimeoutMs: ['promptTimeoutMs', optional(bigint())],
-        storeIds: ['storeIds', optional(array(string()))],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      amounts: ['amounts', optional(array(donationAmountSchema))],
+      defaultCurrency: ['defaultCurrency', optional(string())],
+      displayTextField: [
+        'displayTextField',
+        optional(displayTextField1EnumSchema),
+      ],
+      donationFlow: ['donationFlow', optional(donationFlow4EnumSchema)],
+      donationType: ['donationType', optional(donationType1EnumSchema)],
+      merchantAccounts: ['merchantAccounts', optional(array(string()))],
+      presentCardTimeoutMs: ['presentCardTimeoutMs', optional(bigint())],
+      promptTimeoutMs: ['promptTimeoutMs', optional(bigint())],
+      storeIds: ['storeIds', optional(array(string()))],
+    })
 );

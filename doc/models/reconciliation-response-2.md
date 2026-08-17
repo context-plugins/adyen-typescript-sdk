@@ -3,8 +3,6 @@
 
 Content of the Reconciliation Response message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ReconciliationResponse2`
@@ -13,72 +11,56 @@ Content of the Reconciliation Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `reconciliationType` | [`ReconciliationType1`](../../doc/models/reconciliation-type-1.md) | Required | - |
-| `poiReconciliationId` | `number \| undefined` | Optional | Identification of the reconciliation period between Sale and POI.<br>Absent if ReconciliationType is `AcquirerReconciliation`. |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `reconciliationType` | [`ReconciliationType1Enum`](../../doc/models/reconciliation-type-1-enum.md) | Required | Type of Reconciliation requested by the Sale to the POI.<br>Possible values:<br><br>* **AcquirerReconciliation**<br>* **AcquirerSynchronisation**<br>* **PreviousReconciliation**<br>* **SaleReconciliation** |
+| `pOIReconciliationID` | `number \| undefined` | Optional | Identification of the reconciliation period between Sale and POI.<br>Absent if ReconciliationType is `AcquirerReconciliation`. |
 | `transactionTotals` | [`TransactionTotals[] \| undefined`](../../doc/models/transaction-totals.md) | Optional | Result of the Sale to POI Reconciliation processing.<br>If `Response.Result` is Success. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  ErrorCondition1,
-  PaymentInstrumentType11,
+  ErrorCondition1Enum,
+  PaymentInstrumentType11Enum,
   ReconciliationResponse2,
-  ReconciliationType1,
-  Result11,
+  ReconciliationType1Enum,
+  Result11Enum,
 } from 'adyen';
 
 const reconciliationResponse2: ReconciliationResponse2 = {
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  reconciliationType: ReconciliationType1.AcquirerReconciliation,
-  poiReconciliationId: 180,
+  reconciliationType: ReconciliationType1Enum.AcquirerReconciliation,
+  pOIReconciliationID: 180,
   transactionTotals: [
     {
-      paymentInstrumentType: PaymentInstrumentType11.Mobile,
-      acquirerId: 138,
-      hostReconciliationId: 'HostReconciliationID4',
+      paymentInstrumentType: PaymentInstrumentType11Enum.Mobile,
+      acquirerID: 138,
+      hostReconciliationID: 'HostReconciliationID4',
       cardBrand: 'CardBrand8',
-      poiid: 'POIID6',
-      saleId: 'SaleID2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      pOIID: 'POIID6',
+      saleID: 'SaleID2',
     },
     {
-      paymentInstrumentType: PaymentInstrumentType11.Mobile,
-      acquirerId: 138,
-      hostReconciliationId: 'HostReconciliationID4',
+      paymentInstrumentType: PaymentInstrumentType11Enum.Mobile,
+      acquirerID: 138,
+      hostReconciliationID: 'HostReconciliationID4',
       cardBrand: 'CardBrand8',
-      poiid: 'POIID6',
-      saleId: 'SaleID2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      pOIID: 'POIID6',
+      saleID: 'SaleID2',
     },
     {
-      paymentInstrumentType: PaymentInstrumentType11.Mobile,
-      acquirerId: 138,
-      hostReconciliationId: 'HostReconciliationID4',
+      paymentInstrumentType: PaymentInstrumentType11Enum.Mobile,
+      acquirerID: 138,
+      hostReconciliationID: 'HostReconciliationID4',
       cardBrand: 'CardBrand8',
-      poiid: 'POIID6',
-      saleId: 'SaleID2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      pOIID: 'POIID6',
+      saleID: 'SaleID2',
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

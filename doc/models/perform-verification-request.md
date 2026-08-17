@@ -1,8 +1,6 @@
 
 # Perform Verification Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PerformVerificationRequest`
@@ -12,22 +10,18 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string` | Required | The code of the account holder to verify. |
-| `accountStateType` | [`AccountStateType`](../../doc/models/account-state-type.md) | Required | - |
+| `accountStateType` | [`AccountStateTypeEnum`](../../doc/models/account-state-type-enum.md) | Required | The state required for the account holder.<br><br>> Permitted values: `Processing`, `Payout`. |
 | `tier` | `number` | Required | The tier required for the account holder. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AccountStateType, PerformVerificationRequest } from 'adyen';
+import { AccountStateTypeEnum, PerformVerificationRequest } from 'adyen';
 
 const performVerificationRequest: PerformVerificationRequest = {
   accountHolderCode: 'accountHolderCode6',
-  accountStateType: AccountStateType.LimitedPayout,
+  accountStateType: AccountStateTypeEnum.LimitedPayout,
   tier: 110,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

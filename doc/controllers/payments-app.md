@@ -81,15 +81,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof MerchantsGeneratePaymentsAppBoardingToken400Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsGeneratePaymentsAppBoardingToken401Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsGeneratePaymentsAppBoardingToken403Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsGeneratePaymentsAppBoardingToken422Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsGeneratePaymentsAppBoardingToken500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -100,11 +92,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsGeneratePaymentsAppBoardingToken400Error`](../../doc/models/merchants-generate-payments-app-boarding-token-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsGeneratePaymentsAppBoardingToken401Error`](../../doc/models/merchants-generate-payments-app-boarding-token-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsGeneratePaymentsAppBoardingToken403Error`](../../doc/models/merchants-generate-payments-app-boarding-token-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsGeneratePaymentsAppBoardingToken422Error`](../../doc/models/merchants-generate-payments-app-boarding-token-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsGeneratePaymentsAppBoardingToken500Error`](../../doc/models/merchants-generate-payments-app-boarding-token-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Merchants-Merchant Id-Stores-Store Id-Generate Payments App Boarding Token
@@ -176,15 +168,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof MerchantsStoresGeneratePaymentsAppBoardingToken400Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresGeneratePaymentsAppBoardingToken401Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresGeneratePaymentsAppBoardingToken403Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresGeneratePaymentsAppBoardingToken422Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresGeneratePaymentsAppBoardingToken500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -195,11 +179,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsStoresGeneratePaymentsAppBoardingToken400Error`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsStoresGeneratePaymentsAppBoardingToken401Error`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsStoresGeneratePaymentsAppBoardingToken403Error`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsStoresGeneratePaymentsAppBoardingToken422Error`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsStoresGeneratePaymentsAppBoardingToken500Error`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Merchants-Merchant Id-Payments Apps
@@ -272,15 +256,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof MerchantsPaymentsApps400Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsPaymentsApps401Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsPaymentsApps403Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsPaymentsApps422Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsPaymentsApps500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -291,11 +267,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsPaymentsApps400Error`](../../doc/models/merchants-payments-apps-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsPaymentsApps401Error`](../../doc/models/merchants-payments-apps-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsPaymentsApps403Error`](../../doc/models/merchants-payments-apps-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsPaymentsApps422Error`](../../doc/models/merchants-payments-apps-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsPaymentsApps500Error`](../../doc/models/merchants-payments-apps-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Merchants-Merchant Id-Stores-Store Id-Payments Apps
@@ -373,15 +349,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof MerchantsStoresPaymentsApps400Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresPaymentsApps401Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresPaymentsApps403Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresPaymentsApps422Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsStoresPaymentsApps500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -392,11 +360,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsStoresPaymentsApps400Error`](../../doc/models/merchants-stores-payments-apps-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsStoresPaymentsApps401Error`](../../doc/models/merchants-stores-payments-apps-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsStoresPaymentsApps403Error`](../../doc/models/merchants-stores-payments-apps-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsStoresPaymentsApps422Error`](../../doc/models/merchants-stores-payments-apps-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsStoresPaymentsApps500Error`](../../doc/models/merchants-stores-payments-apps-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Merchants-Merchant Id-Payments Apps-Installation Id-Revoke
@@ -414,7 +382,7 @@ async postMerchantsMerchantIdPaymentsAppsInstallationIdRevoke(
   merchantId: string,
   installationId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown | undefined>>
+): Promise<ApiResponse<unknown>>
 ```
 
 ## Parameters
@@ -461,11 +429,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof MerchantsPaymentsAppsRevoke400Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsPaymentsAppsRevoke401Error) {
-      console.log(error.result);
-    } else if (error instanceof MerchantsPaymentsAppsRevoke500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -476,7 +440,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsPaymentsAppsRevoke400Error`](../../doc/models/merchants-payments-apps-revoke-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsPaymentsAppsRevoke401Error`](../../doc/models/merchants-payments-apps-revoke-401-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsPaymentsAppsRevoke500Error`](../../doc/models/merchants-payments-apps-revoke-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

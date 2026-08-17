@@ -4,8 +4,6 @@
 It conveys Information related to the Loyalty transaction processed by the POI System.
 Content of the Loyalty Response message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LoyaltyResponse`
@@ -14,200 +12,133 @@ Content of the Loyalty Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `saleData` | [`SaleData2`](../../doc/models/sale-data-2.md) | Required | - |
-| `poiData` | [`PoiData2`](../../doc/models/poi-data-2.md) | Required | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `saleData` | [`SaleData1`](../../doc/models/sale-data-1.md) | Required | Data related to the Sale System. |
+| `pOIData` | [`POIData1`](../../doc/models/poi-data-1.md) | Required | Data related to the POI System. |
 | `loyaltyResult` | [`LoyaltyResult[] \| undefined`](../../doc/models/loyalty-result.md) | Optional | Data related to the result of a processed loyalty transaction.<br>If loyalty account identified. |
 | `paymentReceipt` | [`PaymentReceipt[] \| undefined`](../../doc/models/payment-receipt.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  DocumentQualifier1,
-  EntryMode,
-  ErrorCondition1,
-  IdentificationSupport1,
-  IdentificationType11,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  DocumentQualifier1Enum,
+  EntryModeEnum,
+  ErrorCondition1Enum,
+  IdentificationSupport1Enum,
+  IdentificationType11Enum,
   LoyaltyResponse,
-  OutputFormat1,
-  Result11,
+  OutputFormat1Enum,
+  Result11Enum,
 } from 'adyen';
 
 const loyaltyResponse: LoyaltyResponse = {
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   saleData: {
-    saleTransactionId: {
-      transactionId: 'TransactionID2',
+    saleTransactionID: {
+      transactionID: 'TransactionID2',
       timeStamp: '2016-03-13T12:52:32.123Z',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    operatorId: 'OperatorID8',
+    operatorID: 'OperatorID8',
     operatorLanguage: 'OperatorLanguage2',
     shiftNumber: 'ShiftNumber0',
-    saleReferenceId: 'SaleReferenceID8',
+    saleReferenceID: 'SaleReferenceID8',
     saleTerminalData: {
-      totalsGroupId: 'TotalsGroupID4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+      totalsGroupID: 'TotalsGroupID4',
     },
   },
-  poiData: {
-    poiTransactionId: {
-      transactionId: 'TransactionID2',
+  pOIData: {
+    pOITransactionID: {
+      transactionID: 'TransactionID2',
       timeStamp: '2016-03-13T12:52:32.123Z',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    poiReconciliationId: 52,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    pOIReconciliationID: 52,
   },
   loyaltyResult: [
     {
       loyaltyAccount: {
-        loyaltyAccountId: {
+        loyaltyAccountID: {
           entryMode: [
-            EntryMode.File
+            EntryModeEnum.File
           ],
-          identificationType: IdentificationType11.IsoTrack2,
-          loyaltyId: 'LoyaltyID4',
-          identificationSupport: IdentificationSupport1.HybridCard,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          identificationType: IdentificationType11Enum.ISOTrack2,
+          loyaltyID: 'LoyaltyID4',
+          identificationSupport: IdentificationSupport1Enum.HybridCard,
         },
         loyaltyBrand: 'LoyaltyBrand0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       currentBalance: 171.12,
       loyaltyAcquirerData: {
-        loyaltyAcquirerId: 'LoyaltyAcquirerID4',
+        loyaltyAcquirerID: 'LoyaltyAcquirerID4',
         approvalCode: 'ApprovalCode4',
-        loyaltyTransactionId: {
-          transactionId: 'TransactionID6',
+        loyaltyTransactionID: {
+          transactionID: 'TransactionID6',
           timeStamp: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        hostReconciliationId: 'HostReconciliationID4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        hostReconciliationID: 'HostReconciliationID4',
       },
     },
     {
       loyaltyAccount: {
-        loyaltyAccountId: {
+        loyaltyAccountID: {
           entryMode: [
-            EntryMode.File
+            EntryModeEnum.File
           ],
-          identificationType: IdentificationType11.IsoTrack2,
-          loyaltyId: 'LoyaltyID4',
-          identificationSupport: IdentificationSupport1.HybridCard,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          identificationType: IdentificationType11Enum.ISOTrack2,
+          loyaltyID: 'LoyaltyID4',
+          identificationSupport: IdentificationSupport1Enum.HybridCard,
         },
         loyaltyBrand: 'LoyaltyBrand0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       currentBalance: 171.12,
       loyaltyAcquirerData: {
-        loyaltyAcquirerId: 'LoyaltyAcquirerID4',
+        loyaltyAcquirerID: 'LoyaltyAcquirerID4',
         approvalCode: 'ApprovalCode4',
-        loyaltyTransactionId: {
-          transactionId: 'TransactionID6',
+        loyaltyTransactionID: {
+          transactionID: 'TransactionID6',
           timeStamp: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        hostReconciliationId: 'HostReconciliationID4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        hostReconciliationID: 'HostReconciliationID4',
       },
     },
     {
       loyaltyAccount: {
-        loyaltyAccountId: {
+        loyaltyAccountID: {
           entryMode: [
-            EntryMode.File
+            EntryModeEnum.File
           ],
-          identificationType: IdentificationType11.IsoTrack2,
-          loyaltyId: 'LoyaltyID4',
-          identificationSupport: IdentificationSupport1.HybridCard,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          identificationType: IdentificationType11Enum.ISOTrack2,
+          loyaltyID: 'LoyaltyID4',
+          identificationSupport: IdentificationSupport1Enum.HybridCard,
         },
         loyaltyBrand: 'LoyaltyBrand0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       currentBalance: 171.12,
       loyaltyAcquirerData: {
-        loyaltyAcquirerId: 'LoyaltyAcquirerID4',
+        loyaltyAcquirerID: 'LoyaltyAcquirerID4',
         approvalCode: 'ApprovalCode4',
-        loyaltyTransactionId: {
-          transactionId: 'TransactionID6',
+        loyaltyTransactionID: {
+          transactionID: 'TransactionID6',
           timeStamp: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        hostReconciliationId: 'HostReconciliationID4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        hostReconciliationID: 'HostReconciliationID4',
       },
     }
   ],
   paymentReceipt: [
     {
-      documentQualifier: DocumentQualifier1.CustomerReceipt,
+      documentQualifier: DocumentQualifier1Enum.CustomerReceipt,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -215,34 +146,19 @@ const loyaltyResponse: LoyaltyResponse = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       integratedPrintFlag: false,
       requiredSignatureFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

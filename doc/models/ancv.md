@@ -1,11 +1,9 @@
 
-# Ancv
-
-*This model accepts additional fields of type unknown.*
+# ANCV
 
 ## Structure
 
-`Ancv`
+`ANCV`
 
 ## Fields
 
@@ -16,23 +14,19 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type51 \| undefined`](../../doc/models/type-51.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type5Enum \| undefined`](../../doc/models/type-5-enum.md) | Optional | **ancv** |
 
 ## Example
 
 ```ts
-import { Ancv } from 'adyen';
+import { ANCV } from 'adyen';
 
-const ancv: Ancv = {
-  beneficiaryId: 'beneficiaryId6',
-  checkoutAttemptId: 'checkoutAttemptId4',
-  recurringDetailReference: 'recurringDetailReference8',
-  sdkData: 'sdkData2',
-  storedPaymentMethodId: 'storedPaymentMethodId2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const aNCV: ANCV = {
+  beneficiaryId: 'beneficiaryId4',
+  checkoutAttemptId: 'checkoutAttemptId2',
+  recurringDetailReference: 'recurringDetailReference6',
+  sdkData: 'sdkData4',
+  storedPaymentMethodId: 'storedPaymentMethodId0',
 };
 ```
 

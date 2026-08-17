@@ -3,8 +3,6 @@
 
 The response parameters returned when you calculate an amount in a different currency.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CalculateRateResponseItem`
@@ -15,10 +13,9 @@ The response parameters returned when you calculate an amount in a different cur
 |  --- | --- | --- | --- |
 | `appliedExchangeRate` | `number \| undefined` | Optional | The exchange rate to convert the source currency to the target currency. This includes Adyen's markup. |
 | `exchangeSide` | `string \| undefined` | Optional | The operation performed on the source amount. Possible values:<br><br>* **buy**<br>* **sell** |
-| `sourceAmount` | [`SourceAmount \| undefined`](../../doc/models/source-amount.md) | Optional | - |
-| `targetAmount` | [`TargetAmount \| undefined`](../../doc/models/target-amount.md) | Optional | - |
+| `sourceAmount` | [`Amount22 \| undefined`](../../doc/models/amount-22.md) | Optional | The currency of the amount you converted (the source amount). |
+| `targetAmount` | [`Amount34 \| undefined`](../../doc/models/amount-34.md) | Optional | An object specifying the currency and value to which you want to convert the source amount (the target amount). |
 | `type` | `string \| undefined` | Optional | The type of transaction. Possible values:<br><br>* **splitPayment**: for payments<br>* **splitRefund**: for refunds |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,21 +28,12 @@ const calculateRateResponseItem: CalculateRateResponseItem = {
   sourceAmount: {
     currency: 'currency8',
     value: BigInt(232),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   targetAmount: {
     currency: 'currency8',
     value: BigInt(168),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   type: 'type6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

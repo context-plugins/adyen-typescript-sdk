@@ -10,7 +10,6 @@
 | Type |
 |  --- |
 | [`PatchableFraudInfo`](../../../doc/models/patchable-fraud-info.md) |
-| `unknown \| null` |
 
 ## PatchableFraudInfo
 
@@ -21,15 +20,5 @@
 ```ts
 const value: PatchableDisputeRequestFraudInfo = {
 };
-```
-
-## unknown | null
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: PatchableDisputeRequestFraudInfo = { 'key1': 'val1', 'key2': 'val2' };
 ```
 

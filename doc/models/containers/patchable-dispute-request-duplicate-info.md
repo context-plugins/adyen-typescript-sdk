@@ -10,7 +10,6 @@
 | Type |
 |  --- |
 | [`PatchableDuplicateInfo`](../../../doc/models/patchable-duplicate-info.md) |
-| `unknown \| null` |
 
 ## PatchableDuplicateInfo
 
@@ -21,15 +20,5 @@
 ```ts
 const value: PatchableDisputeRequestDuplicateInfo = {
 };
-```
-
-## unknown | null
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: PatchableDisputeRequestDuplicateInfo = { 'key1': 'val1', 'key2': 'val2' };
 ```
 

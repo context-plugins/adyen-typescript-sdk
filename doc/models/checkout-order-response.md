@@ -1,8 +1,6 @@
 
 # Checkout Order Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CheckoutOrderResponse`
@@ -11,13 +9,12 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16 \| undefined`](../../doc/models/amount-16.md) | Optional | - |
+| `amount` | [`Amount12 \| undefined`](../../doc/models/amount-12.md) | Optional | The initial amount of the order. |
 | `expiresAt` | `string \| undefined` | Optional | The expiry date for the order. |
 | `orderData` | `string \| undefined` | Optional | The encrypted order data. |
 | `pspReference` | `string` | Required | The `pspReference` that belongs to the order. |
 | `reference` | `string \| undefined` | Optional | The merchant reference for the order. |
-| `remainingAmount` | [`RemainingAmount \| undefined`](../../doc/models/remaining-amount.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `remainingAmount` | [`Amount13 \| undefined`](../../doc/models/amount-13.md) | Optional | The updated remaining amount. |
 
 ## Example
 
@@ -29,9 +26,6 @@ const checkoutOrderResponse: CheckoutOrderResponse = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   expiresAt: 'expiresAt6',
   orderData: 'orderData8',
@@ -39,12 +33,6 @@ const checkoutOrderResponse: CheckoutOrderResponse = {
   remainingAmount: {
     currency: 'currency6',
     value: BigInt(156),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

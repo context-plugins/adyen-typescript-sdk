@@ -1,11 +1,9 @@
 
-# Eft Account Identifier
-
-*This model accepts additional fields of type unknown.*
+# EFT Account Identifier
 
 ## Structure
 
-`EftAccountIdentifier`
+`EFTAccountIdentifier`
 
 ## Fields
 
@@ -14,20 +12,16 @@
 | `accountNumber` | `string` | Required | The account number of the bank account. |
 | `branch` | `string` | Required | Identifies the specific branch where the account is held within the Canadian banking system. |
 | `institution` | `string` | Required | The financial institution that identifies the bank in Canada. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { EftAccountIdentifier } from 'adyen';
+import { EFTAccountIdentifier } from 'adyen';
 
-const eftAccountIdentifier: EftAccountIdentifier = {
-  accountNumber: 'accountNumber0',
-  branch: 'branch8',
-  institution: 'institution2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const eFTAccountIdentifier: EFTAccountIdentifier = {
+  accountNumber: 'accountNumber6',
+  branch: 'branch4',
+  institution: 'institution8',
 };
 ```
 

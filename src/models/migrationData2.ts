@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   MigratedAccounts,
@@ -40,27 +39,22 @@ export interface MigrationData2 {
   migratedStores?: MigratedStores[];
   /** The date when account holder was migrated. */
   migrationDate?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const migrationData2Schema: Schema<MigrationData2> = lazy(() =>
-  typedExpandoObject(
-    {
-      accountHolderId: ['accountHolderId', optional(string())],
-      balancePlatform: ['balancePlatform', optional(string())],
-      migrated: ['migrated', optional(boolean())],
-      migratedAccounts: [
-        'migratedAccounts',
-        optional(array(migratedAccountsSchema)),
-      ],
-      migratedShareholders: [
-        'migratedShareholders',
-        optional(array(migratedShareholdersSchema)),
-      ],
-      migratedStores: ['migratedStores', optional(array(migratedStoresSchema))],
-      migrationDate: ['migrationDate', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    accountHolderId: ['accountHolderId', optional(string())],
+    balancePlatform: ['balancePlatform', optional(string())],
+    migrated: ['migrated', optional(boolean())],
+    migratedAccounts: [
+      'migratedAccounts',
+      optional(array(migratedAccountsSchema)),
+    ],
+    migratedShareholders: [
+      'migratedShareholders',
+      optional(array(migratedShareholdersSchema)),
+    ],
+    migratedStores: ['migratedStores', optional(array(migratedStoresSchema))],
+    migrationDate: ['migrationDate', optional(string())],
+  })
 );

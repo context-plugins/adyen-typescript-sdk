@@ -1,8 +1,6 @@
 
 # Refund Funds Transfer Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `RefundFundsTransferResponse`
@@ -17,12 +15,11 @@
 | `originalReference` | `string \| undefined` | Optional | A PSP reference of the original fund transfer. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { FieldName, RefundFundsTransferResponse } from 'adyen';
+import { FieldNameEnum, RefundFundsTransferResponse } from 'adyen';
 
 const refundFundsTransferResponse: RefundFundsTransferResponse = {
   invalidFields: [
@@ -31,14 +28,8 @@ const refundFundsTransferResponse: RefundFundsTransferResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -46,14 +37,8 @@ const refundFundsTransferResponse: RefundFundsTransferResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -61,14 +46,8 @@ const refundFundsTransferResponse: RefundFundsTransferResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
@@ -76,9 +55,6 @@ const refundFundsTransferResponse: RefundFundsTransferResponse = {
   message: 'message6',
   originalReference: 'originalReference0',
   pspReference: 'pspReference2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

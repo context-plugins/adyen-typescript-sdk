@@ -1,8 +1,6 @@
 
 # Finish Sca Device Registration Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FinishScaDeviceRegistrationResponse`
@@ -11,25 +9,21 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `scaDevice` | [`ScaDevice1 \| undefined`](../../doc/models/sca-device-1.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `scaDevice` | [`ScaDevice \| undefined`](../../doc/models/sca-device.md) | Optional | A resource that contains information about a device, including its unique ID, name, and type. |
 
 ## Example
 
 ```ts
-import { FinishScaDeviceRegistrationResponse, ScaDeviceType1 } from 'adyen';
+import {
+  FinishScaDeviceRegistrationResponse,
+  ScaDeviceType1Enum,
+} from 'adyen';
 
 const finishScaDeviceRegistrationResponse: FinishScaDeviceRegistrationResponse = {
   scaDevice: {
     id: 'id2',
     name: 'name2',
-    type: ScaDeviceType1.Browser,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: ScaDeviceType1Enum.Browser,
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # Paypal Update Order Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaypalUpdateOrderResponse`
@@ -12,20 +10,16 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `paymentData` | `string` | Required | The updated paymentData. |
-| `status` | [`Status42`](../../doc/models/status-42.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`Status4Enum`](../../doc/models/status-4-enum.md) | Required | The status of the request. This indicates whether the order was successfully updated with PayPal. |
 
 ## Example
 
 ```ts
-import { PaypalUpdateOrderResponse, Status42 } from 'adyen';
+import { PaypalUpdateOrderResponse, Status4Enum } from 'adyen';
 
 const paypalUpdateOrderResponse: PaypalUpdateOrderResponse = {
   paymentData: 'paymentData0',
-  status: Status42.Error,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  status: Status4Enum.Error,
 };
 ```
 

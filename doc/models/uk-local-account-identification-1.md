@@ -1,11 +1,9 @@
 
-# Uk Local Account Identification 1
-
-*This model accepts additional fields of type unknown.*
+# UK Local Account Identification 1
 
 ## Structure
 
-`UkLocalAccountIdentification1`
+`UKLocalAccountIdentification1`
 
 ## Inherits From
 
@@ -17,20 +15,16 @@
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The 8-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `8` |
 | `sortCode` | `string` | Required | The 6-digit [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { UkLocalAccountIdentification1 } from 'adyen';
+import { UKLocalAccountIdentification1 } from 'adyen';
 
-const ukLocalAccountIdentification1: UkLocalAccountIdentification1 = {
-  accountNumber: 'accountNumber4',
-  sortCode: 'sortCode6',
+const uKLocalAccountIdentification1: UKLocalAccountIdentification1 = {
+  accountNumber: 'accountNumber8',
+  sortCode: 'sortCode8',
   type: 'ukLocal',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

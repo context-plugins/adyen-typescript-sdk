@@ -1,8 +1,6 @@
 
 # Show Pages
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ShowPages`
@@ -20,7 +18,6 @@
 | `manualBankAccountPage` | `boolean \| undefined` | Optional | Indicates whether the page to manually add bank account' details must be shown. Defaults to **true**. |
 | `shareholderDetailsSummaryPage` | `boolean \| undefined` | Optional | Indicates whether the page with the shareholders' details must be shown. Defaults to **true**. |
 | `welcomePage` | `boolean \| undefined` | Optional | Indicates whether the welcome page must be shown. Defaults to **false**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const showPages: ShowPages = {
   businessDetailsSummaryPage: false,
   checksOverviewPage: false,
   individualDetailsSummaryPage: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

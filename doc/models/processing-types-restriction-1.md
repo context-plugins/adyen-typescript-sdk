@@ -5,8 +5,6 @@ List of processing types and the operation.
 
 Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ProcessingTypesRestriction1`
@@ -16,23 +14,19 @@ Supported operations: **anyMatch**, **noneMatch**.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value4[] \| undefined`](../../doc/models/value-4.md) | Optional | List of processing types.<br><br>Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`Value4Enum[] \| undefined`](../../doc/models/value-4-enum.md) | Optional | List of processing types.<br><br>Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**. |
 
 ## Example
 
 ```ts
-import { ProcessingTypesRestriction1, Value4 } from 'adyen';
+import { ProcessingTypesRestriction1, Value4Enum } from 'adyen';
 
 const processingTypesRestriction1: ProcessingTypesRestriction1 = {
   operation: 'operation2',
   value: [
-    Value4.Ecommerce,
-    Value4.Moto
+    Value4Enum.Ecommerce,
+    Value4Enum.Moto
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

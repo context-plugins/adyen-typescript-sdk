@@ -1,8 +1,6 @@
 
 # Response Additional Data Billing Address
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ResponseAdditionalDataBillingAddress`
@@ -17,7 +15,6 @@
 | `billingAddressPostalCode` | `string \| undefined` | Optional | The billing address postal code passed in the payment request.<br><br>Example: 1011 DJ |
 | `billingAddressStateOrProvince` | `string \| undefined` | Optional | The billing address state or province passed in the payment request.<br><br>Example: NH |
 | `billingAddressStreet` | `string \| undefined` | Optional | The billing address street passed in the payment request. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,9 +27,6 @@ const responseAdditionalDataBillingAddress: ResponseAdditionalDataBillingAddress
   billingAddressHouseNumberOrName: 'billingAddress.houseNumberOrName4',
   billingAddressPostalCode: 'billingAddress.postalCode2',
   billingAddressStateOrProvince: 'billingAddress.stateOrProvince2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

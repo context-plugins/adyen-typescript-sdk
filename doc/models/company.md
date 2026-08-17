@@ -1,8 +1,6 @@
 
 # Company
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Company`
@@ -17,7 +15,6 @@
 | `registryLocation` | `string \| undefined` | Optional | Registry location of the company. |
 | `taxId` | `string \| undefined` | Optional | Tax ID of the company. |
 | `type` | `string \| undefined` | Optional | The company type. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,9 +27,6 @@ const company: Company = {
   registrationNumber: 'registrationNumber2',
   registryLocation: 'registryLocation2',
   taxId: 'taxId6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

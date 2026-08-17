@@ -11,41 +11,41 @@ import {
   Schema,
 } from '../../schema.js';
 import {
-  UkFpsTracingData,
-  ukFpsTracingDataSchema,
-} from '../ukFpsTracingData.js';
+  UKFpsTracingData,
+  uKFpsTracingDataSchema,
+} from '../uKFpsTracingData.js';
 import {
-  UsAchTracingData,
-  usAchTracingDataSchema,
-} from '../usAchTracingData.js';
+  USAchTracingData,
+  uSAchTracingDataSchema,
+} from '../uSAchTracingData.js';
 
 /** This is a container type for one-of types. */
-export type TransferDataTracing = UkFpsTracingData | UsAchTracingData;
+export type TransferDataTracing = UKFpsTracingData | USAchTracingData;
 
 export const transferDataTracingSchema: Schema<TransferDataTracing> = lazy(() =>
-  oneOf([ukFpsTracingDataSchema, usAchTracingDataSchema])
+  oneOf([uKFpsTracingDataSchema, uSAchTracingDataSchema])
 );
 
 export namespace TransferDataTracing {
   /**
-   * Validation method to narrow down union type to UkFpsTracingData type case.
+   * Validation method to narrow down union type to UKFpsTracingData type case.
    *
    * This is UKFpsTracingData case.
    */
-  export function isUkFpsTracingData(
+  export function isUKFpsTracingData(
     value: unknown
-  ): value is UkFpsTracingData {
-    return isMappedValueValidForSchema(value, ukFpsTracingDataSchema);
+  ): value is UKFpsTracingData {
+    return isMappedValueValidForSchema(value, uKFpsTracingDataSchema);
   }
 
   /**
-   * Validation method to narrow down union type to UsAchTracingData type case.
+   * Validation method to narrow down union type to USAchTracingData type case.
    *
    * This is USAchTracingData case.
    */
-  export function isUsAchTracingData(
+  export function isUSAchTracingData(
     value: unknown
-  ): value is UsAchTracingData {
-    return isMappedValueValidForSchema(value, usAchTracingDataSchema);
+  ): value is USAchTracingData {
+    return isMappedValueValidForSchema(value, uSAchTracingDataSchema);
   }
 }

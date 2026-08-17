@@ -3,8 +3,6 @@
 
 Card BIN details.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardBin1`
@@ -24,7 +22,6 @@ Card BIN details.
 | `paymentMethod` | `string \| undefined` | Optional | The payment method associated with the card (e.g. visa, mc, or amex). |
 | `payoutEligible` | `string \| undefined` | Optional | Indicates whether a payout is eligible or not for this card.<br><br>Visa:<br><br>* "Y"<br>* "N"<br><br>Mastercard:<br><br>* "Y" (domestic and cross-border)<br>* "D" (only domestic)<br>* "N" (no MoneySend)<br>* "U" (unknown)<br><br>> Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from "N" or "U". |
 | `summary` | `string \| undefined` | Optional | The last four digits of the card number. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -37,9 +34,6 @@ const cardBin1: CardBin1 = {
   fundingSource: 'fundingSource2',
   fundsAvailability: 'fundsAvailability8',
   issuerBin: 'issuerBin4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,13 +1,11 @@
 
-# Patchable Amount Dto 1
+# Patchable Amount DTO 1
 
 The balance threshold that triggers the top-up. If the balance falls below this amount, a top-up is initiated.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`PatchableAmountDto1`
+`PatchableAmountDTO1`
 
 ## Fields
 
@@ -15,19 +13,15 @@ The balance threshold that triggers the top-up. If the balance falls below this 
 |  --- | --- | --- | --- |
 | `currency` | `string \| undefined` | Optional | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). |
 | `value` | `bigint \| undefined` | Optional | The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { PatchableAmountDto1 } from 'adyen';
+import { PatchableAmountDTO1 } from 'adyen';
 
-const patchableAmountDto1: PatchableAmountDto1 = {
-  currency: 'currency0',
-  value: BigInt(12),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const patchableAmountDTO1: PatchableAmountDTO1 = {
+  currency: 'currency2',
+  value: BigInt(8),
 };
 ```
 

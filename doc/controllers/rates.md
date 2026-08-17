@@ -17,46 +17,46 @@ Returns the calculated amounts and rates required to convert the currency of a t
 
 ```ts
 async postRatesCalculate(
-  body: RatesCalculateRequest,
+  body: CalculateRateRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<RatesCalculateResponse>>
+): Promise<ApiResponse<CalculateRateResponse>>
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`RatesCalculateRequest`](../../doc/models/rates-calculate-request.md) | Body, Required | - |
+| `body` | [`CalculateRateRequest`](../../doc/models/calculate-rate-request.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
 **200**: Successful operation
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`RatesCalculateResponse`](../../doc/models/rates-calculate-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CalculateRateResponse`](../../doc/models/calculate-rate-response.md).
 
 ## Example Usage
 
 ```ts
-const body: RatesCalculateRequest = {
+const body: CalculateRateRequest = {
   exchangeCalculations: [
     {
-      exchangeSide: ExchangeSide2.Buy,
+      exchangeSide: ExchangeSide2Enum.Buy,
       sourceAmount: {
         currency: 'CZK',
         value: BigInt(112300),
       },
       targetCurrency: 'EUR',
-      type: RateType2.SplitPayment,
+      type: RateType2Enum.SplitPayment,
     },
     {
-      exchangeSide: ExchangeSide2.Sell,
+      exchangeSide: ExchangeSide2Enum.Sell,
       sourceAmount: {
         currency: 'CZK',
         value: BigInt(24000),
       },
       targetCurrency: 'USD',
-      type: RateType2.SplitRefund,
+      type: RateType2Enum.SplitRefund,
     }
   ],
 };
@@ -81,11 +81,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof RatesCalculate401Error) {
-      console.log(error.result);
-    } else if (error instanceof RatesCalculate403Error) {
-      console.log(error.result);
-    } else if (error instanceof RatesCalculate422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -131,7 +127,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`RatesCalculate401Error`](../../doc/models/rates-calculate-401-error.md) |
-| 403 | Forbidden | [`RatesCalculate403Error`](../../doc/models/rates-calculate-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`RatesCalculate422Error`](../../doc/models/rates-calculate-422-error.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

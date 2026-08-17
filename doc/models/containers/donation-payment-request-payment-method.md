@@ -25,6 +25,7 @@
 ```ts
 const value: DonationPaymentRequestPaymentMethod = {
   applePayToken: 'applePayToken4',
+  type: Type7Enum.Applepay,
 };
 ```
 
@@ -36,6 +37,7 @@ const value: DonationPaymentRequestPaymentMethod = {
 
 ```ts
 const value: DonationPaymentRequestPaymentMethod = {
+  type: Type14Enum.Scheme,
 };
 ```
 
@@ -48,6 +50,7 @@ const value: DonationPaymentRequestPaymentMethod = {
 ```ts
 const value: DonationPaymentRequestPaymentMethod = {
   googlePayToken: 'googlePayToken0',
+  type: Type24Enum.Googlepay,
 };
 ```
 
@@ -59,6 +62,7 @@ const value: DonationPaymentRequestPaymentMethod = {
 
 ```ts
 const value: DonationPaymentRequestPaymentMethod = {
+  type: Type25Enum.Ideal,
 };
 ```
 
@@ -71,6 +75,7 @@ const value: DonationPaymentRequestPaymentMethod = {
 ```ts
 const value: DonationPaymentRequestPaymentMethod = {
   googlePayToken: 'googlePayToken2',
+  type: Type26Enum.Paywithgoogle,
 };
 ```
 
@@ -82,6 +87,7 @@ const value: DonationPaymentRequestPaymentMethod = {
 
 ```ts
 const value: DonationPaymentRequestPaymentMethod = {
+  type: Type27Enum.Sepadirectdebit,
 };
 ```
 

@@ -8,32 +8,51 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
+import { Amount7, amount7Schema } from './amount7.js';
 import {
-  DeliveryAddressIndicator,
-  deliveryAddressIndicatorSchema,
-} from './deliveryAddressIndicator.js';
+  DeliveryAddressIndicatorEnum,
+  deliveryAddressIndicatorEnumSchema,
+} from './deliveryAddressIndicatorEnum.js';
 import {
-  DeliveryTimeframe,
-  deliveryTimeframeSchema,
-} from './deliveryTimeframe.js';
-import { GiftCardAmount, giftCardAmountSchema } from './giftCardAmount.js';
+  DeliveryTimeframeEnum,
+  deliveryTimeframeEnumSchema,
+} from './deliveryTimeframeEnum.js';
 
 export interface MerchantRiskIndicator {
   /** Whether the chosen delivery address is identical to the billing address. */
   addressMatch?: boolean;
-  deliveryAddressIndicator?: DeliveryAddressIndicator;
+  /**
+   * Indicator regarding the delivery address.
+   * Allowed values:
+   * * `shipToBillingAddress`
+   * * `shipToVerifiedAddress`
+   * * `shipToNewAddress`
+   * * `shipToStore`
+   * * `digitalGoods`
+   * * `goodsNotShipped`
+   * * `other`
+   */
+  deliveryAddressIndicator?: DeliveryAddressIndicatorEnum;
   /** The delivery email address (for digital goods). */
   deliveryEmail?: string;
   /** For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters. */
   deliveryEmailAddress?: string;
-  deliveryTimeframe?: DeliveryTimeframe;
-  giftCardAmount?: GiftCardAmount;
+  /**
+   * The estimated delivery time for the shopper to receive the goods.
+   * Allowed values:
+   * * `electronicDelivery`
+   * * `sameDayShipping`
+   * * `overnightShipping`
+   * * `twoOrMoreDaysShipping`
+   */
+  deliveryTimeframe?: DeliveryTimeframeEnum;
+  /** For prepaid or gift card purchase, the purchase amount total of prepaid or gift card(s). */
+  giftCardAmount?: Amount7;
   /** For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased. */
   giftCardCount?: number;
   /** For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification. */
@@ -50,35 +69,30 @@ export interface MerchantRiskIndicator {
   reorderItemsInd?: string;
   /** Indicates shipping method chosen for the transaction. */
   shipIndicator?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const merchantRiskIndicatorSchema: Schema<MerchantRiskIndicator> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        addressMatch: ['addressMatch', optional(boolean())],
-        deliveryAddressIndicator: [
-          'deliveryAddressIndicator',
-          optional(deliveryAddressIndicatorSchema),
-        ],
-        deliveryEmail: ['deliveryEmail', optional(string())],
-        deliveryEmailAddress: ['deliveryEmailAddress', optional(string())],
-        deliveryTimeframe: [
-          'deliveryTimeframe',
-          optional(deliveryTimeframeSchema),
-        ],
-        giftCardAmount: ['giftCardAmount', optional(giftCardAmountSchema)],
-        giftCardCount: ['giftCardCount', optional(number())],
-        giftCardCurr: ['giftCardCurr', optional(string())],
-        preOrderDate: ['preOrderDate', optional(string())],
-        preOrderPurchase: ['preOrderPurchase', optional(boolean())],
-        preOrderPurchaseInd: ['preOrderPurchaseInd', optional(string())],
-        reorderItems: ['reorderItems', optional(boolean())],
-        reorderItemsInd: ['reorderItemsInd', optional(string())],
-        shipIndicator: ['shipIndicator', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      addressMatch: ['addressMatch', optional(boolean())],
+      deliveryAddressIndicator: [
+        'deliveryAddressIndicator',
+        optional(deliveryAddressIndicatorEnumSchema),
+      ],
+      deliveryEmail: ['deliveryEmail', optional(string())],
+      deliveryEmailAddress: ['deliveryEmailAddress', optional(string())],
+      deliveryTimeframe: [
+        'deliveryTimeframe',
+        optional(deliveryTimeframeEnumSchema),
+      ],
+      giftCardAmount: ['giftCardAmount', optional(amount7Schema)],
+      giftCardCount: ['giftCardCount', optional(number())],
+      giftCardCurr: ['giftCardCurr', optional(string())],
+      preOrderDate: ['preOrderDate', optional(string())],
+      preOrderPurchase: ['preOrderPurchase', optional(boolean())],
+      preOrderPurchaseInd: ['preOrderPurchaseInd', optional(string())],
+      reorderItems: ['reorderItems', optional(boolean())],
+      reorderItemsInd: ['reorderItemsInd', optional(string())],
+      shipIndicator: ['shipIndicator', optional(string())],
+    })
 );

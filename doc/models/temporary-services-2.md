@@ -3,8 +3,6 @@
 
 [Temporary services enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/temporary-services/) that may be required for processing the transaction and/or for interchange savings.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TemporaryServices2`
@@ -20,7 +18,6 @@
 | `jobDescription` | `string \| undefined` | Optional | The job description of the person working in a temporary capacity.<br><br>* Format: ASCII<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `enhancedSchemeData.jobDescription` |
 | `serviceRequestor` | `string \| undefined` | Optional | The name of the person requesting the temporary services.<br><br>* Format: ASCII<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `enhancedSchemeData.requestName` |
 | `startDate` | `string \| undefined` | Optional | The billing period start date.<br><br>* Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd<br>* **additionalData key:** `enhancedSchemeData.tempStartDate` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const temporaryServices2: TemporaryServices2 = {
   hourRate: 14,
   hoursWorked: 182,
   jobDescription: 'jobDescription4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

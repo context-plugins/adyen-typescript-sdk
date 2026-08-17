@@ -15,12 +15,7 @@ import {
 } from '../models/merchantBalance.js';
 import { string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { BalanceOverviewCompaniesBalances401Error } from '../errors/balanceOverviewCompaniesBalances401Error.js';
-import { BalanceOverviewCompaniesBalances403Error } from '../errors/balanceOverviewCompaniesBalances403Error.js';
-import { BalanceOverviewCompaniesBalances422Error } from '../errors/balanceOverviewCompaniesBalances422Error.js';
-import { BalanceOverviewMerchantsBalances401Error } from '../errors/balanceOverviewMerchantsBalances401Error.js';
-import { BalanceOverviewMerchantsBalances403Error } from '../errors/balanceOverviewMerchantsBalances403Error.js';
-import { BalanceOverviewMerchantsBalances422Error } from '../errors/balanceOverviewMerchantsBalances422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class BalancesOverviewApi extends BaseApi {
   /**
@@ -56,6 +51,7 @@ export class BalancesOverviewApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CompanyBalances>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default11');
     const mapped = req.prepareArgs({
       companyAccountCode: [companyAccountCode, string()],
       currency: [currency, string()],
@@ -64,17 +60,17 @@ export class BalancesOverviewApi extends BaseApi {
     req.appendTemplatePath`/balanceOverview/companies/${mapped.companyAccountCode}/balances`;
     req.throwOn(
       401,
-      BalanceOverviewCompaniesBalances401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - Authentication required.'
     );
     req.throwOn(
       403,
-      BalanceOverviewCompaniesBalances403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      BalanceOverviewCompaniesBalances422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate(false);
@@ -114,6 +110,7 @@ export class BalancesOverviewApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<MerchantBalance>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default11');
     const mapped = req.prepareArgs({
       merchantAccountCode: [merchantAccountCode, string()],
       currency: [currency, string()],
@@ -122,17 +119,17 @@ export class BalancesOverviewApi extends BaseApi {
     req.appendTemplatePath`/balanceOverview/merchants/${mapped.merchantAccountCode}/balances`;
     req.throwOn(
       401,
-      BalanceOverviewMerchantsBalances401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - Authentication required.'
     );
     req.throwOn(
       403,
-      BalanceOverviewMerchantsBalances403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      BalanceOverviewMerchantsBalances422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate(false);

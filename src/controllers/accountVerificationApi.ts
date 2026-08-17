@@ -19,17 +19,7 @@ import {
 } from '../models/accountVerificationRoutesResponse.js';
 import { string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { AccountVerificationReports400Error } from '../errors/accountVerificationReports400Error.js';
-import { AccountVerificationReports401Error } from '../errors/accountVerificationReports401Error.js';
-import { AccountVerificationReports404Error } from '../errors/accountVerificationReports404Error.js';
-import { AccountVerificationReports422Error } from '../errors/accountVerificationReports422Error.js';
-import { AccountVerificationReports429Error } from '../errors/accountVerificationReports429Error.js';
-import { AccountVerificationReports500Error } from '../errors/accountVerificationReports500Error.js';
-import { AccountVerificationRoutes400Error } from '../errors/accountVerificationRoutes400Error.js';
-import { AccountVerificationRoutes401Error } from '../errors/accountVerificationRoutes401Error.js';
-import { AccountVerificationRoutes422Error } from '../errors/accountVerificationRoutes422Error.js';
-import { AccountVerificationRoutes429Error } from '../errors/accountVerificationRoutes429Error.js';
-import { AccountVerificationRoutes500Error } from '../errors/accountVerificationRoutes500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class AccountVerificationApi extends BaseApi {
   /**
@@ -45,36 +35,37 @@ export class AccountVerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AccountVerificationReportResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default21');
     const mapped = req.prepareArgs({ code: [code, string()] });
     req.appendTemplatePath`/accountVerification/reports/${mapped.code}`;
     req.throwOn(
       400,
-      AccountVerificationReports400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - The request is malformed or is not in the expected format.'
     );
     req.throwOn(
       401,
-      AccountVerificationReports401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - The API credential used in the request is invalid or does not have the right permissions.'
     );
     req.throwOn(
       404,
-      AccountVerificationReports404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - The entity was not found.'
     );
     req.throwOn(
       422,
-      AccountVerificationReports422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.throwOn(
       429,
-      AccountVerificationReports429Error,
+      DefaultErrorResponseEntityError,
       'Too Many Requests - Request rate limit exceeded.'
     );
     req.throwOn(
       500,
-      AccountVerificationReports500Error,
+      DefaultErrorResponseEntityError,
       'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
     );
     req.authenticate(false);
@@ -96,6 +87,7 @@ export class AccountVerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AccountVerificationRoutesResponse>> {
     const req = this.createRequest('POST', '/accountVerification/routes');
+    req.baseUrl('default21');
     const mapped = req.prepareArgs({
       body: [body, accountVerificationRoutesRequestSchema],
     });
@@ -103,27 +95,27 @@ export class AccountVerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      AccountVerificationRoutes400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - The request is malformed or is not in the expected format.'
     );
     req.throwOn(
       401,
-      AccountVerificationRoutes401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - The API credential used in the request is invalid or does not have the right permissions.'
     );
     req.throwOn(
       422,
-      AccountVerificationRoutes422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.throwOn(
       429,
-      AccountVerificationRoutes429Error,
+      DefaultErrorResponseEntityError,
       'Too Many Requests - Request rate limit exceeded.'
     );
     req.throwOn(
       500,
-      AccountVerificationRoutes500Error,
+      DefaultErrorResponseEntityError,
       'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
     );
     req.authenticate(false);

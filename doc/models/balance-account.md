@@ -1,8 +1,6 @@
 
 # Balance Account
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalanceAccount`
@@ -18,11 +16,10 @@
 | `id` | `string` | Required | The unique identifier of the balance account. |
 | `metadata` | `Record<string, string> \| undefined` | Optional | A set of key and value pairs for general use.<br>The keys do not have specific names and may be used for storing miscellaneous data as desired.<br><br>> Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs. |
 | `migratedAccountCode` | `string \| undefined` | Optional, Read-only | The unique identifier of the account of the migrated account holder in the classic integration. |
-| `platformPaymentConfiguration` | [`PlatformPaymentConfiguration \| undefined`](../../doc/models/platform-payment-configuration.md) | Optional | - |
+| `platformPaymentConfiguration` | [`PlatformPaymentConfiguration1 \| undefined`](../../doc/models/platform-payment-configuration-1.md) | Optional | Contains key-value pairs to configure the sales day closing time and settlement delay for a balance account. |
 | `reference` | `string \| undefined` | Optional | Your reference for the balance account, maximum 150 characters.<br><br>**Constraints**: *Maximum Length*: `150` |
-| `status` | [`Status21 \| undefined`](../../doc/models/status-21.md) | Optional | - |
+| `status` | [`Status23Enum \| undefined`](../../doc/models/status-23-enum.md) | Optional | The status of the balance account, set to **active** by default. |
 | `timeZone` | `string \| undefined` | Optional | The time zone of the balance account. For example, **Europe/Amsterdam**.<br>Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -40,9 +37,6 @@ const balanceAccount: BalanceAccount = {
       reserved: BigInt(158),
       pending: BigInt(152),
       pendingAvailable: BigInt(88),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       available: BigInt(152),
@@ -51,9 +45,6 @@ const balanceAccount: BalanceAccount = {
       reserved: BigInt(158),
       pending: BigInt(152),
       pendingAvailable: BigInt(88),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       available: BigInt(152),
@@ -62,9 +53,6 @@ const balanceAccount: BalanceAccount = {
       reserved: BigInt(158),
       pending: BigInt(152),
       pendingAvailable: BigInt(88),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   defaultCurrencyCode: 'defaultCurrencyCode8',
@@ -72,10 +60,6 @@ const balanceAccount: BalanceAccount = {
   metadata: {
     'key0': 'metadata9',
     'key1': 'metadata8'
-  },
-  migratedAccountCode: 'migratedAccountCode6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

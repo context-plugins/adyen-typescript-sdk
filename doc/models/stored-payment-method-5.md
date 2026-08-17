@@ -1,8 +1,6 @@
 
 # Stored Payment Method 5
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredPaymentMethod5`
@@ -18,13 +16,12 @@
 | `riskSignals` | [`PixPayByBankRiskSignals \| undefined`](../../doc/models/pix-pay-by-bank-risk-signals.md) | Optional | - |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type45 \| undefined`](../../doc/models/type-45.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type45Enum \| undefined`](../../doc/models/type-45-enum.md) | Optional | **paybybank_pix**<br><br>**Default**: `Type45Enum.PaybybankPix` |
 
 ## Example
 
 ```ts
-import { StoredPaymentMethod5 } from 'adyen';
+import { StoredPaymentMethod5, Type45Enum } from 'adyen';
 
 const storedPaymentMethod5: StoredPaymentMethod5 = {
   checkoutAttemptId: 'checkoutAttemptId6',
@@ -39,21 +36,13 @@ const storedPaymentMethod5: StoredPaymentMethod5 = {
         'errors1'
       ],
       score: 155.44,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     elapsedTimeSinceBoot: BigInt(84),
     isRootedDevice: false,
     language: 'language0',
     osVersion: 'osVersion8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type45Enum.PaybybankPix,
 };
 ```
 

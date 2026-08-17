@@ -9,17 +9,16 @@ import {
   bigint,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Folio, folioSchema } from './folio.js';
+import { Folio2, folio2Schema } from './folio2.js';
 import {
-  LodgingChargeType,
-  lodgingChargeTypeSchema,
-} from './lodgingChargeType.js';
+  LodgingChargeTypeEnum,
+  lodgingChargeTypeEnumSchema,
+} from './lodgingChargeTypeEnum.js';
 import { Room, roomSchema } from './room.js';
 
 export interface Lodging {
@@ -54,7 +53,8 @@ export interface Lodging {
    * * **additionalData key:** `lodging.fireSafetyActIndicator`
    */
   fireSafetyCompliance?: boolean;
-  folio?: Folio;
+  /** The folio information for the booking. */
+  folio?: Folio2;
   /**
    * Any charges for food and beverages associated with the booking, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * * For example, 2000 means USD 20.00.
@@ -63,7 +63,11 @@ export interface Lodging {
    * * **additionalData key:** `lodging.foodBeverageCharges`
    */
   foodBeverageCharges?: bigint;
-  lodgingChargeType?: LodgingChargeType;
+  /**
+   * The category of lodging charges for the payment.
+   * * **additionalData key:** `lodging.specialProgramCode`
+   */
+  lodgingChargeType?: LodgingChargeTypeEnum;
   /**
    * Indicates if the customer didn't check in for their booking.
    * * **additionalData key:** `lodging.noShowIndicator`
@@ -114,34 +118,29 @@ export interface Lodging {
    * * **additionalData key:** `lodging.totalTax`
    */
   totalTax?: bigint;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const lodgingSchema: Schema<Lodging> = lazy(() =>
-  typedExpandoObject(
-    {
-      checkInDate: ['checkInDate', optional(string())],
-      checkOutDate: ['checkOutDate', optional(string())],
-      customerServicePhoneNumber: [
-        'customerServicePhoneNumber',
-        optional(string()),
-      ],
-      fireSafetyCompliance: ['fireSafetyCompliance', optional(boolean())],
-      folio: ['folio', optional(folioSchema)],
-      foodBeverageCharges: ['foodBeverageCharges', optional(bigint())],
-      lodgingChargeType: [
-        'lodgingChargeType',
-        optional(lodgingChargeTypeSchema),
-      ],
-      noShow: ['noShow', optional(boolean())],
-      prepaidExpenses: ['prepaidExpenses', optional(bigint())],
-      propertyPhoneNumber: ['propertyPhoneNumber', optional(string())],
-      renterName: ['renterName', optional(string())],
-      rooms: ['rooms', optional(array(roomSchema))],
-      totalRoomTax: ['totalRoomTax', optional(bigint())],
-      totalTax: ['totalTax', optional(bigint())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    checkInDate: ['checkInDate', optional(string())],
+    checkOutDate: ['checkOutDate', optional(string())],
+    customerServicePhoneNumber: [
+      'customerServicePhoneNumber',
+      optional(string()),
+    ],
+    fireSafetyCompliance: ['fireSafetyCompliance', optional(boolean())],
+    folio: ['folio', optional(folio2Schema)],
+    foodBeverageCharges: ['foodBeverageCharges', optional(bigint())],
+    lodgingChargeType: [
+      'lodgingChargeType',
+      optional(lodgingChargeTypeEnumSchema),
+    ],
+    noShow: ['noShow', optional(boolean())],
+    prepaidExpenses: ['prepaidExpenses', optional(bigint())],
+    propertyPhoneNumber: ['propertyPhoneNumber', optional(string())],
+    renterName: ['renterName', optional(string())],
+    rooms: ['rooms', optional(array(roomSchema))],
+    totalRoomTax: ['totalRoomTax', optional(bigint())],
+    totalTax: ['totalTax', optional(bigint())],
+  })
 );

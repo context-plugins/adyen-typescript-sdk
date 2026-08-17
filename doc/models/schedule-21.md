@@ -3,8 +3,6 @@
 
 Contains the details about the schedule that determines when the top up is executed.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Schedule21`
@@ -13,19 +11,15 @@ Contains the details about the schedule that determines when the top up is execu
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`ScheduleType1`](../../doc/models/schedule-type-1.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`ScheduleType1Enum`](../../doc/models/schedule-type-1-enum.md) | Required | The type of schedule at which the top up is executed.<br><br>* **weekdays**: pull in funds Monday-Friday at 07:00 AM in the local timezone of the balance account.<br><br>* **weekly**: pull in funds every Monday at 07:00 AM in the local timezone of the balance account.<br><br>* **monthly**: pull in funds every first of the month at 07:00 AM in the local timezone of the balance account.<br><br>* **null** (default): continuous monitoring. |
 
 ## Example
 
 ```ts
-import { Schedule21, ScheduleType1 } from 'adyen';
+import { Schedule21, ScheduleType1Enum } from 'adyen';
 
 const schedule21: Schedule21 = {
-  type: ScheduleType1.Monthly,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: ScheduleType1Enum.Monthly,
 };
 ```
 

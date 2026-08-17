@@ -8,14 +8,13 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { Payment, paymentSchema } from './payment.js';
-import { Status52, status52Schema } from './status52.js';
+import { Status5Enum, status5EnumSchema } from './status5Enum.js';
 
 export interface SessionResultResponse {
   /** Contains additional information about the payment. Some fields are included only if you enable them. To enable these fields in your Customer Area, go to **Developers** > **Additional data**. */
@@ -26,21 +25,25 @@ export interface SessionResultResponse {
   payments?: Payment[];
   /** The unique reference that you provided in the original `/sessions` request. This identifies the payment and is used in all communication with you about the payment status. */
   reference?: string;
-  status?: Status52;
-  additionalProperties?: Record<string, unknown>;
+  /**
+   * The status of the session. The status included in the response doesn't get updated. Don't make the request again to check for payment status updates.
+   * Possible values:
+   * * **completed**: the shopper completed the payment, and the payment was authorized.
+   * * **paymentPending**: the shopper is in the process of making the payment. This applies to payment methods with an asynchronous flow, like voucher payments where the shopper completes the payment in a physical shop.
+   * * **refused**: the session has been refused, because of too many refused payment attempts. The shopper can no longer complete the payment with this session.
+   * * **canceled**: the shopper canceled the payment.
+   * * **expired**: the session expired. The shopper can no longer complete the payment with this session. By default, the session expires one hour after it is created.
+   */
+  status?: Status5Enum;
 }
 
 export const sessionResultResponseSchema: Schema<SessionResultResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        additionalData: ['additionalData', optional(dict(string()))],
-        id: ['id', optional(string())],
-        payments: ['payments', optional(array(paymentSchema))],
-        reference: ['reference', optional(string())],
-        status: ['status', optional(status52Schema)],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      additionalData: ['additionalData', optional(dict(string()))],
+      id: ['id', optional(string())],
+      payments: ['payments', optional(array(paymentSchema))],
+      reference: ['reference', optional(string())],
+      status: ['status', optional(status5EnumSchema)],
+    })
 );

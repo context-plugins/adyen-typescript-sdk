@@ -9,16 +9,12 @@ import {
   boolean,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import {
-  NetworkTokenRequestor,
-  networkTokenRequestorSchema,
-} from './networkTokenRequestor.js';
+import { Item, itemSchema } from './item.js';
 import { SubInputDetail, subInputDetailSchema } from './subInputDetail.js';
 
 export interface InputDetail {
@@ -31,7 +27,7 @@ export interface InputDetail {
   /** In case of a select, the URL from which to query the items. */
   itemSearchUrl?: string;
   /** In case of a select, the items to choose from. */
-  items?: NetworkTokenRequestor[];
+  items?: Item[];
   /** The value to provide in the result. */
   key?: string;
   /** True if this input value is optional. */
@@ -40,23 +36,18 @@ export interface InputDetail {
   type?: string;
   /** The value can be pre-filled, if available. */
   value?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const inputDetailSchema: Schema<InputDetail> = lazy(() =>
-  typedExpandoObject(
-    {
-      configuration: ['configuration', optional(dict(string()))],
-      details: ['details', optional(array(subInputDetailSchema))],
-      inputDetails: ['inputDetails', optional(array(subInputDetailSchema))],
-      itemSearchUrl: ['itemSearchUrl', optional(string())],
-      items: ['items', optional(array(networkTokenRequestorSchema))],
-      key: ['key', optional(string())],
-      optional: ['optional', optional(boolean())],
-      type: ['type', optional(string())],
-      value: ['value', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    configuration: ['configuration', optional(dict(string()))],
+    details: ['details', optional(array(subInputDetailSchema))],
+    inputDetails: ['inputDetails', optional(array(subInputDetailSchema))],
+    itemSearchUrl: ['itemSearchUrl', optional(string())],
+    items: ['items', optional(array(itemSchema))],
+    key: ['key', optional(string())],
+    optional: ['optional', optional(boolean())],
+    type: ['type', optional(string())],
+    value: ['value', optional(string())],
+  })
 );

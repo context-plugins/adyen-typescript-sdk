@@ -1,8 +1,6 @@
 
 # Stored Value Void Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredValueVoidRequest`
@@ -17,7 +15,6 @@
 | `store` | `string \| undefined` | Optional | The physical store, for which this payment is processed.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `16` |
 | `tenderReference` | `string \| undefined` | Optional | The reference of the tender. |
 | `uniqueTerminalId` | `string \| undefined` | Optional | The unique ID of a POS terminal. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const storedValueVoidRequest: StoredValueVoidRequest = {
   store: 'store0',
   tenderReference: 'tenderReference2',
   uniqueTerminalId: 'uniqueTerminalId0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

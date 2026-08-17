@@ -7,19 +7,24 @@
 import {
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Alignment1, alignment1Schema } from './alignment1.js';
+import { Alignment1Enum, alignment1EnumSchema } from './alignment1Enum.js';
 import {
-  CharacterHeight1,
-  characterHeight1Schema,
-} from './characterHeight1.js';
-import { CharacterStyle1, characterStyle1Schema } from './characterStyle1.js';
-import { CharacterWidth1, characterWidth1Schema } from './characterWidth1.js';
+  CharacterHeight1Enum,
+  characterHeight1EnumSchema,
+} from './characterHeight1Enum.js';
+import {
+  CharacterStyle1Enum,
+  characterStyle1EnumSchema,
+} from './characterStyle1Enum.js';
+import {
+  CharacterWidth1Enum,
+  characterWidth1EnumSchema,
+} from './characterWidth1Enum.js';
 
 /**
  * Content of text message to display or print.
@@ -34,27 +39,51 @@ export interface OutputText {
   startRow?: number;
   /** Column where the text string has to be displayed or printed. */
   startColumn?: number;
-  characterWidth?: CharacterWidth1;
-  characterHeight?: CharacterHeight1;
-  characterStyle?: CharacterStyle1;
-  alignment?: Alignment1;
+  /**
+   * Character width of the text string to display or print. Absence of this data element means the characters have normal width.
+   * Possible values:
+   * * **DoubleWidth**
+   * * **SingleWidth**
+   */
+  characterWidth?: CharacterWidth1Enum;
+  /**
+   * Character height of the text string to display or print. Absence of this data element means the characters have normal height.
+   * Possible values:
+   * * **DoubleHeight**
+   * * **HalfHeight**
+   * * **SingleHeight**
+   */
+  characterHeight?: CharacterHeight1Enum;
+  /**
+   * Typographic style of the sequence of characters to display or print. Absence of this data element means the characters have normal style.
+   * Possible values:
+   * * **Bold**
+   * * **Italic**
+   * * **Normal**
+   * * **Underline**
+   */
+  characterStyle?: CharacterStyle1Enum;
+  /**
+   * Alignment of the text string on the display line or print line. Absence of this data element means the characters have normal alignment.
+   * Possible values:
+   * * **Centred**
+   * * **Justified**
+   * * **Left**
+   * * **Right**
+   */
+  alignment?: Alignment1Enum;
   /** Indicates if the text is at the end of a line. Allows the display or the print of a new line and a carry-over return characters after the formatted text. */
   endOfLineFlag?: boolean;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const outputTextSchema: Schema<OutputText> = typedExpandoObject(
-  {
-    text: ['Text', string()],
-    characterSet: ['CharacterSet', optional(number())],
-    startRow: ['StartRow', optional(number())],
-    startColumn: ['StartColumn', optional(number())],
-    characterWidth: ['CharacterWidth', optional(characterWidth1Schema)],
-    characterHeight: ['CharacterHeight', optional(characterHeight1Schema)],
-    characterStyle: ['CharacterStyle', optional(characterStyle1Schema)],
-    alignment: ['Alignment', optional(alignment1Schema)],
-    endOfLineFlag: ['EndOfLineFlag', optional(boolean())],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const outputTextSchema: Schema<OutputText> = object({
+  text: ['Text', string()],
+  characterSet: ['CharacterSet', optional(number())],
+  startRow: ['StartRow', optional(number())],
+  startColumn: ['StartColumn', optional(number())],
+  characterWidth: ['CharacterWidth', optional(characterWidth1EnumSchema)],
+  characterHeight: ['CharacterHeight', optional(characterHeight1EnumSchema)],
+  characterStyle: ['CharacterStyle', optional(characterStyle1EnumSchema)],
+  alignment: ['Alignment', optional(alignment1EnumSchema)],
+  endOfLineFlag: ['EndOfLineFlag', optional(boolean())],
+});

@@ -3,8 +3,6 @@
 
 Data related to a loyalty account processed in the transaction.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LoyaltyAccount1`
@@ -13,36 +11,29 @@ Data related to a loyalty account processed in the transaction.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyaltyAccountId` | [`LoyaltyAccountId3`](../../doc/models/loyalty-account-id-3.md) | Required | - |
+| `loyaltyAccountID` | [`LoyaltyAccountID2`](../../doc/models/loyalty-account-id-2.md) | Required | Identification of a Loyalty account. |
 | `loyaltyBrand` | `string \| undefined` | Optional | Identification of a Loyalty brand.<br>If a card is analysed.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  EntryMode,
-  IdentificationSupport1,
-  IdentificationType11,
+  EntryModeEnum,
+  IdentificationSupport1Enum,
+  IdentificationType11Enum,
   LoyaltyAccount1,
 } from 'adyen';
 
 const loyaltyAccount1: LoyaltyAccount1 = {
-  loyaltyAccountId: {
+  loyaltyAccountID: {
     entryMode: [
-      EntryMode.File
+      EntryModeEnum.File
     ],
-    identificationType: IdentificationType11.IsoTrack2,
-    loyaltyId: 'LoyaltyID4',
-    identificationSupport: IdentificationSupport1.HybridCard,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    identificationType: IdentificationType11Enum.ISOTrack2,
+    loyaltyID: 'LoyaltyID4',
+    identificationSupport: IdentificationSupport1Enum.HybridCard,
   },
   loyaltyBrand: 'LoyaltyBrand4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

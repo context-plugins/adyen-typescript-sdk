@@ -1,8 +1,6 @@
 
 # Test Webhook Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TestWebhookResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `data` | [`TestOutput[] \| undefined`](../../doc/models/test-output.md) | Optional | List with test results. Each test webhook we send has a list element with the result. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,9 +25,6 @@ const testWebhookResponse: TestWebhookResponse = {
       requestSent: 'requestSent0',
       responseCode: 'responseCode0',
       responseTime: 'responseTime8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       status: 'status2',
@@ -39,9 +33,6 @@ const testWebhookResponse: TestWebhookResponse = {
       requestSent: 'requestSent0',
       responseCode: 'responseCode0',
       responseTime: 'responseTime8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       status: 'status2',
@@ -50,14 +41,8 @@ const testWebhookResponse: TestWebhookResponse = {
       requestSent: 'requestSent0',
       responseCode: 'responseCode0',
       responseTime: 'responseTime8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

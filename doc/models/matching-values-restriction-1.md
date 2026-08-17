@@ -19,8 +19,6 @@ Supported value inputs:
 - **amount** and **currency**
 - **merchantName**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MatchingValuesRestriction1`
@@ -30,24 +28,20 @@ Supported value inputs:
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value3[] \| undefined`](../../doc/models/value-3.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`Value3Enum[] \| undefined`](../../doc/models/value-3-enum.md) | Optional | - |
 
 ## Example
 
 ```ts
-import { MatchingValuesRestriction1, Value3 } from 'adyen';
+import { MatchingValuesRestriction1, Value3Enum } from 'adyen';
 
 const matchingValuesRestriction1: MatchingValuesRestriction1 = {
   operation: 'operation0',
   value: [
-    Value3.MerchantName,
-    Value3.AcquirerId,
-    Value3.Amount
+    Value3Enum.MerchantName,
+    Value3Enum.AcquirerId,
+    Value3Enum.Amount
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

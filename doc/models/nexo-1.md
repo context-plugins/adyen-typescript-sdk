@@ -3,8 +3,6 @@
 
 Settings for a Terminal API integration.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Nexo1`
@@ -13,17 +11,16 @@ Settings for a Terminal API integration.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `displayUrls` | [`NotificationUrl \| undefined`](../../doc/models/notification-url.md) | Optional | - |
-| `encryptionKey` | [`Key \| undefined`](../../doc/models/key.md) | Optional | - |
-| `eventUrls` | [`EventUrl \| undefined`](../../doc/models/event-url.md) | Optional | - |
+| `displayUrls` | [`NotificationUrl2 \| undefined`](../../doc/models/notification-url-2.md) | Optional | The list of local and public URLs to send display notifications to when using Terminal API. |
+| `encryptionKey` | [`Key1 \| undefined`](../../doc/models/key-1.md) | Optional | The key you share with Adyen to secure local communications when using Terminal API. |
+| `eventUrls` | [`EventUrl2 \| undefined`](../../doc/models/event-url-2.md) | Optional | The list of local and public URLs to send event notifications to when using Terminal API. |
 | `nexoEventUrls` | `string[] \| undefined` | Optional | One or more URLs to send event messages to when using Terminal API. |
-| `notification` | [`Notification \| undefined`](../../doc/models/notification.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `notification` | [`Notification2 \| undefined`](../../doc/models/notification-2.md) | Optional | Configures sending event notifications by pressing a button on a terminal, for example used for pay-at-table. |
 
 ## Example
 
 ```ts
-import { Category1, Nexo1 } from 'adyen';
+import { CategoryEnum, Nexo1 } from 'adyen';
 
 const nexo1: Nexo1 = {
   displayUrls: {
@@ -33,27 +30,18 @@ const nexo1: Nexo1 = {
         password: 'password4',
         url: 'url4',
         username: 'username0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         encrypted: false,
         password: 'password4',
         url: 'url4',
         username: 'username0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         encrypted: false,
         password: 'password4',
         url: 'url4',
         username: 'username0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     publicUrls: [
@@ -62,22 +50,13 @@ const nexo1: Nexo1 = {
         password: 'password6',
         url: 'url6',
         username: 'username2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   encryptionKey: {
     identifier: 'identifier6',
     passphrase: 'passphrase6',
     version: 8,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   eventUrls: {
     eventLocalUrls: [
@@ -86,18 +65,12 @@ const nexo1: Nexo1 = {
         password: 'password4',
         url: 'url4',
         username: 'username0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         encrypted: false,
         password: 'password4',
         url: 'url4',
         username: 'username0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     eventPublicUrls: [
@@ -106,31 +79,19 @@ const nexo1: Nexo1 = {
         password: 'password8',
         url: 'url8',
         username: 'username4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   nexoEventUrls: [
     'nexoEventUrls4',
     'nexoEventUrls5'
   ],
   notification: {
-    category: Category1.SaleWakeUp,
+    category: CategoryEnum.SaleWakeUp,
     details: 'details2',
     enabled: false,
     showButton: false,
     title: 'title2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

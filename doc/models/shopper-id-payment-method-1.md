@@ -3,8 +3,6 @@
 
 paymentMethod
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ShopperIdPaymentMethod1`
@@ -14,7 +12,6 @@ paymentMethod
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `type` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { ShopperIdPaymentMethod1 } from 'adyen';
 
 const shopperIdPaymentMethod1: ShopperIdPaymentMethod1 = {
   type: 'ShopperIdPaymentMethod1',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,11 +1,9 @@
 
-# Us Local Account Identification 1
-
-*This model accepts additional fields of type unknown.*
+# US Local Account Identification 1
 
 ## Structure
 
-`UsLocalAccountIdentification1`
+`USLocalAccountIdentification1`
 
 ## Inherits From
 
@@ -16,23 +14,19 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `18` |
-| `accountType` | [`AccountType \| undefined`](../../doc/models/account-type.md) | Optional | - |
+| `accountType` | [`AccountType2Enum \| undefined`](../../doc/models/account-type-2-enum.md) | Optional | The bank account type.<br><br>Possible values: **checking** or **savings**. Defaults to **checking**. |
 | `routingNumber` | `string` | Required | The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `9`, *Maximum Length*: `9` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AccountType, UsLocalAccountIdentification1 } from 'adyen';
+import { AccountType2Enum, USLocalAccountIdentification1 } from 'adyen';
 
-const usLocalAccountIdentification1: UsLocalAccountIdentification1 = {
-  accountNumber: 'accountNumber4',
-  routingNumber: 'routingNumber0',
-  accountType: AccountType.Checking,
+const uSLocalAccountIdentification1: USLocalAccountIdentification1 = {
+  accountNumber: 'accountNumber2',
+  routingNumber: 'routingNumber2',
+  accountType: AccountType2Enum.Checking,
   type: 'usLocal',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Cancel Transfers Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CancelTransfersRequest`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `transferIds` | `string[] \| undefined` | Optional | Contains the unique identifiers of the transfers that you want to cancel. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ const cancelTransfersRequest: CancelTransfersRequest = {
     'transferIds9',
     'transferIds8'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -5,31 +5,19 @@
  */
 
 import { discriminatedWebhookSettingSchema } from '../models/discriminatedSchemas.js';
-import {
-  array,
-  lazy,
-  optional,
-  Schema,
-  typedExpandoObject,
-  unknown,
-} from '../schema.js';
+import { array, lazy, object, optional, Schema } from '../schema.js';
 import { WebhookSetting } from './webhookSetting.js';
 
 export interface WebhookSettings {
   /** The list of webhook settings. */
   webhookSettings?: WebhookSetting[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const webhookSettingsSchema: Schema<WebhookSettings> = lazy(() =>
-  typedExpandoObject(
-    {
-      webhookSettings: [
-        'webhookSettings',
-        optional(array(discriminatedWebhookSettingSchema)),
-      ],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    webhookSettings: [
+      'webhookSettings',
+      optional(array(discriminatedWebhookSettingSchema)),
+    ],
+  })
 );

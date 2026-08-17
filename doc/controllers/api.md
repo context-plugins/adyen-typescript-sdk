@@ -39,7 +39,7 @@ Content of the `LoginRequest` message.
 async loginRequest(
   body?: LoginRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<LoginResponse1>>
+): Promise<ApiResponse<LoginResponse>>
 ```
 
 ## Authentication
@@ -58,7 +58,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Login to process.
 Content of the Login Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`LoginResponse1`](../../doc/models/login-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`LoginResponse`](../../doc/models/login-response.md).
 
 ## Example Usage
 
@@ -66,7 +66,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const body: LoginRequest = {
   dateTime: '2016-03-13T12:52:32.123Z',
   saleSoftware: {
-    manufacturerId: 'ManufacturerID4',
+    manufacturerID: 'ManufacturerID4',
     applicationName: 'ApplicationName8',
     softwareVersion: 'SoftwareVersion0',
     certificationCode: 'CertificationCode4',
@@ -109,7 +109,7 @@ Content of the Logout Request message.
 async logoutRequest(
   body?: LogoutRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<LogoutResponse1>>
+): Promise<ApiResponse<LogoutResponse>>
 ```
 
 ## Authentication
@@ -128,7 +128,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the Logout.
 Content of the Logout Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`LogoutResponse1`](../../doc/models/logout-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`LogoutResponse`](../../doc/models/logout-response.md).
 
 ## Example Usage
 
@@ -171,7 +171,7 @@ Content of the Enable Service Request message.
 async enableServiceRequest(
   body?: EnableServiceRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<EnableserviceResponse1>>
+): Promise<ApiResponse<EnableServiceResponse>>
 ```
 
 ## Authentication
@@ -190,7 +190,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the Enable Service processing.
 Content of the Enable Service Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`EnableserviceResponse1`](../../doc/models/enableservice-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`EnableServiceResponse`](../../doc/models/enable-service-response.md).
 
 ## Example Usage
 
@@ -229,7 +229,7 @@ Content of the Custom Admin Request message.
 async adminRequest(
   body?: AdminRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<AdminResponse1>>
+): Promise<ApiResponse<AdminResponse>>
 ```
 
 ## Authentication
@@ -248,7 +248,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the Custom Admin.
 Content of the Custom Admin Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AdminResponse1`](../../doc/models/admin-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AdminResponse`](../../doc/models/admin-response.md).
 
 ## Example Usage
 
@@ -288,7 +288,7 @@ Content of the `PaymentRequest` message.
 async paymentRequest(
   body?: PaymentRequest2,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<PaymentResponse6>>
+): Promise<ApiResponse<PaymentResponse4>>
 ```
 
 ## Authentication
@@ -307,7 +307,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Payment transaction processed by the POI System.
 Content of the Payment Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentResponse6`](../../doc/models/payment-response-6.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentResponse4`](../../doc/models/payment-response-4.md).
 
 ## Example Usage
 
@@ -346,7 +346,7 @@ Content of the Card Acquisition Request message.
 async cardAcquisitionRequest(
   body?: CardAcquisitionRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<CardacquisitionResponse4>>
+): Promise<ApiResponse<CardAcquisitionResponse>>
 ```
 
 ## Authentication
@@ -365,7 +365,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the payment and loyalty cards read and processed by the POI System and entered by the Customer.
 Content of the Card Acquisition Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CardacquisitionResponse4`](../../doc/models/cardacquisition-response-4.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CardAcquisitionResponse`](../../doc/models/card-acquisition-response.md).
 
 ## Example Usage
 
@@ -404,7 +404,7 @@ Content of the Stored Value Request message.
 async storedValueRequest(
   body?: StoredValueRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<StoredvalueResponse4>>
+): Promise<ApiResponse<StoredValueResponse>>
 ```
 
 ## Authentication
@@ -423,21 +423,21 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Stored Value transaction processed by the POI System.
 Content of the Stored Value Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`StoredvalueResponse4`](../../doc/models/storedvalue-response-4.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`StoredValueResponse`](../../doc/models/stored-value-response.md).
 
 ## Example Usage
 
 ```ts
 const body: StoredValueRequest = {
   saleData: {
-    saleTransactionId: {
-      transactionId: 'TransactionID2',
+    saleTransactionID: {
+      transactionID: 'TransactionID2',
       timeStamp: '2016-03-13T12:52:32.123Z',
     },
   },
   storedValueData: [
     {
-      storedValueTransactionType: StoredValueTransactionType1.Reserve,
+      storedValueTransactionType: StoredValueTransactionType1Enum.Reserve,
     }
   ],
 };
@@ -476,7 +476,7 @@ Content of the Reversal Request message.
 async reversalRequest(
   body?: ReversalRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<ReversalResponse4>>
+): Promise<ApiResponse<ReversalResponse>>
 ```
 
 ## Authentication
@@ -495,16 +495,16 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the reversal processed by the POI System.
 Content of the Reversal Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ReversalResponse4`](../../doc/models/reversal-response-4.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ReversalResponse`](../../doc/models/reversal-response.md).
 
 ## Example Usage
 
 ```ts
 const body: ReversalRequest = {
-  originalPoiTransaction: {
+  originalPOITransaction: {
     reuseCardDataFlag: true,
   },
-  reversalReason: ReversalReason1.CustCancel,
+  reversalReason: ReversalReason1Enum.CustCancel,
 };
 
 try {
@@ -541,7 +541,7 @@ It conveys Information related to the Reconciliation requested by the Sale Syste
 async reconciliationRequest(
   body?: ReconciliationRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<ReconciliationResponse1>>
+): Promise<ApiResponse<ReconciliationResponse>>
 ```
 
 ## Authentication
@@ -560,7 +560,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Reconciliation transaction processed by the POI System.
 Content of the Reconciliation Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ReconciliationResponse1`](../../doc/models/reconciliation-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ReconciliationResponse`](../../doc/models/reconciliation-response.md).
 
 ## Example Usage
 
@@ -599,7 +599,7 @@ Content of the Get Totals Request message.
 async getTotalsRequest(
   body?: GetTotalsRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<GettotalsResponse1>>
+): Promise<ApiResponse<GetTotalsResponse>>
 ```
 
 ## Authentication
@@ -618,7 +618,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the Reconciliation Response message.
 It conveys Information related to the Reconciliation transaction processed by the POI System.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`GettotalsResponse1`](../../doc/models/gettotals-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`GetTotalsResponse`](../../doc/models/get-totals-response.md).
 
 ## Example Usage
 
@@ -657,7 +657,7 @@ Content of the Balance Inquiry Request message.
 async balanceInquiryRequest(
   body?: BalanceInquiryRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<BalanceinquiryResponse1>>
+): Promise<ApiResponse<BalanceInquiryResponse>>
 ```
 
 ## Authentication
@@ -676,7 +676,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the Balance Inquiry Response message.
 It conveys the balance and the identification of the associated payment, loyalty or stored value account.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`BalanceinquiryResponse1`](../../doc/models/balanceinquiry-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`BalanceInquiryResponse`](../../doc/models/balance-inquiry-response.md).
 
 ## Example Usage
 
@@ -715,7 +715,7 @@ It conveys Information requested for status of the last or current Payment, Loya
 async transactionStatusRequest(
   body?: TransactionStatusRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<TransactionstatusResponse1>>
+): Promise<ApiResponse<TransactionStatusResponse>>
 ```
 
 ## Authentication
@@ -734,7 +734,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the TransactionStatus Response message.
 It conveys Information related to the status of the last or current Payment, Loyalty or Reversal transaction.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`TransactionstatusResponse1`](../../doc/models/transactionstatus-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`TransactionStatusResponse`](../../doc/models/transaction-status-response.md).
 
 ## Example Usage
 
@@ -834,7 +834,7 @@ Content of the Diagnosis Request message.
 async diagnosisRequest(
   body?: DiagnosisRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<DiagnosisResponse1>>
+): Promise<ApiResponse<DiagnosisResponse>>
 ```
 
 ## Authentication
@@ -853,7 +853,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the requested diagnosis and a possible message to display on a logical device.
 Content of the Diagnosis Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`DiagnosisResponse1`](../../doc/models/diagnosis-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`DiagnosisResponse`](../../doc/models/diagnosis-response.md).
 
 ## Example Usage
 
@@ -896,7 +896,7 @@ Content of the Display Request message.
 async displayRequest(
   body?: DisplayRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<DisplayResponse1>>
+): Promise<ApiResponse<DisplayResponse>>
 ```
 
 ## Authentication
@@ -915,7 +915,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the display, parallel to the message request, except if response not required and absent.
 Content of the Display Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`DisplayResponse1`](../../doc/models/display-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`DisplayResponse`](../../doc/models/display-response.md).
 
 ## Example Usage
 
@@ -923,10 +923,10 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const body: DisplayRequest = {
   displayOutput: [
     {
-      device: Device11.CashierDisplay,
-      infoQualify: InfoQualify1.Status,
+      device: Device11Enum.CashierDisplay,
+      infoQualify: InfoQualify1Enum.Status,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
       },
       responseRequiredFlag: true,
       minimumDisplayTime: 0,
@@ -967,7 +967,7 @@ Content of the `InputRequest` message. It conveys the data to display and how to
 async inputRequest(
   body?: InputRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<InputResponse1>>
+): Promise<ApiResponse<InputResponse>>
 ```
 
 ## Authentication
@@ -986,16 +986,16 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the input or the result of the outputs, parallel to the message request, except if response not required and absent.
 Content of the Input Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`InputResponse1`](../../doc/models/input-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`InputResponse`](../../doc/models/input-response.md).
 
 ## Example Usage
 
 ```ts
 const body: InputRequest = {
   inputData: {
-    device: Device2.CashierDisplay,
-    infoQualify: InfoQualify2.CustomerAssistance,
-    inputCommand: InputCommand1.GetAnyKey,
+    device: Device2Enum.CashierDisplay,
+    infoQualify: InfoQualify2Enum.CustomerAssistance,
+    inputCommand: InputCommand1Enum.GetAnyKey,
     notifyCardInputFlag: false,
     immediateResponseFlag: false,
     waitUserValidationFlag: true,
@@ -1044,7 +1044,7 @@ It conveys the complete data to print and how to process the print.
 async printRequest(
   body?: PrintRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<PrintResponse1>>
+): Promise<ApiResponse<PrintResponse>>
 ```
 
 ## Authentication
@@ -1063,17 +1063,17 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the print, parallel to the message request, except if response not required and absent.
 Content of the Print Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PrintResponse1`](../../doc/models/print-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PrintResponse`](../../doc/models/print-response.md).
 
 ## Example Usage
 
 ```ts
 const body: PrintRequest = {
   printOutput: {
-    documentQualifier: DocumentQualifier2.CustomerReceipt,
-    responseMode: ResponseMode1.PrintEnd,
+    documentQualifier: DocumentQualifier2Enum.CustomerReceipt,
+    responseMode: ResponseMode1Enum.PrintEnd,
     outputContent: {
-      outputFormat: OutputFormat1.Xhtml,
+      outputFormat: OutputFormat1Enum.XHTML,
     },
     integratedPrintFlag: false,
     requiredSignatureFlag: false,
@@ -1111,10 +1111,10 @@ It contains the APDU request to send to the chip of the card, and a possible inv
 Content of the Card Reader APDU Request message.
 
 ```ts
-async cardReaderApduRequest(
-  body?: CardReaderApduRequest,
+async cardReaderAPDURequest(
+  body?: CardReaderAPDURequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<CardreaderapduResponse4>>
+): Promise<ApiResponse<CardReaderAPDUResponse>>
 ```
 
 ## Authentication
@@ -1125,7 +1125,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CardReaderApduRequest \| undefined`](../../doc/models/card-reader-apdu-request.md) | Body, Optional | - |
+| `body` | [`CardReaderAPDURequest \| undefined`](../../doc/models/card-reader-apdu-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -1133,13 +1133,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the Card Reader APDU Response message.
 It contains the result of the requested service, APDU response sent by the chip of the card in response to the APDU request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CardreaderapduResponse4`](../../doc/models/cardreaderapdu-response-4.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`CardReaderAPDUResponse`](../../doc/models/card-reader-apdu-response.md).
 
 ## Example Usage
 
 ```ts
 try {
-  const response = await api.cardReaderApduRequest();
+  const response = await api.cardReaderAPDURequest();
 
   // Extracting fully parsed response body.
   console.log(response.result);

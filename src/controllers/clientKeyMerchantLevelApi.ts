@@ -34,6 +34,7 @@ export class ClientKeyMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenerateClientKeyResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       apiCredentialId: [apiCredentialId, string()],

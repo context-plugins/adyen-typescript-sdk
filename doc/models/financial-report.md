@@ -1,8 +1,6 @@
 
 # Financial Report
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FinancialReport`
@@ -17,7 +15,6 @@
 | `dateOfFinancialData` | `string \| undefined` | Optional | The date the financial data were provided, in YYYY-MM-DD format. |
 | `employeeCount` | `string \| undefined` | Optional | The number of employees of the business. |
 | `netAssets` | `string \| undefined` | Optional | The net assets of the business. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,9 +27,6 @@ const financialReport: FinancialReport = {
   currencyOfFinancialData: 'currencyOfFinancialData6',
   dateOfFinancialData: 'dateOfFinancialData0',
   employeeCount: 'employeeCount0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

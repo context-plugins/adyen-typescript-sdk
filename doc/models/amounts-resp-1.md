@@ -9,8 +9,6 @@ Various amounts related to the payment response from the POI System. Amounts app
 * The cash back part of the requested amount for a payment with cash back.
 * The tip part of the requested amount for a payment with tip.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AmountsResp1`
@@ -25,7 +23,6 @@ Various amounts related to the payment response from the POI System. Amounts app
 | `totalFeesAmount` | `number \| undefined` | Optional | Total amount of financial fees.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `cashBackAmount` | `number \| undefined` | Optional | The cash-back part of the amount requested by the Sale for the payment.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `tipAmount` | `number \| undefined` | Optional | Amount paid for a tip. Allow the printing of the tip on the receipt, and to qualify the tip part of the amount.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -39,9 +36,6 @@ const amountsResp1: AmountsResp1 = {
   totalFeesAmount: 36.44,
   cashBackAmount: 95.22,
   tipAmount: 57.68,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

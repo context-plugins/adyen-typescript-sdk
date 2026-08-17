@@ -3,8 +3,6 @@
 
 [Airline enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/airline/) that may be required for processing the transaction and/or for interchange savings.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Airline1`
@@ -26,7 +24,6 @@
 | `passengers` | [`Passenger[] \| undefined`](../../doc/models/passenger.md) | Optional | - |
 | `ticket` | [`Ticket \| undefined`](../../doc/models/ticket.md) | Optional | - |
 | `travelAgency` | [`TravelAgency \| undefined`](../../doc/models/travel-agency.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -38,17 +35,11 @@ const airline1: Airline1 = {
   agency: {
     invoiceNumber: 'invoiceNumber6',
     planName: 'planName6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   boardingFee: BigInt(164),
   code: 'code6',
   computerizedReservationSystem: 'computerizedReservationSystem8',
   customerReferenceNumber: 'customerReferenceNumber0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

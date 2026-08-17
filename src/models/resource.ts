@@ -6,11 +6,10 @@
 
 import {
   isMappedValueValidForSchema,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   AccountHolderResource,
@@ -27,7 +26,6 @@ import {
 
 export interface Resource {
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export namespace Resource {
@@ -62,8 +60,6 @@ export namespace Resource {
   }
 }
 
-export const resourceSchema: Schema<Resource> = typedExpandoObject(
-  { type: ['type', optional(string())] },
-  'additionalProperties',
-  optional(unknown())
-);
+export const resourceSchema: Schema<Resource> = object({
+  type: ['type', optional(string())],
+});

@@ -1,8 +1,6 @@
 
 # Additional Bank Identification Requirement
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalBankIdentificationRequirement`
@@ -11,27 +9,22 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `additionalBankIdentificationType` | [`AdditionalBankIdentificationType \| undefined`](../../doc/models/additional-bank-identification-type.md) | Optional | - |
+| `additionalBankIdentificationType` | [`AdditionalBankIdentificationTypeEnum \| undefined`](../../doc/models/additional-bank-identification-type-enum.md) | Optional | The type of additional bank identification, depending on the country.<br><br>Possible values:<br><br>* **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces.<br>* **caRoutingNumber**: The 9-digit [Canadian routing number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without separators or spaces.<br>* **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces<br>* **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces. |
 | `description` | `string \| undefined` | Optional | The description of the additional bank identification requirement. |
-| `type` | [`Type610`](../../doc/models/type-610.md) | Required | **additionalBankIdentificationRequirement** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **additionalBankIdentificationRequirement**<br><br>**Value**: `'additionalBankIdentificationRequirement'` |
 
 ## Example
 
 ```ts
 import {
   AdditionalBankIdentificationRequirement,
-  AdditionalBankIdentificationType,
-  Type610,
+  AdditionalBankIdentificationTypeEnum,
 } from 'adyen';
 
 const additionalBankIdentificationRequirement: AdditionalBankIdentificationRequirement = {
-  type: Type610.AdditionalBankIdentificationRequirement,
-  additionalBankIdentificationType: AdditionalBankIdentificationType.AuBsbCode,
+  type: 'additionalBankIdentificationRequirement',
+  additionalBankIdentificationType: AdditionalBankIdentificationTypeEnum.AuBsbCode,
   description: 'description4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

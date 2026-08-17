@@ -1,8 +1,6 @@
 
 # Profile Registration Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ProfileRegistrationResponse`
@@ -11,8 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `redirectUrl` | [`Href \| undefined`](../../doc/models/href.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `redirectUrl` | [`Href5 \| undefined`](../../doc/models/href-5.md) | Optional | A short-lived URL that redirects the user to the iDEAL profile registration page. |
 
 ## Example
 
@@ -22,12 +19,6 @@ import { ProfileRegistrationResponse } from 'adyen';
 const profileRegistrationResponse: ProfileRegistrationResponse = {
   redirectUrl: {
     href: 'href8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

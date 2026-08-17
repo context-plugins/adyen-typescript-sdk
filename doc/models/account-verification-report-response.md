@@ -1,8 +1,6 @@
 
 # Account Verification Report Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountVerificationReportResponse`
@@ -12,18 +10,17 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accounts` | [`VerifiedAccount[]`](../../doc/models/verified-account.md) | Required | A list of bank accounts with their respective information. |
-| `country` | [`AccountVerificationCountry1`](../../doc/models/account-verification-country-1.md) | Required | - |
+| `country` | [`AccountVerificationCountry1Enum`](../../doc/models/account-verification-country-1-enum.md) | Required | The location where the third-party individual's bank account is registered. |
 | `id` | `string` | Required | The unique identifier for the specific report. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  AccountType12,
-  AccountVerificationCountry1,
+  AccountType11Enum,
+  AccountVerificationCountry1Enum,
   AccountVerificationReportResponse,
-  PartyRole2,
+  PartyRole2Enum,
 } from 'adyen';
 
 const accountVerificationReportResponse: AccountVerificationReportResponse = {
@@ -32,7 +29,7 @@ const accountVerificationReportResponse: AccountVerificationReportResponse = {
       accountId: 'accountId0',
       accountName: 'accountName4',
       accountNumber: 'accountNumber8',
-      accountType: AccountType12.Current,
+      accountType: AccountType11Enum.CURRENT,
       currency: 'currency0',
       identifiers: {
         ach: {
@@ -40,42 +37,24 @@ const accountVerificationReportResponse: AccountVerificationReportResponse = {
           routingNumber: 'routingNumber8',
           accountLastDigits: 'accountLastDigits2',
           isTokenized: false,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         bacs: {
           accountNumber: 'accountNumber2',
           sortCode: 'sortCode8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         bsb: {
           accountNumber: 'accountNumber2',
           bsbCode: 'bsbCode0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         eft: {
           accountNumber: 'accountNumber0',
           branch: 'branch8',
           institution: 'institution2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         iban: {
           bban: 'bban8',
           bic: 'bic6',
           iban: 'iban8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       parties: [
@@ -83,27 +62,15 @@ const accountVerificationReportResponse: AccountVerificationReportResponse = {
           identity: {
             fullLegalName: 'fullLegalName2',
             name: 'name4',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
-          role: PartyRole2.Holder,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          role: PartyRole2Enum.HOLDER,
         }
       ],
       bankName: 'bankName6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  country: AccountVerificationCountry1.Lt,
+  country: AccountVerificationCountry1Enum.LT,
   id: 'id0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

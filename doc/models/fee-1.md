@@ -3,8 +3,6 @@
 
 Details of the fee configuration.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Fee1`
@@ -13,8 +11,7 @@ Details of the fee configuration.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | Contains the fee amount. |
 
 ## Example
 
@@ -25,12 +22,6 @@ const fee1: Fee1 = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

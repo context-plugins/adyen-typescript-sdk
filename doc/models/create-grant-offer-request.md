@@ -1,8 +1,6 @@
 
 # Create Grant Offer Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CreateGrantOfferRequest`
@@ -11,8 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The financing amount that the user selected from the dynamic offer. Adyen uses this amount to create a static offer. |
 
 ## Example
 
@@ -23,12 +20,6 @@ const createGrantOfferRequest: CreateGrantOfferRequest = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

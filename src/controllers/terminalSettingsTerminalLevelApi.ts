@@ -36,6 +36,7 @@ export class TerminalSettingsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ terminalId: [terminalId, string()] });
     req.appendTemplatePath`/terminals/${mapped.terminalId}/terminalLogos`;
     req.throwOn(
@@ -91,6 +92,7 @@ export class TerminalSettingsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       terminalId: [terminalId, string()],
       body: [body, optional(logoSchema)],
@@ -151,6 +153,7 @@ export class TerminalSettingsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ terminalId: [terminalId, string()] });
     req.appendTemplatePath`/terminals/${mapped.terminalId}/terminalSettings`;
     req.throwOn(
@@ -213,6 +216,7 @@ export class TerminalSettingsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       terminalId: [terminalId, string()],
       body: [body, optional(terminalSettingsSchema)],

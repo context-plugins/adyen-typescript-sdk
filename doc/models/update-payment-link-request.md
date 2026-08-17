@@ -1,8 +1,6 @@
 
 # Update Payment Link Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdatePaymentLinkRequest`
@@ -11,19 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | [`Status28`](../../doc/models/status-28.md) | Required | Status of the payment link. Possible values:<br><br>* **expired** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | `string` | Required, Constant | Status of the payment link. Possible values:<br><br>* **expired**<br><br>**Value**: `'expired'` |
 
 ## Example
 
 ```ts
-import { Status28, UpdatePaymentLinkRequest } from 'adyen';
+import { UpdatePaymentLinkRequest } from 'adyen';
 
 const updatePaymentLinkRequest: UpdatePaymentLinkRequest = {
-  status: Status28.Expired,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  status: 'expired',
 };
 ```
 

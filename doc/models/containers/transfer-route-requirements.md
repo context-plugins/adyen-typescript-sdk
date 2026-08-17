@@ -16,9 +16,9 @@
 | [`BankAccountIdentificationTypeRequirement`](../../../doc/models/bank-account-identification-type-requirement.md) |
 | [`IbanAccountIdentificationRequirement`](../../../doc/models/iban-account-identification-requirement.md) |
 | [`PaymentInstrumentRequirement`](../../../doc/models/payment-instrument-requirement.md) |
-| [`UsInstantPayoutAddressRequirement`](../../../doc/models/us-instant-payout-address-requirement.md) |
-| [`UsInternationalAchAddressRequirement`](../../../doc/models/us-international-ach-address-requirement.md) |
-| [`UsInternationalAchPriorityRequirement`](../../../doc/models/us-international-ach-priority-requirement.md) |
+| [`USInstantPayoutAddressRequirement`](../../../doc/models/us-instant-payout-address-requirement.md) |
+| [`USInternationalAchAddressRequirement`](../../../doc/models/us-international-ach-address-requirement.md) |
+| [`USInternationalAchPriorityRequirement`](../../../doc/models/us-international-ach-priority-requirement.md) |
 
 ## AdditionalBankIdentificationRequirement
 
@@ -28,7 +28,7 @@
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type610.AdditionalBankIdentificationRequirement,
+  type: 'additionalBankIdentificationRequirement',
 };
 ```
 
@@ -40,7 +40,7 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type710.AddressRequirement,
+  type: 'addressRequirement',
 };
 ```
 
@@ -52,7 +52,7 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type810.AmountMinMaxRequirement,
+  type: 'amountMinMaxRequirement',
 };
 ```
 
@@ -64,7 +64,7 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type94.AmountNonZeroDecimalsRequirement,
+  type: 'amountNonZeroDecimalsRequirement',
 };
 ```
 
@@ -76,7 +76,7 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type293.BankAccountIdentificationTypeRequirement,
+  type: 'bankAccountIdentificationTypeRequirement',
 };
 ```
 
@@ -88,7 +88,7 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type303.IbanAccountIdentificationRequirement,
+  type: 'ibanAccountIdentificationRequirement',
 };
 ```
 
@@ -100,11 +100,11 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type363.PaymentInstrumentRequirement,
+  type: 'paymentInstrumentRequirement',
 };
 ```
 
-## UsInstantPayoutAddressRequirement
+## USInstantPayoutAddressRequirement
 
 ### Initialization Code
 
@@ -112,11 +112,11 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type373.UsInstantPayoutAddressRequirement,
+  type: 'usInstantPayoutAddressRequirement',
 };
 ```
 
-## UsInternationalAchAddressRequirement
+## USInternationalAchAddressRequirement
 
 ### Initialization Code
 
@@ -124,11 +124,11 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type383.UsInternationalAchAddressRequirement,
+  type: 'usInternationalAchAddressRequirement',
 };
 ```
 
-## UsInternationalAchPriorityRequirement
+## USInternationalAchPriorityRequirement
 
 ### Initialization Code
 
@@ -136,7 +136,7 @@ const value: TransferRouteRequirements = {
 
 ```ts
 const value: TransferRouteRequirements = {
-  type: Type393.UsInternationalAchPriorityRequirement,
+  type: 'usInternationalAchPriorityRequirement',
 };
 ```
 

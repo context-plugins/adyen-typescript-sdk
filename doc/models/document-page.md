@@ -1,8 +1,6 @@
 
 # Document Page
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DocumentPage`
@@ -13,21 +11,17 @@
 |  --- | --- | --- | --- |
 | `pageName` | `string \| undefined` | Optional | - |
 | `pageNumber` | `number \| undefined` | Optional | - |
-| `type` | [`Type92 \| undefined`](../../doc/models/type-92.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type91Enum \| undefined`](../../doc/models/type-91-enum.md) | Optional | - |
 
 ## Example
 
 ```ts
-import { DocumentPage, Type92 } from 'adyen';
+import { DocumentPage, Type91Enum } from 'adyen';
 
 const documentPage: DocumentPage = {
   pageName: 'pageName0',
   pageNumber: 88,
-  type: Type92.Front,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type91Enum.FRONT,
 };
 ```
 

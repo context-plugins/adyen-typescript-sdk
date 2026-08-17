@@ -8,38 +8,49 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   BankAccountDetail,
   bankAccountDetailSchema,
 } from './bankAccountDetail.js';
-import { BusinessDetails, businessDetailsSchema } from './businessDetails.js';
 import {
-  IndividualDetails,
-  individualDetailsSchema,
-} from './individualDetails.js';
+  BusinessDetails3,
+  businessDetails3Schema,
+} from './businessDetails3.js';
+import {
+  IndividualDetails3,
+  individualDetails3Schema,
+} from './individualDetails3.js';
 import {
   LegalArrangementDetail,
   legalArrangementDetailSchema,
 } from './legalArrangementDetail.js';
 import { PayoutMethod, payoutMethodSchema } from './payoutMethod.js';
-import { PhoneNumber3, phoneNumber3Schema } from './phoneNumber3.js';
 import { StoreDetail, storeDetailSchema } from './storeDetail.js';
-import { ViasAddress, viasAddressSchema } from './viasAddress.js';
+import { ViasAddress6, viasAddress6Schema } from './viasAddress6.js';
+import { ViasAddress9, viasAddress9Schema } from './viasAddress9.js';
+import {
+  ViasPhoneNumber3,
+  viasPhoneNumber3Schema,
+} from './viasPhoneNumber3.js';
 
 /** Details of the new account holder. */
 export interface AccountHolderDetails2 {
-  address: ViasAddress;
+  /** The address of the account holder. */
+  address: ViasAddress9;
   /** Array of bank accounts associated with the account holder. For details about the required `bankAccountDetail` fields, see [Required information](https://docs.adyen.com/classic-platforms/verification-process/required-information). */
   bankAccountDetails?: BankAccountDetail[];
   /** The opaque reference value returned by the Adyen API during bank account login. */
   bankAggregatorDataReference?: string;
-  businessDetails?: BusinessDetails;
+  /**
+   * Details about the business or nonprofit account holder.
+   * Required when creating an account holder with `legalEntity` **Business** or **NonProfit**.
+   */
+  businessDetails?: BusinessDetails3;
   /** The email address of the account holder. */
   email?: string;
   /**
@@ -47,7 +58,11 @@ export interface AccountHolderDetails2 {
    * **Examples:** "0031 6 11 22 33 44", "+316/1122-3344", "(0031) 611223344"
    */
   fullPhoneNumber?: string;
-  individualDetails?: IndividualDetails;
+  /**
+   * Details about the individual account holder.
+   * Required when creating an account holder with `legalEntity` **Individual**.
+   */
+  individualDetails?: IndividualDetails3;
   /** Date when you last reviewed the account holder's information, in ISO-8601 YYYY-MM-DD format. For example, **2020-01-31**. */
   lastReviewDate?: string;
   /** An array containing information about the account holder's [legal arrangements](https://docs.adyen.com/classic-platforms/verification-process/legal-arrangements). */
@@ -66,52 +81,52 @@ export interface AccountHolderDetails2 {
   metadata?: Record<string, string>;
   /** Array of tokenized card details associated with the account holder. For details about how you can use the tokens to pay out, refer to [Pay out to cards](https://docs.adyen.com/classic-platforms/payout-to-cards). */
   payoutMethods?: PayoutMethod[];
-  phoneNumber?: PhoneNumber3;
-  principalBusinessAddress?: ViasAddress;
+  /**
+   * The phone number of the account holder.
+   * > Required if a `fullPhoneNumber` is not provided.
+   */
+  phoneNumber?: ViasPhoneNumber3;
+  /** The principal business address of the account holder. */
+  principalBusinessAddress?: ViasAddress6;
   /** Array of stores associated with the account holder. Required when onboarding account holders that have an Adyen [point of sale](https://docs.adyen.com/classic-platforms/platforms-for-pos). */
   storeDetails?: StoreDetail[];
   /** The URL of the website of the account holder. */
   webAddress?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const accountHolderDetails2Schema: Schema<AccountHolderDetails2> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        address: ['address', viasAddressSchema],
-        bankAccountDetails: [
-          'bankAccountDetails',
-          optional(array(bankAccountDetailSchema)),
-        ],
-        bankAggregatorDataReference: [
-          'bankAggregatorDataReference',
-          optional(string()),
-        ],
-        businessDetails: ['businessDetails', optional(businessDetailsSchema)],
-        email: ['email', optional(string())],
-        fullPhoneNumber: ['fullPhoneNumber', optional(string())],
-        individualDetails: [
-          'individualDetails',
-          optional(individualDetailsSchema),
-        ],
-        lastReviewDate: ['lastReviewDate', optional(string())],
-        legalArrangements: [
-          'legalArrangements',
-          optional(array(legalArrangementDetailSchema)),
-        ],
-        merchantCategoryCode: ['merchantCategoryCode', optional(string())],
-        metadata: ['metadata', optional(dict(string()))],
-        payoutMethods: ['payoutMethods', optional(array(payoutMethodSchema))],
-        phoneNumber: ['phoneNumber', optional(phoneNumber3Schema)],
-        principalBusinessAddress: [
-          'principalBusinessAddress',
-          optional(viasAddressSchema),
-        ],
-        storeDetails: ['storeDetails', optional(array(storeDetailSchema))],
-        webAddress: ['webAddress', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      address: ['address', viasAddress9Schema],
+      bankAccountDetails: [
+        'bankAccountDetails',
+        optional(array(bankAccountDetailSchema)),
+      ],
+      bankAggregatorDataReference: [
+        'bankAggregatorDataReference',
+        optional(string()),
+      ],
+      businessDetails: ['businessDetails', optional(businessDetails3Schema)],
+      email: ['email', optional(string())],
+      fullPhoneNumber: ['fullPhoneNumber', optional(string())],
+      individualDetails: [
+        'individualDetails',
+        optional(individualDetails3Schema),
+      ],
+      lastReviewDate: ['lastReviewDate', optional(string())],
+      legalArrangements: [
+        'legalArrangements',
+        optional(array(legalArrangementDetailSchema)),
+      ],
+      merchantCategoryCode: ['merchantCategoryCode', optional(string())],
+      metadata: ['metadata', optional(dict(string()))],
+      payoutMethods: ['payoutMethods', optional(array(payoutMethodSchema))],
+      phoneNumber: ['phoneNumber', optional(viasPhoneNumber3Schema)],
+      principalBusinessAddress: [
+        'principalBusinessAddress',
+        optional(viasAddress6Schema),
+      ],
+      storeDetails: ['storeDetails', optional(array(storeDetailSchema))],
+      webAddress: ['webAddress', optional(string())],
+    })
 );

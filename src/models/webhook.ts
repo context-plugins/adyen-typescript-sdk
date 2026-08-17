@@ -8,33 +8,36 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  AdditionalSettingsResponse,
-  additionalSettingsResponseSchema,
-} from './additionalSettingsResponse.js';
+  AdditionalSettingsResponse1,
+  additionalSettingsResponse1Schema,
+} from './additionalSettingsResponse1.js';
 import {
-  CommunicationFormat,
-  communicationFormatSchema,
-} from './communicationFormat.js';
+  CommunicationFormatEnum,
+  communicationFormatEnumSchema,
+} from './communicationFormatEnum.js';
 import {
-  EncryptionProtocol,
-  encryptionProtocolSchema,
-} from './encryptionProtocol.js';
+  EncryptionProtocolEnum,
+  encryptionProtocolEnumSchema,
+} from './encryptionProtocolEnum.js';
 import {
-  FilterMerchantAccountType1,
-  filterMerchantAccountType1Schema,
-} from './filterMerchantAccountType1.js';
-import { NetworkType2, networkType2Schema } from './networkType2.js';
-import { WebhookLinks, webhookLinksSchema } from './webhookLinks.js';
+  FilterMerchantAccountType1Enum,
+  filterMerchantAccountType1EnumSchema,
+} from './filterMerchantAccountType1Enum.js';
+import {
+  NetworkType2Enum,
+  networkType2EnumSchema,
+} from './networkType2Enum.js';
+import { WebhookLinks2, webhookLinks2Schema } from './webhookLinks2.js';
 
 export interface Webhook {
-  links?: WebhookLinks;
+  /** References to resources connected with this webhook. */
+  links?: WebhookLinks2;
   /** Indicates if expired SSL certificates are accepted. Default value: **false**. */
   acceptsExpiredCertificate?: boolean;
   /** Indicates if self-signed SSL certificates are accepted. Default value: **false**. */
@@ -45,14 +48,34 @@ export interface Webhook {
   accountReference?: string;
   /** Indicates if the webhook configuration is active. The field must be **true** for you to receive webhooks about events related an account. */
   active: boolean;
-  additionalSettings?: AdditionalSettingsResponse;
+  /** Additional shopper and transaction information to be included in your [standard webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes). Find out more about the available [additional settings](https://docs.adyen.com/development-resources/webhooks/additional-settings). */
+  additionalSettings?: AdditionalSettingsResponse1;
   /** The alias of our SSL certificate. When you receive a notification from us, the alias from the HMAC signature will match this alias. */
   certificateAlias?: string;
-  communicationFormat: CommunicationFormat;
+  /**
+   * Format or protocol for receiving webhooks. Possible values:
+   * * **soap**
+   * * **http**
+   * * **json**
+   */
+  communicationFormat: CommunicationFormatEnum;
   /** Your description for this webhook configuration. */
   description?: string;
-  encryptionProtocol?: EncryptionProtocol;
-  filterMerchantAccountType?: FilterMerchantAccountType1;
+  /**
+   * SSL version to access the public webhook URL specified in the `url` field. Possible values:
+   * * **TLSv1.3**
+   * * **TLSv1.2**
+   * * **HTTP** - Only allowed on Test environment.
+   * If not specified, the webhook will use `sslVersion`: **TLSv1.2**.
+   */
+  encryptionProtocol?: EncryptionProtocolEnum;
+  /**
+   * Shows how merchant accounts are included in company-level webhooks. Possible values:
+   * * **includeAccounts**
+   * * **excludeAccounts**
+   * * **allAccounts**: Includes all merchant accounts, and does not require specifying `filterMerchantAccounts`.
+   */
+  filterMerchantAccountType?: FilterMerchantAccountType1Enum;
   /**
    * A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for `filterMerchantAccountType`.
    * Required if `filterMerchantAccountType` is either:
@@ -69,7 +92,8 @@ export interface Webhook {
   hmacKeyCheckValue?: string;
   /** Unique identifier for this webhook. */
   id?: string;
-  networkType?: NetworkType2;
+  /** Network type for Terminal API details webhooks. */
+  networkType?: NetworkType2Enum;
   /**
    * Indicates if the SOAP action header needs to be populated. Default value: **false**.
    * Only applies if `communicationFormat`: **soap**.
@@ -98,60 +122,52 @@ export interface Webhook {
   url: string;
   /** Username to access the webhook URL. */
   username?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const webhookSchema: Schema<Webhook> = lazy(() =>
-  typedExpandoObject(
-    {
-      links: ['_links', optional(webhookLinksSchema)],
-      acceptsExpiredCertificate: [
-        'acceptsExpiredCertificate',
-        optional(boolean()),
-      ],
-      acceptsSelfSignedCertificate: [
-        'acceptsSelfSignedCertificate',
-        optional(boolean()),
-      ],
-      acceptsUntrustedRootCertificate: [
-        'acceptsUntrustedRootCertificate',
-        optional(boolean()),
-      ],
-      accountReference: ['accountReference', optional(string())],
-      active: ['active', boolean()],
-      additionalSettings: [
-        'additionalSettings',
-        optional(additionalSettingsResponseSchema),
-      ],
-      certificateAlias: ['certificateAlias', optional(string())],
-      communicationFormat: ['communicationFormat', communicationFormatSchema],
-      description: ['description', optional(string())],
-      encryptionProtocol: [
-        'encryptionProtocol',
-        optional(encryptionProtocolSchema),
-      ],
-      filterMerchantAccountType: [
-        'filterMerchantAccountType',
-        optional(filterMerchantAccountType1Schema),
-      ],
-      filterMerchantAccounts: [
-        'filterMerchantAccounts',
-        optional(array(string())),
-      ],
-      hasError: ['hasError', optional(boolean())],
-      hasPassword: ['hasPassword', optional(boolean())],
-      hmacKeyCheckValue: ['hmacKeyCheckValue', optional(string())],
-      id: ['id', optional(string())],
-      networkType: ['networkType', optional(networkType2Schema)],
-      populateSoapActionHeader: [
-        'populateSoapActionHeader',
-        optional(boolean()),
-      ],
-      type: ['type', string()],
-      url: ['url', string()],
-      username: ['username', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    links: ['_links', optional(webhookLinks2Schema)],
+    acceptsExpiredCertificate: [
+      'acceptsExpiredCertificate',
+      optional(boolean()),
+    ],
+    acceptsSelfSignedCertificate: [
+      'acceptsSelfSignedCertificate',
+      optional(boolean()),
+    ],
+    acceptsUntrustedRootCertificate: [
+      'acceptsUntrustedRootCertificate',
+      optional(boolean()),
+    ],
+    accountReference: ['accountReference', optional(string())],
+    active: ['active', boolean()],
+    additionalSettings: [
+      'additionalSettings',
+      optional(additionalSettingsResponse1Schema),
+    ],
+    certificateAlias: ['certificateAlias', optional(string())],
+    communicationFormat: ['communicationFormat', communicationFormatEnumSchema],
+    description: ['description', optional(string())],
+    encryptionProtocol: [
+      'encryptionProtocol',
+      optional(encryptionProtocolEnumSchema),
+    ],
+    filterMerchantAccountType: [
+      'filterMerchantAccountType',
+      optional(filterMerchantAccountType1EnumSchema),
+    ],
+    filterMerchantAccounts: [
+      'filterMerchantAccounts',
+      optional(array(string())),
+    ],
+    hasError: ['hasError', optional(boolean())],
+    hasPassword: ['hasPassword', optional(boolean())],
+    hmacKeyCheckValue: ['hmacKeyCheckValue', optional(string())],
+    id: ['id', optional(string())],
+    networkType: ['networkType', optional(networkType2EnumSchema)],
+    populateSoapActionHeader: ['populateSoapActionHeader', optional(boolean())],
+    type: ['type', string()],
+    url: ['url', string()],
+    username: ['username', optional(string())],
+  })
 );

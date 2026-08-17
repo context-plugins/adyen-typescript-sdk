@@ -1,14 +1,12 @@
 
-# Sdk Ephem Pub Key
+# SDK Ephem Pub Key
 
 The `sdkEphemPubKey` value as received from the 3D Secure 2 SDK.
 Required for `deviceChannel` set to **app**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`SdkEphemPubKey`
+`SDKEphemPubKey`
 
 ## Fields
 
@@ -18,21 +16,17 @@ Required for `deviceChannel` set to **app**.
 | `kty` | `string \| undefined` | Optional | The `kty` value as received from the 3D Secure 2 SDK. |
 | `x` | `string \| undefined` | Optional | The `x` value as received from the 3D Secure 2 SDK. |
 | `y` | `string \| undefined` | Optional | The `y` value as received from the 3D Secure 2 SDK. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { SdkEphemPubKey } from 'adyen';
+import { SDKEphemPubKey } from 'adyen';
 
-const sdkEphemPubKey: SdkEphemPubKey = {
-  crv: 'crv6',
-  kty: 'kty6',
-  x: 'x4',
-  y: 'y2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const sDKEphemPubKey: SDKEphemPubKey = {
+  crv: 'crv8',
+  kty: 'kty8',
+  x: 'x0',
+  y: 'y8',
 };
 ```
 

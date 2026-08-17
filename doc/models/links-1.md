@@ -1,9 +1,7 @@
 
 # Links 1
 
-Contains redirection URLs to guide the user to the appropriate page, after a successful payment or a cancellation.
-
-*This model accepts additional fields of type unknown.*
+References to resources connected with this user.
 
 ## Structure
 
@@ -13,9 +11,7 @@ Contains redirection URLs to guide the user to the appropriate page, after a suc
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cancel` | [`Href \| undefined`](../../doc/models/href.md) | Optional | - |
-| `success` | [`Href \| undefined`](../../doc/models/href.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `self` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
 
 ## Example
 
@@ -23,20 +19,8 @@ Contains redirection URLs to guide the user to the appropriate page, after a suc
 import { Links1 } from 'adyen';
 
 const links1: Links1 = {
-  cancel: {
-    href: 'href4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  success: {
-    href: 'href2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  self: {
+    href: 'href0',
   },
 };
 ```

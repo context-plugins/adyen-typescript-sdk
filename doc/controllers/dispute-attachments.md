@@ -67,11 +67,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DisputesAttachments401Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments403Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -82,9 +78,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401Error`](../../doc/models/disputes-attachments-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403Error`](../../doc/models/disputes-attachments-403-error.md) |
-| 422 | A request validation error. | [`DisputesAttachments422Error`](../../doc/models/disputes-attachments-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Disputes-Dispute Id-Attachments
@@ -121,7 +117,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const disputeId = 'disputeId4';
 
 const body: DisputeAttachment = {
-  attachmentType: AttachmentType1.Correspondence,
+  attachmentType: AttachmentType1Enum.Correspondence,
   content: 'content0',
   fileName: 'fileName0',
 };
@@ -149,11 +145,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DisputesAttachments401Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments403Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -164,9 +156,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401Error`](../../doc/models/disputes-attachments-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403Error`](../../doc/models/disputes-attachments-403-error.md) |
-| 422 | A request validation error. | [`DisputesAttachments422Error`](../../doc/models/disputes-attachments-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Disputes-Dispute Id-Attachments-Attachment Id
@@ -227,11 +219,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DisputesAttachments401Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments403Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -242,9 +230,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401Error`](../../doc/models/disputes-attachments-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403Error`](../../doc/models/disputes-attachments-403-error.md) |
-| 422 | A request validation error. | [`DisputesAttachments422Error`](../../doc/models/disputes-attachments-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Disputes-Dispute Id-Attachments-Attachment Id
@@ -305,11 +293,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DisputesAttachments401Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments403Error) {
-      console.log(error.result);
-    } else if (error instanceof DisputesAttachments422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -320,7 +304,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401Error`](../../doc/models/disputes-attachments-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403Error`](../../doc/models/disputes-attachments-403-error.md) |
-| 422 | A request validation error. | [`DisputesAttachments422Error`](../../doc/models/disputes-attachments-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

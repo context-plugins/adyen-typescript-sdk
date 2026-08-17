@@ -6,9 +6,9 @@
 
 import { ApiResponse, RequestOptions } from '../core.js';
 import {
-  CampaignStatusTransition1,
-  campaignStatusTransition1Schema,
-} from '../models/campaignStatusTransition1.js';
+  CampaignStatusTransitionEnum,
+  campaignStatusTransitionEnumSchema,
+} from '../models/campaignStatusTransitionEnum.js';
 import {
   DonationCampaign1,
   donationCampaign1Schema,
@@ -35,26 +35,7 @@ import {
 } from '../models/listNonprofitsResponse.js';
 import { array, number, optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { CompaniesCampaignManagement400Error } from '../errors/companiesCampaignManagement400Error.js';
-import { CompaniesCampaignManagement401Error } from '../errors/companiesCampaignManagement401Error.js';
-import { CompaniesCampaignManagement403Error } from '../errors/companiesCampaignManagement403Error.js';
-import { CompaniesCampaignManagement422Error } from '../errors/companiesCampaignManagement422Error.js';
-import { CompaniesCampaignManagement500Error } from '../errors/companiesCampaignManagement500Error.js';
-import { CompaniesCampaignManagementAccountHolders400Error } from '../errors/companiesCampaignManagementAccountHolders400Error.js';
-import { CompaniesCampaignManagementAccountHolders401Error } from '../errors/companiesCampaignManagementAccountHolders401Error.js';
-import { CompaniesCampaignManagementAccountHolders403Error } from '../errors/companiesCampaignManagementAccountHolders403Error.js';
-import { CompaniesCampaignManagementAccountHolders422Error } from '../errors/companiesCampaignManagementAccountHolders422Error.js';
-import { CompaniesCampaignManagementAccountHolders500Error } from '../errors/companiesCampaignManagementAccountHolders500Error.js';
-import { CompaniesCampaignManagementStatusStatus400Error } from '../errors/companiesCampaignManagementStatusStatus400Error.js';
-import { CompaniesCampaignManagementStatusStatus401Error } from '../errors/companiesCampaignManagementStatusStatus401Error.js';
-import { CompaniesCampaignManagementStatusStatus403Error } from '../errors/companiesCampaignManagementStatusStatus403Error.js';
-import { CompaniesCampaignManagementStatusStatus422Error } from '../errors/companiesCampaignManagementStatusStatus422Error.js';
-import { CompaniesCampaignManagementStatusStatus500Error } from '../errors/companiesCampaignManagementStatusStatus500Error.js';
-import { CompaniesNonprofits400Error } from '../errors/companiesNonprofits400Error.js';
-import { CompaniesNonprofits401Error } from '../errors/companiesNonprofits401Error.js';
-import { CompaniesNonprofits403Error } from '../errors/companiesNonprofits403Error.js';
-import { CompaniesNonprofits422Error } from '../errors/companiesNonprofits422Error.js';
-import { CompaniesNonprofits500Error } from '../errors/companiesNonprofits500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class DonationCampaignsApi extends BaseApi {
   /**
@@ -76,6 +57,7 @@ export class DonationCampaignsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DonationCampaign1>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       body: [body, optional(donationCampaignRequestSchema)],
@@ -85,27 +67,27 @@ export class DonationCampaignsApi extends BaseApi {
     req.appendTemplatePath`/companies/${mapped.companyId}/campaignManagement`;
     req.throwOn(
       400,
-      CompaniesCampaignManagement400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      CompaniesCampaignManagement401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      CompaniesCampaignManagement403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      CompaniesCampaignManagement422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      CompaniesCampaignManagement500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -139,6 +121,7 @@ export class DonationCampaignsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListDonationCampaignsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       accountHolderId: [accountHolderId, string()],
@@ -152,27 +135,27 @@ export class DonationCampaignsApi extends BaseApi {
     req.appendTemplatePath`/companies/${mapped.companyId}/campaignManagement/accountHolders/${mapped.accountHolderId}`;
     req.throwOn(
       400,
-      CompaniesCampaignManagementAccountHolders400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      CompaniesCampaignManagementAccountHolders401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      CompaniesCampaignManagementAccountHolders403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      CompaniesCampaignManagementAccountHolders422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      CompaniesCampaignManagementAccountHolders500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -197,6 +180,7 @@ export class DonationCampaignsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       donationCampaignId: [donationCampaignId, string()],
@@ -204,27 +188,27 @@ export class DonationCampaignsApi extends BaseApi {
     req.appendTemplatePath`/companies/${mapped.companyId}/campaignManagement/${mapped.donationCampaignId}`;
     req.throwOn(
       400,
-      CompaniesCampaignManagement400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      CompaniesCampaignManagement401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      CompaniesCampaignManagement403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      CompaniesCampaignManagement422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      CompaniesCampaignManagement500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -256,6 +240,7 @@ export class DonationCampaignsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DonationCampaign1>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       donationCampaignId: [donationCampaignId, string()],
@@ -266,27 +251,27 @@ export class DonationCampaignsApi extends BaseApi {
     req.appendTemplatePath`/companies/${mapped.companyId}/campaignManagement/${mapped.donationCampaignId}`;
     req.throwOn(
       400,
-      CompaniesCampaignManagement400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      CompaniesCampaignManagement401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      CompaniesCampaignManagement403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      CompaniesCampaignManagement422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      CompaniesCampaignManagement500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -303,48 +288,49 @@ export class DonationCampaignsApi extends BaseApi {
    * * Management API—Campaign Management read and write
    *
    * @param companyId          The unique identifier of the company account.
-   * @param donationCampaignId The unique identifier of the donation campaign to activate
-   *                                                        or end.
-   * @param status             The desired status change. Possible values: **activate**
-   *                                                        or **end**.
+   * @param donationCampaignId The unique identifier of the donation campaign to
+   *                                                           activate or end.
+   * @param status             The desired status change. Possible values:
+   *                                                           **activate** or **end**.
    * @return Response from the API call
    */
   async postCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(
     companyId: string,
     donationCampaignId: string,
-    status: CampaignStatusTransition1,
+    status: CampaignStatusTransitionEnum,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DonationCampaign1>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       donationCampaignId: [donationCampaignId, string()],
-      status: [status, campaignStatusTransition1Schema],
+      status: [status, campaignStatusTransitionEnumSchema],
     });
     req.appendTemplatePath`/companies/${mapped.companyId}/campaignManagement/${mapped.donationCampaignId}/status/${mapped.status}`;
     req.throwOn(
       400,
-      CompaniesCampaignManagementStatusStatus400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      CompaniesCampaignManagementStatusStatus401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      CompaniesCampaignManagementStatusStatus403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      CompaniesCampaignManagementStatusStatus422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      CompaniesCampaignManagementStatusStatus500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -378,6 +364,7 @@ export class DonationCampaignsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListNonprofitsResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       searchTerm: [searchTerm, optional(string())],
@@ -395,27 +382,27 @@ export class DonationCampaignsApi extends BaseApi {
     req.appendTemplatePath`/companies/${mapped.companyId}/nonprofits`;
     req.throwOn(
       400,
-      CompaniesNonprofits400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      CompaniesNonprofits401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      CompaniesNonprofits403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      CompaniesNonprofits422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      CompaniesNonprofits500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

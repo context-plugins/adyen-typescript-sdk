@@ -1,8 +1,6 @@
 
 # Additional Data Open Invoice
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataOpenInvoice`
@@ -29,7 +27,6 @@
 | `openinvoicedataLineItemNrShippingMethod` | `string \| undefined` | Optional | Shipping method. |
 | `openinvoicedataLineItemNrTrackingNumber` | `string \| undefined` | Optional | The tracking number for the shipment. |
 | `openinvoicedataLineItemNrTrackingUri` | `string \| undefined` | Optional | URI where the customer can track their shipment. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -42,9 +39,6 @@ const additionalDataOpenInvoice: AdditionalDataOpenInvoice = {
   openinvoicedataRecipientFirstName: 'openinvoicedata.recipientFirstName2',
   openinvoicedataRecipientLastName: 'openinvoicedata.recipientLastName0',
   openinvoicedataLineItemNrCurrencyCode: Liquid error: Value cannot be null. (Parameter 'key'),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

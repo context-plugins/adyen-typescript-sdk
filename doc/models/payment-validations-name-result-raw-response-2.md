@@ -3,8 +3,6 @@
 
 Contains the raw response(s) returned by the scheme for the name validation.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentValidationsNameResultRawResponse2`
@@ -18,7 +16,6 @@ Contains the raw response(s) returned by the scheme for the name validation.
 | `lastName` | `string \| undefined` | Optional | The raw last name validation result that Adyen received from the scheme. Last name validation result is only returned for Visa. |
 | `middleName` | `string \| undefined` | Optional | The raw middle name validation result that Adyen received from the scheme. Middle name validation result is only returned for Visa. |
 | `status` | `string \| undefined` | Optional | The raw name validation status value that Adyen received from the scheme. Only returned for Visa. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const paymentValidationsNameResultRawResponse2: PaymentValidationsNameResultRawR
   lastName: 'lastName0',
   middleName: 'middleName4',
   status: 'status8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

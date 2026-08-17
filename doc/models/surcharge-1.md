@@ -1,8 +1,6 @@
 
 # Surcharge 1
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Surcharge1`
@@ -15,7 +13,6 @@
 | `configurations` | [`MConfiguration[] \| undefined`](../../doc/models/m-configuration.md) | Optional | Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies. |
 | `disclosureOnPresentCard` | `boolean \| undefined` | Optional | Show the maximum surcharge rate to the shopper on the present card screen before they tap. |
 | `excludeGratuityFromSurcharge` | `boolean \| undefined` | Optional | Exclude the tip amount from the surcharge calculation. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,27 +30,18 @@ const surcharge1: Surcharge1 = {
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           currencyCode: 'currencyCode6',
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           currencyCode: 'currencyCode6',
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       commercial: false,
@@ -65,9 +53,6 @@ const surcharge1: Surcharge1 = {
         'sources8',
         'sources9'
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       brand: 'brand4',
@@ -77,27 +62,18 @@ const surcharge1: Surcharge1 = {
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           currencyCode: 'currencyCode6',
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           currencyCode: 'currencyCode6',
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       commercial: false,
@@ -109,9 +85,6 @@ const surcharge1: Surcharge1 = {
         'sources8',
         'sources9'
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       brand: 'brand4',
@@ -121,27 +94,18 @@ const surcharge1: Surcharge1 = {
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           currencyCode: 'currencyCode6',
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           currencyCode: 'currencyCode6',
           amount: 208,
           maxAmount: 98,
           percentage: 191.04,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       commercial: false,
@@ -153,16 +117,10 @@ const surcharge1: Surcharge1 = {
         'sources8',
         'sources9'
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   disclosureOnPresentCard: false,
   excludeGratuityFromSurcharge: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 **sodexo** details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SodexoResponseInfo2`
@@ -14,7 +12,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `merchantContactPhone` | `string \| undefined` | Optional | Sodexo merchantContactPhone |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { SodexoResponseInfo2 } from 'adyen';
 
 const sodexoResponseInfo2: SodexoResponseInfo2 = {
   merchantContactPhone: 'merchantContactPhone0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

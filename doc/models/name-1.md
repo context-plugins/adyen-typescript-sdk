@@ -1,7 +1,7 @@
 
 # Name 1
 
-*This model accepts additional fields of type unknown.*
+The name of the person funding the money.
 
 ## Structure
 
@@ -11,10 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `firstName` | `string` | Required | The individual's first name. Must not be blank. |
-| `infix` | `string \| undefined` | Optional | The infix in the individual's name, if any. |
-| `lastName` | `string` | Required | The individual's last name. Must not be blank. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `firstName` | `string` | Required | The first name.<br><br>**Constraints**: *Maximum Length*: `80` |
+| `lastName` | `string` | Required | The last name.<br><br>**Constraints**: *Maximum Length*: `80` |
 
 ## Example
 
@@ -24,10 +22,6 @@ import { Name1 } from 'adyen';
 const name1: Name1 = {
   firstName: 'firstName4',
   lastName: 'lastName4',
-  infix: 'infix4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

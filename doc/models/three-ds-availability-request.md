@@ -1,11 +1,9 @@
 
-# Three Ds Availability Request
-
-*This model accepts additional fields of type unknown.*
+# Three DS Availability Request
 
 ## Structure
 
-`ThreeDsAvailabilityRequest`
+`ThreeDSAvailabilityRequest`
 
 ## Fields
 
@@ -17,28 +15,24 @@
 | `merchantAccount` | `string` | Required | The merchant account identifier. |
 | `recurringDetailReference` | `string \| undefined` | Optional | A recurring detail reference corresponding to a card. |
 | `shopperReference` | `string \| undefined` | Optional | The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ThreeDsAvailabilityRequest } from 'adyen';
+import { ThreeDSAvailabilityRequest } from 'adyen';
 
-const threeDsAvailabilityRequest: ThreeDsAvailabilityRequest = {
-  merchantAccount: 'merchantAccount0',
+const threeDSAvailabilityRequest: ThreeDSAvailabilityRequest = {
+  merchantAccount: 'merchantAccount6',
   additionalData: {
-    'key0': 'additionalData8'
+    'key0': 'additionalData4'
   },
   brands: [
-    'brands9',
-    'brands0'
+    'brands5',
+    'brands6'
   ],
-  cardNumber: 'cardNumber4',
-  recurringDetailReference: 'recurringDetailReference8',
-  shopperReference: 'shopperReference6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  cardNumber: 'cardNumber0',
+  recurringDetailReference: 'recurringDetailReference4',
+  shopperReference: 'shopperReference2',
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Personal Document Data
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PersonalDocumentData`
@@ -15,23 +13,19 @@
 | `issuerCountry` | `string \| undefined` | Optional | The country where the document was issued, in the two-character<br>[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. For example, **NL**.<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2` |
 | `issuerState` | `string \| undefined` | Optional | The state where the document was issued (if applicable). |
 | `number` | `string \| undefined` | Optional | The number in the document. |
-| `type` | [`Type`](../../doc/models/type.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type15Enum`](../../doc/models/type-15-enum.md) | Required | The type of the document. Possible values: **ID**, **DRIVINGLICENSE**, **PASSPORT**, **SOCIALSECURITY**, **VISA**.<br><br>To delete an existing entry for a document `type`, send only the `type` field in your request. |
 
 ## Example
 
 ```ts
-import { PersonalDocumentData, Type } from 'adyen';
+import { PersonalDocumentData, Type15Enum } from 'adyen';
 
 const personalDocumentData: PersonalDocumentData = {
-  type: Type.Socialsecurity,
+  type: Type15Enum.SOCIALSECURITY,
   expirationDate: 'expirationDate2',
   issuerCountry: 'issuerCountry4',
   issuerState: 'issuerState4',
   number: 'number6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

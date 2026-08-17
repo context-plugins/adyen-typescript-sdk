@@ -3,8 +3,6 @@
 
 Information about the organization. Required if `type` is **organization**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Organization1`
@@ -24,24 +22,23 @@ Information about the organization. Required if `type` is **organization**.
 | `financialReports` | [`FinancialReport[] \| undefined`](../../doc/models/financial-report.md) | Optional | The financial report information of the organization. |
 | `globalLegalEntityIdentifier` | `string \| undefined` | Optional | The global legal entity identifier for the organization.<br><br>This field is not required if the `registrationNumber` for the organization has been provided. |
 | `headOfficeIndicator` | `boolean \| undefined` | Optional | Indicates that the registered business address is also the company's headquarters. |
-| `institutionalSector` | [`InstitutionalSector \| undefined`](../../doc/models/institutional-sector.md) | Optional | - |
+| `institutionalSector` | [`InstitutionalSectorEnum \| undefined`](../../doc/models/institutional-sector-enum.md) | Optional | The institutional sector the organization operates within. |
 | `legalForm` | `string \| undefined` | Optional | The type of business entity as defined in the national legal system. Use a legal form listed within the accepted legal forms compiled by the Central Bank of Europe. |
 | `legalName` | `string` | Required | The organization's legal name. |
-| `phone` | [`PhoneNumber \| undefined`](../../doc/models/phone-number.md) | Optional | - |
-| `principalPlaceOfBusiness` | [`Address1 \| undefined`](../../doc/models/address-1.md) | Optional | - |
-| `registeredAddress` | [`Address1`](../../doc/models/address-1.md) | Required | - |
+| `phone` | [`PhoneNumber2 \| undefined`](../../doc/models/phone-number-2.md) | Optional | The phone number of the legal entity. |
+| `principalPlaceOfBusiness` | [`Address22 \| undefined`](../../doc/models/address-22.md) | Optional | The address where the organization operates from. Provide this if the principal place of business is different from the `registeredAddress`. |
+| `registeredAddress` | [`Address31`](../../doc/models/address-31.md) | Required | The address of the organization registered at their registrar (such as the Chamber of Commerce). |
 | `registrationNumber` | `string \| undefined` | Optional | The organization's registration number. |
 | `registrationNumberAbsent` | `boolean \| null \| undefined` | Optional | Set this to **true** if the organization does not have a registration number available. Only applicable for organizations in New Zealand, and incorporated partnerships and government organizations in Australia. |
-| `statusOfLegalProceeding` | [`StatusOfLegalProceeding \| undefined`](../../doc/models/status-of-legal-proceeding.md) | Optional | - |
-| `stockData` | [`StockData \| undefined`](../../doc/models/stock-data.md) | Optional | - |
-| `support` | [`Support \| undefined`](../../doc/models/support.md) | Optional | - |
+| `statusOfLegalProceeding` | [`StatusOfLegalProceedingEnum \| undefined`](../../doc/models/status-of-legal-proceeding-enum.md) | Optional | The status of any current or past legal action taken against the legal entity.<br><br>Possible values: **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**<br><br>If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfLegalProceeding` is not required. Otherwise, it is required. |
+| `stockData` | [`StockData2 \| undefined`](../../doc/models/stock-data-2.md) | Optional | Information about the organization's publicly traded stock. Provide this object only if `type` is **listedPublicCompany**. |
+| `support` | [`Support1 \| undefined`](../../doc/models/support-1.md) | Optional | Support information for the legal entity. Required if you have a platform setup. |
 | `taxInformation` | [`TaxInformation[] \| undefined`](../../doc/models/tax-information.md) | Optional | The tax information of the organization. |
-| `taxReportingClassification` | [`TaxReportingClassification \| undefined`](../../doc/models/tax-reporting-classification.md) | Optional | - |
-| `type` | [`Type161 \| undefined`](../../doc/models/type-161.md) | Optional | - |
-| `vatAbsenceReason` | [`VatAbsenceReason \| undefined`](../../doc/models/vat-absence-reason.md) | Optional | - |
+| `taxReportingClassification` | [`TaxReportingClassification2 \| undefined`](../../doc/models/tax-reporting-classification-2.md) | Optional | The tax reporting classification (FATCA/CRS self-certification) of the organization. |
+| `type` | [`Type161Enum \| undefined`](../../doc/models/type-161-enum.md) | Optional | Type of organization.<br><br>Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**. |
+| `vatAbsenceReason` | [`VatAbsenceReasonEnum \| undefined`](../../doc/models/vat-absence-reason-enum.md) | Optional | The reason the organization has not provided a VAT number.<br><br>Possible values: **industryExemption**, **belowTaxThreshold**. |
 | `vatNumber` | `string \| undefined` | Optional | The organization's VAT number. |
-| `webData` | [`WebData \| undefined`](../../doc/models/web-data.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `webData` | [`WebData1 \| undefined`](../../doc/models/web-data-1.md) | Optional | The website and app URL of the legal entity. |
 
 ## Example
 
@@ -57,18 +54,12 @@ const organization1: Organization1 = {
     stateOrProvince: 'stateOrProvince8',
     street: 'street0',
     street2: 'street24',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   countryOfGoverningLaw: 'countryOfGoverningLaw6',
   dateOfIncorporation: 'dateOfIncorporation2',
   dateOfInitiationOfLegalProceeding: 'dateOfInitiationOfLegalProceeding8',
   description: 'description8',
   doingBusinessAs: 'doingBusinessAs6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

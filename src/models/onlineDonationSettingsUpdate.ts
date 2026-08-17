@@ -8,11 +8,10 @@ import {
   array,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   OnlineDonationSettingsUpdateDefaultAmount,
@@ -25,40 +24,35 @@ import {
 
 export interface OnlineDonationSettingsUpdate {
   /** The default amount for donations. */
-  defaultAmount?: OnlineDonationSettingsUpdateDefaultAmount;
+  defaultAmount?: OnlineDonationSettingsUpdateDefaultAmount | null;
   /**
    * The type of donation to collect from the shopper. Possible values:
    * - **roundup**: Round up the transaction amount.
    * - **fixedAmounts**: Choose a fixed amount.
    * - **fixedAmountsRoundup**: Round up, or choose a fixed amount.
    */
-  donationType?: OnlineDonationSettingsUpdateDonationType;
+  donationType?: OnlineDonationSettingsUpdateDonationType | null;
   /** The merchant accounts for this sales channel that are associated with the donation campaign. */
   merchantAccounts?: string[] | null;
   /** The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation campaign. */
   storeIds?: string[] | null;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const onlineDonationSettingsUpdateSchema: Schema<OnlineDonationSettingsUpdate> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        defaultAmount: [
-          'defaultAmount',
-          optional(onlineDonationSettingsUpdateDefaultAmountSchema),
-        ],
-        donationType: [
-          'donationType',
-          optional(onlineDonationSettingsUpdateDonationTypeSchema),
-        ],
-        merchantAccounts: [
-          'merchantAccounts',
-          optional(nullable(array(string()))),
-        ],
-        storeIds: ['storeIds', optional(nullable(array(string())))],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      defaultAmount: [
+        'defaultAmount',
+        optional(nullable(onlineDonationSettingsUpdateDefaultAmountSchema)),
+      ],
+      donationType: [
+        'donationType',
+        optional(nullable(onlineDonationSettingsUpdateDonationTypeSchema)),
+      ],
+      merchantAccounts: [
+        'merchantAccounts',
+        optional(nullable(array(string()))),
+      ],
+      storeIds: ['storeIds', optional(nullable(array(string())))],
+    })
 );

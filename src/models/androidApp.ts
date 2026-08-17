@@ -8,14 +8,13 @@ import {
   array,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { AndroidAppError, androidAppErrorSchema } from './androidAppError.js';
-import { Status15, status15Schema } from './status15.js';
+import { Status7Enum, status7EnumSchema } from './status7Enum.js';
 
 export interface AndroidApp {
   /** The description that was provided when uploading the app. The description is not shown on the terminal. */
@@ -30,28 +29,31 @@ export interface AndroidApp {
   label?: string;
   /** The package name that uniquely identifies the Android app. */
   packageName?: string;
-  status: Status15;
+  /**
+   * The status of the app. Possible values:
+   * * `processing`: the app is being signed and converted to a format that the terminal can handle.
+   * * `error`: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements).
+   * * `invalid`: there is something wrong with the APK file of the app.
+   * * `ready`: the app has been signed and converted.
+   * * `archived`: the app is no longer available.
+   */
+  status: Status7Enum;
   /** The version number of the app. */
   versionCode?: number;
   /** The app version number that is shown on the terminal. */
   versionName?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const androidAppSchema: Schema<AndroidApp> = lazy(() =>
-  typedExpandoObject(
-    {
-      description: ['description', optional(string())],
-      errorCode: ['errorCode', optional(string())],
-      errors: ['errors', optional(array(androidAppErrorSchema))],
-      id: ['id', string()],
-      label: ['label', optional(string())],
-      packageName: ['packageName', optional(string())],
-      status: ['status', status15Schema],
-      versionCode: ['versionCode', optional(number())],
-      versionName: ['versionName', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    description: ['description', optional(string())],
+    errorCode: ['errorCode', optional(string())],
+    errors: ['errors', optional(array(androidAppErrorSchema))],
+    id: ['id', string()],
+    label: ['label', optional(string())],
+    packageName: ['packageName', optional(string())],
+    status: ['status', status7EnumSchema],
+    versionCode: ['versionCode', optional(number())],
+    versionName: ['versionName', optional(string())],
+  })
 );

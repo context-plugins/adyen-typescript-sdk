@@ -1,19 +1,17 @@
 
-# Ach Direct Debit
-
-*This model accepts additional fields of type unknown.*
+# ACH Direct Debit
 
 ## Structure
 
-`AchDirectDebit`
+`ACHDirectDebit`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountHolderType` | [`AccountHolderType \| undefined`](../../doc/models/account-holder-type.md) | Optional | - |
+| `accountHolderType` | [`AccountHolderTypeEnum \| undefined`](../../doc/models/account-holder-type-enum.md) | Optional | The account holder type (personal or business). |
 | `bankAccountNumber` | `string \| undefined` | Optional | The bank account number (without separators). |
-| `bankAccountType` | [`BankAccountType \| undefined`](../../doc/models/bank-account-type.md) | Optional | - |
+| `bankAccountType` | [`BankAccountTypeEnum \| undefined`](../../doc/models/bank-account-type-enum.md) | Optional | The bank account type (checking, savings...). |
 | `bankLocationId` | `string \| undefined` | Optional | The bank routing number of the account. The field value is `nil` in most cases. |
 | `checkoutAttemptId` | `string \| undefined` | Optional | The checkout attempt identifier. |
 | `encryptedBankAccountNumber` | `string \| undefined` | Optional | Encrypted bank account number. The bank account number (without separators). |
@@ -23,23 +21,25 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `transferInstrumentId` | `string \| undefined` | Optional | The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts. |
-| `type` | [`Type9 \| undefined`](../../doc/models/type-9.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`TypeEnum \| undefined`](../../doc/models/type-enum.md) | Optional | **ach**<br><br>**Default**: `TypeEnum.Ach` |
 
 ## Example
 
 ```ts
-import { AccountHolderType, AchDirectDebit, BankAccountType } from 'adyen';
+import {
+  ACHDirectDebit,
+  AccountHolderTypeEnum,
+  BankAccountTypeEnum,
+  TypeEnum,
+} from 'adyen';
 
-const achDirectDebit: AchDirectDebit = {
-  accountHolderType: AccountHolderType.Business,
-  bankAccountNumber: 'bankAccountNumber8',
-  bankAccountType: BankAccountType.Payment,
-  bankLocationId: 'bankLocationId2',
-  checkoutAttemptId: 'checkoutAttemptId4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const aCHDirectDebit: ACHDirectDebit = {
+  accountHolderType: AccountHolderTypeEnum.Business,
+  bankAccountNumber: 'bankAccountNumber0',
+  bankAccountType: BankAccountTypeEnum.Balance,
+  bankLocationId: 'bankLocationId4',
+  checkoutAttemptId: 'checkoutAttemptId6',
+  type: TypeEnum.Ach,
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Get Stores Under Account Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetStoresUnderAccountResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `stores` | [`Store1[] \| undefined`](../../doc/models/store-1.md) | Optional | Array that returns a list of all stores for the specified merchant account, or for all merchant accounts under the company account. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const getStoresUnderAccountResponse: GetStoresUnderAccountResponse = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         streetAddress: 'streetAddress6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       description: 'description8',
       inStoreTerminals: [
@@ -41,9 +35,6 @@ const getStoresUnderAccountResponse: GetStoresUnderAccountResponse = {
       ],
       merchantAccountCode: 'merchantAccountCode0',
       status: 'status0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       store: 'store8',
@@ -53,9 +44,6 @@ const getStoresUnderAccountResponse: GetStoresUnderAccountResponse = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         streetAddress: 'streetAddress6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       description: 'description8',
       inStoreTerminals: [
@@ -65,9 +53,6 @@ const getStoresUnderAccountResponse: GetStoresUnderAccountResponse = {
       ],
       merchantAccountCode: 'merchantAccountCode0',
       status: 'status0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       store: 'store8',
@@ -77,9 +62,6 @@ const getStoresUnderAccountResponse: GetStoresUnderAccountResponse = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         streetAddress: 'streetAddress6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       description: 'description8',
       inStoreTerminals: [
@@ -89,14 +71,8 @@ const getStoresUnderAccountResponse: GetStoresUnderAccountResponse = {
       ],
       merchantAccountCode: 'merchantAccountCode0',
       status: 'status0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

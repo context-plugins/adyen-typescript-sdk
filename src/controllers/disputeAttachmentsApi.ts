@@ -15,9 +15,7 @@ import {
 } from '../models/disputeAttachment.js';
 import { array, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { DisputesAttachments401Error } from '../errors/disputesAttachments401Error.js';
-import { DisputesAttachments403Error } from '../errors/disputesAttachments403Error.js';
-import { DisputesAttachments422Error } from '../errors/disputesAttachments422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class DisputeAttachmentsApi extends BaseApi {
   /**
@@ -31,17 +29,22 @@ export class DisputeAttachmentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DisputeAttachment[]>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({ disputeId: [disputeId, string()] });
     req.appendTemplatePath`/disputes/${mapped.disputeId}/attachments`;
-    req.throwOn(401, DisputesAttachments401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      DisputesAttachments403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      DisputesAttachments422Error,
+      DefaultErrorResponseEntityError,
       'A request validation error.'
     );
     req.authenticate(false);
@@ -62,6 +65,7 @@ export class DisputeAttachmentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AttachDocumentResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({
       disputeId: [disputeId, string()],
       body: [body, disputeAttachmentSchema],
@@ -69,15 +73,19 @@ export class DisputeAttachmentsApi extends BaseApi {
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.appendTemplatePath`/disputes/${mapped.disputeId}/attachments`;
-    req.throwOn(401, DisputesAttachments401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      DisputesAttachments403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      DisputesAttachments422Error,
+      DefaultErrorResponseEntityError,
       'A request validation error.'
     );
     req.authenticate(false);
@@ -97,20 +105,25 @@ export class DisputeAttachmentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({
       disputeId: [disputeId, string()],
       attachmentId: [attachmentId, string()],
     });
     req.appendTemplatePath`/disputes/${mapped.disputeId}/attachments/${mapped.attachmentId}`;
-    req.throwOn(401, DisputesAttachments401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      DisputesAttachments403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      DisputesAttachments422Error,
+      DefaultErrorResponseEntityError,
       'A request validation error.'
     );
     req.authenticate(false);
@@ -130,20 +143,25 @@ export class DisputeAttachmentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DisputeAttachment>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({
       disputeId: [disputeId, string()],
       attachmentId: [attachmentId, string()],
     });
     req.appendTemplatePath`/disputes/${mapped.disputeId}/attachments/${mapped.attachmentId}`;
-    req.throwOn(401, DisputesAttachments401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      DisputesAttachments403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      DisputesAttachments422Error,
+      DefaultErrorResponseEntityError,
       'A request validation error.'
     );
     req.authenticate(false);

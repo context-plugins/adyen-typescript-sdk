@@ -1,8 +1,6 @@
 
 # Notify Shopper Result
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NotifyShopperResult`
@@ -18,7 +16,6 @@
 | `resultCode` | `string \| undefined` | Optional | The code indicating the status of notification. |
 | `shopperNotificationReference` | `string \| undefined` | Optional | The unique reference for the request sent downstream. |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the recurringDetailReference returned in the response when token was created |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const notifyShopperResult: NotifyShopperResult = {
   pspReference: 'pspReference2',
   reference: 'reference6',
   resultCode: 'resultCode4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

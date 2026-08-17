@@ -15,13 +15,17 @@ import {
   androidCertificatesResponseSchema,
 } from '../models/androidCertificatesResponse.js';
 import {
-  EntityReference,
-  entityReferenceSchema,
-} from '../models/entityReference.js';
-import {
   ReprocessAndroidAppResponse,
   reprocessAndroidAppResponseSchema,
 } from '../models/reprocessAndroidAppResponse.js';
+import {
+  UploadAndroidAppResponse,
+  uploadAndroidAppResponseSchema,
+} from '../models/uploadAndroidAppResponse.js';
+import {
+  UploadAndroidCertificateResponse,
+  uploadAndroidCertificateResponseSchema,
+} from '../models/uploadAndroidCertificateResponse.js';
 import { number, optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
 import { RestServiceError } from '../errors/restServiceError.js';
@@ -60,6 +64,7 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AndroidAppsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       pageNumber: [pageNumber, optional(number())],
@@ -120,8 +125,9 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
   async postCompaniesCompanyIdAndroidApps(
     companyId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<EntityReference>> {
+  ): Promise<ApiResponse<UploadAndroidAppResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ companyId: [companyId, string()] });
     req.appendTemplatePath`/companies/${mapped.companyId}/androidApps`;
     req.throwOn(
@@ -150,7 +156,7 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(entityReferenceSchema, requestOptions);
+    return req.callAsJson(uploadAndroidAppResponseSchema, requestOptions);
   }
 
   /**
@@ -177,6 +183,7 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AndroidApp>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       id: [id, string()],
@@ -233,6 +240,7 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ReprocessAndroidAppResponse>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       id: [id, string()],
@@ -299,6 +307,7 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AndroidCertificatesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       pageNumber: [pageNumber, optional(number())],
@@ -350,8 +359,9 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
   async postCompaniesCompanyIdAndroidCertificates(
     companyId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<EntityReference>> {
+  ): Promise<ApiResponse<UploadAndroidCertificateResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ companyId: [companyId, string()] });
     req.appendTemplatePath`/companies/${mapped.companyId}/androidCertificates`;
     req.throwOn(
@@ -380,6 +390,9 @@ export class AndroidFilesCompanyLevelApi extends BaseApi {
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(entityReferenceSchema, requestOptions);
+    return req.callAsJson(
+      uploadAndroidCertificateResponseSchema,
+      requestOptions
+    );
   }
 }

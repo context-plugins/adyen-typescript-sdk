@@ -6,24 +6,26 @@
 
 import { ApiResponse, RequestOptions } from '../core.js';
 import {
-  BalancePlatformsTransferLimitsResponse1,
-  balancePlatformsTransferLimitsResponse1Schema,
-} from '../models/balancePlatformsTransferLimitsResponse1.js';
-import {
   CreateTransferLimitRequest,
   createTransferLimitRequestSchema,
 } from '../models/createTransferLimitRequest.js';
-import { LimitStatus, limitStatusSchema } from '../models/limitStatus.js';
-import { Scope, scopeSchema } from '../models/scope.js';
+import {
+  LimitStatusEnum,
+  limitStatusEnumSchema,
+} from '../models/limitStatusEnum.js';
+import { ScopeEnum, scopeEnumSchema } from '../models/scopeEnum.js';
+import { TransferLimit, transferLimitSchema } from '../models/transferLimit.js';
 import {
   TransferLimitListResponse,
   transferLimitListResponseSchema,
 } from '../models/transferLimitListResponse.js';
-import { TransferType, transferTypeSchema } from '../models/transferType.js';
+import {
+  TransferTypeEnum,
+  transferTypeEnumSchema,
+} from '../models/transferTypeEnum.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { BalancePlatformsTransferLimits404Error } from '../errors/balancePlatformsTransferLimits404Error.js';
-import { BalancePlatformsTransferLimits422Error } from '../errors/balancePlatformsTransferLimits422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
   /**
@@ -33,32 +35,33 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
    *
    * @param id           The unique identifier of the balance platform.
    * @param scope        The scope to which the transfer limit applies. Possible values: *
-   *                                     **perTransaction**: you set a maximum amount for each transfer made from the
-   *                                     balance account or balance platform. * **perDay**: you set a maximum total
-   *                                     amount for all transfers made from the balance account or balance platform in
-   *                                     a day.
+   *                                         **perTransaction**: you set a maximum amount for each transfer made from
+   *                                         the balance account or balance platform. * **perDay**: you set a maximum
+   *                                         total amount for all transfers made from the balance account or balance
+   *                                         platform in a day.
    * @param transferType The type of transfer to which the limit applies. Possible values: *
-   *                                     **instant**: the limit applies to transfers with an **instant** priority. *
-   *                                     **all**: the limit applies to all transfers, regardless of priority.
-   * @param status       The status of the transfer limit. Possible values:    * **active**: the limit
-   *                                     is currently active. * **inactive**: the limit is currently inactive. *
-   *                                     **pendingSCA**: the limit is pending until your user performs SCA. *
-   *                                     **scheduled**: the limit is scheduled to become active at a future date.
+   *                                         **instant**: the limit applies to transfers with an **instant** priority.
+   *                                         * **all**: the limit applies to all transfers, regardless of priority.
+   * @param status       The status of the transfer limit. Possible values:    * **active**: the
+   *                                         limit is currently active. * **inactive**: the limit is currently inactive.
+   *                                         * **pendingSCA**: the limit is pending until your user performs SCA. *
+   *                                         **scheduled**: the limit is scheduled to become active at a future date.
    * @return Response from the API call
    */
   async getBalancePlatformsIdTransferLimits(
     id: string,
-    scope?: Scope,
-    transferType?: TransferType,
-    status?: LimitStatus,
+    scope?: ScopeEnum,
+    transferType?: TransferTypeEnum,
+    status?: LimitStatusEnum,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferLimitListResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
-      scope: [scope, optional(scopeSchema)],
-      transferType: [transferType, optional(transferTypeSchema)],
-      status: [status, optional(limitStatusSchema)],
+      scope: [scope, optional(scopeEnumSchema)],
+      transferType: [transferType, optional(transferTypeEnumSchema)],
+      status: [status, optional(limitStatusEnumSchema)],
     });
     req.query('scope', mapped.scope);
     req.query('transferType', mapped.transferType);
@@ -66,12 +69,12 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.id}/transferLimits`;
     req.throwOn(
       404,
-      BalancePlatformsTransferLimits404Error,
+      DefaultErrorResponseEntityError,
       'Not found - One of the transfer limits could not be found.'
     );
     req.throwOn(
       422,
-      BalancePlatformsTransferLimits422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate([]);
@@ -90,8 +93,9 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     id: string,
     body: CreateTransferLimitRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<BalancePlatformsTransferLimitsResponse1>> {
+  ): Promise<ApiResponse<TransferLimit>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, createTransferLimitRequestSchema],
@@ -101,19 +105,16 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.id}/transferLimits`;
     req.throwOn(
       404,
-      BalancePlatformsTransferLimits404Error,
+      DefaultErrorResponseEntityError,
       'Not found - One of the transfer limits could not be found.'
     );
     req.throwOn(
       422,
-      BalancePlatformsTransferLimits422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate([]);
-    return req.callAsJson(
-      balancePlatformsTransferLimitsResponse1Schema,
-      requestOptions
-    );
+    return req.callAsJson(transferLimitSchema, requestOptions);
   }
 
   /**
@@ -128,8 +129,9 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     id: string,
     transferLimitId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<BalancePlatformsTransferLimitsResponse1>> {
+  ): Promise<ApiResponse<TransferLimit>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       transferLimitId: [transferLimitId, string()],
@@ -137,19 +139,16 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.id}/transferLimits/${mapped.transferLimitId}`;
     req.throwOn(
       404,
-      BalancePlatformsTransferLimits404Error,
+      DefaultErrorResponseEntityError,
       'Not found - One of the transfer limits could not be found.'
     );
     req.throwOn(
       422,
-      BalancePlatformsTransferLimits422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate([]);
-    return req.callAsJson(
-      balancePlatformsTransferLimitsResponse1Schema,
-      requestOptions
-    );
+    return req.callAsJson(transferLimitSchema, requestOptions);
   }
 
   /**
@@ -167,6 +166,7 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       transferLimitId: [transferLimitId, string()],
@@ -174,12 +174,12 @@ export class TransferLimitsBalancePlatformLevelApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.id}/transferLimits/${mapped.transferLimitId}`;
     req.throwOn(
       404,
-      BalancePlatformsTransferLimits404Error,
+      DefaultErrorResponseEntityError,
       'Not found - One of the transfer limits could not be found.'
     );
     req.throwOn(
       422,
-      BalancePlatformsTransferLimits422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate([]);

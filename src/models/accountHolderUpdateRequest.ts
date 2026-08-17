@@ -8,18 +8,17 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   AccountHolderCapability,
   accountHolderCapabilitySchema,
 } from './accountHolderCapability.js';
-import { ContactDetails, contactDetailsSchema } from './contactDetails.js';
-import { Status5, status5Schema } from './status5.js';
+import { ContactDetails1, contactDetails1Schema } from './contactDetails1.js';
+import { Status9Enum, status9EnumSchema } from './status9Enum.js';
 import {
   VerificationDeadline,
   verificationDeadlineSchema,
@@ -30,7 +29,8 @@ export interface AccountHolderUpdateRequest {
   balancePlatform?: string;
   /** Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability. */
   capabilities?: Record<string, AccountHolderCapability>;
-  contactDetails?: ContactDetails;
+  /** Contact details of the account holder. */
+  contactDetails?: ContactDetails1;
   /** Your description for the account holder. */
   description?: string;
   /**
@@ -45,7 +45,14 @@ export interface AccountHolderUpdateRequest {
   primaryBalanceAccount?: string;
   /** Your reference for the account holder. */
   reference?: string;
-  status?: Status5;
+  /**
+   * The status of the account holder.
+   * Possible values:
+   *  * **active**: The account holder is active and allowed to use its capabilities. This is the initial status for account holders and balance accounts. You can change this status to **suspended** or **closed**.
+   *  * **suspended**: The account holder is temporarily disabled and payouts are blocked. You can change this status to **active** or **closed**.
+   * * **closed**: The account holder and all of its capabilities are permanently disabled. This is a final status and cannot be changed.
+   */
+  status?: Status9Enum;
   /**
    * The time zone of the account holder. For example, **Europe/Amsterdam**.
    * Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -53,35 +60,30 @@ export interface AccountHolderUpdateRequest {
   timeZone?: string;
   /** List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved. */
   verificationDeadlines?: VerificationDeadline[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const accountHolderUpdateRequestSchema: Schema<AccountHolderUpdateRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        balancePlatform: ['balancePlatform', optional(string())],
-        capabilities: [
-          'capabilities',
-          optional(dict(accountHolderCapabilitySchema)),
-        ],
-        contactDetails: ['contactDetails', optional(contactDetailsSchema)],
-        description: ['description', optional(string())],
-        metadata: ['metadata', optional(dict(string()))],
-        migratedAccountHolderCode: [
-          'migratedAccountHolderCode',
-          optional(string()),
-        ],
-        primaryBalanceAccount: ['primaryBalanceAccount', optional(string())],
-        reference: ['reference', optional(string())],
-        status: ['status', optional(status5Schema)],
-        timeZone: ['timeZone', optional(string())],
-        verificationDeadlines: [
-          'verificationDeadlines',
-          optional(array(verificationDeadlineSchema)),
-        ],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      balancePlatform: ['balancePlatform', optional(string())],
+      capabilities: [
+        'capabilities',
+        optional(dict(accountHolderCapabilitySchema)),
+      ],
+      contactDetails: ['contactDetails', optional(contactDetails1Schema)],
+      description: ['description', optional(string())],
+      metadata: ['metadata', optional(dict(string()))],
+      migratedAccountHolderCode: [
+        'migratedAccountHolderCode',
+        optional(string()),
+      ],
+      primaryBalanceAccount: ['primaryBalanceAccount', optional(string())],
+      reference: ['reference', optional(string())],
+      status: ['status', optional(status9EnumSchema)],
+      timeZone: ['timeZone', optional(string())],
+      verificationDeadlines: [
+        'verificationDeadlines',
+        optional(array(verificationDeadlineSchema)),
+      ],
+    })
 );

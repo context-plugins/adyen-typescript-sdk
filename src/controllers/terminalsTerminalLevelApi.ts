@@ -58,6 +58,7 @@ export class TerminalsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListTerminalsResponse>> {
     const req = this.createRequest('GET', '/terminals');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       searchQuery: [searchQuery, optional(string())],
       otpQuery: [otpQuery, optional(string())],
@@ -126,6 +127,7 @@ export class TerminalsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       terminalId: [terminalId, string()],
       body: [body, optional(terminalReassignmentRequestSchema)],

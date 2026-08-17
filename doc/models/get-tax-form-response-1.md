@@ -1,8 +1,6 @@
 
 # Get Tax Form Response 1
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetTaxFormResponse1`
@@ -12,20 +10,16 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `content` | `string` | Required | The content of the tax form in Base64 format. |
-| `contentType` | [`ContentType \| undefined`](../../doc/models/content-type.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `contentType` | [`ContentTypeEnum \| undefined`](../../doc/models/content-type-enum.md) | Optional | The content type of the tax form.<br><br>Possible values:<br><br>* **application/pdf** |
 
 ## Example
 
 ```ts
-import { ContentType, GetTaxFormResponse1 } from 'adyen';
+import { ContentTypeEnum, GetTaxFormResponse1 } from 'adyen';
 
 const getTaxFormResponse1: GetTaxFormResponse1 = {
   content: 'content8',
-  contentType: ContentType.EnumApplicationpdf,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  contentType: ContentTypeEnum.EnumApplicationpdf,
 };
 ```
 

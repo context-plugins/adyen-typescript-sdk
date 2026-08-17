@@ -1,8 +1,6 @@
 
 # Additional Data Lodging
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataLodging`
@@ -28,7 +26,6 @@
 | `lodgingTotalTax` | `string \| undefined` | Optional | The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* Format: numeric<br>* Max length: 12 characters<br>* Must not be a negative number |
 | `travelEntertainmentAuthDataDuration` | `string \| undefined` | Optional | The number of nights. This should be included in the auth message.<br><br>* Format: numeric<br>* Max length: 4 characters |
 | `travelEntertainmentAuthDataMarket` | `string \| undefined` | Optional | Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.<br><br>* Format: alphanumeric<br>* Max length: 1 character |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -41,9 +38,6 @@ const additionalDataLodging: AdditionalDataLodging = {
   lodgingCheckOutDate: 'lodging.checkOutDate4',
   lodgingCustomerServiceTollFreeNumber: 'lodging.customerServiceTollFreeNumber2',
   lodgingFireSafetyActIndicator: 'lodging.fireSafetyActIndicator2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

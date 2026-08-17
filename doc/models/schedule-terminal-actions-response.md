@@ -1,8 +1,6 @@
 
 # Schedule Terminal Actions Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ScheduleTerminalActionsResponse`
@@ -18,27 +16,20 @@
 | `terminalsWithErrors` | `Record<string, unknown> \| undefined` | Optional | The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to. |
 | `totalErrors` | `number \| undefined` | Optional | The number of terminals for which scheduling the action failed. |
 | `totalScheduled` | `number \| undefined` | Optional | The number of terminals for which the action was successfully scheduled. This doesn't mean the action has happened yet. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ScheduleTerminalActionsResponse, Type210 } from 'adyen';
+import { ScheduleTerminalActionsResponse, Type210Enum } from 'adyen';
 
 const scheduleTerminalActionsResponse: ScheduleTerminalActionsResponse = {
   actionDetails: {
-    type: Type210.ForceReboot,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: Type210Enum.ForceReboot,
   },
   items: [
     {
       id: 'id8',
       terminalId: 'terminalId6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   scheduledAt: 'scheduledAt0',
@@ -46,9 +37,6 @@ const scheduleTerminalActionsResponse: ScheduleTerminalActionsResponse = {
   terminalsWithErrors: {
     'key0': { 'key1': 'val1', 'key2': 'val2' },
     'key1': { 'key1': 'val1', 'key2': 'val2' }
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

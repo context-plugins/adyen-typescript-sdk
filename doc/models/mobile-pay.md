@@ -1,8 +1,6 @@
 
 # Mobile Pay
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MobilePay`
@@ -13,21 +11,17 @@
 |  --- | --- | --- | --- |
 | `checkoutAttemptId` | `string \| undefined` | Optional | The checkout attempt identifier. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
-| `type` | [`Type37 \| undefined`](../../doc/models/type-37.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type37Enum \| undefined`](../../doc/models/type-37-enum.md) | Optional | **mobilepay**<br><br>**Default**: `Type37Enum.Mobilepay` |
 
 ## Example
 
 ```ts
-import { MobilePay, Type37 } from 'adyen';
+import { MobilePay, Type37Enum } from 'adyen';
 
 const mobilePay: MobilePay = {
   checkoutAttemptId: 'checkoutAttemptId6',
   sdkData: 'sdkData0',
-  type: Type37.Mobilepay,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type37Enum.Mobilepay,
 };
 ```
 

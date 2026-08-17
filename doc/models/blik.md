@@ -1,11 +1,9 @@
 
-# Blik
-
-*This model accepts additional fields of type unknown.*
+# BLIK
 
 ## Structure
 
-`Blik`
+`BLIK`
 
 ## Fields
 
@@ -16,23 +14,19 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type131 \| undefined`](../../doc/models/type-131.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type13Enum \| undefined`](../../doc/models/type-13-enum.md) | Optional | **blik** |
 
 ## Example
 
 ```ts
-import { Blik } from 'adyen';
+import { BLIK } from 'adyen';
 
-const blik: Blik = {
-  blikCode: 'blikCode0',
-  checkoutAttemptId: 'checkoutAttemptId8',
-  recurringDetailReference: 'recurringDetailReference2',
-  sdkData: 'sdkData8',
-  storedPaymentMethodId: 'storedPaymentMethodId6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const bLIK: BLIK = {
+  blikCode: 'blikCode2',
+  checkoutAttemptId: 'checkoutAttemptId0',
+  recurringDetailReference: 'recurringDetailReference4',
+  sdkData: 'sdkData4',
+  storedPaymentMethodId: 'storedPaymentMethodId8',
 };
 ```
 

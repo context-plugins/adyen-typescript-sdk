@@ -16,13 +16,8 @@ import { Configuration, Environment } from './configuration.js';
 import {
   DEFAULT_CONFIGURATION,
   DEFAULT_RETRY_CONFIG,
-  DEFAULT_LOGGING_OPTIONS,
 } from './defaultConfiguration.js';
-import { ApiLogger, LoggingOptions, mergeLoggingOptions } from './core.js';
 import { ApiError } from './core.js';
-import { pathTemplate, SkipEncode } from './core.js';
-import { setHeader } from './core.js';
-import { updateUserAgent } from './core.js';
 import {
   AbortError,
   AuthenticatorInterface,
@@ -32,13 +27,13 @@ import {
 } from './core.js';
 import { HttpClient } from './clientAdapter.js';
 
+const USER_AGENT = 'APIMATIC 3.0';
+
 export class Client implements ClientInterface {
   private _config: Readonly<Configuration>;
   private _timeout: number;
   private _retryConfig: RetryConfiguration;
-  private _loggingOp: LoggingOptions;
   private _requestBuilderFactory: SdkRequestBuilderFactory;
-  private _userAgent: string;
 
   constructor(config?: Partial<Configuration>) {
     this._config = {
@@ -49,19 +44,10 @@ export class Client implements ClientInterface {
       ...DEFAULT_RETRY_CONFIG,
       ...this._config.httpClientOptions?.retryConfig,
     };
-    this._loggingOp = this._config.logging
-      ? mergeLoggingOptions(this._config.logging ?? {})
-      : mergeLoggingOptions(
-          this._config.logging ?? {},
-          DEFAULT_LOGGING_OPTIONS
-        );
     this._timeout =
       typeof this._config.httpClientOptions?.timeout != 'undefined'
         ? this._config.httpClientOptions.timeout
         : this._config.timeout;
-    this._userAgent = updateUserAgent(
-      'TypeScript-SDK/1.0.0 (OS: {os-info}, Engine: {engine}/{engine-version})'
-    );
     this._requestBuilderFactory = createRequestHandlerFactory(
       (server) => getBaseUri(server, this._config),
       createAuthProviderFromConfig(this._config),
@@ -72,13 +58,8 @@ export class Client implements ClientInterface {
         httpsAgent: this._config.httpClientOptions?.httpsAgent,
         proxySettings: this._config.httpClientOptions?.proxySettings,
       }),
-      [
-        withErrorHandlers,
-        withUserAgent(this._userAgent),
-        withAuthenticationByDefault,
-      ],
-      this._retryConfig,
-      this._loggingOp
+      [withErrorHandlers, withUserAgent, withAuthenticationByDefault],
+      this._retryConfig
     );
   }
 
@@ -123,914 +104,93 @@ function createHttpClientAdapter(client: HttpClient): HttpClientInterface {
 }
 
 function getBaseUri(server: Server = 'default', config: Configuration): string {
-  if (config.environment === Environment.Production) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment2) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Account/v6';
-    }
-  }
-  if (config.environment === Environment.Environment3) {
-    if (server === 'default') {
-      return 'https://balance-control-test.adyen.com/balance-control/api/v2';
-    }
-  }
-  if (config.environment === Environment.Environment4) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
-    }
-  }
-  if (config.environment === Environment.Environment5) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
-    }
-  }
-  if (config.environment === Environment.Environment6) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/capital/v1';
-    }
-  }
-  if (config.environment === Environment.Environment7) {
+  if (config.environment === Environment.Test) {
     if (server === 'default') {
       return 'https://checkout-test.adyen.com/v72';
     }
-  }
-  if (config.environment === Environment.Environment8) {
-    if (server === 'default') {
-      return 'https://device-api-test.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment9) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
-    }
-  }
-  if (config.environment === Environment.Environment10) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
-    }
-  }
-  if (config.environment === Environment.Environment11) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/fx/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment12) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
-    }
-  }
-  if (config.environment === Environment.Environment13) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
-    }
-  }
-  if (config.environment === Environment.Environment14) {
-    if (server === 'default') {
-      return 'https://kyc-test.adyen.com/lem/v4';
-    }
-  }
-  if (config.environment === Environment.Environment15) {
-    if (server === 'default') {
-      return 'https://management-test.adyen.com/v3';
-    }
-  }
-  if (config.environment === Environment.Environment16) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
-    }
-  }
-  if (config.environment === Environment.Environment17) {
-    if (server === 'default') {
-      return 'https://obgateway-test.adyen.com/obgateway/v1';
-    }
-  }
-  if (config.environment === Environment.Environment18) {
-    if (server === 'default') {
-      return 'https://management-live.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment19) {
-    if (server === 'default') {
+    if (server === 'default1') {
       return 'https://pal-test.adyen.com/pal/servlet/Payment/v68';
     }
-  }
-  if (config.environment === Environment.Environment20) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
-    }
-  }
-  if (config.environment === Environment.Environment21) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/api/v4';
-    }
-  }
-  if (config.environment === Environment.Environment22) {
-    if (server === 'default') {
+    if (server === 'default2') {
       return 'https://pal-test.adyen.com/pal/servlet/Recurring/v68';
     }
-  }
-  if (config.environment === Environment.Environment23) {
-    if (server === 'default') {
+    if (server === 'default3') {
+      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
+    }
+    if (server === 'default4') {
+      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
+    }
+    if (server === 'default5') {
+      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
+    }
+    if (server === 'default6') {
+      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
+    }
+    if (server === 'default7') {
+      return 'https://balanceplatform-api-test.adyen.com/fx/api/v1';
+    }
+    if (server === 'default8') {
+      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
+    }
+    if (server === 'default9') {
+      return 'https://management-test.adyen.com/v3';
+    }
+    if (server === 'default10') {
+      return 'https://cal-test.adyen.com/cal/services/Account/v6';
+    }
+    if (server === 'default11') {
+      return 'https://balance-control-test.adyen.com/balance-control/api/v2';
+    }
+    if (server === 'default12') {
+      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
+    }
+    if (server === 'default13') {
+      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
+    }
+    if (server === 'default14') {
+      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
+    }
+    if (server === 'default15') {
+      return 'https://balanceplatform-api-test.adyen.com/capital/v1';
+    }
+    if (server === 'default16') {
+      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
+    }
+    if (server === 'default17') {
       return 'https://test.adyen.com/authe/api/v1';
     }
-  }
-  if (config.environment === Environment.Environment24) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/checkout/possdk/v68';
+    if (server === 'default18') {
+      return 'https://kyc-test.adyen.com/lem/v4';
     }
-  }
-  if (config.environment === Environment.Environment25) {
-    if (server === 'default') {
+    if (server === 'default19') {
+      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
+    }
+    if (server === 'default20') {
+      return 'https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1';
+    }
+    if (server === 'default21') {
+      return 'https://obgateway-test.adyen.com/obgateway/v1';
+    }
+    if (server === 'default22') {
+      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
+    }
+    if (server === 'default23') {
+      return 'https://balanceplatform-api-test.adyen.com/btl/api/v4';
+    }
+    if (server === 'default24') {
+      return 'https://device-api-test.adyen.com/v1';
+    }
+    if (server === 'default25') {
       return 'https://softposconfig-test.adyen.com/softposconfig/v3';
     }
-  }
-  if (config.environment === Environment.Environment26) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
-    }
-  }
-  if (config.environment === Environment.Environment27) {
-    if (server === 'default') {
-      return pathTemplate`https://device-api-test.adyen.com/v1/merchants/${new SkipEncode(
-        config.merchantAccount
-      )}/devices/${new SkipEncode(config.deviceId)}/sync`;
-    }
-  }
-  if (config.environment === Environment.Environment28) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
-    }
-  }
-  if (config.environment === Environment.Environment29) {
-    if (server === 'default') {
-      return 'https://postfmapi-test.adyen.com/postfmapi/terminal/v1';
-    }
-  }
-  if (config.environment === Environment.Environment30) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
-    }
-  }
-  if (config.environment === Environment.Environment31) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-live.adyen.com/a2aissuer-api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment32) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Account/v6';
-    }
-  }
-  if (config.environment === Environment.Environment33) {
-    if (server === 'default') {
-      return 'https://balance-control-live.adyen.com/balance-control/api/v2';
-    }
-  }
-  if (config.environment === Environment.Environment34) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
-    }
-  }
-  if (config.environment === Environment.Environment35) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
-    }
-  }
-  if (config.environment === Environment.Environment36) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-live.adyen.com/capital/v1';
-    }
-  }
-  if (config.environment === Environment.Environment37) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/v72';
-    }
-  }
-  if (config.environment === Environment.Environment38) {
-    if (server === 'default') {
-      return 'https://device-api-live-au.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment39) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
-    }
-  }
-  if (config.environment === Environment.Environment40) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
-    }
-  }
-  if (config.environment === Environment.Environment41) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-live.adyen.com/fx/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment42) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
-    }
-  }
-  if (config.environment === Environment.Environment43) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
-    }
-  }
-  if (config.environment === Environment.Environment44) {
-    if (server === 'default') {
-      return 'https://kyc-test.adyen.com/lem/v4';
-    }
-  }
-  if (config.environment === Environment.Environment45) {
-    if (server === 'default') {
-      return 'https://management-test.adyen.com/v3';
-    }
-  }
-  if (config.environment === Environment.Environment46) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
-    }
-  }
-  if (config.environment === Environment.Environment47) {
-    if (server === 'default') {
-      return 'https://obgateway-live.adyen.com/obgateway/v1';
-    }
-  }
-  if (config.environment === Environment.Environment48) {
-    if (server === 'default') {
+    if (server === 'default26') {
       return 'https://management-test.adyen.com/v1';
     }
-  }
-  if (config.environment === Environment.Environment49) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payment/v68';
-    }
-  }
-  if (config.environment === Environment.Environment50) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
-    }
-  }
-  if (config.environment === Environment.Environment51) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-live.adyen.com/btl/api/v4';
-    }
-  }
-  if (config.environment === Environment.Environment52) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Recurring/v68';
-    }
-  }
-  if (config.environment === Environment.Environment53) {
-    if (server === 'default') {
-      return 'https://authe-live.adyen.com/authe/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment54) {
-    if (server === 'default') {
+    if (server === 'default27') {
       return 'https://checkout-test.adyen.com/checkout/possdk/v68';
     }
-  }
-  if (config.environment === Environment.Environment55) {
-    if (server === 'default') {
-      return 'https://softposconfig-live-au.adyen.com/softposconfig/v3';
-    }
-  }
-  if (config.environment === Environment.Environment56) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
-    }
-  }
-  if (config.environment === Environment.Environment57) {
-    if (server === 'default') {
-      return pathTemplate`https://device-api-test.adyen.com/v1/merchants/${new SkipEncode(
-        config.merchantAccount
-      )}/devices/${new SkipEncode(config.deviceId)}/async`;
-    }
-  }
-  if (config.environment === Environment.Environment58) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
-    }
-  }
-  if (config.environment === Environment.Environment59) {
-    if (server === 'default') {
+    if (server === 'default28') {
       return 'https://postfmapi-test.adyen.com/postfmapi/terminal/v1';
-    }
-  }
-  if (config.environment === Environment.Environment60) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
-    }
-  }
-  if (config.environment === Environment.Environment61) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment62) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Account/v6';
-    }
-  }
-  if (config.environment === Environment.Environment63) {
-    if (server === 'default') {
-      return 'https://balance-control-test.adyen.com/balance-control/api/v2';
-    }
-  }
-  if (config.environment === Environment.Environment64) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
-    }
-  }
-  if (config.environment === Environment.Environment65) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
-    }
-  }
-  if (config.environment === Environment.Environment66) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/capital/v1';
-    }
-  }
-  if (config.environment === Environment.Environment67) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/v72';
-    }
-  }
-  if (config.environment === Environment.Environment68) {
-    if (server === 'default') {
-      return 'https://device-api-live-apse.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment69) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
-    }
-  }
-  if (config.environment === Environment.Environment70) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
-    }
-  }
-  if (config.environment === Environment.Environment71) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/fx/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment72) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
-    }
-  }
-  if (config.environment === Environment.Environment73) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
-    }
-  }
-  if (config.environment === Environment.Environment74) {
-    if (server === 'default') {
-      return 'https://kyc-test.adyen.com/lem/v4';
-    }
-  }
-  if (config.environment === Environment.Environment75) {
-    if (server === 'default') {
-      return 'https://management-test.adyen.com/v3';
-    }
-  }
-  if (config.environment === Environment.Environment76) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
-    }
-  }
-  if (config.environment === Environment.Environment77) {
-    if (server === 'default') {
-      return 'https://obgateway-test.adyen.com/obgateway/v1';
-    }
-  }
-  if (config.environment === Environment.Environment78) {
-    if (server === 'default') {
-      return 'https://management-live.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment79) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payment/v68';
-    }
-  }
-  if (config.environment === Environment.Environment80) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
-    }
-  }
-  if (config.environment === Environment.Environment81) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/api/v4';
-    }
-  }
-  if (config.environment === Environment.Environment82) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Recurring/v68';
-    }
-  }
-  if (config.environment === Environment.Environment83) {
-    if (server === 'default') {
-      return 'https://test.adyen.com/authe/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment84) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/checkout/possdk/v68';
-    }
-  }
-  if (config.environment === Environment.Environment85) {
-    if (server === 'default') {
-      return 'https://softposconfig-live-apse.adyen.com/softposconfig/v3';
-    }
-  }
-  if (config.environment === Environment.Environment86) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
-    }
-  }
-  if (config.environment === Environment.Environment87) {
-    if (server === 'default') {
-      return '<local-terminal-IP-address>';
-    }
-  }
-  if (config.environment === Environment.Environment88) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
-    }
-  }
-  if (config.environment === Environment.Environment89) {
-    if (server === 'default') {
-      return 'https://postfmapi-test.adyen.com/postfmapi/terminal/v1';
-    }
-  }
-  if (config.environment === Environment.Environment90) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
-    }
-  }
-  if (config.environment === Environment.Environment91) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment92) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Account/v6';
-    }
-  }
-  if (config.environment === Environment.Environment93) {
-    if (server === 'default') {
-      return 'https://balance-control-test.adyen.com/balance-control/api/v2';
-    }
-  }
-  if (config.environment === Environment.Environment94) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
-    }
-  }
-  if (config.environment === Environment.Environment95) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
-    }
-  }
-  if (config.environment === Environment.Environment96) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/capital/v1';
-    }
-  }
-  if (config.environment === Environment.Environment97) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/v72';
-    }
-  }
-  if (config.environment === Environment.Environment98) {
-    if (server === 'default') {
-      return 'https://device-api-live.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment99) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
-    }
-  }
-  if (config.environment === Environment.Environment100) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
-    }
-  }
-  if (config.environment === Environment.Environment101) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/fx/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment102) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
-    }
-  }
-  if (config.environment === Environment.Environment103) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
-    }
-  }
-  if (config.environment === Environment.Environment104) {
-    if (server === 'default') {
-      return 'https://kyc-test.adyen.com/lem/v4';
-    }
-  }
-  if (config.environment === Environment.Environment105) {
-    if (server === 'default') {
-      return 'https://management-test.adyen.com/v3';
-    }
-  }
-  if (config.environment === Environment.Environment106) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
-    }
-  }
-  if (config.environment === Environment.Environment107) {
-    if (server === 'default') {
-      return 'https://obgateway-test.adyen.com/obgateway/v1';
-    }
-  }
-  if (config.environment === Environment.Environment108) {
-    if (server === 'default') {
-      return 'https://management-live.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment109) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payment/v68';
-    }
-  }
-  if (config.environment === Environment.Environment110) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
-    }
-  }
-  if (config.environment === Environment.Environment111) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/api/v4';
-    }
-  }
-  if (config.environment === Environment.Environment112) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Recurring/v68';
-    }
-  }
-  if (config.environment === Environment.Environment113) {
-    if (server === 'default') {
-      return 'https://test.adyen.com/authe/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment114) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/checkout/possdk/v68';
-    }
-  }
-  if (config.environment === Environment.Environment115) {
-    if (server === 'default') {
-      return 'https://softposconfig-live.adyen.com/softposconfig/v3';
-    }
-  }
-  if (config.environment === Environment.Environment116) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
-    }
-  }
-  if (config.environment === Environment.Environment117) {
-    if (server === 'default') {
-      return pathTemplate`https://device-api-test.adyen.com/v1/merchants/${new SkipEncode(
-        config.merchantAccount
-      )}/devices/${new SkipEncode(config.deviceId)}/sync`;
-    }
-  }
-  if (config.environment === Environment.Environment118) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
-    }
-  }
-  if (config.environment === Environment.Environment119) {
-    if (server === 'default') {
-      return 'https://postfmapi-test.adyen.com/postfmapi/terminal/v1';
-    }
-  }
-  if (config.environment === Environment.Environment120) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
-    }
-  }
-  if (config.environment === Environment.Environment121) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment122) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Account/v6';
-    }
-  }
-  if (config.environment === Environment.Environment123) {
-    if (server === 'default') {
-      return 'https://balance-control-test.adyen.com/balance-control/api/v2';
-    }
-  }
-  if (config.environment === Environment.Environment124) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
-    }
-  }
-  if (config.environment === Environment.Environment125) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
-    }
-  }
-  if (config.environment === Environment.Environment126) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/capital/v1';
-    }
-  }
-  if (config.environment === Environment.Environment127) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/v72';
-    }
-  }
-  if (config.environment === Environment.Environment128) {
-    if (server === 'default') {
-      return 'https://device-api-live-us.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment129) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
-    }
-  }
-  if (config.environment === Environment.Environment130) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
-    }
-  }
-  if (config.environment === Environment.Environment131) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/fx/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment132) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
-    }
-  }
-  if (config.environment === Environment.Environment133) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
-    }
-  }
-  if (config.environment === Environment.Environment134) {
-    if (server === 'default') {
-      return 'https://kyc-test.adyen.com/lem/v4';
-    }
-  }
-  if (config.environment === Environment.Environment135) {
-    if (server === 'default') {
-      return 'https://management-test.adyen.com/v3';
-    }
-  }
-  if (config.environment === Environment.Environment136) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
-    }
-  }
-  if (config.environment === Environment.Environment137) {
-    if (server === 'default') {
-      return 'https://obgateway-test.adyen.com/obgateway/v1';
-    }
-  }
-  if (config.environment === Environment.Environment138) {
-    if (server === 'default') {
-      return 'https://management-live.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment139) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payment/v68';
-    }
-  }
-  if (config.environment === Environment.Environment140) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
-    }
-  }
-  if (config.environment === Environment.Environment141) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/api/v4';
-    }
-  }
-  if (config.environment === Environment.Environment142) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Recurring/v68';
-    }
-  }
-  if (config.environment === Environment.Environment143) {
-    if (server === 'default') {
-      return 'https://test.adyen.com/authe/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment144) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/checkout/possdk/v68';
-    }
-  }
-  if (config.environment === Environment.Environment145) {
-    if (server === 'default') {
-      return 'https://softposconfig-live-nea.adyen.com/softposconfig/v3';
-    }
-  }
-  if (config.environment === Environment.Environment146) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
-    }
-  }
-  if (config.environment === Environment.Environment147) {
-    if (server === 'default') {
-      return pathTemplate`https://device-api-test.adyen.com/v1/merchants/${new SkipEncode(
-        config.merchantAccount
-      )}/devices/${new SkipEncode(config.deviceId)}/sync`;
-    }
-  }
-  if (config.environment === Environment.Environment148) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
-    }
-  }
-  if (config.environment === Environment.Environment149) {
-    if (server === 'default') {
-      return 'https://postfmapi-test.adyen.com/postfmapi/terminal/v1';
-    }
-  }
-  if (config.environment === Environment.Environment150) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
-    }
-  }
-  if (config.environment === Environment.Environment151) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment152) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Account/v6';
-    }
-  }
-  if (config.environment === Environment.Environment153) {
-    if (server === 'default') {
-      return 'https://balance-control-test.adyen.com/balance-control/api/v2';
-    }
-  }
-  if (config.environment === Environment.Environment154) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/bcl/v2';
-    }
-  }
-  if (config.environment === Environment.Environment155) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/BinLookup/v54';
-    }
-  }
-  if (config.environment === Environment.Environment156) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/capital/v1';
-    }
-  }
-  if (config.environment === Environment.Environment157) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/v72';
-    }
-  }
-  if (config.environment === Environment.Environment158) {
-    if (server === 'default') {
-      return 'https://device-api-test.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment159) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DataProtectionService/v1';
-    }
-  }
-  if (config.environment === Environment.Environment160) {
-    if (server === 'default') {
-      return 'https://ca-test.adyen.com/ca/services/DisputeService/v30';
-    }
-  }
-  if (config.environment === Environment.Environment161) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/fx/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment162) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Fund/v6';
-    }
-  }
-  if (config.environment === Environment.Environment163) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Hop/v6';
-    }
-  }
-  if (config.environment === Environment.Environment164) {
-    if (server === 'default') {
-      return 'https://kyc-test.adyen.com/lem/v4';
-    }
-  }
-  if (config.environment === Environment.Environment165) {
-    if (server === 'default') {
-      return 'https://management-test.adyen.com/v3';
-    }
-  }
-  if (config.environment === Environment.Environment166) {
-    if (server === 'default') {
-      return 'https://cal-test.adyen.com/cal/services/Notification/v6';
-    }
-  }
-  if (config.environment === Environment.Environment167) {
-    if (server === 'default') {
-      return 'https://obgateway-test.adyen.com/obgateway/v1';
-    }
-  }
-  if (config.environment === Environment.Environment168) {
-    if (server === 'default') {
-      return 'https://management-live.adyen.com/v1';
-    }
-  }
-  if (config.environment === Environment.Environment169) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payment/v68';
-    }
-  }
-  if (config.environment === Environment.Environment170) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Payout/v68';
-    }
-  }
-  if (config.environment === Environment.Environment171) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/api/v4';
-    }
-  }
-  if (config.environment === Environment.Environment172) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/Recurring/v68';
-    }
-  }
-  if (config.environment === Environment.Environment173) {
-    if (server === 'default') {
-      return 'https://test.adyen.com/authe/api/v1';
-    }
-  }
-  if (config.environment === Environment.Environment174) {
-    if (server === 'default') {
-      return 'https://checkout-test.adyen.com/checkout/possdk/v68';
-    }
-  }
-  if (config.environment === Environment.Environment175) {
-    if (server === 'default') {
-      return 'https://softposconfig-live-us.adyen.com/softposconfig/v3';
-    }
-  }
-  if (config.environment === Environment.Environment176) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/servlet/StoredValue/v46';
-    }
-  }
-  if (config.environment === Environment.Environment177) {
-    if (server === 'default') {
-      return pathTemplate`https://device-api-test.adyen.com/v1/merchants/${new SkipEncode(
-        config.merchantAccount
-      )}/devices/${new SkipEncode(config.deviceId)}/sync`;
-    }
-  }
-  if (config.environment === Environment.Environment178) {
-    if (server === 'default') {
-      return 'https://pal-test.adyen.com/pal/services/TestCard/v1';
-    }
-  }
-  if (config.environment === Environment.Environment179) {
-    if (server === 'default') {
-      return 'https://postfmapi-test.adyen.com/postfmapi/terminal/v1';
-    }
-  }
-  if (config.environment === Environment.Environment180) {
-    if (server === 'default') {
-      return 'https://balanceplatform-api-test.adyen.com/btl/v4';
     }
   }
   throw new Error('Could not get Base URL. Invalid environment or server.');
@@ -1041,17 +201,14 @@ function createRequestHandlerFactory(
   authProvider: AuthenticatorInterface<AuthParams>,
   httpClient: HttpClient,
   addons: ((rb: SdkRequestBuilder) => void)[],
-  retryConfig: RetryConfiguration,
-  loggingOptions: LoggingOptions
+  retryConfig: RetryConfiguration
 ): SdkRequestBuilderFactory {
   const requestBuilderFactory = createRequestBuilderFactory(
     createHttpClientAdapter(httpClient),
     baseUrlProvider,
     ApiError,
     authProvider,
-    retryConfig,
-    undefined,
-    new ApiLogger(loggingOptions)
+    retryConfig
   );
 
   return tap(requestBuilderFactory, ...addons);
@@ -1072,14 +229,8 @@ function withErrorHandlers(rb: SdkRequestBuilder) {
   rb.defaultToError(ApiError);
 }
 
-function withUserAgent(userAgent: string) {
-  return (rb: SdkRequestBuilder) => {
-    rb.interceptRequest((request) => {
-      const headers = request.headers ?? {};
-      setHeader(headers, 'user-agent', userAgent);
-      return { ...request, headers };
-    });
-  };
+function withUserAgent(rb: SdkRequestBuilder) {
+  rb.header('user-agent', USER_AGENT);
 }
 
 function withAuthenticationByDefault(rb: SdkRequestBuilder) {

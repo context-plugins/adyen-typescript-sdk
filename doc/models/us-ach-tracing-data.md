@@ -1,31 +1,25 @@
 
-# Us Ach Tracing Data
-
-*This model accepts additional fields of type unknown.*
+# US Ach Tracing Data
 
 ## Structure
 
-`UsAchTracingData`
+`USAchTracingData`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `traceNumber` | `string` | Required | The ACH trace number. This is a unique 15-digit identifier assigned to transfers processed by [ACH](https://fiscal.treasury.gov/payments-from-government/automated-clearing-house-ach). |
-| `type` | [`Type89`](../../doc/models/type-89.md) | Required | **usAch** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **usAch**<br><br>**Value**: `'usAch'` |
 
 ## Example
 
 ```ts
-import { Type89, UsAchTracingData } from 'adyen';
+import { USAchTracingData } from 'adyen';
 
-const usAchTracingData: UsAchTracingData = {
-  traceNumber: 'traceNumber4',
-  type: Type89.UsAch,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const uSAchTracingData: USAchTracingData = {
+  traceNumber: 'traceNumber2',
+  type: 'usAch',
 };
 ```
 

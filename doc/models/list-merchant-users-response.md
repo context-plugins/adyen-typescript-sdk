@@ -1,8 +1,6 @@
 
 # List Merchant Users Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ListMerchantUsersResponse`
@@ -11,11 +9,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`PaginationLinks \| undefined`](../../doc/models/pagination-links.md) | Optional | - |
+| `links` | [`PaginationLinks1 \| undefined`](../../doc/models/pagination-links-1.md) | Optional | Pagination references. |
 | `data` | [`User[] \| undefined`](../../doc/models/user.md) | Optional | The list of users. |
 | `itemsTotal` | `number` | Required | Total number of items. |
 | `pagesTotal` | `number` | Required | Total number of pages. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,36 +25,18 @@ const listMerchantUsersResponse: ListMerchantUsersResponse = {
   links: {
     first: {
       href: 'href2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     last: {
       href: 'href2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     self: {
       href: 'href0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     next: {
       href: 'href4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     prev: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   data: [
@@ -72,12 +51,6 @@ const listMerchantUsersResponse: ListMerchantUsersResponse = {
       links: {
         self: {
           href: 'href0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       accountGroups: [
@@ -92,12 +65,6 @@ const listMerchantUsersResponse: ListMerchantUsersResponse = {
       name: {
         firstName: 'firstName4',
         lastName: 'lastName4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -111,12 +78,6 @@ const listMerchantUsersResponse: ListMerchantUsersResponse = {
       links: {
         self: {
           href: 'href0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       accountGroups: [
@@ -131,18 +92,9 @@ const listMerchantUsersResponse: ListMerchantUsersResponse = {
       name: {
         firstName: 'firstName4',
         lastName: 'lastName4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

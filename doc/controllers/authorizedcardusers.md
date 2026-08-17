@@ -67,13 +67,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof PaymentInstrumentsAuthorisedCardUsers401Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers403Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers404Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -95,10 +89,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401Error`](../../doc/models/payment-instruments-authorised-card-users-401-error.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403Error`](../../doc/models/payment-instruments-authorised-card-users-403-error.md) |
-| 404 | Not Found | [`PaymentInstrumentsAuthorisedCardUsers404Error`](../../doc/models/payment-instruments-authorised-card-users-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`PaymentInstrumentsAuthorisedCardUsers422Error`](../../doc/models/payment-instruments-authorised-card-users-422-error.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Payment Instruments-Payment Instrument Id-Authorised Card Users
@@ -164,13 +158,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof PaymentInstrumentsAuthorisedCardUsers400Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers401Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers403Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -181,10 +169,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`PaymentInstrumentsAuthorisedCardUsers400Error`](../../doc/models/payment-instruments-authorised-card-users-400-error.md) |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401Error`](../../doc/models/payment-instruments-authorised-card-users-401-error.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403Error`](../../doc/models/payment-instruments-authorised-card-users-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`PaymentInstrumentsAuthorisedCardUsers422Error`](../../doc/models/payment-instruments-authorised-card-users-422-error.md) |
+| 400 | Bad request | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Payment Instruments-Payment Instrument Id-Authorised Card Users
@@ -238,9 +226,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof PaymentInstrumentsAuthorisedCardUsers401Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers403Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -251,8 +237,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401Error`](../../doc/models/payment-instruments-authorised-card-users-401-error.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403Error`](../../doc/models/payment-instruments-authorised-card-users-403-error.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Payment Instruments-Payment Instrument Id-Authorised Card Users
@@ -320,13 +306,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof PaymentInstrumentsAuthorisedCardUsers400Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers401Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers403Error) {
-      console.log(error.result);
-    } else if (error instanceof PaymentInstrumentsAuthorisedCardUsers422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -337,8 +317,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`PaymentInstrumentsAuthorisedCardUsers400Error`](../../doc/models/payment-instruments-authorised-card-users-400-error.md) |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401Error`](../../doc/models/payment-instruments-authorised-card-users-401-error.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403Error`](../../doc/models/payment-instruments-authorised-card-users-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`PaymentInstrumentsAuthorisedCardUsers422Error`](../../doc/models/payment-instruments-authorised-card-users-422-error.md) |
+| 400 | Bad request | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

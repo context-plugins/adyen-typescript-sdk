@@ -3,8 +3,6 @@
 
 Contains the identification information of the account to which you can transfer funds related to repayments.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BankAccountIdentification1`
@@ -14,7 +12,6 @@ Contains the identification information of the account to which you can transfer
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `type` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { BankAccountIdentification1 } from 'adyen';
 
 const bankAccountIdentification1: BankAccountIdentification1 = {
   type: 'BankAccountIdentification1',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

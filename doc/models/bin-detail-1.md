@@ -3,8 +3,6 @@
 
 Bin Group Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BinDetail1`
@@ -14,7 +12,6 @@ Bin Group Details
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `issuerCountry` | `string \| undefined` | Optional | The country where the card was issued. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { BinDetail1 } from 'adyen';
 
 const binDetail1: BinDetail1 = {
   issuerCountry: 'issuerCountry0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

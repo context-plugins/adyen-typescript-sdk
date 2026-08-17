@@ -3,8 +3,6 @@
 
 Contains links to the next and previous page whenever applicable.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Link2`
@@ -13,12 +11,11 @@ Contains links to the next and previous page whenever applicable.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `first` | [`First \| undefined`](../../doc/models/first.md) | Optional | - |
-| `last` | [`Last \| undefined`](../../doc/models/last.md) | Optional | - |
-| `next` | [`Next \| undefined`](../../doc/models/next.md) | Optional | - |
-| `previous` | [`Previous \| undefined`](../../doc/models/previous.md) | Optional | - |
-| `self` | [`Self \| undefined`](../../doc/models/self.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `first` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | The link to the first page of the list. |
+| `last` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | The link to the last page of the list. |
+| `next` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | The link to the next page of the list. |
+| `previous` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | The link to the previous page of the list. |
+| `self` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | The link to the list page you are currently viewing. |
 
 ## Example
 
@@ -28,36 +25,18 @@ import { Link2 } from 'adyen';
 const link2: Link2 = {
   first: {
     href: 'href2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   last: {
     href: 'href2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   next: {
     href: 'href4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   previous: {
     href: 'href0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   self: {
     href: 'href0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -19,20 +19,9 @@ import {
   WebhookSettings,
   webhookSettingsSchema,
 } from '../models/webhookSettings.js';
-import { optional, string, unknown } from '../schema.js';
+import { string, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { BalancePlatformsWebhooksSettings400Error } from '../errors/balancePlatformsWebhooksSettings400Error.js';
-import { BalancePlatformsWebhooksSettings401Error } from '../errors/balancePlatformsWebhooksSettings401Error.js';
-import { BalancePlatformsWebhooksSettings403Error } from '../errors/balancePlatformsWebhooksSettings403Error.js';
-import { BalancePlatformsWebhooksSettings404Error } from '../errors/balancePlatformsWebhooksSettings404Error.js';
-import { BalancePlatformsWebhooksSettings422Error } from '../errors/balancePlatformsWebhooksSettings422Error.js';
-import { BalancePlatformsWebhooksSettings500Error } from '../errors/balancePlatformsWebhooksSettings500Error.js';
-import { BalancePlatformsWebhooksSettingsSettingId400Error } from '../errors/balancePlatformsWebhooksSettingsSettingId400Error.js';
-import { BalancePlatformsWebhooksSettingsSettingId401Error } from '../errors/balancePlatformsWebhooksSettingsSettingId401Error.js';
-import { BalancePlatformsWebhooksSettingsSettingId403Error } from '../errors/balancePlatformsWebhooksSettingsSettingId403Error.js';
-import { BalancePlatformsWebhooksSettingsSettingId404Error } from '../errors/balancePlatformsWebhooksSettingsSettingId404Error.js';
-import { BalancePlatformsWebhooksSettingsSettingId422Error } from '../errors/balancePlatformsWebhooksSettingsSettingId422Error.js';
-import { BalancePlatformsWebhooksSettingsSettingId500Error } from '../errors/balancePlatformsWebhooksSettingsSettingId500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class BalancesApi extends BaseApi {
   /**
@@ -49,6 +38,7 @@ export class BalancesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<WebhookSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       webhookId: [webhookId, string()],
@@ -56,32 +46,32 @@ export class BalancesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/webhooks/${mapped.webhookId}/settings`;
     req.throwOn(
       400,
-      BalancePlatformsWebhooksSettings400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalancePlatformsWebhooksSettings401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsWebhooksSettings403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsWebhooksSettings404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the payment was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsWebhooksSettings422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsWebhooksSettings500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -117,6 +107,7 @@ export class BalancesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<WebhookSetting>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       webhookId: [webhookId, string()],
@@ -127,32 +118,32 @@ export class BalancesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/webhooks/${mapped.webhookId}/settings`;
     req.throwOn(
       400,
-      BalancePlatformsWebhooksSettings400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalancePlatformsWebhooksSettings401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsWebhooksSettings403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsWebhooksSettings404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the payment was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsWebhooksSettings422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsWebhooksSettings500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -176,6 +167,7 @@ export class BalancesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<WebhookSetting>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       webhookId: [webhookId, string()],
@@ -184,32 +176,32 @@ export class BalancesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/webhooks/${mapped.webhookId}/settings/${mapped.settingId}`;
     req.throwOn(
       400,
-      BalancePlatformsWebhooksSettingsSettingId400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalancePlatformsWebhooksSettingsSettingId401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsWebhooksSettingsSettingId403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsWebhooksSettingsSettingId404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the payment was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsWebhooksSettingsSettingId422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsWebhooksSettingsSettingId500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -231,8 +223,9 @@ export class BalancesApi extends BaseApi {
     webhookId: string,
     settingId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<unknown | undefined>> {
+  ): Promise<ApiResponse<unknown>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       webhookId: [webhookId, string()],
@@ -241,36 +234,36 @@ export class BalancesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/webhooks/${mapped.webhookId}/settings/${mapped.settingId}`;
     req.throwOn(
       400,
-      BalancePlatformsWebhooksSettingsSettingId400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalancePlatformsWebhooksSettingsSettingId401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsWebhooksSettingsSettingId403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsWebhooksSettingsSettingId404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the payment was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsWebhooksSettingsSettingId422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsWebhooksSettingsSettingId500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
-    return req.callAsJson(optional(unknown()), requestOptions);
+    return req.callAsJson(unknown(), requestOptions);
   }
 
   /**
@@ -292,6 +285,7 @@ export class BalancesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<WebhookSetting>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       webhookId: [webhookId, string()],
@@ -303,32 +297,32 @@ export class BalancesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/webhooks/${mapped.webhookId}/settings/${mapped.settingId}`;
     req.throwOn(
       400,
-      BalancePlatformsWebhooksSettingsSettingId400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalancePlatformsWebhooksSettingsSettingId401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsWebhooksSettingsSettingId403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsWebhooksSettingsSettingId404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the payment was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsWebhooksSettingsSettingId422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsWebhooksSettingsSettingId500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);

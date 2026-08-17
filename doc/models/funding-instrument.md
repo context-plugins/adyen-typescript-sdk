@@ -1,8 +1,6 @@
 
 # Funding Instrument
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FundingInstrument`
@@ -11,16 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cardIdentification` | [`CardIdentification \| undefined`](../../doc/models/card-identification.md) | Optional | - |
+| `cardIdentification` | [`CardIdentification2 \| undefined`](../../doc/models/card-identification-2.md) | Optional | Card details used for the transfer, such as the Primary Account Number (PAN) or stored payment method ID. Required if `sourceOfFunds` is **DEBIT**. Provide either:<br><br>- `storedPaymentMethodId` or<br>- `expiryMonth`, `expiryYear`, and `number`. |
 | `networkPaymentReference` | `string \| undefined` | Optional | The unique reference assigned by the card network for the pay-in transaction. |
 | `reference` | `string \| undefined` | Optional | Your internal reference that identifies this funding instrument. Required if `sourceOfFunds` is **DEPOSIT_ACCOUNT**. |
-| `sourceOfFunds` | [`SourceOfFunds2 \| undefined`](../../doc/models/source-of-funds-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `sourceOfFunds` | [`SourceOfFundsEnum \| undefined`](../../doc/models/source-of-funds-enum.md) | Optional | Indicates where the funds used for the transfer originated. Possible values are:<br><br>- **DEBIT** for card-to-card transfers.<br>- **DEPOSIT_ACCOUNT** for wallet-to-card transfers. |
 
 ## Example
 
 ```ts
-import { FundingInstrument, SourceOfFunds2 } from 'adyen';
+import { FundingInstrument, SourceOfFundsEnum } from 'adyen';
 
 const fundingInstrument: FundingInstrument = {
   cardIdentification: {
@@ -29,16 +26,10 @@ const fundingInstrument: FundingInstrument = {
     issueNumber: 'issueNumber0',
     number: 'number6',
     startMonth: 'startMonth8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   networkPaymentReference: 'networkPaymentReference0',
   reference: 'reference6',
-  sourceOfFunds: SourceOfFunds2.Debit,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  sourceOfFunds: SourceOfFundsEnum.DEBIT,
 };
 ```
 

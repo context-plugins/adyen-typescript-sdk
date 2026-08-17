@@ -8,13 +8,12 @@ import {
   array,
   bigint,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Destination, destinationSchema } from './destination.js';
+import { Destination1, destination1Schema } from './destination1.js';
 import { ItemDetailLine, itemDetailLineSchema } from './itemDetailLine.js';
 
 /** [Level 2 and Level 3 enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3/) that may be required for processing the transaction and/or for interchange savings. */
@@ -28,7 +27,8 @@ export interface LevelTwoThree2 {
    * * **additionalData key:** `enhancedSchemeData.customerReference`
    */
   customerReferenceNumber?: string;
-  destination?: Destination;
+  /** The destination address information. */
+  destination?: Destination1;
   /**
    * The duty tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * * For example, 2000 means USD 20.00.
@@ -74,25 +74,17 @@ export interface LevelTwoThree2 {
    * * **additionalData key:** `enhancedSchemeData.totalTaxAmount`
    */
   totalTaxAmount?: bigint;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const levelTwoThree2Schema: Schema<LevelTwoThree2> = lazy(() =>
-  typedExpandoObject(
-    {
-      customerReferenceNumber: ['customerReferenceNumber', optional(string())],
-      destination: ['destination', optional(destinationSchema)],
-      dutyAmount: ['dutyAmount', optional(bigint())],
-      freightAmount: ['freightAmount', optional(bigint())],
-      itemDetailLines: [
-        'itemDetailLines',
-        optional(array(itemDetailLineSchema)),
-      ],
-      orderDate: ['orderDate', optional(string())],
-      shipFromPostalCode: ['shipFromPostalCode', optional(string())],
-      totalTaxAmount: ['totalTaxAmount', optional(bigint())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    customerReferenceNumber: ['customerReferenceNumber', optional(string())],
+    destination: ['destination', optional(destination1Schema)],
+    dutyAmount: ['dutyAmount', optional(bigint())],
+    freightAmount: ['freightAmount', optional(bigint())],
+    itemDetailLines: ['itemDetailLines', optional(array(itemDetailLineSchema))],
+    orderDate: ['orderDate', optional(string())],
+    shipFromPostalCode: ['shipFromPostalCode', optional(string())],
+    totalTaxAmount: ['totalTaxAmount', optional(bigint())],
+  })
 );

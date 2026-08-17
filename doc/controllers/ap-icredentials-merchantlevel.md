@@ -1,12 +1,12 @@
 # AP Icredentials-Merchantlevel
 
 ```ts
-const apIcredentialsMerchantlevelApi = new ApIcredentialsMerchantlevelApi(client);
+const aPIcredentialsMerchantlevelApi = new APIcredentialsMerchantlevelApi(client);
 ```
 
 ## Class Name
 
-`ApIcredentialsMerchantlevelApi`
+`APIcredentialsMerchantlevelApi`
 
 ## Methods
 
@@ -58,7 +58,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const merchantId = 'merchantId6';
 
 try {
-  const response = await apiCredentialsMerchantLevelApi.getMerchantsMerchantIdApiCredentials(merchantId);
+  const response = await aPICredentialsMerchantLevelApi.getMerchantsMerchantIdApiCredentials(merchantId);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -526,7 +526,7 @@ const body: CreateMerchantApiCredentialRequest = {
 };
 
 try {
-  const response = await apiCredentialsMerchantLevelApi.postMerchantsMerchantIdApiCredentials(
+  const response = await aPICredentialsMerchantLevelApi.postMerchantsMerchantIdApiCredentials(
     merchantId,
     body
   );
@@ -653,7 +653,7 @@ const merchantId = 'merchantId6';
 const apiCredentialId = 'apiCredentialId8';
 
 try {
-  const response = await apiCredentialsMerchantLevelApi.getMerchantsMerchantIdApiCredentialsApiCredentialId(
+  const response = await aPICredentialsMerchantLevelApi.getMerchantsMerchantIdApiCredentialsApiCredentialId(
     merchantId,
     apiCredentialId
   );
@@ -773,7 +773,7 @@ const body: UpdateMerchantApiCredentialRequest = {
 };
 
 try {
-  const response = await apiCredentialsMerchantLevelApi.patchMerchantsMerchantIdApiCredentialsApiCredentialId(
+  const response = await aPICredentialsMerchantLevelApi.patchMerchantsMerchantIdApiCredentialsApiCredentialId(
     merchantId,
     apiCredentialId,
     body

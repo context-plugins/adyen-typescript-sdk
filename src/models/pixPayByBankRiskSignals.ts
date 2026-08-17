@@ -9,11 +9,10 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { ConfidenceScore, confidenceScoreSchema } from './confidenceScore.js';
 import {
@@ -30,26 +29,18 @@ export interface PixPayByBankRiskSignals {
   screenBrightness?: number;
   screenDimensions?: ScreenDimensions;
   userTimeZoneOffset?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const pixPayByBankRiskSignalsSchema: Schema<PixPayByBankRiskSignals> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        confidenceScore: ['confidenceScore', optional(confidenceScoreSchema)],
-        elapsedTimeSinceBoot: ['elapsedTimeSinceBoot', optional(bigint())],
-        isRootedDevice: ['isRootedDevice', optional(boolean())],
-        language: ['language', optional(string())],
-        osVersion: ['osVersion', optional(string())],
-        screenBrightness: ['screenBrightness', optional(number())],
-        screenDimensions: [
-          'screenDimensions',
-          optional(screenDimensionsSchema),
-        ],
-        userTimeZoneOffset: ['userTimeZoneOffset', optional(number())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      confidenceScore: ['confidenceScore', optional(confidenceScoreSchema)],
+      elapsedTimeSinceBoot: ['elapsedTimeSinceBoot', optional(bigint())],
+      isRootedDevice: ['isRootedDevice', optional(boolean())],
+      language: ['language', optional(string())],
+      osVersion: ['osVersion', optional(string())],
+      screenBrightness: ['screenBrightness', optional(number())],
+      screenDimensions: ['screenDimensions', optional(screenDimensionsSchema)],
+      userTimeZoneOffset: ['userTimeZoneOffset', optional(number())],
+    })
 );

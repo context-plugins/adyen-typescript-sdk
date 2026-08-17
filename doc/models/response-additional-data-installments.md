@@ -1,8 +1,6 @@
 
 # Response Additional Data Installments
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ResponseAdditionalDataInstallments`
@@ -23,7 +21,6 @@
 | `installmentPaymentDataOptionItemNrTotalAmountDue` | `string \| undefined` | Optional | Total amount in minor units. |
 | `installmentPaymentDataPaymentOptions` | `string \| undefined` | Optional | Possible values:<br><br>* PayInInstallmentsOnly<br>* PayInFullOnly<br>* PayInFullOrInstallments |
 | `installmentsValue` | `string \| undefined` | Optional | The number of installments that the payment amount should be charged with.<br><br>Example: 5<br><br>> Only relevant for card payments in countries that support installments. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const responseAdditionalDataInstallments: ResponseAdditionalDataInstallments = {
   installmentPaymentDataOptionItemNrFirstInstallmentAmount: Liquid error: Value cannot be null. (Parameter 'key'),
   installmentPaymentDataOptionItemNrInstallmentFee: Liquid error: Value cannot be null. (Parameter 'key'),
   installmentPaymentDataOptionItemNrInterestRate: Liquid error: Value cannot be null. (Parameter 'key'),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

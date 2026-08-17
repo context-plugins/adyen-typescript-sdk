@@ -3,8 +3,6 @@
 
 Information about the individual's identification document.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `IdentificationData1`
@@ -19,24 +17,20 @@ Information about the individual's identification document.
 | `issuerState` | `string \| undefined` | Optional | The state or province where the document was issued (AU only). |
 | `nationalIdExempt` | `boolean \| undefined` | Optional | Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document. |
 | `number` | `string \| undefined` | Optional | The number in the document. |
-| `type` | [`Type132`](../../doc/models/type-132.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type132Enum`](../../doc/models/type-132-enum.md) | Required | Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type=custom) for other supported countries.<br><br>- Australia: **driversLicense**, **passport**<br><br>- Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**<br><br>- New Zealand: **driversLicense**, **passport**<br><br>- Singapore: **driversLicense**, **nationalIdNumber**, **passport**<br><br>- All other supported countries: **nationalIdNumber** |
 
 ## Example
 
 ```ts
-import { IdentificationData1, Type132 } from 'adyen';
+import { IdentificationData1, Type132Enum } from 'adyen';
 
 const identificationData1: IdentificationData1 = {
-  type: Type132.NationalIdNumber,
+  type: Type132Enum.NationalIdNumber,
   cardNumber: 'cardNumber6',
   expiryDate: 'expiryDate8',
   issuerCountry: 'issuerCountry6',
   issuerState: 'issuerState6',
   nationalIdExempt: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

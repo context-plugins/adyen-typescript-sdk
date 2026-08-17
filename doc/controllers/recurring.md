@@ -54,7 +54,7 @@ const body: CheckoutForwardRequest = {
   merchantAccount: 'YOUR_MERCHANT_ACCOUNT',
   request: {
     body: '{"amount":{"value":100,"currency":"USD"},"paymentMethod":{"creditCard":{"holderName":"{{holderName}}","number":"{{number}}","expiryMonth":"{{expiryMonth}}","expiryYear":"{{expiryYear}}"}}}',
-    httpMethod: HttpMethod.Post,
+    httpMethod: HttpMethodEnum.Post,
     credentials: 'YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY',
     headers: {
       'Authorization': 'Basic {{credentials}}'
@@ -239,10 +239,10 @@ const body: StoredPaymentMethodRequest = {
     holderName: 'John Smith',
     type: 'scheme',
   },
-  recurringProcessingModel: RecurringProcessingModel1.Subscription,
+  recurringProcessingModel: RecurringProcessingModel1Enum.Subscription,
   shopperReference: 'YOUR_SHOPPER_REFERENCE',
   shopperEmail: 's.hopper@test.com',
-  shopperIp: '192.0.2.1',
+  shopperIP: '192.0.2.1',
 };
 
 try {

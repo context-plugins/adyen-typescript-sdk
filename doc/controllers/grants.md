@@ -69,9 +69,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Grants404Error) {
-      console.log(error.result);
-    } else if (error instanceof Grants422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -82,8 +80,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`Grants404Error`](../../doc/models/grants-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`Grants422Error`](../../doc/models/grants-422-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Grants
@@ -94,7 +92,7 @@ Make a request for a grant on behalf of an account holder.
 
 ```ts
 async postGrants(
-  body?: GrantInfo,
+  body?: CapitalGrantInfo,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Grant>>
 ```
@@ -103,7 +101,7 @@ async postGrants(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`GrantInfo \| undefined`](../../doc/models/grant-info.md) | Body, Optional | - |
+| `body` | [`CapitalGrantInfo \| undefined`](../../doc/models/capital-grant-info.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -135,7 +133,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Grants422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -146,7 +144,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`Grants422Error`](../../doc/models/grants-422-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Grants-Grant Id
@@ -200,9 +198,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Grants404Error) {
-      console.log(error.result);
-    } else if (error instanceof Grants422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -213,8 +209,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`Grants404Error`](../../doc/models/grants-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`Grants422Error`](../../doc/models/grants-422-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Grants-Grant Id-Disbursements
@@ -268,9 +264,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof GrantsDisbursements404Error) {
-      console.log(error.result);
-    } else if (error instanceof GrantsDisbursements422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -281,8 +275,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantsDisbursements404Error`](../../doc/models/grants-disbursements-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantsDisbursements422Error`](../../doc/models/grants-disbursements-422-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Grants-Grant Id-Disbursements-Disbursement Id
@@ -343,9 +337,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof GrantsDisbursements404Error) {
-      console.log(error.result);
-    } else if (error instanceof GrantsDisbursements422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -356,8 +348,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantsDisbursements404Error`](../../doc/models/grants-disbursements-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantsDisbursements422Error`](../../doc/models/grants-disbursements-422-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Grants-Grant Id-Disbursements-Disbursement Id
@@ -424,9 +416,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof GrantsDisbursements404Error) {
-      console.log(error.result);
-    } else if (error instanceof GrantsDisbursements422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -437,6 +427,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantsDisbursements404Error`](../../doc/models/grants-disbursements-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantsDisbursements422Error`](../../doc/models/grants-disbursements-422-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

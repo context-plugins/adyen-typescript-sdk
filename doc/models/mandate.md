@@ -1,7 +1,7 @@
 
 # Mandate
 
-*This model accepts additional fields of type unknown.*
+The mandate details to initiate recurring transaction.
 
 ## Structure
 
@@ -11,46 +11,35 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `balanceAccountId` | `string \| undefined` | Optional | The unique identifier of the balance account linked to the payment instrument. |
-| `counterparty` | [`MandateBankAccount \| undefined`](../../doc/models/mandate-bank-account.md) | Optional | - |
-| `createdAt` | `string \| undefined` | Optional | The date when the mandate was created. |
-| `id` | `string \| undefined` | Optional | The unique identifier of the mandate. |
-| `paymentInstrumentId` | `string \| undefined` | Optional | The unique identifier of the payment instrument linked to the mandate. |
-| `status` | [`MandateStatus2 \| undefined`](../../doc/models/mandate-status-2.md) | Optional | - |
-| `type` | [`MandateType2 \| undefined`](../../doc/models/mandate-type-2.md) | Optional | - |
-| `updatedAt` | `string \| undefined` | Optional | The date when the mandate was updated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `amount` | `string` | Required | The billing amount (in minor units) of the recurring transactions. |
+| `amountRule` | [`AmountRuleEnum \| undefined`](../../doc/models/amount-rule-enum.md) | Optional | The limitation rule of the billing amount.<br><br>Possible values:<br><br>* **max**: The transaction amount can not exceed the `amount`.<br><br>* **exact**: The transaction amount should be the same as the `amount`. |
+| `billingAttemptsRule` | [`BillingAttemptsRuleEnum \| undefined`](../../doc/models/billing-attempts-rule-enum.md) | Optional | The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.<br><br>Possible values:<br><br>* **on**: On a specific date.<br><br>* **before**:  Before and on a specific date.<br><br>* **after**: On and after a specific date. |
+| `billingDay` | `string \| undefined` | Optional | The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.<br><br>Possible values: 1-31 based on the `frequency`. |
+| `count` | `string \| undefined` | Optional | The number of transactions that can be performed within the given frequency. |
+| `endsAt` | `string` | Required | End date of the billing plan, in YYYY-MM-DD format. |
+| `frequency` | [`FrequencyEnum`](../../doc/models/frequency-enum.md) | Required | The frequency with which a shopper should be charged.<br><br>Possible values: **adhoc**, **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**. |
+| `remarks` | `string \| undefined` | Optional | The message shown by UPI to the shopper on the approval screen. |
+| `startsAt` | `string \| undefined` | Optional | Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date. |
 
 ## Example
 
 ```ts
-import { Mandate } from 'adyen';
+import {
+  AmountRuleEnum,
+  BillingAttemptsRuleEnum,
+  FrequencyEnum,
+  Mandate,
+} from 'adyen';
 
 const mandate: Mandate = {
-  balanceAccountId: 'balanceAccountId2',
-  counterparty: {
-    accountHolder: {
-      fullName: 'fullName0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    accountIdentification: {
-      type: 'MandateAccountIdentification2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  createdAt: '2016-03-13T12:52:32.123Z',
-  id: 'id6',
-  paymentInstrumentId: 'paymentInstrumentId8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  amount: 'amount8',
+  endsAt: 'endsAt6',
+  frequency: FrequencyEnum.Monthly,
+  amountRule: AmountRuleEnum.Max,
+  billingAttemptsRule: BillingAttemptsRuleEnum.On,
+  billingDay: 'billingDay8',
+  count: 'count8',
+  remarks: 'remarks8',
 };
 ```
 

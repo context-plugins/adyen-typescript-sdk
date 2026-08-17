@@ -1,9 +1,7 @@
 
 # Links 11
 
-References to resources connected with this user.
-
-*This model accepts additional fields of type unknown.*
+Contains redirection URLs to guide the user to the appropriate page, after a successful payment or a cancellation.
 
 ## Structure
 
@@ -13,8 +11,8 @@ References to resources connected with this user.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `self` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `cancel` | [`Href6 \| undefined`](../../doc/models/href-6.md) | Optional | The URL to where the user must be redirected after a payment has been canceled. |
+| `success` | [`Href1 \| undefined`](../../doc/models/href-1.md) | Optional | The URL to where the user must be redirected after a successful payment. |
 
 ## Example
 
@@ -22,14 +20,11 @@ References to resources connected with this user.
 import { Links11 } from 'adyen';
 
 const links11: Links11 = {
-  self: {
-    href: 'href0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+  cancel: {
+    href: 'href4',
   },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  success: {
+    href: 'href2',
   },
 };
 ```

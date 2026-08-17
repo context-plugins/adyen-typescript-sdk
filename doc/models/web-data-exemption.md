@@ -1,8 +1,6 @@
 
 # Web Data Exemption
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `WebDataExemption`
@@ -11,19 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reason` | [`Reason1 \| undefined`](../../doc/models/reason-1.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `reason` | [`Reason3Enum \| undefined`](../../doc/models/reason-3-enum.md) | Optional | The reason why the web data was not provided. Possible value: **noOnlinePresence**. |
 
 ## Example
 
 ```ts
-import { Reason1, WebDataExemption } from 'adyen';
+import { Reason3Enum, WebDataExemption } from 'adyen';
 
 const webDataExemption: WebDataExemption = {
-  reason: Reason1.NoOnlinePresence,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  reason: Reason3Enum.NoOnlinePresence,
 };
 ```
 

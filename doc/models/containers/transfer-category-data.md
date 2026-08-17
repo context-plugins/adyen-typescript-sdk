@@ -22,6 +22,7 @@
 
 ```ts
 const value: TransferCategoryData = {
+  type: Type310Enum.Bank,
 };
 ```
 
@@ -33,6 +34,7 @@ const value: TransferCategoryData = {
 
 ```ts
 const value: TransferCategoryData = {
+  type: Type411Enum.Internal,
 };
 ```
 
@@ -44,6 +46,7 @@ const value: TransferCategoryData = {
 
 ```ts
 const value: TransferCategoryData = {
+  type: Type511Enum.IssuedCard,
 };
 ```
 
@@ -55,6 +58,7 @@ const value: TransferCategoryData = {
 
 ```ts
 const value: TransferCategoryData = {
+  type: Type63Enum.PlatformPayment,
 };
 ```
 

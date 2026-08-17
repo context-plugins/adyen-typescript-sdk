@@ -1,8 +1,6 @@
 
 # Delete Bank Account Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeleteBankAccountRequest`
@@ -12,8 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string` | Required | The code of the Account Holder from which to delete the Bank Account(s). |
-| `bankAccountUuiDs` | `string[]` | Required | The code(s) of the Bank Accounts to be deleted. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `bankAccountUUIDs` | `string[]` | Required | The code(s) of the Bank Accounts to be deleted. |
 
 ## Example
 
@@ -22,13 +19,10 @@ import { DeleteBankAccountRequest } from 'adyen';
 
 const deleteBankAccountRequest: DeleteBankAccountRequest = {
   accountHolderCode: 'accountHolderCode2',
-  bankAccountUuiDs: [
+  bankAccountUUIDs: [
     'bankAccountUUIDs1',
     'bankAccountUUIDs2'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

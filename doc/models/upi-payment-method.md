@@ -1,11 +1,9 @@
 
-# Upi Payment Method
-
-*This model accepts additional fields of type unknown.*
+# UPI Payment Method
 
 ## Structure
 
-`UpiPaymentMethod`
+`UPIPaymentMethod`
 
 ## Inherits From
 
@@ -16,19 +14,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `virtualPaymentAddress` | `string \| undefined` | Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `256` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { UpiPaymentMethod } from 'adyen';
+import { UPIPaymentMethod } from 'adyen';
 
-const upiPaymentMethod: UpiPaymentMethod = {
-  virtualPaymentAddress: 'virtualPaymentAddress0',
+const uPIPaymentMethod: UPIPaymentMethod = {
+  virtualPaymentAddress: 'virtualPaymentAddress6',
   type: 'upi_collect',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

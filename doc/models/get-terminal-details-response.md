@@ -1,8 +1,6 @@
 
 # Get Terminal Details Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetTerminalDetailsResponse`
@@ -31,12 +29,11 @@
 | `serialNumber` | `string \| undefined` | Optional | The serial number of the terminal. |
 | `simStatus` | `string \| null \| undefined` | Optional | On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY. |
 | `store` | `string \| undefined` | Optional | The store code of the store that the terminal is assigned to. |
-| `storeDetails` | [`Store1 \| undefined`](../../doc/models/store-1.md) | Optional | - |
+| `storeDetails` | [`Store11 \| undefined`](../../doc/models/store-11.md) | Optional | The store that the terminal is assigned to. |
 | `terminal` | `string` | Required | The unique terminal ID. |
-| `terminalStatus` | [`TerminalStatus \| undefined`](../../doc/models/terminal-status.md) | Optional | - |
+| `terminalStatus` | [`TerminalStatusEnum \| undefined`](../../doc/models/terminal-status-enum.md) | Optional | The status of the terminal:<br><br>- `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.<br><br>- `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.<br><br>- `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned. |
 | `wifiIp` | `string \| undefined` | Optional | The terminal's IP address in your Wi-Fi network. |
 | `wifiMac` | `string \| undefined` | Optional | The terminal's MAC address in your Wi-Fi network. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -51,9 +48,6 @@ const getTerminalDetailsResponse: GetTerminalDetailsResponse = {
   country: 'country0',
   deviceModel: 'deviceModel4',
   dhcpEnabled: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -8,18 +8,20 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { MpiData, mpiDataSchema } from './mpiData.js';
 import {
-  PlatformChargebackLogic1,
-  platformChargebackLogic1Schema,
-} from './platformChargebackLogic1.js';
+  PlatformChargebackLogic,
+  platformChargebackLogicSchema,
+} from './platformChargebackLogic.js';
 import { Split, splitSchema } from './split.js';
+import {
+  ThreeDSecureData,
+  threeDSecureDataSchema,
+} from './threeDSecureData.js';
 
 export interface CancelRequest {
   /**
@@ -29,7 +31,8 @@ export interface CancelRequest {
   additionalData?: Record<string, string>;
   /** The merchant account that is used to process the payment. */
   merchantAccount: string;
-  mpiData?: MpiData;
+  /** Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires). */
+  mpiData?: ThreeDSecureData;
   /** The original merchant reference to cancel. */
   originalMerchantReference?: string;
   /**
@@ -39,7 +42,8 @@ export interface CancelRequest {
    * * authorisation notification
    */
   originalReference: string;
-  platformChargebackLogic?: PlatformChargebackLogic1;
+  /** Defines how to book chargebacks when using [Adyen for Platforms](https://docs.adyen.com/adyen-for-platforms-model). */
+  platformChargebackLogic?: PlatformChargebackLogic;
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports.
    * Maximum length: 80 characters.
@@ -51,30 +55,25 @@ export interface CancelRequest {
   tenderReference?: string;
   /** Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only. */
   uniqueTerminalId?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const cancelRequestSchema: Schema<CancelRequest> = lazy(() =>
-  typedExpandoObject(
-    {
-      additionalData: ['additionalData', optional(dict(string()))],
-      merchantAccount: ['merchantAccount', string()],
-      mpiData: ['mpiData', optional(mpiDataSchema)],
-      originalMerchantReference: [
-        'originalMerchantReference',
-        optional(string()),
-      ],
-      originalReference: ['originalReference', string()],
-      platformChargebackLogic: [
-        'platformChargebackLogic',
-        optional(platformChargebackLogic1Schema),
-      ],
-      reference: ['reference', optional(string())],
-      splits: ['splits', optional(array(splitSchema))],
-      tenderReference: ['tenderReference', optional(string())],
-      uniqueTerminalId: ['uniqueTerminalId', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    additionalData: ['additionalData', optional(dict(string()))],
+    merchantAccount: ['merchantAccount', string()],
+    mpiData: ['mpiData', optional(threeDSecureDataSchema)],
+    originalMerchantReference: [
+      'originalMerchantReference',
+      optional(string()),
+    ],
+    originalReference: ['originalReference', string()],
+    platformChargebackLogic: [
+      'platformChargebackLogic',
+      optional(platformChargebackLogicSchema),
+    ],
+    reference: ['reference', optional(string())],
+    splits: ['splits', optional(array(splitSchema))],
+    tenderReference: ['tenderReference', optional(string())],
+    uniqueTerminalId: ['uniqueTerminalId', optional(string())],
+  })
 );

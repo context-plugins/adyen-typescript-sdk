@@ -5,19 +5,12 @@
  */
 
 import { Configuration, Environment } from './configuration.js';
-import {
-  LoggingOptions,
-  mergeLoggingOptions,
-  NullLogger,
-  RetryConfiguration,
-} from './core.js';
+import { RetryConfiguration } from './core.js';
 
 /** Default values for the configuration parameters of the client. */
 export const DEFAULT_CONFIGURATION: Configuration = {
   timeout: 30000,
-  environment: Environment.Production,
-  merchantAccount: 'merchantAccountDefaultValue',
-  deviceId: 'deviceIdDefaultValue',
+  environment: Environment.Test,
 };
 
 /** Default values for retry configuration parameters. */
@@ -30,8 +23,3 @@ export const DEFAULT_RETRY_CONFIG: RetryConfiguration = {
   httpStatusCodesToRetry: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
   httpMethodsToRetry: ['GET', 'PUT', 'GET', 'PUT'],
 };
-
-/** Default values for logging options. */
-export const DEFAULT_LOGGING_OPTIONS: LoggingOptions = mergeLoggingOptions({
-  logger: new NullLogger(),
-});

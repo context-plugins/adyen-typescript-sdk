@@ -31,7 +31,7 @@ For more information, refer to [Issue cards](https://docs.adyen.com/issuing/crea
 async postPaymentInstruments(
   body?: PaymentInstrumentInfo,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<PaymentInstrument>>
+): Promise<ApiResponse<PaymentInstrument1>>
 ```
 
 ## Authentication
@@ -49,7 +49,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentInstrument`](../../doc/models/payment-instrument.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentInstrument1`](../../doc/models/payment-instrument-1.md).
 
 ## Example Usage
 
@@ -57,7 +57,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const body: PaymentInstrumentInfo = {
   balanceAccountId: 'BA3227C223222B5CTBLR8BWJB',
   issuingCountryCode: 'NL',
-  type: Type11.BankAccount,
+  type: Type111Enum.BankAccount,
   description: 'YOUR_DESCRIPTION',
 };
 
@@ -204,7 +204,7 @@ Returns the details of a payment instrument.
 async getPaymentInstrumentsId(
   id: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<PaymentInstrument>>
+): Promise<ApiResponse<PaymentInstrument1>>
 ```
 
 ## Authentication
@@ -222,7 +222,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentInstrument`](../../doc/models/payment-instrument.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PaymentInstrument1`](../../doc/models/payment-instrument-1.md).
 
 ## Example Usage
 

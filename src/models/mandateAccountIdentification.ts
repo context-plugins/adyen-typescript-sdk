@@ -6,39 +6,35 @@
 
 import {
   isMappedValueValidForSchema,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  UkLocalMandateAccountIdentification,
-  ukLocalMandateAccountIdentificationSchema,
-} from './ukLocalMandateAccountIdentification.js';
+  UKLocalMandateAccountIdentification,
+  uKLocalMandateAccountIdentificationSchema,
+} from './uKLocalMandateAccountIdentification.js';
 
 export interface MandateAccountIdentification {
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export namespace MandateAccountIdentification {
   /**
    * Validation method to check if the given MandateAccountIdentification
-   * instance is also a UkLocalMandateAccountIdentification.
+   * instance is also a UKLocalMandateAccountIdentification.
    */
-  export function isUkLocalMandateAccountIdentification(
+  export function isUKLocalMandateAccountIdentification(
     value: MandateAccountIdentification
-  ): value is UkLocalMandateAccountIdentification {
+  ): value is UKLocalMandateAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      ukLocalMandateAccountIdentificationSchema
+      uKLocalMandateAccountIdentificationSchema
     );
   }
 }
 
-export const mandateAccountIdentificationSchema: Schema<MandateAccountIdentification> = typedExpandoObject(
-  { type: ['type', optional(string())] },
-  'additionalProperties',
-  optional(unknown())
+export const mandateAccountIdentificationSchema: Schema<MandateAccountIdentification> = object(
+  { type: ['type', optional(string())] }
 );

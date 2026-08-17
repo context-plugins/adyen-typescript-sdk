@@ -1,9 +1,7 @@
 
 # Address 11
 
-The residential address of the individual.
-
-*This model accepts additional fields of type unknown.*
+The address details of the billing entity.
 
 ## Structure
 
@@ -13,13 +11,13 @@ The residential address of the individual.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `city` | `string \| undefined` | Optional | The name of the city. Required if `stateOrProvince` is provided.<br><br>If you specify the city, you must also send `postalCode` and `street`. |
-| `country` | `string` | Required | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. |
-| `postalCode` | `string \| undefined` | Optional | The postal code. Required if `stateOrProvince` and/or `city` is provided.<br><br>When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or SW1A 1AA. |
-| `stateOrProvince` | `string \| undefined` | Optional | The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for Australia and New Zealand.<br><br>If you specify the state or province, you must also send `city`, `postalCode`, and `street`. |
-| `street` | `string \| undefined` | Optional | The name of the street, and the house or building number. Required if `stateOrProvince` and/or `city` is provided. |
-| `street2` | `string \| undefined` | Optional | The apartment, unit, or suite number. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `city` | `string \| undefined` | Optional | The name of the city. |
+| `companyName` | `string \| undefined` | Optional | The name of the company. |
+| `country` | `string \| undefined` | Optional | The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. |
+| `postalCode` | `string \| undefined` | Optional | The postal code. |
+| `stateOrProvince` | `string \| undefined` | Optional | The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.<br><br>Applicable for the following countries:<br><br>- Australia<br>- Brazil<br>- Canada<br>- India<br>- Mexico<br>- New Zealand<br>- United States |
+| `streetAddress` | `string \| undefined` | Optional | The name of the street, and the house or building number. |
+| `streetAddress2` | `string \| undefined` | Optional | Additional address details, if any. |
 
 ## Example
 
@@ -27,15 +25,11 @@ The residential address of the individual.
 import { Address11 } from 'adyen';
 
 const address11: Address11 = {
-  country: 'country8',
   city: 'city4',
+  companyName: 'companyName6',
+  country: 'country8',
   postalCode: 'postalCode6',
   stateOrProvince: 'stateOrProvince2',
-  street: 'street4',
-  street2: 'street20',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

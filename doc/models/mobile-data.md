@@ -4,8 +4,6 @@
 Mobile phone is used as a payment instrument for the transaction.
 Information related to the mobile for the payment transaction.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MobileData`
@@ -16,11 +14,10 @@ Information related to the mobile for the payment transaction.
 |  --- | --- | --- | --- |
 | `mobileCountryCode` | `number \| undefined` | Optional | Identifies the country of a mobile phone operator.<br>If data available.<br><br>**Constraints**: `>= 3`, `<= 3` |
 | `mobileNetworkCode` | `number \| undefined` | Optional | Identifies the mobile phone operator inside a country.<br>If data available.<br><br>**Constraints**: `>= 2`, `<= 3` |
-| `maskedMsisdn` | `number \| undefined` | Optional | Masked Mobile Subscriber Integrated Service Digital Network.<br>If data available. |
-| `geolocation` | [`Geolocation \| undefined`](../../doc/models/geolocation.md) | Optional | - |
+| `maskedMSISDN` | `number \| undefined` | Optional | Masked Mobile Subscriber Integrated Service Digital Network.<br>If data available. |
+| `geolocation` | [`Geolocation1 \| undefined`](../../doc/models/geolocation-1.md) | Optional | Geographic location specified by geographic or UTM coordinates.<br>If data available. |
 | `protectedMobileData` | `string \| undefined` | Optional | Sensitive information related to the mobile phone, protected by CMS.<br>SensitiveMobileData. |
-| `sensitiveMobileData` | [`SensitiveMobileData \| undefined`](../../doc/models/sensitive-mobile-data.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `sensitiveMobileData` | [`SensitiveMobileData1 \| undefined`](../../doc/models/sensitive-mobile-data-1.md) | Optional | Sensitive information related to the mobile phone.<br>If unprotected mobile data. |
 
 ## Example
 
@@ -30,31 +27,19 @@ import { MobileData } from 'adyen';
 const mobileData: MobileData = {
   mobileCountryCode: 3,
   mobileNetworkCode: 3,
-  maskedMsisdn: 0,
+  maskedMSISDN: 0,
   geolocation: {
     geographicCoordinates: {
       latitude: 'Latitude4',
       longitude: 'Longitude2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    utmCoordinates: {
-      utmZone: 'UTMZone6',
-      utmEastward: 'UTMEastward0',
-      utmNorthward: 'UTMNorthward0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    uTMCoordinates: {
+      uTMZone: 'UTMZone6',
+      uTMEastward: 'UTMEastward0',
+      uTMNorthward: 'UTMNorthward0',
     },
   },
   protectedMobileData: 'ProtectedMobileData8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Capability Problem
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CapabilityProblem`
@@ -11,14 +9,18 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `entity` | [`CapabilityProblemEntity \| undefined`](../../doc/models/capability-problem-entity.md) | Optional | - |
+| `entity` | [`CapabilityProblemEntity2 \| undefined`](../../doc/models/capability-problem-entity-2.md) | Optional | Contains the type of the entity and the corresponding ID. |
 | `verificationErrors` | [`VerificationError[] \| undefined`](../../doc/models/verification-error.md) | Optional | Contains information about the verification error. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Capability, CapabilityProblem, Type21, Type3 } from 'adyen';
+import {
+  CapabilityEnum,
+  CapabilityProblem,
+  Type212Enum,
+  Type33Enum,
+} from 'adyen';
 
 const capabilityProblem: CapabilityProblem = {
   entity: {
@@ -33,20 +35,14 @@ const capabilityProblem: CapabilityProblem = {
         'documents4'
       ],
       id: 'id4',
-      type: Type3.LegalEntity,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      type: Type33Enum.LegalEntity,
     },
-    type: Type3.LegalEntity,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: Type33Enum.LegalEntity,
   },
   verificationErrors: [
     {
       capabilities: [
-        Capability.UseCardInRestrictedIndustriesCommercial
+        CapabilityEnum.UseCardInRestrictedIndustriesCommercial
       ],
       code: 'code0',
       message: 'message8',
@@ -54,133 +50,85 @@ const capabilityProblem: CapabilityProblem = {
         {
           code: 'code4',
           message: 'message6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           code: 'code4',
           message: 'message6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       subErrors: [
         {
           capabilities: [
-            Capability.Processing,
-            Capability.PayoutToTransferInstrument
+            CapabilityEnum.Processing,
+            CapabilityEnum.PayoutToTransferInstrument
           ],
           code: 'code2',
           message: 'message4',
-          type: Type21.InvalidInput,
+          type: Type212Enum.InvalidInput,
           remediatingActions: [
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             }
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           capabilities: [
-            Capability.Processing,
-            Capability.PayoutToTransferInstrument
+            CapabilityEnum.Processing,
+            CapabilityEnum.PayoutToTransferInstrument
           ],
           code: 'code2',
           message: 'message4',
-          type: Type21.InvalidInput,
+          type: Type212Enum.InvalidInput,
           remediatingActions: [
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             }
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           capabilities: [
-            Capability.Processing,
-            Capability.PayoutToTransferInstrument
+            CapabilityEnum.Processing,
+            CapabilityEnum.PayoutToTransferInstrument
           ],
           code: 'code2',
           message: 'message4',
-          type: Type21.InvalidInput,
+          type: Type212Enum.InvalidInput,
           remediatingActions: [
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               code: 'code4',
               message: 'message6',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             }
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

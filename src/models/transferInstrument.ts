@@ -8,13 +8,15 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { BankAccountInfo, bankAccountInfoSchema } from './bankAccountInfo.js';
+import {
+  BankAccountInfo1,
+  bankAccountInfo1Schema,
+} from './bankAccountInfo1.js';
 import {
   CapabilityProblem1,
   capabilityProblem1Schema,
@@ -27,10 +29,11 @@ import {
   SupportingEntityCapability,
   supportingEntityCapabilitySchema,
 } from './supportingEntityCapability.js';
-import { Type222, type222Schema } from './type222.js';
+import { Type221Enum, type221EnumSchema } from './type221Enum.js';
 
 export interface TransferInstrument {
-  bankAccount: BankAccountInfo;
+  /** Contains information about the legal entity's bank account. */
+  bankAccount: BankAccountInfo1;
   /** List of capabilities for this transfer instrument. */
   capabilities?: Record<string, SupportingEntityCapability>;
   /** List of documents uploaded for the transfer instrument. */
@@ -41,28 +44,27 @@ export interface TransferInstrument {
   legalEntityId: string;
   /** The verification errors related to capabilities for this transfer instrument. */
   problems?: CapabilityProblem1[];
-  type: Type222;
-  additionalProperties?: Record<string, unknown>;
+  /**
+   * The type of transfer instrument.
+   * Possible value: **bankAccount**.
+   */
+  type: Type221Enum;
 }
 
 export const transferInstrumentSchema: Schema<TransferInstrument> = lazy(() =>
-  typedExpandoObject(
-    {
-      bankAccount: ['bankAccount', bankAccountInfoSchema],
-      capabilities: [
-        'capabilities',
-        optional(dict(supportingEntityCapabilitySchema)),
-      ],
-      documentDetails: [
-        'documentDetails',
-        optional(array(documentReferenceSchema)),
-      ],
-      id: ['id', string()],
-      legalEntityId: ['legalEntityId', string()],
-      problems: ['problems', optional(array(capabilityProblem1Schema))],
-      type: ['type', type222Schema],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    bankAccount: ['bankAccount', bankAccountInfo1Schema],
+    capabilities: [
+      'capabilities',
+      optional(dict(supportingEntityCapabilitySchema)),
+    ],
+    documentDetails: [
+      'documentDetails',
+      optional(array(documentReferenceSchema)),
+    ],
+    id: ['id', string()],
+    legalEntityId: ['legalEntityId', string()],
+    problems: ['problems', optional(array(capabilityProblem1Schema))],
+    type: ['type', type221EnumSchema],
+  })
 );

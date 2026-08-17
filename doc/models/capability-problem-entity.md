@@ -1,8 +1,6 @@
 
 # Capability Problem Entity
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CapabilityProblemEntity`
@@ -13,14 +11,13 @@
 |  --- | --- | --- | --- |
 | `documents` | `string[] \| undefined` | Optional | List of document IDs to which the verification errors related to the capabilities correspond to. |
 | `id` | `string \| undefined` | Optional | The ID of the entity. |
-| `owner` | [`CapabilityProblemEntityRecursive \| undefined`](../../doc/models/capability-problem-entity-recursive.md) | Optional | - |
-| `type` | [`Type3 \| undefined`](../../doc/models/type-3.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `owner` | [`CapabilityProblemEntityRecursive2 \| undefined`](../../doc/models/capability-problem-entity-recursive-2.md) | Optional | Contains details about the owner of the entity that has an error. |
+| `type` | [`Type33Enum \| undefined`](../../doc/models/type-33-enum.md) | Optional | Type of entity.<br><br>Possible values: **LegalEntity**, **BankAccount**, **Document**. |
 
 ## Example
 
 ```ts
-import { CapabilityProblemEntity, Type3 } from 'adyen';
+import { CapabilityProblemEntity, Type33Enum } from 'adyen';
 
 const capabilityProblemEntity: CapabilityProblemEntity = {
   documents: [
@@ -33,15 +30,9 @@ const capabilityProblemEntity: CapabilityProblemEntity = {
       'documents4'
     ],
     id: 'id4',
-    type: Type3.LegalEntity,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: Type33Enum.LegalEntity,
   },
-  type: Type3.BankAccount,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type33Enum.BankAccount,
 };
 ```
 

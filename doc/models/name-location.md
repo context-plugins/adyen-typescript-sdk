@@ -1,8 +1,6 @@
 
 # Name Location
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NameLocation`
@@ -17,7 +15,6 @@
 | `name` | `string \| undefined` | Optional | The name of the merchant's shop or service. |
 | `rawData` | `string \| undefined` | Optional | The raw data. |
 | `state` | `string \| undefined` | Optional | The state where the merchant is located. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,9 +27,6 @@ const nameLocation: NameLocation = {
   countryOfOrigin: 'countryOfOrigin0',
   name: 'name4',
   rawData: 'rawData0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -9,36 +9,31 @@ import {
   boolean,
   dict,
   lazy,
+  object,
   optional,
   Schema,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount3, amount3Schema } from './amount3.js';
-import { FundingSource, fundingSourceSchema } from './fundingSource.js';
-import { Interval, intervalSchema } from './interval.js';
+import { Amount17, amount17Schema } from './amount17.js';
+import {
+  FundingSourceEnum,
+  fundingSourceEnumSchema,
+} from './fundingSourceEnum.js';
+import { IntervalEnum, intervalEnumSchema } from './intervalEnum.js';
 
 export interface CapabilitySettings {
-  amountPerIndustry?: Record<string, Amount3>;
+  amountPerIndustry?: Record<string, Amount17>;
   authorizedCardUsers?: boolean;
-  fundingSource?: FundingSource[];
-  /** The period when the rule conditions apply. */
-  interval?: Interval;
-  /** The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. */
-  maxAmount?: Amount3;
-  additionalProperties?: Record<string, unknown>;
+  fundingSource?: FundingSourceEnum[];
+  interval?: IntervalEnum;
+  maxAmount?: Amount17;
 }
 
 export const capabilitySettingsSchema: Schema<CapabilitySettings> = lazy(() =>
-  typedExpandoObject(
-    {
-      amountPerIndustry: ['amountPerIndustry', optional(dict(amount3Schema))],
-      authorizedCardUsers: ['authorizedCardUsers', optional(boolean())],
-      fundingSource: ['fundingSource', optional(array(fundingSourceSchema))],
-      interval: ['interval', optional(intervalSchema)],
-      maxAmount: ['maxAmount', optional(amount3Schema)],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    amountPerIndustry: ['amountPerIndustry', optional(dict(amount17Schema))],
+    authorizedCardUsers: ['authorizedCardUsers', optional(boolean())],
+    fundingSource: ['fundingSource', optional(array(fundingSourceEnumSchema))],
+    interval: ['interval', optional(intervalEnumSchema)],
+    maxAmount: ['maxAmount', optional(amount17Schema)],
+  })
 );

@@ -8,20 +8,20 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { AllowedOrigin, allowedOriginSchema } from './allowedOrigin.js';
 import {
-  ApiCredentialLinks,
-  apiCredentialLinksSchema,
-} from './apiCredentialLinks.js';
+  ApiCredentialLinks2,
+  apiCredentialLinks2Schema,
+} from './apiCredentialLinks2.js';
 
 export interface MeApiCredential {
-  links?: ApiCredentialLinks;
+  /** References to resources linked to the API credential. */
+  links?: ApiCredentialLinks2;
   /** Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration. */
   active: boolean;
   /**
@@ -43,28 +43,23 @@ export interface MeApiCredential {
   /** List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. */
   roles: string[];
   /** The subject DN of the certificate issued by Adyen. */
-  subjectDn?: string;
+  subjectDN?: string;
   /** The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**. */
   username: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const meApiCredentialSchema: Schema<MeApiCredential> = lazy(() =>
-  typedExpandoObject(
-    {
-      links: ['_links', optional(apiCredentialLinksSchema)],
-      active: ['active', boolean()],
-      allowedIpAddresses: ['allowedIpAddresses', array(string())],
-      allowedOrigins: ['allowedOrigins', optional(array(allowedOriginSchema))],
-      clientKey: ['clientKey', string()],
-      companyName: ['companyName', optional(string())],
-      description: ['description', optional(string())],
-      id: ['id', string()],
-      roles: ['roles', array(string())],
-      subjectDn: ['subjectDN', optional(string())],
-      username: ['username', string()],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    links: ['_links', optional(apiCredentialLinks2Schema)],
+    active: ['active', boolean()],
+    allowedIpAddresses: ['allowedIpAddresses', array(string())],
+    allowedOrigins: ['allowedOrigins', optional(array(allowedOriginSchema))],
+    clientKey: ['clientKey', string()],
+    companyName: ['companyName', optional(string())],
+    description: ['description', optional(string())],
+    id: ['id', string()],
+    roles: ['roles', array(string())],
+    subjectDN: ['subjectDN', optional(string())],
+    username: ['username', string()],
+  })
 );

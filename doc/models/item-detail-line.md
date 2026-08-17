@@ -1,8 +1,6 @@
 
 # Item Detail Line
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ItemDetailLine`
@@ -19,7 +17,6 @@
 | `totalAmount` | `bigint \| undefined` | Optional | The total amount for the line item, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000<br><br>See [Amount requirements for level 2/3 ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements) to learn more about how to calculate the line item total.<br><br>* **additionalData key:** `enhancedSchemeData.itemDetailLine[N].totalAmount` |
 | `unitOfMeasure` | `string \| undefined` | Optional | The unit of measurement for an item.<br><br>* Encoding: ASCII<br>* Max length: 3 characters<br>* **additionalData key:** `enhancedSchemeData.itemDetailLine[N].unitOfMeasure` |
 | `unitPrice` | `bigint \| undefined` | Optional | The unit price, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000<br>* **additionalData key:** `enhancedSchemeData.itemDetailLine[N].unitPrice` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const itemDetailLine: ItemDetailLine = {
   discountAmount: BigInt(18),
   productCode: 'productCode4',
   quantity: BigInt(238),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

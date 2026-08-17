@@ -21,8 +21,8 @@
 
 ```ts
 const value: TransferEventTrackingData = {
-  status: Status110.Credited,
-  type: Type834.Confirmation,
+  status: Status15Enum.Credited,
+  type: 'confirmation',
 };
 ```
 
@@ -35,7 +35,7 @@ const value: TransferEventTrackingData = {
 ```ts
 const value: TransferEventTrackingData = {
   estimatedArrivalTime: '2016-03-13T12:52:32.123Z',
-  type: Type84.Estimation,
+  type: 'estimation',
 };
 ```
 
@@ -47,8 +47,8 @@ const value: TransferEventTrackingData = {
 
 ```ts
 const value: TransferEventTrackingData = {
-  status: Status44.Pending,
-  type: Type90.InternalReview,
+  status: Status44Enum.Pending,
+  type: 'internalReview',
 };
 ```
 

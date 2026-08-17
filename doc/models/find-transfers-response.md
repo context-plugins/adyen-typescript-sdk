@@ -1,8 +1,6 @@
 
 # Find Transfers Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FindTransfersResponse`
@@ -11,37 +9,27 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`Links3 \| undefined`](../../doc/models/links-3.md) | Optional | - |
+| `links` | [`Links21 \| undefined`](../../doc/models/links-21.md) | Optional | Contains links to the next and previous page whenever applicable. |
 | `data` | [`TransferData[] \| undefined`](../../doc/models/transfer-data.md) | Optional | Contains the transfers that match the query parameters. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  Category3,
+  Category3Enum,
   FindTransfersResponse,
-  Priority,
-  Status53,
-  Type312,
+  Priority1Enum,
+  Status51Enum,
+  Type310Enum,
 } from 'adyen';
 
 const findTransfersResponse: FindTransfersResponse = {
   links: {
     next: {
       href: 'href4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     prev: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   data: [
@@ -49,27 +37,18 @@ const findTransfersResponse: FindTransfersResponse = {
       amount: {
         currency: 'currency2',
         value: BigInt(110),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      category: Category3.Internal,
-      status: Status53.Cancelled,
+      category: Category3Enum.Internal,
+      status: Status51Enum.Cancelled,
       accountHolder: {
         description: 'description0',
         id: 'id0',
         reference: 'reference4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       balanceAccount: {
         description: 'description2',
         id: 'id2',
         reference: 'reference2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       balancePlatform: 'balancePlatform2',
       balances: [
@@ -78,44 +57,26 @@ const findTransfersResponse: FindTransfersResponse = {
           currency: 'currency0',
           received: BigInt(214),
           reserved: BigInt(158),
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           balance: BigInt(224),
           currency: 'currency0',
           received: BigInt(214),
           reserved: BigInt(158),
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           balance: BigInt(224),
           currency: 'currency0',
           received: BigInt(214),
           reserved: BigInt(158),
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       categoryData: {
-        priority: Priority.Instant,
-        type: Type312.Bank,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        priority: Priority1Enum.Instant,
+        type: Type310Enum.Bank,
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

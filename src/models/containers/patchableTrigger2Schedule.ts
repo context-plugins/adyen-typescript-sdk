@@ -7,10 +7,8 @@
 import {
   isMappedValueValidForSchema,
   lazy,
-  nullable,
   oneOf,
   Schema,
-  unknown,
 } from '../../schema.js';
 import {
   PatchableSchedule,
@@ -18,10 +16,10 @@ import {
 } from '../patchableSchedule.js';
 
 /** This is a container type for one-of types. */
-export type PatchableTrigger2Schedule = PatchableSchedule | unknown | null;
+export type PatchableTrigger2Schedule = PatchableSchedule;
 
 export const patchableTrigger2ScheduleSchema: Schema<PatchableTrigger2Schedule> = lazy(
-  () => oneOf([patchableScheduleSchema, nullable(unknown())])
+  () => oneOf([patchableScheduleSchema])
 );
 
 export namespace PatchableTrigger2Schedule {

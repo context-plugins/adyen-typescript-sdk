@@ -1,12 +1,12 @@
 # AP Icredentials-Companylevel
 
 ```ts
-const apIcredentialsCompanylevelApi = new ApIcredentialsCompanylevelApi(client);
+const aPIcredentialsCompanylevelApi = new APIcredentialsCompanylevelApi(client);
 ```
 
 ## Class Name
 
-`ApIcredentialsCompanylevelApi`
+`APIcredentialsCompanylevelApi`
 
 ## Methods
 
@@ -58,7 +58,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const companyId = 'companyId0';
 
 try {
-  const response = await apiCredentialsCompanyLevelApi.getCompaniesCompanyIdApiCredentials(companyId);
+  const response = await aPICredentialsCompanyLevelApi.getCompaniesCompanyIdApiCredentials(companyId);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -507,7 +507,7 @@ const body: CreateCompanyApiCredentialRequest = {
 };
 
 try {
-  const response = await apiCredentialsCompanyLevelApi.postCompaniesCompanyIdApiCredentials(
+  const response = await aPICredentialsCompanyLevelApi.postCompaniesCompanyIdApiCredentials(
     companyId,
     body
   );
@@ -639,7 +639,7 @@ const companyId = 'companyId0';
 const apiCredentialId = 'apiCredentialId8';
 
 try {
-  const response = await apiCredentialsCompanyLevelApi.getCompaniesCompanyIdApiCredentialsApiCredentialId(
+  const response = await aPICredentialsCompanyLevelApi.getCompaniesCompanyIdApiCredentialsApiCredentialId(
     companyId,
     apiCredentialId
   );
@@ -782,7 +782,7 @@ const body: UpdateCompanyApiCredentialRequest = {
 };
 
 try {
-  const response = await apiCredentialsCompanyLevelApi.patchCompaniesCompanyIdApiCredentialsApiCredentialId(
+  const response = await aPICredentialsCompanyLevelApi.patchCompaniesCompanyIdApiCredentialsApiCredentialId(
     companyId,
     apiCredentialId,
     body

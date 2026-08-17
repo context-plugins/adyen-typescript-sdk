@@ -3,8 +3,6 @@
 
 The contact details for the shipping location.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Contact1`
@@ -18,7 +16,6 @@ The contact details for the shipping location.
 | `infix` | `string \| undefined` | Optional | The infix in the individual's name, if any. |
 | `lastName` | `string \| undefined` | Optional | The individual's last name. |
 | `phoneNumber` | `string \| undefined` | Optional | The individual's phone number, specified as 10-14 digits with an optional `+` prefix. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const contact1: Contact1 = {
   infix: 'infix4',
   lastName: 'lastName4',
   phoneNumber: 'phoneNumber0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

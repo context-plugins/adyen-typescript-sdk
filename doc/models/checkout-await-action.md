@@ -1,8 +1,6 @@
 
 # Checkout Await Action
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CheckoutAwaitAction`
@@ -13,23 +11,19 @@
 |  --- | --- | --- | --- |
 | `paymentData` | `string \| undefined` | Optional | Encoded payment data. |
 | `paymentMethodType` | `string \| undefined` | Optional | Specifies the payment method. |
-| `type` | [`Type493`](../../doc/models/type-493.md) | Required | **await** |
+| `type` | `string` | Required, Constant | **await**<br><br>**Value**: `'await'` |
 | `url` | `string \| undefined` | Optional | Specifies the URL to redirect to. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CheckoutAwaitAction, Type493 } from 'adyen';
+import { CheckoutAwaitAction } from 'adyen';
 
 const checkoutAwaitAction: CheckoutAwaitAction = {
-  type: Type493.Await,
+  type: 'await',
   paymentData: 'paymentData2',
   paymentMethodType: 'paymentMethodType2',
   url: 'url4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

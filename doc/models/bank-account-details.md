@@ -1,8 +1,6 @@
 
 # Bank Account Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BankAccountDetails`
@@ -18,8 +16,7 @@
 | `iban` | `string \| undefined` | Optional | The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard. |
 | `routingNumber` | `string \| undefined` | Optional | The [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace. |
 | `sortCode` | `string \| undefined` | Optional | The [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace. |
-| `type` | `string` | Required | **iban** or **usLocal** or **ukLocal** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required | **iban** or **usLocal** or **ukLocal**<br><br>**Default**: `'iban'` |
 
 ## Example
 
@@ -27,15 +24,12 @@
 import { BankAccountDetails } from 'adyen';
 
 const bankAccountDetails: BankAccountDetails = {
-  type: 'type6',
+  type: 'iban',
   accountNumber: 'accountNumber8',
   accountType: 'checking',
   branchNumber: 'branchNumber4',
   formFactor: 'physical',
   iban: 'iban8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

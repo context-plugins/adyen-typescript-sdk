@@ -1,8 +1,6 @@
 
 # Token Requestors Restriction
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TokenRequestorsRestriction`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | `string[] \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const tokenRequestorsRestriction: TokenRequestorsRestriction = {
     'value5',
     'value6'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

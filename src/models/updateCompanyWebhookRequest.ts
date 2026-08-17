@@ -8,29 +8,28 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  AdditionalSettings,
-  additionalSettingsSchema,
-} from './additionalSettings.js';
+  AdditionalSettings1,
+  additionalSettings1Schema,
+} from './additionalSettings1.js';
 import {
-  CommunicationFormat,
-  communicationFormatSchema,
-} from './communicationFormat.js';
+  CommunicationFormatEnum,
+  communicationFormatEnumSchema,
+} from './communicationFormatEnum.js';
 import {
-  EncryptionProtocol,
-  encryptionProtocolSchema,
-} from './encryptionProtocol.js';
+  EncryptionProtocolEnum,
+  encryptionProtocolEnumSchema,
+} from './encryptionProtocolEnum.js';
 import {
-  FilterMerchantAccountType2,
-  filterMerchantAccountType2Schema,
-} from './filterMerchantAccountType2.js';
-import { NetworkType, networkTypeSchema } from './networkType.js';
+  FilterMerchantAccountType2Enum,
+  filterMerchantAccountType2EnumSchema,
+} from './filterMerchantAccountType2Enum.js';
+import { NetworkTypeEnum, networkTypeEnumSchema } from './networkTypeEnum.js';
 
 export interface UpdateCompanyWebhookRequest {
   /** Indicates if expired SSL certificates are accepted. Default value: **false**. */
@@ -41,12 +40,32 @@ export interface UpdateCompanyWebhookRequest {
   acceptsUntrustedRootCertificate?: boolean;
   /** Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account. */
   active?: boolean;
-  additionalSettings?: AdditionalSettings;
-  communicationFormat?: CommunicationFormat;
+  /** Additional shopper and transaction information to be included in your [standard webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes). Find out more about the available [additional settings](https://docs.adyen.com/development-resources/webhooks/additional-settings). */
+  additionalSettings?: AdditionalSettings1;
+  /**
+   * Format or protocol for receiving webhooks. Possible values:
+   * * **soap**
+   * * **http**
+   * * **json**
+   */
+  communicationFormat?: CommunicationFormatEnum;
   /** Your description for this webhook configuration. */
   description?: string;
-  encryptionProtocol?: EncryptionProtocol;
-  filterMerchantAccountType?: FilterMerchantAccountType2;
+  /**
+   * SSL version to access the public webhook URL specified in the `url` field. Possible values:
+   * * **TLSv1.3**
+   * * **TLSv1.2**
+   * * **HTTP** - Only allowed on Test environment.
+   * If not specified, the webhook will use `sslVersion`: **TLSv1.2**.
+   */
+  encryptionProtocol?: EncryptionProtocolEnum;
+  /**
+   * Shows how merchant accounts are filtered when configuring the webhook. Possible values:
+   * * **includeAccounts**: The webhook is configured for the merchant accounts listed in `filterMerchantAccounts`.
+   * * **excludeAccounts**: The webhook is not configured for the merchant accounts listed in `filterMerchantAccounts`.
+   * * **allAccounts**: Includes all merchant accounts, and does not require specifying `filterMerchantAccounts`.
+   */
+  filterMerchantAccountType?: FilterMerchantAccountType2Enum;
   /**
    * A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for `filterMerchantAccountType`.
    * Required if `filterMerchantAccountType` is either:
@@ -55,7 +74,13 @@ export interface UpdateCompanyWebhookRequest {
    * Not needed for `filterMerchantAccountType`: **allAccounts**.
    */
   filterMerchantAccounts?: string[];
-  networkType?: NetworkType;
+  /**
+   * Network type for Terminal API notification webhooks. Possible values:
+   * * **public**
+   * * **local**
+   * Default Value: **public**.
+   */
+  networkType?: NetworkTypeEnum;
   /** Password to access the webhook URL. */
   password?: string;
   /**
@@ -67,57 +92,52 @@ export interface UpdateCompanyWebhookRequest {
   url?: string;
   /** Username to access the webhook URL. */
   username?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const updateCompanyWebhookRequestSchema: Schema<UpdateCompanyWebhookRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        acceptsExpiredCertificate: [
-          'acceptsExpiredCertificate',
-          optional(boolean()),
-        ],
-        acceptsSelfSignedCertificate: [
-          'acceptsSelfSignedCertificate',
-          optional(boolean()),
-        ],
-        acceptsUntrustedRootCertificate: [
-          'acceptsUntrustedRootCertificate',
-          optional(boolean()),
-        ],
-        active: ['active', optional(boolean())],
-        additionalSettings: [
-          'additionalSettings',
-          optional(additionalSettingsSchema),
-        ],
-        communicationFormat: [
-          'communicationFormat',
-          optional(communicationFormatSchema),
-        ],
-        description: ['description', optional(string())],
-        encryptionProtocol: [
-          'encryptionProtocol',
-          optional(encryptionProtocolSchema),
-        ],
-        filterMerchantAccountType: [
-          'filterMerchantAccountType',
-          optional(filterMerchantAccountType2Schema),
-        ],
-        filterMerchantAccounts: [
-          'filterMerchantAccounts',
-          optional(array(string())),
-        ],
-        networkType: ['networkType', optional(networkTypeSchema)],
-        password: ['password', optional(string())],
-        populateSoapActionHeader: [
-          'populateSoapActionHeader',
-          optional(boolean()),
-        ],
-        url: ['url', optional(string())],
-        username: ['username', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      acceptsExpiredCertificate: [
+        'acceptsExpiredCertificate',
+        optional(boolean()),
+      ],
+      acceptsSelfSignedCertificate: [
+        'acceptsSelfSignedCertificate',
+        optional(boolean()),
+      ],
+      acceptsUntrustedRootCertificate: [
+        'acceptsUntrustedRootCertificate',
+        optional(boolean()),
+      ],
+      active: ['active', optional(boolean())],
+      additionalSettings: [
+        'additionalSettings',
+        optional(additionalSettings1Schema),
+      ],
+      communicationFormat: [
+        'communicationFormat',
+        optional(communicationFormatEnumSchema),
+      ],
+      description: ['description', optional(string())],
+      encryptionProtocol: [
+        'encryptionProtocol',
+        optional(encryptionProtocolEnumSchema),
+      ],
+      filterMerchantAccountType: [
+        'filterMerchantAccountType',
+        optional(filterMerchantAccountType2EnumSchema),
+      ],
+      filterMerchantAccounts: [
+        'filterMerchantAccounts',
+        optional(array(string())),
+      ],
+      networkType: ['networkType', optional(networkTypeEnumSchema)],
+      password: ['password', optional(string())],
+      populateSoapActionHeader: [
+        'populateSoapActionHeader',
+        optional(boolean()),
+      ],
+      url: ['url', optional(string())],
+      username: ['username', optional(string())],
+    })
 );

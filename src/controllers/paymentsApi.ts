@@ -50,9 +50,17 @@ import {
   idealPaymentDetailsRequestSchema,
 } from '../models/idealPaymentDetailsRequest.js';
 import {
+  PaymentDetailsRequest,
+  paymentDetailsRequestSchema,
+} from '../models/paymentDetailsRequest.js';
+import {
   PaymentDetailsResponse,
   paymentDetailsResponseSchema,
 } from '../models/paymentDetailsResponse.js';
+import {
+  PaymentDetailsResponse1,
+  paymentDetailsResponse1Schema,
+} from '../models/paymentDetailsResponse1.js';
 import {
   PaymentMethodsRequest,
   paymentMethodsRequestSchema,
@@ -70,13 +78,13 @@ import {
   paymentRequest1Schema,
 } from '../models/paymentRequest1.js';
 import {
-  PaymentRequest3D,
-  paymentRequest3DSchema,
-} from '../models/paymentRequest3D.js';
+  PaymentRequest3d,
+  paymentRequest3dSchema,
+} from '../models/paymentRequest3d.js';
 import {
-  PaymentRequest3Ds2,
-  paymentRequest3Ds2Schema,
-} from '../models/paymentRequest3Ds2.js';
+  PaymentRequest3ds2,
+  paymentRequest3ds2Schema,
+} from '../models/paymentRequest3ds2.js';
 import {
   PaymentResponse,
   paymentResponseSchema,
@@ -87,157 +95,19 @@ import {
   sessionResultResponseSchema,
 } from '../models/sessionResultResponse.js';
 import {
-  ThreeDs2ResultRequest,
-  threeDs2ResultRequestSchema,
-} from '../models/threeDs2ResultRequest.js';
+  ThreeDS2ResultRequest,
+  threeDS2ResultRequestSchema,
+} from '../models/threeDS2ResultRequest.js';
 import {
-  ThreeDs2ResultResponse,
-  threeDs2ResultResponseSchema,
-} from '../models/threeDs2ResultResponse.js';
+  ThreeDS2ResultResponse,
+  threeDS2ResultResponseSchema,
+} from '../models/threeDS2ResultResponse.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { PaymentsCancel400Error } from '../errors/paymentsCancel400Error.js';
-import { PaymentsCancel422Error } from '../errors/paymentsCancel422Error.js';
-import { PaymentsCancel500Error } from '../errors/paymentsCancel500Error.js';
-import { PaymentsConfirm400Error } from '../errors/paymentsConfirm400Error.js';
-import { PaymentsConfirm401Error } from '../errors/paymentsConfirm401Error.js';
-import { PaymentsConfirm422Error } from '../errors/paymentsConfirm422Error.js';
-import { PaymentsConfirm500Error } from '../errors/paymentsConfirm500Error.js';
-import { PaymentsDetails400Error } from '../errors/paymentsDetails400Error.js';
-import { PaymentsDetails422Error } from '../errors/paymentsDetails422Error.js';
-import { PaymentsDetails500Error } from '../errors/paymentsDetails500Error.js';
-import { ServiceError1Error } from '../errors/serviceError1Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
+import { ServiceError } from '../errors/serviceError.js';
 
 export class PaymentsApi extends BaseApi {
-  /**
-   * Cancels the payment. Returns a URL for user redirection.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postPaymentsCancel(
-    body: CancelPaymentRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<CancelPaymentResponse>> {
-    const req = this.createRequest('POST', '/payments/cancel');
-    const mapped = req.prepareArgs({
-      body: [body, cancelPaymentRequestSchema],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      PaymentsCancel400Error,
-      'Bad Request - The request is malformed or is not the expected format.'
-    );
-    req.throwOn(
-      422,
-      PaymentsCancel422Error,
-      'Unprocessable Entity - A request validation error.'
-    );
-    req.throwOn(
-      500,
-      PaymentsCancel500Error,
-      'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
-    );
-    req.authenticate(false);
-    return req.callAsJson(cancelPaymentResponseSchema, requestOptions);
-  }
-
-  /**
-   * Confirms the payment using Strong Customer Authentication (SCA).
-   *
-   * To confirm a payment you must make this request two times:
-   *
-   * 1. Make this request to initiate SCA and receive the WWW-Authenticate header.
-   * 2. After the user completes the SCA challenge, make this request again, including the updated
-   * WWW-Authenticate header.
-   *
-   * The second response provides a redirection URL that guides the user to a payment success or
-   * failure page.
-   * For more information, see our [documentation](https://docs.adyen.com/business-accounts/send-funds-
-   * ideal-integration).
-   *
-   * @param body
-   * @param wwwAuthenticate  Header for authenticating through SCA: Contains
-   *                                                         information for an SCA challenge for A2A payments.
-   * @return Response from the API call
-   */
-  async postPaymentsConfirm(
-    body: ConfirmPaymentRequest,
-    wwwAuthenticate?: string,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ConfirmPaymentResponse>> {
-    const req = this.createRequest('POST', '/payments/confirm');
-    const mapped = req.prepareArgs({
-      body: [body, confirmPaymentRequestSchema],
-      wwwAuthenticate: [wwwAuthenticate, optional(string())],
-    });
-    req.header('Content-Type', 'application/json');
-    req.header('WWW-Authenticate', mapped.wwwAuthenticate);
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      PaymentsConfirm400Error,
-      'Bad Request - The request is malformed or is not the expected format.'
-    );
-    req.throwOn(
-      401,
-      PaymentsConfirm401Error,
-      'Unauthorized - The API credential used in the request is invalid or does not have the right permissions.'
-    );
-    req.throwOn(
-      422,
-      PaymentsConfirm422Error,
-      'Unprocessable Entity - A request validation error.'
-    );
-    req.throwOn(
-      500,
-      PaymentsConfirm500Error,
-      'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
-    );
-    req.authenticate(false);
-    return req.callAsJson(confirmPaymentResponseSchema, requestOptions);
-  }
-
-  /**
-   * Returns the details of an open payment, which you must show to the user. Also provides a token
-   * required to [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm)
-   * or [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel) the
-   * payment.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postPaymentsDetails(
-    body: IdealPaymentDetailsRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PaymentDetailsResponse>> {
-    const req = this.createRequest('POST', '/payments/details');
-    const mapped = req.prepareArgs({
-      body: [body, idealPaymentDetailsRequestSchema],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      PaymentsDetails400Error,
-      'Bad Request - The request is malformed or is not the expected format.'
-    );
-    req.throwOn(
-      422,
-      PaymentsDetails422Error,
-      'Unprocessable Entity - A request validation error.'
-    );
-    req.throwOn(
-      500,
-      PaymentsDetails500Error,
-      'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
-    );
-    req.authenticate(false);
-    return req.callAsJson(paymentDetailsResponseSchema, requestOptions);
-  }
-
   /**
    * Use this endpoint to get information about the card or network token that enables you to decide on
    * the routing of the transaction and the eligibility of the card for the type of transaction.
@@ -329,27 +199,23 @@ export class PaymentsApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -385,31 +251,77 @@ export class PaymentsApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
     return req.callAsJson(paymentResponseSchema, requestOptions);
+  }
+
+  /**
+   * Submits details for a payment created using `/payments`. This step is only needed when no final
+   * state has been reached on the `/payments` request, for example when the shopper was redirected to
+   * another page to complete the payment.
+   *
+   *
+   *
+   * @param idempotencyKey  A unique identifier for the message with a maximum of 64
+   *                                                        characters (we recommend a UUID).
+   * @param body
+   * @return Response from the API call
+   */
+  async postPaymentsDetails(
+    idempotencyKey?: string,
+    body?: PaymentDetailsRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<PaymentDetailsResponse>> {
+    const req = this.createRequest('POST', '/payments/details');
+    const mapped = req.prepareArgs({
+      idempotencyKey: [idempotencyKey, optional(string())],
+      body: [body, optional(paymentDetailsRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.header('Idempotency-Key', mapped.idempotencyKey);
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(paymentDetailsResponseSchema, requestOptions);
   }
 
   /**
@@ -495,6 +407,7 @@ export class PaymentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentResult>> {
     const req = this.createRequest('POST', '/authorise');
+    req.baseUrl('default1');
     const mapped = req.prepareArgs({
       body: [body, optional(paymentRequest1Schema)],
     });
@@ -502,27 +415,23 @@ export class PaymentsApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -549,39 +458,36 @@ export class PaymentsApi extends BaseApi {
    * @param body
    * @return Response from the API call
    */
-  async postAuthorise3D(
-    body?: PaymentRequest3D,
+  async postAuthorise3d(
+    body?: PaymentRequest3d,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentResult>> {
     const req = this.createRequest('POST', '/authorise3d');
+    req.baseUrl('default1');
     const mapped = req.prepareArgs({
-      body: [body, optional(paymentRequest3DSchema)],
+      body: [body, optional(paymentRequest3dSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -606,39 +512,36 @@ export class PaymentsApi extends BaseApi {
    * @param body
    * @return Response from the API call
    */
-  async postAuthorise3Ds2(
-    body?: PaymentRequest3Ds2,
+  async postAuthorise3ds2(
+    body?: PaymentRequest3ds2,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentResult>> {
     const req = this.createRequest('POST', '/authorise3ds2');
+    req.baseUrl('default1');
     const mapped = req.prepareArgs({
-      body: [body, optional(paymentRequest3Ds2Schema)],
+      body: [body, optional(paymentRequest3ds2Schema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -656,6 +559,7 @@ export class PaymentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AuthenticationResultResponse>> {
     const req = this.createRequest('POST', '/getAuthenticationResult');
+    req.baseUrl('default1');
     const mapped = req.prepareArgs({
       body: [body, optional(authenticationResultRequestSchema)],
     });
@@ -663,27 +567,23 @@ export class PaymentsApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -696,42 +596,171 @@ export class PaymentsApi extends BaseApi {
    * @param body
    * @return Response from the API call
    */
-  async postRetrieve3Ds2Result(
-    body?: ThreeDs2ResultRequest,
+  async postRetrieve3ds2Result(
+    body?: ThreeDS2ResultRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ThreeDs2ResultResponse>> {
+  ): Promise<ApiResponse<ThreeDS2ResultResponse>> {
     const req = this.createRequest('POST', '/retrieve3ds2Result');
+    req.baseUrl('default1');
     const mapped = req.prepareArgs({
-      body: [body, optional(threeDs2ResultRequestSchema)],
+      body: [body, optional(threeDS2ResultRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(threeDs2ResultResponseSchema, requestOptions);
+    return req.callAsJson(threeDS2ResultResponseSchema, requestOptions);
+  }
+
+  /**
+   * Cancels the payment. Returns a URL for user redirection.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postPaymentsCancel(
+    body: CancelPaymentRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<CancelPaymentResponse>> {
+    const req = this.createRequest('POST', '/payments/cancel');
+    req.baseUrl('default20');
+    const mapped = req.prepareArgs({
+      body: [body, cancelPaymentRequestSchema],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      DefaultErrorResponseEntityError,
+      'Bad Request - The request is malformed or is not the expected format.'
+    );
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'Unprocessable Entity - A request validation error.'
+    );
+    req.throwOn(
+      500,
+      DefaultErrorResponseEntityError,
+      'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
+    );
+    req.authenticate(false);
+    return req.callAsJson(cancelPaymentResponseSchema, requestOptions);
+  }
+
+  /**
+   * Confirms the payment using Strong Customer Authentication (SCA).
+   *
+   * To confirm a payment you must make this request two times:
+   *
+   * 1. Make this request to initiate SCA and receive the WWW-Authenticate header.
+   * 2. After the user completes the SCA challenge, make this request again, including the updated
+   * WWW-Authenticate header.
+   *
+   * The second response provides a redirection URL that guides the user to a payment success or
+   * failure page.
+   * For more information, see our [documentation](https://docs.adyen.com/business-accounts/send-funds-
+   * ideal-integration).
+   *
+   * @param body
+   * @param wWWAuthenticate  Header for authenticating through SCA: Contains
+   *                                                         information for an SCA challenge for A2A payments.
+   * @return Response from the API call
+   */
+  async postPaymentsConfirm(
+    body: ConfirmPaymentRequest,
+    wWWAuthenticate?: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<ConfirmPaymentResponse>> {
+    const req = this.createRequest('POST', '/payments/confirm');
+    req.baseUrl('default20');
+    const mapped = req.prepareArgs({
+      body: [body, confirmPaymentRequestSchema],
+      wWWAuthenticate: [wWWAuthenticate, optional(string())],
+    });
+    req.header('Content-Type', 'application/json');
+    req.header('WWW-Authenticate', mapped.wWWAuthenticate);
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      DefaultErrorResponseEntityError,
+      'Bad Request - The request is malformed or is not the expected format.'
+    );
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Unauthorized - The API credential used in the request is invalid or does not have the right permissions.'
+    );
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'Unprocessable Entity - A request validation error.'
+    );
+    req.throwOn(
+      500,
+      DefaultErrorResponseEntityError,
+      'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
+    );
+    req.authenticate(false);
+    return req.callAsJson(confirmPaymentResponseSchema, requestOptions);
+  }
+
+  /**
+   * Returns the details of an open payment, which you must show to the user. Also provides a token
+   * required to [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm)
+   * or [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel) the
+   * payment.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postPaymentsDetails1(
+    body: IdealPaymentDetailsRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<PaymentDetailsResponse1>> {
+    const req = this.createRequest('POST', '/payments/details');
+    req.baseUrl('default20');
+    const mapped = req.prepareArgs({
+      body: [body, idealPaymentDetailsRequestSchema],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      DefaultErrorResponseEntityError,
+      'Bad Request - The request is malformed or is not the expected format.'
+    );
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'Unprocessable Entity - A request validation error.'
+    );
+    req.throwOn(
+      500,
+      DefaultErrorResponseEntityError,
+      'Internal Service Error - An unrecoverable error occurred while trying to perform the request.'
+    );
+    req.authenticate(false);
+    return req.callAsJson(paymentDetailsResponse1Schema, requestOptions);
   }
 }

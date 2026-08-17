@@ -3,8 +3,6 @@
 
 The details of the location where the order is shipped to.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ShippingLocation1`
@@ -13,11 +11,10 @@ The details of the location where the order is shipped to.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `address` | [`Address6 \| undefined`](../../doc/models/address-6.md) | Optional | - |
-| `contact` | [`Contact \| undefined`](../../doc/models/contact.md) | Optional | - |
+| `address` | [`Address21 \| undefined`](../../doc/models/address-21.md) | Optional | The address details of the shipping location. |
+| `contact` | [`Contact1 \| undefined`](../../doc/models/contact-1.md) | Optional | The contact details for the shipping location. |
 | `id` | `string \| undefined` | Optional | The unique identifier of the shipping location, for use as `shippingLocationId` when creating an order. |
 | `name` | `string \| undefined` | Optional | The unique name of the shipping location. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const shippingLocation1: ShippingLocation1 = {
     country: 'country0',
     postalCode: 'postalCode8',
     stateOrProvince: 'stateOrProvince4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   contact: {
     email: 'email4',
@@ -41,15 +35,9 @@ const shippingLocation1: ShippingLocation1 = {
     infix: 'infix6',
     lastName: 'lastName6',
     phoneNumber: 'phoneNumber2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   id: 'id0',
   name: 'name0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

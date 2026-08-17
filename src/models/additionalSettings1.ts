@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   dict,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 /** Additional shopper and transaction information to be included in your [standard webhooks](https://docs.adyen.com/development-resources/webhooks/webhook-types/#event-codes). Find out more about the available [additional settings](https://docs.adyen.com/development-resources/webhooks/additional-settings). */
@@ -24,14 +23,9 @@ export interface AdditionalSettings1 {
    * For example, `includeCaptureDelayHours`: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    */
   properties?: Record<string, boolean>;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const additionalSettings1Schema: Schema<AdditionalSettings1> = typedExpandoObject(
-  {
-    includeEventCodes: ['includeEventCodes', optional(array(string()))],
-    properties: ['properties', optional(dict(boolean()))],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const additionalSettings1Schema: Schema<AdditionalSettings1> = object({
+  includeEventCodes: ['includeEventCodes', optional(array(string()))],
+  properties: ['properties', optional(dict(boolean()))],
+});

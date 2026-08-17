@@ -4,8 +4,6 @@
 Information to display and how to process it.
 Contains a complete display operation for a Display or an Input Device type. For the Input Devices, Diagnosis and `EnableService`, `ResponseRequiredFlag`, and `MinimumDisplayTime` shall be absent.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DisplayOutput`
@@ -16,38 +14,34 @@ Contains a complete display operation for a Display or an Input Device type. For
 |  --- | --- | --- | --- |
 | `responseRequiredFlag` | `boolean \| undefined` | Optional | Indicates if the message response is required.<br><br>**Default**: `true` |
 | `minimumDisplayTime` | `number \| undefined` | Optional | Number of seconds the message has to be displayed.<br><br>**Default**: `0`<br><br>**Constraints**: `>= 0`, `<= 999` |
-| `device` | [`Device11`](../../doc/models/device-11.md) | Required | - |
-| `infoQualify` | [`InfoQualify1`](../../doc/models/info-qualify-1.md) | Required | - |
-| `outputContent` | [`OutputContent2`](../../doc/models/output-content-2.md) | Required | - |
+| `device` | [`Device11Enum`](../../doc/models/device-11-enum.md) | Required | Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information to output (display, print, or store), or input (keyboard) for the Cashier or the Customer.<br>Possible values:<br><br>* **CashierDisplay**<br>* **CashierInput**<br>* **CustomerDisplay**<br>* **CustomerInput** |
+| `infoQualify` | [`InfoQualify1Enum`](../../doc/models/info-qualify-1-enum.md) | Required | Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send the information to a particular physical device or to present the information accordingly.<br>Possible values:<br><br>* **CustomerAssistance**<br>* **Display**<br>* **Document**<br>* **Error**<br>* **Input**<br>* **POIReplication**<br>* **Receipt**<br>* **Sound**<br>* **Status**<br>* **Voucher** |
+| `outputContent` | [`OutputContent1`](../../doc/models/output-content-1.md) | Required | Content to display or print. |
 | `menuEntry` | [`MenuEntry[] \| undefined`](../../doc/models/menu-entry.md) | Optional | An entry of the menu to present to the Cashier. It conveys the message text and parameters of the menu entry. This output data could be only provided for an input command, in order to choose an entryof the menu. |
 | `outputSignature` | `string \| undefined` | Optional | Vendor-specific signature of the text message to display or print.<br>If protection has to be provided to the vendor on the text to display or print.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  Device11,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  Device11Enum,
   DisplayOutput,
-  InfoQualify1,
-  MenuEntryTag1,
-  OutputFormat1,
-  OutputFormat2,
+  InfoQualify1Enum,
+  MenuEntryTag1Enum,
+  OutputFormat1Enum,
+  OutputFormat2Enum,
 } from 'adyen';
 
 const displayOutput: DisplayOutput = {
-  device: Device11.CashierInput,
-  infoQualify: InfoQualify1.Status,
+  device: Device11Enum.CashierInput,
+  infoQualify: InfoQualify1Enum.Status,
   outputContent: {
-    outputFormat: OutputFormat1.Xhtml,
+    outputFormat: OutputFormat1Enum.XHTML,
     predefinedContent: {
-      referenceId: 'ReferenceID0',
+      referenceID: 'ReferenceID0',
       language: 'Language2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     outputText: [
       {
@@ -55,37 +49,25 @@ const displayOutput: DisplayOutput = {
         characterSet: 194,
         startRow: 74,
         startColumn: 220,
-        characterWidth: CharacterWidth1.SingleWidth,
-        characterHeight: CharacterHeight1.SingleHeight,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        characterWidth: CharacterWidth1Enum.SingleWidth,
+        characterHeight: CharacterHeight1Enum.SingleHeight,
       }
     ],
-    outputXhtml: 'OutputXHTML2',
+    outputXHTML: 'OutputXHTML2',
     outputBarcode: {
       barcodeValue: 'BarcodeValue2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   responseRequiredFlag: true,
   minimumDisplayTime: 0,
   menuEntry: [
     {
-      outputFormat: OutputFormat2.Xhtml,
-      menuEntryTag: MenuEntryTag1.SubMenu,
+      outputFormat: OutputFormat2Enum.XHTML,
+      menuEntryTag: MenuEntryTag1Enum.SubMenu,
       defaultSelectedFlag: false,
       predefinedContent: {
-        referenceId: 'ReferenceID0',
+        referenceID: 'ReferenceID0',
         language: 'Language2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       outputText: [
         {
@@ -93,34 +75,22 @@ const displayOutput: DisplayOutput = {
           characterSet: 194,
           startRow: 74,
           startColumn: 220,
-          characterWidth: CharacterWidth1.SingleWidth,
-          characterHeight: CharacterHeight1.SingleHeight,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          characterWidth: CharacterWidth1Enum.SingleWidth,
+          characterHeight: CharacterHeight1Enum.SingleHeight,
         },
         {
           text: 'Text6',
           characterSet: 194,
           startRow: 74,
           startColumn: 220,
-          characterWidth: CharacterWidth1.SingleWidth,
-          characterHeight: CharacterHeight1.SingleHeight,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          characterWidth: CharacterWidth1Enum.SingleWidth,
+          characterHeight: CharacterHeight1Enum.SingleHeight,
         }
       ],
-      outputXhtml: 'OutputXHTML8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      outputXHTML: 'OutputXHTML8',
     }
   ],
   outputSignature: 'OutputSignature4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Afterpay
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Afterpay`
@@ -18,24 +16,20 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type22`](../../doc/models/type-22.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type2Enum`](../../doc/models/type-2-enum.md) | Required | **afterpay_default**<br><br>**Default**: `Type2Enum.AfterpayDefault` |
 
 ## Example
 
 ```ts
-import { Afterpay, Type22 } from 'adyen';
+import { Afterpay, Type2Enum } from 'adyen';
 
 const afterpay: Afterpay = {
-  type: Type22.AfterpayDefault,
+  type: Type2Enum.AfterpayDefault,
   billingAddress: 'billingAddress8',
   checkoutAttemptId: 'checkoutAttemptId6',
   deliveryAddress: 'deliveryAddress6',
   personalDetails: 'personalDetails8',
   recurringDetailReference: 'recurringDetailReference0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

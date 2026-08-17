@@ -1,8 +1,6 @@
 
 # Token Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TokenDetails`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `tokenData` | `Record<string, string> \| undefined` | Optional | - |
 | `tokenDataType` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ const tokenDetails: TokenDetails = {
     'key0': 'tokenData7'
   },
   tokenDataType: 'tokenDataType0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

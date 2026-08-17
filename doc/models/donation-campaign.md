@@ -1,8 +1,6 @@
 
 # Donation Campaign
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DonationCampaign`
@@ -11,18 +9,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amounts` | [`Amounts \| undefined`](../../doc/models/amounts.md) | Optional | - |
+| `amounts` | [`Amounts1 \| undefined`](../../doc/models/amounts-1.md) | Optional | The object that contains the fixed donation amounts that the shopper can select from. |
 | `bannerUrl` | `string \| undefined` | Optional | The URL for the banner of the nonprofit or campaign. |
 | `campaignName` | `string \| undefined` | Optional | The name of the donation campaign.. |
 | `causeName` | `string \| undefined` | Optional | The cause of the nonprofit. |
-| `donation` | [`Donation \| undefined`](../../doc/models/donation.md) | Optional | - |
+| `donation` | [`Donation1 \| undefined`](../../doc/models/donation-1.md) | Optional | The object that contains the details of the donation. |
 | `id` | `string \| undefined` | Optional | The unique campaign ID of the donation campaign. |
 | `logoUrl` | `string \| undefined` | Optional | The URL for the logo of the nonprofit. |
 | `nonprofitDescription` | `string \| undefined` | Optional | The description of the nonprofit. |
 | `nonprofitName` | `string \| undefined` | Optional | The name of the nonprofit organization that receives the donation. |
 | `nonprofitUrl` | `string \| undefined` | Optional | The website URL of the nonprofit. |
 | `termsAndConditionsUrl` | `string \| undefined` | Optional | The URL of the terms and conditions page of the nonprofit and the campaign. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const donationCampaign: DonationCampaign = {
       BigInt(48),
       BigInt(49)
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   bannerUrl: 'bannerUrl8',
   campaignName: 'campaignName0',
@@ -53,12 +47,6 @@ const donationCampaign: DonationCampaign = {
       BigInt(105),
       BigInt(104)
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

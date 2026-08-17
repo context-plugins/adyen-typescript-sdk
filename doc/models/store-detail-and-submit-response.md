@@ -1,8 +1,6 @@
 
 # Store Detail and Submit Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoreDetailAndSubmitResponse`
@@ -15,7 +13,6 @@
 | `pspReference` | `string` | Required | A new reference to uniquely identify this request. |
 | `refusalReason` | `string \| undefined` | Optional | In case of refusal, an informational message for the reason. |
 | `resultCode` | `string` | Required | The response:<br><br>* In case of success is payout-submit-received.<br>* In case of an error, an informational message is returned. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const storeDetailAndSubmitResponse: StoreDetailAndSubmitResponse = {
     'key2': 'additionalData0'
   },
   refusalReason: 'refusalReason2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

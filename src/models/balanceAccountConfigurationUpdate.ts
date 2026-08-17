@@ -9,13 +9,12 @@ import {
   boolean,
   nullable,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Frequency, frequencySchema } from './frequency.js';
+import { Frequency1Enum, frequency1EnumSchema } from './frequency1Enum.js';
 
 export interface BalanceAccountConfigurationUpdate {
   /**
@@ -26,7 +25,16 @@ export interface BalanceAccountConfigurationUpdate {
   description?: string | null;
   /** Specifies whether the payout schedule is enabled immediately after it is created. */
   enabled?: boolean | null;
-  frequency?: Frequency;
+  /**
+   * The frequency of payouts initiated by this payout schedule.
+   * Possible values:
+   * * daily
+   * * weekdays
+   * * weekly
+   * * monthly
+   * Default value: The `defaultFrequency` from the balance platform schedule that you are applying.
+   */
+  frequency?: Frequency1Enum;
   /**
    * The date of the month or day of the week when payouts are initiated. Allowed only if `frequency` is **monthly** or **weekly**.
    * Possible values if `frequency` is **monthly**: **[1 - 31]**.
@@ -66,14 +74,13 @@ export interface BalanceAccountConfigurationUpdate {
   salesDayClosingTime?: string;
   /** The unique identifier of the transfer instrument to which the funds are paid out. */
   transferInstrumentId?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const balanceAccountConfigurationUpdateSchema: Schema<BalanceAccountConfigurationUpdate> = typedExpandoObject(
+export const balanceAccountConfigurationUpdateSchema: Schema<BalanceAccountConfigurationUpdate> = object(
   {
     description: ['description', optional(nullable(string()))],
     enabled: ['enabled', optional(nullable(boolean()))],
-    frequency: ['frequency', optional(frequencySchema)],
+    frequency: ['frequency', optional(frequency1EnumSchema)],
     frequencyValue: ['frequencyValue', optional(nullable(number()))],
     maxPayoutAmount: ['maxPayoutAmount', optional(nullable(bigint()))],
     minPayoutAmount: ['minPayoutAmount', optional(nullable(bigint()))],
@@ -85,7 +92,5 @@ export const balanceAccountConfigurationUpdateSchema: Schema<BalanceAccountConfi
     retainedAmount: ['retainedAmount', optional(nullable(bigint()))],
     salesDayClosingTime: ['salesDayClosingTime', optional(string())],
     transferInstrumentId: ['transferInstrumentId', optional(string())],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

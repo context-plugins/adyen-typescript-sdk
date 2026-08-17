@@ -8,16 +8,15 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  CheckoutNetworkTokenOption,
-  checkoutNetworkTokenOptionSchema,
-} from './checkoutNetworkTokenOption.js';
+  CheckoutNetworkTokenOption2,
+  checkoutNetworkTokenOption2Schema,
+} from './checkoutNetworkTokenOption2.js';
 
 /** The customizations that can be applied when making a forward request. */
 export interface CheckoutForwardRequestOptions2 {
@@ -25,37 +24,33 @@ export interface CheckoutForwardRequestOptions2 {
   accountUpdate?: boolean;
   /** Set to **true** to receive a copy of the request Adyen is making to the third party in the response. Any sensitive information will be masked in the response you receive. This functionality is only available in the test environment. */
   dryRun?: boolean;
-  networkToken?: CheckoutNetworkTokenOption;
+  /** The object that contains the details for forwarding a network token. */
+  networkToken?: CheckoutNetworkTokenOption2;
   /** Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of networkTxReference in the incoming 3rd party response */
   networkTxReferencePaths?: string[];
   /** Set to **true**, the payment details are [tokenized](https://docs.adyen.com/online-payments/tokenization). */
   tokenize?: boolean;
   /** Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of transactionLinkId in the incoming 3rd party response */
   transactionLinkIdPaths?: string[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const checkoutForwardRequestOptions2Schema: Schema<CheckoutForwardRequestOptions2> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accountUpdate: ['accountUpdate', optional(boolean())],
-        dryRun: ['dryRun', optional(boolean())],
-        networkToken: [
-          'networkToken',
-          optional(checkoutNetworkTokenOptionSchema),
-        ],
-        networkTxReferencePaths: [
-          'networkTxReferencePaths',
-          optional(array(string())),
-        ],
-        tokenize: ['tokenize', optional(boolean())],
-        transactionLinkIdPaths: [
-          'transactionLinkIdPaths',
-          optional(array(string())),
-        ],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accountUpdate: ['accountUpdate', optional(boolean())],
+      dryRun: ['dryRun', optional(boolean())],
+      networkToken: [
+        'networkToken',
+        optional(checkoutNetworkTokenOption2Schema),
+      ],
+      networkTxReferencePaths: [
+        'networkTxReferencePaths',
+        optional(array(string())),
+      ],
+      tokenize: ['tokenize', optional(boolean())],
+      transactionLinkIdPaths: [
+        'transactionLinkIdPaths',
+        optional(array(string())),
+      ],
+    })
 );

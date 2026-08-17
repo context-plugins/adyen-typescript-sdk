@@ -4,8 +4,6 @@
 It conveys the result of the requested diagnosis and a possible message to display on a logical device.
 Content of the Diagnosis Response message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DiagnosisResponse`
@@ -14,54 +12,41 @@ Content of the Diagnosis Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `poiStatus` | [`PoiStatus2 \| undefined`](../../doc/models/poi-status-2.md) | Optional | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `pOIStatus` | [`POIStatus1 \| undefined`](../../doc/models/poi-status-1.md) | Optional | State of a POI Terminal.<br>If `Response.Result` is Success. |
 | `hostStatus` | [`HostStatus[] \| undefined`](../../doc/models/host-status.md) | Optional | State of a Host. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
   DiagnosisResponse,
-  ErrorCondition1,
-  GlobalStatus1,
-  PrinterStatus1,
-  Result11,
+  ErrorCondition1Enum,
+  GlobalStatus1Enum,
+  PrinterStatus1Enum,
+  Result11Enum,
 } from 'adyen';
 
 const diagnosisResponse: DiagnosisResponse = {
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  poiStatus: {
-    globalStatus: GlobalStatus1.Maintenance,
-    securityOkFlag: false,
-    pedokFlag: false,
-    cardReaderOkFlag: false,
-    printerStatus: PrinterStatus1.PaperLow,
-    communicationOkFlag: false,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+  pOIStatus: {
+    globalStatus: GlobalStatus1Enum.Maintenance,
+    securityOKFlag: false,
+    pEDOKFlag: false,
+    cardReaderOKFlag: false,
+    printerStatus: PrinterStatus1Enum.PaperLow,
+    communicationOKFlag: false,
   },
   hostStatus: [
     {
-      acquirerId: 120,
+      acquirerID: 120,
       isReachableFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

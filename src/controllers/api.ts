@@ -7,126 +7,114 @@
 import { ApiResponse, RequestOptions } from '../core.js';
 import { AbortRequest, abortRequestSchema } from '../models/abortRequest.js';
 import { AdminRequest, adminRequestSchema } from '../models/adminRequest.js';
-import {
-  AdminResponse1,
-  adminResponse1Schema,
-} from '../models/adminResponse1.js';
+import { AdminResponse, adminResponseSchema } from '../models/adminResponse.js';
 import {
   BalanceInquiryRequest,
   balanceInquiryRequestSchema,
 } from '../models/balanceInquiryRequest.js';
 import {
-  BalanceinquiryResponse1,
-  balanceinquiryResponse1Schema,
-} from '../models/balanceinquiryResponse1.js';
+  BalanceInquiryResponse,
+  balanceInquiryResponseSchema,
+} from '../models/balanceInquiryResponse.js';
 import {
   CardAcquisitionRequest,
   cardAcquisitionRequestSchema,
 } from '../models/cardAcquisitionRequest.js';
 import {
-  CardacquisitionResponse4,
-  cardacquisitionResponse4Schema,
-} from '../models/cardacquisitionResponse4.js';
+  CardAcquisitionResponse,
+  cardAcquisitionResponseSchema,
+} from '../models/cardAcquisitionResponse.js';
 import {
-  CardReaderApduRequest,
-  cardReaderApduRequestSchema,
-} from '../models/cardReaderApduRequest.js';
+  CardReaderAPDURequest,
+  cardReaderAPDURequestSchema,
+} from '../models/cardReaderAPDURequest.js';
 import {
-  CardreaderapduResponse4,
-  cardreaderapduResponse4Schema,
-} from '../models/cardreaderapduResponse4.js';
+  CardReaderAPDUResponse,
+  cardReaderAPDUResponseSchema,
+} from '../models/cardReaderAPDUResponse.js';
 import {
   DiagnosisRequest,
   diagnosisRequestSchema,
 } from '../models/diagnosisRequest.js';
 import {
-  DiagnosisResponse1,
-  diagnosisResponse1Schema,
-} from '../models/diagnosisResponse1.js';
+  DiagnosisResponse,
+  diagnosisResponseSchema,
+} from '../models/diagnosisResponse.js';
 import {
   DisplayRequest,
   displayRequestSchema,
 } from '../models/displayRequest.js';
 import {
-  DisplayResponse1,
-  displayResponse1Schema,
-} from '../models/displayResponse1.js';
+  DisplayResponse,
+  displayResponseSchema,
+} from '../models/displayResponse.js';
 import {
   EnableServiceRequest,
   enableServiceRequestSchema,
 } from '../models/enableServiceRequest.js';
 import {
-  EnableserviceResponse1,
-  enableserviceResponse1Schema,
-} from '../models/enableserviceResponse1.js';
+  EnableServiceResponse,
+  enableServiceResponseSchema,
+} from '../models/enableServiceResponse.js';
 import {
   GetTotalsRequest,
   getTotalsRequestSchema,
 } from '../models/getTotalsRequest.js';
 import {
-  GettotalsResponse1,
-  gettotalsResponse1Schema,
-} from '../models/gettotalsResponse1.js';
+  GetTotalsResponse,
+  getTotalsResponseSchema,
+} from '../models/getTotalsResponse.js';
 import { InputRequest, inputRequestSchema } from '../models/inputRequest.js';
-import {
-  InputResponse1,
-  inputResponse1Schema,
-} from '../models/inputResponse1.js';
+import { InputResponse, inputResponseSchema } from '../models/inputResponse.js';
 import { LoginRequest, loginRequestSchema } from '../models/loginRequest.js';
-import {
-  LoginResponse1,
-  loginResponse1Schema,
-} from '../models/loginResponse1.js';
+import { LoginResponse, loginResponseSchema } from '../models/loginResponse.js';
 import { LogoutRequest, logoutRequestSchema } from '../models/logoutRequest.js';
 import {
-  LogoutResponse1,
-  logoutResponse1Schema,
-} from '../models/logoutResponse1.js';
+  LogoutResponse,
+  logoutResponseSchema,
+} from '../models/logoutResponse.js';
 import {
   PaymentRequest2,
   paymentRequest2Schema,
 } from '../models/paymentRequest2.js';
 import {
-  PaymentResponse6,
-  paymentResponse6Schema,
-} from '../models/paymentResponse6.js';
+  PaymentResponse4,
+  paymentResponse4Schema,
+} from '../models/paymentResponse4.js';
 import { PrintRequest, printRequestSchema } from '../models/printRequest.js';
-import {
-  PrintResponse1,
-  printResponse1Schema,
-} from '../models/printResponse1.js';
+import { PrintResponse, printResponseSchema } from '../models/printResponse.js';
 import {
   ReconciliationRequest,
   reconciliationRequestSchema,
 } from '../models/reconciliationRequest.js';
 import {
-  ReconciliationResponse1,
-  reconciliationResponse1Schema,
-} from '../models/reconciliationResponse1.js';
+  ReconciliationResponse,
+  reconciliationResponseSchema,
+} from '../models/reconciliationResponse.js';
 import {
   ReversalRequest,
   reversalRequestSchema,
 } from '../models/reversalRequest.js';
 import {
-  ReversalResponse4,
-  reversalResponse4Schema,
-} from '../models/reversalResponse4.js';
+  ReversalResponse,
+  reversalResponseSchema,
+} from '../models/reversalResponse.js';
 import {
   StoredValueRequest,
   storedValueRequestSchema,
 } from '../models/storedValueRequest.js';
 import {
-  StoredvalueResponse4,
-  storedvalueResponse4Schema,
-} from '../models/storedvalueResponse4.js';
+  StoredValueResponse,
+  storedValueResponseSchema,
+} from '../models/storedValueResponse.js';
 import {
   TransactionStatusRequest,
   transactionStatusRequestSchema,
 } from '../models/transactionStatusRequest.js';
 import {
-  TransactionstatusResponse1,
-  transactionstatusResponse1Schema,
-} from '../models/transactionstatusResponse1.js';
+  TransactionStatusResponse,
+  transactionStatusResponseSchema,
+} from '../models/transactionStatusResponse.js';
 import { optional, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
 
@@ -142,15 +130,16 @@ export class Api extends BaseApi {
   async loginRequest(
     body?: LoginRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<LoginResponse1>> {
+  ): Promise<ApiResponse<LoginResponse>> {
     const req = this.createRequest('POST', '/login');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(loginRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(loginResponse1Schema, requestOptions);
+    return req.callAsJson(loginResponseSchema, requestOptions);
   }
 
   /**
@@ -163,15 +152,16 @@ export class Api extends BaseApi {
   async logoutRequest(
     body?: LogoutRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<LogoutResponse1>> {
+  ): Promise<ApiResponse<LogoutResponse>> {
     const req = this.createRequest('POST', '/logout');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(logoutRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(logoutResponse1Schema, requestOptions);
+    return req.callAsJson(logoutResponseSchema, requestOptions);
   }
 
   /**
@@ -185,15 +175,16 @@ export class Api extends BaseApi {
   async enableServiceRequest(
     body?: EnableServiceRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<EnableserviceResponse1>> {
+  ): Promise<ApiResponse<EnableServiceResponse>> {
     const req = this.createRequest('POST', '/enableservice');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(enableServiceRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(enableserviceResponse1Schema, requestOptions);
+    return req.callAsJson(enableServiceResponseSchema, requestOptions);
   }
 
   /**
@@ -206,15 +197,16 @@ export class Api extends BaseApi {
   async adminRequest(
     body?: AdminRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<AdminResponse1>> {
+  ): Promise<ApiResponse<AdminResponse>> {
     const req = this.createRequest('POST', '/admin');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(adminRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(adminResponse1Schema, requestOptions);
+    return req.callAsJson(adminResponseSchema, requestOptions);
   }
 
   /**
@@ -228,15 +220,16 @@ export class Api extends BaseApi {
   async paymentRequest(
     body?: PaymentRequest2,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PaymentResponse6>> {
+  ): Promise<ApiResponse<PaymentResponse4>> {
     const req = this.createRequest('POST', '/payment');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(paymentRequest2Schema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(paymentResponse6Schema, requestOptions);
+    return req.callAsJson(paymentResponse4Schema, requestOptions);
   }
 
   /**
@@ -251,15 +244,16 @@ export class Api extends BaseApi {
   async cardAcquisitionRequest(
     body?: CardAcquisitionRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<CardacquisitionResponse4>> {
+  ): Promise<ApiResponse<CardAcquisitionResponse>> {
     const req = this.createRequest('POST', '/cardacquisition');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(cardAcquisitionRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(cardacquisitionResponse4Schema, requestOptions);
+    return req.callAsJson(cardAcquisitionResponseSchema, requestOptions);
   }
 
   /**
@@ -272,15 +266,16 @@ export class Api extends BaseApi {
   async storedValueRequest(
     body?: StoredValueRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredvalueResponse4>> {
+  ): Promise<ApiResponse<StoredValueResponse>> {
     const req = this.createRequest('POST', '/storedvalue');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(storedValueRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(storedvalueResponse4Schema, requestOptions);
+    return req.callAsJson(storedValueResponseSchema, requestOptions);
   }
 
   /**
@@ -293,15 +288,16 @@ export class Api extends BaseApi {
   async reversalRequest(
     body?: ReversalRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ReversalResponse4>> {
+  ): Promise<ApiResponse<ReversalResponse>> {
     const req = this.createRequest('POST', '/reversal');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(reversalRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(reversalResponse4Schema, requestOptions);
+    return req.callAsJson(reversalResponseSchema, requestOptions);
   }
 
   /**
@@ -314,15 +310,16 @@ export class Api extends BaseApi {
   async reconciliationRequest(
     body?: ReconciliationRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ReconciliationResponse1>> {
+  ): Promise<ApiResponse<ReconciliationResponse>> {
     const req = this.createRequest('POST', '/reconciliation');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(reconciliationRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(reconciliationResponse1Schema, requestOptions);
+    return req.callAsJson(reconciliationResponseSchema, requestOptions);
   }
 
   /**
@@ -336,15 +333,16 @@ export class Api extends BaseApi {
   async getTotalsRequest(
     body?: GetTotalsRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<GettotalsResponse1>> {
+  ): Promise<ApiResponse<GetTotalsResponse>> {
     const req = this.createRequest('POST', '/gettotals');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(getTotalsRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(gettotalsResponse1Schema, requestOptions);
+    return req.callAsJson(getTotalsResponseSchema, requestOptions);
   }
 
   /**
@@ -357,15 +355,16 @@ export class Api extends BaseApi {
   async balanceInquiryRequest(
     body?: BalanceInquiryRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<BalanceinquiryResponse1>> {
+  ): Promise<ApiResponse<BalanceInquiryResponse>> {
     const req = this.createRequest('POST', '/balanceinquiry');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(balanceInquiryRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(balanceinquiryResponse1Schema, requestOptions);
+    return req.callAsJson(balanceInquiryResponseSchema, requestOptions);
   }
 
   /**
@@ -379,15 +378,16 @@ export class Api extends BaseApi {
   async transactionStatusRequest(
     body?: TransactionStatusRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<TransactionstatusResponse1>> {
+  ): Promise<ApiResponse<TransactionStatusResponse>> {
     const req = this.createRequest('POST', '/transactionstatus');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(transactionStatusRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(transactionstatusResponse1Schema, requestOptions);
+    return req.callAsJson(transactionStatusResponseSchema, requestOptions);
   }
 
   /**
@@ -404,6 +404,7 @@ export class Api extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<unknown | undefined>> {
     const req = this.createRequest('POST', '/abort');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(abortRequestSchema)],
     });
@@ -423,15 +424,16 @@ export class Api extends BaseApi {
   async diagnosisRequest(
     body?: DiagnosisRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DiagnosisResponse1>> {
+  ): Promise<ApiResponse<DiagnosisResponse>> {
     const req = this.createRequest('POST', '/diagnosis');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(diagnosisRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(diagnosisResponse1Schema, requestOptions);
+    return req.callAsJson(diagnosisResponseSchema, requestOptions);
   }
 
   /**
@@ -445,15 +447,16 @@ export class Api extends BaseApi {
   async displayRequest(
     body?: DisplayRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DisplayResponse1>> {
+  ): Promise<ApiResponse<DisplayResponse>> {
     const req = this.createRequest('POST', '/display');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(displayRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(displayResponse1Schema, requestOptions);
+    return req.callAsJson(displayResponseSchema, requestOptions);
   }
 
   /**
@@ -467,15 +470,16 @@ export class Api extends BaseApi {
   async inputRequest(
     body?: InputRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<InputResponse1>> {
+  ): Promise<ApiResponse<InputResponse>> {
     const req = this.createRequest('POST', '/input');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(inputRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(inputResponse1Schema, requestOptions);
+    return req.callAsJson(inputResponseSchema, requestOptions);
   }
 
   /**
@@ -488,15 +492,16 @@ export class Api extends BaseApi {
   async printRequest(
     body?: PrintRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PrintResponse1>> {
+  ): Promise<ApiResponse<PrintResponse>> {
     const req = this.createRequest('POST', '/print');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
       body: [body, optional(printRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(printResponse1Schema, requestOptions);
+    return req.callAsJson(printResponseSchema, requestOptions);
   }
 
   /**
@@ -507,17 +512,18 @@ export class Api extends BaseApi {
    * @param body
    * @return Response from the API call
    */
-  async cardReaderApduRequest(
-    body?: CardReaderApduRequest,
+  async cardReaderAPDURequest(
+    body?: CardReaderAPDURequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<CardreaderapduResponse4>> {
+  ): Promise<ApiResponse<CardReaderAPDUResponse>> {
     const req = this.createRequest('POST', '/cardreaderapdu');
+    req.baseUrl('default24');
     const mapped = req.prepareArgs({
-      body: [body, optional(cardReaderApduRequestSchema)],
+      body: [body, optional(cardReaderAPDURequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(cardreaderapduResponse4Schema, requestOptions);
+    return req.callAsJson(cardReaderAPDUResponseSchema, requestOptions);
   }
 }

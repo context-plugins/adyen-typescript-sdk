@@ -63,6 +63,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BillingEntitiesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       name: [name, optional(string())],
@@ -126,6 +127,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ShippingLocationsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       name: [name, optional(string())],
@@ -186,6 +188,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ShippingLocation>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       body: [body, optional(shippingLocationSchema)],
@@ -243,6 +246,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalModelsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ companyId: [companyId, string()] });
     req.appendTemplatePath`/companies/${mapped.companyId}/terminalModels`;
     req.throwOn(
@@ -303,6 +307,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrdersResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       customerOrderReference: [customerOrderReference, optional(string())],
@@ -367,6 +372,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       body: [body, optional(terminalOrderRequestSchema)],
@@ -424,6 +430,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       orderId: [orderId, string()],
@@ -487,6 +494,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       orderId: [orderId, string()],
@@ -547,6 +555,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       orderId: [orderId, string()],
@@ -613,6 +622,7 @@ export class TerminalOrdersCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalProductsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       country: [country, string()],

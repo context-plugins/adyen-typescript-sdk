@@ -10,7 +10,6 @@
 | Type |
 |  --- |
 | [`OnlineDonationSettingsUpdate`](../../../doc/models/online-donation-settings-update.md) |
-| `unknown \| null` |
 
 ## OnlineDonationSettingsUpdate
 
@@ -21,15 +20,5 @@
 ```ts
 const value: DonationCampaignUpdateOnline = {
 };
-```
-
-## unknown | null
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: DonationCampaignUpdateOnline = { 'key1': 'val1', 'key2': 'val2' };
 ```
 

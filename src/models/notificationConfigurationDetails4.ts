@@ -10,17 +10,16 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   NotificationEventConfiguration,
   notificationEventConfigurationSchema,
 } from './notificationEventConfiguration.js';
-import { SslProtocol, sslProtocolSchema } from './sslProtocol.js';
+import { SslProtocolEnum, sslProtocolEnumSchema } from './sslProtocolEnum.js';
 
 /** Details of the prospective notification subscription configuration. */
 export interface NotificationConfigurationDetails4 {
@@ -43,32 +42,31 @@ export interface NotificationConfigurationDetails4 {
   /** The password to use when accessing the notifyURL with the specified username. */
   notifyPassword?: string;
   /** The URL to which the notifications are to be sent. */
-  notifyUrl?: string;
+  notifyURL?: string;
   /** The username to use when accessing the notifyURL. */
   notifyUsername?: string;
-  sslProtocol?: SslProtocol;
-  additionalProperties?: Record<string, unknown>;
+  /**
+   * The SSL protocol employed by the endpoint.
+   * >Permitted values: `TLSv12`, `TLSv13`.
+   */
+  sslProtocol?: SslProtocolEnum;
 }
 
 export const notificationConfigurationDetails4Schema: Schema<NotificationConfigurationDetails4> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        active: ['active', optional(boolean())],
-        apiVersion: ['apiVersion', optional(number())],
-        description: ['description', optional(string())],
-        eventConfigs: [
-          'eventConfigs',
-          optional(array(notificationEventConfigurationSchema)),
-        ],
-        hmacSignatureKey: ['hmacSignatureKey', optional(string())],
-        notificationId: ['notificationId', optional(bigint())],
-        notifyPassword: ['notifyPassword', optional(string())],
-        notifyUrl: ['notifyURL', optional(string())],
-        notifyUsername: ['notifyUsername', optional(string())],
-        sslProtocol: ['sslProtocol', optional(sslProtocolSchema)],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      active: ['active', optional(boolean())],
+      apiVersion: ['apiVersion', optional(number())],
+      description: ['description', optional(string())],
+      eventConfigs: [
+        'eventConfigs',
+        optional(array(notificationEventConfigurationSchema)),
+      ],
+      hmacSignatureKey: ['hmacSignatureKey', optional(string())],
+      notificationId: ['notificationId', optional(bigint())],
+      notifyPassword: ['notifyPassword', optional(string())],
+      notifyURL: ['notifyURL', optional(string())],
+      notifyUsername: ['notifyUsername', optional(string())],
+      sslProtocol: ['sslProtocol', optional(sslProtocolEnumSchema)],
+    })
 );

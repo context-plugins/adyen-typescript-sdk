@@ -1,8 +1,6 @@
 
 # Links
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Links`
@@ -11,9 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cancel` | [`Href \| undefined`](../../doc/models/href.md) | Optional | - |
-| `success` | [`Href \| undefined`](../../doc/models/href.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `self` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
 
 ## Example
 
@@ -21,20 +17,8 @@
 import { Links } from 'adyen';
 
 const links: Links = {
-  cancel: {
-    href: 'href4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  success: {
-    href: 'href2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  self: {
+    href: 'href0',
   },
 };
 ```

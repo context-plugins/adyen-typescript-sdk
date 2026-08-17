@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   DefenseDocumentType,
@@ -26,20 +25,15 @@ export interface DefenseReason {
   defenseReasonCode: string;
   /** Indicates if sufficient defense material has been supplied. */
   satisfied: boolean;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const defenseReasonSchema: Schema<DefenseReason> = lazy(() =>
-  typedExpandoObject(
-    {
-      defenseDocumentTypes: [
-        'defenseDocumentTypes',
-        optional(array(defenseDocumentTypeSchema)),
-      ],
-      defenseReasonCode: ['defenseReasonCode', string()],
-      satisfied: ['satisfied', boolean()],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    defenseDocumentTypes: [
+      'defenseDocumentTypes',
+      optional(array(defenseDocumentTypeSchema)),
+    ],
+    defenseReasonCode: ['defenseReasonCode', string()],
+    satisfied: ['satisfied', boolean()],
+  })
 );

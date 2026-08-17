@@ -5,8 +5,6 @@ A container for card data.
 
 > Either `bankAccount` or `card` field must be provided in a payment request.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Card3`
@@ -23,7 +21,6 @@ A container for card data.
 | `number` | `string \| undefined` | Optional | The card number (4-19 characters). Do not use any separators.<br>When this value is returned in a response, only the last 4 digits of the card number are returned.<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `19` |
 | `startMonth` | `string \| undefined` | Optional | The month component of the start date (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2` |
 | `startYear` | `string \| undefined` | Optional | The year component of the start date (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const card3: Card3 = {
   expiryYear: 'expiryYear0',
   holderName: 'holderName2',
   issueNumber: 'issueNumber2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

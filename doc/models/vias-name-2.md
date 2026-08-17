@@ -7,8 +7,6 @@ The name of the individual.
 > Maximum length: 80 characters
 > Cannot contain numbers. /n Cannot be empty.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ViasName2`
@@ -18,24 +16,20 @@ The name of the individual.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `firstName` | `string \| undefined` | Optional | The first name.<br><br>**Constraints**: *Maximum Length*: `80` |
-| `gender` | [`Gender \| undefined`](../../doc/models/gender.md) | Optional | **Constraints**: *Maximum Length*: `1` |
+| `gender` | [`GenderEnum \| undefined`](../../doc/models/gender-enum.md) | Optional | The gender.<br><br>> The following values are permitted: `MALE`, `FEMALE`, `UNKNOWN`.<br><br>**Constraints**: *Maximum Length*: `1` |
 | `infix` | `string \| undefined` | Optional | The name's infix, if applicable.<br><br>> A maximum length of twenty (20) characters is imposed.<br><br>**Constraints**: *Maximum Length*: `20` |
 | `lastName` | `string \| undefined` | Optional | The last name.<br><br>**Constraints**: *Maximum Length*: `80` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Gender, ViasName2 } from 'adyen';
+import { GenderEnum, ViasName2 } from 'adyen';
 
 const viasName2: ViasName2 = {
   firstName: 'firstName6',
-  gender: Gender.Unknown,
+  gender: GenderEnum.UNKNOWN,
   infix: 'infix2',
   lastName: 'lastName2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

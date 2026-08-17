@@ -8,46 +8,82 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { AmountsResp, amountsRespSchema } from './amountsResp.js';
+import { AmountsResp1, amountsResp1Schema } from './amountsResp1.js';
 import {
-  AuthenticationMethod1,
-  authenticationMethod1Schema,
-} from './authenticationMethod1.js';
+  AuthenticationMethod1Enum,
+  authenticationMethod1EnumSchema,
+} from './authenticationMethod1Enum.js';
 import {
-  CapturedSignature,
-  capturedSignatureSchema,
-} from './capturedSignature.js';
+  CapturedSignature1,
+  capturedSignature1Schema,
+} from './capturedSignature1.js';
 import {
   CurrencyConversion,
   currencyConversionSchema,
 } from './currencyConversion.js';
-import { Instalment, instalmentSchema } from './instalment.js';
+import { Instalment1, instalment1Schema } from './instalment1.js';
 import {
-  PaymentAcquirerData1,
-  paymentAcquirerData1Schema,
-} from './paymentAcquirerData1.js';
+  PaymentAcquirerData,
+  paymentAcquirerDataSchema,
+} from './paymentAcquirerData.js';
 import {
-  PaymentInstrumentData2,
-  paymentInstrumentData2Schema,
-} from './paymentInstrumentData2.js';
-import { PaymentType1, paymentType1Schema } from './paymentType1.js';
+  PaymentInstrumentData,
+  paymentInstrumentDataSchema,
+} from './paymentInstrumentData.js';
+import {
+  PaymentType1Enum,
+  paymentType1EnumSchema,
+} from './paymentType1Enum.js';
 
 export interface PaymentResult1 {
-  paymentType?: PaymentType1;
-  paymentInstrumentData?: PaymentInstrumentData2;
-  amountsResp?: AmountsResp;
-  instalment?: Instalment;
+  /**
+   * Type of payment transaction. Elements requested by the Sale System that are related to the payment only.
+   * Possible values:
+   * * **CashAdvance**
+   * * **CashDeposit**
+   * * **Completion**
+   * * **FirstReservation**
+   * * **Instalment**
+   * * **IssuerInstalment**
+   * * **Normal**
+   * * **OneTimeReservation**
+   * * **PaidOut**
+   * * **Recurring**
+   * * **Refund**
+   * * **UpdateReservation**
+   */
+  paymentType?: PaymentType1Enum;
+  /**
+   * Data related to the instrument of payment for the transaction.
+   * Sent in the result of the payment transaction. For a card, it could also be sent in the `CardAcquisition` response, to be processed by the Sale System.
+   */
+  paymentInstrumentData?: PaymentInstrumentData;
+  /**
+   * Various amounts related to the payment response from the POI System. Amounts approved by the POI and the Acquirer for the payment and loyalty transaction, containing:
+   *   * The authorised amount to be paid.
+   *   * The amount of the rebates.
+   *   * The amount of financial fees.
+   *   * The cash back part of the requested amount for a payment with cash back.
+   *   * The tip part of the requested amount for a payment with tip.
+   */
+  amountsResp?: AmountsResp1;
+  /** Information related an instalment transaction. To request an instalment to the issuer, or to make individual instalments of a payment transaction. */
+  instalment?: Instalment1;
   /** Information related to a currency conversion. A currency conversion occurred in the payment, and the merchant needs to know information related to this conversion (e.g. to print on the sale receipt). */
   currencyConversion?: CurrencyConversion[];
   /** Indicates that the Merchant forced the result of the payment to successful. Allows the Sale System to be sure that the payment has been forced. */
   merchantOverrideFlag?: boolean;
-  capturedSignature?: CapturedSignature;
+  /**
+   * Numeric value of a handwritten signature. Contains the value of a handwritten signature, e.g. the signature of a cardholder on the merchant payment receipt. Only one format of the signature is allowed:
+   *   * The size of the pad area where the signature is written, given with the maximum abscissa and ordinate values.
+   *   * The sequence of coordinates where the pen changes direction or lift.
+   */
+  capturedSignature?: CapturedSignature1;
   /** Numeric value of a handwritten signature. Contains the value of a handwritten signature, e.g. the signature of a cardholder on the merchant payment receipt. The format before encryption is the encoded data structure CapturedSignature. The data structure before encryption includes the start and end tags for an XML encoding, the identifier and length bytes for an ASN.1 encoding, and the complete member ProtectedSignature for a JSON encoding. */
   protectedSignature?: string;
   /** The language of the customer that was used on the terminal screen or in text printed by the terminal. Format: two-character [ISO 639:2023](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format. */
@@ -69,46 +105,42 @@ export interface PaymentResult1 {
    * * **SignatureCapture**
    * * **UnknownMethod**
    */
-  authenticationMethod?: AuthenticationMethod1[];
+  authenticationMethod?: AuthenticationMethod1Enum[];
   /** End of the validity period for the reservation, for the first reservation, and the reservation updates as well. */
   validityDate?: string;
-  paymentAcquirerData?: PaymentAcquirerData1;
-  additionalProperties?: Record<string, unknown>;
+  /** Data related to the response from the payment Acquirer. */
+  paymentAcquirerData?: PaymentAcquirerData;
 }
 
 export const paymentResult1Schema: Schema<PaymentResult1> = lazy(() =>
-  typedExpandoObject(
-    {
-      paymentType: ['PaymentType', optional(paymentType1Schema)],
-      paymentInstrumentData: [
-        'PaymentInstrumentData',
-        optional(paymentInstrumentData2Schema),
-      ],
-      amountsResp: ['AmountsResp', optional(amountsRespSchema)],
-      instalment: ['Instalment', optional(instalmentSchema)],
-      currencyConversion: [
-        'CurrencyConversion',
-        optional(array(currencyConversionSchema)),
-      ],
-      merchantOverrideFlag: ['MerchantOverrideFlag', optional(boolean())],
-      capturedSignature: [
-        'CapturedSignature',
-        optional(capturedSignatureSchema),
-      ],
-      protectedSignature: ['ProtectedSignature', optional(string())],
-      customerLanguage: ['CustomerLanguage', optional(string())],
-      onlineFlag: ['OnlineFlag', optional(boolean())],
-      authenticationMethod: [
-        'AuthenticationMethod',
-        optional(array(authenticationMethod1Schema)),
-      ],
-      validityDate: ['ValidityDate', optional(string())],
-      paymentAcquirerData: [
-        'PaymentAcquirerData',
-        optional(paymentAcquirerData1Schema),
-      ],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    paymentType: ['PaymentType', optional(paymentType1EnumSchema)],
+    paymentInstrumentData: [
+      'PaymentInstrumentData',
+      optional(paymentInstrumentDataSchema),
+    ],
+    amountsResp: ['AmountsResp', optional(amountsResp1Schema)],
+    instalment: ['Instalment', optional(instalment1Schema)],
+    currencyConversion: [
+      'CurrencyConversion',
+      optional(array(currencyConversionSchema)),
+    ],
+    merchantOverrideFlag: ['MerchantOverrideFlag', optional(boolean())],
+    capturedSignature: [
+      'CapturedSignature',
+      optional(capturedSignature1Schema),
+    ],
+    protectedSignature: ['ProtectedSignature', optional(string())],
+    customerLanguage: ['CustomerLanguage', optional(string())],
+    onlineFlag: ['OnlineFlag', optional(boolean())],
+    authenticationMethod: [
+      'AuthenticationMethod',
+      optional(array(authenticationMethod1EnumSchema)),
+    ],
+    validityDate: ['ValidityDate', optional(string())],
+    paymentAcquirerData: [
+      'PaymentAcquirerData',
+      optional(paymentAcquirerDataSchema),
+    ],
+  })
 );

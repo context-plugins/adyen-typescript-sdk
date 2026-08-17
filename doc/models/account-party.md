@@ -1,8 +1,6 @@
 
 # Account Party
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountParty`
@@ -11,27 +9,20 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `identity` | [`Identity`](../../doc/models/identity.md) | Required | - |
-| `role` | [`PartyRole2`](../../doc/models/party-role-2.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `identity` | [`Identity2`](../../doc/models/identity-2.md) | Required | Contains the identity details of the party. |
+| `role` | [`PartyRole2Enum`](../../doc/models/party-role-2-enum.md) | Required | Specifies a role or capacity of the party in relation to the bank account. |
 
 ## Example
 
 ```ts
-import { AccountParty, PartyRole2 } from 'adyen';
+import { AccountParty, PartyRole2Enum } from 'adyen';
 
 const accountParty: AccountParty = {
   identity: {
     fullLegalName: 'fullLegalName2',
     name: 'name4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  role: PartyRole2.Other,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  role: PartyRole2Enum.OTHER,
 };
 ```
 

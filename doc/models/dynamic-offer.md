@@ -1,8 +1,6 @@
 
 # Dynamic Offer
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DynamicOffer`
@@ -12,57 +10,41 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderId` | `string` | Required | The unique identifier of the account holder that the dynamic offer is for. |
-| `contractType` | [`ContractType`](../../doc/models/contract-type.md) | Required | - |
+| `contractType` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Required | The contract type of the offer.<br><br>Possible values:<br><br>* **loan**<br>* **cashAdvance** |
 | `expiresAt` | `string` | Required | The expiration date and time of the offer validity period. |
-| `financingType` | [`FinancingType2`](../../doc/models/financing-type-2.md) | Required | - |
+| `financingType` | [`FinancingType2Enum`](../../doc/models/financing-type-2-enum.md) | Required | The type of financing that the offer is for.<br><br>Possible values: **businessFinancing**. |
 | `id` | `string` | Required | The unique identifier of the dynamic offer. |
-| `maximumAmount` | [`MaximumAmount`](../../doc/models/maximum-amount.md) | Required | - |
-| `minimumAmount` | [`MinimumAmount`](../../doc/models/minimum-amount.md) | Required | - |
-| `repayment` | [`DynamicOfferRepayment`](../../doc/models/dynamic-offer-repayment.md) | Required | - |
+| `maximumAmount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The maximum financing amount available to the account holder under this offer. |
+| `minimumAmount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The minimum financing amount available to the account holder under this offer. |
+| `repayment` | [`DynamicOfferRepayment2`](../../doc/models/dynamic-offer-repayment-2.md) | Required | Contains information about the repayment configuration of the grant. |
 | `startsAt` | `string` | Required | The starting date and time of the offer validity period. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ContractType, DynamicOffer, FinancingType2 } from 'adyen';
+import { ContractTypeEnum, DynamicOffer, FinancingType2Enum } from 'adyen';
 
 const dynamicOffer: DynamicOffer = {
   accountHolderId: 'accountHolderId6',
-  contractType: ContractType.CashAdvance,
+  contractType: ContractTypeEnum.CashAdvance,
   expiresAt: '2016-03-13T12:52:32.123Z',
-  financingType: FinancingType2.HardwareFinancing,
+  financingType: FinancingType2Enum.HardwareFinancing,
   id: 'id2',
   maximumAmount: {
     currency: 'currency0',
     value: BigInt(190),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   minimumAmount: {
     currency: 'currency2',
     value: BigInt(96),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   repayment: {
     term: {
       estimatedDays: 248,
       maximumDays: 24,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   startsAt: '2016-03-13T12:52:32.123Z',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

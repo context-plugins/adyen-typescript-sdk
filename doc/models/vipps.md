@@ -1,8 +1,6 @@
 
 # Vipps
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Vipps`
@@ -16,13 +14,12 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `telephoneNumber` | `string` | Required | - |
-| `type` | [`Type54 \| undefined`](../../doc/models/type-54.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type54Enum \| undefined`](../../doc/models/type-54-enum.md) | Optional | **vipps**<br><br>**Default**: `Type54Enum.Vipps` |
 
 ## Example
 
 ```ts
-import { Type54, Vipps } from 'adyen';
+import { Type54Enum, Vipps } from 'adyen';
 
 const vipps: Vipps = {
   telephoneNumber: 'telephoneNumber8',
@@ -30,10 +27,7 @@ const vipps: Vipps = {
   recurringDetailReference: 'recurringDetailReference6',
   sdkData: 'sdkData4',
   storedPaymentMethodId: 'storedPaymentMethodId0',
-  type: Type54.Vipps,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type54Enum.Vipps,
 };
 ```
 

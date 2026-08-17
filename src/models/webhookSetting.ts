@@ -7,17 +7,16 @@
 import {
   isMappedValueValidForSchema,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   BalanceWebhookSetting,
   balanceWebhookSettingSchema,
 } from './balanceWebhookSetting.js';
-import { Target, targetSchema } from './target.js';
+import { Target3, target3Schema } from './target3.js';
 
 export interface WebhookSetting {
   /** The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance. */
@@ -30,9 +29,9 @@ export interface WebhookSetting {
    * * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
    */
   status: string;
-  target: Target;
+  /** The resource about whose balance change you want to get notified. */
+  target: Target3;
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export namespace WebhookSetting {
@@ -48,15 +47,11 @@ export namespace WebhookSetting {
 }
 
 export const webhookSettingSchema: Schema<WebhookSetting> = lazy(() =>
-  typedExpandoObject(
-    {
-      currency: ['currency', string()],
-      id: ['id', string()],
-      status: ['status', string()],
-      target: ['target', targetSchema],
-      type: ['type', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    currency: ['currency', string()],
+    id: ['id', string()],
+    status: ['status', string()],
+    target: ['target', target3Schema],
+    type: ['type', optional(string())],
+  })
 );

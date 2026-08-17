@@ -1,36 +1,27 @@
 
-# Mc Response Info 1
+# MC Response Info 1
 
 **mc** details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`McResponseInfo1`
+`MCResponseInfo1`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionResponseInfo1 \| undefined`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```ts
-import { McResponseInfo1, Type33 } from 'adyen';
+import { MCResponseInfo1, Type8Enum } from 'adyen';
 
-const mcResponseInfo1: McResponseInfo1 = {
+const mCResponseInfo1: MCResponseInfo1 = {
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

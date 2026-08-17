@@ -4,8 +4,6 @@
 Customer or Merchant payment receipt.
 If the payment receipts are printed by the Sale system and the POI or the Sale does not implement the Print exchange (Basic profile).
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentReceipt`
@@ -14,33 +12,29 @@ If the payment receipts are printed by the Sale system and the POI or the Sale d
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `documentQualifier` | [`DocumentQualifier1`](../../doc/models/document-qualifier-1.md) | Required | - |
+| `documentQualifier` | [`DocumentQualifier1Enum`](../../doc/models/document-qualifier-1-enum.md) | Required | Qualification of the document to print to the Cashier or the Customer.<br>SaleReceipt or CashierReceipt.<br>Possible values:<br><br>* **CashierReceipt**<br>* **CustomerReceipt**<br>* **Document**<br>* **Journal**<br>* **SaleReceipt**<br>* **Voucher** |
 | `integratedPrintFlag` | `boolean \| undefined` | Optional | Type of the print integrated to other prints. |
 | `requiredSignatureFlag` | `boolean \| undefined` | Optional | Indicate that the cardholder payment receipt requires a physical signature by the Customer.<br><br>**Default**: `false` |
-| `outputContent` | [`OutputContent2`](../../doc/models/output-content-2.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `outputContent` | [`OutputContent1`](../../doc/models/output-content-1.md) | Required | Content to display or print. |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  DocumentQualifier1,
-  OutputFormat1,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  DocumentQualifier1Enum,
+  OutputFormat1Enum,
   PaymentReceipt,
 } from 'adyen';
 
 const paymentReceipt: PaymentReceipt = {
-  documentQualifier: DocumentQualifier1.SaleReceipt,
+  documentQualifier: DocumentQualifier1Enum.SaleReceipt,
   outputContent: {
-    outputFormat: OutputFormat1.Xhtml,
+    outputFormat: OutputFormat1Enum.XHTML,
     predefinedContent: {
-      referenceId: 'ReferenceID0',
+      referenceID: 'ReferenceID0',
       language: 'Language2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     outputText: [
       {
@@ -48,29 +42,17 @@ const paymentReceipt: PaymentReceipt = {
         characterSet: 194,
         startRow: 74,
         startColumn: 220,
-        characterWidth: CharacterWidth1.SingleWidth,
-        characterHeight: CharacterHeight1.SingleHeight,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        characterWidth: CharacterWidth1Enum.SingleWidth,
+        characterHeight: CharacterHeight1Enum.SingleHeight,
       }
     ],
-    outputXhtml: 'OutputXHTML2',
+    outputXHTML: 'OutputXHTML2',
     outputBarcode: {
       barcodeValue: 'BarcodeValue2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   integratedPrintFlag: false,
   requiredSignatureFlag: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

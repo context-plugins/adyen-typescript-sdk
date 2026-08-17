@@ -1,8 +1,6 @@
 
 # Payout Method
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PayoutMethod`
@@ -16,7 +14,6 @@
 | `payoutMethodReference` | `string \| undefined` | Optional | Your reference for the payout method. |
 | `recurringDetailReference` | `string` | Required | The [`recurringDetailReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-recurring-recurringDetailReference)  returned in the `/payments` response when you [saved the account holder's card details](https://docs.adyen.com/classic-platforms/payouts/manual-payout/payout-to-cards#check-and-store). |
 | `shopperReference` | `string` | Required | The [`shopperReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_shopperReference) you sent in the `/payments` request when you [saved the account holder's card details](https://docs.adyen.com/classic-platforms/payouts/manual-payout/payout-to-cards#check-and-store). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const payoutMethod: PayoutMethod = {
   shopperReference: 'shopperReference0',
   payoutMethodCode: 'payoutMethodCode2',
   payoutMethodReference: 'payoutMethodReference2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

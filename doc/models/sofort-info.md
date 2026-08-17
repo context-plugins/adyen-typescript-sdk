@@ -1,8 +1,6 @@
 
 # Sofort Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SofortInfo`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `currencyCode` | `string` | Required | Sofort currency code. For example, **EUR**. |
 | `logo` | `string` | Required | Sofort logo. Format: Base64-encoded string. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { SofortInfo } from 'adyen';
 const sofortInfo: SofortInfo = {
   currencyCode: 'currencyCode6',
   logo: 'logo2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

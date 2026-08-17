@@ -1,8 +1,6 @@
 
 # Additional Data Risk Standalone
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataRiskStandalone`
@@ -26,7 +24,6 @@
 | `threeDAuthenticated` | `string \| undefined` | Optional | A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true |
 | `threeDOffered` | `string \| undefined` | Optional | A Boolean value indicating whether 3DS was offered for this payment. Example: true |
 | `tokenDataType` | `string \| undefined` | Optional | Required for PayPal payments only. The only supported value is: **paypal**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -39,9 +36,6 @@ const additionalDataRiskStandalone: AdditionalDataRiskStandalone = {
   payPalFirstName: 'PayPal.FirstName8',
   payPalLastName: 'PayPal.LastName4',
   payPalPayerId: 'PayPal.PayerId4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

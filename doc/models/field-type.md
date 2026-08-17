@@ -3,8 +3,6 @@
 
 The type of error field.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FieldType`
@@ -14,22 +12,18 @@ The type of error field.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `field` | `string \| undefined` | Optional | The full name of the property. |
-| `fieldName` | [`FieldName \| undefined`](../../doc/models/field-name.md) | Optional | - |
+| `fieldName` | [`FieldNameEnum \| undefined`](../../doc/models/field-name-enum.md) | Optional | The type of the field. |
 | `shareholderCode` | `string \| undefined` | Optional | The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { FieldName, FieldType } from 'adyen';
+import { FieldNameEnum, FieldType } from 'adyen';
 
 const fieldType: FieldType = {
   field: 'field6',
-  fieldName: FieldName.DrivingLicenceFront,
+  fieldName: FieldNameEnum.DrivingLicenceFront,
   shareholderCode: 'shareholderCode0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

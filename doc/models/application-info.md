@@ -3,8 +3,6 @@
 
 Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ApplicationInfo`
@@ -13,13 +11,12 @@ Information about your application. For more details, see [Building Adyen soluti
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adyenLibrary` | [`AdyenLibrary \| undefined`](../../doc/models/adyen-library.md) | Optional | - |
-| `adyenPaymentSource` | [`AdyenPaymentSource \| undefined`](../../doc/models/adyen-payment-source.md) | Optional | - |
-| `externalPlatform` | [`ExternalPlatform2 \| undefined`](../../doc/models/external-platform-2.md) | Optional | - |
-| `merchantApplication` | [`MerchantApplication \| undefined`](../../doc/models/merchant-application.md) | Optional | - |
-| `merchantDevice` | [`MerchantDevice2 \| undefined`](../../doc/models/merchant-device-2.md) | Optional | - |
-| `shopperInteractionDevice` | [`ShopperInteractionDevice2 \| undefined`](../../doc/models/shopper-interaction-device-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `adyenLibrary` | [`CommonField4 \| undefined`](../../doc/models/common-field-4.md) | Optional | Adyen-developed software, such as libraries and plugins, used to interact with the Adyen API. For example, Magento plugin, Java API library, etc. |
+| `adyenPaymentSource` | [`CommonField1 \| undefined`](../../doc/models/common-field-1.md) | Optional | Adyen-developed software to get payment details. For example, Checkout SDK, Secured Fields SDK, etc. |
+| `externalPlatform` | [`ExternalPlatform \| undefined`](../../doc/models/external-platform.md) | Optional | Third-party developed platform used to initiate payment requests. For example, Magento, Zuora, etc. |
+| `merchantApplication` | [`CommonField2 \| undefined`](../../doc/models/common-field-2.md) | Optional | Merchant developed software, such as cashier application, used to interact with the Adyen API. |
+| `merchantDevice` | [`MerchantDevice \| undefined`](../../doc/models/merchant-device.md) | Optional | Merchant device information. |
+| `shopperInteractionDevice` | [`ShopperInteractionDevice \| undefined`](../../doc/models/shopper-interaction-device.md) | Optional | Shopper interaction device, such as terminal, mobile device or web browser, to initiate payment requests. |
 
 ## Example
 
@@ -30,42 +27,24 @@ const applicationInfo: ApplicationInfo = {
   adyenLibrary: {
     name: 'name8',
     version: 'version4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   adyenPaymentSource: {
     name: 'name2',
     version: 'version8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   externalPlatform: {
     integrator: 'integrator0',
     name: 'name4',
     version: 'version0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   merchantApplication: {
     name: 'name2',
     version: 'version8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   merchantDevice: {
     os: 'os4',
     osVersion: 'osVersion6',
     reference: 'reference8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

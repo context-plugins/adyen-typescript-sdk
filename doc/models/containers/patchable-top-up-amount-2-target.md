@@ -9,10 +9,9 @@
 
 | Type |
 |  --- |
-| [`PatchableAmountDto`](../../../doc/models/patchable-amount-dto.md) |
-| `unknown \| null` |
+| [`PatchableAmountDTO`](../../../doc/models/patchable-amount-dto.md) |
 
-## PatchableAmountDto
+## PatchableAmountDTO
 
 ### Initialization Code
 
@@ -21,15 +20,5 @@
 ```ts
 const value: PatchableTopUpAmount2Target = {
 };
-```
-
-## unknown | null
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: PatchableTopUpAmount2Target = { 'key1': 'val1', 'key2': 'val2' };
 ```
 

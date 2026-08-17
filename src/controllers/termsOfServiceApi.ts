@@ -35,7 +35,7 @@ import {
 } from '../models/getTermsOfServiceDocumentResponse.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class TermsOfServiceApi extends BaseApi {
   /**
@@ -66,6 +66,7 @@ export class TermsOfServiceApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetAcceptedTermsOfServiceDocumentResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       id: [id, string()],
       termsofserviceacceptancereference: [
@@ -84,23 +85,27 @@ export class TermsOfServiceApi extends BaseApi {
     req.appendTemplatePath`/legalEntities/${mapped.id}/acceptedTermsOfServiceDocument/${mapped.termsofserviceacceptancereference}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -136,6 +141,7 @@ export class TermsOfServiceApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetTermsOfServiceDocumentResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(getTermsOfServiceDocumentRequestSchema)],
@@ -145,23 +151,27 @@ export class TermsOfServiceApi extends BaseApi {
     req.appendTemplatePath`/legalEntities/${mapped.id}/termsOfService`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -203,6 +213,7 @@ export class TermsOfServiceApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AcceptTermsOfServiceResponse>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       id: [id, string()],
       termsofservicedocumentid: [termsofservicedocumentid, string()],
@@ -213,23 +224,27 @@ export class TermsOfServiceApi extends BaseApi {
     req.appendTemplatePath`/legalEntities/${mapped.id}/termsOfService/${mapped.termsofservicedocumentid}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -258,27 +273,32 @@ export class TermsOfServiceApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetTermsOfServiceAcceptanceInfosResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}/termsOfServiceAcceptanceInfos`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -310,27 +330,32 @@ export class TermsOfServiceApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CalculateTermsOfServiceStatusResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/legalEntities/${mapped.id}/termsOfServiceStatus`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

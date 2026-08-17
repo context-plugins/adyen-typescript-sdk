@@ -1,8 +1,6 @@
 
 # Delete Legal Arrangement Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeleteLegalArrangementRequest`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string` | Required | The code of the account holder. |
 | `legalArrangements` | [`LegalArrangementRequest[]`](../../doc/models/legal-arrangement-request.md) | Required | List of legal arrangements. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,14 +25,8 @@ const deleteLegalArrangementRequest: DeleteLegalArrangementRequest = {
       legalArrangementEntityCodes: [
         'legalArrangementEntityCodes8'
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

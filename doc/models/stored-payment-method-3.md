@@ -1,8 +1,6 @@
 
 # Stored Payment Method 3
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredPaymentMethod3`
@@ -30,7 +28,6 @@
 | `supportedRecurringProcessingModels` | `string[] \| undefined` | Optional | The supported recurring processing models for this stored payment method. |
 | `supportedShopperInteractions` | `string[] \| undefined` | Optional | The supported shopper interactions for this stored payment method. |
 | `type` | `string \| undefined` | Optional | The type of payment method. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -43,9 +40,6 @@ const storedPaymentMethod3: StoredPaymentMethod3 = {
   brand: 'brand2',
   cashtag: 'cashtag6',
   expiryMonth: 'expiryMonth2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

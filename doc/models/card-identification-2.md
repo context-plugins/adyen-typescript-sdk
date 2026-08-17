@@ -6,8 +6,6 @@ Card details used for the transfer, such as the Primary Account Number (PAN) or 
 - `storedPaymentMethodId` or
 - `expiryMonth`, `expiryYear`, and `number`.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardIdentification2`
@@ -23,7 +21,6 @@ Card details used for the transfer, such as the Primary Account Number (PAN) or 
 | `startMonth` | `string \| undefined` | Optional | The month when the card was issued. Applies only to some UK debit cards.<br><br>Format: two digits. Add a leading zero for single-digit months. For example:<br><br>* 03 = March<br>* 11 = November<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2` |
 | `startYear` | `string \| undefined` | Optional | The year when the card was issued. Applies only to some UK debit cards.<br><br>Format: four digits. For example: 2020<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | The unique [token](/payouts/payout-service/pay-out-to-cards/manage-card-information#save-card-details) created to identify the counterparty. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const cardIdentification2: CardIdentification2 = {
   issueNumber: 'issueNumber4',
   number: 'number8',
   startMonth: 'startMonth4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

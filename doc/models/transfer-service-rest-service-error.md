@@ -1,8 +1,6 @@
 
 # Transfer Service Rest Service Error
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransferServiceRestServiceError`
@@ -21,7 +19,6 @@
 | `status` | `number` | Required | The HTTP status code. |
 | `title` | `string` | Required | A short, human-readable summary of the problem type. |
 | `type` | `string` | Required | A URI that identifies the problem type, pointing to human-readable documentation on this problem type. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 

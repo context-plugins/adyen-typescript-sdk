@@ -8,32 +8,36 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  CustomerOrderReq,
-  customerOrderReqSchema,
-} from './customerOrderReq.js';
-import { SaleSoftware2, saleSoftware2Schema } from './saleSoftware2.js';
+  CustomerOrderReqEnum,
+  customerOrderReqEnumSchema,
+} from './customerOrderReqEnum.js';
+import { SaleSoftware1, saleSoftware1Schema } from './saleSoftware1.js';
 import {
-  SaleTerminalData3,
-  saleTerminalData3Schema,
-} from './saleTerminalData3.js';
+  SaleTerminalData2,
+  saleTerminalData2Schema,
+} from './saleTerminalData2.js';
 import {
-  TokenRequestedType1,
-  tokenRequestedType1Schema,
-} from './tokenRequestedType1.js';
+  TokenRequestedType1Enum,
+  tokenRequestedType1EnumSchema,
+} from './tokenRequestedType1Enum.js';
 
 /** Content of the Login Request message. */
 export interface LoginRequest2 {
   /** Date and Time. In the Login request message, the Sale System gives its date and time to the POI System. In the Login response, the POI System gives its date and time to the Sale System. */
   dateTime: string;
-  saleSoftware: SaleSoftware2;
-  saleTerminalData?: SaleTerminalData3;
+  /** Information related to the software of the Sale System which manages the Sale to POI protocol. */
+  saleSoftware: SaleSoftware1;
+  /**
+   * Information related to the software and hardware feature of the Sale Terminal.
+   * Present if the login involve a Sale Terminal.
+   */
+  saleTerminalData?: SaleTerminalData2;
   /**
    * Training mode.
    * This flag indicates to the POI that the entire session will be not used to make real transaction, but is used for test of system or operator training.
@@ -52,13 +56,21 @@ export interface LoginRequest2 {
    * * Because the POI needs it.
    * * Acquirer or issuer need it.
    */
-  operatorId?: string;
+  operatorID?: string;
   /**
    * Shift number.
    * Same as OperatorID.
    */
   shiftNumber?: string;
-  tokenRequestedType?: TokenRequestedType1;
+  /**
+   * Type of token replacing the PAN of a payment card to identify the payment
+   *  mean of the customer. It allows, for a merchant, to use a token for a transaction
+   *  only or for a longer period.
+   * Possible values:
+   * * **Customer**
+   * * **Transaction**
+   */
+  tokenRequestedType?: TokenRequestedType1Enum;
   /**
    * List of customer order open, closed or both to be sent in the response messages.
    * Possible values:
@@ -66,36 +78,31 @@ export interface LoginRequest2 {
    * * **Closed**
    * * **Open**
    */
-  customerOrderReq?: CustomerOrderReq[];
+  customerOrderReq?: CustomerOrderReqEnum[];
   /**
    * Serial number of a POI Terminal.
    * If the login involve a POI Terminal and not the first Login to the POI System.
    */
-  poiSerialNumber?: string;
-  additionalProperties?: Record<string, unknown>;
+  pOISerialNumber?: string;
 }
 
 export const loginRequest2Schema: Schema<LoginRequest2> = lazy(() =>
-  typedExpandoObject(
-    {
-      dateTime: ['DateTime', string()],
-      saleSoftware: ['SaleSoftware', saleSoftware2Schema],
-      saleTerminalData: ['SaleTerminalData', optional(saleTerminalData3Schema)],
-      trainingModeFlag: ['TrainingModeFlag', optional(boolean())],
-      operatorLanguage: ['OperatorLanguage', string()],
-      operatorId: ['OperatorID', optional(string())],
-      shiftNumber: ['ShiftNumber', optional(string())],
-      tokenRequestedType: [
-        'TokenRequestedType',
-        optional(tokenRequestedType1Schema),
-      ],
-      customerOrderReq: [
-        'CustomerOrderReq',
-        optional(array(customerOrderReqSchema)),
-      ],
-      poiSerialNumber: ['POISerialNumber', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    dateTime: ['DateTime', string()],
+    saleSoftware: ['SaleSoftware', saleSoftware1Schema],
+    saleTerminalData: ['SaleTerminalData', optional(saleTerminalData2Schema)],
+    trainingModeFlag: ['TrainingModeFlag', optional(boolean())],
+    operatorLanguage: ['OperatorLanguage', string()],
+    operatorID: ['OperatorID', optional(string())],
+    shiftNumber: ['ShiftNumber', optional(string())],
+    tokenRequestedType: [
+      'TokenRequestedType',
+      optional(tokenRequestedType1EnumSchema),
+    ],
+    customerOrderReq: [
+      'CustomerOrderReq',
+      optional(array(customerOrderReqEnumSchema)),
+    ],
+    pOISerialNumber: ['POISerialNumber', optional(string())],
+  })
 );

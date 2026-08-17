@@ -3,8 +3,6 @@
 
 Details of the notification subscription configuration to be updated.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NotificationConfigurationDetails3`
@@ -20,17 +18,16 @@ Details of the notification subscription configuration to be updated.
 | `hmacSignatureKey` | `string \| undefined` | Optional | A string with which to salt the notification(s) before hashing. If this field is provided, a hash value will be included under the notification header `HmacSignature` and the hash protocol will be included under the notification header `Protocol`. A notification body along with its `hmacSignatureKey` and `Protocol` can be used to calculate a hash value; matching this hash value with the `HmacSignature` will ensure that the notification body has not been tampered with or corrupted.<br><br>> Must be a 32-byte hex-encoded string (i.e. a string containing 64 hexadecimal characters; e.g. "b0ea55c2fe60d4d1d605e9c385e0e7f7e6cafbb939ce07010f31a327a0871f27").<br><br>The omission of this field will preclude the provision of the `HmacSignature` and `Protocol` headers in notification(s). |
 | `notificationId` | `bigint \| undefined` | Optional | Adyen-generated ID for the entry, returned in the response when you create a notification configuration. Required when updating an existing configuration using [`/updateNotificationConfiguration`](https://docs.adyen.com/api-explorer/#/NotificationConfigurationService/latest/post/updateNotificationConfiguration). |
 | `notifyPassword` | `string \| undefined` | Optional | The password to use when accessing the notifyURL with the specified username. |
-| `notifyUrl` | `string \| undefined` | Optional | The URL to which the notifications are to be sent. |
+| `notifyURL` | `string \| undefined` | Optional | The URL to which the notifications are to be sent. |
 | `notifyUsername` | `string \| undefined` | Optional | The username to use when accessing the notifyURL. |
-| `sslProtocol` | [`SslProtocol \| undefined`](../../doc/models/ssl-protocol.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `sslProtocol` | [`SslProtocolEnum \| undefined`](../../doc/models/ssl-protocol-enum.md) | Optional | The SSL protocol employed by the endpoint.<br><br>> Permitted values: `TLSv12`, `TLSv13`. |
 
 ## Example
 
 ```ts
 import {
-  EventType,
-  IncludeMode,
+  EventTypeEnum,
+  IncludeModeEnum,
   NotificationConfigurationDetails3,
 } from 'adyen';
 
@@ -40,31 +37,19 @@ const notificationConfigurationDetails3: NotificationConfigurationDetails3 = {
   description: 'description4',
   eventConfigs: [
     {
-      eventType: EventType.ScheduledRefunds,
-      includeMode: IncludeMode.Exclude,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+      includeMode: IncludeModeEnum.EXCLUDE,
     },
     {
-      eventType: EventType.ScheduledRefunds,
-      includeMode: IncludeMode.Exclude,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+      includeMode: IncludeModeEnum.EXCLUDE,
     },
     {
-      eventType: EventType.ScheduledRefunds,
-      includeMode: IncludeMode.Exclude,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+      includeMode: IncludeModeEnum.EXCLUDE,
     }
   ],
   hmacSignatureKey: 'hmacSignatureKey0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

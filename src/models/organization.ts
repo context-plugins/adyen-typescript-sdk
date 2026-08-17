@@ -9,36 +9,36 @@ import {
   boolean,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Address1, address1Schema } from './address1.js';
+import { Address22, address22Schema } from './address22.js';
+import { Address31, address31Schema } from './address31.js';
 import { FinancialReport, financialReportSchema } from './financialReport.js';
 import {
-  InstitutionalSector,
-  institutionalSectorSchema,
-} from './institutionalSector.js';
-import { PhoneNumber, phoneNumberSchema } from './phoneNumber.js';
+  InstitutionalSectorEnum,
+  institutionalSectorEnumSchema,
+} from './institutionalSectorEnum.js';
+import { PhoneNumber2, phoneNumber2Schema } from './phoneNumber2.js';
 import {
-  StatusOfLegalProceeding,
-  statusOfLegalProceedingSchema,
-} from './statusOfLegalProceeding.js';
-import { StockData, stockDataSchema } from './stockData.js';
-import { Support, supportSchema } from './support.js';
+  StatusOfLegalProceedingEnum,
+  statusOfLegalProceedingEnumSchema,
+} from './statusOfLegalProceedingEnum.js';
+import { StockData2, stockData2Schema } from './stockData2.js';
+import { Support1, support1Schema } from './support1.js';
 import { TaxInformation, taxInformationSchema } from './taxInformation.js';
 import {
-  TaxReportingClassification,
-  taxReportingClassificationSchema,
-} from './taxReportingClassification.js';
-import { Type161, type161Schema } from './type161.js';
+  TaxReportingClassification2,
+  taxReportingClassification2Schema,
+} from './taxReportingClassification2.js';
+import { Type161Enum, type161EnumSchema } from './type161Enum.js';
 import {
-  VatAbsenceReason,
-  vatAbsenceReasonSchema,
-} from './vatAbsenceReason.js';
-import { WebData, webDataSchema } from './webData.js';
+  VatAbsenceReasonEnum,
+  vatAbsenceReasonEnumSchema,
+} from './vatAbsenceReasonEnum.js';
+import { WebData1, webData1Schema } from './webData1.js';
 
 export interface Organization {
   /** The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country. */
@@ -73,92 +73,111 @@ export interface Organization {
   globalLegalEntityIdentifier?: string;
   /** Indicates that the registered business address is also the company's headquarters. */
   headOfficeIndicator?: boolean;
-  institutionalSector?: InstitutionalSector;
+  /** The institutional sector the organization operates within. */
+  institutionalSector?: InstitutionalSectorEnum;
   /** The type of business entity as defined in the national legal system. Use a legal form listed within the accepted legal forms compiled by the Central Bank of Europe. */
   legalForm?: string;
   /** The organization's legal name. */
   legalName: string;
-  phone?: PhoneNumber;
-  principalPlaceOfBusiness?: Address1;
-  registeredAddress: Address1;
+  /** The phone number of the legal entity. */
+  phone?: PhoneNumber2;
+  /** The address where the organization operates from. Provide this if the principal place of business is different from the `registeredAddress`. */
+  principalPlaceOfBusiness?: Address22;
+  /** The address of the organization registered at their registrar (such as the Chamber of Commerce). */
+  registeredAddress: Address31;
   /** The organization's registration number. */
   registrationNumber?: string;
   /** Set this to **true** if the organization does not have a registration number available. Only applicable for organizations in New Zealand, and incorporated partnerships and government organizations in Australia. */
   registrationNumberAbsent?: boolean | null;
-  statusOfLegalProceeding?: StatusOfLegalProceeding;
-  stockData?: StockData;
-  support?: Support;
+  /**
+   * The status of any current or past legal action taken against the legal entity.
+   * Possible values: **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**
+   * If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfLegalProceeding` is not required. Otherwise, it is required.
+   */
+  statusOfLegalProceeding?: StatusOfLegalProceedingEnum;
+  /** Information about the organization's publicly traded stock. Provide this object only if `type` is **listedPublicCompany**. */
+  stockData?: StockData2;
+  /** Support information for the legal entity. Required if you have a platform setup. */
+  support?: Support1;
   /** The tax information of the organization. */
   taxInformation?: TaxInformation[];
-  taxReportingClassification?: TaxReportingClassification;
-  type?: Type161;
-  vatAbsenceReason?: VatAbsenceReason;
+  /** The tax reporting classification (FATCA/CRS self-certification) of the organization. */
+  taxReportingClassification?: TaxReportingClassification2;
+  /**
+   * Type of organization.
+   * Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
+   */
+  type?: Type161Enum;
+  /**
+   * The reason the organization has not provided a VAT number.
+   * Possible values: **industryExemption**, **belowTaxThreshold**.
+   */
+  vatAbsenceReason?: VatAbsenceReasonEnum;
   /** The organization's VAT number. */
   vatNumber?: string;
-  webData?: WebData;
-  additionalProperties?: Record<string, unknown>;
+  /** The website and app URL of the legal entity. */
+  webData?: WebData1;
 }
 
 export const organizationSchema: Schema<Organization> = lazy(() =>
-  typedExpandoObject(
-    {
-      countryOfGoverningLaw: ['countryOfGoverningLaw', optional(string())],
-      dateOfIncorporation: ['dateOfIncorporation', optional(string())],
-      dateOfInitiationOfLegalProceeding: [
-        'dateOfInitiationOfLegalProceeding',
-        optional(string()),
-      ],
-      description: ['description', optional(string())],
-      doingBusinessAs: ['doingBusinessAs', optional(string())],
-      doingBusinessAsAbsent: [
-        'doingBusinessAsAbsent',
-        optional(nullable(boolean())),
-      ],
-      economicSector: ['economicSector', optional(string())],
-      email: ['email', optional(string())],
-      financialReports: [
-        'financialReports',
-        optional(array(financialReportSchema)),
-      ],
-      globalLegalEntityIdentifier: [
-        'globalLegalEntityIdentifier',
-        optional(string()),
-      ],
-      headOfficeIndicator: ['headOfficeIndicator', optional(boolean())],
-      institutionalSector: [
-        'institutionalSector',
-        optional(institutionalSectorSchema),
-      ],
-      legalForm: ['legalForm', optional(string())],
-      legalName: ['legalName', string()],
-      phone: ['phone', optional(phoneNumberSchema)],
-      principalPlaceOfBusiness: [
-        'principalPlaceOfBusiness',
-        optional(address1Schema),
-      ],
-      registeredAddress: ['registeredAddress', address1Schema],
-      registrationNumber: ['registrationNumber', optional(string())],
-      registrationNumberAbsent: [
-        'registrationNumberAbsent',
-        optional(nullable(boolean())),
-      ],
-      statusOfLegalProceeding: [
-        'statusOfLegalProceeding',
-        optional(statusOfLegalProceedingSchema),
-      ],
-      stockData: ['stockData', optional(stockDataSchema)],
-      support: ['support', optional(supportSchema)],
-      taxInformation: ['taxInformation', optional(array(taxInformationSchema))],
-      taxReportingClassification: [
-        'taxReportingClassification',
-        optional(taxReportingClassificationSchema),
-      ],
-      type: ['type', optional(type161Schema)],
-      vatAbsenceReason: ['vatAbsenceReason', optional(vatAbsenceReasonSchema)],
-      vatNumber: ['vatNumber', optional(string())],
-      webData: ['webData', optional(webDataSchema)],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    countryOfGoverningLaw: ['countryOfGoverningLaw', optional(string())],
+    dateOfIncorporation: ['dateOfIncorporation', optional(string())],
+    dateOfInitiationOfLegalProceeding: [
+      'dateOfInitiationOfLegalProceeding',
+      optional(string()),
+    ],
+    description: ['description', optional(string())],
+    doingBusinessAs: ['doingBusinessAs', optional(string())],
+    doingBusinessAsAbsent: [
+      'doingBusinessAsAbsent',
+      optional(nullable(boolean())),
+    ],
+    economicSector: ['economicSector', optional(string())],
+    email: ['email', optional(string())],
+    financialReports: [
+      'financialReports',
+      optional(array(financialReportSchema)),
+    ],
+    globalLegalEntityIdentifier: [
+      'globalLegalEntityIdentifier',
+      optional(string()),
+    ],
+    headOfficeIndicator: ['headOfficeIndicator', optional(boolean())],
+    institutionalSector: [
+      'institutionalSector',
+      optional(institutionalSectorEnumSchema),
+    ],
+    legalForm: ['legalForm', optional(string())],
+    legalName: ['legalName', string()],
+    phone: ['phone', optional(phoneNumber2Schema)],
+    principalPlaceOfBusiness: [
+      'principalPlaceOfBusiness',
+      optional(address22Schema),
+    ],
+    registeredAddress: ['registeredAddress', address31Schema],
+    registrationNumber: ['registrationNumber', optional(string())],
+    registrationNumberAbsent: [
+      'registrationNumberAbsent',
+      optional(nullable(boolean())),
+    ],
+    statusOfLegalProceeding: [
+      'statusOfLegalProceeding',
+      optional(statusOfLegalProceedingEnumSchema),
+    ],
+    stockData: ['stockData', optional(stockData2Schema)],
+    support: ['support', optional(support1Schema)],
+    taxInformation: ['taxInformation', optional(array(taxInformationSchema))],
+    taxReportingClassification: [
+      'taxReportingClassification',
+      optional(taxReportingClassification2Schema),
+    ],
+    type: ['type', optional(type161EnumSchema)],
+    vatAbsenceReason: [
+      'vatAbsenceReason',
+      optional(vatAbsenceReasonEnumSchema),
+    ],
+    vatNumber: ['vatNumber', optional(string())],
+    webData: ['webData', optional(webData1Schema)],
+  })
 );

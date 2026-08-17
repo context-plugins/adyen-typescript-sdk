@@ -1,8 +1,6 @@
 
 # Transfer Route Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransferRouteResponse`
@@ -12,82 +10,59 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `transferRoutes` | [`TransferRoute[] \| undefined`](../../doc/models/transfer-route.md) | Optional | List of available priorities for a transfer, along with requirements. Use this information to initiate a transfer. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  AdditionalBankIdentificationType,
-  Category2,
-  Priority2,
+  AdditionalBankIdentificationTypeEnum,
+  Category2Enum,
+  Priority2Enum,
   TransferRouteResponse,
-  Type610,
 } from 'adyen';
 
 const transferRouteResponse: TransferRouteResponse = {
   transferRoutes: [
     {
-      category: Category2.TopUp,
+      category: Category2Enum.TopUp,
       country: 'country4',
       currency: 'currency0',
-      priority: Priority2.Instant,
+      priority: Priority2Enum.Instant,
       requirements: [
         {
-          type: Type610.AdditionalBankIdentificationRequirement,
-          additionalBankIdentificationType: AdditionalBankIdentificationType.GbSortCode,
+          type: 'type8',
+          additionalBankIdentificationType: AdditionalBankIdentificationTypeEnum.GbSortCode,
           description: 'description8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      category: Category2.TopUp,
+      category: Category2Enum.TopUp,
       country: 'country4',
       currency: 'currency0',
-      priority: Priority2.Instant,
+      priority: Priority2Enum.Instant,
       requirements: [
         {
-          type: Type610.AdditionalBankIdentificationRequirement,
-          additionalBankIdentificationType: AdditionalBankIdentificationType.GbSortCode,
+          type: 'type8',
+          additionalBankIdentificationType: AdditionalBankIdentificationTypeEnum.GbSortCode,
           description: 'description8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      category: Category2.TopUp,
+      category: Category2Enum.TopUp,
       country: 'country4',
       currency: 'currency0',
-      priority: Priority2.Instant,
+      priority: Priority2Enum.Instant,
       requirements: [
         {
-          type: Type610.AdditionalBankIdentificationRequirement,
-          additionalBankIdentificationType: AdditionalBankIdentificationType.GbSortCode,
+          type: 'type8',
+          additionalBankIdentificationType: AdditionalBankIdentificationTypeEnum.GbSortCode,
           description: 'description8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

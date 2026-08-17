@@ -1,8 +1,6 @@
 
 # Payment Instrument Reveal Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrumentRevealInfo`
@@ -12,9 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cvc` | `string` | Required | The CVC2 value of the card. |
-| `expiration` | [`Expiry`](../../doc/models/expiry.md) | Required | - |
+| `expiration` | [`Expiry2`](../../doc/models/expiry-2.md) | Required | The expiration date of the card. |
 | `pan` | `string` | Required | The primary account number (PAN) of the card. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -26,14 +23,8 @@ const paymentInstrumentRevealInfo: PaymentInstrumentRevealInfo = {
   expiration: {
     month: 'month6',
     year: 'year8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   pan: 'pan2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

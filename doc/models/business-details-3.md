@@ -4,8 +4,6 @@
 Details about the business or nonprofit account holder.
 Required when creating an account holder with `legalEntity` **Business** or **NonProfit**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BusinessDetails3`
@@ -24,12 +22,11 @@ Required when creating an account holder with `legalEntity` **Business** or **No
 | `stockNumber` | `string \| undefined` | Optional | International Securities Identification Number (ISIN). |
 | `stockTicker` | `string \| undefined` | Optional | Stock Ticker symbol. |
 | `taxId` | `string \| undefined` | Optional | The tax ID of the company. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { BusinessDetails3, Gender } from 'adyen';
+import { BusinessDetails3, GenderEnum } from 'adyen';
 
 const businessDetails3: BusinessDetails3 = {
   doingBusinessAs: 'doingBusinessAs6',
@@ -43,9 +40,6 @@ const businessDetails3: BusinessDetails3 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       businessDetails: {
         legalBusinessName: 'legalBusinessName8',
@@ -53,14 +47,8 @@ const businessDetails3: BusinessDetails3 = {
         stockExchange: 'stockExchange4',
         stockNumber: 'stockNumber6',
         stockTicker: 'stockTicker6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   registrationNumber: 'registrationNumber4',
@@ -73,30 +61,18 @@ const businessDetails3: BusinessDetails3 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email8',
       fullPhoneNumber: 'fullPhoneNumber2',
       jobTitle: 'jobTitle2',
       name: {
         firstName: 'firstName4',
-        gender: Gender.Male,
+        gender: GenderEnum.MALE,
         infix: 'infix4',
         lastName: 'lastName4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

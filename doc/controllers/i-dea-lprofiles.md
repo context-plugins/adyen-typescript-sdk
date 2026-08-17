@@ -1,12 +1,12 @@
 # I DEA Lprofiles
 
 ```ts
-const ideaLprofilesApi = new IdeaLprofilesApi(client);
+const iDEALprofilesApi = new IDEALprofilesApi(client);
 ```
 
 ## Class Name
 
-`IdeaLprofilesApi`
+`IDEALprofilesApi`
 
 ## Methods
 
@@ -49,7 +49,7 @@ const body: IdealAuthLinkRequest = {
 };
 
 try {
-  const response = await idealProfilesApi.postIdealProfileAuthLink(body);
+  const response = await iDEALProfilesApi.postIdealProfileAuthLink(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -68,11 +68,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof IdealProfileAuthLink400Error) {
-      console.log(error.result);
-    } else if (error instanceof IdealProfileAuthLink422Error) {
-      console.log(error.result);
-    } else if (error instanceof IdealProfileAuthLink500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -93,9 +89,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`IdealProfileAuthLink400Error`](../../doc/models/ideal-profile-auth-link-400-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`IdealProfileAuthLink422Error`](../../doc/models/ideal-profile-auth-link-422-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`IdealProfileAuthLink500Error`](../../doc/models/ideal-profile-auth-link-500-error.md) |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Ideal-Profile-Authenticate
@@ -108,7 +104,7 @@ Generates an redirection URL to finish the authentication flow when requested by
 async postIdealProfileAuthenticate(
   body: IdealAuthenticateRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<IdealAuthLinkResponse>>
+): Promise<ApiResponse<IdealAuthenticateResponse>>
 ```
 
 ## Parameters
@@ -122,7 +118,7 @@ async postIdealProfileAuthenticate(
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`IdealAuthLinkResponse`](../../doc/models/ideal-auth-link-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`IdealAuthenticateResponse`](../../doc/models/ideal-authenticate-response.md).
 
 ## Example Usage
 
@@ -133,7 +129,7 @@ const body: IdealAuthenticateRequest = {
 };
 
 try {
-  const response = await idealProfilesApi.postIdealProfileAuthenticate(body);
+  const response = await iDEALProfilesApi.postIdealProfileAuthenticate(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -152,11 +148,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof IdealProfileAuthenticate400Error) {
-      console.log(error.result);
-    } else if (error instanceof IdealProfileAuthenticate422Error) {
-      console.log(error.result);
-    } else if (error instanceof IdealProfileAuthenticate500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -177,9 +169,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`IdealProfileAuthenticate400Error`](../../doc/models/ideal-profile-authenticate-400-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`IdealProfileAuthenticate422Error`](../../doc/models/ideal-profile-authenticate-422-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`IdealProfileAuthenticate500Error`](../../doc/models/ideal-profile-authenticate-500-error.md) |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Ideal-Profile-Register
@@ -192,7 +184,7 @@ Register a new iDEAL profile. The profile is linked to the account holder and pa
 async postIdealProfileRegister(
   body: ProfileRegistrationRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<IdealAuthLinkResponse>>
+): Promise<ApiResponse<ProfileRegistrationResponse>>
 ```
 
 ## Parameters
@@ -206,7 +198,7 @@ async postIdealProfileRegister(
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`IdealAuthLinkResponse`](../../doc/models/ideal-auth-link-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ProfileRegistrationResponse`](../../doc/models/profile-registration-response.md).
 
 ## Example Usage
 
@@ -220,7 +212,7 @@ const body: ProfileRegistrationRequest = {
 };
 
 try {
-  const response = await idealProfilesApi.postIdealProfileRegister(body);
+  const response = await iDEALProfilesApi.postIdealProfileRegister(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -239,11 +231,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof IdealProfileRegister400Error) {
-      console.log(error.result);
-    } else if (error instanceof IdealProfileRegister422Error) {
-      console.log(error.result);
-    } else if (error instanceof IdealProfileRegister500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -264,7 +252,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`IdealProfileRegister400Error`](../../doc/models/ideal-profile-register-400-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`IdealProfileRegister422Error`](../../doc/models/ideal-profile-register-422-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`IdealProfileRegister500Error`](../../doc/models/ideal-profile-register-500-error.md) |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

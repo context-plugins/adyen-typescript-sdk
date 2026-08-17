@@ -1,8 +1,6 @@
 
 # Number and Bic Account Identification
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NumberAndBicAccountIdentification`
@@ -12,33 +10,22 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The bank account number, without separators or whitespace. The length and format depends on the bank or country.<br><br>**Constraints**: *Maximum Length*: `34` |
-| `additionalBankIdentification` | [`AdditionalBankIdentification \| undefined`](../../doc/models/additional-bank-identification.md) | Optional | - |
+| `additionalBankIdentification` | [`AdditionalBankIdentification1 \| undefined`](../../doc/models/additional-bank-identification-1.md) | Optional | Additional identification codes of the bank. Some banks may require these identifiers for cross-border transfers. |
 | `bic` | `string` | Required | The bank's 8- or 11-character BIC or SWIFT code.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `11` |
-| `type` | [`Type244`](../../doc/models/type-244.md) | Required | **numberAndBic** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **numberAndBic**<br><br>**Value**: `'numberAndBic'` |
 
 ## Example
 
 ```ts
-import {
-  AdditionalBankIdentificationType,
-  NumberAndBicAccountIdentification,
-  Type244,
-} from 'adyen';
+import { NumberAndBicAccountIdentification, Type510Enum } from 'adyen';
 
 const numberAndBicAccountIdentification: NumberAndBicAccountIdentification = {
   accountNumber: 'accountNumber6',
   bic: 'bic0',
-  type: Type244.NumberAndBic,
+  type: 'numberAndBic',
   additionalBankIdentification: {
     code: 'code2',
-    type: AdditionalBankIdentificationType.GbSortCode,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type510Enum.GbSortCode,
   },
 };
 ```

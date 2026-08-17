@@ -1,8 +1,6 @@
 
 # Leg
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Leg`
@@ -20,7 +18,6 @@
 | `fareBasisCode` | `string \| undefined` | Optional | The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric.<br><br>* minLength: 1 character<br>* maxLength: 15 characters<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `airline.leg[N].fare_base_code` |
 | `flightNumber` | `string \| undefined` | Optional | The flight identifier.<br><br>* minLength: 1 character<br>* maxLength: 5 characters<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `airline.leg[N].flight_number` |
 | `stopOverCode` | `string \| undefined` | Optional | A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not.<br><br>* Encoding: ASCII<br>* minLength: 1 character<br>* maxLength: 1 character<br>* **additionalData key:** `airline.leg[N].stop_over_code` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const leg: Leg = {
   dateOfTravel: '2016-03-13T12:52:32.123Z',
   departureAirportCode: 'departureAirportCode8',
   departureTax: BigInt(16),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

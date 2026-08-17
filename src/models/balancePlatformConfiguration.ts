@@ -9,13 +9,12 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { LocalTime, localTimeSchema } from './localTime.js';
+import { LocalTime2, localTime2Schema } from './localTime2.js';
 
 export interface BalancePlatformConfiguration {
   /** Specifies whether this payout schedule is automatically applied to new balance accounts. */
@@ -74,41 +73,37 @@ export interface BalancePlatformConfiguration {
   updatedAt?: string;
   /** The default [settlement delay](https://docs.adyen.com/platforms/settle-funds/#settlement-delay) for this payout schedule. */
   userSettlementDelay: number;
-  userSettlementTime: LocalTime;
+  /** The time when the payout funds are settled in your user's transfer instrument. */
+  userSettlementTime: LocalTime2;
   /** The timezone of the `userSettlementTime`. */
   userSettlementTimeZone: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const balancePlatformConfigurationSchema: Schema<BalancePlatformConfiguration> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        automaticApplication: ['automaticApplication', optional(boolean())],
-        balancePlatformId: ['balancePlatformId', string()],
-        countryCode: ['countryCode', optional(string())],
-        createdAt: ['createdAt', string()],
-        currency: ['currency', optional(string())],
-        defaultDescription: ['defaultDescription', optional(string())],
-        defaultFrequency: ['defaultFrequency', optional(string())],
-        defaultFrequencyValue: ['defaultFrequencyValue', optional(number())],
-        defaultReference: ['defaultReference', optional(string())],
-        defaultReferenceForBeneficiary: [
-          'defaultReferenceForBeneficiary',
-          optional(string()),
-        ],
-        enabled: ['enabled', optional(boolean())],
-        id: ['id', optional(string())],
-        maxPayoutAmount: ['maxPayoutAmount', optional(bigint())],
-        minPayoutAmount: ['minPayoutAmount', optional(bigint())],
-        payoutScheduleDescription: ['payoutScheduleDescription', string()],
-        retainedAmount: ['retainedAmount', optional(bigint())],
-        updatedAt: ['updatedAt', optional(string())],
-        userSettlementDelay: ['userSettlementDelay', number()],
-        userSettlementTime: ['userSettlementTime', localTimeSchema],
-        userSettlementTimeZone: ['userSettlementTimeZone', string()],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      automaticApplication: ['automaticApplication', optional(boolean())],
+      balancePlatformId: ['balancePlatformId', string()],
+      countryCode: ['countryCode', optional(string())],
+      createdAt: ['createdAt', string()],
+      currency: ['currency', optional(string())],
+      defaultDescription: ['defaultDescription', optional(string())],
+      defaultFrequency: ['defaultFrequency', optional(string())],
+      defaultFrequencyValue: ['defaultFrequencyValue', optional(number())],
+      defaultReference: ['defaultReference', optional(string())],
+      defaultReferenceForBeneficiary: [
+        'defaultReferenceForBeneficiary',
+        optional(string()),
+      ],
+      enabled: ['enabled', optional(boolean())],
+      id: ['id', optional(string())],
+      maxPayoutAmount: ['maxPayoutAmount', optional(bigint())],
+      minPayoutAmount: ['minPayoutAmount', optional(bigint())],
+      payoutScheduleDescription: ['payoutScheduleDescription', string()],
+      retainedAmount: ['retainedAmount', optional(bigint())],
+      updatedAt: ['updatedAt', optional(string())],
+      userSettlementDelay: ['userSettlementDelay', number()],
+      userSettlementTime: ['userSettlementTime', localTime2Schema],
+      userSettlementTimeZone: ['userSettlementTimeZone', string()],
+    })
 );

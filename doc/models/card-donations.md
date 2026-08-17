@@ -1,8 +1,6 @@
 
 # Card Donations
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardDonations`
@@ -25,7 +23,7 @@
 | `expiryMonth` | `string \| undefined` | Optional | The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
 | `expiryYear` | `string \| undefined` | Optional | The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
 | `fastlaneData` | `string \| undefined` | Optional | The encoded fastlane data blob |
-| `fundingSource` | [`FundingSource \| undefined`](../../doc/models/funding-source.md) | Optional | - |
+| `fundingSource` | [`FundingSourceEnum \| undefined`](../../doc/models/funding-source-enum.md) | Optional | The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**. |
 | `holderName` | `string \| undefined` | Optional | The name of the card holder.<br><br>**Constraints**: *Maximum Length*: `15000` |
 | `networkPaymentReference` | `string \| undefined` | Optional | The transaction identifier from card schemes. This is the [`networkTxReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment. |
 | `number` | `string \| undefined` | Optional | The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
@@ -37,14 +35,13 @@
 | `srcScheme` | `string \| undefined` | Optional | The scheme that is being used for Click to Pay. |
 | `srcTokenReference` | `string \| undefined` | Optional | The reference for the Click to Pay token. |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `threeDs2SdkVersion` | `string \| undefined` | Optional | Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.<br><br>**Constraints**: *Maximum Length*: `12` |
-| `type` | [`Type141 \| undefined`](../../doc/models/type-141.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `threeDS2SdkVersion` | `string \| undefined` | Optional | Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.<br><br>**Constraints**: *Maximum Length*: `12` |
+| `type` | [`Type14Enum \| undefined`](../../doc/models/type-14-enum.md) | Optional | Default payment method details. Common for scheme payment methods, and for simple payment method details.<br><br>**Default**: `Type14Enum.Scheme` |
 
 ## Example
 
 ```ts
-import { CardDonations } from 'adyen';
+import { CardDonations, Type14Enum } from 'adyen';
 
 const cardDonations: CardDonations = {
   billingSequenceNumber: 'billingSequenceNumber0',
@@ -52,9 +49,7 @@ const cardDonations: CardDonations = {
   checkoutAttemptId: 'checkoutAttemptId6',
   cupsecureplusSmscode: 'cupsecureplus.smscode8',
   cvc: 'cvc4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type14Enum.Scheme,
 };
 ```
 

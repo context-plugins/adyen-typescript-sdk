@@ -1,8 +1,6 @@
 
 # Links 3
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Links3`
@@ -11,9 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `next` | [`Next \| undefined`](../../doc/models/next.md) | Optional | - |
-| `prev` | [`Prev \| undefined`](../../doc/models/prev.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `next` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | Contains a link to the next page. |
+| `prev` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | Contains a link to the previous page. |
 
 ## Example
 
@@ -23,18 +20,9 @@ import { Links3 } from 'adyen';
 const links3: Links3 = {
   next: {
     href: 'href4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   prev: {
     href: 'href8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

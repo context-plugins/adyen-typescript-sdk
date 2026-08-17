@@ -1,9 +1,7 @@
 
 # Capital Balance
 
-Contains information about the balances of the disbursement.
-
-*This model accepts additional fields of type unknown.*
+An object containing the details of the existing grant., Contains information about the balances of the disbursement., Contains information about the balances of the grant.
 
 ## Structure
 
@@ -17,7 +15,6 @@ Contains information about the balances of the disbursement.
 | `fee` | `bigint` | Required | Fee amount. |
 | `principal` | `bigint` | Required | Principal amount. |
 | `total` | `bigint` | Required | Total amount. A sum of principal amount and fee amount. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const capitalBalance: CapitalBalance = {
   fee: BigInt(8),
   principal: BigInt(46),
   total: BigInt(86),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

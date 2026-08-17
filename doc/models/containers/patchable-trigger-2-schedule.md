@@ -10,7 +10,6 @@
 | Type |
 |  --- |
 | [`PatchableSchedule`](../../../doc/models/patchable-schedule.md) |
-| `unknown \| null` |
 
 ## PatchableSchedule
 
@@ -21,15 +20,5 @@
 ```ts
 const value: PatchableTrigger2Schedule = {
 };
-```
-
-## unknown | null
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: PatchableTrigger2Schedule = { 'key1': 'val1', 'key2': 'val2' };
 ```
 

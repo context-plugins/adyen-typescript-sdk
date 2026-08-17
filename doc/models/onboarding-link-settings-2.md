@@ -3,8 +3,6 @@
 
 Key-value pairs indicating the settings for the hosted onboarding page. The key represents a specific setting.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OnboardingLinkSettings2`
@@ -30,7 +28,6 @@ Key-value pairs indicating the settings for the hosted onboarding page. The key 
 | `requirePciSignPos` | `boolean \| undefined` | Optional | Default value: **false**<br><br>Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type. |
 | `requirePciSignPosMoto` | `boolean \| undefined` | Optional | Default value: **false**<br><br>Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type. |
 | `transferInstrumentLimit` | `number \| undefined` | Optional | The maximum number of transfer instruments the user can create. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -47,9 +44,6 @@ const onboardingLinkSettings2: OnboardingLinkSettings2 = {
   allowDebugUi: false,
   allowIntraRegionCrossBorderPayout: false,
   changeLegalEntityType: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

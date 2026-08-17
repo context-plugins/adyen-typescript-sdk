@@ -9,38 +9,42 @@ import {
   boolean,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { FundingSource, fundingSourceSchema } from './fundingSource.js';
+import {
+  FundingSource9Enum,
+  fundingSource9EnumSchema,
+} from './fundingSource9Enum.js';
 import { InputDetail, inputDetailSchema } from './inputDetail.js';
 import {
-  PaymentMethodGroup,
-  paymentMethodGroupSchema,
-} from './paymentMethodGroup.js';
+  PaymentMethodGroup2,
+  paymentMethodGroup2Schema,
+} from './paymentMethodGroup2.js';
 import {
   PaymentMethodIssuer,
   paymentMethodIssuerSchema,
 } from './paymentMethodIssuer.js';
 import {
-  PaymentMethodUpiApps,
-  paymentMethodUpiAppsSchema,
-} from './paymentMethodUpiApps.js';
+  PaymentMethodUPIApps,
+  paymentMethodUPIAppsSchema,
+} from './paymentMethodUPIApps.js';
 
 export interface PaymentMethod {
   /** A list of apps for this payment method. */
-  apps?: PaymentMethodUpiApps[];
+  apps?: PaymentMethodUPIApps[];
   /** Brand for the selected gift card. For example: plastix, hmclub. */
   brand?: string;
   /** List of possible brands. For example: visa, mc. */
   brands?: string[];
   /** The configuration of the payment method. */
   configuration?: Record<string, string>;
-  fundingSource?: FundingSource;
-  group?: PaymentMethodGroup;
+  /** The funding source of the payment method. */
+  fundingSource?: FundingSource9Enum;
+  /** The group where this payment method belongs to. */
+  group?: PaymentMethodGroup2;
   /** All input details to be provided to complete the payment with this payment method. */
   inputDetails?: InputDetail[];
   /** A list of issuers for this payment method. */
@@ -51,25 +55,20 @@ export interface PaymentMethod {
   promoted?: boolean;
   /** The unique payment method code. */
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const paymentMethodSchema: Schema<PaymentMethod> = lazy(() =>
-  typedExpandoObject(
-    {
-      apps: ['apps', optional(array(paymentMethodUpiAppsSchema))],
-      brand: ['brand', optional(string())],
-      brands: ['brands', optional(array(string()))],
-      configuration: ['configuration', optional(dict(string()))],
-      fundingSource: ['fundingSource', optional(fundingSourceSchema)],
-      group: ['group', optional(paymentMethodGroupSchema)],
-      inputDetails: ['inputDetails', optional(array(inputDetailSchema))],
-      issuers: ['issuers', optional(array(paymentMethodIssuerSchema))],
-      name: ['name', optional(string())],
-      promoted: ['promoted', optional(boolean())],
-      type: ['type', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    apps: ['apps', optional(array(paymentMethodUPIAppsSchema))],
+    brand: ['brand', optional(string())],
+    brands: ['brands', optional(array(string()))],
+    configuration: ['configuration', optional(dict(string()))],
+    fundingSource: ['fundingSource', optional(fundingSource9EnumSchema)],
+    group: ['group', optional(paymentMethodGroup2Schema)],
+    inputDetails: ['inputDetails', optional(array(inputDetailSchema))],
+    issuers: ['issuers', optional(array(paymentMethodIssuerSchema))],
+    name: ['name', optional(string())],
+    promoted: ['promoted', optional(boolean())],
+    type: ['type', optional(string())],
+  })
 );

@@ -78,13 +78,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsRecurringTopUps401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -135,10 +129,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401Error`](../../doc/models/balance-accounts-recurring-top-ups-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403Error`](../../doc/models/balance-accounts-recurring-top-ups-403-error.md) |
-| 404 | Not Found - the recurring top up was not found | [`BalanceAccountsRecurringTopUps404Error`](../../doc/models/balance-accounts-recurring-top-ups-404-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsRecurringTopUps500Error`](../../doc/models/balance-accounts-recurring-top-ups-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the recurring top up was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Balance Accounts-Balance Account Id-Recurring Top Ups
@@ -193,7 +187,7 @@ const body: CreateRecurringTopUp = {
       value: BigInt(100),
     },
     schedule: {
-      type: ScheduleType1.Weekdays,
+      type: ScheduleType1Enum.Weekdays,
     },
   },
 };
@@ -221,13 +215,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsRecurringTopUps400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -266,10 +254,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalanceAccountsRecurringTopUps400Error`](../../doc/models/balance-accounts-recurring-top-ups-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401Error`](../../doc/models/balance-accounts-recurring-top-ups-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403Error`](../../doc/models/balance-accounts-recurring-top-ups-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsRecurringTopUps422Error`](../../doc/models/balance-accounts-recurring-top-ups-422-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Balance Accounts-Balance Account Id-Recurring Top Ups-Top Up Id
@@ -285,7 +273,7 @@ async deleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId(
   balanceAccountId: string,
   topUpId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown | undefined>>
+): Promise<ApiResponse<unknown>>
 ```
 
 ## Parameters
@@ -332,17 +320,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsRecurringTopUps400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -353,12 +331,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalanceAccountsRecurringTopUps400Error`](../../doc/models/balance-accounts-recurring-top-ups-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401Error`](../../doc/models/balance-accounts-recurring-top-ups-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403Error`](../../doc/models/balance-accounts-recurring-top-ups-403-error.md) |
-| 404 | Not Found - the recurring top up was not found | [`BalanceAccountsRecurringTopUps404Error`](../../doc/models/balance-accounts-recurring-top-ups-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsRecurringTopUps422Error`](../../doc/models/balance-accounts-recurring-top-ups-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsRecurringTopUps500Error`](../../doc/models/balance-accounts-recurring-top-ups-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the recurring top up was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Balance Accounts-Balance Account Id-Recurring Top Ups-Top Up Id
@@ -428,13 +406,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsRecurringTopUps400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsRecurringTopUps422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -473,8 +445,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalanceAccountsRecurringTopUps400Error`](../../doc/models/balance-accounts-recurring-top-ups-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401Error`](../../doc/models/balance-accounts-recurring-top-ups-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403Error`](../../doc/models/balance-accounts-recurring-top-ups-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsRecurringTopUps422Error`](../../doc/models/balance-accounts-recurring-top-ups-422-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

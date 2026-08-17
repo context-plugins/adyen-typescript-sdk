@@ -1,11 +1,9 @@
 
-# Eft Direct Debit
-
-*This model accepts additional fields of type unknown.*
+# EFT Direct Debit
 
 ## Structure
 
-`EftDirectDebit`
+`EFTDirectDebit`
 
 ## Fields
 
@@ -19,23 +17,20 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type30 \| undefined`](../../doc/models/type-30.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type30Enum \| undefined`](../../doc/models/type-30-enum.md) | Optional | **eft**<br><br>**Default**: `Type30Enum.EftDirectdebitCA` |
 
 ## Example
 
 ```ts
-import { EftDirectDebit } from 'adyen';
+import { EFTDirectDebit, Type30Enum } from 'adyen';
 
-const eftDirectDebit: EftDirectDebit = {
-  bankAccountNumber: 'bankAccountNumber2',
-  bankCode: 'bankCode2',
-  bankLocationId: 'bankLocationId6',
-  checkoutAttemptId: 'checkoutAttemptId8',
-  ownerName: 'ownerName6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const eFTDirectDebit: EFTDirectDebit = {
+  bankAccountNumber: 'bankAccountNumber4',
+  bankCode: 'bankCode4',
+  bankLocationId: 'bankLocationId2',
+  checkoutAttemptId: 'checkoutAttemptId0',
+  ownerName: 'ownerName8',
+  type: Type30Enum.EftDirectdebitCA,
 };
 ```
 

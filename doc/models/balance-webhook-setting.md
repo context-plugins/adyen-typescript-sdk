@@ -1,8 +1,6 @@
 
 # Balance Webhook Setting
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalanceWebhookSetting`
@@ -16,16 +14,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `conditions` | [`Condition[] \| undefined`](../../doc/models/condition.md) | Optional | The list of settings and criteria for triggering the [balance webhook](https://docs.adyen.com/api-explorer/balance-webhooks/latest/post/balanceAccount.balance.updated). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  BalanceType,
+  BalanceTypeEnum,
   BalanceWebhookSetting,
-  ConditionType,
-  Type18,
+  ConditionTypeEnum,
+  Type181Enum,
 } from 'adyen';
 
 const balanceWebhookSetting: BalanceWebhookSetting = {
@@ -34,41 +31,26 @@ const balanceWebhookSetting: BalanceWebhookSetting = {
   status: 'status2',
   target: {
     id: 'id2',
-    type: Type18.BalanceAccount,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: Type181Enum.BalanceAccount,
   },
   conditions: [
     {
-      balanceType: BalanceType.Balance,
-      conditionType: ConditionType.LessThan,
+      balanceType: BalanceTypeEnum.Balance,
+      conditionType: ConditionTypeEnum.LessThan,
       value: BigInt(214),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      balanceType: BalanceType.Balance,
-      conditionType: ConditionType.LessThan,
+      balanceType: BalanceTypeEnum.Balance,
+      conditionType: ConditionTypeEnum.LessThan,
       value: BigInt(214),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      balanceType: BalanceType.Balance,
-      conditionType: ConditionType.LessThan,
+      balanceType: BalanceTypeEnum.Balance,
+      conditionType: ConditionTypeEnum.LessThan,
       value: BigInt(214),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   type: 'balance',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

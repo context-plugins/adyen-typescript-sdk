@@ -4,8 +4,6 @@
 It conveys Information related to the payment and loyalty cards read and processed by the POI System and entered by the Customer.
 Content of the Card Acquisition Response message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardAcquisitionResponse`
@@ -14,214 +12,147 @@ Content of the Card Acquisition Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `saleData` | [`SaleData2`](../../doc/models/sale-data-2.md) | Required | - |
-| `poiData` | [`PoiData2`](../../doc/models/poi-data-2.md) | Required | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `saleData` | [`SaleData1`](../../doc/models/sale-data-1.md) | Required | Data related to the Sale System. |
+| `pOIData` | [`POIData1`](../../doc/models/poi-data-1.md) | Required | Data related to the POI System. |
 | `paymentBrand` | `string[] \| undefined` | Optional | Type of payment card.<br>Brands available for payment by the card and not chosen by the Customer.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `paymentInstrumentData` | [`PaymentInstrumentData2 \| undefined`](../../doc/models/payment-instrument-data-2.md) | Optional | - |
+| `paymentInstrumentData` | [`PaymentInstrumentData1 \| undefined`](../../doc/models/payment-instrument-data-1.md) | Optional | Data related to the instrument of payment for the transaction.<br>If this type of payment card is configured to send information if the CardAcquisition response. |
 | `loyaltyAccount` | [`LoyaltyAccount[] \| undefined`](../../doc/models/loyalty-account.md) | Optional | Data related to the loyalty System. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
   CardAcquisitionResponse,
-  EntryMode,
-  ErrorCondition1,
-  IdentificationSupport1,
-  IdentificationType11,
-  PaymentInstrumentType11,
-  Result11,
-  StoredValueAccountType1,
-  TrackFormat1,
+  EntryModeEnum,
+  ErrorCondition1Enum,
+  IdentificationSupport1Enum,
+  IdentificationType11Enum,
+  PaymentInstrumentType11Enum,
+  Result11Enum,
+  StoredValueAccountType1Enum,
+  TrackFormat1Enum,
 } from 'adyen';
 
 const cardAcquisitionResponse: CardAcquisitionResponse = {
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   saleData: {
-    saleTransactionId: {
-      transactionId: 'TransactionID2',
+    saleTransactionID: {
+      transactionID: 'TransactionID2',
       timeStamp: '2016-03-13T12:52:32.123Z',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    operatorId: 'OperatorID8',
+    operatorID: 'OperatorID8',
     operatorLanguage: 'OperatorLanguage2',
     shiftNumber: 'ShiftNumber0',
-    saleReferenceId: 'SaleReferenceID8',
+    saleReferenceID: 'SaleReferenceID8',
     saleTerminalData: {
-      totalsGroupId: 'TotalsGroupID4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+      totalsGroupID: 'TotalsGroupID4',
     },
   },
-  poiData: {
-    poiTransactionId: {
-      transactionId: 'TransactionID2',
+  pOIData: {
+    pOITransactionID: {
+      transactionID: 'TransactionID2',
       timeStamp: '2016-03-13T12:52:32.123Z',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    poiReconciliationId: 52,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    pOIReconciliationID: 52,
   },
   paymentBrand: [
     'PaymentBrand3',
     'PaymentBrand4'
   ],
   paymentInstrumentData: {
-    paymentInstrumentType: PaymentInstrumentType11.Cash,
+    paymentInstrumentType: PaymentInstrumentType11Enum.Cash,
     protectedCardData: 'ProtectedCardData8',
     cardData: {
       paymentBrand: 'PaymentBrand0',
       maskedPan: 'MaskedPan0',
       paymentAccountRef: 'PaymentAccountRef8',
       entryMode: [
-        EntryMode.Manual,
-        EntryMode.Keyed
+        EntryModeEnum.Manual,
+        EntryModeEnum.Keyed
       ],
       cardCountryCode: 3,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     checkData: {
-      bankId: 'BankID0',
+      bankID: 'BankID0',
       accountNumber: 'AccountNumber6',
       checkNumber: 'CheckNumber2',
       trackData: {
         trackValue: 'TrackValue6',
         trackNumb: 3,
-        trackFormat: TrackFormat1.Jisii,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        trackFormat: TrackFormat1Enum.JISII,
       },
       checkCardNumber: 'CheckCardNumber6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     mobileData: {
       mobileCountryCode: 3,
       mobileNetworkCode: 3,
-      maskedMsisdn: 22,
+      maskedMSISDN: 22,
       geolocation: {
         geographicCoordinates: {
           latitude: 'Latitude4',
           longitude: 'Longitude2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        utmCoordinates: {
-          utmZone: 'UTMZone6',
-          utmEastward: 'UTMEastward0',
-          utmNorthward: 'UTMNorthward0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        uTMCoordinates: {
+          uTMZone: 'UTMZone6',
+          uTMEastward: 'UTMEastward0',
+          uTMNorthward: 'UTMNorthward0',
         },
       },
       protectedMobileData: 'ProtectedMobileData0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    storedValueAccountId: {
-      storedValueAccountType: StoredValueAccountType1.PhoneCard,
+    storedValueAccountID: {
+      storedValueAccountType: StoredValueAccountType1Enum.PhoneCard,
       entryMode: [
-        EntryMode.MagStripe,
-        EntryMode.Scanned
+        EntryModeEnum.MagStripe,
+        EntryModeEnum.Scanned
       ],
-      identificationType: IdentificationType11.PhoneNumber,
-      storedValueId: 'StoredValueID8',
+      identificationType: IdentificationType11Enum.PhoneNumber,
+      storedValueID: 'StoredValueID8',
       storedValueProvider: 'StoredValueProvider4',
       ownerName: 'OwnerName0',
       expiryDate: 4,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   loyaltyAccount: [
     {
-      loyaltyAccountId: {
+      loyaltyAccountID: {
         entryMode: [
-          EntryMode.File
+          EntryModeEnum.File
         ],
-        identificationType: IdentificationType11.IsoTrack2,
-        loyaltyId: 'LoyaltyID4',
-        identificationSupport: IdentificationSupport1.HybridCard,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        identificationType: IdentificationType11Enum.ISOTrack2,
+        loyaltyID: 'LoyaltyID4',
+        identificationSupport: IdentificationSupport1Enum.HybridCard,
       },
       loyaltyBrand: 'LoyaltyBrand0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      loyaltyAccountId: {
+      loyaltyAccountID: {
         entryMode: [
-          EntryMode.File
+          EntryModeEnum.File
         ],
-        identificationType: IdentificationType11.IsoTrack2,
-        loyaltyId: 'LoyaltyID4',
-        identificationSupport: IdentificationSupport1.HybridCard,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        identificationType: IdentificationType11Enum.ISOTrack2,
+        loyaltyID: 'LoyaltyID4',
+        identificationSupport: IdentificationSupport1Enum.HybridCard,
       },
       loyaltyBrand: 'LoyaltyBrand0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      loyaltyAccountId: {
+      loyaltyAccountID: {
         entryMode: [
-          EntryMode.File
+          EntryModeEnum.File
         ],
-        identificationType: IdentificationType11.IsoTrack2,
-        loyaltyId: 'LoyaltyID4',
-        identificationSupport: IdentificationSupport1.HybridCard,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        identificationType: IdentificationType11Enum.ISOTrack2,
+        loyaltyID: 'LoyaltyID4',
+        identificationSupport: IdentificationSupport1Enum.HybridCard,
       },
       loyaltyBrand: 'LoyaltyBrand0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

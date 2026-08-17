@@ -9,19 +9,19 @@ import {
   boolean,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Address1, address1Schema } from './address1.js';
+import { Address41, address41Schema } from './address41.js';
+import { Address51, address51Schema } from './address51.js';
 import { FinancialReport, financialReportSchema } from './financialReport.js';
 import { TaxInformation, taxInformationSchema } from './taxInformation.js';
 import {
-  VatAbsenceReason1,
-  vatAbsenceReason1Schema,
-} from './vatAbsenceReason1.js';
+  VatAbsenceReason1Enum,
+  vatAbsenceReason1EnumSchema,
+} from './vatAbsenceReason1Enum.js';
 
 /** Information about the sole proprietorship. Required if `type` is **soleProprietorship**. */
 export interface SoleProprietorship1 {
@@ -37,47 +37,51 @@ export interface SoleProprietorship1 {
   financialReports?: FinancialReport[];
   /** The legal name. */
   name: string;
-  principalPlaceOfBusiness?: Address1;
-  registeredAddress: Address1;
+  /** The business address. Required if the principal place of business is different from the `registeredAddress`. */
+  principalPlaceOfBusiness?: Address41;
+  /** The address registered at the registrar, such as the Chamber of Commerce. */
+  registeredAddress: Address51;
   /** The registration number. */
   registrationNumber?: string;
   /** The tax information is absent. */
   taxAbsent?: boolean | null;
   /** The tax information of the entity. */
   taxInformation?: TaxInformation[];
-  vatAbsenceReason?: VatAbsenceReason1;
+  /**
+   * The reason for not providing a VAT number.
+   * Possible values: **industryExemption**, **belowTaxThreshold**.
+   */
+  vatAbsenceReason?: VatAbsenceReason1Enum;
   /** The VAT number. */
   vatNumber?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const soleProprietorship1Schema: Schema<SoleProprietorship1> = lazy(() =>
-  typedExpandoObject(
-    {
-      countryOfGoverningLaw: ['countryOfGoverningLaw', string()],
-      dateOfIncorporation: ['dateOfIncorporation', optional(string())],
-      doingBusinessAs: ['doingBusinessAs', optional(string())],
-      doingBusinessAsAbsent: [
-        'doingBusinessAsAbsent',
-        optional(nullable(boolean())),
-      ],
-      financialReports: [
-        'financialReports',
-        optional(array(financialReportSchema)),
-      ],
-      name: ['name', string()],
-      principalPlaceOfBusiness: [
-        'principalPlaceOfBusiness',
-        optional(address1Schema),
-      ],
-      registeredAddress: ['registeredAddress', address1Schema],
-      registrationNumber: ['registrationNumber', optional(string())],
-      taxAbsent: ['taxAbsent', optional(nullable(boolean()))],
-      taxInformation: ['taxInformation', optional(array(taxInformationSchema))],
-      vatAbsenceReason: ['vatAbsenceReason', optional(vatAbsenceReason1Schema)],
-      vatNumber: ['vatNumber', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    countryOfGoverningLaw: ['countryOfGoverningLaw', string()],
+    dateOfIncorporation: ['dateOfIncorporation', optional(string())],
+    doingBusinessAs: ['doingBusinessAs', optional(string())],
+    doingBusinessAsAbsent: [
+      'doingBusinessAsAbsent',
+      optional(nullable(boolean())),
+    ],
+    financialReports: [
+      'financialReports',
+      optional(array(financialReportSchema)),
+    ],
+    name: ['name', string()],
+    principalPlaceOfBusiness: [
+      'principalPlaceOfBusiness',
+      optional(address41Schema),
+    ],
+    registeredAddress: ['registeredAddress', address51Schema],
+    registrationNumber: ['registrationNumber', optional(string())],
+    taxAbsent: ['taxAbsent', optional(nullable(boolean()))],
+    taxInformation: ['taxInformation', optional(array(taxInformationSchema))],
+    vatAbsenceReason: [
+      'vatAbsenceReason',
+      optional(vatAbsenceReason1EnumSchema),
+    ],
+    vatNumber: ['vatNumber', optional(string())],
+  })
 );

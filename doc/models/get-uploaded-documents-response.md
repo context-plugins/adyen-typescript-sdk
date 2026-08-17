@@ -1,8 +1,6 @@
 
 # Get Uploaded Documents Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetUploadedDocumentsResponse`
@@ -15,25 +13,25 @@
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { DocumentType, FieldName, GetUploadedDocumentsResponse } from 'adyen';
+import {
+  DocumentTypeEnum,
+  FieldNameEnum,
+  GetUploadedDocumentsResponse,
+} from 'adyen';
 
 const getUploadedDocumentsResponse: GetUploadedDocumentsResponse = {
   documentDetails: [
     {
-      documentType: DocumentType.CompanyRegistrationScreening,
+      documentType: DocumentTypeEnum.COMPANYREGISTRATIONSCREENING,
       accountHolderCode: 'accountHolderCode0',
-      bankAccountUuid: 'bankAccountUUID0',
+      bankAccountUUID: 'bankAccountUUID0',
       description: 'description4',
       filename: 'filename6',
       legalArrangementCode: 'legalArrangementCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   invalidFields: [
@@ -42,14 +40,8 @@ const getUploadedDocumentsResponse: GetUploadedDocumentsResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -57,22 +49,13 @@ const getUploadedDocumentsResponse: GetUploadedDocumentsResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
   pspReference: 'pspReference0',
   resultCode: 'resultCode4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

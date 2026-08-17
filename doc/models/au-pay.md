@@ -1,8 +1,6 @@
 
 # Au Pay
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AuPay`
@@ -15,23 +13,19 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type91 \| undefined`](../../doc/models/type-91.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type9Enum \| undefined`](../../doc/models/type-9-enum.md) | Optional | **aupay**<br><br>**Default**: `Type9Enum.Aupay` |
 
 ## Example
 
 ```ts
-import { AuPay, Type91 } from 'adyen';
+import { AuPay, Type9Enum } from 'adyen';
 
 const auPay: AuPay = {
   checkoutAttemptId: 'checkoutAttemptId4',
   recurringDetailReference: 'recurringDetailReference8',
   sdkData: 'sdkData2',
   storedPaymentMethodId: 'storedPaymentMethodId2',
-  type: Type91.Aupay,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type9Enum.Aupay,
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Checkout Forward Request Card
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CheckoutForwardRequestCard`
@@ -20,13 +18,12 @@
 | `expiryYear` | `string \| undefined` | Optional | The card expiry year. |
 | `holderName` | `string \| undefined` | Optional | The name of the cardholder. |
 | `number` | `string \| undefined` | Optional | The card number. Only collect raw card data if you are fully [PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).<br>Format: Do not use separators. |
-| `type` | [`Type181 \| undefined`](../../doc/models/type-181.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type18Enum \| undefined`](../../doc/models/type-18-enum.md) | Optional | Default payment method details. Common for scheme payment methods, and for simple payment method details.<br><br>**Default**: `Type18Enum.Scheme` |
 
 ## Example
 
 ```ts
-import { CheckoutForwardRequestCard } from 'adyen';
+import { CheckoutForwardRequestCard, Type18Enum } from 'adyen';
 
 const checkoutForwardRequestCard: CheckoutForwardRequestCard = {
   cvc: 'cvc0',
@@ -34,9 +31,7 @@ const checkoutForwardRequestCard: CheckoutForwardRequestCard = {
   encryptedExpiryMonth: 'encryptedExpiryMonth2',
   encryptedExpiryYear: 'encryptedExpiryYear6',
   encryptedSecurityCode: 'encryptedSecurityCode2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type18Enum.Scheme,
 };
 ```
 

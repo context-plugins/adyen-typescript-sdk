@@ -7,11 +7,10 @@
 import {
   boolean,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 export interface PatchableFraudInfo {
@@ -23,19 +22,14 @@ export interface PatchableFraudInfo {
   descriptionOfIssue?: string;
   /** Set to **true** to report fraud to Adyen with no further action, such as a request for a chargeback or fee reversal. The default value is **false**. */
   reportOnly?: boolean | null;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const patchableFraudInfoSchema: Schema<PatchableFraudInfo> = typedExpandoObject(
-  {
-    cardDoesNotBelongToCardholder: [
-      'cardDoesNotBelongToCardholder',
-      optional(boolean()),
-    ],
-    cardWasCounterfeited: ['cardWasCounterfeited', optional(boolean())],
-    descriptionOfIssue: ['descriptionOfIssue', optional(string())],
-    reportOnly: ['reportOnly', optional(nullable(boolean()))],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const patchableFraudInfoSchema: Schema<PatchableFraudInfo> = object({
+  cardDoesNotBelongToCardholder: [
+    'cardDoesNotBelongToCardholder',
+    optional(boolean()),
+  ],
+  cardWasCounterfeited: ['cardWasCounterfeited', optional(boolean())],
+  descriptionOfIssue: ['descriptionOfIssue', optional(string())],
+  reportOnly: ['reportOnly', optional(nullable(boolean()))],
+});

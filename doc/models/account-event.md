@@ -1,8 +1,6 @@
 
 # Account Event
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountEvent`
@@ -11,23 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `event` | [`Event \| undefined`](../../doc/models/event.md) | Optional | - |
+| `event` | [`EventEnum \| undefined`](../../doc/models/event-enum.md) | Optional | The event.<br><br>> Permitted values: `InactivateAccount`, `RefundNotPaidOutTransfers`.<br>> For more information, refer to [Verification checks](https://docs.adyen.com/classic-platforms/verification-process). |
 | `executionDate` | `string \| undefined` | Optional | The date on which the event will take place. |
 | `reason` | `string \| undefined` | Optional | The reason why this event has been created. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AccountEvent, Event } from 'adyen';
+import { AccountEvent, EventEnum } from 'adyen';
 
 const accountEvent: AccountEvent = {
-  event: Event.InactivateAccount,
+  event: EventEnum.InactivateAccount,
   executionDate: '2016-03-13T12:52:32.123Z',
   reason: 'reason0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

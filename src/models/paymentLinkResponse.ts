@@ -10,53 +10,46 @@ import {
   dict,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount16, amount16Schema } from './amount16.js';
+import { Address2, address2Schema } from './address2.js';
+import { Address3, address3Schema } from './address3.js';
+import { Amount35, amount35Schema } from './amount35.js';
+import { ApplicationInfo, applicationInfoSchema } from './applicationInfo.js';
 import {
-  ApplicationInfo1,
-  applicationInfo1Schema,
-} from './applicationInfo1.js';
-import { BillingAddress7, billingAddress7Schema } from './billingAddress7.js';
-import {
-  CheckoutSessionThreeDs2RequestData,
-  checkoutSessionThreeDs2RequestDataSchema,
-} from './checkoutSessionThreeDs2RequestData.js';
-import {
-  DeliveryAddress6,
-  deliveryAddress6Schema,
-} from './deliveryAddress6.js';
-import { FundOrigin, fundOriginSchema } from './fundOrigin.js';
-import { FundRecipient, fundRecipientSchema } from './fundRecipient.js';
+  CheckoutSessionThreeDS2RequestData3,
+  checkoutSessionThreeDS2RequestData3Schema,
+} from './checkoutSessionThreeDS2RequestData3.js';
+import { FundOrigin1, fundOrigin1Schema } from './fundOrigin1.js';
+import { FundRecipient1, fundRecipient1Schema } from './fundRecipient1.js';
 import {
   InstallmentOption,
   installmentOptionSchema,
 } from './installmentOption.js';
 import { LineItem, lineItemSchema } from './lineItem.js';
+import { Name4, name4Schema } from './name4.js';
 import {
-  PlatformChargebackLogic1,
-  platformChargebackLogic1Schema,
-} from './platformChargebackLogic1.js';
+  PlatformChargebackLogic4,
+  platformChargebackLogic4Schema,
+} from './platformChargebackLogic4.js';
 import {
-  RecurringProcessingModel4,
-  recurringProcessingModel4Schema,
-} from './recurringProcessingModel4.js';
+  RecurringProcessingModel4Enum,
+  recurringProcessingModel4EnumSchema,
+} from './recurringProcessingModel4Enum.js';
 import {
-  RequiredShopperField,
-  requiredShopperFieldSchema,
-} from './requiredShopperField.js';
-import { RiskData, riskDataSchema } from './riskData.js';
-import { ShopperName, shopperNameSchema } from './shopperName.js';
+  RequiredShopperFieldEnum,
+  requiredShopperFieldEnumSchema,
+} from './requiredShopperFieldEnum.js';
+import { RiskData1, riskData1Schema } from './riskData1.js';
 import { Split, splitSchema } from './split.js';
-import { Status31, status31Schema } from './status31.js';
+import { Status3Enum, status3EnumSchema } from './status3Enum.js';
 import {
-  StorePaymentMethodMode2,
-  storePaymentMethodMode2Schema,
-} from './storePaymentMethodMode2.js';
+  StorePaymentMethodMode2Enum,
+  storePaymentMethodMode2EnumSchema,
+} from './storePaymentMethodMode2Enum.js';
 
 export interface PaymentLinkResponse {
   /**
@@ -64,9 +57,12 @@ export interface PaymentLinkResponse {
    * Example: `"allowedPaymentMethods":["ideal","applepay"]`
    */
   allowedPaymentMethods?: string[];
-  amount: Amount16;
-  applicationInfo?: ApplicationInfo1;
-  billingAddress?: BillingAddress7;
+  /** The payment amount and currency. */
+  amount: Amount35;
+  /** Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions). */
+  applicationInfo?: ApplicationInfo;
+  /** The address where to send the invoice. */
+  billingAddress?: Address3;
   /**
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).
    * Example: `"blockedPaymentMethods":["ideal","applepay"]`
@@ -86,7 +82,8 @@ export interface PaymentLinkResponse {
    * [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    */
   deliverAt?: string;
-  deliveryAddress?: DeliveryAddress6;
+  /** The address where the purchased goods should be delivered. */
+  deliveryAddress?: Address2;
   /**
    * A short description visible on the payment page.
    * Maximum length: 280 characters.
@@ -99,8 +96,10 @@ export interface PaymentLinkResponse {
    * If not provided, the payment link expires 24 hours after it was created.
    */
   expiresAt?: string;
-  fundOrigin?: FundOrigin;
-  fundRecipient?: FundRecipient;
+  /** The person or entity funding the money. */
+  fundOrigin?: FundOrigin1;
+  /** the person or entity receiving the money */
+  fundRecipient?: FundRecipient1;
   /** A unique identifier of the payment link. */
   id: string;
   /** A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options. */
@@ -126,8 +125,16 @@ export interface PaymentLinkResponse {
    * * A key cannot have the name `checkout.linkId`. Any value that you provide with this key is going to be replaced by the real payment link ID.
    */
   metadata?: Record<string, string>;
-  platformChargebackLogic?: PlatformChargebackLogic1;
-  recurringProcessingModel?: RecurringProcessingModel4;
+  /** Dictates the behavior of how a potential chargeback should be booked when using Adyen Platforms. */
+  platformChargebackLogic?: PlatformChargebackLogic4;
+  /**
+   * Defines a recurring payment type. Required when `storePaymentMethodMode` is set to **askForConsent** or **enabled**.
+   * Possible values:
+   * * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule.
+   * * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction.
+   * * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
+   */
+  recurringProcessingModel?: RecurringProcessingModel4Enum;
   /** A reference that is used to uniquely identify the payment in future communications about the payment status. */
   reference: string;
   /**
@@ -139,7 +146,7 @@ export interface PaymentLinkResponse {
    * * **shopperName** – The shopper's full name.
    * * **telephoneNumber** – The shopper's phone number.
    */
-  requiredShopperFields?: RequiredShopperField[];
+  requiredShopperFields?: RequiredShopperFieldEnum[];
   /**
    * Website URL used for redirection after payment is completed.
    * If provided, a **Continue** button will be shown on the payment page. If shoppers select the button, they are redirected to the specified URL.
@@ -147,7 +154,8 @@ export interface PaymentLinkResponse {
   returnUrl?: string;
   /** Indicates whether the payment link can be reused for multiple payments. If not provided, this defaults to **false** which means the link can be used for one successful payment only. */
   reusable?: boolean;
-  riskData?: RiskData;
+  /** Any risk-related settings to apply to the payment. */
+  riskData?: RiskData1;
   /** The shopper's email address. */
   shopperEmail?: string;
   /**
@@ -155,7 +163,8 @@ export interface PaymentLinkResponse {
    * For a list of shopper locales that Pay by Link supports, refer to [Language and localization](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#language).
    */
   shopperLocale?: string;
-  shopperName?: ShopperName;
+  /** The shopper's full name. This object is required for some payment methods such as AfterPay, Klarna, or if you're enrolled in the PayPal Seller Protection program. */
+  shopperName?: Name4;
   /**
    * Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.
    * > Your reference must not include personally identifiable information (PII) such as name or email address.
@@ -175,10 +184,24 @@ export interface PaymentLinkResponse {
   splitCardFundingSources?: boolean;
   /** An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split). */
   splits?: Split[];
-  status: Status31;
+  /**
+   * Status of the payment link. Possible values:
+   * * **active**: The link can be used to make payments.
+   * * **expired**: The expiry date for the payment link has passed. Shoppers can no longer use the link to make payments.
+   * * **completed**: The shopper completed the payment.
+   * * **paymentPending**: The shopper is in the process of making the payment. Applies to payment methods with an asynchronous flow.
+   */
+  status: Status3Enum;
   /** The physical store, for which this payment is processed. */
   store?: string;
-  storePaymentMethodMode?: StorePaymentMethodMode2;
+  /**
+   * Indicates if the details of the payment method will be stored for the shopper. Possible values:
+   * * **disabled** – No details will be stored (default).
+   * * **askForConsent** – If the `shopperReference` is provided, the Drop-in/Component shows a checkbox where the shopper can select to store their payment details for card payments.
+   * * **enabled** – If the `shopperReference` is provided, the details will be stored without asking the shopper for consent.
+   *  When set to **askForConsent** or **enabled**, you must also include the `recurringProcessingModel` parameter.
+   */
+  storePaymentMethodMode?: StorePaymentMethodMode2Enum;
   /**
    * The shopper's telephone number.
    *  The phone number must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not follow the guidelines, we do not submit it for authentication.
@@ -187,7 +210,8 @@ export interface PaymentLinkResponse {
   telephoneNumber?: string;
   /** A [theme](https://docs.adyen.com/unified-commerce/pay-by-link/payment-links/api#themes) to customize the appearance of the payment page. If not specified, the payment page is rendered according to the theme set as default in your Customer Area. */
   themeId?: string;
-  threeDs2RequestData?: CheckoutSessionThreeDs2RequestData;
+  /** The cardholder phone number need to be part of the authentication message for payment data. It is a requirement for Visa Secure Authentication Data Field Mandate effective August 2024. */
+  threeDS2RequestData?: CheckoutSessionThreeDS2RequestData3;
   /**
    * The date when the payment link status was updated.
    * [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
@@ -195,87 +219,76 @@ export interface PaymentLinkResponse {
   updatedAt?: string;
   /** The URL at which the shopper can complete the payment. */
   url: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const paymentLinkResponseSchema: Schema<PaymentLinkResponse> = lazy(() =>
-  typedExpandoObject(
-    {
-      allowedPaymentMethods: [
-        'allowedPaymentMethods',
-        optional(array(string())),
-      ],
-      amount: ['amount', amount16Schema],
-      applicationInfo: ['applicationInfo', optional(applicationInfo1Schema)],
-      billingAddress: ['billingAddress', optional(billingAddress7Schema)],
-      blockedPaymentMethods: [
-        'blockedPaymentMethods',
-        optional(array(string())),
-      ],
-      captureDelayHours: ['captureDelayHours', optional(number())],
-      countryCode: ['countryCode', optional(string())],
-      dateOfBirth: ['dateOfBirth', optional(string())],
-      deliverAt: ['deliverAt', optional(string())],
-      deliveryAddress: ['deliveryAddress', optional(deliveryAddress6Schema)],
-      description: ['description', optional(string())],
-      expiresAt: ['expiresAt', optional(string())],
-      fundOrigin: ['fundOrigin', optional(fundOriginSchema)],
-      fundRecipient: ['fundRecipient', optional(fundRecipientSchema)],
-      id: ['id', string()],
-      installmentOptions: [
-        'installmentOptions',
-        optional(dict(installmentOptionSchema)),
-      ],
-      lineItems: ['lineItems', optional(array(lineItemSchema))],
-      manualCapture: ['manualCapture', optional(boolean())],
-      mcc: ['mcc', optional(string())],
-      merchantAccount: ['merchantAccount', string()],
-      merchantOrderReference: ['merchantOrderReference', optional(string())],
-      metadata: ['metadata', optional(dict(string()))],
-      platformChargebackLogic: [
-        'platformChargebackLogic',
-        optional(platformChargebackLogic1Schema),
-      ],
-      recurringProcessingModel: [
-        'recurringProcessingModel',
-        optional(recurringProcessingModel4Schema),
-      ],
-      reference: ['reference', string()],
-      requiredShopperFields: [
-        'requiredShopperFields',
-        optional(array(requiredShopperFieldSchema)),
-      ],
-      returnUrl: ['returnUrl', optional(string())],
-      reusable: ['reusable', optional(boolean())],
-      riskData: ['riskData', optional(riskDataSchema)],
-      shopperEmail: ['shopperEmail', optional(string())],
-      shopperLocale: ['shopperLocale', optional(string())],
-      shopperName: ['shopperName', optional(shopperNameSchema)],
-      shopperReference: ['shopperReference', optional(string())],
-      shopperStatement: ['shopperStatement', optional(string())],
-      showRemovePaymentMethodButton: [
-        'showRemovePaymentMethodButton',
-        optional(boolean()),
-      ],
-      socialSecurityNumber: ['socialSecurityNumber', optional(string())],
-      splitCardFundingSources: ['splitCardFundingSources', optional(boolean())],
-      splits: ['splits', optional(array(splitSchema))],
-      status: ['status', status31Schema],
-      store: ['store', optional(string())],
-      storePaymentMethodMode: [
-        'storePaymentMethodMode',
-        optional(storePaymentMethodMode2Schema),
-      ],
-      telephoneNumber: ['telephoneNumber', optional(string())],
-      themeId: ['themeId', optional(string())],
-      threeDs2RequestData: [
-        'threeDS2RequestData',
-        optional(checkoutSessionThreeDs2RequestDataSchema),
-      ],
-      updatedAt: ['updatedAt', optional(string())],
-      url: ['url', string()],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    allowedPaymentMethods: ['allowedPaymentMethods', optional(array(string()))],
+    amount: ['amount', amount35Schema],
+    applicationInfo: ['applicationInfo', optional(applicationInfoSchema)],
+    billingAddress: ['billingAddress', optional(address3Schema)],
+    blockedPaymentMethods: ['blockedPaymentMethods', optional(array(string()))],
+    captureDelayHours: ['captureDelayHours', optional(number())],
+    countryCode: ['countryCode', optional(string())],
+    dateOfBirth: ['dateOfBirth', optional(string())],
+    deliverAt: ['deliverAt', optional(string())],
+    deliveryAddress: ['deliveryAddress', optional(address2Schema)],
+    description: ['description', optional(string())],
+    expiresAt: ['expiresAt', optional(string())],
+    fundOrigin: ['fundOrigin', optional(fundOrigin1Schema)],
+    fundRecipient: ['fundRecipient', optional(fundRecipient1Schema)],
+    id: ['id', string()],
+    installmentOptions: [
+      'installmentOptions',
+      optional(dict(installmentOptionSchema)),
+    ],
+    lineItems: ['lineItems', optional(array(lineItemSchema))],
+    manualCapture: ['manualCapture', optional(boolean())],
+    mcc: ['mcc', optional(string())],
+    merchantAccount: ['merchantAccount', string()],
+    merchantOrderReference: ['merchantOrderReference', optional(string())],
+    metadata: ['metadata', optional(dict(string()))],
+    platformChargebackLogic: [
+      'platformChargebackLogic',
+      optional(platformChargebackLogic4Schema),
+    ],
+    recurringProcessingModel: [
+      'recurringProcessingModel',
+      optional(recurringProcessingModel4EnumSchema),
+    ],
+    reference: ['reference', string()],
+    requiredShopperFields: [
+      'requiredShopperFields',
+      optional(array(requiredShopperFieldEnumSchema)),
+    ],
+    returnUrl: ['returnUrl', optional(string())],
+    reusable: ['reusable', optional(boolean())],
+    riskData: ['riskData', optional(riskData1Schema)],
+    shopperEmail: ['shopperEmail', optional(string())],
+    shopperLocale: ['shopperLocale', optional(string())],
+    shopperName: ['shopperName', optional(name4Schema)],
+    shopperReference: ['shopperReference', optional(string())],
+    shopperStatement: ['shopperStatement', optional(string())],
+    showRemovePaymentMethodButton: [
+      'showRemovePaymentMethodButton',
+      optional(boolean()),
+    ],
+    socialSecurityNumber: ['socialSecurityNumber', optional(string())],
+    splitCardFundingSources: ['splitCardFundingSources', optional(boolean())],
+    splits: ['splits', optional(array(splitSchema))],
+    status: ['status', status3EnumSchema],
+    store: ['store', optional(string())],
+    storePaymentMethodMode: [
+      'storePaymentMethodMode',
+      optional(storePaymentMethodMode2EnumSchema),
+    ],
+    telephoneNumber: ['telephoneNumber', optional(string())],
+    themeId: ['themeId', optional(string())],
+    threeDS2RequestData: [
+      'threeDS2RequestData',
+      optional(checkoutSessionThreeDS2RequestData3Schema),
+    ],
+    updatedAt: ['updatedAt', optional(string())],
+    url: ['url', string()],
+  })
 );

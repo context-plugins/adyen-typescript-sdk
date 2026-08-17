@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   CardBrandDetails,
@@ -28,18 +27,13 @@ export interface CardDetailsResponse {
   isCardCommercial?: boolean;
   /** The two-letter country code  of the country where the card was issued. */
   issuingCountryCode?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const cardDetailsResponseSchema: Schema<CardDetailsResponse> = lazy(() =>
-  typedExpandoObject(
-    {
-      brands: ['brands', optional(array(cardBrandDetailsSchema))],
-      fundingSource: ['fundingSource', optional(string())],
-      isCardCommercial: ['isCardCommercial', optional(boolean())],
-      issuingCountryCode: ['issuingCountryCode', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    brands: ['brands', optional(array(cardBrandDetailsSchema))],
+    fundingSource: ['fundingSource', optional(string())],
+    isCardCommercial: ['isCardCommercial', optional(boolean())],
+    issuingCountryCode: ['issuingCountryCode', optional(string())],
+  })
 );

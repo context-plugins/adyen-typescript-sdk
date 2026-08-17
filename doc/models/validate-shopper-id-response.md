@@ -1,8 +1,6 @@
 
 # Validate Shopper Id Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ValidateShopperIdResponse`
@@ -12,20 +10,16 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `reason` | `string \| undefined` | Optional | Reason for the result. |
-| `result` | [`Result1 \| undefined`](../../doc/models/result-1.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `result` | [`Result1Enum \| undefined`](../../doc/models/result-1-enum.md) | Optional | Result of the validation. Ex: valid, invalid, unknown |
 
 ## Example
 
 ```ts
-import { Result1, ValidateShopperIdResponse } from 'adyen';
+import { Result1Enum, ValidateShopperIdResponse } from 'adyen';
 
 const validateShopperIdResponse: ValidateShopperIdResponse = {
   reason: 'reason2',
-  result: Result1.Valid,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  result: Result1Enum.VALID,
 };
 ```
 

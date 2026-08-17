@@ -1,8 +1,6 @@
 
 # Counterparty Types Restriction
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CounterpartyTypesRestriction`
@@ -12,22 +10,18 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value[] \| undefined`](../../doc/models/value.md) | Optional | The list of counterparty types to be evaluated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`ValueEnum[] \| undefined`](../../doc/models/value-enum.md) | Optional | The list of counterparty types to be evaluated. |
 
 ## Example
 
 ```ts
-import { CounterpartyTypesRestriction, Value } from 'adyen';
+import { CounterpartyTypesRestriction, ValueEnum } from 'adyen';
 
 const counterpartyTypesRestriction: CounterpartyTypesRestriction = {
   operation: 'operation4',
   value: [
-    Value.Card
+    ValueEnum.Card
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

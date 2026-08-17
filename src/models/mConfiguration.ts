@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { Currency, currencySchema } from './currency.js';
 
@@ -31,19 +30,14 @@ export interface MConfiguration {
    * * **Debit**
    */
   sources?: string[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const mConfigurationSchema: Schema<MConfiguration> = lazy(() =>
-  typedExpandoObject(
-    {
-      brand: ['brand', string()],
-      commercial: ['commercial', optional(boolean())],
-      country: ['country', optional(array(string()))],
-      currencies: ['currencies', array(currencySchema)],
-      sources: ['sources', optional(array(string()))],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    brand: ['brand', string()],
+    commercial: ['commercial', optional(boolean())],
+    country: ['country', optional(array(string()))],
+    currencies: ['currencies', array(currencySchema)],
+    sources: ['sources', optional(array(string()))],
+  })
 );

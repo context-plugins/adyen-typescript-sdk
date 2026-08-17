@@ -1,8 +1,6 @@
 
 # Zip
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Zip`
@@ -16,13 +14,12 @@
 | `recurringDetailReference` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type58 \| undefined`](../../doc/models/type-58.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type58Enum \| undefined`](../../doc/models/type-58-enum.md) | Optional | **zip**<br><br>**Default**: `Type58Enum.Zip` |
 
 ## Example
 
 ```ts
-import { Zip } from 'adyen';
+import { Type58Enum, Zip } from 'adyen';
 
 const zip: Zip = {
   checkoutAttemptId: 'checkoutAttemptId2',
@@ -30,9 +27,7 @@ const zip: Zip = {
   recurringDetailReference: 'recurringDetailReference6',
   sdkData: 'sdkData4',
   storedPaymentMethodId: 'storedPaymentMethodId0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type58Enum.Zip,
 };
 ```
 

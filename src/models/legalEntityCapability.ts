@@ -8,17 +8,23 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { AllowedLevel, allowedLevelSchema } from './allowedLevel.js';
 import {
-  CapabilitySettings2,
-  capabilitySettings2Schema,
-} from './capabilitySettings2.js';
+  AllowedLevelEnum,
+  allowedLevelEnumSchema,
+} from './allowedLevelEnum.js';
+import {
+  CapabilitySettings11,
+  capabilitySettings11Schema,
+} from './capabilitySettings11.js';
+import {
+  CapabilitySettings21,
+  capabilitySettings21Schema,
+} from './capabilitySettings21.js';
 import {
   SupportingEntityCapability,
   supportingEntityCapabilitySchema,
@@ -27,12 +33,22 @@ import {
 export interface LegalEntityCapability {
   /** Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful. */
   allowed?: boolean;
-  allowedLevel?: AllowedLevel;
-  allowedSettings?: CapabilitySettings2;
+  /**
+   * The capability level that is allowed for the legal entity.
+   * Possible values: **notApplicable**, **low**, **medium**, **high**.
+   */
+  allowedLevel?: AllowedLevelEnum;
+  /** The settings that are allowed for the legal entity. */
+  allowedSettings?: CapabilitySettings11;
   /** Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the `allowed` field. */
   requested?: boolean;
-  requestedLevel?: AllowedLevel;
-  requestedSettings?: CapabilitySettings2;
+  /**
+   * The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.
+   * Possible values: **notApplicable**, **low**, **medium**, **high**.
+   */
+  requestedLevel?: AllowedLevelEnum;
+  /** The settings that are requested for the legal entity. */
+  requestedSettings?: CapabilitySettings21;
   /** The capability status of transfer instruments associated with the legal entity. */
   transferInstruments?: SupportingEntityCapability[];
   /**
@@ -44,32 +60,27 @@ export interface LegalEntityCapability {
    * * **rejected**: Adyen has verified the information, but found reasons to not allow the capability.
    */
   verificationStatus?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const legalEntityCapabilitySchema: Schema<LegalEntityCapability> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        allowed: ['allowed', optional(boolean())],
-        allowedLevel: ['allowedLevel', optional(allowedLevelSchema)],
-        allowedSettings: [
-          'allowedSettings',
-          optional(capabilitySettings2Schema),
-        ],
-        requested: ['requested', optional(boolean())],
-        requestedLevel: ['requestedLevel', optional(allowedLevelSchema)],
-        requestedSettings: [
-          'requestedSettings',
-          optional(capabilitySettings2Schema),
-        ],
-        transferInstruments: [
-          'transferInstruments',
-          optional(array(supportingEntityCapabilitySchema)),
-        ],
-        verificationStatus: ['verificationStatus', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      allowed: ['allowed', optional(boolean())],
+      allowedLevel: ['allowedLevel', optional(allowedLevelEnumSchema)],
+      allowedSettings: [
+        'allowedSettings',
+        optional(capabilitySettings11Schema),
+      ],
+      requested: ['requested', optional(boolean())],
+      requestedLevel: ['requestedLevel', optional(allowedLevelEnumSchema)],
+      requestedSettings: [
+        'requestedSettings',
+        optional(capabilitySettings21Schema),
+      ],
+      transferInstruments: [
+        'transferInstruments',
+        optional(array(supportingEntityCapabilitySchema)),
+      ],
+      verificationStatus: ['verificationStatus', optional(string())],
+    })
 );

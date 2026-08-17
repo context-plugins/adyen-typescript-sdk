@@ -3,8 +3,6 @@
 
 Details to provide if `type` is **vipps**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `VippsInfo2`
@@ -15,7 +13,6 @@ Details to provide if `type` is **vipps**.
 |  --- | --- | --- | --- |
 | `logo` | `string` | Required | Vipps logo. Format: Base64-encoded string. |
 | `subscriptionCancelUrl` | `string \| undefined` | Optional | Vipps subscription cancel url (required in case of [recurring payments](https://docs.adyen.com/online-payments/tokenization)) |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ import { VippsInfo2 } from 'adyen';
 const vippsInfo2: VippsInfo2 = {
   logo: 'logo8',
   subscriptionCancelUrl: 'subscriptionCancelUrl4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

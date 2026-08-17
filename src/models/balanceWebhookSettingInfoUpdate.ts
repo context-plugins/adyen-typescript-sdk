@@ -8,39 +8,40 @@ import {
   array,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { Condition, conditionSchema } from './condition.js';
-import { Status19, status19Schema } from './status19.js';
-import { TargetUpdate, targetUpdateSchema } from './targetUpdate.js';
-import { Type20, type20Schema } from './type20.js';
+import { Status6Enum, status6EnumSchema } from './status6Enum.js';
+import { TargetUpdate2, targetUpdate2Schema } from './targetUpdate2.js';
+import { Type201Enum, type201EnumSchema } from './type201Enum.js';
 
 export interface BalanceWebhookSettingInfoUpdate {
   /** The array of conditions a balance change must meet for Adyen to send the webhook. */
   conditions?: Condition[] | null;
   /** The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance. */
   currency?: string;
-  status?: Status19;
-  target?: TargetUpdate;
-  type?: Type20;
-  additionalProperties?: Record<string, unknown>;
+  /**
+   * The status of the webhook setting. Possible values:
+   * * **active**: You receive a balance webhook if any of the conditions in this setting are met.
+   * * **inactive**: You do not receive a balance webhook even if the conditions in this settings are met.
+   */
+  status?: Status6Enum;
+  /** The type and ID of the resource about whose balance changes you want to be notified. */
+  target?: TargetUpdate2;
+  /** The type of the webhook you are configuring. Set to **balance**. */
+  type?: Type201Enum;
 }
 
 export const balanceWebhookSettingInfoUpdateSchema: Schema<BalanceWebhookSettingInfoUpdate> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        conditions: ['conditions', optional(nullable(array(conditionSchema)))],
-        currency: ['currency', optional(string())],
-        status: ['status', optional(status19Schema)],
-        target: ['target', optional(targetUpdateSchema)],
-        type: ['type', optional(type20Schema)],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      conditions: ['conditions', optional(nullable(array(conditionSchema)))],
+      currency: ['currency', optional(string())],
+      status: ['status', optional(status6EnumSchema)],
+      target: ['target', optional(targetUpdate2Schema)],
+      type: ['type', optional(type201EnumSchema)],
+    })
 );

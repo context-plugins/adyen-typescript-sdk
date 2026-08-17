@@ -1,8 +1,6 @@
 
 # Line Item
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LineItem`
@@ -36,7 +34,6 @@
 | `trackingNumber` | `string \| undefined` | Optional | Tracking number for the delivery of the item. |
 | `trackingUri` | `string \| undefined` | Optional | Tracking URI for the delivery of the item. |
 | `upc` | `string \| undefined` | Optional | Universal Product Code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -49,9 +46,6 @@ const lineItem: LineItem = {
   brand: 'brand0',
   color: 'color0',
   description: 'description6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

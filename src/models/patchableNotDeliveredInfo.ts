@@ -8,17 +8,19 @@ import {
   boolean,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   PatchableNotDeliveredInfoWhoCancelled,
   patchableNotDeliveredInfoWhoCancelledSchema,
 } from './containers/patchableNotDeliveredInfoWhoCancelled.js';
-import { ProductType2, productType2Schema } from './productType2.js';
+import {
+  ProductType21Enum,
+  productType21EnumSchema,
+} from './productType21Enum.js';
 
 export interface PatchableNotDeliveredInfo {
   /** The delivery location specified by the cardholder. Required if **deliveredToWrongLocation** is **true**. */
@@ -54,53 +56,46 @@ export interface PatchableNotDeliveredInfo {
   isNonFiatOrNft?: boolean | null;
   /** The date the undelivered goods or services were expected to be delivered in YYYY-MM-DD format. */
   lastExpectedDate?: string;
-  whatWasNotDelivered?: ProductType2;
+  /**
+   * The type of product that you expected to receive.
+   * Possible values: **goods**, **services**.
+   */
+  whatWasNotDelivered?: ProductType21Enum;
   /**
    * The party that initiated the cancellation of the transaction.
    * Possible values: **merchant**, **cardholder**.
    */
-  whoCancelled?: PatchableNotDeliveredInfoWhoCancelled;
-  additionalProperties?: Record<string, unknown>;
+  whoCancelled?: PatchableNotDeliveredInfoWhoCancelled | null;
 }
 
 export const patchableNotDeliveredInfoSchema: Schema<PatchableNotDeliveredInfo> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        agreedDeliveryLocation: [
-          'agreedDeliveryLocation',
-          optional(nullable(string())),
-        ],
-        dateOfCancellation: [
-          'dateOfCancellation',
-          optional(nullable(string())),
-        ],
-        deliveredToWrongLocation: [
-          'deliveredToWrongLocation',
-          optional(nullable(boolean())),
-        ],
-        descriptionOfIssue: ['descriptionOfIssue', optional(string())],
-        didCardholderReturn: [
-          'didCardholderReturn',
-          optional(nullable(boolean())),
-        ],
-        isDeliveryLate: ['isDeliveryLate', optional(nullable(boolean()))],
-        isMerchantBankrupt: [
-          'isMerchantBankrupt',
-          optional(nullable(boolean())),
-        ],
-        isNonFiatOrNft: ['isNonFiatOrNft', optional(nullable(boolean()))],
-        lastExpectedDate: ['lastExpectedDate', optional(string())],
-        whatWasNotDelivered: [
-          'whatWasNotDelivered',
-          optional(productType2Schema),
-        ],
-        whoCancelled: [
-          'whoCancelled',
-          optional(patchableNotDeliveredInfoWhoCancelledSchema),
-        ],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      agreedDeliveryLocation: [
+        'agreedDeliveryLocation',
+        optional(nullable(string())),
+      ],
+      dateOfCancellation: ['dateOfCancellation', optional(nullable(string()))],
+      deliveredToWrongLocation: [
+        'deliveredToWrongLocation',
+        optional(nullable(boolean())),
+      ],
+      descriptionOfIssue: ['descriptionOfIssue', optional(string())],
+      didCardholderReturn: [
+        'didCardholderReturn',
+        optional(nullable(boolean())),
+      ],
+      isDeliveryLate: ['isDeliveryLate', optional(nullable(boolean()))],
+      isMerchantBankrupt: ['isMerchantBankrupt', optional(nullable(boolean()))],
+      isNonFiatOrNft: ['isNonFiatOrNft', optional(nullable(boolean()))],
+      lastExpectedDate: ['lastExpectedDate', optional(string())],
+      whatWasNotDelivered: [
+        'whatWasNotDelivered',
+        optional(productType21EnumSchema),
+      ],
+      whoCancelled: [
+        'whoCancelled',
+        optional(nullable(patchableNotDeliveredInfoWhoCancelledSchema)),
+      ],
+    })
 );

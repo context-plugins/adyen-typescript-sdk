@@ -1,36 +1,27 @@
 
-# Maestro Usa Response Info 1
+# Maestro USA Response Info 1
 
 Details to provide if `type` is **maestro_usa** details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`MaestroUsaResponseInfo1`
+`MaestroUSAResponseInfo1`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionResponseInfo1 \| undefined`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```ts
-import { MaestroUsaResponseInfo1, Type33 } from 'adyen';
+import { MaestroUSAResponseInfo1, Type8Enum } from 'adyen';
 
-const maestroUsaResponseInfo1: MaestroUsaResponseInfo1 = {
+const maestroUSAResponseInfo1: MaestroUSAResponseInfo1 = {
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

@@ -8,13 +8,15 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { File, fileSchema } from './file.js';
+import { File1, file1Schema } from './file1.js';
+import { File2, file2Schema } from './file2.js';
+import { File3, file3Schema } from './file3.js';
+import { File4, file4Schema } from './file4.js';
 
 export interface Profile {
   /** The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**. */
@@ -31,14 +33,18 @@ export interface Profile {
   domainSuffix?: string;
   /** For `authType` **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast** */
   eap?: string;
-  eapCaCert?: File;
-  eapClientCert?: File;
-  eapClientKey?: File;
+  /** For `authType` **wpa-eap** or **wpa2-eap**. The root certificate from the CA that signed the certificate of the RADIUS server that is part of your wireless network. */
+  eapCaCert?: File1;
+  /** For `eap` **tls**. The certificate chain for the terminals. All terminals in the same network will use the same EAP client certificate. */
+  eapClientCert?: File2;
+  /** For `eap` **tls**. The RSA private key for the client. Include the lines BEGIN RSA PRIVATE KEY and END RSA PRIVATE KEY. */
+  eapClientKey?: File3;
   /** For `eap` **tls**. The password of the RSA key file, if that file is password-protected. */
   eapClientPwd?: string;
   /** For `authType` **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server. */
   eapIdentity?: string;
-  eapIntermediateCert?: File;
+  /** For `eap` **tls**. The EAP intermediate certificate. */
+  eapIntermediateCert?: File4;
   /** For `eap` **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server. */
   eapPwd?: string;
   /** Indicates if the network doesn't broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network. */
@@ -51,33 +57,28 @@ export interface Profile {
   ssid: string;
   /** The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip** */
   wsec: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const profileSchema: Schema<Profile> = lazy(() =>
-  typedExpandoObject(
-    {
-      authType: ['authType', string()],
-      autoWifi: ['autoWifi', optional(boolean())],
-      bssType: ['bssType', string()],
-      channel: ['channel', optional(number())],
-      defaultProfile: ['defaultProfile', optional(boolean())],
-      domainSuffix: ['domainSuffix', optional(string())],
-      eap: ['eap', optional(string())],
-      eapCaCert: ['eapCaCert', optional(fileSchema)],
-      eapClientCert: ['eapClientCert', optional(fileSchema)],
-      eapClientKey: ['eapClientKey', optional(fileSchema)],
-      eapClientPwd: ['eapClientPwd', optional(string())],
-      eapIdentity: ['eapIdentity', optional(string())],
-      eapIntermediateCert: ['eapIntermediateCert', optional(fileSchema)],
-      eapPwd: ['eapPwd', optional(string())],
-      hiddenSsid: ['hiddenSsid', optional(boolean())],
-      name: ['name', optional(string())],
-      psk: ['psk', optional(string())],
-      ssid: ['ssid', string()],
-      wsec: ['wsec', string()],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    authType: ['authType', string()],
+    autoWifi: ['autoWifi', optional(boolean())],
+    bssType: ['bssType', string()],
+    channel: ['channel', optional(number())],
+    defaultProfile: ['defaultProfile', optional(boolean())],
+    domainSuffix: ['domainSuffix', optional(string())],
+    eap: ['eap', optional(string())],
+    eapCaCert: ['eapCaCert', optional(file1Schema)],
+    eapClientCert: ['eapClientCert', optional(file2Schema)],
+    eapClientKey: ['eapClientKey', optional(file3Schema)],
+    eapClientPwd: ['eapClientPwd', optional(string())],
+    eapIdentity: ['eapIdentity', optional(string())],
+    eapIntermediateCert: ['eapIntermediateCert', optional(file4Schema)],
+    eapPwd: ['eapPwd', optional(string())],
+    hiddenSsid: ['hiddenSsid', optional(boolean())],
+    name: ['name', optional(string())],
+    psk: ['psk', optional(string())],
+    ssid: ['ssid', string()],
+    wsec: ['wsec', string()],
+  })
 );

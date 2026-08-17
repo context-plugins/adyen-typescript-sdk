@@ -1,8 +1,6 @@
 
 # Balance Account Configuration
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalanceAccountConfiguration`
@@ -28,7 +26,6 @@
 | `salesDayClosingTime` | `string \| undefined` | Optional | The time of day when the sales day is closed in balance account time zone. The sales day closing time can be between 00:00 to 07:00.<br><br>Format: **HH:mm:ss** |
 | `transferInstrumentId` | `string` | Required | The unique identifier of the transfer instrument to which the funds are paid out. |
 | `updatedAt` | `string \| undefined` | Optional | The date and time when the payout schedule was updated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -45,9 +42,6 @@ const balanceAccountConfiguration: BalanceAccountConfiguration = {
   enabled: false,
   frequency: 'frequency4',
   frequencyValue: 220,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

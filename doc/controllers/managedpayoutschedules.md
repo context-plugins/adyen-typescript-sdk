@@ -84,15 +84,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -134,11 +126,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401Error`](../../doc/models/balance-accounts-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403Error`](../../doc/models/balance-accounts-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404Error`](../../doc/models/balance-accounts-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422Error`](../../doc/models/balance-accounts-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500Error`](../../doc/models/balance-accounts-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Balance Accounts-Balance Account Id-Payout Schedules
@@ -176,7 +168,7 @@ const balanceAccountId = 'balanceAccountId8';
 
 const body: BalanceAccountConfigurationRequest = {
   balancePlatformPayoutScheduleId: 'PSPC00000000000000000000000001',
-  frequency: Frequency.Monthly,
+  frequency: Frequency1Enum.Monthly,
   transferInstrumentId: 'SE00000000000000000000001',
   currency: 'EUR',
   description: 'Scheduled payout to merchant bank account',
@@ -212,15 +204,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -253,11 +237,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401Error`](../../doc/models/balance-accounts-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403Error`](../../doc/models/balance-accounts-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404Error`](../../doc/models/balance-accounts-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422Error`](../../doc/models/balance-accounts-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500Error`](../../doc/models/balance-accounts-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Accounts-Balance Account Id-Payout Schedules-Id
@@ -318,15 +302,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -359,11 +335,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401Error`](../../doc/models/balance-accounts-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403Error`](../../doc/models/balance-accounts-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404Error`](../../doc/models/balance-accounts-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422Error`](../../doc/models/balance-accounts-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500Error`](../../doc/models/balance-accounts-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Balance Accounts-Balance Account Id-Payout Schedules-Id
@@ -424,15 +400,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -443,11 +411,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401Error`](../../doc/models/balance-accounts-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403Error`](../../doc/models/balance-accounts-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404Error`](../../doc/models/balance-accounts-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422Error`](../../doc/models/balance-accounts-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500Error`](../../doc/models/balance-accounts-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Balance Accounts-Balance Account Id-Payout Schedules-Id
@@ -517,15 +485,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -559,11 +519,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401Error`](../../doc/models/balance-accounts-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403Error`](../../doc/models/balance-accounts-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404Error`](../../doc/models/balance-accounts-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422Error`](../../doc/models/balance-accounts-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500Error`](../../doc/models/balance-accounts-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Accounts-Balance Account Id-Payout Schedules-Id-Executions
@@ -577,7 +537,7 @@ async getBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutions(
   balanceAccountId: string,
   id: string,
   offset: number,
-  results?: ExecutionResult[],
+  results?: ExecutionResultEnum[],
   limit?: number,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PayoutScheduleExecutions>>
@@ -590,7 +550,7 @@ async getBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutions(
 | `balanceAccountId` | `string` | Template, Required | The unique identifier of the balance account. |
 | `id` | `string` | Template, Required | The unique identifier of the payout schedule on the balance account. |
 | `offset` | `number` | Query, Required | The page number to be returned.<br><br>Default: **1**<br><br>**Constraints**: `>= 1`, `<= 100` |
-| `results` | [`ExecutionResult[] \| undefined`](../../doc/models/execution-result.md) | Query, Optional | Contains a list of payout statuses. If included, the response returns only executed payouts that currently have one of the specified statuses.<br><br>Possible statuses:<br><br>- **succeeded**: The payout was sent successfully.<br>- **failed**: The payout was not sent due to an error.<br>- **skipped**: The payout was not triggered as expected. |
+| `results` | [`ExecutionResultEnum[] \| undefined`](../../doc/models/execution-result-enum.md) | Query, Optional | Contains a list of payout statuses. If included, the response returns only executed payouts that currently have one of the specified statuses.<br><br>Possible statuses:<br><br>- **succeeded**: The payout was sent successfully.<br>- **failed**: The payout was not sent due to an error.<br>- **skipped**: The payout was not triggered as expected. |
 | `limit` | `number \| undefined` | Query, Optional | The number of items returned per page.<br><br>Default: **10**<br><br>**Constraints**: `>= 10` |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -633,15 +593,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceAccountsPayoutSchedulesExecutions401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedulesExecutions403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedulesExecutions404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedulesExecutions422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceAccountsPayoutSchedulesExecutions500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -678,11 +630,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedulesExecutions401Error`](../../doc/models/balance-accounts-payout-schedules-executions-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedulesExecutions403Error`](../../doc/models/balance-accounts-payout-schedules-executions-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedulesExecutions404Error`](../../doc/models/balance-accounts-payout-schedules-executions-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedulesExecutions422Error`](../../doc/models/balance-accounts-payout-schedules-executions-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedulesExecutions500Error`](../../doc/models/balance-accounts-payout-schedules-executions-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Platforms-Balance Platform Id-Payout Schedules
@@ -740,15 +692,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -759,11 +703,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsPayoutSchedules401Error`](../../doc/models/balance-platforms-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsPayoutSchedules403Error`](../../doc/models/balance-platforms-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalancePlatformsPayoutSchedules404Error`](../../doc/models/balance-platforms-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsPayoutSchedules422Error`](../../doc/models/balance-platforms-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsPayoutSchedules500Error`](../../doc/models/balance-platforms-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Platforms-Balance Platform Id-Payout Schedules-Id
@@ -824,15 +768,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsPayoutSchedules401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsPayoutSchedules500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -843,9 +779,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsPayoutSchedules401Error`](../../doc/models/balance-platforms-payout-schedules-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsPayoutSchedules403Error`](../../doc/models/balance-platforms-payout-schedules-403-error.md) |
-| 404 | Not Found - the resource was not found | [`BalancePlatformsPayoutSchedules404Error`](../../doc/models/balance-platforms-payout-schedules-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsPayoutSchedules422Error`](../../doc/models/balance-platforms-payout-schedules-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsPayoutSchedules500Error`](../../doc/models/balance-platforms-payout-schedules-500-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

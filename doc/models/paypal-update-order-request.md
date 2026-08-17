@@ -1,8 +1,6 @@
 
 # Paypal Update Order Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaypalUpdateOrderRequest`
@@ -11,29 +9,25 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16 \| undefined`](../../doc/models/amount-16.md) | Optional | - |
-| `deliveryAddress` | [`DeliveryAddress1 \| undefined`](../../doc/models/delivery-address-1.md) | Optional | - |
+| `amount` | [`Amount44 \| undefined`](../../doc/models/amount-44.md) | Optional | The updated final payment amount. This amount is the item total plus the shipping costs of the selected `deliveryMethod`. |
+| `deliveryAddress` | [`DeliveryAddress5 \| undefined`](../../doc/models/delivery-address-5.md) | Optional | The delivery address for this order. |
 | `deliveryMethods` | [`DeliveryMethod[] \| undefined`](../../doc/models/delivery-method.md) | Optional | The list of new delivery methods and the cost of each. |
-| `discountAmount` | [`DiscountAmount \| undefined`](../../doc/models/discount-amount.md) | Optional | - |
+| `discountAmount` | [`Amount45 \| undefined`](../../doc/models/amount-45.md) | Optional | The discount amount for this order. |
 | `paymentData` | `string \| undefined` | Optional | The `paymentData` from the client side. This value changes every time you make a `/paypal/updateOrder` request. |
 | `pspReference` | `string \| undefined` | Optional | The original `pspReference` from the `/payments` response. |
 | `sessionId` | `string \| undefined` | Optional | The original `sessionId` from the `/sessions` response. |
-| `shippingAmount` | [`ShippingAmount \| undefined`](../../doc/models/shipping-amount.md) | Optional | - |
-| `taxTotal` | [`TaxTotal \| undefined`](../../doc/models/tax-total.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `shippingAmount` | [`Amount46 \| undefined`](../../doc/models/amount-46.md) | Optional | The shipping amount for this order. |
+| `taxTotal` | [`TaxTotal2 \| undefined`](../../doc/models/tax-total-2.md) | Optional | Total tax amount from the order. |
 
 ## Example
 
 ```ts
-import { PaypalUpdateOrderRequest, Type211 } from 'adyen';
+import { PaypalUpdateOrderRequest, Type21Enum } from 'adyen';
 
 const paypalUpdateOrderRequest: PaypalUpdateOrderRequest = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   deliveryAddress: {
     city: 'city4',
@@ -44,55 +38,34 @@ const paypalUpdateOrderRequest: PaypalUpdateOrderRequest = {
     firstName: 'firstName8',
     lastName: 'lastName0',
     stateOrProvince: 'stateOrProvince6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   deliveryMethods: [
     {
       amount: {
         currency: 'currency2',
         value: BigInt(110),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       description: 'description6',
       reference: 'reference2',
       selected: false,
-      type: Type211.Shipping,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      type: Type21Enum.Shipping,
     },
     {
       amount: {
         currency: 'currency2',
         value: BigInt(110),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       description: 'description6',
       reference: 'reference2',
       selected: false,
-      type: Type211.Shipping,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      type: Type21Enum.Shipping,
     }
   ],
   discountAmount: {
     currency: 'currency8',
     value: BigInt(168),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   paymentData: 'paymentData2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

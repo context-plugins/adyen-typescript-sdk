@@ -1,8 +1,6 @@
 
 # Additional Data Temporary Services
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataTemporaryServices`
@@ -20,7 +18,6 @@
 | `enhancedSchemeDataTempStartDate` | `string \| undefined` | Optional | The billing period start date.<br><br>* Format: ddMMyy<br>* maxLength: 6 |
 | `enhancedSchemeDataTempWeekEnding` | `string \| undefined` | Optional | The billing period end date.<br><br>* Format: ddMMyy<br>* maxLength: 6 |
 | `enhancedSchemeDataTotalTaxAmount` | `string \| undefined` | Optional | The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). For example, 2000 means USD 20.00<br><br>* maxLength: 12 |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const additionalDataTemporaryServices: AdditionalDataTemporaryServices = {
   enhancedSchemeDataJobDescription: 'enhancedSchemeData.jobDescription8',
   enhancedSchemeDataRegularHoursRate: 'enhancedSchemeData.regularHoursRate6',
   enhancedSchemeDataRegularHoursWorked: 'enhancedSchemeData.regularHoursWorked4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

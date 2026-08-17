@@ -8,13 +8,12 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { PayoutLimit, payoutLimitSchema } from './payoutLimit.js';
+import { Amount, amountSchema } from './amount.js';
 
 /** The payout state of the account holder. */
 export interface AccountPayoutState2 {
@@ -26,23 +25,19 @@ export interface AccountPayoutState2 {
   disabled?: boolean;
   /** The reason why payouts (to all of the account holder's accounts) have been disabled (by Adyen). If payouts have been disabled by Adyen, this field will explain why. If this field is blank, payouts have not been disabled by Adyen. */
   notAllowedReason?: string;
-  payoutLimit?: PayoutLimit;
+  /** The maximum amount that payouts are limited to. Only applies if payouts are allowed but limited. */
+  payoutLimit?: Amount;
   /** The payout tier that the account holder occupies. */
   tierNumber?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const accountPayoutState2Schema: Schema<AccountPayoutState2> = lazy(() =>
-  typedExpandoObject(
-    {
-      allowPayout: ['allowPayout', optional(boolean())],
-      disableReason: ['disableReason', optional(string())],
-      disabled: ['disabled', optional(boolean())],
-      notAllowedReason: ['notAllowedReason', optional(string())],
-      payoutLimit: ['payoutLimit', optional(payoutLimitSchema)],
-      tierNumber: ['tierNumber', optional(number())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    allowPayout: ['allowPayout', optional(boolean())],
+    disableReason: ['disableReason', optional(string())],
+    disabled: ['disabled', optional(boolean())],
+    notAllowedReason: ['notAllowedReason', optional(string())],
+    payoutLimit: ['payoutLimit', optional(amountSchema)],
+    tierNumber: ['tierNumber', optional(number())],
+  })
 );

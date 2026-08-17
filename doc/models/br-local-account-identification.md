@@ -1,11 +1,9 @@
 
-# Br Local Account Identification
-
-*This model accepts additional fields of type unknown.*
+# BR Local Account Identification
 
 ## Structure
 
-`BrLocalAccountIdentification`
+`BRLocalAccountIdentification`
 
 ## Fields
 
@@ -15,23 +13,19 @@
 | `bankCode` | `string` | Required | The 3-digit bank code, with leading zeros.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
 | `branchNumber` | `string` | Required | The bank account branch number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `4` |
 | `ispb` | `string \| undefined` | Optional | The 8-digit ISPB, with leading zeros.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `8` |
-| `type` | [`Type146`](../../doc/models/type-146.md) | Required | **brLocal** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **brLocal**<br><br>**Value**: `'brLocal'` |
 
 ## Example
 
 ```ts
-import { BrLocalAccountIdentification, Type146 } from 'adyen';
+import { BRLocalAccountIdentification } from 'adyen';
 
-const brLocalAccountIdentification: BrLocalAccountIdentification = {
-  accountNumber: 'accountNumber4',
-  bankCode: 'bankCode6',
-  branchNumber: 'branchNumber6',
-  type: Type146.BrLocal,
-  ispb: 'ispb0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const bRLocalAccountIdentification: BRLocalAccountIdentification = {
+  accountNumber: 'accountNumber0',
+  bankCode: 'bankCode2',
+  branchNumber: 'branchNumber2',
+  type: 'brLocal',
+  ispb: 'ispb6',
 };
 ```
 

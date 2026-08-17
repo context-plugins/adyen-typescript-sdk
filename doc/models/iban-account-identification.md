@@ -1,22 +1,17 @@
 
 # Iban Account Identification
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `IbanAccountIdentification`
-
-## Inherits From
-
-[`AccountIdentification`](../../doc/models/account-identification.md)
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `iban` | `string` | Required | The IBAN of the bank account.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `bic` | `string \| undefined` | Optional | The bank's 8- or 11-character BIC or SWIFT code. |
+| `iban` | `string` | Required | The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard. |
+| `type` | `string` | Required, Constant | **iban**<br><br>**Value**: `'iban'` |
 
 ## Example
 
@@ -24,11 +19,9 @@
 import { IbanAccountIdentification } from 'adyen';
 
 const ibanAccountIdentification: IbanAccountIdentification = {
-  iban: 'NL00AAAA0000000000',
+  iban: 'iban4',
   type: 'iban',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  bic: 'bic2',
 };
 ```
 

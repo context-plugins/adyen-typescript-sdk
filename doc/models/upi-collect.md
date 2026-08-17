@@ -1,11 +1,9 @@
 
-# Upi Collect
-
-*This model accepts additional fields of type unknown.*
+# UPI Collect
 
 ## Structure
 
-`UpiCollect`
+`UPICollect`
 
 ## Fields
 
@@ -17,25 +15,21 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopperNotificationReference` | `string \| undefined` | Optional | The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only. |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type78`](../../doc/models/type-78.md) | Required | **upi_collect** |
+| `type` | `string` | Required, Constant | **upi_collect**<br><br>**Value**: `'upi_collect'` |
 | `virtualPaymentAddress` | `string \| undefined` | Optional | The virtual payment address for UPI. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Type78, UpiCollect } from 'adyen';
+import { UPICollect } from 'adyen';
 
-const upiCollect: UpiCollect = {
-  type: Type78.UpiCollect,
-  billingSequenceNumber: 'billingSequenceNumber0',
-  checkoutAttemptId: 'checkoutAttemptId6',
-  recurringDetailReference: 'recurringDetailReference0',
-  sdkData: 'sdkData0',
-  shopperNotificationReference: 'shopperNotificationReference0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const uPICollect: UPICollect = {
+  type: 'upi_collect',
+  billingSequenceNumber: 'billingSequenceNumber6',
+  checkoutAttemptId: 'checkoutAttemptId2',
+  recurringDetailReference: 'recurringDetailReference6',
+  sdkData: 'sdkData4',
+  shopperNotificationReference: 'shopperNotificationReference6',
 };
 ```
 

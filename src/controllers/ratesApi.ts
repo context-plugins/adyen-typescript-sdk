@@ -6,17 +6,15 @@
 
 import { ApiResponse, RequestOptions } from '../core.js';
 import {
-  RatesCalculateRequest,
-  ratesCalculateRequestSchema,
-} from '../models/ratesCalculateRequest.js';
+  CalculateRateRequest,
+  calculateRateRequestSchema,
+} from '../models/calculateRateRequest.js';
 import {
-  RatesCalculateResponse,
-  ratesCalculateResponseSchema,
-} from '../models/ratesCalculateResponse.js';
+  CalculateRateResponse,
+  calculateRateResponseSchema,
+} from '../models/calculateRateResponse.js';
 import { BaseApi } from './baseApi.js';
-import { RatesCalculate401Error } from '../errors/ratesCalculate401Error.js';
-import { RatesCalculate403Error } from '../errors/ratesCalculate403Error.js';
-import { RatesCalculate422Error } from '../errors/ratesCalculate422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class RatesApi extends BaseApi {
   /**
@@ -26,23 +24,24 @@ export class RatesApi extends BaseApi {
    * @return Response from the API call
    */
   async postRatesCalculate(
-    body: RatesCalculateRequest,
+    body: CalculateRateRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<RatesCalculateResponse>> {
+  ): Promise<ApiResponse<CalculateRateResponse>> {
     const req = this.createRequest('POST', '/rates/calculate');
+    req.baseUrl('default7');
     const mapped = req.prepareArgs({
-      body: [body, ratesCalculateRequestSchema],
+      body: [body, calculateRateRequestSchema],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
-    req.throwOn(401, RatesCalculate401Error, 'Unauthorized');
-    req.throwOn(403, RatesCalculate403Error, 'Forbidden');
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
+    req.throwOn(403, DefaultErrorResponseEntityError, 'Forbidden');
     req.throwOn(
       422,
-      RatesCalculate422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.authenticate(false);
-    return req.callAsJson(ratesCalculateResponseSchema, requestOptions);
+    return req.callAsJson(calculateRateResponseSchema, requestOptions);
   }
 }

@@ -1,8 +1,6 @@
 
 # Pin Change Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PinChangeRequest`
@@ -15,7 +13,6 @@
 | `encryptedPinBlock` | `string` | Required | The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block). |
 | `paymentInstrumentId` | `string` | Required | The unique identifier of the payment instrument, which is the card for which you are managing the PIN. |
 | `token` | `string` | Required | The 16-digit token that you used to generate the `encryptedPinBlock`. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const pinChangeRequest: PinChangeRequest = {
   encryptedPinBlock: 'encryptedPinBlock2',
   paymentInstrumentId: 'paymentInstrumentId6',
   token: 'token2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

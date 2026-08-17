@@ -3,8 +3,6 @@
 
 The new status of the Account Holder.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountHolderStatus1`
@@ -14,43 +12,33 @@ The new status of the Account Holder.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `events` | [`AccountEvent[] \| undefined`](../../doc/models/account-event.md) | Optional | A list of events scheduled for the account holder. |
-| `payoutState` | [`AccountPayoutState \| undefined`](../../doc/models/account-payout-state.md) | Optional | - |
-| `processingState` | [`AccountProcessingState \| undefined`](../../doc/models/account-processing-state.md) | Optional | - |
-| `status` | [`Status1`](../../doc/models/status-1.md) | Required | - |
+| `payoutState` | [`AccountPayoutState2 \| undefined`](../../doc/models/account-payout-state-2.md) | Optional | The payout state of the account holder. |
+| `processingState` | [`AccountProcessingState2 \| undefined`](../../doc/models/account-processing-state-2.md) | Optional | The processing state of the account holder. |
+| `status` | [`Status12Enum`](../../doc/models/status-12-enum.md) | Required | The status of the account holder.<br><br>> Permitted values: `Active`, `Inactive`, `Suspended`, `Closed`. |
 | `statusReason` | `string \| undefined` | Optional | The reason why the status was assigned to the account holder. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AccountHolderStatus1, Event, Status1 } from 'adyen';
+import { AccountHolderStatus1, EventEnum, Status12Enum } from 'adyen';
 
 const accountHolderStatus1: AccountHolderStatus1 = {
-  status: Status1.Inactive,
+  status: Status12Enum.Inactive,
   events: [
     {
-      event: Event.InactivateAccount,
+      event: EventEnum.InactivateAccount,
       executionDate: '2016-03-13T12:52:32.123Z',
       reason: 'reason6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      event: Event.InactivateAccount,
+      event: EventEnum.InactivateAccount,
       executionDate: '2016-03-13T12:52:32.123Z',
       reason: 'reason6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      event: Event.InactivateAccount,
+      event: EventEnum.InactivateAccount,
       executionDate: '2016-03-13T12:52:32.123Z',
       reason: 'reason6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   payoutState: {
@@ -61,12 +49,6 @@ const accountHolderStatus1: AccountHolderStatus1 = {
     payoutLimit: {
       currency: 'currency8',
       value: BigInt(88),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   processingState: {
@@ -75,26 +57,14 @@ const accountHolderStatus1: AccountHolderStatus1 = {
     processedFrom: {
       currency: 'currency4',
       value: BigInt(148),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     processedTo: {
       currency: 'currency2',
       value: BigInt(54),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     tierNumber: 156,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   statusReason: 'statusReason8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

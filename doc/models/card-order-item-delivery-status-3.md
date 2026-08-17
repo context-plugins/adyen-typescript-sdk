@@ -5,8 +5,6 @@ The status of the card delivery.
 
 Possible values: **created**, **rejected**, **processing**, **produced**, **shipped**, **delivered**, **notApplicable**, **unknown**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardOrderItemDeliveryStatus3`
@@ -16,22 +14,18 @@ Possible values: **created**, **rejected**, **processing**, **produced**, **ship
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errorMessage` | `string \| undefined` | Optional | An error message. |
-| `status` | [`Status7 \| undefined`](../../doc/models/status-7.md) | Optional | - |
+| `status` | [`Status71Enum \| undefined`](../../doc/models/status-71-enum.md) | Optional | The status of the PIN delivery. |
 | `trackingNumber` | `string \| undefined` | Optional | The tracking number of the PIN delivery. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CardOrderItemDeliveryStatus3, Status7 } from 'adyen';
+import { CardOrderItemDeliveryStatus3, Status71Enum } from 'adyen';
 
 const cardOrderItemDeliveryStatus3: CardOrderItemDeliveryStatus3 = {
   errorMessage: 'errorMessage2',
-  status: Status7.Created,
+  status: Status71Enum.Created,
   trackingNumber: 'trackingNumber2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

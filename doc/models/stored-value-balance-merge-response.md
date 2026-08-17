@@ -1,8 +1,6 @@
 
 # Stored Value Balance Merge Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredValueBalanceMergeResponse`
@@ -12,33 +10,26 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `authCode` | `string \| undefined` | Optional | Authorisation code:<br><br>* When the payment is authorised, this field holds the authorisation code for the payment.<br>* When the payment is not authorised, this field is empty. |
-| `currentBalance` | [`CurrentBalance \| undefined`](../../doc/models/current-balance.md) | Optional | - |
+| `currentBalance` | [`Amount \| undefined`](../../doc/models/amount.md) | Optional | The balance currently on the payment method. |
 | `pspReference` | `string \| undefined` | Optional | Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request. |
 | `refusalReason` | `string \| undefined` | Optional | If the transaction is refused or an error occurs, this field holds Adyen's mapped reason for the refusal or a description of the error.<br><br>When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values. |
-| `resultCode` | [`ResultCode3 \| undefined`](../../doc/models/result-code-3.md) | Optional | - |
+| `resultCode` | [`ResultCode3Enum \| undefined`](../../doc/models/result-code-3-enum.md) | Optional | The result of the payment. Possible values:<br><br>* **Success** – The operation has been completed successfully.<br>* **Refused** – The operation was refused. The reason is given in the `refusalReason` field.<br>* **Error** – There was an error when the operation was processed. The reason is given in the `refusalReason` field.<br>* **NotEnoughBalance** – The amount on the payment method is lower than the amount given in the request. Only applicable to balance checks. |
 | `thirdPartyRefusalReason` | `string \| undefined` | Optional | Raw refusal reason received from the third party, where available |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ResultCode3, StoredValueBalanceMergeResponse } from 'adyen';
+import { ResultCode3Enum, StoredValueBalanceMergeResponse } from 'adyen';
 
 const storedValueBalanceMergeResponse: StoredValueBalanceMergeResponse = {
   authCode: 'authCode8',
   currentBalance: {
     currency: 'currency2',
     value: BigInt(232),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   pspReference: 'pspReference6',
   refusalReason: 'refusalReason4',
-  resultCode: ResultCode3.Success,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  resultCode: ResultCode3Enum.Success,
 };
 ```
 

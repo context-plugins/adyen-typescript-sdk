@@ -1,11 +1,9 @@
 
-# Bsb Account Identifier
-
-*This model accepts additional fields of type unknown.*
+# BSB Account Identifier
 
 ## Structure
 
-`BsbAccountIdentifier`
+`BSBAccountIdentifier`
 
 ## Fields
 
@@ -13,19 +11,15 @@
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The account number of the bank account. |
 | `bsbCode` | `string` | Required | The BSB (Bank-State-Branch) code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { BsbAccountIdentifier } from 'adyen';
+import { BSBAccountIdentifier } from 'adyen';
 
-const bsbAccountIdentifier: BsbAccountIdentifier = {
-  accountNumber: 'accountNumber8',
-  bsbCode: 'bsbCode0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const bSBAccountIdentifier: BSBAccountIdentifier = {
+  accountNumber: 'accountNumber2',
+  bsbCode: 'bsbCode4',
 };
 ```
 

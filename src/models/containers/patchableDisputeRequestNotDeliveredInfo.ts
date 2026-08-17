@@ -7,10 +7,8 @@
 import {
   isMappedValueValidForSchema,
   lazy,
-  nullable,
   oneOf,
   Schema,
-  unknown,
 } from '../../schema.js';
 import {
   PatchableNotDeliveredInfo,
@@ -18,13 +16,10 @@ import {
 } from '../patchableNotDeliveredInfo.js';
 
 /** This is a container type for one-of types. */
-export type PatchableDisputeRequestNotDeliveredInfo =
-  | PatchableNotDeliveredInfo
-  | unknown
-  | null;
+export type PatchableDisputeRequestNotDeliveredInfo = PatchableNotDeliveredInfo;
 
 export const patchableDisputeRequestNotDeliveredInfoSchema: Schema<PatchableDisputeRequestNotDeliveredInfo> = lazy(
-  () => oneOf([patchableNotDeliveredInfoSchema, nullable(unknown())])
+  () => oneOf([patchableNotDeliveredInfoSchema])
 );
 
 export namespace PatchableDisputeRequestNotDeliveredInfo {

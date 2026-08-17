@@ -8,18 +8,17 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { Balance, balanceSchema } from './balance.js';
 import {
-  PlatformPaymentConfiguration,
-  platformPaymentConfigurationSchema,
-} from './platformPaymentConfiguration.js';
-import { Status21, status21Schema } from './status21.js';
+  PlatformPaymentConfiguration1,
+  platformPaymentConfiguration1Schema,
+} from './platformPaymentConfiguration1.js';
+import { Status23Enum, status23EnumSchema } from './status23Enum.js';
 
 export interface BalanceAccount {
   /** The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/accountHolders#responses-200-id) associated with the balance account. */
@@ -44,37 +43,34 @@ export interface BalanceAccount {
   metadata?: Record<string, string>;
   /** The unique identifier of the account of the migrated account holder in the classic integration. */
   migratedAccountCode?: string;
-  platformPaymentConfiguration?: PlatformPaymentConfiguration;
+  /** Contains key-value pairs to configure the sales day closing time and settlement delay for a balance account. */
+  platformPaymentConfiguration?: PlatformPaymentConfiguration1;
   /** Your reference for the balance account, maximum 150 characters. */
   reference?: string;
-  status?: Status21;
+  /** The status of the balance account, set to **active** by default. */
+  status?: Status23Enum;
   /**
    * The time zone of the balance account. For example, **Europe/Amsterdam**.
    * Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    */
   timeZone?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const balanceAccountSchema: Schema<BalanceAccount> = lazy(() =>
-  typedExpandoObject(
-    {
-      accountHolderId: ['accountHolderId', string()],
-      balances: ['balances', optional(array(balanceSchema))],
-      defaultCurrencyCode: ['defaultCurrencyCode', optional(string())],
-      description: ['description', optional(string())],
-      id: ['id', string()],
-      metadata: ['metadata', optional(dict(string()))],
-      migratedAccountCode: ['migratedAccountCode', optional(string())],
-      platformPaymentConfiguration: [
-        'platformPaymentConfiguration',
-        optional(platformPaymentConfigurationSchema),
-      ],
-      reference: ['reference', optional(string())],
-      status: ['status', optional(status21Schema)],
-      timeZone: ['timeZone', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    accountHolderId: ['accountHolderId', string()],
+    balances: ['balances', optional(array(balanceSchema))],
+    defaultCurrencyCode: ['defaultCurrencyCode', optional(string())],
+    description: ['description', optional(string())],
+    id: ['id', string()],
+    metadata: ['metadata', optional(dict(string()))],
+    migratedAccountCode: ['migratedAccountCode', optional(string())],
+    platformPaymentConfiguration: [
+      'platformPaymentConfiguration',
+      optional(platformPaymentConfiguration1Schema),
+    ],
+    reference: ['reference', optional(string())],
+    status: ['status', optional(status23EnumSchema)],
+    timeZone: ['timeZone', optional(string())],
+  })
 );

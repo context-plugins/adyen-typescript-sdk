@@ -1,8 +1,6 @@
 
 # Uninstall Android App Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UninstallAndroidAppDetails`
@@ -12,20 +10,16 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `appId` | `string \| undefined` | Optional | The unique identifier of the app to be uninstalled. |
-| `type` | [`Type73 \| undefined`](../../doc/models/type-73.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type71Enum \| undefined`](../../doc/models/type-71-enum.md) | Optional | Type of terminal action: Uninstall an Android app.<br><br>**Default**: `Type71Enum.UninstallAndroidApp` |
 
 ## Example
 
 ```ts
-import { Type73, UninstallAndroidAppDetails } from 'adyen';
+import { Type71Enum, UninstallAndroidAppDetails } from 'adyen';
 
 const uninstallAndroidAppDetails: UninstallAndroidAppDetails = {
   appId: 'appId0',
-  type: Type73.UninstallAndroidApp,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type71Enum.UninstallAndroidApp,
 };
 ```
 

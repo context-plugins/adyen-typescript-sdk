@@ -4,8 +4,6 @@
 Details about the individual account holder.
 Required when creating an account holder with `legalEntity` **Individual**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `IndividualDetails3`
@@ -14,66 +12,47 @@ Required when creating an account holder with `legalEntity` **Individual**.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | [`ViasName \| undefined`](../../doc/models/vias-name.md) | Optional | - |
-| `personalData` | [`ViasPersonalData \| undefined`](../../doc/models/vias-personal-data.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `name` | [`ViasName2 \| undefined`](../../doc/models/vias-name-2.md) | Optional | The name of the individual.<br><br>> Make sure your account holder registers using the name shown on their Photo ID.<br>> Maximum length: 80 characters<br>> Cannot contain numbers. /n Cannot be empty. |
+| `personalData` | [`ViasPersonalData2 \| undefined`](../../doc/models/vias-personal-data-2.md) | Optional | Personal information of the individual. |
 
 ## Example
 
 ```ts
-import { Gender, IndividualDetails3, Type } from 'adyen';
+import { GenderEnum, IndividualDetails3, Type15Enum } from 'adyen';
 
 const individualDetails3: IndividualDetails3 = {
   name: {
     firstName: 'firstName4',
-    gender: Gender.Male,
+    gender: GenderEnum.MALE,
     infix: 'infix4',
     lastName: 'lastName4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   personalData: {
     dateOfBirth: 'dateOfBirth2',
     documentData: [
       {
-        type: Type.Id,
+        type: Type15Enum.ID,
         expirationDate: 'expirationDate8',
         issuerCountry: 'issuerCountry0',
         issuerState: 'issuerState0',
         number: 'number8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
-        type: Type.Id,
+        type: Type15Enum.ID,
         expirationDate: 'expirationDate8',
         issuerCountry: 'issuerCountry0',
         issuerState: 'issuerState0',
         number: 'number8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
-        type: Type.Id,
+        type: Type15Enum.ID,
         expirationDate: 'expirationDate8',
         issuerCountry: 'issuerCountry0',
         issuerState: 'issuerState0',
         number: 'number8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     nationality: 'nationality4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

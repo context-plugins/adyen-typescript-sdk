@@ -3,8 +3,6 @@
 
 Contains information about the merchant.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransferNotificationMerchantData2`
@@ -21,7 +19,6 @@ Contains information about the merchant.
 | `merchantId` | `string \| undefined` | Optional | The unique identifier of the merchant. |
 | `name` | `string \| undefined` | Optional | The name of the merchant's shop or service. |
 | `postalCode` | `string \| undefined` | Optional | The postal code of the merchant. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -34,9 +31,6 @@ const transferNotificationMerchantData2: TransferNotificationMerchantData2 = {
   country: 'country2',
   countryCode: 'countryCode4',
   mcc: 'mcc8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

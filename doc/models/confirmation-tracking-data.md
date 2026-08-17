@@ -1,8 +1,6 @@
 
 # Confirmation Tracking Data
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ConfirmationTrackingData`
@@ -11,21 +9,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | [`Status110`](../../doc/models/status-110.md) | Required | - |
-| `type` | [`Type834`](../../doc/models/type-834.md) | Required | The type of the tracking event.<br><br>Possible values:<br><br>- **confirmation**: the transfer passed Adyen's internal review. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`Status15Enum`](../../doc/models/status-15-enum.md) | Required | The status of the transfer.<br><br>Possible values:<br><br>- **credited**: the funds are credited to your user's transfer instrument or bank account.- **accepted**: the request is accepted by the integration. |
+| `type` | `string` | Required, Constant | The type of the tracking event.<br><br>Possible values:<br><br>- **confirmation**: the transfer passed Adyen's internal review.<br><br>**Value**: `'confirmation'` |
 
 ## Example
 
 ```ts
-import { ConfirmationTrackingData, Status110, Type834 } from 'adyen';
+import { ConfirmationTrackingData, Status15Enum } from 'adyen';
 
 const confirmationTrackingData: ConfirmationTrackingData = {
-  status: Status110.Credited,
-  type: Type834.Confirmation,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  status: Status15Enum.Credited,
+  type: 'confirmation',
 };
 ```
 

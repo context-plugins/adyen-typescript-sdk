@@ -1,8 +1,6 @@
 
 # Payment
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Payment`
@@ -11,37 +9,27 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16 \| undefined`](../../doc/models/amount-16.md) | Optional | - |
-| `paymentMethod` | [`PaymentResponse8 \| undefined`](../../doc/models/payment-response-8.md) | Optional | - |
+| `amount` | [`Amount26 \| undefined`](../../doc/models/amount-26.md) | Optional | Authorised amount in the transaction. |
+| `paymentMethod` | [`PaymentResponse3 \| undefined`](../../doc/models/payment-response-3.md) | Optional | Only returned for `resultCode`: **Authorised**.<br>Details about the payment method used in the transaction. |
 | `pspReference` | `string \| undefined` | Optional | Adyen's 16-character reference associated with the transaction/request. This value is globally unique. Use this reference when you communicate with us about this request. |
-| `resultCode` | [`ResultCode2 \| undefined`](../../doc/models/result-code-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `resultCode` | [`ResultCode2Enum \| undefined`](../../doc/models/result-code-2-enum.md) | Optional | The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).<br><br>Possible values:<br><br>* **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.<br>* **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments.<br>* **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow. |
 
 ## Example
 
 ```ts
-import { Payment, ResultCode2 } from 'adyen';
+import { Payment, ResultCode2Enum } from 'adyen';
 
 const payment: Payment = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   paymentMethod: {
     brand: 'brand6',
     type: 'type8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   pspReference: 'pspReference2',
-  resultCode: ResultCode2.Authorised,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  resultCode: ResultCode2Enum.Authorised,
 };
 ```
 

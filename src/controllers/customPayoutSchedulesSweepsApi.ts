@@ -45,6 +45,7 @@ export class CustomPayoutSchedulesSweepsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceSweepConfigurationsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       offset: [offset, optional(number())],
@@ -105,6 +106,7 @@ export class CustomPayoutSchedulesSweepsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SweepConfigurationV2>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       body: [body, optional(createSweepConfigurationV2Schema)],
@@ -158,6 +160,7 @@ export class CustomPayoutSchedulesSweepsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SweepConfigurationV2>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       sweepId: [sweepId, string()],
@@ -209,6 +212,7 @@ export class CustomPayoutSchedulesSweepsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       sweepId: [sweepId, string()],
@@ -263,6 +267,7 @@ export class CustomPayoutSchedulesSweepsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SweepConfigurationV2>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       sweepId: [sweepId, string()],

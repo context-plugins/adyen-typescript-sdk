@@ -75,17 +75,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsWebhooksSettings400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -139,12 +129,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettings400Error`](../../doc/models/balance-platforms-webhooks-settings-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettings401Error`](../../doc/models/balance-platforms-webhooks-settings-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettings403Error`](../../doc/models/balance-platforms-webhooks-settings-403-error.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettings404Error`](../../doc/models/balance-platforms-webhooks-settings-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettings422Error`](../../doc/models/balance-platforms-webhooks-settings-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettings500Error`](../../doc/models/balance-platforms-webhooks-settings-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings
@@ -194,16 +184,16 @@ const webhookId = 'webhookId6';
 
 const body: BalanceWebhookSettingInfo = {
   currency: 'USD',
-  status: Status19.Active,
+  status: Status6Enum.Active,
   target: {
     id: 'BA00000000000000000LIABLE',
-    type: Type18.BalanceAccount,
+    type: Type181Enum.BalanceAccount,
   },
-  type: Type20.Balance,
+  type: 'balance',
   conditions: [
     {
-      balanceType: BalanceType.Available,
-      conditionType: ConditionType.LessThan,
+      balanceType: BalanceTypeEnum.Available,
+      conditionType: ConditionTypeEnum.LessThan,
       value: BigInt(500000),
     }
   ],
@@ -233,17 +223,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsWebhooksSettings400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettings500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -276,12 +256,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettings400Error`](../../doc/models/balance-platforms-webhooks-settings-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettings401Error`](../../doc/models/balance-platforms-webhooks-settings-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettings403Error`](../../doc/models/balance-platforms-webhooks-settings-403-error.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettings404Error`](../../doc/models/balance-platforms-webhooks-settings-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettings422Error`](../../doc/models/balance-platforms-webhooks-settings-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettings500Error`](../../doc/models/balance-platforms-webhooks-settings-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings-Setting Id
@@ -347,17 +327,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsWebhooksSettingsSettingId400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -390,12 +360,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettingsSettingId400Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettingsSettingId401Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettingsSettingId403Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-403-error.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettingsSettingId404Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettingsSettingId422Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettingsSettingId500Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings-Setting Id
@@ -410,7 +380,7 @@ async deleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId(
   webhookId: string,
   settingId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown | undefined>>
+): Promise<ApiResponse<unknown>>
 ```
 
 ## Parameters
@@ -461,17 +431,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsWebhooksSettingsSettingId400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -482,12 +442,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettingsSettingId400Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettingsSettingId401Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettingsSettingId403Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-403-error.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettingsSettingId404Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettingsSettingId422Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettingsSettingId500Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings-Setting Id
@@ -532,8 +492,8 @@ const webhookId = 'webhookId6';
 const settingId = 'settingId0';
 
 const body: BalanceWebhookSettingInfoUpdate = {
-  status: Status19.Inactive,
-  type: Type20.Balance,
+  status: Status6Enum.Inactive,
+  type: Type201Enum.Balance,
 };
 
 try {
@@ -561,17 +521,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsWebhooksSettingsSettingId400Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId422Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsWebhooksSettingsSettingId500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -609,10 +559,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettingsSettingId400Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettingsSettingId401Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettingsSettingId403Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-403-error.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettingsSettingId404Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-404-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettingsSettingId422Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettingsSettingId500Error`](../../doc/models/balance-platforms-webhooks-settings-setting-id-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

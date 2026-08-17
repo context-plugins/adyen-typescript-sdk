@@ -1,8 +1,6 @@
 
 # Balance
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Balance`
@@ -17,7 +15,6 @@
 | `pending` | `bigint \| undefined` | Optional | The sum of the transactions that will be settled in the future. |
 | `pendingAvailable` | `bigint \| undefined` | Optional | The balance that will become the available balance after the pending balance is settled.<br><br>The pending available balance is equal to the lower of the following:<br><br>- The `pending` balance<br>- The `pending` balance plus the `available` balance. |
 | `reserved` | `bigint` | Required | The balance currently held in reserve. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const balance: Balance = {
   reserved: BigInt(62),
   pending: BigInt(56),
   pendingAvailable: BigInt(248),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

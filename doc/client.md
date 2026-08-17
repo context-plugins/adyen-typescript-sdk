@@ -5,13 +5,10 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| merchantAccount | `string` | *Default*: `'merchantAccountDefaultValue'` |
-| deviceId | `string` | *Default*: `'deviceIdDefaultValue'` |
-| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.Production`** |
+| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.Test`** |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
 | httpClientOptions | [`Partial<HttpClientOptions>`](../doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
-| logging | [`PartialLoggingOptions`](../doc/partial-logging-options.md) | Logging Configuration to enable logging |
 | apiKeyAuthCredentials | [`ApiKeyAuthCredentials`](auth/custom-header-signature.md) | The credential object for apiKeyAuth |
 | basicAuthCredentials | [`BasicAuthCredentials`](auth/basic-authentication.md) | The credential object for basicAuth |
 | clientKeyCredentials | [`ClientKeyCredentials`](auth/custom-query-parameter.md) | The credential object for clientKey |
@@ -21,7 +18,7 @@ The API client can be initialized as follows:
 ## Code-Based Client Initialization
 
 ```ts
-import { Client, Environment, LogLevel } from 'adyen';
+import { Client, Environment } from 'adyen';
 
 const client = new Client({
   apiKeyAuthCredentials: {
@@ -35,18 +32,7 @@ const client = new Client({
     'clientKey': 'clientKey'
   },
   timeout: 30000,
-  environment: Environment.Production,
-  logging: {
-    logLevel: LogLevel.Info,
-    logRequest: {
-      logBody: true
-    },
-    logResponse: {
-      logHeaders: true
-    }
-  },
-  merchantAccount: 'merchantAccountDefaultValue',
-  deviceId: 'deviceIdDefaultValue',
+  environment: Environment.Test,
 });
 ```
 

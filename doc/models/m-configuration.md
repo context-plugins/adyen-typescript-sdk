@@ -1,8 +1,6 @@
 
 # M Configuration
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MConfiguration`
@@ -16,7 +14,6 @@
 | `country` | `string[] \| undefined` | Optional | The country/region of the card issuer. If used, the surcharge settings only apply to the card issued in that country/region. |
 | `currencies` | [`Currency[]`](../../doc/models/currency.md) | Required | Currency and percentage or amount of the surcharge. |
 | `sources` | `string[] \| undefined` | Optional | Funding source. Possible values:<br><br>* **Credit**<br>* **Debit** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const configuration: MConfiguration = {
       amount: 208,
       maxAmount: 98,
       percentage: 191.04,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   commercial: false,
@@ -45,9 +39,6 @@ const configuration: MConfiguration = {
   sources: [
     'sources8'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

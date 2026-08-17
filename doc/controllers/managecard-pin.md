@@ -1,12 +1,12 @@
 # Managecard PIN
 
 ```ts
-const managecardPinApi = new ManagecardPinApi(client);
+const managecardPINApi = new ManagecardPINApi(client);
 ```
 
 ## Class Name
 
-`ManagecardPinApi`
+`ManagecardPINApi`
 
 ## Methods
 
@@ -58,7 +58,7 @@ const body: PinChangeRequest = {
 };
 
 try {
-  const response = await manageCardPinApi.postPinsChange(body);
+  const response = await manageCardPINApi.postPinsChange(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -112,7 +112,7 @@ To make this request, your API credential must have the following role:
 
 ```ts
 async postPinsReveal(
-  body?: PaymentInstrumentRevealRequest,
+  body?: RevealPinRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<RevealPinResponse>>
 ```
@@ -125,7 +125,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentInstrumentRevealRequest \| undefined`](../../doc/models/payment-instrument-reveal-request.md) | Body, Optional | - |
+| `body` | [`RevealPinRequest \| undefined`](../../doc/models/reveal-pin-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -137,13 +137,13 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-const body: PaymentInstrumentRevealRequest = {
+const body: RevealPinRequest = {
   encryptedKey: '75989E8881284D10153ABACF022EEA09F5...',
   paymentInstrumentId: 'PI3227C223222B5BPCMFXD2XG',
 };
 
 try {
-  const response = await manageCardPinApi.postPinsReveal(body);
+  const response = await manageCardPINApi.postPinsReveal(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -228,7 +228,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```ts
 try {
-  const response = await manageCardPinApi.getPublicKey();
+  const response = await manageCardPINApi.getPublicKey();
 
   // Extracting fully parsed response body.
   console.log(response.result);

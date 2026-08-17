@@ -1,7 +1,7 @@
 
 # Delivery Address 1
 
-*This model accepts additional fields of type unknown.*
+The address where the purchased goods should be delivered.
 
 ## Structure
 
@@ -19,7 +19,6 @@
 | `postalCode` | `string` | Required | A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.<br><br>**Constraints**: *Maximum Length*: `10` |
 | `stateOrProvince` | `string \| undefined` | Optional | The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.<br><br>> Required for the US and Canada.<br><br>**Constraints**: *Maximum Length*: `3` |
 | `street` | `string` | Required | The name of the street. Maximum length: 3000 characters.<br><br>> The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.<br><br>**Constraints**: *Maximum Length*: `3000` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -35,9 +34,6 @@ const deliveryAddress1: DeliveryAddress1 = {
   firstName: 'firstName0',
   lastName: 'lastName8',
   stateOrProvince: 'stateOrProvince2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

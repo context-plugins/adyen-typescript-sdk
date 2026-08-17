@@ -3,8 +3,6 @@
 
 References to resources linked to the API credential.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ApiCredentialLinks2`
@@ -13,13 +11,12 @@ References to resources linked to the API credential.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `allowedOrigins` | [`AllowedOrigins \| undefined`](../../doc/models/allowed-origins.md) | Optional | - |
-| `company` | [`Company4 \| undefined`](../../doc/models/company-4.md) | Optional | - |
-| `generateApiKey` | [`GenerateApiKey \| undefined`](../../doc/models/generate-api-key.md) | Optional | - |
-| `generateClientKey` | [`GenerateClientKey \| undefined`](../../doc/models/generate-client-key.md) | Optional | - |
-| `merchant` | [`Merchant1 \| undefined`](../../doc/models/merchant-1.md) | Optional | - |
-| `self` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `allowedOrigins` | [`LinksElement1 \| undefined`](../../doc/models/links-element-1.md) | Optional | List of allowed origins. |
+| `company` | [`LinksElement2 \| undefined`](../../doc/models/links-element-2.md) | Optional | Company account that the API credential is linked to. Only present for company-level webhooks. |
+| `generateApiKey` | [`LinksElement3 \| undefined`](../../doc/models/links-element-3.md) | Optional | Generates a new API key. When you generate a new one, the existing key remains valid for 24 hours. |
+| `generateClientKey` | [`LinksElement4 \| undefined`](../../doc/models/links-element-4.md) | Optional | Generates a new client key, used to authenticate client-side requests. When you generate a new one, the existing key remains valid for 24 hours. |
+| `merchant` | [`LinksElement5 \| undefined`](../../doc/models/links-element-5.md) | Optional | The merchant account that the API credential is linked to. Only present for merchant-level API credentials. |
+| `self` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
 
 ## Example
 
@@ -29,42 +26,21 @@ import { ApiCredentialLinks2 } from 'adyen';
 const apiCredentialLinks2: ApiCredentialLinks2 = {
   self: {
     href: 'href0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   allowedOrigins: {
     href: 'href6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   company: {
     href: 'href2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   generateApiKey: {
     href: 'href6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   generateClientKey: {
     href: 'href4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   merchant: {
     href: 'href6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

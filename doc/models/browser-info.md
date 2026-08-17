@@ -5,8 +5,6 @@ The shopper's browser information.
 
 > For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the `userAgent` and `acceptHeader` fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BrowserInfo`
@@ -24,7 +22,6 @@ The shopper's browser information.
 | `screenWidth` | `number` | Required | The total width of the shopper's device screen in pixels. |
 | `timeZoneOffset` | `number` | Required | Time difference between UTC time and the shopper's browser local time, in minutes. |
 | `userAgent` | `string` | Required | The user agent value of the shopper's browser. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -41,9 +38,6 @@ const browserInfo: BrowserInfo = {
   timeZoneOffset: 88,
   userAgent: 'userAgent4',
   javaScriptEnabled: true,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -32,7 +32,6 @@ interface TransferServiceRestService {
   title: string;
   /** A URI that identifies the problem type, pointing to human-readable documentation on this problem type. */
   type: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export class TransferServiceRestServiceError extends ApiError<

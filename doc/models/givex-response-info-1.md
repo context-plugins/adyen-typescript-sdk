@@ -3,8 +3,6 @@
 
 **givex** details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GivexResponseInfo1`
@@ -17,7 +15,6 @@
 | `password` | `string \| undefined` | Optional | The password provided by the acquirer. |
 | `paymentFlow` | `string \| undefined` | Optional | The sales channel used for the payment. |
 | `username` | `string \| undefined` | Optional | The username provided by the acquirer. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const givexResponseInfo1: GivexResponseInfo1 = {
   password: 'password0',
   paymentFlow: 'paymentFlow4',
   username: 'username6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

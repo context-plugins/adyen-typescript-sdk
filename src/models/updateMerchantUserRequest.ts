@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { Name22, name22Schema } from './name22.js';
 
@@ -28,27 +27,23 @@ export interface UpdateMerchantUserRequest {
    * Possible values: **Email** or **SSO**
    */
   loginMethod?: string;
+  /** The user's full name. */
   name?: Name22;
   /** The list of [roles](https://docs.adyen.com/account/user-roles) for this user. */
   roles?: string[];
   /** The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**. */
   timeZoneCode?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const updateMerchantUserRequestSchema: Schema<UpdateMerchantUserRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accountGroups: ['accountGroups', optional(array(string()))],
-        active: ['active', optional(boolean())],
-        email: ['email', optional(string())],
-        loginMethod: ['loginMethod', optional(string())],
-        name: ['name', optional(name22Schema)],
-        roles: ['roles', optional(array(string()))],
-        timeZoneCode: ['timeZoneCode', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accountGroups: ['accountGroups', optional(array(string()))],
+      active: ['active', optional(boolean())],
+      email: ['email', optional(string())],
+      loginMethod: ['loginMethod', optional(string())],
+      name: ['name', optional(name22Schema)],
+      roles: ['roles', optional(array(string()))],
+      timeZoneCode: ['timeZoneCode', optional(string())],
+    })
 );

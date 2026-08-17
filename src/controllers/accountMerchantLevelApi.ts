@@ -45,6 +45,7 @@ export class AccountMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListMerchantResponse>> {
     const req = this.createRequest('GET', '/merchants');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       pageNumber: [pageNumber, optional(number())],
       pageSize: [pageSize, optional(number())],
@@ -98,6 +99,7 @@ export class AccountMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CreateMerchantResponse>> {
     const req = this.createRequest('POST', '/merchants');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       body: [body, optional(createMerchantRequestSchema)],
     });
@@ -148,6 +150,7 @@ export class AccountMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Merchant>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ merchantId: [merchantId, string()] });
     req.appendTemplatePath`/merchants/${mapped.merchantId}`;
     req.throwOn(
@@ -201,6 +204,7 @@ export class AccountMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<RequestActivationResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ merchantId: [merchantId, string()] });
     req.appendTemplatePath`/merchants/${mapped.merchantId}/activate`;
     req.throwOn(

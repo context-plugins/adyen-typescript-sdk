@@ -1,11 +1,9 @@
 
-# Upi Intent
-
-*This model accepts additional fields of type unknown.*
+# UPI Intent
 
 ## Structure
 
-`UpiIntent`
+`UPIIntent`
 
 ## Fields
 
@@ -18,24 +16,20 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopperNotificationReference` | `string \| undefined` | Optional | The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only. |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type79`](../../doc/models/type-79.md) | Required | **upi_intent** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **upi_intent**<br><br>**Value**: `'upi_intent'` |
 
 ## Example
 
 ```ts
-import { Type79, UpiIntent } from 'adyen';
+import { UPIIntent } from 'adyen';
 
-const upiIntent: UpiIntent = {
-  type: Type79.UpiIntent,
+const uPIIntent: UPIIntent = {
+  type: 'upi_intent',
   appId: 'appId8',
   billingSequenceNumber: 'billingSequenceNumber2',
   checkoutAttemptId: 'checkoutAttemptId8',
   recurringDetailReference: 'recurringDetailReference2',
   sdkData: 'sdkData8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

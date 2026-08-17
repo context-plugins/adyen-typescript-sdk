@@ -1,8 +1,6 @@
 
 # Masterpass
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Masterpass`
@@ -12,26 +10,22 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `checkoutAttemptId` | `string \| undefined` | Optional | The checkout attempt identifier. |
-| `fundingSource` | [`FundingSource \| undefined`](../../doc/models/funding-source.md) | Optional | - |
+| `fundingSource` | [`FundingSourceEnum \| undefined`](../../doc/models/funding-source-enum.md) | Optional | The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**. |
 | `masterpassTransactionId` | `string` | Required | The Masterpass transaction ID. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
-| `type` | [`Type35 \| undefined`](../../doc/models/type-35.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type35Enum \| undefined`](../../doc/models/type-35-enum.md) | Optional | **masterpass**<br><br>**Default**: `Type35Enum.Masterpass` |
 
 ## Example
 
 ```ts
-import { FundingSource, Masterpass, Type35 } from 'adyen';
+import { FundingSourceEnum, Masterpass, Type35Enum } from 'adyen';
 
 const masterpass: Masterpass = {
   masterpassTransactionId: 'masterpassTransactionId6',
   checkoutAttemptId: 'checkoutAttemptId8',
-  fundingSource: FundingSource.Debit,
+  fundingSource: FundingSourceEnum.Debit,
   sdkData: 'sdkData8',
-  type: Type35.Masterpass,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type35Enum.Masterpass,
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Donation Payment Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DonationPaymentResponse`
@@ -11,40 +9,33 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16 \| undefined`](../../doc/models/amount-16.md) | Optional | - |
+| `amount` | [`Amount26 \| undefined`](../../doc/models/amount-26.md) | Optional | Authorised amount in the transaction. |
 | `donationAccount` | `string \| undefined` | Optional | The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding). |
 | `id` | `string \| undefined` | Optional | Your unique resource identifier. |
 | `merchantAccount` | `string \| undefined` | Optional | The merchant account identifier, with which you want to process the transaction. |
-| `payment` | [`PaymentResponse \| undefined`](../../doc/models/payment-response.md) | Optional | - |
+| `payment` | [`PaymentResponse9 \| undefined`](../../doc/models/payment-response-9.md) | Optional | Action to be taken for completing the payment. |
 | `reference` | `string \| undefined` | Optional | The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens ("-"). Maximum length: 80 characters. |
-| `status` | [`Status12 \| undefined`](../../doc/models/status-12.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`Status1Enum \| undefined`](../../doc/models/status-1-enum.md) | Optional | The status of the donation transaction.<br><br>Possible values:<br><br>* **completed**<br>* **pending**<br>* **refused** |
 
 ## Example
 
 ```ts
-import { DonationPaymentResponse, Type493 } from 'adyen';
+import { DonationPaymentResponse } from 'adyen';
 
 const donationPaymentResponse: DonationPaymentResponse = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   donationAccount: 'donationAccount2',
   id: 'id8',
   merchantAccount: 'merchantAccount0',
   payment: {
     action: {
-      type: Type493.Await,
+      type: 'type4',
       paymentData: 'paymentData8',
       paymentMethodType: 'paymentMethodType8',
       url: 'url0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     additionalData: {
       'key0': 'additionalData6'
@@ -52,9 +43,6 @@ const donationPaymentResponse: DonationPaymentResponse = {
     amount: {
       currency: 'currency2',
       value: BigInt(110),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     donationToken: 'donationToken8',
     fraudResult: {
@@ -64,29 +52,14 @@ const donationPaymentResponse: DonationPaymentResponse = {
           accountScore: 102,
           checkId: 246,
           name: 'name6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           accountScore: 102,
           checkId: 246,
           name: 'name6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

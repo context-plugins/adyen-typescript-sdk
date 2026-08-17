@@ -1,8 +1,6 @@
 
 # Dynamic Offer Repayment
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DynamicOfferRepayment`
@@ -11,8 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `term` | [`Term`](../../doc/models/term.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `term` | [`RepaymentTerm`](../../doc/models/repayment-term.md) | Required | Contains information about the time period in which your user must repay the total amount of the grant. |
 
 ## Example
 
@@ -23,12 +20,6 @@ const dynamicOfferRepayment: DynamicOfferRepayment = {
   term: {
     estimatedDays: 248,
     maximumDays: 24,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -1,11 +1,9 @@
 
-# Mb Way
-
-*This model accepts additional fields of type unknown.*
+# MB Way
 
 ## Structure
 
-`MbWay`
+`MBWay`
 
 ## Fields
 
@@ -15,23 +13,19 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopperEmail` | `string` | Required | - |
 | `telephoneNumber` | `string` | Required | - |
-| `type` | [`Type36 \| undefined`](../../doc/models/type-36.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type36Enum \| undefined`](../../doc/models/type-36-enum.md) | Optional | **mbway**<br><br>**Default**: `Type36Enum.Mbway` |
 
 ## Example
 
 ```ts
-import { MbWay, Type36 } from 'adyen';
+import { MBWay, Type36Enum } from 'adyen';
 
-const mbWay: MbWay = {
-  shopperEmail: 'shopperEmail4',
-  telephoneNumber: 'telephoneNumber2',
-  checkoutAttemptId: 'checkoutAttemptId6',
-  sdkData: 'sdkData0',
-  type: Type36.Mbway,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const mBWay: MBWay = {
+  shopperEmail: 'shopperEmail0',
+  telephoneNumber: 'telephoneNumber8',
+  checkoutAttemptId: 'checkoutAttemptId2',
+  sdkData: 'sdkData4',
+  type: Type36Enum.Mbway,
 };
 ```
 

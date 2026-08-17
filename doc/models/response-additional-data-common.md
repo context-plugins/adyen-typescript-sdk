@@ -1,8 +1,6 @@
 
 # Response Additional Data Common
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ResponseAdditionalDataCommon`
@@ -26,15 +24,15 @@
 | `coBrandedWith` | `string \| undefined` | Optional | Includes the co-branded card information. |
 | `cvcResult` | `string \| undefined` | Optional | The result of CVC verification. |
 | `cvcResultRaw` | `string \| undefined` | Optional | The raw result of CVC verification. |
-| `dsTransId` | `string \| undefined` | Optional | Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction. |
+| `dsTransID` | `string \| undefined` | Optional | Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction. |
 | `eci` | `string \| undefined` | Optional | The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.<br><br>Example: 02 |
 | `expiryDate` | `string \| undefined` | Optional | The expiry date on the card.<br><br>Example: 6/2016<br><br>> Returned only in case of a card payment. |
 | `extraCostsCurrency` | `string \| undefined` | Optional | The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.<br><br>Example: EUR |
 | `extraCostsValue` | `string \| undefined` | Optional | The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units. |
 | `fraudCheckItemNrFraudCheckname` | `string \| undefined` | Optional | The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair. |
 | `fraudManualReview` | `string \| undefined` | Optional | Indicates if the payment is sent to manual review. |
-| `fraudResultType` | [`FraudResultType \| undefined`](../../doc/models/fraud-result-type.md) | Optional | - |
-| `fraudRiskLevel` | [`FraudRiskLevel \| undefined`](../../doc/models/fraud-risk-level.md) | Optional | - |
+| `fraudResultType` | [`FraudResultTypeEnum \| undefined`](../../doc/models/fraud-result-type-enum.md) | Optional | The fraud result properties of the payment. Possible values:<br><br>* AMBER<br>* GREEN<br>* RED |
+| `fraudRiskLevel` | [`FraudRiskLevelEnum \| undefined`](../../doc/models/fraud-risk-level-enum.md) | Optional | The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values:<br><br>* veryLow<br>* low<br>* medium<br>* high<br>* veryHigh |
 | `fundingSource` | `string \| undefined` | Optional | Information regarding the funding type of the card. The possible return values are:<br><br>* CHARGE<br><br>* CREDIT<br><br>* DEBIT<br><br>* PREPAID<br><br>* PREPAID_RELOADABLE<br><br>* PREPAID_NONRELOADABLE<br><br>* DEFFERED_DEBIT<br><br>> This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.<br><br>For receiving this field in the notification, enable **Include Funding Source** in **Notifications** > **Additional settings**. |
 | `fundsAvailability` | `string \| undefined` | Optional | Indicates availability of funds.<br><br>Visa:<br><br>* "I" (fast funds are supported)<br>* "N" (otherwise)<br><br>Mastercard:<br><br>* "I" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list)<br>* "N" (otherwise)<br><br>> Returned when you verify a card BIN or estimate costs, and only if payoutEligible is "Y" or "D". |
 | `inferredRefusalReason` | `string \| undefined` | Optional | Provides the more granular indication of why a transaction was refused. When a transaction fails with either "Refused", "Restricted Card", "Transaction Not Permitted", "Not supported" or "DeclinedNon Generic" refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the `inferredRefusalReason`, field is populated and the `refusalReason`, is set to "Not Supported".<br><br>Possible values:<br><br>* 3D Secure Mandated<br><br>* Closed Account<br><br>* ContAuth Not Supported<br><br>* CVC Mandated<br><br>* Ecommerce Not Allowed<br><br>* Crossborder Not Supported<br><br>* Card Updated<br><br>* Low Authrate Bin<br><br>* Non-reloadable prepaid card |
@@ -57,7 +55,7 @@
 | `recurringFirstPspReference` | `string \| undefined` | Optional | The `pspReference`, of the first recurring payment that created the recurring detail.<br><br>This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team. |
 | `recurringRecurringDetailReference` | `string \| undefined` | Optional | The reference that uniquely identifies the recurring transaction. |
 | `recurringShopperReference` | `string \| undefined` | Optional | The provided reference of the shopper for a recurring transaction. |
-| `recurringProcessingModel` | [`RecurringProcessingModel7 \| undefined`](../../doc/models/recurring-processing-model-7.md) | Optional | - |
+| `recurringProcessingModel` | [`RecurringProcessingModel7Enum \| undefined`](../../doc/models/recurring-processing-model-7-enum.md) | Optional | The processing model used for the recurring transaction. |
 | `referred` | `string \| undefined` | Optional | If the payment is referred, this field is set to true.<br><br>This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.<br><br>Example: true |
 | `refusalReasonRaw` | `string \| undefined` | Optional | Raw refusal reason received from the acquirer, where available.<br><br>Example: AUTHORISED |
 | `requestAmount` | `string \| undefined` | Optional | The amount of the payment request. |
@@ -69,14 +67,13 @@
 | `threeDAuthenticatedResponse` | `string \| undefined` | Optional | The raw 3DS authentication result from the card issuer.<br><br>Example: N |
 | `threeDOffered` | `string \| undefined` | Optional | A Boolean value indicating whether 3DS was offered for this payment.<br><br>Example: true |
 | `threeDOfferedResponse` | `string \| undefined` | Optional | The raw enrollment result from the 3DS directory services of the card schemes.<br><br>Example: Y |
-| `threeDsVersion` | `string \| undefined` | Optional | The 3D Secure 2 version. |
+| `threeDSVersion` | `string \| undefined` | Optional | The 3D Secure 2 version. |
 | `tokenizationShopperReference` | `string \| undefined` | Optional | The reference for the shopper that you sent when tokenizing the payment details. |
-| `tokenizationStoreOperationType` | [`TokenizationStoreOperationType \| undefined`](../../doc/models/tokenization-store-operation-type.md) | Optional | - |
+| `tokenizationStoreOperationType` | [`TokenizationStoreOperationTypeEnum \| undefined`](../../doc/models/tokenization-store-operation-type-enum.md) | Optional | The operation performed on the token. Possible values:<br><br>* **created**: the token has been created.<br>* **updated**: the existing token has been updated.<br>* **alreadyExisting**: the details have already been stored. |
 | `tokenizationStoredPaymentMethodId` | `string \| undefined` | Optional | The reference that uniquely identifies tokenized payment details. |
 | `transactionLinkId` | `string \| undefined` | Optional | Returned in the response for Mastercard payments.<br><br>This contains the Mastercard Transaction Link Identifier (TLID). |
 | `visaTransactionId` | `string \| undefined` | Optional | The `visaTransactionId`, has a fixed length of 15 numeric characters.<br><br>> Contact Support Team to enable this field. |
 | `xid` | `string \| undefined` | Optional | The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'.<br><br>Example: ODgxNDc2MDg2MDExODk5MAAAAAA= |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -91,9 +88,6 @@ const responseAdditionalDataCommon: ResponseAdditionalDataCommon = {
   aliasType: 'aliasType8',
   cvcResult: '1 Matches',
   cvcResultRaw: 'M',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

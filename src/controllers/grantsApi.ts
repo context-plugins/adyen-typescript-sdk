@@ -5,6 +5,10 @@
  */
 
 import { ApiResponse, RequestOptions } from '../core.js';
+import {
+  CapitalGrantInfo,
+  capitalGrantInfoSchema,
+} from '../models/capitalGrantInfo.js';
 import { Disbursement, disbursementSchema } from '../models/disbursement.js';
 import {
   DisbursementInfoUpdate,
@@ -12,14 +16,10 @@ import {
 } from '../models/disbursementInfoUpdate.js';
 import { Disbursements, disbursementsSchema } from '../models/disbursements.js';
 import { Grant, grantSchema } from '../models/grant.js';
-import { GrantInfo, grantInfoSchema } from '../models/grantInfo.js';
 import { Grants, grantsSchema } from '../models/grants.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { Grants404Error } from '../errors/grants404Error.js';
-import { Grants422Error } from '../errors/grants422Error.js';
-import { GrantsDisbursements404Error } from '../errors/grantsDisbursements404Error.js';
-import { GrantsDisbursements422Error } from '../errors/grantsDisbursements422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class GrantsApi extends BaseApi {
   /**
@@ -33,6 +33,7 @@ export class GrantsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Grants>> {
     const req = this.createRequest('GET', '/grants');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({
       counterpartyAccountHolderId: [counterpartyAccountHolderId, string()],
     });
@@ -40,10 +41,14 @@ export class GrantsApi extends BaseApi {
       'counterpartyAccountHolderId',
       mapped.counterpartyAccountHolderId
     );
-    req.throwOn(404, Grants404Error, 'Not Found - The entity was not found.');
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'Not Found - The entity was not found.'
+    );
     req.throwOn(
       422,
-      Grants422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -57,16 +62,19 @@ export class GrantsApi extends BaseApi {
    * @return Response from the API call
    */
   async postGrants(
-    body?: GrantInfo,
+    body?: CapitalGrantInfo,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Grant>> {
     const req = this.createRequest('POST', '/grants');
-    const mapped = req.prepareArgs({ body: [body, optional(grantInfoSchema)] });
+    req.baseUrl('default15');
+    const mapped = req.prepareArgs({
+      body: [body, optional(capitalGrantInfoSchema)],
+    });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       422,
-      Grants422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -84,12 +92,17 @@ export class GrantsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Grant>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({ grantId: [grantId, string()] });
     req.appendTemplatePath`/grants/${mapped.grantId}`;
-    req.throwOn(404, Grants404Error, 'Not Found - The entity was not found.');
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'Not Found - The entity was not found.'
+    );
     req.throwOn(
       422,
-      Grants422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -107,16 +120,17 @@ export class GrantsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Disbursements>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({ grantId: [grantId, string()] });
     req.appendTemplatePath`/grants/${mapped.grantId}/disbursements`;
     req.throwOn(
       404,
-      GrantsDisbursements404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - The entity was not found.'
     );
     req.throwOn(
       422,
-      GrantsDisbursements422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -136,6 +150,7 @@ export class GrantsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Disbursement>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({
       grantId: [grantId, string()],
       disbursementId: [disbursementId, string()],
@@ -143,12 +158,12 @@ export class GrantsApi extends BaseApi {
     req.appendTemplatePath`/grants/${mapped.grantId}/disbursements/${mapped.disbursementId}`;
     req.throwOn(
       404,
-      GrantsDisbursements404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - The entity was not found.'
     );
     req.throwOn(
       422,
-      GrantsDisbursements422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -170,6 +185,7 @@ export class GrantsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Disbursement>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({
       grantId: [grantId, string()],
       disbursementId: [disbursementId, string()],
@@ -180,12 +196,12 @@ export class GrantsApi extends BaseApi {
     req.appendTemplatePath`/grants/${mapped.grantId}/disbursements/${mapped.disbursementId}`;
     req.throwOn(
       404,
-      GrantsDisbursements404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - The entity was not found.'
     );
     req.throwOn(
       422,
-      GrantsDisbursements422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);

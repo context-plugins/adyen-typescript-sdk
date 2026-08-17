@@ -3,8 +3,6 @@
 
 The details of the sub-merchant that you want to process transactions for.Required if you are a registered payment facilitator. Do not include this parameter if you are not a payment facilitator.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SubMerchantData21`
@@ -25,7 +23,6 @@ The details of the sub-merchant that you want to process transactions for.Requir
 | `state` | `string \| undefined` | Optional | The state code of the sub-merchant's address, if applicable for the country or region. |
 | `street` | `string \| undefined` | Optional | The street name and house number of the sub-merchant's address. |
 | `taxId` | `string \| undefined` | Optional | The tax ID of the sub-merchant. Required only in Brazil and for Cartes Bancaires in France.<br>For Brazil, this is the 11-digit CPF or 14-digit CNPJ.<br>For France, this is the SIRET, with a maximum of 14 digits. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -42,9 +39,6 @@ const subMerchantData21: SubMerchantData21 = {
   email: 'email8',
   phoneNumber: 'phoneNumber8',
   postalCode: 'postalCode0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

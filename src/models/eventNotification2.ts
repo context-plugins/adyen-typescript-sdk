@@ -8,20 +8,44 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { DisplayOutput, displayOutputSchema } from './displayOutput.js';
-import { EventToNotify1, eventToNotify1Schema } from './eventToNotify1.js';
+import {
+  EventToNotify1Enum,
+  eventToNotify1EnumSchema,
+} from './eventToNotify1Enum.js';
 
 /** Content of the EventNotification message. */
 export interface EventNotification2 {
   /** Date and time of a transaction for the Sale System, the POI System or the Acquirer. */
   timeStamp: string;
-  eventToNotify: EventToNotify1;
+  /**
+   * Event the POI notifies to the Sale System.
+   * Possible values:
+   * * **Abort**
+   * * **BeginMaintenance**
+   * * **CardInserted**
+   * * **CardRemoved**
+   * * **Completed**
+   * * **CustomerLanguage**
+   * * **EndMaintenance**
+   * * **Initialised**
+   * * **KeyPressed**
+   * * **OutOfOrder**
+   * * **Reject**
+   * * **SaleAdmin**
+   * * **SaleWakeUp**
+   * * **ScanBarcodeResult**
+   * * **SecurityAlarm**
+   * * **Shutdown**
+   * * **StopAssistance**
+   * * **UseAnotherCardForPreauth**
+   */
+  eventToNotify: EventToNotify1Enum;
   /**
    * Information about the event the POI notifies to the Sale System.
    * If present, the Sale logs it for further examination.
@@ -39,20 +63,15 @@ export interface EventNotification2 {
    * To display an event message.
    */
   displayOutput?: DisplayOutput[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const eventNotification2Schema: Schema<EventNotification2> = lazy(() =>
-  typedExpandoObject(
-    {
-      timeStamp: ['TimeStamp', string()],
-      eventToNotify: ['EventToNotify', eventToNotify1Schema],
-      eventDetails: ['EventDetails', optional(string())],
-      rejectedMessage: ['RejectedMessage', optional(string())],
-      maintenanceRequiredFlag: ['MaintenanceRequiredFlag', optional(boolean())],
-      displayOutput: ['DisplayOutput', optional(array(displayOutputSchema))],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    timeStamp: ['TimeStamp', string()],
+    eventToNotify: ['EventToNotify', eventToNotify1EnumSchema],
+    eventDetails: ['EventDetails', optional(string())],
+    rejectedMessage: ['RejectedMessage', optional(string())],
+    maintenanceRequiredFlag: ['MaintenanceRequiredFlag', optional(boolean())],
+    displayOutput: ['DisplayOutput', optional(array(displayOutputSchema))],
+  })
 );

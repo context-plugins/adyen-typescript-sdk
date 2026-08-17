@@ -1,8 +1,6 @@
 
 # Checkout Voucher Action
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CheckoutVoucherAction`
@@ -16,7 +14,7 @@
 | `downloadUrl` | `string \| undefined` | Optional | The URL to download the voucher. |
 | `entity` | `string \| undefined` | Optional | An entity number of Multibanco. |
 | `expiresAt` | `string \| undefined` | Optional | The date time of the voucher expiry. |
-| `initialAmount` | [`InitialAmount \| undefined`](../../doc/models/initial-amount.md) | Optional | - |
+| `initialAmount` | [`Amount14 \| undefined`](../../doc/models/amount-14.md) | Optional | The initial amount. |
 | `instructionsUrl` | `string \| undefined` | Optional | The URL to the detailed instructions to make payment using the voucher. |
 | `issuer` | `string \| undefined` | Optional | The issuer of the voucher. |
 | `maskedTelephoneNumber` | `string \| undefined` | Optional | The shopper telephone number (partially masked). |
@@ -28,27 +26,23 @@
 | `reference` | `string \| undefined` | Optional | The voucher reference code. |
 | `shopperEmail` | `string \| undefined` | Optional | The shopper email. |
 | `shopperName` | `string \| undefined` | Optional | The shopper name. |
-| `surcharge` | [`Surcharge5 \| undefined`](../../doc/models/surcharge-5.md) | Optional | - |
-| `totalAmount` | [`TotalAmount2 \| undefined`](../../doc/models/total-amount-2.md) | Optional | - |
-| `type` | [`Type594`](../../doc/models/type-594.md) | Required | **voucher** |
+| `surcharge` | [`Amount15 \| undefined`](../../doc/models/amount-15.md) | Optional | The surcharge amount. |
+| `totalAmount` | [`Amount16 \| undefined`](../../doc/models/amount-16.md) | Optional | The total amount (initial plus surcharge amount). |
+| `type` | `string` | Required, Constant | **voucher**<br><br>**Value**: `'voucher'` |
 | `url` | `string \| undefined` | Optional | Specifies the URL to redirect to. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CheckoutVoucherAction, Type594 } from 'adyen';
+import { CheckoutVoucherAction } from 'adyen';
 
 const checkoutVoucherAction: CheckoutVoucherAction = {
-  type: Type594.Voucher,
+  type: 'voucher',
   alternativeReference: 'alternativeReference4',
   collectionInstitutionNumber: 'collectionInstitutionNumber2',
   downloadUrl: 'downloadUrl4',
   entity: 'entity6',
   expiresAt: 'expiresAt2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

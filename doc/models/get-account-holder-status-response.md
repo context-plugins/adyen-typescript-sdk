@@ -1,8 +1,6 @@
 
 # Get Account Holder Status Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetAccountHolderStatusResponse`
@@ -12,34 +10,30 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string \| undefined` | Optional | The code of the Account Holder. |
-| `accountHolderStatus` | [`AccountHolderStatus \| undefined`](../../doc/models/account-holder-status.md) | Optional | - |
+| `accountHolderStatus` | [`AccountHolderStatus4 \| undefined`](../../doc/models/account-holder-status-4.md) | Optional | The status of the Account Holder. |
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  Event,
-  FieldName,
+  EventEnum,
+  FieldNameEnum,
   GetAccountHolderStatusResponse,
-  Status1,
+  Status12Enum,
 } from 'adyen';
 
 const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
   accountHolderCode: 'accountHolderCode2',
   accountHolderStatus: {
-    status: Status1.Inactive,
+    status: Status12Enum.Inactive,
     events: [
       {
-        event: Event.InactivateAccount,
+        event: EventEnum.InactivateAccount,
         executionDate: '2016-03-13T12:52:32.123Z',
         reason: 'reason6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     payoutState: {
@@ -50,12 +44,6 @@ const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
       payoutLimit: {
         currency: 'currency8',
         value: BigInt(88),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     processingState: {
@@ -64,26 +52,14 @@ const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
       processedFrom: {
         currency: 'currency4',
         value: BigInt(148),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       processedTo: {
         currency: 'currency2',
         value: BigInt(54),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       tierNumber: 156,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     statusReason: 'statusReason8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   invalidFields: [
     {
@@ -91,14 +67,8 @@ const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -106,14 +76,8 @@ const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -121,22 +85,13 @@ const getAccountHolderStatusResponse: GetAccountHolderStatusResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
   pspReference: 'pspReference6',
   resultCode: 'resultCode2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

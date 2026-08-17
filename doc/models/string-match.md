@@ -1,8 +1,6 @@
 
 # String Match
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StringMatch`
@@ -11,21 +9,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `operation` | [`Operation \| undefined`](../../doc/models/operation.md) | Optional | - |
+| `operation` | [`OperationEnum \| undefined`](../../doc/models/operation-enum.md) | Optional | The type of string matching operation. Possible values:  **startsWith**, **endsWith**, **isEqualTo**, **contains**, |
 | `value` | `string \| undefined` | Optional | The string to be matched. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Operation, StringMatch } from 'adyen';
+import { OperationEnum, StringMatch } from 'adyen';
 
 const stringMatch: StringMatch = {
-  operation: Operation.IsEqualTo,
+  operation: OperationEnum.IsEqualTo,
   value: 'value0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

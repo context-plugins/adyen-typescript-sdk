@@ -6,35 +6,33 @@
 
 import {
   isMappedValueValidForSchema,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   PayToPaymentMethod,
   payToPaymentMethodSchema,
 } from './payToPaymentMethod.js';
 import {
-  UpiPaymentMethod,
-  upiPaymentMethodSchema,
-} from './upiPaymentMethod.js';
+  UPIPaymentMethod,
+  uPIPaymentMethodSchema,
+} from './uPIPaymentMethod.js';
 
 export interface ShopperIdPaymentMethod {
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export namespace ShopperIdPaymentMethod {
   /**
    * Validation method to check if the given ShopperIdPaymentMethod instance is
-   * also a UpiPaymentMethod.
+   * also a UPIPaymentMethod.
    */
-  export function isUpiPaymentMethod(
+  export function isUPIPaymentMethod(
     value: ShopperIdPaymentMethod
-  ): value is UpiPaymentMethod {
-    return isMappedValueValidForSchema(value, upiPaymentMethodSchema);
+  ): value is UPIPaymentMethod {
+    return isMappedValueValidForSchema(value, uPIPaymentMethodSchema);
   }
 
   /**
@@ -48,8 +46,6 @@ export namespace ShopperIdPaymentMethod {
   }
 }
 
-export const shopperIdPaymentMethodSchema: Schema<ShopperIdPaymentMethod> = typedExpandoObject(
-  { type: ['type', optional(string())] },
-  'additionalProperties',
-  optional(unknown())
+export const shopperIdPaymentMethodSchema: Schema<ShopperIdPaymentMethod> = object(
+  { type: ['type', optional(string())] }
 );

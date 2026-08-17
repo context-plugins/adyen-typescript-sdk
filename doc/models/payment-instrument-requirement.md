@@ -1,8 +1,6 @@
 
 # Payment Instrument Requirement
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrumentRequirement`
@@ -15,21 +13,19 @@
 | `issuingCountryCode` | `string \| undefined` | Optional | The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the payment instrument is issued. For example, **NL** or **US**. |
 | `issuingCountryCodes` | `string[] \| undefined` | Optional | The two-character ISO-3166-1 alpha-2 country code list for payment instruments. |
 | `onlyForCrossBalancePlatform` | `boolean \| undefined` | Optional | Specifies if the requirement only applies to transfers to another balance platform. |
-| `paymentInstrumentType` | [`PaymentInstrumentType \| undefined`](../../doc/models/payment-instrument-type.md) | Optional | - |
-| `type` | [`Type363`](../../doc/models/type-363.md) | Required | **paymentInstrumentRequirement** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `paymentInstrumentType` | [`PaymentInstrumentTypeEnum \| undefined`](../../doc/models/payment-instrument-type-enum.md) | Optional | The type of the payment instrument. For example, "BankAccount" or "Card". |
+| `type` | `string` | Required, Constant | **paymentInstrumentRequirement**<br><br>**Value**: `'paymentInstrumentRequirement'` |
 
 ## Example
 
 ```ts
 import {
   PaymentInstrumentRequirement,
-  PaymentInstrumentType,
-  Type363,
+  PaymentInstrumentTypeEnum,
 } from 'adyen';
 
 const paymentInstrumentRequirement: PaymentInstrumentRequirement = {
-  type: Type363.PaymentInstrumentRequirement,
+  type: 'paymentInstrumentRequirement',
   description: 'description2',
   issuingCountryCode: 'issuingCountryCode0',
   issuingCountryCodes: [
@@ -37,10 +33,7 @@ const paymentInstrumentRequirement: PaymentInstrumentRequirement = {
     'issuingCountryCodes2'
   ],
   onlyForCrossBalancePlatform: false,
-  paymentInstrumentType: PaymentInstrumentType.BankAccount,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  paymentInstrumentType: PaymentInstrumentTypeEnum.BankAccount,
 };
 ```
 

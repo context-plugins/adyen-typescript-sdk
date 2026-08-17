@@ -3,8 +3,6 @@
 
 Details to provide if `type` is **afterpaytouch**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AfterpayTouchInfo1`
@@ -15,7 +13,6 @@ Details to provide if `type` is **afterpaytouch**.
 |  --- | --- | --- | --- |
 | `supportEmail` | `string \| undefined` | Optional | Support Email |
 | `supportUrl` | `string` | Required | Support Url |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ import { AfterpayTouchInfo1 } from 'adyen';
 const afterpayTouchInfo1: AfterpayTouchInfo1 = {
   supportUrl: 'supportUrl2',
   supportEmail: 'supportEmail6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

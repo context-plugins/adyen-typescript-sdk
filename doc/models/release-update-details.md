@@ -1,8 +1,6 @@
 
 # Release Update Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ReleaseUpdateDetails`
@@ -11,21 +9,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type62 \| undefined`](../../doc/models/type-62.md) | Optional | - |
+| `type` | [`Type61Enum \| undefined`](../../doc/models/type-61-enum.md) | Optional | Type of terminal action: Update Release.<br><br>**Default**: `Type61Enum.ReleaseUpdate` |
 | `updateAtFirstMaintenanceCall` | `boolean \| undefined` | Optional | Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ReleaseUpdateDetails, Type62 } from 'adyen';
+import { ReleaseUpdateDetails, Type61Enum } from 'adyen';
 
 const releaseUpdateDetails: ReleaseUpdateDetails = {
-  type: Type62.ReleaseUpdate,
+  type: Type61Enum.ReleaseUpdate,
   updateAtFirstMaintenanceCall: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -9,8 +9,10 @@ import {
   CapitalGrantAccount,
   capitalGrantAccountSchema,
 } from '../models/capitalGrantAccount.js';
+import { GrantAccount, grantAccountSchema } from '../models/grantAccount.js';
 import { string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 import { RestServiceError } from '../errors/restServiceError.js';
 
 export class GrantAccountsApi extends BaseApi {
@@ -26,6 +28,7 @@ export class GrantAccountsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CapitalGrantAccount>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/grantAccounts/${mapped.id}`;
     req.deprecated('GrantAccountsApi.getGrantAccountsId');
@@ -60,5 +63,34 @@ export class GrantAccountsApi extends BaseApi {
       { apiKeyAuth: true },
     ]);
     return req.callAsJson(capitalGrantAccountSchema, requestOptions);
+  }
+
+  /**
+   * Returns the details of the specified grant account. This account tracks existing grants in your
+   * marketplace or platform.
+   *
+   * @param id The unique identifier of the grant account.
+   * @return Response from the API call
+   */
+  async getGrantAccountsId1(
+    id: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<GrantAccount>> {
+    const req = this.createRequest('GET');
+    req.baseUrl('default15');
+    const mapped = req.prepareArgs({ id: [id, string()] });
+    req.appendTemplatePath`/grantAccounts/${mapped.id}`;
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'Not Found - The entity was not found.'
+    );
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'Unprocessable Entity - A request validation error.'
+    );
+    req.authenticate(false);
+    return req.callAsJson(grantAccountSchema, requestOptions);
   }
 }

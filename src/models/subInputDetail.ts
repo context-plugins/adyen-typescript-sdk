@@ -9,22 +9,18 @@ import {
   boolean,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import {
-  NetworkTokenRequestor,
-  networkTokenRequestorSchema,
-} from './networkTokenRequestor.js';
+import { Item, itemSchema } from './item.js';
 
 export interface SubInputDetail {
   /** Configuration parameters for the required input. */
   configuration?: Record<string, string>;
   /** In case of a select, the items to choose from. */
-  items?: NetworkTokenRequestor[];
+  items?: Item[];
   /** The value to provide in the result. */
   key?: string;
   /** True if this input is optional to provide. */
@@ -33,20 +29,15 @@ export interface SubInputDetail {
   type?: string;
   /** The value can be pre-filled, if available. */
   value?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const subInputDetailSchema: Schema<SubInputDetail> = lazy(() =>
-  typedExpandoObject(
-    {
-      configuration: ['configuration', optional(dict(string()))],
-      items: ['items', optional(array(networkTokenRequestorSchema))],
-      key: ['key', optional(string())],
-      optional: ['optional', optional(boolean())],
-      type: ['type', optional(string())],
-      value: ['value', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    configuration: ['configuration', optional(dict(string()))],
+    items: ['items', optional(array(itemSchema))],
+    key: ['key', optional(string())],
+    optional: ['optional', optional(boolean())],
+    type: ['type', optional(string())],
+    value: ['value', optional(string())],
+  })
 );

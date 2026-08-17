@@ -1,8 +1,6 @@
 
 # Riverty
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Riverty`
@@ -22,24 +20,20 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `subtype` | `string \| undefined` | Optional | The payment method subtype. |
-| `type` | [`Type49`](../../doc/models/type-49.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type49Enum`](../../doc/models/type-49-enum.md) | Required | **riverty**<br><br>**Default**: `Type49Enum.Riverty` |
 
 ## Example
 
 ```ts
-import { Riverty, Type49 } from 'adyen';
+import { Riverty, Type49Enum } from 'adyen';
 
 const riverty: Riverty = {
-  type: Type49.Riverty,
+  type: Type49Enum.Riverty,
   billingAddress: 'billingAddress8',
   checkoutAttemptId: 'checkoutAttemptId0',
   deliveryAddress: 'deliveryAddress0',
   deviceFingerprint: 'deviceFingerprint0',
   iban: 'iban8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

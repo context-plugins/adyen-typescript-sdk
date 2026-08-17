@@ -1,8 +1,6 @@
 
 # Patchable Trigger
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PatchableTrigger`
@@ -11,31 +9,21 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `schedule` | [`PatchableTriggerSchedule \| undefined`](../../doc/models/containers/patchable-trigger-schedule.md) | Optional | This is a container for one-of cases. |
-| `threshold` | [`Threshold3 \| undefined`](../../doc/models/threshold-3.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `schedule` | [`PatchableTriggerSchedule \| null \| undefined`](../../doc/models/containers/patchable-trigger-schedule.md) | Optional | This is a container for one-of cases. |
+| `threshold` | [`PatchableAmountDTO1 \| undefined`](../../doc/models/patchable-amount-dto-1.md) | Optional | The balance threshold that triggers the top-up. If the balance falls below this amount, a top-up is initiated. |
 
 ## Example
 
 ```ts
-import { PatchableTrigger, ScheduleType1 } from 'adyen';
+import { PatchableTrigger, ScheduleType1Enum } from 'adyen';
 
 const patchableTrigger: PatchableTrigger = {
   schedule: {
-    type: ScheduleType1.Monthly,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: ScheduleType1Enum.Monthly,
   },
   threshold: {
     currency: 'currency8',
     value: BigInt(32),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # Stored Payment Method
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredPaymentMethod`
@@ -21,13 +19,12 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `subtype` | `string \| undefined` | Optional | The payment method subtype. |
-| `type` | [`Type16 \| undefined`](../../doc/models/type-16.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type16Enum \| undefined`](../../doc/models/type-16-enum.md) | Optional | cashapp<br><br>**Default**: `Type16Enum.Cashapp` |
 
 ## Example
 
 ```ts
-import { StoredPaymentMethod } from 'adyen';
+import { StoredPaymentMethod, Type16Enum } from 'adyen';
 
 const storedPaymentMethod: StoredPaymentMethod = {
   cashtag: 'cashtag6',
@@ -35,9 +32,7 @@ const storedPaymentMethod: StoredPaymentMethod = {
   customerId: 'customerId0',
   grantId: 'grantId4',
   onFileGrantId: 'onFileGrantId4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type16Enum.Cashapp,
 };
 ```
 

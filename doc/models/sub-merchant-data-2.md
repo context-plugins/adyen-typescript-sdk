@@ -1,8 +1,6 @@
 
 # Sub Merchant Data 2
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SubMerchantData2`
@@ -23,7 +21,6 @@
 | `state` | `string \| undefined` | Optional | The state code of the sub-merchant's address, if applicable for the country or region. |
 | `street` | `string \| undefined` | Optional | The street name and house number of the sub-merchant's address. |
 | `taxId` | `string \| undefined` | Optional | The tax ID of the sub-merchant. Required only in Brazil and for Cartes Bancaires in France.<br>For Brazil, this is the 11-digit CPF or 14-digit CNPJ.<br>For France, this is the SIRET, with a maximum of 14 digits. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -40,9 +37,6 @@ const subMerchantData2: SubMerchantData2 = {
   email: 'email6',
   phoneNumber: 'phoneNumber0',
   postalCode: 'postalCode8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

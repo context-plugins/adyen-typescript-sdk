@@ -1,8 +1,6 @@
 
 # Payment Methods Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentMethodsResponse`
@@ -13,12 +11,11 @@
 |  --- | --- | --- | --- |
 | `paymentMethods` | [`PaymentMethod[] \| undefined`](../../doc/models/payment-method.md) | Optional | Detailed list of payment methods required to generate payment forms. |
 | `storedPaymentMethods` | [`StoredPaymentMethod3[] \| undefined`](../../doc/models/stored-payment-method-3.md) | Optional | List of all stored payment methods. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { FundingSource, PaymentMethodsResponse } from 'adyen';
+import { FundingSource9Enum, PaymentMethodsResponse } from 'adyen';
 
 const paymentMethodsResponse: PaymentMethodsResponse = {
   paymentMethods: [
@@ -30,12 +27,6 @@ const paymentMethodsResponse: PaymentMethodsResponse = {
           appIdentifierInfo: {
             androidPackageId: 'androidPackageId8',
             iosScheme: 'iosScheme8',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         },
         {
@@ -44,12 +35,6 @@ const paymentMethodsResponse: PaymentMethodsResponse = {
           appIdentifierInfo: {
             androidPackageId: 'androidPackageId8',
             iosScheme: 'iosScheme8',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         }
       ],
@@ -62,10 +47,7 @@ const paymentMethodsResponse: PaymentMethodsResponse = {
         'key1': 'configuration1',
         'key2': 'configuration0'
       },
-      fundingSource: FundingSource.Debit,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      fundingSource: FundingSource9Enum.Debit,
     }
   ],
   storedPaymentMethods: [
@@ -75,9 +57,6 @@ const paymentMethodsResponse: PaymentMethodsResponse = {
       brand: 'brand6',
       cashtag: 'cashtag0',
       expiryMonth: 'expiryMonth6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       bankAccountNumber: 'bankAccountNumber2',
@@ -85,9 +64,6 @@ const paymentMethodsResponse: PaymentMethodsResponse = {
       brand: 'brand6',
       cashtag: 'cashtag0',
       expiryMonth: 'expiryMonth6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       bankAccountNumber: 'bankAccountNumber2',
@@ -95,14 +71,8 @@ const paymentMethodsResponse: PaymentMethodsResponse = {
       brand: 'brand6',
       cashtag: 'cashtag0',
       expiryMonth: 'expiryMonth6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

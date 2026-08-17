@@ -3,8 +3,6 @@
 
 Details to provide if `type` is **cartebancaire**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CartesBancairesInfo1`
@@ -14,25 +12,18 @@ Details to provide if `type` is **cartebancaire**.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `siret` | `string` | Required | Cartes Bancaires SIRET. Format: 14 digits. |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionInfo1 \| undefined`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```ts
-import { CartesBancairesInfo1, Type33 } from 'adyen';
+import { CartesBancairesInfo1, Type8Enum } from 'adyen';
 
 const cartesBancairesInfo1: CartesBancairesInfo1 = {
   siret: 'siret6',
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

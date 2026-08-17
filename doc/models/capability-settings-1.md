@@ -3,8 +3,6 @@
 
 A JSON object containing the settings that were requested for the account holder.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CapabilitySettings1`
@@ -13,44 +11,34 @@ A JSON object containing the settings that were requested for the account holder
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amountPerIndustry` | [`Record<string, Amount3> \| undefined`](../../doc/models/amount-3.md) | Optional | - |
+| `amountPerIndustry` | [`Record<string, Amount17> \| undefined`](../../doc/models/amount-17.md) | Optional | - |
 | `authorizedCardUsers` | `boolean \| undefined` | Optional | - |
-| `fundingSource` | [`FundingSource[] \| undefined`](../../doc/models/funding-source.md) | Optional | - |
-| `interval` | [`Interval \| undefined`](../../doc/models/interval.md) | Optional | The period when the rule conditions apply. |
-| `maxAmount` | [`Amount3 \| undefined`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `fundingSource` | [`FundingSourceEnum[] \| undefined`](../../doc/models/funding-source-enum.md) | Optional | - |
+| `interval` | [`IntervalEnum \| undefined`](../../doc/models/interval-enum.md) | Optional | - |
+| `maxAmount` | [`Amount17 \| undefined`](../../doc/models/amount-17.md) | Optional | - |
 
 ## Example
 
 ```ts
-import { CapabilitySettings1, FundingSource, Interval } from 'adyen';
+import { CapabilitySettings1, FundingSourceEnum, IntervalEnum } from 'adyen';
 
 const capabilitySettings1: CapabilitySettings1 = {
   amountPerIndustry: {
     'key0': {
       currency: 'currency8',
       value: BigInt(56),
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   },
   authorizedCardUsers: false,
   fundingSource: [
-    FundingSource.Credit,
-    FundingSource.Debit,
-    FundingSource.Prepaid
+    FundingSourceEnum.Credit,
+    FundingSourceEnum.Debit,
+    FundingSourceEnum.Prepaid
   ],
-  interval: Interval.Monthly,
+  interval: IntervalEnum.Monthly,
   maxAmount: {
     currency: 'currency4',
     value: BigInt(160),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

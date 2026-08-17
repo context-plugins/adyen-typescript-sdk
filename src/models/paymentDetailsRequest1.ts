@@ -5,53 +5,33 @@
  */
 
 import {
-  boolean,
-  lazy,
+  isMappedValueValidForSchema,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  DetailsRequestAuthenticationData,
-  detailsRequestAuthenticationDataSchema,
-} from './detailsRequestAuthenticationData.js';
-import {
-  PaymentCompletionDetails,
-  paymentCompletionDetailsSchema,
-} from './paymentCompletionDetails.js';
+  IdealPaymentDetailsRequest,
+  idealPaymentDetailsRequestSchema,
+} from './idealPaymentDetailsRequest.js';
 
 export interface PaymentDetailsRequest1 {
-  authenticationData?: DetailsRequestAuthenticationData;
-  details: PaymentCompletionDetails;
-  /**
-   * Encoded payment data. For [authorizing a payment after using 3D Secure 2 Authentication-only](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only/#authorise-the-payment-with-adyen):
-   * If you received `resultCode`: **AuthenticationNotRequired** in the `/payments` response, use the `threeDSPaymentData` from the same response.
-   * If you received `resultCode`: **AuthenticationFinished** in the `/payments` response, use the `action.paymentData` from the same response.
-   */
-  paymentData?: string;
-  /** Change the `authenticationOnly` indicator originally set in the `/payments` request. Only needs to be set if you want to modify the value set previously. */
-  threeDsAuthenticationOnly?: boolean;
-  additionalProperties?: Record<string, unknown>;
+  method?: string;
 }
 
-export const paymentDetailsRequest1Schema: Schema<PaymentDetailsRequest1> = lazy(
-  () =>
-    typedExpandoObject(
-      {
-        authenticationData: [
-          'authenticationData',
-          optional(detailsRequestAuthenticationDataSchema),
-        ],
-        details: ['details', paymentCompletionDetailsSchema],
-        paymentData: ['paymentData', optional(string())],
-        threeDsAuthenticationOnly: [
-          'threeDSAuthenticationOnly',
-          optional(boolean()),
-        ],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+export namespace PaymentDetailsRequest1 {
+  /**
+   * Validation method to check if the given PaymentDetailsRequest1 instance is
+   * also a IdealPaymentDetailsRequest.
+   */
+  export function isIdealPaymentDetailsRequest(
+    value: PaymentDetailsRequest1
+  ): value is IdealPaymentDetailsRequest {
+    return isMappedValueValidForSchema(value, idealPaymentDetailsRequestSchema);
+  }
+}
+
+export const paymentDetailsRequest1Schema: Schema<PaymentDetailsRequest1> = object(
+  { method: ['method', optional(string())] }
 );

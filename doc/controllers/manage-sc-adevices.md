@@ -1,12 +1,12 @@
 # Manage SC Adevices
 
 ```ts
-const manageScAdevicesApi = new ManageScAdevicesApi(client);
+const manageSCAdevicesApi = new ManageSCAdevicesApi(client);
 ```
 
 ## Class Name
 
-`ManageScAdevicesApi`
+`ManageSCAdevicesApi`
 
 ## Methods
 
@@ -56,7 +56,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const paymentInstrumentId = 'paymentInstrumentId2';
 
 try {
-  const response = await manageScaDevicesApi.getRegisteredDevices(paymentInstrumentId);
+  const response = await manageSCADevicesApi.getRegisteredDevices(paymentInstrumentId);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -101,9 +101,9 @@ For a successful request, the device must be eligible for SCA.
 
 ```ts
 async postRegisteredDevices(
-  body?: RegisterScaRequest,
+  body?: RegisterSCARequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<RegisterScaResponse>>
+): Promise<ApiResponse<RegisterSCAResponse>>
 ```
 
 ## Authentication
@@ -114,20 +114,20 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`RegisterScaRequest \| undefined`](../../doc/models/register-sca-request.md) | Body, Optional | - |
+| `body` | [`RegisterSCARequest \| undefined`](../../doc/models/register-sca-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`RegisterScaResponse`](../../doc/models/register-sca-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`RegisterSCAResponse`](../../doc/models/register-sca-response.md).
 
 ## Example Usage
 
 ```ts
 try {
-  const response = await manageScaDevicesApi.postRegisteredDevices();
+  const response = await manageSCADevicesApi.postRegisteredDevices();
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -199,8 +199,20 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const deviceId = 'deviceId0';
 
+const body: AssociationInitiateRequest = {
+  ids: [
+    'ids7',
+    'ids8',
+    'ids9'
+  ],
+  type: 'PaymentInstrument',
+};
+
 try {
-  const response = await manageScaDevicesApi.postRegisteredDevicesDeviceIdAssociations(deviceId);
+  const response = await manageSCADevicesApi.postRegisteredDevicesDeviceIdAssociations(
+    deviceId,
+    body
+  );
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -274,8 +286,23 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const deviceId = 'deviceId0';
 
+const body: AssociationFinaliseRequest = {
+  ids: [
+    'ids7',
+    'ids8',
+    'ids9'
+  ],
+  strongCustomerAuthentication: {
+    sdkOutput: 'sdkOutput4',
+  },
+  type: 'PaymentInstrument',
+};
+
 try {
-  const response = await manageScaDevicesApi.patchRegisteredDevicesDeviceIdAssociations(deviceId);
+  const response = await manageSCADevicesApi.patchRegisteredDevicesDeviceIdAssociations(
+    deviceId,
+    body
+  );
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -350,7 +377,7 @@ const id = 'id0';
 const paymentInstrumentId = 'paymentInstrumentId2';
 
 try {
-  const response = await manageScaDevicesApi.deleteRegisteredDevicesId(
+  const response = await manageSCADevicesApi.deleteRegisteredDevicesId(
     id,
     paymentInstrumentId
   );
@@ -397,9 +424,9 @@ Completes the registration of an SCA device by validating the authentication dat
 ```ts
 async patchRegisteredDevicesId(
   id: string,
-  body?: RegisterScaRequest,
+  body?: RegisterSCARequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<RegisterScaFinalResponse>>
+): Promise<ApiResponse<RegisterSCAFinalResponse>>
 ```
 
 ## Authentication
@@ -411,14 +438,14 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
-| `body` | [`RegisterScaRequest \| undefined`](../../doc/models/register-sca-request.md) | Body, Optional | - |
+| `body` | [`RegisterSCARequest \| undefined`](../../doc/models/register-sca-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`RegisterScaFinalResponse`](../../doc/models/register-sca-final-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`RegisterSCAFinalResponse`](../../doc/models/register-sca-final-response.md).
 
 ## Example Usage
 
@@ -426,7 +453,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const response = await manageScaDevicesApi.patchRegisteredDevicesId(id);
+  const response = await manageSCADevicesApi.patchRegisteredDevicesId(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);

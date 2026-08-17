@@ -51,7 +51,7 @@ import {
 } from '../models/uploadDocumentRequest.js';
 import { optional } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class VerificationApi extends BaseApi {
   /**
@@ -66,6 +66,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/checkAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(performVerificationRequestSchema)],
     });
@@ -73,23 +74,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -107,6 +112,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/deleteBankAccounts');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(deleteBankAccountRequestSchema)],
     });
@@ -114,23 +120,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -148,6 +158,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/deleteLegalArrangements');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(deleteLegalArrangementRequestSchema)],
     });
@@ -155,23 +166,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -189,6 +204,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/deletePayoutMethods');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(deletePayoutMethodRequestSchema)],
     });
@@ -196,23 +212,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -230,6 +250,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/deleteShareholders');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(deleteShareholderRequestSchema)],
     });
@@ -237,23 +258,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -271,6 +296,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/deleteSignatories');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(deleteSignatoriesRequestSchema)],
     });
@@ -278,23 +304,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -314,6 +344,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetUploadedDocumentsResponse>> {
     const req = this.createRequest('POST', '/getUploadedDocuments');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(getUploadedDocumentsRequestSchema)],
     });
@@ -321,23 +352,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -356,6 +391,7 @@ export class VerificationApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UpdateAccountHolderResponse>> {
     const req = this.createRequest('POST', '/uploadDocument');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(uploadDocumentRequestSchema)],
     });
@@ -363,23 +399,27 @@ export class VerificationApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

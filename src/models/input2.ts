@@ -8,17 +8,32 @@ import {
   array,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { InputCommand1, inputCommand1Schema } from './inputCommand1.js';
+import {
+  InputCommand1Enum,
+  inputCommand1EnumSchema,
+} from './inputCommand1Enum.js';
 
 /** Data entered by the user, related to the input command. */
 export interface Input2 {
-  inputCommand: InputCommand1;
+  /**
+   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**, **DecimalString** or **GetMenuEntry**.
+   * Possible values:
+   * * **DecimalString**
+   * * **DigitString**
+   * * **GetAnyKey**
+   * * **GetConfirmation**
+   * * **GetFunctionKey**
+   * * **GetMenuEntry**
+   * * **Password**
+   * * **SiteManager**
+   * * **TextString**
+   */
+  inputCommand: InputCommand1Enum;
   /** Indicates te response of the user from the `GetConfirmation` input command. */
   confirmedFlag?: boolean;
   /** The number of the function key which is typed by the Customer on the POI or the Cashier on the Sale Terminal. */
@@ -31,19 +46,14 @@ export interface Input2 {
   password?: string;
   /** The index of the menu item (from 1 to n) which is selected by the Cashier on the Sale Terminal. The value -1 indicates that the immediate upper level of the menu is requested. The value 0 indicates that the root of the menu is requested. */
   menuEntryNumber?: number[];
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const input2Schema: Schema<Input2> = typedExpandoObject(
-  {
-    inputCommand: ['InputCommand', inputCommand1Schema],
-    confirmedFlag: ['ConfirmedFlag', optional(boolean())],
-    functionKey: ['FunctionKey', optional(number())],
-    textInput: ['TextInput', optional(string())],
-    digitInput: ['DigitInput', optional(number())],
-    password: ['Password', optional(string())],
-    menuEntryNumber: ['MenuEntryNumber', optional(array(number()))],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const input2Schema: Schema<Input2> = object({
+  inputCommand: ['InputCommand', inputCommand1EnumSchema],
+  confirmedFlag: ['ConfirmedFlag', optional(boolean())],
+  functionKey: ['FunctionKey', optional(number())],
+  textInput: ['TextInput', optional(string())],
+  digitInput: ['DigitInput', optional(number())],
+  password: ['Password', optional(string())],
+  menuEntryNumber: ['MenuEntryNumber', optional(array(number()))],
+});

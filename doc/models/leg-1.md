@@ -1,8 +1,6 @@
 
 # Leg 1
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Leg1`
@@ -17,7 +15,6 @@
 | `departureAirportCode` | `string \| undefined` | Optional | The IATA three-letter airport code of the departure airport. This field is required if the airline data includes leg details |
 | `departureDate` | `string \| undefined` | Optional | The flight departure date. |
 | `flightNumber` | `string \| undefined` | Optional | The flight identifier. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,9 +27,6 @@ const leg1: Leg1 = {
   carrierCode: 'carrierCode6',
   departureAirportCode: 'departureAirportCode4',
   departureDate: 'departureDate8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

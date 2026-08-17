@@ -1,8 +1,6 @@
 
 # Online Donation Settings Update
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OnlineDonationSettingsUpdate`
@@ -11,16 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `defaultAmount` | [`OnlineDonationSettingsUpdateDefaultAmount \| undefined`](../../doc/models/containers/online-donation-settings-update-default-amount.md) | Optional | This is a container for one-of cases. |
-| `donationType` | [`OnlineDonationSettingsUpdateDonationType \| undefined`](../../doc/models/containers/online-donation-settings-update-donation-type.md) | Optional | This is a container for one-of cases. |
+| `defaultAmount` | [`OnlineDonationSettingsUpdateDefaultAmount \| null \| undefined`](../../doc/models/containers/online-donation-settings-update-default-amount.md) | Optional | This is a container for one-of cases. |
+| `donationType` | [`OnlineDonationSettingsUpdateDonationType \| null \| undefined`](../../doc/models/containers/online-donation-settings-update-donation-type.md) | Optional | This is a container for one-of cases. |
 | `merchantAccounts` | `string[] \| null \| undefined` | Optional | The merchant accounts for this sales channel that are associated with the donation campaign. |
 | `storeIds` | `string[] \| null \| undefined` | Optional | The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation campaign. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { DonationType, OnlineDonationSettingsUpdate } from 'adyen';
+import { DonationTypeEnum, OnlineDonationSettingsUpdate } from 'adyen';
 
 const onlineDonationSettingsUpdate: OnlineDonationSettingsUpdate = {
   defaultAmount: {
@@ -28,11 +25,8 @@ const onlineDonationSettingsUpdate: OnlineDonationSettingsUpdate = {
       BigInt(40)
     ],
     currencyCode: 'currencyCode2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  donationType: DonationType.FixedAmountsRoundup,
+  donationType: DonationTypeEnum.FixedAmountsRoundup,
   merchantAccounts: [
     'merchantAccounts4'
   ],
@@ -40,9 +34,6 @@ const onlineDonationSettingsUpdate: OnlineDonationSettingsUpdate = {
     'storeIds9',
     'storeIds0'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

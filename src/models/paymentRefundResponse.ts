@@ -7,19 +7,23 @@
 import {
   array,
   lazy,
+  nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount16, amount16Schema } from './amount16.js';
+import { Amount39, amount39Schema } from './amount39.js';
 import { LineItem, lineItemSchema } from './lineItem.js';
+import {
+  MerchantRefundReason1Enum,
+  merchantRefundReason1EnumSchema,
+} from './merchantRefundReason1Enum.js';
 import { Split, splitSchema } from './split.js';
-import { Status20, status20Schema } from './status20.js';
 
 export interface PaymentRefundResponse {
-  amount: Amount16;
+  /** The refund amount. */
+  amount: Amount39;
   /** This is only available for PayPal refunds. The [`pspReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference) of the specific capture to refund. */
   capturePspReference?: string;
   /**
@@ -29,7 +33,8 @@ export interface PaymentRefundResponse {
   lineItems?: LineItem[];
   /** The merchant account that is used to process the payment. */
   merchantAccount: string;
-  merchantRefundReason?: unknown;
+  /** Your reason for the refund request. */
+  merchantRefundReason?: MerchantRefundReason1Enum | null;
   /** The [`pspReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference) of the payment to refund. */
   paymentPspReference: string;
   /** Adyen's 16-character reference associated with the refund request. */
@@ -39,29 +44,27 @@ export interface PaymentRefundResponse {
   /** An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/). */
   splits?: Split[];
   /** The status of your request. This will always have the value **received**. */
-  status: Status20;
+  status: string;
   /** The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails. */
   store?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const paymentRefundResponseSchema: Schema<PaymentRefundResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        amount: ['amount', amount16Schema],
-        capturePspReference: ['capturePspReference', optional(string())],
-        lineItems: ['lineItems', optional(array(lineItemSchema))],
-        merchantAccount: ['merchantAccount', string()],
-        merchantRefundReason: ['merchantRefundReason', optional(unknown())],
-        paymentPspReference: ['paymentPspReference', string()],
-        pspReference: ['pspReference', string()],
-        reference: ['reference', optional(string())],
-        splits: ['splits', optional(array(splitSchema))],
-        status: ['status', status20Schema],
-        store: ['store', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      amount: ['amount', amount39Schema],
+      capturePspReference: ['capturePspReference', optional(string())],
+      lineItems: ['lineItems', optional(array(lineItemSchema))],
+      merchantAccount: ['merchantAccount', string()],
+      merchantRefundReason: [
+        'merchantRefundReason',
+        optional(nullable(merchantRefundReason1EnumSchema)),
+      ],
+      paymentPspReference: ['paymentPspReference', string()],
+      pspReference: ['pspReference', string()],
+      reference: ['reference', optional(string())],
+      splits: ['splits', optional(array(splitSchema))],
+      status: ['status', string()],
+      store: ['store', optional(string())],
+    })
 );

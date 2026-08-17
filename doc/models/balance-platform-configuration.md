@@ -1,8 +1,6 @@
 
 # Balance Platform Configuration
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalancePlatformConfiguration`
@@ -29,9 +27,8 @@
 | `retainedAmount` | `bigint \| undefined` | Optional | The amount of funds that must remain available in a balance account after an execution of the payout schedule. If the funds in the balance account are less than the retained amount, the execution is not initiated.<br><br>Default value: **0** |
 | `updatedAt` | `string \| undefined` | Optional | The date when the payout schedule was updated. |
 | `userSettlementDelay` | `number` | Required | The default [settlement delay](https://docs.adyen.com/platforms/settle-funds/#settlement-delay) for this payout schedule. |
-| `userSettlementTime` | [`LocalTime`](../../doc/models/local-time.md) | Required | - |
+| `userSettlementTime` | [`LocalTime2`](../../doc/models/local-time-2.md) | Required | The time when the payout funds are settled in your user's transfer instrument. |
 | `userSettlementTimeZone` | `string` | Required | The timezone of the `userSettlementTime`. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -48,9 +45,6 @@ const balancePlatformConfiguration: BalancePlatformConfiguration = {
     minute: 138,
     nano: 162,
     second: 200,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   userSettlementTimeZone: 'userSettlementTimeZone6',
   automaticApplication: false,
@@ -58,9 +52,6 @@ const balancePlatformConfiguration: BalancePlatformConfiguration = {
   currency: 'currency4',
   defaultDescription: 'defaultDescription8',
   defaultFrequency: 'defaultFrequency8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

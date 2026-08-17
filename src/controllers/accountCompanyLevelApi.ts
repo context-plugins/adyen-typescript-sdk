@@ -38,6 +38,7 @@ export class AccountCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListCompanyResponse>> {
     const req = this.createRequest('GET', '/companies');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       pageNumber: [pageNumber, optional(number())],
       pageSize: [pageSize, optional(number())],
@@ -89,6 +90,7 @@ export class AccountCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Company2>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ companyId: [companyId, string()] });
     req.appendTemplatePath`/companies/${mapped.companyId}`;
     req.throwOn(
@@ -141,6 +143,7 @@ export class AccountCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListMerchantResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       pageNumber: [pageNumber, optional(number())],

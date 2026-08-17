@@ -10,30 +10,30 @@ import {
   oneOf,
   Schema,
 } from '../../schema.js';
-import { AchDirectDebit, achDirectDebitSchema } from '../achDirectDebit.js';
+import { ACHDirectDebit, aCHDirectDebitSchema } from '../aCHDirectDebit.js';
 import { Affirm, affirmSchema } from '../affirm.js';
 import { Afterpay, afterpaySchema } from '../afterpay.js';
 import { Alma, almaSchema } from '../alma.js';
 import { AmazonPay, amazonPaySchema } from '../amazonPay.js';
-import { Ancv, ancvSchema } from '../ancv.js';
+import { ANCV, aNCVSchema } from '../aNCV.js';
 import { AndroidPay, androidPaySchema } from '../androidPay.js';
 import { ApplePayDetails, applePayDetailsSchema } from '../applePayDetails.js';
 import { AuPay, auPaySchema } from '../auPay.js';
-import { BacsDirectDebit, bacsDirectDebitSchema } from '../bacsDirectDebit.js';
+import { BACSDirectDebit, bACSDirectDebitSchema } from '../bACSDirectDebit.js';
 import { BillDesk, billDeskSchema } from '../billDesk.js';
-import { Blik, blikSchema } from '../blik.js';
+import { BLIK, bLIKSchema } from '../bLIK.js';
 import { CardDetails, cardDetailsSchema } from '../cardDetails.js';
 import { Cellulant, cellulantSchema } from '../cellulant.js';
 import { DBarai, dBaraiSchema } from '../dBarai.js';
 import {
-  DetailsoftokensthatarenotstoredwithAdyen,
-  detailsoftokensthatarenotstoredwithAdyenSchema,
-} from '../detailsoftokensthatarenotstoredwithAdyen.js';
+  DetailsOfTokensThatAreNotStoredWithAdyen,
+  detailsOfTokensThatAreNotStoredWithAdyenSchema,
+} from '../detailsOfTokensThatAreNotStoredWithAdyen.js';
 import { DirectDebitAu, directDebitAuSchema } from '../directDebitAu.js';
 import { Doku, dokuSchema } from '../doku.js';
 import { Dragonpay, dragonpaySchema } from '../dragonpay.js';
 import { EBankingFinland, eBankingFinlandSchema } from '../eBankingFinland.js';
-import { EftDirectDebit, eftDirectDebitSchema } from '../eftDirectDebit.js';
+import { EFTDirectDebit, eFTDirectDebitSchema } from '../eFTDirectDebit.js';
 import { Fastlane, fastlaneSchema } from '../fastlane.js';
 import {
   GooglePayDetails,
@@ -43,16 +43,16 @@ import { IdealDetails, idealDetailsSchema } from '../idealDetails.js';
 import { Klarna, klarnaSchema } from '../klarna.js';
 import { KlarnaNetwork, klarnaNetworkSchema } from '../klarnaNetwork.js';
 import { Masterpass, masterpassSchema } from '../masterpass.js';
-import { MbWay, mbWaySchema } from '../mbWay.js';
+import { MBWay, mBWaySchema } from '../mBWay.js';
 import { MobilePay, mobilePaySchema } from '../mobilePay.js';
-import { MolPay, molPaySchema } from '../molPay.js';
+import { MOLPay, mOLPaySchema } from '../mOLPay.js';
 import { OpenInvoice, openInvoiceSchema } from '../openInvoice.js';
 import { PayByBank, payByBankSchema } from '../payByBank.js';
 import {
-  PayByBankAisDirectDebit,
-  payByBankAisDirectDebitSchema,
-} from '../payByBankAisDirectDebit.js';
-import { PaymentDetails2, paymentDetails2Schema } from '../paymentDetails2.js';
+  PayByBankAISDirectDebit,
+  payByBankAISDirectDebitSchema,
+} from '../payByBankAISDirectDebit.js';
+import { PaymentDetails, paymentDetailsSchema } from '../paymentDetails.js';
 import { PayPal, payPalSchema } from '../payPal.js';
 import { PayPay, payPaySchema } from '../payPay.js';
 import { PayTo, payToSchema } from '../payTo.js';
@@ -61,12 +61,12 @@ import {
   PayWithGoogleDetails,
   payWithGoogleDetailsSchema,
 } from '../payWithGoogleDetails.js';
-import { PseLatam, pseLatamSchema } from '../pseLatam.js';
+import { PSELatam, pSELatamSchema } from '../pSELatam.js';
 import { RakutenPay, rakutenPaySchema } from '../rakutenPay.js';
 import { Ratepay, ratepaySchema } from '../ratepay.js';
 import { Riverty, rivertySchema } from '../riverty.js';
 import { SamsungPay, samsungPaySchema } from '../samsungPay.js';
-import { SepaDirectDebit, sepaDirectDebitSchema } from '../sepaDirectDebit.js';
+import { SEPADirectDebit, sEPADirectDebitSchema } from '../sEPADirectDebit.js';
 import {
   StoredPaymentMethod,
   storedPaymentMethodSchema,
@@ -88,9 +88,9 @@ import {
   storedPaymentMethod6Schema,
 } from '../storedPaymentMethod6.js';
 import { Twint, twintSchema } from '../twint.js';
-import { UpiCollect, upiCollectSchema } from '../upiCollect.js';
-import { UpiIntent, upiIntentSchema } from '../upiIntent.js';
-import { Upiqr, upiqrSchema } from '../upiqr.js';
+import { UPICollect, uPICollectSchema } from '../uPICollect.js';
+import { UPIIntent, uPIIntentSchema } from '../uPIIntent.js';
+import { UPIQR, uPIQRSchema } from '../uPIQR.js';
 import { Vipps, vippsSchema } from '../vipps.js';
 import { VisaCheckout, visaCheckoutSchema } from '../visaCheckout.js';
 import { Voucher, voucherSchema } from '../voucher.js';
@@ -103,18 +103,18 @@ import { Zip, zipSchema } from '../zip.js';
 
 /** This is a container type for one-of types. */
 export type PaymentRequestPaymentMethod =
-  | AchDirectDebit
+  | ACHDirectDebit
   | Affirm
   | Afterpay
   | Alma
   | AmazonPay
-  | Ancv
+  | ANCV
   | AndroidPay
   | ApplePayDetails
   | AuPay
-  | BacsDirectDebit
+  | BACSDirectDebit
   | BillDesk
-  | Blik
+  | BLIK
   | CardDetails
   | StoredPaymentMethod
   | Cellulant
@@ -124,8 +124,8 @@ export type PaymentRequestPaymentMethod =
   | Dragonpay
   | EBankingFinland
   | Voucher
-  | EftDirectDebit
-  | DetailsoftokensthatarenotstoredwithAdyen
+  | EFTDirectDebit
+  | DetailsOfTokensThatAreNotStoredWithAdyen
   | Fastlane
   | StoredPaymentMethod2
   | GooglePayDetails
@@ -133,31 +133,31 @@ export type PaymentRequestPaymentMethod =
   | Klarna
   | KlarnaNetwork
   | Masterpass
-  | MbWay
+  | MBWay
   | MobilePay
-  | MolPay
+  | MOLPay
   | OpenInvoice
-  | PayByBankAisDirectDebit
+  | PayByBankAISDirectDebit
   | PayByBank
   | PayPal
   | PayPay
   | PayTo
   | PayU
   | PayWithGoogleDetails
-  | PaymentDetails2
+  | PaymentDetails
   | StoredPaymentMethod4
   | StoredPaymentMethod5
-  | PseLatam
+  | PSELatam
   | RakutenPay
   | Ratepay
   | Riverty
   | SamsungPay
-  | SepaDirectDebit
+  | SEPADirectDebit
   | StoredPaymentMethod6
   | Twint
-  | UpiCollect
-  | UpiIntent
-  | Upiqr
+  | UPICollect
+  | UPIIntent
+  | UPIQR
   | Vipps
   | VisaCheckout
   | WeChatPay
@@ -167,18 +167,18 @@ export type PaymentRequestPaymentMethod =
 export const paymentRequestPaymentMethodSchema: Schema<PaymentRequestPaymentMethod> = lazy(
   () =>
     oneOf([
-      achDirectDebitSchema,
+      aCHDirectDebitSchema,
       affirmSchema,
       afterpaySchema,
       almaSchema,
       amazonPaySchema,
-      ancvSchema,
+      aNCVSchema,
       androidPaySchema,
       applePayDetailsSchema,
       auPaySchema,
-      bacsDirectDebitSchema,
+      bACSDirectDebitSchema,
       billDeskSchema,
-      blikSchema,
+      bLIKSchema,
       cardDetailsSchema,
       storedPaymentMethodSchema,
       cellulantSchema,
@@ -188,8 +188,8 @@ export const paymentRequestPaymentMethodSchema: Schema<PaymentRequestPaymentMeth
       dragonpaySchema,
       eBankingFinlandSchema,
       voucherSchema,
-      eftDirectDebitSchema,
-      detailsoftokensthatarenotstoredwithAdyenSchema,
+      eFTDirectDebitSchema,
+      detailsOfTokensThatAreNotStoredWithAdyenSchema,
       fastlaneSchema,
       storedPaymentMethod2Schema,
       googlePayDetailsSchema,
@@ -197,31 +197,31 @@ export const paymentRequestPaymentMethodSchema: Schema<PaymentRequestPaymentMeth
       klarnaSchema,
       klarnaNetworkSchema,
       masterpassSchema,
-      mbWaySchema,
+      mBWaySchema,
       mobilePaySchema,
-      molPaySchema,
+      mOLPaySchema,
       openInvoiceSchema,
-      payByBankAisDirectDebitSchema,
+      payByBankAISDirectDebitSchema,
       payByBankSchema,
       payPalSchema,
       payPaySchema,
       payToSchema,
       payUSchema,
       payWithGoogleDetailsSchema,
-      paymentDetails2Schema,
+      paymentDetailsSchema,
       storedPaymentMethod4Schema,
       storedPaymentMethod5Schema,
-      pseLatamSchema,
+      pSELatamSchema,
       rakutenPaySchema,
       ratepaySchema,
       rivertySchema,
       samsungPaySchema,
-      sepaDirectDebitSchema,
+      sEPADirectDebitSchema,
       storedPaymentMethod6Schema,
       twintSchema,
-      upiCollectSchema,
-      upiIntentSchema,
-      upiqrSchema,
+      uPICollectSchema,
+      uPIIntentSchema,
+      uPIQRSchema,
       vippsSchema,
       visaCheckoutSchema,
       weChatPaySchema,
@@ -232,12 +232,12 @@ export const paymentRequestPaymentMethodSchema: Schema<PaymentRequestPaymentMeth
 
 export namespace PaymentRequestPaymentMethod {
   /**
-   * Validation method to narrow down union type to AchDirectDebit type case.
+   * Validation method to narrow down union type to ACHDirectDebit type case.
    *
-   * This is ACHDirectDebit case.
+   * This is ACH Direct Debit case.
    */
-  export function isAchDirectDebit(value: unknown): value is AchDirectDebit {
-    return isMappedValueValidForSchema(value, achDirectDebitSchema);
+  export function isACHDirectDebit(value: unknown): value is ACHDirectDebit {
+    return isMappedValueValidForSchema(value, aCHDirectDebitSchema);
   }
 
   /**
@@ -270,25 +270,25 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to AmazonPay type case.
    *
-   * This is AmazonPay case.
+   * This is Amazon Pay case.
    */
   export function isAmazonPay(value: unknown): value is AmazonPay {
     return isMappedValueValidForSchema(value, amazonPaySchema);
   }
 
   /**
-   * Validation method to narrow down union type to Ancv type case.
+   * Validation method to narrow down union type to ANCV type case.
    *
    * This is ANCV case.
    */
-  export function isAncv(value: unknown): value is Ancv {
-    return isMappedValueValidForSchema(value, ancvSchema);
+  export function isANCV(value: unknown): value is ANCV {
+    return isMappedValueValidForSchema(value, aNCVSchema);
   }
 
   /**
    * Validation method to narrow down union type to AndroidPay type case.
    *
-   * This is AndroidPay case.
+   * This is Android Pay case.
    */
   export function isAndroidPay(value: unknown): value is AndroidPay {
     return isMappedValueValidForSchema(value, androidPaySchema);
@@ -313,12 +313,12 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to BacsDirectDebit type case.
+   * Validation method to narrow down union type to BACSDirectDebit type case.
    *
-   * This is BACSDirectDebit case.
+   * This is BACS Direct Debit case.
    */
-  export function isBacsDirectDebit(value: unknown): value is BacsDirectDebit {
-    return isMappedValueValidForSchema(value, bacsDirectDebitSchema);
+  export function isBACSDirectDebit(value: unknown): value is BACSDirectDebit {
+    return isMappedValueValidForSchema(value, bACSDirectDebitSchema);
   }
 
   /**
@@ -331,12 +331,12 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to Blik type case.
+   * Validation method to narrow down union type to BLIK type case.
    *
    * This is BLIK case.
    */
-  export function isBlik(value: unknown): value is Blik {
-    return isMappedValueValidForSchema(value, blikSchema);
+  export function isBLIK(value: unknown): value is BLIK {
+    return isMappedValueValidForSchema(value, bLIKSchema);
   }
 
   /**
@@ -351,7 +351,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to StoredPaymentMethod type case.
    *
-   * This is StoredPaymentMethod case.
+   * This is Stored Payment Method case.
    */
   export function isStoredPaymentMethod(
     value: unknown
@@ -407,7 +407,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to EBankingFinland type case.
    *
-   * This is E-BankingFinland case.
+   * This is E-Banking Finland case.
    */
   export function isEBankingFinland(value: unknown): value is EBankingFinland {
     return isMappedValueValidForSchema(value, eBankingFinlandSchema);
@@ -423,25 +423,25 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to EftDirectDebit type case.
+   * Validation method to narrow down union type to EFTDirectDebit type case.
    *
-   * This is EFTDirectDebit case.
+   * This is EFT Direct Debit case.
    */
-  export function isEftDirectDebit(value: unknown): value is EftDirectDebit {
-    return isMappedValueValidForSchema(value, eftDirectDebitSchema);
+  export function isEFTDirectDebit(value: unknown): value is EFTDirectDebit {
+    return isMappedValueValidForSchema(value, eFTDirectDebitSchema);
   }
 
   /**
-   * Validation method to narrow down union type to DetailsoftokensthatarenotstoredwithAdyen type case.
+   * Validation method to narrow down union type to DetailsOfTokensThatAreNotStoredWithAdyen type case.
    *
-   * This is DetailsoftokensthatarenotstoredwithAdyen. case.
+   * This is Details of tokens that are not stored with Adyen. case.
    */
-  export function isDetailsoftokensthatarenotstoredwithAdyen(
+  export function isDetailsOfTokensThatAreNotStoredWithAdyen(
     value: unknown
-  ): value is DetailsoftokensthatarenotstoredwithAdyen {
+  ): value is DetailsOfTokensThatAreNotStoredWithAdyen {
     return isMappedValueValidForSchema(
       value,
-      detailsoftokensthatarenotstoredwithAdyenSchema
+      detailsOfTokensThatAreNotStoredWithAdyenSchema
     );
   }
 
@@ -457,7 +457,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to StoredPaymentMethod2 type case.
    *
-   * This is StoredPaymentMethod2 case.
+   * This is Stored Payment Method2 case.
    */
   export function isStoredPaymentMethod2(
     value: unknown
@@ -513,12 +513,12 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to MbWay type case.
+   * Validation method to narrow down union type to MBWay type case.
    *
    * This is MBWay case.
    */
-  export function isMbWay(value: unknown): value is MbWay {
-    return isMappedValueValidForSchema(value, mbWaySchema);
+  export function isMBWay(value: unknown): value is MBWay {
+    return isMappedValueValidForSchema(value, mBWaySchema);
   }
 
   /**
@@ -531,32 +531,32 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to MolPay type case.
+   * Validation method to narrow down union type to MOLPay type case.
    *
    * This is MOLPay case.
    */
-  export function isMolPay(value: unknown): value is MolPay {
-    return isMappedValueValidForSchema(value, molPaySchema);
+  export function isMOLPay(value: unknown): value is MOLPay {
+    return isMappedValueValidForSchema(value, mOLPaySchema);
   }
 
   /**
    * Validation method to narrow down union type to OpenInvoice type case.
    *
-   * This is OpenInvoice case.
+   * This is Open Invoice case.
    */
   export function isOpenInvoice(value: unknown): value is OpenInvoice {
     return isMappedValueValidForSchema(value, openInvoiceSchema);
   }
 
   /**
-   * Validation method to narrow down union type to PayByBankAisDirectDebit type case.
+   * Validation method to narrow down union type to PayByBankAISDirectDebit type case.
    *
-   * This is PayByBankAISDirectDebit case.
+   * This is Pay By Bank AIS Direct Debit case.
    */
-  export function isPayByBankAisDirectDebit(
+  export function isPayByBankAISDirectDebit(
     value: unknown
-  ): value is PayByBankAisDirectDebit {
-    return isMappedValueValidForSchema(value, payByBankAisDirectDebitSchema);
+  ): value is PayByBankAISDirectDebit {
+    return isMappedValueValidForSchema(value, payByBankAISDirectDebitSchema);
   }
 
   /**
@@ -616,18 +616,18 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to PaymentDetails2 type case.
+   * Validation method to narrow down union type to PaymentDetails type case.
    *
-   * This is PaymentDetails2 case.
+   * This is Payment Details case.
    */
-  export function isPaymentDetails2(value: unknown): value is PaymentDetails2 {
-    return isMappedValueValidForSchema(value, paymentDetails2Schema);
+  export function isPaymentDetails(value: unknown): value is PaymentDetails {
+    return isMappedValueValidForSchema(value, paymentDetailsSchema);
   }
 
   /**
    * Validation method to narrow down union type to StoredPaymentMethod4 type case.
    *
-   * This is StoredPaymentMethod4 case.
+   * This is Stored Payment Method4 case.
    */
   export function isStoredPaymentMethod4(
     value: unknown
@@ -638,7 +638,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to StoredPaymentMethod5 type case.
    *
-   * This is StoredPaymentMethod5 case.
+   * This is Stored Payment Method5 case.
    */
   export function isStoredPaymentMethod5(
     value: unknown
@@ -647,12 +647,12 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to PseLatam type case.
+   * Validation method to narrow down union type to PSELatam type case.
    *
-   * This is PSELatam case.
+   * This is PSE Latam case.
    */
-  export function isPseLatam(value: unknown): value is PseLatam {
-    return isMappedValueValidForSchema(value, pseLatamSchema);
+  export function isPSELatam(value: unknown): value is PSELatam {
+    return isMappedValueValidForSchema(value, pSELatamSchema);
   }
 
   /**
@@ -685,25 +685,25 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to SamsungPay type case.
    *
-   * This is SamsungPay case.
+   * This is Samsung Pay case.
    */
   export function isSamsungPay(value: unknown): value is SamsungPay {
     return isMappedValueValidForSchema(value, samsungPaySchema);
   }
 
   /**
-   * Validation method to narrow down union type to SepaDirectDebit type case.
+   * Validation method to narrow down union type to SEPADirectDebit type case.
    *
-   * This is SEPADirectDebit case.
+   * This is SEPA Direct Debit case.
    */
-  export function isSepaDirectDebit(value: unknown): value is SepaDirectDebit {
-    return isMappedValueValidForSchema(value, sepaDirectDebitSchema);
+  export function isSEPADirectDebit(value: unknown): value is SEPADirectDebit {
+    return isMappedValueValidForSchema(value, sEPADirectDebitSchema);
   }
 
   /**
    * Validation method to narrow down union type to StoredPaymentMethod6 type case.
    *
-   * This is StoredPaymentMethod6 case.
+   * This is Stored Payment Method6 case.
    */
   export function isStoredPaymentMethod6(
     value: unknown
@@ -721,30 +721,30 @@ export namespace PaymentRequestPaymentMethod {
   }
 
   /**
-   * Validation method to narrow down union type to UpiCollect type case.
+   * Validation method to narrow down union type to UPICollect type case.
    *
-   * This is UPICollect case.
+   * This is UPI Collect case.
    */
-  export function isUpiCollect(value: unknown): value is UpiCollect {
-    return isMappedValueValidForSchema(value, upiCollectSchema);
+  export function isUPICollect(value: unknown): value is UPICollect {
+    return isMappedValueValidForSchema(value, uPICollectSchema);
   }
 
   /**
-   * Validation method to narrow down union type to UpiIntent type case.
+   * Validation method to narrow down union type to UPIIntent type case.
    *
-   * This is UPIIntent case.
+   * This is UPI Intent case.
    */
-  export function isUpiIntent(value: unknown): value is UpiIntent {
-    return isMappedValueValidForSchema(value, upiIntentSchema);
+  export function isUPIIntent(value: unknown): value is UPIIntent {
+    return isMappedValueValidForSchema(value, uPIIntentSchema);
   }
 
   /**
-   * Validation method to narrow down union type to Upiqr type case.
+   * Validation method to narrow down union type to UPIQR type case.
    *
-   * This is UPIQR case.
+   * This is UPI QR case.
    */
-  export function isUpiqr(value: unknown): value is Upiqr {
-    return isMappedValueValidForSchema(value, upiqrSchema);
+  export function isUPIQR(value: unknown): value is UPIQR {
+    return isMappedValueValidForSchema(value, uPIQRSchema);
   }
 
   /**
@@ -759,7 +759,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to VisaCheckout type case.
    *
-   * This is VisaCheckout case.
+   * This is Visa Checkout case.
    */
   export function isVisaCheckout(value: unknown): value is VisaCheckout {
     return isMappedValueValidForSchema(value, visaCheckoutSchema);
@@ -768,7 +768,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to WeChatPay type case.
    *
-   * This is WeChatPay case.
+   * This is WeChat Pay case.
    */
   export function isWeChatPay(value: unknown): value is WeChatPay {
     return isMappedValueValidForSchema(value, weChatPaySchema);
@@ -777,7 +777,7 @@ export namespace PaymentRequestPaymentMethod {
   /**
    * Validation method to narrow down union type to WeChatPayMiniProgram type case.
    *
-   * This is WeChatPay-MiniProgram case.
+   * This is WeChat Pay - Mini Program case.
    */
   export function isWeChatPayMiniProgram(
     value: unknown

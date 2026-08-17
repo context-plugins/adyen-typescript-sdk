@@ -10,8 +10,7 @@ import { GrantOffer1, grantOffer1Schema } from '../models/grantOffer1.js';
 import { GrantOffers, grantOffersSchema } from '../models/grantOffers.js';
 import { string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { GrantOffers404Error } from '../errors/grantOffers404Error.js';
-import { GrantOffers422Error3Error } from '../errors/grantOffers422Error3Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 import { RestServiceError } from '../errors/restServiceError.js';
 
 export class GrantOffersApi extends BaseApi {
@@ -28,6 +27,7 @@ export class GrantOffersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GrantOffers>> {
     const req = this.createRequest('GET', '/grantOffers');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       accountHolderId: [accountHolderId, string()],
     });
@@ -78,6 +78,7 @@ export class GrantOffersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GrantOffer>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ grantOfferId: [grantOfferId, string()] });
     req.appendTemplatePath`/grantOffers/${mapped.grantOfferId}`;
     req.deprecated('GrantOffersApi.getGrantOffersGrantOfferId');
@@ -115,6 +116,40 @@ export class GrantOffersApi extends BaseApi {
   }
 
   /**
+   * Returns a list of all [static offers](https://docs.adyen.com/capital/get-grant-offers/static-offers)
+   * available for `accountHolderId` specified as a query parameter. This also includes static offers
+   * created for financing amounts that the user selected from [dynamic offers](https://docs.adyen.
+   * com/capital/get-grant-offers/dynamic-offers/).
+   *
+   * @param accountHolderId The unique identifier of the account holder for which you want to get the
+   *                                  available static offers.
+   * @return Response from the API call
+   */
+  async getGrantOffers1(
+    accountHolderId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<GrantOffers>> {
+    const req = this.createRequest('GET', '/grantOffers');
+    req.baseUrl('default15');
+    const mapped = req.prepareArgs({
+      accountHolderId: [accountHolderId, string()],
+    });
+    req.query('accountHolderId', mapped.accountHolderId);
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'Not Found - The entity was not found.'
+    );
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'Unprocessable Entity - A request validation error.'
+    );
+    req.authenticate(false);
+    return req.callAsJson(grantOffersSchema, requestOptions);
+  }
+
+  /**
    * Returns the details of the specified static offer.
    *
    * @param id The unique identifier of the static offer.
@@ -125,16 +160,17 @@ export class GrantOffersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GrantOffer1>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/grantOffers/${mapped.id}`;
     req.throwOn(
       404,
-      GrantOffers404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - The entity was not found.'
     );
     req.throwOn(
       422,
-      GrantOffers422Error3Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);

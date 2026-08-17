@@ -1,8 +1,6 @@
 
 # Nonprofit
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Nonprofit`
@@ -21,7 +19,6 @@
 | `regions` | `string[]` | Required | The regions where the nonprofit operates, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.<br><br>**Constraints**: *Minimum Items*: `1` |
 | `termsAndConditionsUrl` | `string` | Required | The URL to the terms and conditions of the nonprofit. |
 | `website` | `string` | Required | The URL to the website of the nonprofit. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -39,9 +36,6 @@ const nonprofit: Nonprofit = {
       ],
       name: 'name6',
       id: 'id6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   description: 'description8',
@@ -63,9 +57,6 @@ const nonprofit: Nonprofit = {
   termsAndConditionsUrl: 'termsAndConditionsUrl0',
   website: 'website2',
   id: 'id2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

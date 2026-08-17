@@ -14,8 +14,7 @@ import {
   balanceTransferResponseSchema,
 } from '../models/balanceTransferResponse.js';
 import { BaseApi } from './baseApi.js';
-import { BalanceTransfers401Error } from '../errors/balanceTransfers401Error.js';
-import { BalanceTransfers422Error } from '../errors/balanceTransfers422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class BalanceTransfersApi extends BaseApi {
   /**
@@ -39,15 +38,16 @@ export class BalanceTransfersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceTransferResponse>> {
     const req = this.createRequest('POST', '/balanceTransfers');
+    req.baseUrl('default11');
     const mapped = req.prepareArgs({
       body: [body, balanceTransferRequestSchema],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
-    req.throwOn(401, BalanceTransfers401Error, 'Unauthorized');
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
     req.throwOn(
       422,
-      BalanceTransfers422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Content - A request validation error.'
     );
     req.authenticate(false);

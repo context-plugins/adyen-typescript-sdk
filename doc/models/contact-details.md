@@ -1,8 +1,6 @@
 
 # Contact Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ContactDetails`
@@ -11,16 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `address` | [`Address112`](../../doc/models/address-112.md) | Required | - |
+| `address` | [`Address`](../../doc/models/address.md) | Required | The address of the account holder. |
 | `email` | `string` | Required | The email address of the account holder. |
-| `phone` | [`Phone`](../../doc/models/phone.md) | Required | - |
+| `phone` | [`Phone31`](../../doc/models/phone-31.md) | Required | The phone number of the account holder. |
 | `webAddress` | `string \| undefined` | Optional | The URL of the account holder's website. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ContactDetails, Type4 } from 'adyen';
+import { ContactDetails, Type410Enum } from 'adyen';
 
 const contactDetails: ContactDetails = {
   address: {
@@ -30,22 +27,13 @@ const contactDetails: ContactDetails = {
     postalCode: 'postalCode8',
     street: 'street6',
     stateOrProvince: 'stateOrProvince4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   email: 'email6',
   phone: {
     number: 'number8',
-    type: Type4.Landline,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: Type410Enum.Landline,
   },
   webAddress: 'webAddress0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

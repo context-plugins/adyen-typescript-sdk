@@ -1,8 +1,6 @@
 
 # Attach Document Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AttachDocumentResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `attachmentId` | `string \| undefined` | Optional, Read-only | The unique identifier of the attachment. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -20,10 +17,6 @@
 import { AttachDocumentResponse } from 'adyen';
 
 const attachDocumentResponse: AttachDocumentResponse = {
-  attachmentId: 'attachmentId2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

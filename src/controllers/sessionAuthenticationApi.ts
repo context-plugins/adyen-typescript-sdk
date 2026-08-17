@@ -6,61 +6,102 @@
 
 import { ApiResponse, RequestOptions } from '../core.js';
 import {
+  AuthenticationSessionRequest,
+  authenticationSessionRequestSchema,
+} from '../models/authenticationSessionRequest.js';
+import {
+  AuthenticationSessionResponse,
+  authenticationSessionResponseSchema,
+} from '../models/authenticationSessionResponse.js';
+import {
   CertificateLoadingRequest,
   certificateLoadingRequestSchema,
 } from '../models/certificateLoadingRequest.js';
 import {
-  CreateSessionResponse,
-  createSessionResponseSchema,
-} from '../models/createSessionResponse.js';
+  CertificateLoadingResponse,
+  certificateLoadingResponseSchema,
+} from '../models/certificateLoadingResponse.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { AuthCertificate400Error } from '../errors/authCertificate400Error.js';
-import { AuthCertificate401Error } from '../errors/authCertificate401Error.js';
-import { AuthCertificate422Error } from '../errors/authCertificate422Error.js';
-import { AuthCertificate500Error } from '../errors/authCertificate500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class SessionAuthenticationApi extends BaseApi {
+  /**
+   * Creates a session token that is required to integrate [components](https://docs.adyen.
+   * com/platforms/components-overview).
+   *
+   * The response contains encrypted session data. The front end then uses the session data to make the
+   * required server-side calls for the component.
+   *
+   * To create a token, you must meet specific requirements. These requirements vary depending on the
+   * type of component. For more information, see the documentation for [Onboarding](https://docs.adyen.
+   * com/platforms/onboard-users/components) and [Platform Experience](https://docs.adyen.
+   * com/platforms/build-user-dashboards) components.
+   *
+   *
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postSessions(
+    body: AuthenticationSessionRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<AuthenticationSessionResponse>> {
+    const req = this.createRequest('POST', '/sessions');
+    req.baseUrl('default17');
+    const mapped = req.prepareArgs({
+      body: [body, authenticationSessionRequestSchema],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(400, DefaultErrorResponseEntityError, 'Bad request');
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
+    req.throwOn(403, DefaultErrorResponseEntityError, 'Forbidden');
+    req.authenticate(false);
+    return req.callAsJson(authenticationSessionResponseSchema, requestOptions);
+  }
+
   /**
    * Establishes a secure communication session between the Mobile SDK and the Adyen payments platform,
    * through mutual authentication. The request sends a setup token that identifies the SDK and the
    * device. The response returns a session token that the SDK can use to authenticate responses received
    * from the Adyen payments platform.
    *
-   * @param xApiKey      The API key to authenticate API requests.
+   * @param xAPIKey      The API key to authenticate API requests.
    * @param body
    * @return Response from the API call
    */
   async postAuthCertificate(
-    xApiKey?: string,
+    xAPIKey?: string,
     body?: CertificateLoadingRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<CreateSessionResponse>> {
+  ): Promise<ApiResponse<CertificateLoadingResponse>> {
     const req = this.createRequest('POST', '/auth/certificate');
+    req.baseUrl('default25');
     const mapped = req.prepareArgs({
-      xApiKey: [xApiKey, optional(string())],
+      xAPIKey: [xAPIKey, optional(string())],
       body: [body, optional(certificateLoadingRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
-    req.header('X-API-Key', mapped.xApiKey);
+    req.header('X-API-Key', mapped.xAPIKey);
     req.json(mapped.body);
     req.throwOn(
       400,
-      AuthCertificate400Error,
+      DefaultErrorResponseEntityError,
       'Bad request - validation failed.'
     );
     req.throwOn(
       401,
-      AuthCertificate401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       422,
-      AuthCertificate422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable entity - session request could not be processed.'
     );
-    req.throwOn(500, AuthCertificate500Error, 'Internal server error.');
+    req.throwOn(500, DefaultErrorResponseEntityError, 'Internal server error.');
     req.authenticate(false);
-    return req.callAsJson(createSessionResponseSchema, requestOptions);
+    return req.callAsJson(certificateLoadingResponseSchema, requestOptions);
   }
 }

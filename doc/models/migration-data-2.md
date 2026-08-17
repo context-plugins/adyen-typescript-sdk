@@ -3,8 +3,6 @@
 
 Details of the account holder migrated to the balance platform.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MigrationData2`
@@ -20,7 +18,6 @@ Details of the account holder migrated to the balance platform.
 | `migratedShareholders` | [`MigratedShareholders[] \| undefined`](../../doc/models/migrated-shareholders.md) | Optional | Contains the mapping of shareholders associated with the migrated legal entities. |
 | `migratedStores` | [`MigratedStores[] \| undefined`](../../doc/models/migrated-stores.md) | Optional | Contains the mapping of business lines and stores associated with the migrated account holder. |
 | `migrationDate` | `string \| undefined` | Optional | The date when account holder was migrated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -35,51 +32,30 @@ const migrationData2: MigrationData2 = {
     {
       accountCode: 'accountCode6',
       balanceAccountId: 'balanceAccountId2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       accountCode: 'accountCode6',
       balanceAccountId: 'balanceAccountId2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       accountCode: 'accountCode6',
       balanceAccountId: 'balanceAccountId2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   migratedShareholders: [
     {
       legalEntityCode: 'legalEntityCode0',
       shareholderCode: 'shareholderCode4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       legalEntityCode: 'legalEntityCode0',
       shareholderCode: 'shareholderCode4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       legalEntityCode: 'legalEntityCode0',
       shareholderCode: 'shareholderCode4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 The details of the payout schedule added to the account.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PayoutScheduleResponse1`
@@ -14,20 +12,16 @@ The details of the payout schedule added to the account.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `nextScheduledPayout` | `string \| undefined` | Optional | The date of the next scheduled payout. |
-| `schedule` | [`PayoutSchedule \| undefined`](../../doc/models/payout-schedule.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `schedule` | [`ScheduleEnum \| undefined`](../../doc/models/schedule-enum.md) | Optional | The payout schedule for the account.<br><br>Possible values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`, `DAILY_SG`, `WEEKLY`, `WEEKLY_ON_TUE_FRI_MIDNIGHT`, `BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT`, `MONTHLY`, `HOLD`.<br><br>> `HOLD` prevents scheduled payouts, but you can still initiate payouts manually. |
 
 ## Example
 
 ```ts
-import { PayoutSchedule, PayoutScheduleResponse1 } from 'adyen';
+import { PayoutScheduleResponse1, ScheduleEnum } from 'adyen';
 
 const payoutScheduleResponse1: PayoutScheduleResponse1 = {
   nextScheduledPayout: '2016-03-13T12:52:32.123Z',
-  schedule: PayoutSchedule.Hold,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  schedule: ScheduleEnum.HOLD,
 };
 ```
 

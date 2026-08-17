@@ -1,11 +1,9 @@
 
-# Bacs Account Identifier
-
-*This model accepts additional fields of type unknown.*
+# BACS Account Identifier
 
 ## Structure
 
-`BacsAccountIdentifier`
+`BACSAccountIdentifier`
 
 ## Fields
 
@@ -13,19 +11,15 @@
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The account number of the bank account. |
 | `sortCode` | `string` | Required | A number that identifies the specific bank and branch where a UK bank account is held. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { BacsAccountIdentifier } from 'adyen';
+import { BACSAccountIdentifier } from 'adyen';
 
-const bacsAccountIdentifier: BacsAccountIdentifier = {
-  accountNumber: 'accountNumber0',
-  sortCode: 'sortCode0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const bACSAccountIdentifier: BACSAccountIdentifier = {
+  accountNumber: 'accountNumber2',
+  sortCode: 'sortCode2',
 };
 ```
 

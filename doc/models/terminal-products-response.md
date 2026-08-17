@@ -1,8 +1,6 @@
 
 # Terminal Products Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TerminalProductsResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `data` | [`TerminalProduct[] \| undefined`](../../doc/models/terminal-product.md) | Optional | Terminal products that can be ordered. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,12 +30,6 @@ const terminalProductsResponse: TerminalProductsResponse = {
       price: {
         currency: 'currency2',
         value: 203.04,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -53,12 +44,6 @@ const terminalProductsResponse: TerminalProductsResponse = {
       price: {
         currency: 'currency2',
         value: 203.04,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -73,18 +58,9 @@ const terminalProductsResponse: TerminalProductsResponse = {
       price: {
         currency: 'currency2',
         value: 203.04,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Subject Erasure Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SubjectErasureResponse`
@@ -11,19 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `result` | [`Result2 \| undefined`](../../doc/models/result-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `result` | [`Result2Enum \| undefined`](../../doc/models/result-2-enum.md) | Optional | The result of this operation. |
 
 ## Example
 
 ```ts
-import { Result2, SubjectErasureResponse } from 'adyen';
+import { Result2Enum, SubjectErasureResponse } from 'adyen';
 
 const subjectErasureResponse: SubjectErasureResponse = {
-  result: Result2.PaymentNotFound,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  result: Result2Enum.PAYMENTNOTFOUND,
 };
 ```
 

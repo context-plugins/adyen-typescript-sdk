@@ -31,6 +31,7 @@ export class BankAccountValidationApi extends BaseApi {
       'POST',
       '/validateBankAccountIdentification'
     );
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(bankAccountIdentificationValidationRequestSchema)],
     });

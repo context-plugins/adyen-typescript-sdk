@@ -1,38 +1,29 @@
 
-# Payment Method Upi Apps
-
-*This model accepts additional fields of type unknown.*
+# Payment Method UPI Apps
 
 ## Structure
 
-`PaymentMethodUpiApps`
+`PaymentMethodUPIApps`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `appIdentifierInfo` | [`AppIdentifierInfo \| undefined`](../../doc/models/app-identifier-info.md) | Optional | - |
+| `appIdentifierInfo` | [`AppIdentifierInfo1 \| undefined`](../../doc/models/app-identifier-info-1.md) | Optional | The app identifier information containing iOS scheme and Android package ID. |
 | `id` | `string` | Required | The unique identifier of this app, to submit in requests to /payments. |
 | `name` | `string` | Required | A localized name of the app. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { PaymentMethodUpiApps } from 'adyen';
+import { PaymentMethodUPIApps } from 'adyen';
 
-const paymentMethodUpiApps: PaymentMethodUpiApps = {
-  id: 'id0',
-  name: 'name0',
+const paymentMethodUPIApps: PaymentMethodUPIApps = {
+  id: 'id2',
+  name: 'name2',
   appIdentifierInfo: {
     androidPackageId: 'androidPackageId8',
     iosScheme: 'iosScheme8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

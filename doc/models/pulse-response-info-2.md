@@ -3,8 +3,6 @@
 
 **pulse** details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PulseResponseInfo2`
@@ -13,26 +11,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `processingType` | [`ProcessingType \| undefined`](../../doc/models/processing-type.md) | Optional | - |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `processingType` | [`ProcessingTypeEnum \| undefined`](../../doc/models/processing-type-enum.md) | Optional | The type of transactions processed over this payment method.<br>Allowed values:<br><br>- **pos** for in-person payments.<br>- **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have `recurringProcessingModel` **Subscription**.<br>- **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with `recurringProcessingModel` **CardOnFile** or **UnscheduledCardOnFile**. |
+| `transactionDescription` | [`TransactionDescriptionResponseInfo1 \| undefined`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```ts
-import { ProcessingType, PulseResponseInfo2, Type33 } from 'adyen';
+import { ProcessingTypeEnum, PulseResponseInfo2, Type8Enum } from 'adyen';
 
 const pulseResponseInfo2: PulseResponseInfo2 = {
-  processingType: ProcessingType.Pos,
+  processingType: ProcessingTypeEnum.Pos,
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

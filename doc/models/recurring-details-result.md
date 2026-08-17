@@ -1,8 +1,6 @@
 
 # Recurring Details Result
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `RecurringDetailsResult`
@@ -15,7 +13,6 @@
 | `details` | [`RecurringDetailWrapper[] \| undefined`](../../doc/models/recurring-detail-wrapper.md) | Optional | Payment details stored for recurring payments. |
 | `lastKnownShopperEmail` | `string \| undefined` | Optional | The most recent email for this shopper (if available). |
 | `shopperReference` | `string \| undefined` | Optional | The reference you use to uniquely identify the shopper (e.g. user ID or account ID). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -40,9 +37,6 @@ const recurringDetailsResult: RecurringDetailsResult = {
           bankLocationId: 'bankLocationId2',
           bankName: 'bankName4',
           bic: 'bic0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         billingAddress: {
           city: 'city8',
@@ -51,24 +45,12 @@ const recurringDetailsResult: RecurringDetailsResult = {
           postalCode: 'postalCode6',
           street: 'street2',
           stateOrProvince: 'stateOrProvince0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
   lastKnownShopperEmail: 'lastKnownShopperEmail0',
   shopperReference: 'shopperReference8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

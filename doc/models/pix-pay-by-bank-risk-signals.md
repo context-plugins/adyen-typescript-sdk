@@ -1,8 +1,6 @@
 
 # Pix Pay by Bank Risk Signals
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PixPayByBankRiskSignals`
@@ -19,7 +17,6 @@
 | `screenBrightness` | `number \| undefined` | Optional | - |
 | `screenDimensions` | [`ScreenDimensions \| undefined`](../../doc/models/screen-dimensions.md) | Optional | - |
 | `userTimeZoneOffset` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -34,17 +31,11 @@ const pixPayByBankRiskSignals: PixPayByBankRiskSignals = {
       'errors1'
     ],
     score: 155.44,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   elapsedTimeSinceBoot: BigInt(140),
   isRootedDevice: false,
   language: 'language8',
   osVersion: 'osVersion6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

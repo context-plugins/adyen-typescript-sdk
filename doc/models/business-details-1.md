@@ -3,8 +3,6 @@
 
 Required when creating an entity with `legalEntityType` **Business**, **NonProfit**, **PublicCompany**, or **Partnership**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BusinessDetails1`
@@ -23,12 +21,11 @@ Required when creating an entity with `legalEntityType` **Business**, **NonProfi
 | `stockNumber` | `string \| undefined` | Optional | International Securities Identification Number (ISIN). |
 | `stockTicker` | `string \| undefined` | Optional | Stock Ticker symbol. |
 | `taxId` | `string \| undefined` | Optional | The tax ID of the company. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { BusinessDetails1, Gender } from 'adyen';
+import { BusinessDetails1, GenderEnum } from 'adyen';
 
 const businessDetails1: BusinessDetails1 = {
   doingBusinessAs: 'doingBusinessAs4',
@@ -42,9 +39,6 @@ const businessDetails1: BusinessDetails1 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       businessDetails: {
         legalBusinessName: 'legalBusinessName8',
@@ -52,14 +46,8 @@ const businessDetails1: BusinessDetails1 = {
         stockExchange: 'stockExchange4',
         stockNumber: 'stockNumber6',
         stockTicker: 'stockTicker6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       address: {
@@ -69,9 +57,6 @@ const businessDetails1: BusinessDetails1 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       businessDetails: {
         legalBusinessName: 'legalBusinessName8',
@@ -79,14 +64,8 @@ const businessDetails1: BusinessDetails1 = {
         stockExchange: 'stockExchange4',
         stockNumber: 'stockNumber6',
         stockTicker: 'stockTicker6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       address: {
@@ -96,9 +75,6 @@ const businessDetails1: BusinessDetails1 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       businessDetails: {
         legalBusinessName: 'legalBusinessName8',
@@ -106,14 +82,8 @@ const businessDetails1: BusinessDetails1 = {
         stockExchange: 'stockExchange4',
         stockNumber: 'stockNumber6',
         stockTicker: 'stockTicker6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   registrationNumber: 'registrationNumber6',
@@ -126,24 +96,15 @@ const businessDetails1: BusinessDetails1 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email8',
       fullPhoneNumber: 'fullPhoneNumber2',
       jobTitle: 'jobTitle2',
       name: {
         firstName: 'firstName4',
-        gender: Gender.Male,
+        gender: GenderEnum.MALE,
         infix: 'infix4',
         lastName: 'lastName4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -154,24 +115,15 @@ const businessDetails1: BusinessDetails1 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email8',
       fullPhoneNumber: 'fullPhoneNumber2',
       jobTitle: 'jobTitle2',
       name: {
         firstName: 'firstName4',
-        gender: Gender.Male,
+        gender: GenderEnum.MALE,
         infix: 'infix4',
         lastName: 'lastName4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -182,30 +134,18 @@ const businessDetails1: BusinessDetails1 = {
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
         street: 'street6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email8',
       fullPhoneNumber: 'fullPhoneNumber2',
       jobTitle: 'jobTitle2',
       name: {
         firstName: 'firstName4',
-        gender: Gender.Male,
+        gender: GenderEnum.MALE,
         infix: 'infix4',
         lastName: 'lastName4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -43,7 +43,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const body: BankAccountIdentificationValidationRequest = {
   accountIdentification: {
     iban: '1001001234',
-    type: Type203.Iban,
+    type: 'iban',
   },
 };
 

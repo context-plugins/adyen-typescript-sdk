@@ -3,8 +3,6 @@
 
 The other party in the transfer.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CounterpartyV31`
@@ -14,16 +12,15 @@ The other party in the transfer.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `balanceAccountId` | `string \| undefined` | Optional | The unique identifier of the counterparty [balance account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id). |
-| `bankAccount` | [`BankAccountV3 \| undefined`](../../doc/models/bank-account-v3.md) | Optional | - |
-| `card` | [`Card4 \| undefined`](../../doc/models/card-4.md) | Optional | - |
-| `merchant` | [`MerchantData \| undefined`](../../doc/models/merchant-data.md) | Optional | - |
+| `bankAccount` | [`BankAccountV31 \| undefined`](../../doc/models/bank-account-v31.md) | Optional | Contains information about the counterparty bank account. |
+| `card` | [`Card12 \| undefined`](../../doc/models/card-12.md) | Optional | Contains information about the counterparty card. |
+| `merchant` | [`MerchantData2 \| undefined`](../../doc/models/merchant-data-2.md) | Optional | Contains information about the merchant. |
 | `transferInstrumentId` | `string \| undefined` | Optional | The unique identifier of the counterparty [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CounterpartyV31, Type413 } from 'adyen';
+import { CounterpartyV31 } from 'adyen';
 
 const counterpartyV31: CounterpartyV31 = {
   balanceAccountId: 'balanceAccountId8',
@@ -36,30 +33,18 @@ const counterpartyV31: CounterpartyV31 = {
         line2: 'line20',
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       dateOfBirth: '2016-03-13T12:52:32.123Z',
       email: 'email6',
       firstName: 'firstName4',
       fullName: 'fullName0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     accountIdentification: {
       accountNumber: 'accountNumber4',
       bsbCode: 'bsbCode8',
-      type: Type413.AuLocal,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      type: 'type2',
     },
     storedPaymentMethodId: 'storedPaymentMethodId2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   card: {
     cardHolder: {
@@ -70,17 +55,11 @@ const counterpartyV31: CounterpartyV31 = {
         line2: 'line20',
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       dateOfBirth: '2016-03-13T12:52:32.123Z',
       email: 'email0',
       firstName: 'firstName8',
       fullName: 'fullName6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     cardIdentification: {
       expiryMonth: 'expiryMonth2',
@@ -88,12 +67,6 @@ const counterpartyV31: CounterpartyV31 = {
       issueNumber: 'issueNumber0',
       number: 'number6',
       startMonth: 'startMonth8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   merchant: {
@@ -106,19 +79,10 @@ const counterpartyV31: CounterpartyV31 = {
       countryOfOrigin: 'countryOfOrigin0',
       name: 'name4',
       rawData: 'rawData0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     postalCode: 'postalCode6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   transferInstrumentId: 'transferInstrumentId2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

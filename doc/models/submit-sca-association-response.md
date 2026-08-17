@@ -1,8 +1,6 @@
 
 # Submit Sca Association Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SubmitScaAssociationResponse`
@@ -12,14 +10,13 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `scaAssociations` | [`Association[]`](../../doc/models/association.md) | Required | List of associations created to the entities and their statuses.<br><br>**Constraints**: *Minimum Items*: `1` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  AssociationStatus1,
-  ScaEntityType1,
+  AssociationStatus1Enum,
+  ScaEntityType1Enum,
   SubmitScaAssociationResponse,
 } from 'adyen';
 
@@ -27,17 +24,11 @@ const submitScaAssociationResponse: SubmitScaAssociationResponse = {
   scaAssociations: [
     {
       entityId: 'entityId6',
-      entityType: ScaEntityType1.PaymentInstrument,
+      entityType: ScaEntityType1Enum.PaymentInstrument,
       scaDeviceId: 'BSDR11111111111A1AAA1AAAAA1AA1',
-      status: AssociationStatus1.PendingApproval,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      status: AssociationStatus1Enum.PendingApproval,
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

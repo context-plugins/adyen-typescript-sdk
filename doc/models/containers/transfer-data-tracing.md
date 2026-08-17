@@ -9,10 +9,10 @@
 
 | Type |
 |  --- |
-| [`UkFpsTracingData`](../../../doc/models/uk-fps-tracing-data.md) |
-| [`UsAchTracingData`](../../../doc/models/us-ach-tracing-data.md) |
+| [`UKFpsTracingData`](../../../doc/models/uk-fps-tracing-data.md) |
+| [`USAchTracingData`](../../../doc/models/us-ach-tracing-data.md) |
 
-## UkFpsTracingData
+## UKFpsTracingData
 
 ### Initialization Code
 
@@ -21,11 +21,11 @@
 ```ts
 const value: TransferDataTracing = {
   fpid: 'fpid0',
-  type: Type88.UkFps,
+  type: 'ukFps',
 };
 ```
 
-## UsAchTracingData
+## USAchTracingData
 
 ### Initialization Code
 
@@ -34,7 +34,7 @@ const value: TransferDataTracing = {
 ```ts
 const value: TransferDataTracing = {
   traceNumber: 'traceNumber8',
-  type: Type89.UsAch,
+  type: 'usAch',
 };
 ```
 

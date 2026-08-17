@@ -1,8 +1,6 @@
 
 # Android App
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AndroidApp`
@@ -17,19 +15,18 @@
 | `id` | `string` | Required | The unique identifier of the app. |
 | `label` | `string \| undefined` | Optional | The app name that is shown on the terminal. |
 | `packageName` | `string \| undefined` | Optional | The package name that uniquely identifies the Android app. |
-| `status` | [`Status15`](../../doc/models/status-15.md) | Required | - |
+| `status` | [`Status7Enum`](../../doc/models/status-7-enum.md) | Required | The status of the app. Possible values:<br><br>* `processing`: the app is being signed and converted to a format that the terminal can handle.<br>* `error`: something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements).<br>* `invalid`: there is something wrong with the APK file of the app.<br>* `ready`: the app has been signed and converted.<br>* `archived`: the app is no longer available. |
 | `versionCode` | `number \| undefined` | Optional | The version number of the app. |
 | `versionName` | `string \| undefined` | Optional | The app version number that is shown on the terminal. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AndroidApp, Status15 } from 'adyen';
+import { AndroidApp, Status7Enum } from 'adyen';
 
 const androidApp: AndroidApp = {
   id: 'id2',
-  status: Status15.Ready,
+  status: Status7Enum.Ready,
   description: 'description2',
   errorCode: 'errorCode8',
   errors: [
@@ -39,9 +36,6 @@ const androidApp: AndroidApp = {
         'terminalModels3',
         'terminalModels4'
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       errorCode: 'errorCode6',
@@ -49,16 +43,10 @@ const androidApp: AndroidApp = {
         'terminalModels3',
         'terminalModels4'
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   label: 'label2',
   packageName: 'packageName8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

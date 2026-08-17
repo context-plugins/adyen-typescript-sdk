@@ -1,8 +1,6 @@
 
 # Supply Defense Document Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SupplyDefenseDocumentResponse`
@@ -11,8 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `disputeServiceResult` | [`DisputeServiceResult`](../../doc/models/dispute-service-result.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `disputeServiceResult` | [`DisputeServiceResult1`](../../doc/models/dispute-service-result-1.md) | Required | The result of the dispute service. |
 
 ## Example
 
@@ -23,12 +20,6 @@ const supplyDefenseDocumentResponse: SupplyDefenseDocumentResponse = {
   disputeServiceResult: {
     success: false,
     errorMessage: 'errorMessage8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # Payment Method to Store
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentMethodToStore`
@@ -23,7 +21,6 @@
 | `holderName` | `string \| undefined` | Optional | The name of the card holder. |
 | `number` | `string \| undefined` | Optional | The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
 | `type` | `string \| undefined` | Optional | Set to **scheme**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const paymentMethodToStore: PaymentMethodToStore = {
   encryptedCard: 'encryptedCard6',
   encryptedCardNumber: 'encryptedCardNumber8',
   encryptedExpiryMonth: 'encryptedExpiryMonth0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

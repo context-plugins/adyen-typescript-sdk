@@ -1,8 +1,6 @@
 
 # Bulk Address
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BulkAddress`
@@ -24,7 +22,6 @@
 | `postalCode` | `string \| undefined` | Optional | The postal code.<br><br>Maximum length:<br><br>* 5 digits for addresses in the US.<br><br>* 10 characters for all other countries. |
 | `stateOrProvince` | `string \| undefined` | Optional | The two-letter ISO 3166-2 state or province code.<br><br>Maximum length: 2 characters for addresses in the US. |
 | `street` | `string \| undefined` | Optional | The streetname of the house. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -38,9 +35,6 @@ const bulkAddress: BulkAddress = {
   email: 'email0',
   houseNumberOrName: 'houseNumberOrName4',
   line1: 'line18',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

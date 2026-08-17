@@ -19,29 +19,7 @@ import {
 } from '../models/paymentsAppResponse.js';
 import { bigint, number, optional, string, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { MerchantsGeneratePaymentsAppBoardingToken400Error } from '../errors/merchantsGeneratePaymentsAppBoardingToken400Error.js';
-import { MerchantsGeneratePaymentsAppBoardingToken401Error } from '../errors/merchantsGeneratePaymentsAppBoardingToken401Error.js';
-import { MerchantsGeneratePaymentsAppBoardingToken403Error } from '../errors/merchantsGeneratePaymentsAppBoardingToken403Error.js';
-import { MerchantsGeneratePaymentsAppBoardingToken422Error } from '../errors/merchantsGeneratePaymentsAppBoardingToken422Error.js';
-import { MerchantsGeneratePaymentsAppBoardingToken500Error } from '../errors/merchantsGeneratePaymentsAppBoardingToken500Error.js';
-import { MerchantsPaymentsApps400Error } from '../errors/merchantsPaymentsApps400Error.js';
-import { MerchantsPaymentsApps401Error } from '../errors/merchantsPaymentsApps401Error.js';
-import { MerchantsPaymentsApps403Error } from '../errors/merchantsPaymentsApps403Error.js';
-import { MerchantsPaymentsApps422Error } from '../errors/merchantsPaymentsApps422Error.js';
-import { MerchantsPaymentsApps500Error } from '../errors/merchantsPaymentsApps500Error.js';
-import { MerchantsPaymentsAppsRevoke400Error } from '../errors/merchantsPaymentsAppsRevoke400Error.js';
-import { MerchantsPaymentsAppsRevoke401Error } from '../errors/merchantsPaymentsAppsRevoke401Error.js';
-import { MerchantsPaymentsAppsRevoke500Error } from '../errors/merchantsPaymentsAppsRevoke500Error.js';
-import { MerchantsStoresGeneratePaymentsAppBoardingToken400Error } from '../errors/merchantsStoresGeneratePaymentsAppBoardingToken400Error.js';
-import { MerchantsStoresGeneratePaymentsAppBoardingToken401Error } from '../errors/merchantsStoresGeneratePaymentsAppBoardingToken401Error.js';
-import { MerchantsStoresGeneratePaymentsAppBoardingToken403Error } from '../errors/merchantsStoresGeneratePaymentsAppBoardingToken403Error.js';
-import { MerchantsStoresGeneratePaymentsAppBoardingToken422Error } from '../errors/merchantsStoresGeneratePaymentsAppBoardingToken422Error.js';
-import { MerchantsStoresGeneratePaymentsAppBoardingToken500Error } from '../errors/merchantsStoresGeneratePaymentsAppBoardingToken500Error.js';
-import { MerchantsStoresPaymentsApps400Error } from '../errors/merchantsStoresPaymentsApps400Error.js';
-import { MerchantsStoresPaymentsApps401Error } from '../errors/merchantsStoresPaymentsApps401Error.js';
-import { MerchantsStoresPaymentsApps403Error } from '../errors/merchantsStoresPaymentsApps403Error.js';
-import { MerchantsStoresPaymentsApps422Error } from '../errors/merchantsStoresPaymentsApps422Error.js';
-import { MerchantsStoresPaymentsApps500Error } from '../errors/merchantsStoresPaymentsApps500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class PaymentsAppApi extends BaseApi {
   /**
@@ -64,6 +42,7 @@ export class PaymentsAppApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BoardingTokenResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default26');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, boardingTokenRequestSchema],
@@ -73,27 +52,27 @@ export class PaymentsAppApi extends BaseApi {
     req.appendTemplatePath`/merchants/${mapped.merchantId}/generatePaymentsAppBoardingToken`;
     req.throwOn(
       400,
-      MerchantsGeneratePaymentsAppBoardingToken400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      MerchantsGeneratePaymentsAppBoardingToken401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      MerchantsGeneratePaymentsAppBoardingToken403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      MerchantsGeneratePaymentsAppBoardingToken422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      MerchantsGeneratePaymentsAppBoardingToken500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate(false);
@@ -122,6 +101,7 @@ export class PaymentsAppApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BoardingTokenResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default26');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       storeId: [storeId, string()],
@@ -132,27 +112,27 @@ export class PaymentsAppApi extends BaseApi {
     req.appendTemplatePath`/merchants/${mapped.merchantId}/stores/${mapped.storeId}/generatePaymentsAppBoardingToken`;
     req.throwOn(
       400,
-      MerchantsStoresGeneratePaymentsAppBoardingToken400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      MerchantsStoresGeneratePaymentsAppBoardingToken401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      MerchantsStoresGeneratePaymentsAppBoardingToken403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      MerchantsStoresGeneratePaymentsAppBoardingToken422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      MerchantsStoresGeneratePaymentsAppBoardingToken500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate(false);
@@ -183,6 +163,7 @@ export class PaymentsAppApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentsAppResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default26');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       statuses: [statuses, optional(string())],
@@ -195,27 +176,27 @@ export class PaymentsAppApi extends BaseApi {
     req.appendTemplatePath`/merchants/${mapped.merchantId}/paymentsApps`;
     req.throwOn(
       400,
-      MerchantsPaymentsApps400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      MerchantsPaymentsApps401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      MerchantsPaymentsApps403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      MerchantsPaymentsApps422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      MerchantsPaymentsApps500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate(false);
@@ -248,6 +229,7 @@ export class PaymentsAppApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentsAppResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default26');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       storeId: [storeId, string()],
@@ -261,27 +243,27 @@ export class PaymentsAppApi extends BaseApi {
     req.appendTemplatePath`/merchants/${mapped.merchantId}/stores/${mapped.storeId}/paymentsApps`;
     req.throwOn(
       400,
-      MerchantsStoresPaymentsApps400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      MerchantsStoresPaymentsApps401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      MerchantsStoresPaymentsApps403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      MerchantsStoresPaymentsApps422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      MerchantsStoresPaymentsApps500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate(false);
@@ -306,8 +288,9 @@ export class PaymentsAppApi extends BaseApi {
     merchantId: string,
     installationId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<unknown | undefined>> {
+  ): Promise<ApiResponse<unknown>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default26');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       installationId: [installationId, string()],
@@ -315,20 +298,20 @@ export class PaymentsAppApi extends BaseApi {
     req.appendTemplatePath`/merchants/${mapped.merchantId}/paymentsApps/${mapped.installationId}/revoke`;
     req.throwOn(
       400,
-      MerchantsPaymentsAppsRevoke400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      MerchantsPaymentsAppsRevoke401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       500,
-      MerchantsPaymentsAppsRevoke500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate(false);
-    return req.callAsJson(optional(unknown()), requestOptions);
+    return req.callAsJson(unknown(), requestOptions);
   }
 }

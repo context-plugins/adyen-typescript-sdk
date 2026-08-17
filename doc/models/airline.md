@@ -1,8 +1,6 @@
 
 # Airline
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Airline`
@@ -24,7 +22,6 @@
 | `passengers` | [`Passenger[] \| undefined`](../../doc/models/passenger.md) | Optional | - |
 | `ticket` | [`Ticket \| undefined`](../../doc/models/ticket.md) | Optional | - |
 | `travelAgency` | [`TravelAgency \| undefined`](../../doc/models/travel-agency.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,17 +33,11 @@ const airline: Airline = {
   agency: {
     invoiceNumber: 'invoiceNumber6',
     planName: 'planName6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   boardingFee: BigInt(160),
   code: 'code0',
   computerizedReservationSystem: 'computerizedReservationSystem4',
   customerReferenceNumber: 'customerReferenceNumber6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -8,13 +8,12 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { PayoutLimit, payoutLimitSchema } from './payoutLimit.js';
+import { Amount, amountSchema } from './amount.js';
 
 export interface AccountPayoutState {
   /** Indicates whether payouts are allowed. This field is the overarching payout status, and is the aggregate of multiple conditions (e.g., KYC status, disabled flag, etc). If this field is false, no payouts will be permitted for any of the account holder's accounts. If this field is true, payouts will be permitted for any of the account holder's accounts. */
@@ -25,23 +24,19 @@ export interface AccountPayoutState {
   disabled?: boolean;
   /** The reason why payouts (to all of the account holder's accounts) have been disabled (by Adyen). If payouts have been disabled by Adyen, this field will explain why. If this field is blank, payouts have not been disabled by Adyen. */
   notAllowedReason?: string;
-  payoutLimit?: PayoutLimit;
+  /** The maximum amount that payouts are limited to. Only applies if payouts are allowed but limited. */
+  payoutLimit?: Amount;
   /** The payout tier that the account holder occupies. */
   tierNumber?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const accountPayoutStateSchema: Schema<AccountPayoutState> = lazy(() =>
-  typedExpandoObject(
-    {
-      allowPayout: ['allowPayout', optional(boolean())],
-      disableReason: ['disableReason', optional(string())],
-      disabled: ['disabled', optional(boolean())],
-      notAllowedReason: ['notAllowedReason', optional(string())],
-      payoutLimit: ['payoutLimit', optional(payoutLimitSchema)],
-      tierNumber: ['tierNumber', optional(number())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    allowPayout: ['allowPayout', optional(boolean())],
+    disableReason: ['disableReason', optional(string())],
+    disabled: ['disabled', optional(boolean())],
+    notAllowedReason: ['notAllowedReason', optional(string())],
+    payoutLimit: ['payoutLimit', optional(amountSchema)],
+    tierNumber: ['tierNumber', optional(number())],
+  })
 );

@@ -33,6 +33,7 @@ export class AllowedOriginsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AllowedOriginsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       apiCredentialId: [apiCredentialId, string()],
@@ -87,6 +88,7 @@ export class AllowedOriginsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AllowedOrigin>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       apiCredentialId: [apiCredentialId, string()],
@@ -144,6 +146,7 @@ export class AllowedOriginsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AllowedOrigin>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       apiCredentialId: [apiCredentialId, string()],
@@ -200,6 +203,7 @@ export class AllowedOriginsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       apiCredentialId: [apiCredentialId, string()],

@@ -11,226 +11,226 @@ import {
   Schema,
 } from '../../schema.js';
 import {
-  AuLocalAccountIdentification,
-  auLocalAccountIdentificationSchema,
-} from '../auLocalAccountIdentification.js';
+  AULocalAccountIdentification,
+  aULocalAccountIdentificationSchema,
+} from '../aULocalAccountIdentification.js';
 import {
-  CaLocalAccountIdentification,
-  caLocalAccountIdentificationSchema,
-} from '../caLocalAccountIdentification.js';
+  CALocalAccountIdentification,
+  cALocalAccountIdentificationSchema,
+} from '../cALocalAccountIdentification.js';
 import {
-  CzLocalAccountIdentification,
-  czLocalAccountIdentificationSchema,
-} from '../czLocalAccountIdentification.js';
+  CZLocalAccountIdentification,
+  cZLocalAccountIdentificationSchema,
+} from '../cZLocalAccountIdentification.js';
 import {
-  DkLocalAccountIdentification,
-  dkLocalAccountIdentificationSchema,
-} from '../dkLocalAccountIdentification.js';
+  DKLocalAccountIdentification,
+  dKLocalAccountIdentificationSchema,
+} from '../dKLocalAccountIdentification.js';
 import {
-  HkLocalAccountIdentification,
-  hkLocalAccountIdentificationSchema,
-} from '../hkLocalAccountIdentification.js';
+  HKLocalAccountIdentification,
+  hKLocalAccountIdentificationSchema,
+} from '../hKLocalAccountIdentification.js';
 import {
-  HuLocalAccountIdentification,
-  huLocalAccountIdentificationSchema,
-} from '../huLocalAccountIdentification.js';
+  HULocalAccountIdentification,
+  hULocalAccountIdentificationSchema,
+} from '../hULocalAccountIdentification.js';
 import {
-  IbanAccountIdentification1,
-  ibanAccountIdentification1Schema,
-} from '../ibanAccountIdentification1.js';
+  IbanAccountIdentification,
+  ibanAccountIdentificationSchema,
+} from '../ibanAccountIdentification.js';
 import {
-  NoLocalAccountIdentification,
-  noLocalAccountIdentificationSchema,
-} from '../noLocalAccountIdentification.js';
+  NOLocalAccountIdentification,
+  nOLocalAccountIdentificationSchema,
+} from '../nOLocalAccountIdentification.js';
 import {
   NumberAndBicAccountIdentification,
   numberAndBicAccountIdentificationSchema,
 } from '../numberAndBicAccountIdentification.js';
 import {
-  NzLocalAccountIdentification,
-  nzLocalAccountIdentificationSchema,
-} from '../nzLocalAccountIdentification.js';
+  NZLocalAccountIdentification,
+  nZLocalAccountIdentificationSchema,
+} from '../nZLocalAccountIdentification.js';
 import {
-  PlLocalAccountIdentification,
-  plLocalAccountIdentificationSchema,
-} from '../plLocalAccountIdentification.js';
+  PLLocalAccountIdentification,
+  pLLocalAccountIdentificationSchema,
+} from '../pLLocalAccountIdentification.js';
 import {
-  SeLocalAccountIdentification,
-  seLocalAccountIdentificationSchema,
-} from '../seLocalAccountIdentification.js';
+  SELocalAccountIdentification,
+  sELocalAccountIdentificationSchema,
+} from '../sELocalAccountIdentification.js';
 import {
-  SgLocalAccountIdentification,
-  sgLocalAccountIdentificationSchema,
-} from '../sgLocalAccountIdentification.js';
+  SGLocalAccountIdentification,
+  sGLocalAccountIdentificationSchema,
+} from '../sGLocalAccountIdentification.js';
 import {
-  UkLocalAccountIdentification,
-  ukLocalAccountIdentificationSchema,
-} from '../ukLocalAccountIdentification.js';
+  UKLocalAccountIdentification,
+  uKLocalAccountIdentificationSchema,
+} from '../uKLocalAccountIdentification.js';
 import {
-  UsLocalAccountIdentification,
-  usLocalAccountIdentificationSchema,
-} from '../usLocalAccountIdentification.js';
+  USLocalAccountIdentification,
+  uSLocalAccountIdentificationSchema,
+} from '../uSLocalAccountIdentification.js';
 
 /** This is a container type for one-of types. */
 export type BankAccountInfoAccountIdentification =
-  | AuLocalAccountIdentification
-  | CaLocalAccountIdentification
-  | CzLocalAccountIdentification
-  | DkLocalAccountIdentification
-  | HkLocalAccountIdentification
-  | HuLocalAccountIdentification
-  | IbanAccountIdentification1
-  | NoLocalAccountIdentification
-  | NzLocalAccountIdentification
+  | AULocalAccountIdentification
+  | CALocalAccountIdentification
+  | CZLocalAccountIdentification
+  | DKLocalAccountIdentification
+  | HKLocalAccountIdentification
+  | HULocalAccountIdentification
+  | IbanAccountIdentification
+  | NOLocalAccountIdentification
+  | NZLocalAccountIdentification
   | NumberAndBicAccountIdentification
-  | PlLocalAccountIdentification
-  | SeLocalAccountIdentification
-  | SgLocalAccountIdentification
-  | UkLocalAccountIdentification
-  | UsLocalAccountIdentification;
+  | PLLocalAccountIdentification
+  | SELocalAccountIdentification
+  | SGLocalAccountIdentification
+  | UKLocalAccountIdentification
+  | USLocalAccountIdentification;
 
 export const bankAccountInfoAccountIdentificationSchema: Schema<BankAccountInfoAccountIdentification> = lazy(
   () =>
     oneOf([
-      auLocalAccountIdentificationSchema,
-      caLocalAccountIdentificationSchema,
-      czLocalAccountIdentificationSchema,
-      dkLocalAccountIdentificationSchema,
-      hkLocalAccountIdentificationSchema,
-      huLocalAccountIdentificationSchema,
-      ibanAccountIdentification1Schema,
-      noLocalAccountIdentificationSchema,
-      nzLocalAccountIdentificationSchema,
+      aULocalAccountIdentificationSchema,
+      cALocalAccountIdentificationSchema,
+      cZLocalAccountIdentificationSchema,
+      dKLocalAccountIdentificationSchema,
+      hKLocalAccountIdentificationSchema,
+      hULocalAccountIdentificationSchema,
+      ibanAccountIdentificationSchema,
+      nOLocalAccountIdentificationSchema,
+      nZLocalAccountIdentificationSchema,
       numberAndBicAccountIdentificationSchema,
-      plLocalAccountIdentificationSchema,
-      seLocalAccountIdentificationSchema,
-      sgLocalAccountIdentificationSchema,
-      ukLocalAccountIdentificationSchema,
-      usLocalAccountIdentificationSchema,
+      pLLocalAccountIdentificationSchema,
+      sELocalAccountIdentificationSchema,
+      sGLocalAccountIdentificationSchema,
+      uKLocalAccountIdentificationSchema,
+      uSLocalAccountIdentificationSchema,
     ])
 );
 
 export namespace BankAccountInfoAccountIdentification {
   /**
-   * Validation method to narrow down union type to AuLocalAccountIdentification type case.
+   * Validation method to narrow down union type to AULocalAccountIdentification type case.
    *
    * This is AULocalAccountIdentification case.
    */
-  export function isAuLocalAccountIdentification(
+  export function isAULocalAccountIdentification(
     value: unknown
-  ): value is AuLocalAccountIdentification {
+  ): value is AULocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      auLocalAccountIdentificationSchema
+      aULocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to CaLocalAccountIdentification type case.
+   * Validation method to narrow down union type to CALocalAccountIdentification type case.
    *
    * This is CALocalAccountIdentification case.
    */
-  export function isCaLocalAccountIdentification(
+  export function isCALocalAccountIdentification(
     value: unknown
-  ): value is CaLocalAccountIdentification {
+  ): value is CALocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      caLocalAccountIdentificationSchema
+      cALocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to CzLocalAccountIdentification type case.
+   * Validation method to narrow down union type to CZLocalAccountIdentification type case.
    *
    * This is CZLocalAccountIdentification case.
    */
-  export function isCzLocalAccountIdentification(
+  export function isCZLocalAccountIdentification(
     value: unknown
-  ): value is CzLocalAccountIdentification {
+  ): value is CZLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      czLocalAccountIdentificationSchema
+      cZLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to DkLocalAccountIdentification type case.
+   * Validation method to narrow down union type to DKLocalAccountIdentification type case.
    *
    * This is DKLocalAccountIdentification case.
    */
-  export function isDkLocalAccountIdentification(
+  export function isDKLocalAccountIdentification(
     value: unknown
-  ): value is DkLocalAccountIdentification {
+  ): value is DKLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      dkLocalAccountIdentificationSchema
+      dKLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to HkLocalAccountIdentification type case.
+   * Validation method to narrow down union type to HKLocalAccountIdentification type case.
    *
    * This is HKLocalAccountIdentification case.
    */
-  export function isHkLocalAccountIdentification(
+  export function isHKLocalAccountIdentification(
     value: unknown
-  ): value is HkLocalAccountIdentification {
+  ): value is HKLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      hkLocalAccountIdentificationSchema
+      hKLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to HuLocalAccountIdentification type case.
+   * Validation method to narrow down union type to HULocalAccountIdentification type case.
    *
    * This is HULocalAccountIdentification case.
    */
-  export function isHuLocalAccountIdentification(
+  export function isHULocalAccountIdentification(
     value: unknown
-  ): value is HuLocalAccountIdentification {
+  ): value is HULocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      huLocalAccountIdentificationSchema
+      hULocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to IbanAccountIdentification1 type case.
+   * Validation method to narrow down union type to IbanAccountIdentification type case.
    *
-   * This is IbanAccountIdentification1 case.
+   * This is IbanAccountIdentification case.
    */
-  export function isIbanAccountIdentification1(
+  export function isIbanAccountIdentification(
     value: unknown
-  ): value is IbanAccountIdentification1 {
-    return isMappedValueValidForSchema(value, ibanAccountIdentification1Schema);
+  ): value is IbanAccountIdentification {
+    return isMappedValueValidForSchema(value, ibanAccountIdentificationSchema);
   }
 
   /**
-   * Validation method to narrow down union type to NoLocalAccountIdentification type case.
+   * Validation method to narrow down union type to NOLocalAccountIdentification type case.
    *
    * This is NOLocalAccountIdentification case.
    */
-  export function isNoLocalAccountIdentification(
+  export function isNOLocalAccountIdentification(
     value: unknown
-  ): value is NoLocalAccountIdentification {
+  ): value is NOLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      noLocalAccountIdentificationSchema
+      nOLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to NzLocalAccountIdentification type case.
+   * Validation method to narrow down union type to NZLocalAccountIdentification type case.
    *
    * This is NZLocalAccountIdentification case.
    */
-  export function isNzLocalAccountIdentification(
+  export function isNZLocalAccountIdentification(
     value: unknown
-  ): value is NzLocalAccountIdentification {
+  ): value is NZLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      nzLocalAccountIdentificationSchema
+      nZLocalAccountIdentificationSchema
     );
   }
 
@@ -249,72 +249,72 @@ export namespace BankAccountInfoAccountIdentification {
   }
 
   /**
-   * Validation method to narrow down union type to PlLocalAccountIdentification type case.
+   * Validation method to narrow down union type to PLLocalAccountIdentification type case.
    *
    * This is PLLocalAccountIdentification case.
    */
-  export function isPlLocalAccountIdentification(
+  export function isPLLocalAccountIdentification(
     value: unknown
-  ): value is PlLocalAccountIdentification {
+  ): value is PLLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      plLocalAccountIdentificationSchema
+      pLLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to SeLocalAccountIdentification type case.
+   * Validation method to narrow down union type to SELocalAccountIdentification type case.
    *
    * This is SELocalAccountIdentification case.
    */
-  export function isSeLocalAccountIdentification(
+  export function isSELocalAccountIdentification(
     value: unknown
-  ): value is SeLocalAccountIdentification {
+  ): value is SELocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      seLocalAccountIdentificationSchema
+      sELocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to SgLocalAccountIdentification type case.
+   * Validation method to narrow down union type to SGLocalAccountIdentification type case.
    *
    * This is SGLocalAccountIdentification case.
    */
-  export function isSgLocalAccountIdentification(
+  export function isSGLocalAccountIdentification(
     value: unknown
-  ): value is SgLocalAccountIdentification {
+  ): value is SGLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      sgLocalAccountIdentificationSchema
+      sGLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to UkLocalAccountIdentification type case.
+   * Validation method to narrow down union type to UKLocalAccountIdentification type case.
    *
    * This is UKLocalAccountIdentification case.
    */
-  export function isUkLocalAccountIdentification(
+  export function isUKLocalAccountIdentification(
     value: unknown
-  ): value is UkLocalAccountIdentification {
+  ): value is UKLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      ukLocalAccountIdentificationSchema
+      uKLocalAccountIdentificationSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to UsLocalAccountIdentification type case.
+   * Validation method to narrow down union type to USLocalAccountIdentification type case.
    *
    * This is USLocalAccountIdentification case.
    */
-  export function isUsLocalAccountIdentification(
+  export function isUSLocalAccountIdentification(
     value: unknown
-  ): value is UsLocalAccountIdentification {
+  ): value is USLocalAccountIdentification {
     return isMappedValueValidForSchema(
       value,
-      usLocalAccountIdentificationSchema
+      uSLocalAccountIdentificationSchema
     );
   }
 }

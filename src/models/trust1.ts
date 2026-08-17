@@ -9,23 +9,23 @@ import {
   boolean,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Address1, address1Schema } from './address1.js';
+import { Address41, address41Schema } from './address41.js';
+import { Address51, address51Schema } from './address51.js';
 import { TaxInformation, taxInformationSchema } from './taxInformation.js';
-import { Type171, type171Schema } from './type171.js';
+import { Type171Enum, type171EnumSchema } from './type171Enum.js';
 import {
   UndefinedBeneficiary,
   undefinedBeneficiarySchema,
 } from './undefinedBeneficiary.js';
 import {
-  VatAbsenceReason1,
-  vatAbsenceReason1Schema,
-} from './vatAbsenceReason1.js';
+  VatAbsenceReason1Enum,
+  vatAbsenceReason1EnumSchema,
+} from './vatAbsenceReason1Enum.js';
 
 /** Information about the trust. Required if `type` is **trust**. */
 export interface Trust1 {
@@ -41,49 +41,57 @@ export interface Trust1 {
   doingBusinessAsAbsent?: boolean | null;
   /** The legal name. */
   name: string;
-  principalPlaceOfBusiness?: Address1;
-  registeredAddress: Address1;
+  /** The business address. Required if the principal place of business is different from the `registeredAddress`. */
+  principalPlaceOfBusiness?: Address41;
+  /** The address registered at the registrar, such as the Chamber of Commerce. */
+  registeredAddress: Address51;
   /** The registration number. */
   registrationNumber?: string;
   /** The tax information of the entity. */
   taxInformation?: TaxInformation[];
-  type: Type171;
+  /**
+   * Type of trust.
+   * See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-new-zealand).
+   */
+  type: Type171Enum;
   /** The undefined beneficiary information of the entity. */
   undefinedBeneficiaryInfo?: UndefinedBeneficiary[];
-  vatAbsenceReason?: VatAbsenceReason1;
+  /**
+   * The reason for not providing a VAT number.
+   * Possible values: **industryExemption**, **belowTaxThreshold**.
+   */
+  vatAbsenceReason?: VatAbsenceReason1Enum;
   /** The VAT number. */
   vatNumber?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const trust1Schema: Schema<Trust1> = lazy(() =>
-  typedExpandoObject(
-    {
-      countryOfGoverningLaw: ['countryOfGoverningLaw', string()],
-      dateOfIncorporation: ['dateOfIncorporation', optional(string())],
-      description: ['description', optional(string())],
-      doingBusinessAs: ['doingBusinessAs', optional(string())],
-      doingBusinessAsAbsent: [
-        'doingBusinessAsAbsent',
-        optional(nullable(boolean())),
-      ],
-      name: ['name', string()],
-      principalPlaceOfBusiness: [
-        'principalPlaceOfBusiness',
-        optional(address1Schema),
-      ],
-      registeredAddress: ['registeredAddress', address1Schema],
-      registrationNumber: ['registrationNumber', optional(string())],
-      taxInformation: ['taxInformation', optional(array(taxInformationSchema))],
-      type: ['type', type171Schema],
-      undefinedBeneficiaryInfo: [
-        'undefinedBeneficiaryInfo',
-        optional(array(undefinedBeneficiarySchema)),
-      ],
-      vatAbsenceReason: ['vatAbsenceReason', optional(vatAbsenceReason1Schema)],
-      vatNumber: ['vatNumber', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    countryOfGoverningLaw: ['countryOfGoverningLaw', string()],
+    dateOfIncorporation: ['dateOfIncorporation', optional(string())],
+    description: ['description', optional(string())],
+    doingBusinessAs: ['doingBusinessAs', optional(string())],
+    doingBusinessAsAbsent: [
+      'doingBusinessAsAbsent',
+      optional(nullable(boolean())),
+    ],
+    name: ['name', string()],
+    principalPlaceOfBusiness: [
+      'principalPlaceOfBusiness',
+      optional(address41Schema),
+    ],
+    registeredAddress: ['registeredAddress', address51Schema],
+    registrationNumber: ['registrationNumber', optional(string())],
+    taxInformation: ['taxInformation', optional(array(taxInformationSchema))],
+    type: ['type', type171EnumSchema],
+    undefinedBeneficiaryInfo: [
+      'undefinedBeneficiaryInfo',
+      optional(array(undefinedBeneficiarySchema)),
+    ],
+    vatAbsenceReason: [
+      'vatAbsenceReason',
+      optional(vatAbsenceReason1EnumSchema),
+    ],
+    vatNumber: ['vatNumber', optional(string())],
+  })
 );

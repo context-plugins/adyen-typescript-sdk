@@ -1,8 +1,6 @@
 
 # Create Merchant Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CreateMerchantRequest`
@@ -18,7 +16,6 @@
 | `pricingPlan` | `string \| undefined` | Optional | Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use. |
 | `reference` | `string \| undefined` | Optional | Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the `reference` is required and must be unique within the company account. |
 | `salesChannels` | `string[] \| undefined` | Optional | List of sales channels that the merchant will process payments with |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const createMerchantRequest: CreateMerchantRequest = {
   legalEntityId: 'legalEntityId4',
   pricingPlan: 'pricingPlan6',
   reference: 'reference4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

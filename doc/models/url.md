@@ -1,8 +1,6 @@
 
 # Url
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Url`
@@ -15,7 +13,6 @@
 | `password` | `string \| undefined` | Optional | The password for authentication of the notifications. |
 | `url` | `string \| undefined` | Optional | The URL in the format: http(s)://domain.com. |
 | `username` | `string \| undefined` | Optional | The username for authentication of the notifications. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const url: Url = {
   password: 'password8',
   url: 'url8',
   username: 'username6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

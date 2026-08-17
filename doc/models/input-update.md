@@ -4,8 +4,6 @@
 Definition: Content of the Input Update message. : It conveys
 update of the display of an Input request in progress.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `InputUpdate`
@@ -14,47 +12,40 @@ update of the display of an Input request in progress.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `messageReference` | [`MessageReference1`](../../doc/models/message-reference-1.md) | Required | - |
-| `outputContent` | [`OutputContent2`](../../doc/models/output-content-2.md) | Required | - |
+| `messageReference` | [`MessageReference`](../../doc/models/message-reference.md) | Required | Identification of a previous POI transaction.<br>To abort a transaction in progress or to request the status of a transaction from which no response has been received. It identifies the message header of the message request to abort or request the status. |
+| `outputContent` | [`OutputContent`](../../doc/models/output-content.md) | Required | Content to display or print.<br>This is a sequence of elements if they have different formats. |
 | `menuEntry` | [`MenuEntry[] \| undefined`](../../doc/models/menu-entry.md) | Optional | - |
 | `outputSignature` | `string \| undefined` | Optional | **Constraints**: *Pattern*: `^.+$` |
 | `minLength` | `number \| undefined` | Optional | - |
 | `maxLength` | `number \| undefined` | Optional | - |
 | `maxDecimalLength` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
   InputUpdate,
-  MenuEntryTag1,
-  MessageCategory2,
-  OutputFormat1,
-  OutputFormat2,
+  MenuEntryTag1Enum,
+  MessageCategory2Enum,
+  OutputFormat1Enum,
+  OutputFormat2Enum,
 } from 'adyen';
 
 const inputUpdate: InputUpdate = {
   messageReference: {
-    messageCategory: MessageCategory2.Payment,
-    serviceId: 'ServiceID0',
-    deviceId: 'DeviceID2',
-    saleId: 'SaleID8',
-    poiid: 'POIID2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    messageCategory: MessageCategory2Enum.Payment,
+    serviceID: 'ServiceID0',
+    deviceID: 'DeviceID2',
+    saleID: 'SaleID8',
+    pOIID: 'POIID2',
   },
   outputContent: {
-    outputFormat: OutputFormat1.Xhtml,
+    outputFormat: OutputFormat1Enum.XHTML,
     predefinedContent: {
-      referenceId: 'ReferenceID0',
+      referenceID: 'ReferenceID0',
       language: 'Language2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     outputText: [
       {
@@ -62,35 +53,23 @@ const inputUpdate: InputUpdate = {
         characterSet: 194,
         startRow: 74,
         startColumn: 220,
-        characterWidth: CharacterWidth1.SingleWidth,
-        characterHeight: CharacterHeight1.SingleHeight,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        characterWidth: CharacterWidth1Enum.SingleWidth,
+        characterHeight: CharacterHeight1Enum.SingleHeight,
       }
     ],
-    outputXhtml: 'OutputXHTML2',
+    outputXHTML: 'OutputXHTML2',
     outputBarcode: {
       barcodeValue: 'BarcodeValue2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   menuEntry: [
     {
-      outputFormat: OutputFormat2.Xhtml,
-      menuEntryTag: MenuEntryTag1.SubMenu,
+      outputFormat: OutputFormat2Enum.XHTML,
+      menuEntryTag: MenuEntryTag1Enum.SubMenu,
       defaultSelectedFlag: false,
       predefinedContent: {
-        referenceId: 'ReferenceID0',
+        referenceID: 'ReferenceID0',
         language: 'Language2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       outputText: [
         {
@@ -98,37 +77,25 @@ const inputUpdate: InputUpdate = {
           characterSet: 194,
           startRow: 74,
           startColumn: 220,
-          characterWidth: CharacterWidth1.SingleWidth,
-          characterHeight: CharacterHeight1.SingleHeight,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          characterWidth: CharacterWidth1Enum.SingleWidth,
+          characterHeight: CharacterHeight1Enum.SingleHeight,
         },
         {
           text: 'Text6',
           characterSet: 194,
           startRow: 74,
           startColumn: 220,
-          characterWidth: CharacterWidth1.SingleWidth,
-          characterHeight: CharacterHeight1.SingleHeight,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          characterWidth: CharacterWidth1Enum.SingleWidth,
+          characterHeight: CharacterHeight1Enum.SingleHeight,
         }
       ],
-      outputXhtml: 'OutputXHTML8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      outputXHTML: 'OutputXHTML8',
     }
   ],
   outputSignature: 'OutputSignature6',
   minLength: 248,
   maxLength: 16,
   maxDecimalLength: 24,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

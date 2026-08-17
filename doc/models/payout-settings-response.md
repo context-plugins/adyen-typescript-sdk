@@ -1,8 +1,6 @@
 
 # Payout Settings Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PayoutSettingsResponse`
@@ -12,12 +10,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `data` | [`PayoutSettings[] \| undefined`](../../doc/models/payout-settings.md) | Optional | The list of payout accounts. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { PayoutSettingsResponse, Priority1, VerificationStatus } from 'adyen';
+import {
+  PayoutSettingsResponse,
+  PriorityEnum,
+  VerificationStatus1Enum,
+} from 'adyen';
 
 const payoutSettingsResponse: PayoutSettingsResponse = {
   data: [
@@ -27,11 +28,8 @@ const payoutSettingsResponse: PayoutSettingsResponse = {
       allowed: false,
       enabled: false,
       enabledFromDate: 'enabledFromDate2',
-      priority: Priority1.Urgent,
-      verificationStatus: VerificationStatus.Rejected,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      priority: PriorityEnum.Urgent,
+      verificationStatus: VerificationStatus1Enum.Rejected,
     },
     {
       id: 'id0',
@@ -39,16 +37,10 @@ const payoutSettingsResponse: PayoutSettingsResponse = {
       allowed: false,
       enabled: false,
       enabledFromDate: 'enabledFromDate2',
-      priority: Priority1.Urgent,
-      verificationStatus: VerificationStatus.Rejected,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      priority: PriorityEnum.Urgent,
+      verificationStatus: VerificationStatus1Enum.Rejected,
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

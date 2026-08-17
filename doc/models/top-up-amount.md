@@ -1,8 +1,6 @@
 
 # Top Up Amount
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TopUpAmount`
@@ -11,9 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `fixed` | [`Fixed \| undefined`](../../doc/models/fixed.md) | Optional | - |
-| `target` | [`Target5 \| undefined`](../../doc/models/target-5.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `fixed` | [`Amount17 \| undefined`](../../doc/models/amount-17.md) | Optional | The fixed amount with which you want to top up the balance account. |
+| `target` | [`Amount17 \| undefined`](../../doc/models/amount-17.md) | Optional | The target balance for the balance account that the top-up must achieve. |
 
 ## Example
 
@@ -24,19 +21,10 @@ const topUpAmount: TopUpAmount = {
   fixed: {
     currency: 'currency0',
     value: BigInt(164),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   target: {
     currency: 'currency2',
     value: BigInt(188),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

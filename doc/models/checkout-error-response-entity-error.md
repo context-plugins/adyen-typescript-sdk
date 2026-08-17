@@ -1,8 +1,6 @@
 
 # Checkout Error Response Entity Error
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CheckoutErrorResponseEntityError`
@@ -16,7 +14,6 @@
 | `message` | `string` | Required | - |
 | `pspReference` | `string \| undefined` | Optional | - |
 | `status` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 

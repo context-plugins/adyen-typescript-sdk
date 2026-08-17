@@ -1,53 +1,41 @@
 
-# Poi System Data 1
+# POI System Data 1
 
 Information related to the POI System.
 Returned if the response result is Success.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`PoiSystemData1`
+`POISystemData1`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `dateTime` | `string` | Required | Date and Time. In the response, the POI System gives its date and time to the Sale System. |
-| `poiSoftware` | [`PoiSoftware1`](../../doc/models/poi-software-1.md) | Required | - |
-| `poiStatus` | [`PoiStatus2 \| undefined`](../../doc/models/poi-status-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `pOISoftware` | [`POISoftware`](../../doc/models/poi-software.md) | Required | Information related to the software of the POI System which manages the Sale to POI protocol. In a session allows identifying the product features of a POI System. |
+| `pOIStatus` | [`POIStatus \| undefined`](../../doc/models/poi-status.md) | Optional | Indicate the availability of the POI Terminal components. The data element is absent if the component is not part of the POI Terminal.<br>State of a POI Terminal. |
 
 ## Example
 
 ```ts
-import { GlobalStatus1, PoiSystemData1, PrinterStatus1 } from 'adyen';
+import { GlobalStatus1Enum, POISystemData1, PrinterStatus1Enum } from 'adyen';
 
-const poiSystemData1: PoiSystemData1 = {
+const pOISystemData1: POISystemData1 = {
   dateTime: '2016-03-13T12:52:32.123Z',
-  poiSoftware: {
-    manufacturerId: 'ManufacturerID4',
+  pOISoftware: {
+    manufacturerID: 'ManufacturerID4',
     applicationName: 'ApplicationName8',
     softwareVersion: 'SoftwareVersion0',
     certificationCode: 'CertificationCode4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  poiStatus: {
-    globalStatus: GlobalStatus1.Maintenance,
-    securityOkFlag: false,
-    pedokFlag: false,
-    cardReaderOkFlag: false,
-    printerStatus: PrinterStatus1.PaperLow,
-    communicationOkFlag: false,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  pOIStatus: {
+    globalStatus: GlobalStatus1Enum.Maintenance,
+    securityOKFlag: false,
+    pEDOKFlag: false,
+    cardReaderOKFlag: false,
+    printerStatus: PrinterStatus1Enum.PaperLow,
+    communicationOKFlag: false,
   },
 };
 ```

@@ -4,8 +4,6 @@
 Body of the Abort Request message.
 It conveys Information requested for identification of the message request carrying the transaction to abort. A message to display on the CustomerError Device could be sent by the Sale System (DisplayOutput).
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AbortRequest`
@@ -14,49 +12,42 @@ It conveys Information requested for identification of the message request carry
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `messageReference` | [`MessageReference1`](../../doc/models/message-reference-1.md) | Required | - |
+| `messageReference` | [`MessageReference4`](../../doc/models/message-reference-4.md) | Required | Identification of a previous POI transaction. |
 | `abortReason` | `string` | Required | Reason of aborting a transaction.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `displayOutput` | [`DisplayOutput3 \| undefined`](../../doc/models/display-output-3.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `displayOutput` | [`DisplayOutput1 \| undefined`](../../doc/models/display-output-1.md) | Optional | Information to display and the way to process the display.<br>To display an abort message to the Customer. |
 
 ## Example
 
 ```ts
 import {
   AbortRequest,
-  CharacterHeight1,
-  CharacterWidth1,
-  Device11,
-  InfoQualify1,
-  MenuEntryTag1,
-  MessageCategory2,
-  OutputFormat1,
-  OutputFormat2,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  Device11Enum,
+  InfoQualify1Enum,
+  MenuEntryTag1Enum,
+  MessageCategory2Enum,
+  OutputFormat1Enum,
+  OutputFormat2Enum,
 } from 'adyen';
 
 const abortRequest: AbortRequest = {
   messageReference: {
-    messageCategory: MessageCategory2.Payment,
-    serviceId: 'ServiceID0',
-    deviceId: 'DeviceID2',
-    saleId: 'SaleID8',
-    poiid: 'POIID2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    messageCategory: MessageCategory2Enum.Payment,
+    serviceID: 'ServiceID0',
+    deviceID: 'DeviceID2',
+    saleID: 'SaleID8',
+    pOIID: 'POIID2',
   },
   abortReason: 'AbortReason0',
   displayOutput: {
-    device: Device11.CashierDisplay,
-    infoQualify: InfoQualify1.Status,
+    device: Device11Enum.CashierDisplay,
+    infoQualify: InfoQualify1Enum.Status,
     outputContent: {
-      outputFormat: OutputFormat1.Xhtml,
+      outputFormat: OutputFormat1Enum.XHTML,
       predefinedContent: {
-        referenceId: 'ReferenceID0',
+        referenceID: 'ReferenceID0',
         language: 'Language2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       outputText: [
         {
@@ -64,37 +55,25 @@ const abortRequest: AbortRequest = {
           characterSet: 194,
           startRow: 74,
           startColumn: 220,
-          characterWidth: CharacterWidth1.SingleWidth,
-          characterHeight: CharacterHeight1.SingleHeight,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          characterWidth: CharacterWidth1Enum.SingleWidth,
+          characterHeight: CharacterHeight1Enum.SingleHeight,
         }
       ],
-      outputXhtml: 'OutputXHTML2',
+      outputXHTML: 'OutputXHTML2',
       outputBarcode: {
         barcodeValue: 'BarcodeValue2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     responseRequiredFlag: false,
     minimumDisplayTime: 110,
     menuEntry: [
       {
-        outputFormat: OutputFormat2.Xhtml,
-        menuEntryTag: MenuEntryTag1.SubMenu,
+        outputFormat: OutputFormat2Enum.XHTML,
+        menuEntryTag: MenuEntryTag1Enum.SubMenu,
         defaultSelectedFlag: false,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -102,39 +81,27 @@ const abortRequest: AbortRequest = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           },
           {
             text: 'Text6',
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        outputXHTML: 'OutputXHTML8',
       },
       {
-        outputFormat: OutputFormat2.Xhtml,
-        menuEntryTag: MenuEntryTag1.SubMenu,
+        outputFormat: OutputFormat2Enum.XHTML,
+        menuEntryTag: MenuEntryTag1Enum.SubMenu,
         defaultSelectedFlag: false,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -142,37 +109,22 @@ const abortRequest: AbortRequest = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           },
           {
             text: 'Text6',
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        outputXHTML: 'OutputXHTML8',
       }
     ],
     outputSignature: 'OutputSignature4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

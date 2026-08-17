@@ -1,8 +1,6 @@
 
 # List Nonprofits Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ListNonprofitsResponse`
@@ -11,11 +9,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`PaginationLinks \| undefined`](../../doc/models/pagination-links.md) | Optional | - |
+| `links` | [`PaginationLinks1 \| undefined`](../../doc/models/pagination-links-1.md) | Optional | Pagination references. |
 | `itemsTotal` | `number` | Required | Total number of items. |
 | `nonprofits` | [`Nonprofit[] \| undefined`](../../doc/models/nonprofit.md) | Optional | The supported nonprofit organizations. |
 | `pagesTotal` | `number` | Required | Total number of pages. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,36 +25,18 @@ const listNonprofitsResponse: ListNonprofitsResponse = {
   links: {
     first: {
       href: 'href2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     last: {
       href: 'href2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     self: {
       href: 'href0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     next: {
       href: 'href4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     prev: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   nonprofits: [
@@ -72,9 +51,6 @@ const listNonprofitsResponse: ListNonprofitsResponse = {
           ],
           name: 'name6',
           id: 'id6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       description: 'description8',
@@ -96,14 +72,8 @@ const listNonprofitsResponse: ListNonprofitsResponse = {
       termsAndConditionsUrl: 'termsAndConditionsUrl6',
       website: 'website4',
       id: 'id8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

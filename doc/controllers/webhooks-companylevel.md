@@ -258,8 +258,8 @@ const companyId = 'companyId0';
 
 const body: CreateCompanyWebhookRequest = {
   active: true,
-  communicationFormat: CommunicationFormat.Soap,
-  filterMerchantAccountType: FilterMerchantAccountType.IncludeAccounts,
+  communicationFormat: CommunicationFormatEnum.Soap,
+  filterMerchantAccountType: FilterMerchantAccountTypeEnum.IncludeAccounts,
   filterMerchantAccounts: [
     'YOUR_MERCHANT_ACCOUNT'
   ],

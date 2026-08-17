@@ -1,8 +1,6 @@
 
 # Recurring Details Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `RecurringDetailsRequest`
@@ -12,30 +10,27 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `merchantAccount` | `string` | Required | The merchant account identifier you want to process the (transaction) request with. |
-| `recurring` | [`Recurring3 \| undefined`](../../doc/models/recurring-3.md) | Optional | - |
+| `recurring` | [`Recurring \| undefined`](../../doc/models/recurring.md) | Optional | A container for the type of a recurring contract to be retrieved.<br><br>The contract value needs to match the contract value submitted in the payment transaction used to create a recurring contract.<br>However, if `ONECLICK,RECURRING` is the original contract definition in the initial payment, then `contract` should take either `ONECLICK` or `RECURRING`, depending on whether or not you want the shopper to enter their card's security code when they finalize their purchase. |
 | `shopperReference` | `string` | Required | The reference you use to uniquely identify the shopper (e.g. user ID or account ID). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { Contract, RecurringDetailsRequest, TokenService } from 'adyen';
+import {
+  ContractEnum,
+  RecurringDetailsRequest,
+  TokenServiceEnum,
+} from 'adyen';
 
 const recurringDetailsRequest: RecurringDetailsRequest = {
   merchantAccount: 'merchantAccount6',
   shopperReference: 'shopperReference2',
   recurring: {
-    contract: Contract.EnumOneclickrecurring,
+    contract: ContractEnum.EnumONECLICKRECURRING,
     recurringDetailName: 'recurringDetailName2',
     recurringExpiry: '2016-03-13T12:52:32.123Z',
     recurringFrequency: 'recurringFrequency0',
-    tokenService: TokenService.Visatokenservice,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    tokenService: TokenServiceEnum.VISATOKENSERVICE,
   },
 };
 ```

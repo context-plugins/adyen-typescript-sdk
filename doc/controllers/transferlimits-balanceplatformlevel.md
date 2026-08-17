@@ -25,9 +25,9 @@ Filter and view the transfer limits configured for your balance platform using t
 ```ts
 async getBalancePlatformsIdTransferLimits(
   id: string,
-  scope?: Scope,
-  transferType?: TransferType,
-  status?: LimitStatus,
+  scope?: ScopeEnum,
+  transferType?: TransferTypeEnum,
+  status?: LimitStatusEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<TransferLimitListResponse>>
 ```
@@ -37,9 +37,9 @@ async getBalancePlatformsIdTransferLimits(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | The unique identifier of the balance platform. |
-| `scope` | [`Scope \| undefined`](../../doc/models/scope.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
-| `transferType` | [`TransferType \| undefined`](../../doc/models/transfer-type.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
-| `status` | [`LimitStatus \| undefined`](../../doc/models/limit-status.md) | Query, Optional | The status of the transfer limit. Possible values:<br><br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date. |
+| `scope` | [`ScopeEnum \| undefined`](../../doc/models/scope-enum.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
+| `transferType` | [`TransferTypeEnum \| undefined`](../../doc/models/transfer-type-enum.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
+| `status` | [`LimitStatusEnum \| undefined`](../../doc/models/limit-status-enum.md) | Query, Optional | The status of the transfer limit. Possible values:<br><br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -73,9 +73,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsTransferLimits404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsTransferLimits422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -129,8 +127,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404Error`](../../doc/models/balance-platforms-transfer-limits-404-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422Error`](../../doc/models/balance-platforms-transfer-limits-422-error.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Balance Platforms-Id-Transfer Limits
@@ -144,7 +142,7 @@ async postBalancePlatformsIdTransferLimits(
   id: string,
   body: CreateTransferLimitRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<BalancePlatformsTransferLimitsResponse1>>
+): Promise<ApiResponse<TransferLimit>>
 ```
 
 ## Parameters
@@ -159,7 +157,7 @@ async postBalancePlatformsIdTransferLimits(
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`BalancePlatformsTransferLimitsResponse1`](../../doc/models/balance-platforms-transfer-limits-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`TransferLimit`](../../doc/models/transfer-limit.md).
 
 ## Example Usage
 
@@ -171,8 +169,8 @@ const body: CreateTransferLimitRequest = {
     currency: 'EUR',
     value: BigInt(10000),
   },
-  scope: Scope.PerTransaction,
-  transferType: TransferType.All,
+  scope: ScopeEnum.PerTransaction,
+  transferType: TransferTypeEnum.All,
   endsAt: '2026-08-14T00:00:00+01:00',
   reference: 'Your reference for the transfer limit',
   scaInformation: {
@@ -204,9 +202,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsTransferLimits404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsTransferLimits422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -238,8 +234,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404Error`](../../doc/models/balance-platforms-transfer-limits-404-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422Error`](../../doc/models/balance-platforms-transfer-limits-422-error.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Platforms-Id-Transfer Limits-Transfer Limit Id
@@ -253,7 +249,7 @@ async getBalancePlatformsIdTransferLimitsTransferLimitId(
   id: string,
   transferLimitId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<BalancePlatformsTransferLimitsResponse1>>
+): Promise<ApiResponse<TransferLimit>>
 ```
 
 ## Parameters
@@ -268,7 +264,7 @@ async getBalancePlatformsIdTransferLimitsTransferLimitId(
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`BalancePlatformsTransferLimitsResponse1`](../../doc/models/balance-platforms-transfer-limits-response-1.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`TransferLimit`](../../doc/models/transfer-limit.md).
 
 ## Example Usage
 
@@ -300,9 +296,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsTransferLimits404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsTransferLimits422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -335,8 +329,8 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404Error`](../../doc/models/balance-platforms-transfer-limits-404-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422Error`](../../doc/models/balance-platforms-transfer-limits-422-error.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Balance Platforms-Id-Transfer Limits-Transfer Limit Id
@@ -397,9 +391,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalancePlatformsTransferLimits404Error) {
-      console.log(error.result);
-    } else if (error instanceof BalancePlatformsTransferLimits422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -410,6 +402,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404Error`](../../doc/models/balance-platforms-transfer-limits-404-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422Error`](../../doc/models/balance-platforms-transfer-limits-422-error.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

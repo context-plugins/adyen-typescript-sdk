@@ -1,11 +1,9 @@
 
-# Three Ds 2 Result Request
-
-*This model accepts additional fields of type unknown.*
+# Three DS 2 Result Request
 
 ## Structure
 
-`ThreeDs2ResultRequest`
+`ThreeDS2ResultRequest`
 
 ## Fields
 
@@ -13,19 +11,15 @@
 |  --- | --- | --- | --- |
 | `merchantAccount` | `string` | Required | The merchant account identifier, with which you want to process the transaction. |
 | `pspReference` | `string` | Required | The pspReference returned in the /authorise call. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ThreeDs2ResultRequest } from 'adyen';
+import { ThreeDS2ResultRequest } from 'adyen';
 
-const threeDs2ResultRequest: ThreeDs2ResultRequest = {
-  merchantAccount: 'merchantAccount6',
-  pspReference: 'pspReference4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const threeDS2ResultRequest: ThreeDS2ResultRequest = {
+  merchantAccount: 'merchantAccount0',
+  pspReference: 'pspReference0',
 };
 ```
 

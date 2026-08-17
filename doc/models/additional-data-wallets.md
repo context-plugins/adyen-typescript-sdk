@@ -1,8 +1,6 @@
 
 # Additional Data Wallets
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataWallets`
@@ -17,7 +15,6 @@
 | `paywithgoogleToken` | `string \| undefined` | Optional | The Google Pay token retrieved from the SDK. |
 | `samsungpayToken` | `string \| undefined` | Optional | The Samsung Pay token retrieved from the SDK. |
 | `visacheckoutCallId` | `string \| undefined` | Optional | The Visa Checkout Call ID retrieved from the SDK. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,9 +27,6 @@ const additionalDataWallets: AdditionalDataWallets = {
   paymentToken: 'payment.token4',
   paywithgoogleToken: 'paywithgoogle.token0',
   samsungpayToken: 'samsungpay.token0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -50,7 +50,7 @@ const body: BalanceTransferRequest = {
   },
   fromMerchant: 'SOURCE_MERCHANT_ACCOUNT',
   toMerchant: 'DESTINATION_MERCHANT_ACCOUNT',
-  type: BalanceTransferType2.Adjustment,
+  type: BalanceTransferType2Enum.Adjustment,
   reference: 'Your reference for the balance transfer.',
 };
 
@@ -74,9 +74,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceTransfers401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceTransfers422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -96,6 +94,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`BalanceTransfers401Error`](../../doc/models/balance-transfers-401-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceTransfers422Error`](../../doc/models/balance-transfers-422-error.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

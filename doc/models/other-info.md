@@ -1,8 +1,6 @@
 
 # Other Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OtherInfo`
@@ -12,22 +10,18 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `descriptionOfIssue` | `string` | Required | Your description of the issue for raising a dispute of `type` **other**.<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `2500` |
-| `subType` | [`SubType11`](../../doc/models/sub-type-11.md) | Required | - |
-| `whatWasPurchased` | [`ProductType1`](../../doc/models/product-type-1.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `subType` | [`SubType11Enum`](../../doc/models/sub-type-11-enum.md) | Required | The specific category of **other** dispute that you are raising.<br><br>Possible values: **atmDispute**, **cancelledGoodsServices**, **cancelledRecurring**, **counterfeit**, **creditNotProcessed**, **notAsDescribed**. |
+| `whatWasPurchased` | [`ProductType11Enum`](../../doc/models/product-type-11-enum.md) | Required | The type of product that you purchased.<br><br>Possible values: **goods**, **services**. |
 
 ## Example
 
 ```ts
-import { OtherInfo, ProductType1, SubType11 } from 'adyen';
+import { OtherInfo, ProductType11Enum, SubType11Enum } from 'adyen';
 
 const otherInfo: OtherInfo = {
   descriptionOfIssue: 'descriptionOfIssue8',
-  subType: SubType11.AtmDispute,
-  whatWasPurchased: ProductType1.Goods,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  subType: SubType11Enum.AtmDispute,
+  whatWasPurchased: ProductType11Enum.Goods,
 };
 ```
 

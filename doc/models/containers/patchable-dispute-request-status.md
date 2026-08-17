@@ -9,26 +9,15 @@
 
 | Type |
 |  --- |
-| [`DisputeStatus`](../../../doc/models/dispute-status.md) |
-| `unknown \| null` |
+| [`DisputeStatusEnum`](../../../doc/models/dispute-status-enum.md) |
 
-## DisputeStatus
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: PatchableDisputeRequestStatus = DisputeStatus.Draft;
-```
-
-## unknown | null
+## DisputeStatusEnum
 
 ### Initialization Code
 
 #### Example
 
 ```ts
-const value: PatchableDisputeRequestStatus = { 'key1': 'val1', 'key2': 'val2' };
+const value: PatchableDisputeRequestStatus = DisputeStatusEnum.Draft;
 ```
 

@@ -1,8 +1,6 @@
 
 # Donation Campaigns Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DonationCampaignsResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `donationCampaigns` | [`DonationCampaign[] \| undefined`](../../doc/models/donation-campaign.md) | Optional | List of active donation campaigns for your merchant account. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,9 +25,6 @@ const donationCampaignsResponse: DonationCampaignsResponse = {
           BigInt(48),
           BigInt(49)
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       bannerUrl: 'bannerUrl0',
       campaignName: 'campaignName2',
@@ -45,12 +39,6 @@ const donationCampaignsResponse: DonationCampaignsResponse = {
           BigInt(105),
           BigInt(104)
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -60,9 +48,6 @@ const donationCampaignsResponse: DonationCampaignsResponse = {
           BigInt(48),
           BigInt(49)
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       bannerUrl: 'bannerUrl0',
       campaignName: 'campaignName2',
@@ -77,18 +62,9 @@ const donationCampaignsResponse: DonationCampaignsResponse = {
           BigInt(105),
           BigInt(104)
         ],
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -55,7 +55,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const body: ScheduleTerminalActionsRequest = {
   actionDetails: {
     appId: 'ANDA422LZ223223K5F694GCCF732K8',
-    type: Type310.InstallAndroidApp,
+    type: Type32Enum.InstallAndroidApp,
   },
   scheduledAt: '2021-12-12T20:21:22-0100',
   storeId: '',

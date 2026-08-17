@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { DocumentPage, documentPageSchema } from './documentPage.js';
 
@@ -31,21 +30,16 @@ export interface DocumentReference {
   pages?: DocumentPage[];
   /** Type of document, used when providing an ID number or uploading a document. */
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const documentReferenceSchema: Schema<DocumentReference> = lazy(() =>
-  typedExpandoObject(
-    {
-      active: ['active', optional(boolean())],
-      description: ['description', optional(string())],
-      fileName: ['fileName', optional(string())],
-      id: ['id', optional(string())],
-      modificationDate: ['modificationDate', optional(string())],
-      pages: ['pages', optional(array(documentPageSchema))],
-      type: ['type', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    active: ['active', optional(boolean())],
+    description: ['description', optional(string())],
+    fileName: ['fileName', optional(string())],
+    id: ['id', optional(string())],
+    modificationDate: ['modificationDate', optional(string())],
+    pages: ['pages', optional(array(documentPageSchema))],
+    type: ['type', optional(string())],
+  })
 );

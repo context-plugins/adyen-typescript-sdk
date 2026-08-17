@@ -4,8 +4,6 @@
 It conveys information from the Sale System related to the scope and the format of the totals to be computed by the POI System.
 Content of the Get Totals Request message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetTotalsRequest`
@@ -14,33 +12,26 @@ Content of the Get Totals Request message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `totalDetails` | [`TotalDetail[] \| undefined`](../../doc/models/total-detail.md) | Optional | Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation.<br>Required to present totals per value of element included in this cluster (POI Terminal, Sale Terminal, Cashier, Shift, TotalsGroupID).<br>Possible values:<br><br>* **OperatorID**<br>* **POIID**<br>* **SaleID**<br>* **ShiftNumber**<br>* **TotalsGroupID** |
-| `totalFilter` | [`TotalFilter \| undefined`](../../doc/models/total-filter.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `totalDetails` | [`TotalDetailEnum[] \| undefined`](../../doc/models/total-detail-enum.md) | Optional | Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation.<br>Required to present totals per value of element included in this cluster (POI Terminal, Sale Terminal, Cashier, Shift, TotalsGroupID).<br>Possible values:<br><br>* **OperatorID**<br>* **POIID**<br>* **SaleID**<br>* **ShiftNumber**<br>* **TotalsGroupID** |
+| `totalFilter` | [`TotalFilter2 \| undefined`](../../doc/models/total-filter-2.md) | Optional | Filter to compute the totals.<br>Used for the Get Totals, to request totals for a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or TotalsGroupID. |
 
 ## Example
 
 ```ts
-import { GetTotalsRequest, TotalDetail } from 'adyen';
+import { GetTotalsRequest, TotalDetailEnum } from 'adyen';
 
 const getTotalsRequest: GetTotalsRequest = {
   totalDetails: [
-    TotalDetail.Poiid,
-    TotalDetail.TotalsGroupId,
-    TotalDetail.ShiftNumber
+    TotalDetailEnum.POIID,
+    TotalDetailEnum.TotalsGroupID,
+    TotalDetailEnum.ShiftNumber
   ],
   totalFilter: {
-    poiid: 'POIID6',
-    saleId: 'SaleID8',
-    operatorId: 'OperatorID8',
+    pOIID: 'POIID6',
+    saleID: 'SaleID8',
+    operatorID: 'OperatorID8',
     shiftNumber: 'ShiftNumber0',
-    totalsGroupId: 'TotalsGroupID0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    totalsGroupID: 'TotalsGroupID0',
   },
 };
 ```

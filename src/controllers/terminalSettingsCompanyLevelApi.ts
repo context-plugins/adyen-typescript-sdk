@@ -44,6 +44,7 @@ export class TerminalSettingsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       model: [model, string()],
@@ -108,6 +109,7 @@ export class TerminalSettingsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Logo>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       model: [model, string()],
@@ -172,6 +174,7 @@ export class TerminalSettingsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ companyId: [companyId, string()] });
     req.appendTemplatePath`/companies/${mapped.companyId}/terminalSettings`;
     req.throwOn(
@@ -236,6 +239,7 @@ export class TerminalSettingsCompanyLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalSettings>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       companyId: [companyId, string()],
       body: [body, optional(terminalSettingsSchema)],

@@ -8,17 +8,16 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  AccountHolderDetails,
-  accountHolderDetailsSchema,
-} from './accountHolderDetails.js';
-import { LegalEntity, legalEntitySchema } from './legalEntity.js';
+  AccountHolderDetails1,
+  accountHolderDetails1Schema,
+} from './accountHolderDetails1.js';
+import { LegalEntityEnum, legalEntityEnumSchema } from './legalEntityEnum.js';
 
 export interface CreateAccountHolderRequest {
   /**
@@ -26,7 +25,8 @@ export interface CreateAccountHolderRequest {
    * The length must be between three (3) and fifty (50) characters long. Only letters, digits, and hyphens (-) are allowed.
    */
   accountHolderCode: string;
-  accountHolderDetails: AccountHolderDetails;
+  /** The details of the prospective account holder. */
+  accountHolderDetails: AccountHolderDetails1;
   /**
    * If set to **true**, an account with the default options is automatically created for the account holder.
    * By default, this field is set to **true**.
@@ -34,33 +34,34 @@ export interface CreateAccountHolderRequest {
   createDefaultAccount?: boolean;
   /** A description of the prospective account holder, maximum 256 characters. You can use alphanumeric characters (A-Z, a-z, 0-9), white spaces, and underscores `_`. */
   description?: string;
-  legalEntity: LegalEntity;
+  /**
+   * The legal entity type of the account holder. This determines the information that should be provided in the request.
+   * Possible values: **Business**, **Individual**, or **NonProfit**.
+   * * If set to **Business** or **NonProfit**, then `accountHolderDetails.businessDetails` must be provided, with at least one entry in the `accountHolderDetails.businessDetails.shareholders` list.
+   * * If set to **Individual**, then `accountHolderDetails.individualDetails` must be provided.
+   */
+  legalEntity: LegalEntityEnum;
   /** The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective account holder primarily deals. */
   primaryCurrency?: string;
   /** The starting [processing tier](https://docs.adyen.com/classic-platforms/onboarding-and-verification/precheck-kyc-information) for the prospective account holder. */
   processingTier?: number;
   /** The identifier of the profile that applies to this entity. */
   verificationProfile?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const createAccountHolderRequestSchema: Schema<CreateAccountHolderRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accountHolderCode: ['accountHolderCode', string()],
-        accountHolderDetails: [
-          'accountHolderDetails',
-          accountHolderDetailsSchema,
-        ],
-        createDefaultAccount: ['createDefaultAccount', optional(boolean())],
-        description: ['description', optional(string())],
-        legalEntity: ['legalEntity', legalEntitySchema],
-        primaryCurrency: ['primaryCurrency', optional(string())],
-        processingTier: ['processingTier', optional(number())],
-        verificationProfile: ['verificationProfile', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accountHolderCode: ['accountHolderCode', string()],
+      accountHolderDetails: [
+        'accountHolderDetails',
+        accountHolderDetails1Schema,
+      ],
+      createDefaultAccount: ['createDefaultAccount', optional(boolean())],
+      description: ['description', optional(string())],
+      legalEntity: ['legalEntity', legalEntityEnumSchema],
+      primaryCurrency: ['primaryCurrency', optional(string())],
+      processingTier: ['processingTier', optional(number())],
+      verificationProfile: ['verificationProfile', optional(string())],
+    })
 );

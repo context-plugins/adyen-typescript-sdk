@@ -1,10 +1,6 @@
 
 # Fee
 
-Contains the currency and value of the cashout fee, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Fee`
@@ -13,8 +9,7 @@ Contains the currency and value of the cashout fee, in [minor units](https://doc
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | Contains the fee amount. |
 
 ## Example
 
@@ -25,12 +20,6 @@ const fee: Fee = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

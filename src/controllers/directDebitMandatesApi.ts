@@ -9,20 +9,11 @@ import {
   ListMandatesResponse,
   listMandatesResponseSchema,
 } from '../models/listMandatesResponse.js';
-import { Mandate, mandateSchema } from '../models/mandate.js';
+import { Mandate1, mandate1Schema } from '../models/mandate1.js';
 import { MandateUpdate, mandateUpdateSchema } from '../models/mandateUpdate.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { Mandates401Error } from '../errors/mandates401Error.js';
-import { Mandates403Error } from '../errors/mandates403Error.js';
-import { Mandates404Error } from '../errors/mandates404Error.js';
-import { Mandates422Error } from '../errors/mandates422Error.js';
-import { Mandates500Error } from '../errors/mandates500Error.js';
-import { MandatesCancel401Error } from '../errors/mandatesCancel401Error.js';
-import { MandatesCancel403Error } from '../errors/mandatesCancel403Error.js';
-import { MandatesCancel404Error } from '../errors/mandatesCancel404Error.js';
-import { MandatesCancel422Error } from '../errors/mandatesCancel422Error.js';
-import { MandatesCancel500Error } from '../errors/mandatesCancel500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class DirectDebitMandatesApi extends BaseApi {
   /**
@@ -42,6 +33,7 @@ export class DirectDebitMandatesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListMandatesResponse>> {
     const req = this.createRequest('GET', '/mandates');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, optional(string())],
       paymentInstrumentId: [paymentInstrumentId, optional(string())],
@@ -52,22 +44,22 @@ export class DirectDebitMandatesApi extends BaseApi {
     req.query('cursor', mapped.cursor);
     req.throwOn(
       401,
-      Mandates401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      Mandates403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      Mandates422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      Mandates500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -84,33 +76,38 @@ export class DirectDebitMandatesApi extends BaseApi {
   async getMandatesMandateId(
     mandateId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<Mandate>> {
+  ): Promise<ApiResponse<Mandate1>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ mandateId: [mandateId, string()] });
     req.appendTemplatePath`/mandates/${mapped.mandateId}`;
     req.throwOn(
       401,
-      Mandates401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      Mandates403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
-    req.throwOn(404, Mandates404Error, 'The mandate was not found.');
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'The mandate was not found.'
+    );
     req.throwOn(
       422,
-      Mandates422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      Mandates500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
-    return req.callAsJson(mandateSchema, requestOptions);
+    return req.callAsJson(mandate1Schema, requestOptions);
   }
 
   /**
@@ -127,6 +124,7 @@ export class DirectDebitMandatesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       mandateId: [mandateId, string()],
       body: [body, mandateUpdateSchema],
@@ -136,23 +134,27 @@ export class DirectDebitMandatesApi extends BaseApi {
     req.appendTemplatePath`/mandates/${mapped.mandateId}`;
     req.throwOn(
       401,
-      Mandates401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      Mandates403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
-    req.throwOn(404, Mandates404Error, 'The mandate was not found');
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'The mandate was not found'
+    );
     req.throwOn(
       422,
-      Mandates422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      Mandates500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -171,27 +173,32 @@ export class DirectDebitMandatesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ mandateId: [mandateId, string()] });
     req.appendTemplatePath`/mandates/${mapped.mandateId}/cancel`;
     req.throwOn(
       401,
-      MandatesCancel401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      MandatesCancel403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
-    req.throwOn(404, MandatesCancel404Error, 'The mandate was not found.');
+    req.throwOn(
+      404,
+      DefaultErrorResponseEntityError,
+      'The mandate was not found.'
+    );
     req.throwOn(
       422,
-      MandatesCancel422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      MandatesCancel500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);

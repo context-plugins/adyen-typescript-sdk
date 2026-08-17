@@ -1,8 +1,6 @@
 
 # Input Detail
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `InputDetail`
@@ -15,12 +13,11 @@
 | `details` | [`SubInputDetail[] \| undefined`](../../doc/models/sub-input-detail.md) | Optional | Input details can also be provided recursively. |
 | `inputDetails` | [`SubInputDetail[] \| undefined`](../../doc/models/sub-input-detail.md) | Optional | Input details can also be provided recursively (deprecated). |
 | `itemSearchUrl` | `string \| undefined` | Optional | In case of a select, the URL from which to query the items. |
-| `items` | [`NetworkTokenRequestor[] \| undefined`](../../doc/models/network-token-requestor.md) | Optional | In case of a select, the items to choose from. |
+| `items` | [`Item[] \| undefined`](../../doc/models/item.md) | Optional | In case of a select, the items to choose from. |
 | `key` | `string \| undefined` | Optional | The value to provide in the result. |
 | `optional` | `boolean \| undefined` | Optional | True if this input value is optional. |
 | `type` | `string \| undefined` | Optional | The type of the required input. |
 | `value` | `string \| undefined` | Optional | The value can be pre-filled, if available. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -42,17 +39,11 @@ const inputDetail: InputDetail = {
         {
           id: 'id8',
           name: 'name8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       key: 'key0',
       optional: false,
       type: 'type0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       configuration: {
@@ -63,17 +54,11 @@ const inputDetail: InputDetail = {
         {
           id: 'id8',
           name: 'name8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       key: 'key0',
       optional: false,
       type: 'type0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   inputDetails: [
@@ -85,31 +70,19 @@ const inputDetail: InputDetail = {
         {
           id: 'id8',
           name: 'name8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           id: 'id8',
           name: 'name8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           id: 'id8',
           name: 'name8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       key: 'key0',
       optional: false,
       type: 'type0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   itemSearchUrl: 'itemSearchUrl6',
@@ -117,14 +90,8 @@ const inputDetail: InputDetail = {
     {
       id: 'id8',
       name: 'name8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

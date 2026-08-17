@@ -1,8 +1,6 @@
 
 # Profile
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Profile`
@@ -18,19 +16,18 @@
 | `defaultProfile` | `boolean \| undefined` | Optional | Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first. |
 | `domainSuffix` | `string \| undefined` | Optional | Specifies the server domain name for EAP-TLS and EAP-PEAP WiFi profiles on Android 11 and above. |
 | `eap` | `string \| undefined` | Optional | For `authType` **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast** |
-| `eapCaCert` | [`File \| undefined`](../../doc/models/file.md) | Optional | - |
-| `eapClientCert` | [`File \| undefined`](../../doc/models/file.md) | Optional | - |
-| `eapClientKey` | [`File \| undefined`](../../doc/models/file.md) | Optional | - |
+| `eapCaCert` | [`File1 \| undefined`](../../doc/models/file-1.md) | Optional | For `authType` **wpa-eap** or **wpa2-eap**. The root certificate from the CA that signed the certificate of the RADIUS server that is part of your wireless network. |
+| `eapClientCert` | [`File2 \| undefined`](../../doc/models/file-2.md) | Optional | For `eap` **tls**. The certificate chain for the terminals. All terminals in the same network will use the same EAP client certificate. |
+| `eapClientKey` | [`File3 \| undefined`](../../doc/models/file-3.md) | Optional | For `eap` **tls**. The RSA private key for the client. Include the lines BEGIN RSA PRIVATE KEY and END RSA PRIVATE KEY. |
 | `eapClientPwd` | `string \| undefined` | Optional | For `eap` **tls**. The password of the RSA key file, if that file is password-protected. |
 | `eapIdentity` | `string \| undefined` | Optional | For `authType` **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server. |
-| `eapIntermediateCert` | [`File \| undefined`](../../doc/models/file.md) | Optional | - |
+| `eapIntermediateCert` | [`File4 \| undefined`](../../doc/models/file-4.md) | Optional | For `eap` **tls**. The EAP intermediate certificate. |
 | `eapPwd` | `string \| undefined` | Optional | For `eap` **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server. |
 | `hiddenSsid` | `boolean \| undefined` | Optional | Indicates if the network doesn't broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network. |
 | `name` | `string \| undefined` | Optional | Your name for the Wi-Fi profile. |
 | `psk` | `string \| undefined` | Optional | For `authType` **wpa-psk or **wpa2-psk**. The password to the wireless network. |
 | `ssid` | `string` | Required | The name of the wireless network. |
 | `wsec` | `string` | Required | The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -47,9 +44,6 @@ const profile: Profile = {
   defaultProfile: false,
   domainSuffix: 'domainSuffix4',
   eap: 'eap2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

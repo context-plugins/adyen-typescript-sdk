@@ -23,12 +23,7 @@ import {
 } from '../models/recurringTopUpsResult.js';
 import { number, optional, string, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { BalanceAccountsRecurringTopUps400Error } from '../errors/balanceAccountsRecurringTopUps400Error.js';
-import { BalanceAccountsRecurringTopUps401Error } from '../errors/balanceAccountsRecurringTopUps401Error.js';
-import { BalanceAccountsRecurringTopUps403Error } from '../errors/balanceAccountsRecurringTopUps403Error.js';
-import { BalanceAccountsRecurringTopUps404Error } from '../errors/balanceAccountsRecurringTopUps404Error.js';
-import { BalanceAccountsRecurringTopUps422Error } from '../errors/balanceAccountsRecurringTopUps422Error.js';
-import { BalanceAccountsRecurringTopUps500Error } from '../errors/balanceAccountsRecurringTopUps500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class RecurringTopUpsApi extends BaseApi {
   /**
@@ -51,6 +46,7 @@ export class RecurringTopUpsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<RecurringTopUpsResult>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       limit: [limit, optional(number())],
@@ -61,22 +57,22 @@ export class RecurringTopUpsApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/recurringTopUps`;
     req.throwOn(
       401,
-      BalanceAccountsRecurringTopUps401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsRecurringTopUps403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsRecurringTopUps404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the recurring top up was not found'
     );
     req.throwOn(
       500,
-      BalanceAccountsRecurringTopUps500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -100,6 +96,7 @@ export class RecurringTopUpsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<RecurringTopUp>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       body: [body, createRecurringTopUpSchema],
@@ -109,22 +106,22 @@ export class RecurringTopUpsApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/recurringTopUps`;
     req.throwOn(
       400,
-      BalanceAccountsRecurringTopUps400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalanceAccountsRecurringTopUps401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsRecurringTopUps403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      BalanceAccountsRecurringTopUps422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.authenticate([]);
@@ -146,8 +143,9 @@ export class RecurringTopUpsApi extends BaseApi {
     balanceAccountId: string,
     topUpId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<unknown | undefined>> {
+  ): Promise<ApiResponse<unknown>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       topUpId: [topUpId, string()],
@@ -155,36 +153,36 @@ export class RecurringTopUpsApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/recurringTopUps/${mapped.topUpId}`;
     req.throwOn(
       400,
-      BalanceAccountsRecurringTopUps400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalanceAccountsRecurringTopUps401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsRecurringTopUps403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsRecurringTopUps404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the recurring top up was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsRecurringTopUps422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsRecurringTopUps500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
-    return req.callAsJson(optional(unknown()), requestOptions);
+    return req.callAsJson(unknown(), requestOptions);
   }
 
   /**
@@ -206,6 +204,7 @@ export class RecurringTopUpsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<RecurringTopUp>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       topUpId: [topUpId, string()],
@@ -216,22 +215,22 @@ export class RecurringTopUpsApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/recurringTopUps/${mapped.topUpId}`;
     req.throwOn(
       400,
-      BalanceAccountsRecurringTopUps400Error,
+      DefaultErrorResponseEntityError,
       'Bad Request - a problem reading or understanding the request.'
     );
     req.throwOn(
       401,
-      BalanceAccountsRecurringTopUps401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsRecurringTopUps403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      BalanceAccountsRecurringTopUps422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.authenticate([]);

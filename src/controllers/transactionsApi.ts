@@ -5,8 +5,8 @@
  */
 
 import { ApiResponse, RequestOptions } from '../core.js';
-import { SortOrder2, sortOrder2Schema } from '../models/sortOrder2.js';
-import { Transaction1, transaction1Schema } from '../models/transaction1.js';
+import { SortOrderEnum, sortOrderEnumSchema } from '../models/sortOrderEnum.js';
+import { Transaction, transactionSchema } from '../models/transaction.js';
 import {
   TransactionSearchResponse,
   transactionSearchResponseSchema,
@@ -33,41 +33,43 @@ export class TransactionsApi extends BaseApi {
    *
    *
    *
-   * @param createdSince        Only include transactions that have been created on or after this point
-   *                                          in time. The value must be in ISO 8601 format. For example, **2021-05-
-   *                                          30T15:07:40Z**.
-   * @param createdUntil        Only include transactions that have been created on or before this point
-   *                                          in time. The value must be in ISO 8601 format. For example, **2021-05-
-   *                                          30T15:07:40Z**.
+   * @param createdSince        Only include transactions that have been created on or after this
+   *                                             point in time. The value must be in ISO 8601 format. For example,
+   *                                             **2021-05-30T15:07:40Z**.
+   * @param createdUntil        Only include transactions that have been created on or before this
+   *                                             point in time. The value must be in ISO 8601 format. For example,
+   *                                             **2021-05-30T15:07:40Z**.
    * @param balancePlatform     The unique identifier of the [balance platform](https://docs.adyen.
-   *                                          com/api-
-   *                                          explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_i
-   *                                          d).  Required if you don't provide a `balanceAccountId` or
-   *                                          `accountHolderId`.
+   *                                             com/api-
+   *                                             explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryPara
+   *                                             m_id).  Required if you don't provide a `balanceAccountId` or
+   *                                             `accountHolderId`.
    * @param paymentInstrumentId The unique identifier of the [payment instrument](https://docs.adyen.
-   *                                          com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).  To
-   *                                          use this parameter, you must also provide a `balanceAccountId`,
-   *                                          `accountHolderId`, or `balancePlatform`.  The `paymentInstrumentId` must
-   *                                          be related to the `balanceAccountId` or `accountHolderId` that you
-   *                                          provide.
-   * @param accountHolderId     The unique identifier of the [account holder](https://docs.adyen.com/api-
-   *                                          explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_id).
-   *                                          Required if you don't provide a `balanceAccountId` or `balancePlatform`.
-   *                                          If you provide a `balanceAccountId`, the `accountHolderId` must be
-   *                                          related to the `balanceAccountId`.
+   *                                             com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).
+   *                                             To use this parameter, you must also provide a `balanceAccountId`,
+   *                                             `accountHolderId`, or `balancePlatform`.  The `paymentInstrumentId`
+   *                                             must be related to the `balanceAccountId` or `accountHolderId` that
+   *                                             you provide.
+   * @param accountHolderId     The unique identifier of the [account holder](https://docs.adyen.
+   *                                             com/api-
+   *                                             explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_
+   *                                             id).  Required if you don't provide a `balanceAccountId` or
+   *                                             `balancePlatform`.  If you provide a `balanceAccountId`, the
+   *                                             `accountHolderId` must be related to the `balanceAccountId`.
    * @param balanceAccountId    The unique identifier of the [balance account](https://docs.adyen.
-   *                                          com/api-
-   *                                          explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id
-   *                                          ).  Required if you don't provide an `accountHolderId` or
-   *                                          `balancePlatform`.  If you provide an `accountHolderId`, the
-   *                                          `balanceAccountId` must be related to the `accountHolderId`.
+   *                                             com/api-
+   *                                             explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam
+   *                                             _id).  Required if you don't provide an `accountHolderId` or
+   *                                             `balancePlatform`.  If you provide an `accountHolderId`, the
+   *                                             `balanceAccountId` must be related to the `accountHolderId`.
    * @param cursor              The `cursor` returned in the links of the previous response.
-   * @param sortOrder           Determines the sort order of the returned transactions. The sort order
-   *                                          is based on the creation date of the transaction.  Possible values:   -
-   *                                          **asc**: Ascending order, from oldest to most recent.  - **desc**:
-   *                                          Descending order, from most recent to oldest.  Default value: **asc**.
-   * @param limit               The number of items returned per page, maximum of 100 items. By default,
-   *                                          the response returns 10 items per page.
+   * @param sortOrder           Determines the sort order of the returned transactions. The sort
+   *                                             order is based on the creation date of the transaction.  Possible
+   *                                             values:   - **asc**: Ascending order, from oldest to most recent.  -
+   *                                             **desc**: Descending order, from most recent to oldest.  Default value:
+   *                                             **asc**.
+   * @param limit               The number of items returned per page, maximum of 100 items. By
+   *                                             default, the response returns 10 items per page.
    * @return Response from the API call
    */
   async getTransactions(
@@ -78,11 +80,12 @@ export class TransactionsApi extends BaseApi {
     accountHolderId?: string,
     balanceAccountId?: string,
     cursor?: string,
-    sortOrder?: SortOrder2,
+    sortOrder?: SortOrderEnum,
     limit?: number,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionSearchResponse>> {
     const req = this.createRequest('GET', '/transactions');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({
       createdSince: [createdSince, string()],
       createdUntil: [createdUntil, string()],
@@ -91,7 +94,7 @@ export class TransactionsApi extends BaseApi {
       accountHolderId: [accountHolderId, optional(string())],
       balanceAccountId: [balanceAccountId, optional(string())],
       cursor: [cursor, optional(string())],
-      sortOrder: [sortOrder, optional(sortOrder2Schema)],
+      sortOrder: [sortOrder, optional(sortOrderEnumSchema)],
       limit: [limit, optional(number())],
     });
     req.query('createdSince', mapped.createdSince);
@@ -143,8 +146,9 @@ export class TransactionsApi extends BaseApi {
   async getTransactionsId(
     id: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<Transaction1>> {
+  ): Promise<ApiResponse<Transaction>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/transactions/${mapped.id}`;
     req.throwOn(
@@ -172,6 +176,6 @@ export class TransactionsApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(transaction1Schema, requestOptions);
+    return req.callAsJson(transactionSchema, requestOptions);
   }
 }

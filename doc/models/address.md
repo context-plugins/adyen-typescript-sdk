@@ -1,14 +1,17 @@
 
 # Address
 
-The address where to send the invoice.
+The address where to send the invoice., The address where to send the invoice.
 
 > The `billingAddress` object is required in the following scenarios. Include all of the fields within this object.
 > 
 > * For 3D Secure 2 transactions in all browser-based and mobile implementations.
-> * For cross-border payouts to and from Canada.
+> * For cross-border payouts to and from Canada., The address where the purchased goods should be delivered., The billing address., The address where to send the invoice., The address where to send the invoice.
+>   The `billingAddress` object is required in the following scenarios. Include all of the fields within this object.
+> * For 3D Secure 2 transactions in all browser-based and mobile implementations.
+> * For cross-border payouts to and from Canada., The billing address.
 
-*This model accepts additional fields of type unknown.*
+> The `billingAddress` object is required for cross-border payouts to and from Canada. Include all of the fields within this object., The address of the account holder.
 
 ## Structure
 
@@ -24,7 +27,6 @@ The address where to send the invoice.
 | `postalCode` | `string` | Required | A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries. |
 | `stateOrProvince` | `string \| undefined` | Optional | The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.<br><br>> Required for the US and Canada. |
 | `street` | `string` | Required | The name of the street. Maximum length: 3000 characters.<br><br>> The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.<br><br>**Constraints**: *Maximum Length*: `3000` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -38,9 +40,6 @@ const address: Address = {
   postalCode: 'postalCode8',
   street: 'street6',
   stateOrProvince: 'stateOrProvince4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

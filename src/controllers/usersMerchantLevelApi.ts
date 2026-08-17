@@ -50,6 +50,7 @@ export class UsersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListMerchantUsersResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       pageNumber: [pageNumber, optional(number())],
@@ -107,6 +108,7 @@ export class UsersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CreateUserResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(createMerchantUserRequestSchema)],
@@ -161,6 +163,7 @@ export class UsersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<User>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       userId: [userId, string()],
@@ -215,6 +218,7 @@ export class UsersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<User>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       userId: [userId, string()],

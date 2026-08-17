@@ -1,9 +1,9 @@
 
 # Card 1
 
-Contains information about the card payment instrument. Returned when you create a payment instrument with `type` **card**.
+Credit card data.
 
-*This model accepts additional fields of type unknown.*
+Optional if `shopperReference` and `selectedRecurringDetailReference` are provided.
 
 ## Structure
 
@@ -13,107 +13,26 @@ Contains information about the card payment instrument. Returned when you create
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `authentication` | [`Authentication \| undefined`](../../doc/models/authentication.md) | Optional | - |
-| `bin` | `string \| undefined` | Optional | The bank identification number (BIN) of the card number. |
-| `brand` | `string` | Required | The brand of the physical or the virtual card.<br>Possible values: **visa**, **mc**. |
-| `brandVariant` | `string` | Required | The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**.<br><br>> Reach out to your Adyen contact to get the values relevant for your integration. |
-| `cardholderName` | `string` | Required | The name of the cardholder.<br>Maximum length: 26 characters.<br><br>**Constraints**: *Maximum Length*: `26` |
-| `configuration` | [`CardConfiguration \| undefined`](../../doc/models/card-configuration.md) | Optional | - |
-| `cvc` | `string \| undefined` | Optional | The CVC2 value of the card.<br><br>> The CVC2 is not sent by default. This is only returned in the `POST` response for single-use virtual cards. |
-| `deliveryContact` | [`DeliveryContact \| undefined`](../../doc/models/delivery-contact.md) | Optional | - |
-| `expiration` | [`Expiry \| undefined`](../../doc/models/expiry.md) | Optional | - |
-| `formFactor` | [`FormFactor1`](../../doc/models/form-factor-1.md) | Required | - |
-| `lastFour` | `string \| undefined` | Optional | Last last four digits of the card number. |
-| `number` | `string \| undefined` | Optional, Read-only | The primary account number (PAN) of the card.<br><br>> The PAN is masked by default and returned only for single-use virtual cards. |
-| `threeDSecure` | `string \| undefined` | Optional | The 3DS configuration of the physical or the virtual card. Possible values: **fullySupported**, **secureCorporate**.<br><br>> Reach out to your Adyen contact to get the values relevant for your integration. |
-| `usage` | `string \| undefined` | Optional | Specifies how many times the card can be used. Possible values: **singleUse**, **multiUse**.<br><br>> Reach out to your Adyen contact to determine the value relevant for your integration. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `cvc` | `string \| undefined` | Optional | The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as:<br><br>* CVV2/CVC2 – length: 3 digits<br>* CID – length: 4 digits<br><br>> If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server.<br>> This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments).<br>> When this value is returned in a response, it is always empty because it is not stored.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `20` |
+| `expiryMonth` | `string \| undefined` | Optional | The card expiry month.<br>Format: 2 digits, zero-padded for single digits. For example:<br><br>* 03 = March<br>* 11 = November<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2` |
+| `expiryYear` | `string \| undefined` | Optional | The card expiry year.<br>Format: 4 digits. For example: 2020<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
+| `holderName` | `string \| undefined` | Optional | The name of the cardholder, as printed on the card.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` |
+| `issueNumber` | `string \| undefined` | Optional | The issue number of the card (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2` |
+| `number` | `string \| undefined` | Optional | The card number (4-19 characters). Do not use any separators.<br>When this value is returned in a response, only the last 4 digits of the card number are returned.<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `19` |
+| `startMonth` | `string \| undefined` | Optional | The month component of the start date (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2` |
+| `startYear` | `string \| undefined` | Optional | The year component of the start date (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
 
 ## Example
 
 ```ts
-import { Card1, FormFactor1, PhoneType, Type4 } from 'adyen';
+import { Card1 } from 'adyen';
 
 const card1: Card1 = {
-  brand: 'brand6',
-  brandVariant: 'brandVariant4',
-  cardholderName: 'cardholderName2',
-  formFactor: FormFactor1.Physical,
-  authentication: {
-    email: 'email8',
-    password: 'password2',
-    phone: {
-      number: 'number8',
-      type: Type4.Landline,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  bin: 'bin2',
-  configuration: {
-    configurationProfileId: 'configurationProfileId6',
-    activation: 'activation2',
-    activationUrl: 'activationUrl8',
-    bulkAddress: {
-      country: 'country0',
-      city: 'city6',
-      company: 'company6',
-      email: 'email0',
-      houseNumberOrName: 'houseNumberOrName4',
-      line1: 'line18',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    cardImageId: 'cardImageId0',
-    carrier: 'carrier8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
   cvc: 'cvc6',
-  deliveryContact: {
-    address: {
-      country: 'country0',
-      city: 'city6',
-      line1: 'line18',
-      line2: 'line20',
-      line3: 'line38',
-      postalCode: 'postalCode8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    name: {
-      firstName: 'firstName4',
-      lastName: 'lastName4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    company: 'company4',
-    email: 'email0',
-    fullPhoneNumber: 'fullPhoneNumber0',
-    phoneNumber: {
-      phoneCountryCode: 'phoneCountryCode8',
-      phoneNumber: 'phoneNumber0',
-      phoneType: PhoneType.Fax,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    webAddress: 'webAddress4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  expiryMonth: 'expiryMonth6',
+  expiryYear: 'expiryYear4',
+  holderName: 'holderName8',
+  issueNumber: 'issueNumber6',
 };
 ```
 

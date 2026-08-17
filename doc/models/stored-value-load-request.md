@@ -1,8 +1,6 @@
 
 # Stored Value Load Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoredValueLoadRequest`
@@ -11,29 +9,29 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16`](../../doc/models/amount-16.md) | Required | - |
-| `loadType` | [`LoadType \| undefined`](../../doc/models/load-type.md) | Optional | - |
+| `amount` | [`Amount`](../../doc/models/amount.md) | Required | The amount information for the transaction. |
+| `loadType` | [`LoadTypeEnum \| undefined`](../../doc/models/load-type-enum.md) | Optional | The type of load you are trying to do, when absent we default to 'load' |
 | `merchantAccount` | `string` | Required | The merchant account identifier, with which you want to process the transaction. |
 | `paymentMethod` | `Record<string, string>` | Required | The collection that contains the type of the payment method and its specific information if available |
 | `recurringDetailReference` | `string \| undefined` | Optional | - |
 | `reference` | `string` | Required | The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement.<br>If you need to provide multiple references for a transaction, separate them with hyphens ("-").<br>Maximum length: 80 characters. |
-| `shopperInteraction` | [`ShopperInteraction1 \| undefined`](../../doc/models/shopper-interaction-1.md) | Optional | - |
+| `shopperInteraction` | [`ShopperInteractionEnum \| undefined`](../../doc/models/shopper-interaction-enum.md) | Optional | Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer.<br>For the web service API, Adyen assumes Ecommerce shopper interaction by default.<br><br>This field has the following possible values:<br><br>* `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request.<br>* `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment).<br>* `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone.<br>* `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal. |
 | `shopperReference` | `string \| undefined` | Optional | - |
 | `store` | `string \| undefined` | Optional | The physical store, for which this payment is processed.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `16` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { LoadType, ShopperInteraction1, StoredValueLoadRequest } from 'adyen';
+import {
+  LoadTypeEnum,
+  ShopperInteractionEnum,
+  StoredValueLoadRequest,
+} from 'adyen';
 
 const storedValueLoadRequest: StoredValueLoadRequest = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   merchantAccount: 'merchantAccount8',
   paymentMethod: {
@@ -41,14 +39,11 @@ const storedValueLoadRequest: StoredValueLoadRequest = {
     'key1': 'paymentMethod9'
   },
   reference: 'reference2',
-  loadType: LoadType.MerchandiseReturn,
+  loadType: LoadTypeEnum.MerchandiseReturn,
   recurringDetailReference: 'recurringDetailReference6',
-  shopperInteraction: ShopperInteraction1.Moto,
+  shopperInteraction: ShopperInteractionEnum.Moto,
   shopperReference: 'shopperReference4',
   store: 'store6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

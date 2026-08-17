@@ -18,9 +18,9 @@ import {
   createGrantOfferRequestSchema,
 } from '../models/createGrantOfferRequest.js';
 import {
-  FinancingType1,
-  financingType1Schema,
-} from '../models/financingType1.js';
+  FinancingTypeEnum,
+  financingTypeEnumSchema,
+} from '../models/financingTypeEnum.js';
 import {
   GetDynamicOffersResponse,
   getDynamicOffersResponseSchema,
@@ -28,9 +28,7 @@ import {
 import { GrantOffer1, grantOffer1Schema } from '../models/grantOffer1.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { DynamicOffers422Error } from '../errors/dynamicOffers422Error.js';
-import { DynamicOffersCalculate422Error } from '../errors/dynamicOffersCalculate422Error.js';
-import { DynamicOffersGrantOffer422Error } from '../errors/dynamicOffersGrantOffer422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class DynamicOffersApi extends BaseApi {
   /**
@@ -38,27 +36,28 @@ export class DynamicOffersApi extends BaseApi {
    * offers/) available for `accountHolderId` specified as a query parameter.
    *
    * @param accountHolderId The unique identifier of the account holder that the dynamic offer is
-   *                                          for.
+   *                                             for.
    * @param financingType   The type of financing that the offer is for. If the value is not
-   *                                          specified, returns all available types.  Possible values:
-   *                                          **businessFinancing**
+   *                                             specified, returns all available types.  Possible values:
+   *                                             **businessFinancing**
    * @return Response from the API call
    */
   async getDynamicOffers(
     accountHolderId: string,
-    financingType?: FinancingType1,
+    financingType?: FinancingTypeEnum,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetDynamicOffersResponse>> {
     const req = this.createRequest('GET', '/dynamicOffers');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({
       accountHolderId: [accountHolderId, string()],
-      financingType: [financingType, optional(financingType1Schema)],
+      financingType: [financingType, optional(financingTypeEnumSchema)],
     });
     req.query('accountHolderId', mapped.accountHolderId);
     req.query('financingType', mapped.financingType);
     req.throwOn(
       422,
-      DynamicOffers422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -89,6 +88,7 @@ export class DynamicOffersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CalculatedGrantOffer>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(calculateGrantOfferRequestSchema)],
@@ -98,7 +98,7 @@ export class DynamicOffersApi extends BaseApi {
     req.appendTemplatePath`/dynamicOffers/${mapped.id}/calculate`;
     req.throwOn(
       422,
-      DynamicOffersCalculate422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);
@@ -128,6 +128,7 @@ export class DynamicOffersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GrantOffer1>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default15');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(createGrantOfferRequestSchema)],
@@ -137,7 +138,7 @@ export class DynamicOffersApi extends BaseApi {
     req.appendTemplatePath`/dynamicOffers/${mapped.id}/grantOffer`;
     req.throwOn(
       422,
-      DynamicOffersGrantOffer422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - A request validation error.'
     );
     req.authenticate(false);

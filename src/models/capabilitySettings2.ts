@@ -9,44 +9,42 @@ import {
   boolean,
   dict,
   lazy,
+  object,
   optional,
   Schema,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { FundingSource, fundingSourceSchema } from './fundingSource.js';
-import { Interval, intervalSchema } from './interval.js';
-import { MaxAmount, maxAmountSchema } from './maxAmount.js';
 import {
-  PatchableAmountDto,
-  patchableAmountDtoSchema,
-} from './patchableAmountDto.js';
+  FundingSourceEnum,
+  fundingSourceEnumSchema,
+} from './fundingSourceEnum.js';
+import { IntervalEnum, intervalEnumSchema } from './intervalEnum.js';
+import {
+  PatchableAmountDTO,
+  patchableAmountDTOSchema,
+} from './patchableAmountDTO.js';
 
 export interface CapabilitySettings2 {
   /** The maximum amount a card holder can spend per industry. */
-  amountPerIndustry?: Record<string, PatchableAmountDto>;
+  amountPerIndustry?: Record<string, PatchableAmountDTO>;
   /** The number of card holders who can use the card. */
   authorizedCardUsers?: boolean;
   /** The funding source of the card, for example **debit**. */
-  fundingSource?: FundingSource[];
-  interval?: Interval;
-  maxAmount?: MaxAmount;
-  additionalProperties?: Record<string, unknown>;
+  fundingSource?: FundingSourceEnum[];
+  /** The period when the rule conditions apply. */
+  interval?: IntervalEnum;
+  /** The maximum amount a card holder can withdraw per day. */
+  maxAmount?: PatchableAmountDTO;
 }
 
 export const capabilitySettings2Schema: Schema<CapabilitySettings2> = lazy(() =>
-  typedExpandoObject(
-    {
-      amountPerIndustry: [
-        'amountPerIndustry',
-        optional(dict(patchableAmountDtoSchema)),
-      ],
-      authorizedCardUsers: ['authorizedCardUsers', optional(boolean())],
-      fundingSource: ['fundingSource', optional(array(fundingSourceSchema))],
-      interval: ['interval', optional(intervalSchema)],
-      maxAmount: ['maxAmount', optional(maxAmountSchema)],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    amountPerIndustry: [
+      'amountPerIndustry',
+      optional(dict(patchableAmountDTOSchema)),
+    ],
+    authorizedCardUsers: ['authorizedCardUsers', optional(boolean())],
+    fundingSource: ['fundingSource', optional(array(fundingSourceEnumSchema))],
+    interval: ['interval', optional(intervalEnumSchema)],
+    maxAmount: ['maxAmount', optional(patchableAmountDTOSchema)],
+  })
 );

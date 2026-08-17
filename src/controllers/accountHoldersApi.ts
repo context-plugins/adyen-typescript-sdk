@@ -5,10 +5,7 @@
  */
 
 import { ApiResponse, RequestOptions } from '../core.js';
-import {
-  AccountHolder2,
-  accountHolder2Schema,
-} from '../models/accountHolder2.js';
+import { AccountHolder, accountHolderSchema } from '../models/accountHolder.js';
 import {
   AccountHolderInfo,
   accountHolderInfoSchema,
@@ -37,7 +34,7 @@ import {
   CreateAccountHolderResponse,
   createAccountHolderResponseSchema,
 } from '../models/createAccountHolderResponse.js';
-import { FormType1, formType1Schema } from '../models/formType1.js';
+import { FormTypeEnum, formTypeEnumSchema } from '../models/formTypeEnum.js';
 import {
   GenericResponse,
   genericResponseSchema,
@@ -109,7 +106,7 @@ import {
 import { number, optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
 import { RestServiceError } from '../errors/restServiceError.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class AccountHoldersApi extends BaseApi {
   /**
@@ -128,6 +125,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CloseAccountHolderResponse>> {
     const req = this.createRequest('POST', '/closeAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(closeAccountHolderRequestSchema)],
     });
@@ -135,23 +133,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -169,6 +171,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/closeStores');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(closeStoresRequestSchema)],
     });
@@ -176,23 +179,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -214,6 +221,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CreateAccountHolderResponse>> {
     const req = this.createRequest('POST', '/createAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(createAccountHolderRequestSchema)],
     });
@@ -221,23 +229,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -255,6 +267,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetAccountHolderResponse>> {
     const req = this.createRequest('POST', '/getAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(getAccountHolderRequestSchema)],
     });
@@ -262,23 +275,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -297,6 +314,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetTaxFormResponse>> {
     const req = this.createRequest('POST', '/getTaxForm');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(getTaxFormRequestSchema)],
     });
@@ -304,23 +322,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -339,6 +361,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SuspendAccountHolderResponse>> {
     const req = this.createRequest('POST', '/suspendAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(suspendAccountHolderRequestSchema)],
     });
@@ -346,23 +369,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -389,6 +416,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UnSuspendAccountHolderResponse>> {
     const req = this.createRequest('POST', '/unSuspendAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(unSuspendAccountHolderRequestSchema)],
     });
@@ -396,23 +424,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -457,6 +489,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UpdateAccountHolderResponse>> {
     const req = this.createRequest('POST', '/updateAccountHolder');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(updateAccountHolderRequestSchema)],
     });
@@ -464,23 +497,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -498,6 +535,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetAccountHolderStatusResponse>> {
     const req = this.createRequest('POST', '/updateAccountHolderState');
+    req.baseUrl('default10');
     const mapped = req.prepareArgs({
       body: [body, optional(updateAccountHolderStateRequestSchema)],
     });
@@ -505,23 +543,27 @@ export class AccountHoldersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -540,8 +582,9 @@ export class AccountHoldersApi extends BaseApi {
   async postAccountHolders(
     body?: AccountHolderInfo,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<AccountHolder2>> {
+  ): Promise<ApiResponse<AccountHolder>> {
     const req = this.createRequest('POST', '/accountHolders');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(accountHolderInfoSchema)],
     });
@@ -577,7 +620,7 @@ export class AccountHoldersApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(accountHolder2Schema, requestOptions);
+    return req.callAsJson(accountHolderSchema, requestOptions);
   }
 
   /**
@@ -589,8 +632,9 @@ export class AccountHoldersApi extends BaseApi {
   async getAccountHoldersId(
     id: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<AccountHolder2>> {
+  ): Promise<ApiResponse<AccountHolder>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/accountHolders/${mapped.id}`;
     req.throwOn(
@@ -623,7 +667,7 @@ export class AccountHoldersApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(accountHolder2Schema, requestOptions);
+    return req.callAsJson(accountHolderSchema, requestOptions);
   }
 
   /**
@@ -638,8 +682,9 @@ export class AccountHoldersApi extends BaseApi {
     id: string,
     body?: AccountHolderUpdateRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<AccountHolder2>> {
+  ): Promise<ApiResponse<AccountHolder>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(accountHolderUpdateRequestSchema)],
@@ -677,7 +722,7 @@ export class AccountHoldersApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(accountHolder2Schema, requestOptions);
+    return req.callAsJson(accountHolderSchema, requestOptions);
   }
 
   /**
@@ -700,6 +745,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaginatedBalanceAccountsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       offset: [offset, optional(number())],
@@ -750,23 +796,24 @@ export class AccountHoldersApi extends BaseApi {
    * //docs.adyen.com/platforms/us-tax-forms/) .
    *
    * @param id            The unique identifier of the account holder.
-   * @param formType      The type of tax form you want to retrieve. Accepted values are **US1099k** and
-   *                                   **US1099nec**.
+   * @param formType      The type of tax form you want to retrieve. Accepted values are **US1099k**
+   *                                      and **US1099nec**.
    * @param year          The tax year in **YYYY** format for the tax form you want to retrieve.
    * @param legalEntityId The legal entity reference whose tax form you want to retrieve.
    * @return Response from the API call
    */
   async getAccountHoldersIdTaxForms(
     id: string,
-    formType: FormType1,
+    formType: FormTypeEnum,
     year: number,
     legalEntityId?: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetTaxFormResponse1>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
-      formType: [formType, formType1Schema],
+      formType: [formType, formTypeEnumSchema],
       year: [year, number()],
       legalEntityId: [legalEntityId, optional(string())],
     });
@@ -823,6 +870,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRulesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/accountHolders/${mapped.id}/transactionRules`;
     req.throwOn(
@@ -872,6 +920,7 @@ export class AccountHoldersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TaxFormSummaryResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       formType: [formType, string()],

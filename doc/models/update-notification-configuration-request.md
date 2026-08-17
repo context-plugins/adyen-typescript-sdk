@@ -1,8 +1,6 @@
 
 # Update Notification Configuration Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdateNotificationConfigurationRequest`
@@ -11,15 +9,14 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `configurationDetails` | [`NotificationConfigurationDetails`](../../doc/models/notification-configuration-details.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `configurationDetails` | [`NotificationConfigurationDetails3`](../../doc/models/notification-configuration-details-3.md) | Required | Details of the notification subscription configuration to be updated. |
 
 ## Example
 
 ```ts
 import {
-  EventType,
-  IncludeMode,
+  EventTypeEnum,
+  IncludeModeEnum,
   UpdateNotificationConfigurationRequest,
 } from 'adyen';
 
@@ -30,27 +27,15 @@ const updateNotificationConfigurationRequest: UpdateNotificationConfigurationReq
     description: 'description6',
     eventConfigs: [
       {
-        eventType: EventType.ScheduledRefunds,
-        includeMode: IncludeMode.Exclude,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+        includeMode: IncludeModeEnum.EXCLUDE,
       },
       {
-        eventType: EventType.ScheduledRefunds,
-        includeMode: IncludeMode.Exclude,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+        includeMode: IncludeModeEnum.EXCLUDE,
       }
     ],
     hmacSignatureKey: 'hmacSignatureKey2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

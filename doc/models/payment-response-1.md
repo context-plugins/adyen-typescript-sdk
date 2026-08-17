@@ -4,8 +4,6 @@
 Details about the payment method used in the transaction.
 Only returned if `resultCode` is **Authorised**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentResponse1`
@@ -16,7 +14,6 @@ Only returned if `resultCode` is **Authorised**.
 |  --- | --- | --- | --- |
 | `brand` | `string \| undefined` | Optional | The card brand that the shopper used to pay. Only returned if `paymentMethod.type` is **scheme**. |
 | `type` | `string \| undefined` | Optional | The `paymentMethod.type` value used in the request. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -26,9 +23,6 @@ import { PaymentResponse1 } from 'adyen';
 const paymentResponse1: PaymentResponse1 = {
   brand: 'brand2',
   type: 'type2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

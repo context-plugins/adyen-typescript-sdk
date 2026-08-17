@@ -1,8 +1,6 @@
 
 # Additional Data Sub Merchant
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataSubMerchant`
@@ -23,7 +21,6 @@
 | `subMerchantSubSellerSubSellerNrState` | `string \| undefined` | Optional | Required for transactions performed by registered payment facilitators. The state code of the sub-merchant's address, if applicable to the country.<br><br>* Format: Alphanumeric<br>* Maximum length: 2 characters |
 | `subMerchantSubSellerSubSellerNrStreet` | `string \| undefined` | Optional | Required for transactions performed by registered payment facilitators. The street name and house number of the sub-merchant's address.<br><br>* Format: Alphanumeric<br>* Maximum length: 60 characters |
 | `subMerchantSubSellerSubSellerNrTaxId` | `string \| undefined` | Optional | Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant.<br><br>* Format: Numeric<br>* Fixed length: 11 digits for the CPF or 14 digits for the CNPJ |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const additionalDataSubMerchant: AdditionalDataSubMerchant = {
   subMerchantSubSellerSubSellerNrCountry: Liquid error: Value cannot be null. (Parameter 'key'),
   subMerchantSubSellerSubSellerNrEmail: Liquid error: Value cannot be null. (Parameter 'key'),
   subMerchantSubSellerSubSellerNrId: Liquid error: Value cannot be null. (Parameter 'key'),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

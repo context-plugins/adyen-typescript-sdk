@@ -1,8 +1,6 @@
 
 # Mccs Restriction
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MccsRestriction`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | `string[] \| undefined` | Optional | List of merchant category codes (MCCs). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ const mccsRestriction: MccsRestriction = {
   value: [
     'value4'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

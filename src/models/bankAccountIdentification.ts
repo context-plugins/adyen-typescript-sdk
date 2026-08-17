@@ -6,145 +6,143 @@
 
 import {
   isMappedValueValidForSchema,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  AuLocalAccountIdentification1,
-  auLocalAccountIdentification1Schema,
-} from './auLocalAccountIdentification1.js';
+  AULocalAccountIdentification1,
+  aULocalAccountIdentification1Schema,
+} from './aULocalAccountIdentification1.js';
 import {
-  BrLocalAccountIdentification1,
-  brLocalAccountIdentification1Schema,
-} from './brLocalAccountIdentification1.js';
+  BRLocalAccountIdentification1,
+  bRLocalAccountIdentification1Schema,
+} from './bRLocalAccountIdentification1.js';
 import {
-  CaLocalAccountIdentification1,
-  caLocalAccountIdentification1Schema,
-} from './caLocalAccountIdentification1.js';
+  CALocalAccountIdentification1,
+  cALocalAccountIdentification1Schema,
+} from './cALocalAccountIdentification1.js';
 import {
-  CzLocalAccountIdentification1,
-  czLocalAccountIdentification1Schema,
-} from './czLocalAccountIdentification1.js';
+  CZLocalAccountIdentification1,
+  cZLocalAccountIdentification1Schema,
+} from './cZLocalAccountIdentification1.js';
 import {
-  DkLocalAccountIdentification1,
-  dkLocalAccountIdentification1Schema,
-} from './dkLocalAccountIdentification1.js';
+  DKLocalAccountIdentification1,
+  dKLocalAccountIdentification1Schema,
+} from './dKLocalAccountIdentification1.js';
 import {
-  HkLocalAccountIdentification1,
-  hkLocalAccountIdentification1Schema,
-} from './hkLocalAccountIdentification1.js';
+  HKLocalAccountIdentification1,
+  hKLocalAccountIdentification1Schema,
+} from './hKLocalAccountIdentification1.js';
 import {
-  HuLocalAccountIdentification1,
-  huLocalAccountIdentification1Schema,
-} from './huLocalAccountIdentification1.js';
+  HULocalAccountIdentification1,
+  hULocalAccountIdentification1Schema,
+} from './hULocalAccountIdentification1.js';
 import {
-  IbanAccountIdentification2,
-  ibanAccountIdentification2Schema,
-} from './ibanAccountIdentification2.js';
+  IbanAccountIdentification1,
+  ibanAccountIdentification1Schema,
+} from './ibanAccountIdentification1.js';
 import {
-  NoLocalAccountIdentification1,
-  noLocalAccountIdentification1Schema,
-} from './noLocalAccountIdentification1.js';
+  NOLocalAccountIdentification1,
+  nOLocalAccountIdentification1Schema,
+} from './nOLocalAccountIdentification1.js';
 import {
   NumberAndBicAccountIdentification1,
   numberAndBicAccountIdentification1Schema,
 } from './numberAndBicAccountIdentification1.js';
 import {
-  NzLocalAccountIdentification1,
-  nzLocalAccountIdentification1Schema,
-} from './nzLocalAccountIdentification1.js';
+  NZLocalAccountIdentification1,
+  nZLocalAccountIdentification1Schema,
+} from './nZLocalAccountIdentification1.js';
 import {
-  PlLocalAccountIdentification1,
-  plLocalAccountIdentification1Schema,
-} from './plLocalAccountIdentification1.js';
+  PLLocalAccountIdentification1,
+  pLLocalAccountIdentification1Schema,
+} from './pLLocalAccountIdentification1.js';
 import {
-  SeLocalAccountIdentification1,
-  seLocalAccountIdentification1Schema,
-} from './seLocalAccountIdentification1.js';
+  SELocalAccountIdentification1,
+  sELocalAccountIdentification1Schema,
+} from './sELocalAccountIdentification1.js';
 import {
-  SgLocalAccountIdentification1,
-  sgLocalAccountIdentification1Schema,
-} from './sgLocalAccountIdentification1.js';
+  SGLocalAccountIdentification1,
+  sGLocalAccountIdentification1Schema,
+} from './sGLocalAccountIdentification1.js';
 import {
-  UkLocalAccountIdentification1,
-  ukLocalAccountIdentification1Schema,
-} from './ukLocalAccountIdentification1.js';
+  UKLocalAccountIdentification1,
+  uKLocalAccountIdentification1Schema,
+} from './uKLocalAccountIdentification1.js';
 import {
-  UsLocalAccountIdentification1,
-  usLocalAccountIdentification1Schema,
-} from './usLocalAccountIdentification1.js';
+  USLocalAccountIdentification1,
+  uSLocalAccountIdentification1Schema,
+} from './uSLocalAccountIdentification1.js';
 
 export interface BankAccountIdentification {
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export namespace BankAccountIdentification {
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a UsLocalAccountIdentification1.
+   * is also a USLocalAccountIdentification1.
    */
-  export function isUsLocalAccountIdentification1(
+  export function isUSLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is UsLocalAccountIdentification1 {
+  ): value is USLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      usLocalAccountIdentification1Schema
+      uSLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a UkLocalAccountIdentification1.
+   * is also a UKLocalAccountIdentification1.
    */
-  export function isUkLocalAccountIdentification1(
+  export function isUKLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is UkLocalAccountIdentification1 {
+  ): value is UKLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      ukLocalAccountIdentification1Schema
+      uKLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a SgLocalAccountIdentification1.
+   * is also a SGLocalAccountIdentification1.
    */
-  export function isSgLocalAccountIdentification1(
+  export function isSGLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is SgLocalAccountIdentification1 {
+  ): value is SGLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      sgLocalAccountIdentification1Schema
+      sGLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a SeLocalAccountIdentification1.
+   * is also a SELocalAccountIdentification1.
    */
-  export function isSeLocalAccountIdentification1(
+  export function isSELocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is SeLocalAccountIdentification1 {
+  ): value is SELocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      seLocalAccountIdentification1Schema
+      sELocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a PlLocalAccountIdentification1.
+   * is also a PLLocalAccountIdentification1.
    */
-  export function isPlLocalAccountIdentification1(
+  export function isPLLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is PlLocalAccountIdentification1 {
+  ): value is PLLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      plLocalAccountIdentification1Schema
+      pLLocalAccountIdentification1Schema
     );
   }
 
@@ -163,134 +161,132 @@ export namespace BankAccountIdentification {
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a NzLocalAccountIdentification1.
+   * is also a NZLocalAccountIdentification1.
    */
-  export function isNzLocalAccountIdentification1(
+  export function isNZLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is NzLocalAccountIdentification1 {
+  ): value is NZLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      nzLocalAccountIdentification1Schema
+      nZLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a NoLocalAccountIdentification1.
+   * is also a NOLocalAccountIdentification1.
    */
-  export function isNoLocalAccountIdentification1(
+  export function isNOLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is NoLocalAccountIdentification1 {
+  ): value is NOLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      noLocalAccountIdentification1Schema
+      nOLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a IbanAccountIdentification2.
+   * is also a IbanAccountIdentification1.
    */
-  export function isIbanAccountIdentification2(
+  export function isIbanAccountIdentification1(
     value: BankAccountIdentification
-  ): value is IbanAccountIdentification2 {
-    return isMappedValueValidForSchema(value, ibanAccountIdentification2Schema);
+  ): value is IbanAccountIdentification1 {
+    return isMappedValueValidForSchema(value, ibanAccountIdentification1Schema);
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a HuLocalAccountIdentification1.
+   * is also a HULocalAccountIdentification1.
    */
-  export function isHuLocalAccountIdentification1(
+  export function isHULocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is HuLocalAccountIdentification1 {
+  ): value is HULocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      huLocalAccountIdentification1Schema
+      hULocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a HkLocalAccountIdentification1.
+   * is also a HKLocalAccountIdentification1.
    */
-  export function isHkLocalAccountIdentification1(
+  export function isHKLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is HkLocalAccountIdentification1 {
+  ): value is HKLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      hkLocalAccountIdentification1Schema
+      hKLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a DkLocalAccountIdentification1.
+   * is also a DKLocalAccountIdentification1.
    */
-  export function isDkLocalAccountIdentification1(
+  export function isDKLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is DkLocalAccountIdentification1 {
+  ): value is DKLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      dkLocalAccountIdentification1Schema
+      dKLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a CzLocalAccountIdentification1.
+   * is also a CZLocalAccountIdentification1.
    */
-  export function isCzLocalAccountIdentification1(
+  export function isCZLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is CzLocalAccountIdentification1 {
+  ): value is CZLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      czLocalAccountIdentification1Schema
+      cZLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a CaLocalAccountIdentification1.
+   * is also a CALocalAccountIdentification1.
    */
-  export function isCaLocalAccountIdentification1(
+  export function isCALocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is CaLocalAccountIdentification1 {
+  ): value is CALocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      caLocalAccountIdentification1Schema
+      cALocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a BrLocalAccountIdentification1.
+   * is also a BRLocalAccountIdentification1.
    */
-  export function isBrLocalAccountIdentification1(
+  export function isBRLocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is BrLocalAccountIdentification1 {
+  ): value is BRLocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      brLocalAccountIdentification1Schema
+      bRLocalAccountIdentification1Schema
     );
   }
 
   /**
    * Validation method to check if the given BankAccountIdentification instance
-   * is also a AuLocalAccountIdentification1.
+   * is also a AULocalAccountIdentification1.
    */
-  export function isAuLocalAccountIdentification1(
+  export function isAULocalAccountIdentification1(
     value: BankAccountIdentification
-  ): value is AuLocalAccountIdentification1 {
+  ): value is AULocalAccountIdentification1 {
     return isMappedValueValidForSchema(
       value,
-      auLocalAccountIdentification1Schema
+      aULocalAccountIdentification1Schema
     );
   }
 }
 
-export const bankAccountIdentificationSchema: Schema<BankAccountIdentification> = typedExpandoObject(
-  { type: ['type', optional(string())] },
-  'additionalProperties',
-  optional(unknown())
+export const bankAccountIdentificationSchema: Schema<BankAccountIdentification> = object(
+  { type: ['type', optional(string())] }
 );

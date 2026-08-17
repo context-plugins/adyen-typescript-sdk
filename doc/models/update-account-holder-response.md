@@ -1,8 +1,6 @@
 
 # Update Account Holder Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdateAccountHolderResponse`
@@ -12,26 +10,25 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string \| undefined` | Optional | The code of the account holder. |
-| `accountHolderDetails` | [`AccountHolderDetails \| undefined`](../../doc/models/account-holder-details.md) | Optional | - |
-| `accountHolderStatus` | [`AccountHolderStatus \| undefined`](../../doc/models/account-holder-status.md) | Optional | - |
+| `accountHolderDetails` | [`AccountHolderDetails3 \| undefined`](../../doc/models/account-holder-details-3.md) | Optional | Details of the account holder. |
+| `accountHolderStatus` | [`AccountHolderStatus7 \| undefined`](../../doc/models/account-holder-status-7.md) | Optional | The new status of the account holder. |
 | `description` | `string \| undefined` | Optional | The description of the account holder. |
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | in case the account holder has not been updated, contains account holder fields, that did not pass the validation. |
-| `legalEntity` | [`LegalEntity2 \| undefined`](../../doc/models/legal-entity-2.md) | Optional | - |
+| `legalEntity` | [`LegalEntity2Enum \| undefined`](../../doc/models/legal-entity-2-enum.md) | Optional | The legal entity of the account holder. |
 | `primaryCurrency` | `string \| undefined` | Optional | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective account holder primarily deals. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `verification` | [`KycVerificationResult \| undefined`](../../doc/models/kyc-verification-result.md) | Optional | - |
+| `verification` | [`KYCVerificationResult1 \| undefined`](../../doc/models/kyc-verification-result-1.md) | Optional | The details of KYC Verification of the account holder. |
 | `verificationProfile` | `string \| undefined` | Optional | The identifier of the profile that applies to this entity. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  Event,
-  FieldName,
-  Gender,
-  Status1,
+  EventEnum,
+  FieldNameEnum,
+  GenderEnum,
+  Status12Enum,
   UpdateAccountHolderResponse,
 } from 'adyen';
 
@@ -45,9 +42,6 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
       postalCode: 'postalCode8',
       stateOrProvince: 'stateOrProvince4',
       street: 'street6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     bankAccountDetails: [
       {
@@ -55,30 +49,21 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
         accountType: 'accountType4',
         bankAccountName: 'bankAccountName4',
         bankAccountReference: 'bankAccountReference4',
-        bankAccountUuid: 'bankAccountUUID0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        bankAccountUUID: 'bankAccountUUID0',
       },
       {
         accountNumber: 'accountNumber8',
         accountType: 'accountType4',
         bankAccountName: 'bankAccountName4',
         bankAccountReference: 'bankAccountReference4',
-        bankAccountUuid: 'bankAccountUUID0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        bankAccountUUID: 'bankAccountUUID0',
       },
       {
         accountNumber: 'accountNumber8',
         accountType: 'accountType4',
         bankAccountName: 'bankAccountName4',
         bankAccountReference: 'bankAccountReference4',
-        bankAccountUuid: 'bankAccountUUID0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        bankAccountUUID: 'bankAccountUUID0',
       }
     ],
     bankAggregatorDataReference: 'bankAggregatorDataReference6',
@@ -94,9 +79,6 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           businessDetails: {
             legalBusinessName: 'legalBusinessName8',
@@ -104,14 +86,8 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
             stockExchange: 'stockExchange4',
             stockNumber: 'stockNumber6',
             stockTicker: 'stockTicker6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           address: {
@@ -121,9 +97,6 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           businessDetails: {
             legalBusinessName: 'legalBusinessName8',
@@ -131,14 +104,8 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
             stockExchange: 'stockExchange4',
             stockNumber: 'stockNumber6',
             stockTicker: 'stockTicker6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       registrationNumber: 'registrationNumber6',
@@ -151,24 +118,15 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           email: 'email8',
           fullPhoneNumber: 'fullPhoneNumber2',
           jobTitle: 'jobTitle2',
           name: {
             firstName: 'firstName4',
-            gender: Gender.Male,
+            gender: GenderEnum.MALE,
             infix: 'infix4',
             lastName: 'lastName4',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         },
         {
@@ -179,47 +137,29 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           email: 'email8',
           fullPhoneNumber: 'fullPhoneNumber2',
           jobTitle: 'jobTitle2',
           name: {
             firstName: 'firstName4',
-            gender: Gender.Male,
+            gender: GenderEnum.MALE,
             infix: 'infix4',
             lastName: 'lastName4',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     email: 'email2',
     fullPhoneNumber: 'fullPhoneNumber8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   accountHolderStatus: {
-    status: Status1.Inactive,
+    status: Status12Enum.Inactive,
     events: [
       {
-        event: Event.InactivateAccount,
+        event: EventEnum.InactivateAccount,
         executionDate: '2016-03-13T12:52:32.123Z',
         reason: 'reason6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     payoutState: {
@@ -230,12 +170,6 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
       payoutLimit: {
         currency: 'currency8',
         value: BigInt(88),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     processingState: {
@@ -244,26 +178,14 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
       processedFrom: {
         currency: 'currency4',
         value: BigInt(148),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       processedTo: {
         currency: 'currency2',
         value: BigInt(54),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       tierNumber: 156,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     statusReason: 'statusReason8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   description: 'description6',
   invalidFields: [
@@ -272,14 +194,8 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -287,14 +203,8 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -302,20 +212,11 @@ const updateAccountHolderResponse: UpdateAccountHolderResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

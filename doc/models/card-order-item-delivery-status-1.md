@@ -3,8 +3,6 @@
 
 Contains information about the status of the PIN delivery.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardOrderItemDeliveryStatus1`
@@ -14,22 +12,18 @@ Contains information about the status of the PIN delivery.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errorMessage` | `string \| undefined` | Optional | An error message. |
-| `status` | [`Status7 \| undefined`](../../doc/models/status-7.md) | Optional | - |
+| `status` | [`Status71Enum \| undefined`](../../doc/models/status-71-enum.md) | Optional | The status of the PIN delivery. |
 | `trackingNumber` | `string \| undefined` | Optional | The tracking number of the PIN delivery. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CardOrderItemDeliveryStatus1, Status7 } from 'adyen';
+import { CardOrderItemDeliveryStatus1, Status71Enum } from 'adyen';
 
 const cardOrderItemDeliveryStatus1: CardOrderItemDeliveryStatus1 = {
   errorMessage: 'errorMessage0',
-  status: Status7.Created,
+  status: Status71Enum.Created,
   trackingNumber: 'trackingNumber0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

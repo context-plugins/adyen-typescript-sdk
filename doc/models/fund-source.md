@@ -1,8 +1,6 @@
 
 # Fund Source
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FundSource`
@@ -12,12 +10,11 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `additionalData` | `Record<string, string> \| undefined` | Optional | A map of name-value pairs for passing additional or industry-specific data. |
-| `billingAddress` | [`BillingAddress7 \| undefined`](../../doc/models/billing-address-7.md) | Optional | - |
-| `card` | [`Card6 \| undefined`](../../doc/models/card-6.md) | Optional | - |
+| `billingAddress` | [`Address \| undefined`](../../doc/models/address.md) | Optional | The address where to send the invoice. |
+| `card` | [`Card1 \| undefined`](../../doc/models/card-1.md) | Optional | Credit card data.<br><br>Optional if `shopperReference` and `selectedRecurringDetailReference` are provided. |
 | `shopperEmail` | `string \| undefined` | Optional | Email address of the person. |
-| `shopperName` | [`ShopperName \| undefined`](../../doc/models/shopper-name.md) | Optional | - |
+| `shopperName` | [`Name \| undefined`](../../doc/models/name.md) | Optional | Name of the person. |
 | `telephoneNumber` | `string \| undefined` | Optional | Phone number of the person |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -35,9 +32,6 @@ const fundSource: FundSource = {
     postalCode: 'postalCode6',
     street: 'street2',
     stateOrProvince: 'stateOrProvince0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   card: {
     cvc: 'cvc0',
@@ -45,20 +39,11 @@ const fundSource: FundSource = {
     expiryYear: 'expiryYear0',
     holderName: 'holderName2',
     issueNumber: 'issueNumber8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   shopperEmail: 'shopperEmail4',
   shopperName: {
     firstName: 'firstName2',
     lastName: 'lastName6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -4,8 +4,6 @@
 Content of the Balance Inquiry Response message.
 It conveys the balance and the identification of the associated payment, loyalty or stored value account.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalanceInquiryResponse`
@@ -14,154 +12,111 @@ It conveys the balance and the identification of the associated payment, loyalty
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `paymentAccountStatus` | [`PaymentAccountStatus \| undefined`](../../doc/models/payment-account-status.md) | Optional | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `paymentAccountStatus` | [`PaymentAccountStatus2 \| undefined`](../../doc/models/payment-account-status-2.md) | Optional | Data related to the result of a Balance Inquiry request.<br>If BalanceInquiryRequest. PaymentAccount present. |
 | `paymentReceipt` | [`PaymentReceipt[] \| undefined`](../../doc/models/payment-receipt.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
   BalanceInquiryResponse,
-  CharacterHeight1,
-  CharacterWidth1,
-  DocumentQualifier1,
-  EntryMode,
-  ErrorCondition1,
-  IdentificationType11,
-  OutputFormat1,
-  PaymentInstrumentType11,
-  Result11,
-  StoredValueAccountType1,
-  TrackFormat1,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  DocumentQualifier1Enum,
+  EntryModeEnum,
+  ErrorCondition1Enum,
+  IdentificationType11Enum,
+  OutputFormat1Enum,
+  PaymentInstrumentType11Enum,
+  Result11Enum,
+  StoredValueAccountType1Enum,
+  TrackFormat1Enum,
 } from 'adyen';
 
 const balanceInquiryResponse: BalanceInquiryResponse = {
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   paymentAccountStatus: {
     paymentInstrumentData: {
-      paymentInstrumentType: PaymentInstrumentType11.Cash,
+      paymentInstrumentType: PaymentInstrumentType11Enum.Cash,
       protectedCardData: 'ProtectedCardData8',
       cardData: {
         paymentBrand: 'PaymentBrand0',
         maskedPan: 'MaskedPan0',
         paymentAccountRef: 'PaymentAccountRef8',
         entryMode: [
-          EntryMode.Manual,
-          EntryMode.Keyed
+          EntryModeEnum.Manual,
+          EntryModeEnum.Keyed
         ],
         cardCountryCode: 3,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       checkData: {
-        bankId: 'BankID0',
+        bankID: 'BankID0',
         accountNumber: 'AccountNumber6',
         checkNumber: 'CheckNumber2',
         trackData: {
           trackValue: 'TrackValue6',
           trackNumb: 3,
-          trackFormat: TrackFormat1.Jisii,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          trackFormat: TrackFormat1Enum.JISII,
         },
         checkCardNumber: 'CheckCardNumber6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       mobileData: {
         mobileCountryCode: 3,
         mobileNetworkCode: 3,
-        maskedMsisdn: 22,
+        maskedMSISDN: 22,
         geolocation: {
           geographicCoordinates: {
             latitude: 'Latitude4',
             longitude: 'Longitude2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
-          utmCoordinates: {
-            utmZone: 'UTMZone6',
-            utmEastward: 'UTMEastward0',
-            utmNorthward: 'UTMNorthward0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+          uTMCoordinates: {
+            uTMZone: 'UTMZone6',
+            uTMEastward: 'UTMEastward0',
+            uTMNorthward: 'UTMNorthward0',
           },
         },
         protectedMobileData: 'ProtectedMobileData0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      storedValueAccountId: {
-        storedValueAccountType: StoredValueAccountType1.PhoneCard,
+      storedValueAccountID: {
+        storedValueAccountType: StoredValueAccountType1Enum.PhoneCard,
         entryMode: [
-          EntryMode.MagStripe,
-          EntryMode.Scanned
+          EntryModeEnum.MagStripe,
+          EntryModeEnum.Scanned
         ],
-        identificationType: IdentificationType11.PhoneNumber,
-        storedValueId: 'StoredValueID8',
+        identificationType: IdentificationType11Enum.PhoneNumber,
+        storedValueID: 'StoredValueID8',
         storedValueProvider: 'StoredValueProvider4',
         ownerName: 'OwnerName0',
         expiryDate: 4,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     currentBalance: 83.4,
     currency: 'Currency4',
     paymentAcquirerData: {
-      merchantId: 'MerchantID6',
-      acquirerPoiid: 'AcquirerPOIID4',
-      acquirerId: 238,
-      acquirerTransactionId: {
-        transactionId: 'TransactionID2',
+      merchantID: 'MerchantID6',
+      acquirerPOIID: 'AcquirerPOIID4',
+      acquirerID: 238,
+      acquirerTransactionID: {
+        transactionID: 'TransactionID2',
         timeStamp: '2016-03-13T12:52:32.123Z',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       approvalCode: 'ApprovalCode8',
-      hostReconciliationId: 'HostReconciliationID8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+      hostReconciliationID: 'HostReconciliationID8',
     },
   },
   paymentReceipt: [
     {
-      documentQualifier: DocumentQualifier1.CustomerReceipt,
+      documentQualifier: DocumentQualifier1Enum.CustomerReceipt,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -169,40 +124,25 @@ const balanceInquiryResponse: BalanceInquiryResponse = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       integratedPrintFlag: false,
       requiredSignatureFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      documentQualifier: DocumentQualifier1.CustomerReceipt,
+      documentQualifier: DocumentQualifier1Enum.CustomerReceipt,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -210,40 +150,25 @@ const balanceInquiryResponse: BalanceInquiryResponse = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       integratedPrintFlag: false,
       requiredSignatureFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      documentQualifier: DocumentQualifier1.CustomerReceipt,
+      documentQualifier: DocumentQualifier1Enum.CustomerReceipt,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -251,34 +176,19 @@ const balanceInquiryResponse: BalanceInquiryResponse = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       integratedPrintFlag: false,
       requiredSignatureFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

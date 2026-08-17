@@ -3,8 +3,6 @@
 
 Contains information about the transaction rule.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransactionRuleReference2`
@@ -18,7 +16,6 @@ Contains information about the transaction rule.
 | `outcomeType` | `string \| undefined` | Optional | The outcome type of the rule. |
 | `reference` | `string \| undefined` | Optional | The reference for the resource. |
 | `score` | `number \| undefined` | Optional | The transaction score determined by the rule. Returned only when `outcomeType` is **scoreBased**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const transactionRuleReference2: TransactionRuleReference2 = {
   outcomeType: 'outcomeType2',
   reference: 'reference2',
   score: 200,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

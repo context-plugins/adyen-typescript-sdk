@@ -11,11 +11,7 @@ import {
 } from '../models/authorisedCardUsers.js';
 import { string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { PaymentInstrumentsAuthorisedCardUsers400Error } from '../errors/paymentInstrumentsAuthorisedCardUsers400Error.js';
-import { PaymentInstrumentsAuthorisedCardUsers401Error } from '../errors/paymentInstrumentsAuthorisedCardUsers401Error.js';
-import { PaymentInstrumentsAuthorisedCardUsers403Error } from '../errors/paymentInstrumentsAuthorisedCardUsers403Error.js';
-import { PaymentInstrumentsAuthorisedCardUsers404Error } from '../errors/paymentInstrumentsAuthorisedCardUsers404Error.js';
-import { PaymentInstrumentsAuthorisedCardUsers422Error } from '../errors/paymentInstrumentsAuthorisedCardUsers422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class AuthorizedCardUsersApi extends BaseApi {
   /**
@@ -29,28 +25,17 @@ export class AuthorizedCardUsersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AuthorisedCardUsers>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       paymentInstrumentId: [paymentInstrumentId, string()],
     });
     req.appendTemplatePath`/paymentInstruments/${mapped.paymentInstrumentId}/authorisedCardUsers`;
-    req.throwOn(
-      401,
-      PaymentInstrumentsAuthorisedCardUsers401Error,
-      'Unauthorized'
-    );
-    req.throwOn(
-      403,
-      PaymentInstrumentsAuthorisedCardUsers403Error,
-      'Forbidden'
-    );
-    req.throwOn(
-      404,
-      PaymentInstrumentsAuthorisedCardUsers404Error,
-      'Not Found'
-    );
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
+    req.throwOn(403, DefaultErrorResponseEntityError, 'Forbidden');
+    req.throwOn(404, DefaultErrorResponseEntityError, 'Not Found');
     req.throwOn(
       422,
-      PaymentInstrumentsAuthorisedCardUsers422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.authenticate([]);
@@ -71,6 +56,7 @@ export class AuthorizedCardUsersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       paymentInstrumentId: [paymentInstrumentId, string()],
       body: [body, authorisedCardUsersSchema],
@@ -78,24 +64,12 @@ export class AuthorizedCardUsersApi extends BaseApi {
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.appendTemplatePath`/paymentInstruments/${mapped.paymentInstrumentId}/authorisedCardUsers`;
-    req.throwOn(
-      400,
-      PaymentInstrumentsAuthorisedCardUsers400Error,
-      'Bad request'
-    );
-    req.throwOn(
-      401,
-      PaymentInstrumentsAuthorisedCardUsers401Error,
-      'Unauthorized'
-    );
-    req.throwOn(
-      403,
-      PaymentInstrumentsAuthorisedCardUsers403Error,
-      'Forbidden'
-    );
+    req.throwOn(400, DefaultErrorResponseEntityError, 'Bad request');
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
+    req.throwOn(403, DefaultErrorResponseEntityError, 'Forbidden');
     req.throwOn(
       422,
-      PaymentInstrumentsAuthorisedCardUsers422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.authenticate([]);
@@ -113,20 +87,13 @@ export class AuthorizedCardUsersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       paymentInstrumentId: [paymentInstrumentId, string()],
     });
     req.appendTemplatePath`/paymentInstruments/${mapped.paymentInstrumentId}/authorisedCardUsers`;
-    req.throwOn(
-      401,
-      PaymentInstrumentsAuthorisedCardUsers401Error,
-      'Unauthorized'
-    );
-    req.throwOn(
-      403,
-      PaymentInstrumentsAuthorisedCardUsers403Error,
-      'Forbidden'
-    );
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
+    req.throwOn(403, DefaultErrorResponseEntityError, 'Forbidden');
     req.authenticate([]);
     return req.call(requestOptions);
   }
@@ -146,6 +113,7 @@ export class AuthorizedCardUsersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       paymentInstrumentId: [paymentInstrumentId, string()],
       body: [body, authorisedCardUsersSchema],
@@ -153,24 +121,12 @@ export class AuthorizedCardUsersApi extends BaseApi {
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.appendTemplatePath`/paymentInstruments/${mapped.paymentInstrumentId}/authorisedCardUsers`;
-    req.throwOn(
-      400,
-      PaymentInstrumentsAuthorisedCardUsers400Error,
-      'Bad request'
-    );
-    req.throwOn(
-      401,
-      PaymentInstrumentsAuthorisedCardUsers401Error,
-      'Unauthorized'
-    );
-    req.throwOn(
-      403,
-      PaymentInstrumentsAuthorisedCardUsers403Error,
-      'Forbidden'
-    );
+    req.throwOn(400, DefaultErrorResponseEntityError, 'Bad request');
+    req.throwOn(401, DefaultErrorResponseEntityError, 'Unauthorized');
+    req.throwOn(403, DefaultErrorResponseEntityError, 'Forbidden');
     req.throwOn(
       422,
-      PaymentInstrumentsAuthorisedCardUsers422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.authenticate([]);

@@ -1,8 +1,6 @@
 
 # Address Requirement
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AddressRequirement`
@@ -12,26 +10,22 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `description` | `string \| undefined` | Optional | Specifies the required address related fields for a particular route. |
-| `requiredAddressFields` | [`RequiredAddressField[] \| undefined`](../../doc/models/required-address-field.md) | Optional | List of address fields. |
-| `type` | [`Type710`](../../doc/models/type-710.md) | Required | **addressRequirement** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `requiredAddressFields` | [`RequiredAddressFieldEnum[] \| undefined`](../../doc/models/required-address-field-enum.md) | Optional | List of address fields. |
+| `type` | `string` | Required, Constant | **addressRequirement**<br><br>**Value**: `'addressRequirement'` |
 
 ## Example
 
 ```ts
-import { AddressRequirement, RequiredAddressField, Type710 } from 'adyen';
+import { AddressRequirement, RequiredAddressFieldEnum } from 'adyen';
 
 const addressRequirement: AddressRequirement = {
-  type: Type710.AddressRequirement,
+  type: 'addressRequirement',
   description: 'description2',
   requiredAddressFields: [
-    RequiredAddressField.Country,
-    RequiredAddressField.City,
-    RequiredAddressField.StateOrProvince
+    RequiredAddressFieldEnum.Country,
+    RequiredAddressFieldEnum.City,
+    RequiredAddressFieldEnum.StateOrProvince
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

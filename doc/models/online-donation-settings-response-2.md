@@ -3,8 +3,6 @@
 
 The settings for online donations collected as part of the campaign.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OnlineDonationSettingsResponse2`
@@ -15,15 +13,14 @@ The settings for online donations collected as part of the campaign.
 |  --- | --- | --- | --- |
 | `amounts` | [`DonationAmount[] \| undefined`](../../doc/models/donation-amount.md) | Optional | The currency and fixed amounts for donations. We automatically add calculated amounts in other currencies for participating stores that use a different currency than the default. |
 | `defaultCurrency` | `string \| undefined` | Optional | The currency that was used in the request to set fixed donation amounts. Format: three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes). |
-| `donationType` | [`DonationType1 \| undefined`](../../doc/models/donation-type-1.md) | Optional | - |
+| `donationType` | [`DonationType1Enum \| undefined`](../../doc/models/donation-type-1-enum.md) | Optional | The type of donation to collect from the shopper. Possible values:<br><br>- **roundup**: Round up the transaction amount.<br><br>- **fixedAmounts**: Choose a fixed amount.<br><br>- **fixedAmountsRoundup**: Round up, or choose a fixed amount. |
 | `merchantAccounts` | `string[] \| undefined` | Optional | The merchant accounts for this sales channel that are associated with the donation campaign. |
 | `storeIds` | `string[] \| undefined` | Optional | The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation campaign. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { DonationType1, OnlineDonationSettingsResponse2 } from 'adyen';
+import { DonationType1Enum, OnlineDonationSettingsResponse2 } from 'adyen';
 
 const onlineDonationSettingsResponse2: OnlineDonationSettingsResponse2 = {
   amounts: [
@@ -34,9 +31,6 @@ const onlineDonationSettingsResponse2: OnlineDonationSettingsResponse2 = {
         BigInt(50)
       ],
       currencyCode: 'currencyCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       amounts: [
@@ -45,9 +39,6 @@ const onlineDonationSettingsResponse2: OnlineDonationSettingsResponse2 = {
         BigInt(50)
       ],
       currencyCode: 'currencyCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       amounts: [
@@ -56,13 +47,10 @@ const onlineDonationSettingsResponse2: OnlineDonationSettingsResponse2 = {
         BigInt(50)
       ],
       currencyCode: 'currencyCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   defaultCurrency: 'defaultCurrency4',
-  donationType: DonationType1.FixedAmounts,
+  donationType: DonationType1Enum.FixedAmounts,
   merchantAccounts: [
     'merchantAccounts0',
     'merchantAccounts1',
@@ -72,9 +60,6 @@ const onlineDonationSettingsResponse2: OnlineDonationSettingsResponse2 = {
     'storeIds5',
     'storeIds6'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

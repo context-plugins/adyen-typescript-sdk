@@ -1,11 +1,9 @@
 
-# Hu Local Account Identification 1
-
-*This model accepts additional fields of type unknown.*
+# HU Local Account Identification 1
 
 ## Structure
 
-`HuLocalAccountIdentification1`
+`HULocalAccountIdentification1`
 
 ## Inherits From
 
@@ -16,19 +14,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The 24-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `24`, *Maximum Length*: `24` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { HuLocalAccountIdentification1 } from 'adyen';
+import { HULocalAccountIdentification1 } from 'adyen';
 
-const huLocalAccountIdentification1: HuLocalAccountIdentification1 = {
-  accountNumber: 'accountNumber4',
+const hULocalAccountIdentification1: HULocalAccountIdentification1 = {
+  accountNumber: 'accountNumber6',
   type: 'huLocal',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

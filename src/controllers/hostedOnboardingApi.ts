@@ -23,7 +23,7 @@ import {
 } from '../models/onboardingThemes.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class HostedOnboardingApi extends BaseApi {
   /**
@@ -49,6 +49,7 @@ export class HostedOnboardingApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<OnboardingLink>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(onboardingLinkInfoSchema)],
@@ -58,23 +59,27 @@ export class HostedOnboardingApi extends BaseApi {
     req.appendTemplatePath`/legalEntities/${mapped.id}/onboardingLinks`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -100,25 +105,30 @@ export class HostedOnboardingApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<OnboardingThemes>> {
     const req = this.createRequest('GET', '/themes');
+    req.baseUrl('default18');
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -146,27 +156,32 @@ export class HostedOnboardingApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<OnboardingTheme>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default18');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/themes/${mapped.id}`;
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

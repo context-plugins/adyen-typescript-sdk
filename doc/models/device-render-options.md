@@ -4,8 +4,6 @@
 Display options for the 3D Secure 2 SDK.
 Optional and only for `deviceChannel` **app**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeviceRenderOptions`
@@ -14,24 +12,20 @@ Optional and only for `deviceChannel` **app**.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `sdkInterface` | [`SdkInterface \| undefined`](../../doc/models/sdk-interface.md) | Optional | - |
-| `sdkUiType` | [`SdkUiType[] \| undefined`](../../doc/models/sdk-ui-type.md) | Optional | UI types supported for displaying specific challenges.<br>Allowed values:<br><br>* text<br>* singleSelect<br>* outOfBand<br>* otherHtml<br>* multiSelect |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `sdkInterface` | [`SdkInterfaceEnum \| undefined`](../../doc/models/sdk-interface-enum.md) | Optional | Supported SDK interface types.<br>Allowed values:<br><br>* native<br>* html<br>* both<br><br>**Default**: `SdkInterfaceEnum.Both` |
+| `sdkUiType` | [`SdkUiTypeEnum[] \| undefined`](../../doc/models/sdk-ui-type-enum.md) | Optional | UI types supported for displaying specific challenges.<br>Allowed values:<br><br>* text<br>* singleSelect<br>* outOfBand<br>* otherHtml<br>* multiSelect |
 
 ## Example
 
 ```ts
-import { DeviceRenderOptions, SdkInterface, SdkUiType } from 'adyen';
+import { DeviceRenderOptions, SdkInterfaceEnum, SdkUiTypeEnum } from 'adyen';
 
 const deviceRenderOptions: DeviceRenderOptions = {
-  sdkInterface: SdkInterface.Both,
+  sdkInterface: SdkInterfaceEnum.Both,
   sdkUiType: [
-    SdkUiType.OutOfBand,
-    SdkUiType.SingleSelect
+    SdkUiTypeEnum.OutOfBand,
+    SdkUiTypeEnum.SingleSelect
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

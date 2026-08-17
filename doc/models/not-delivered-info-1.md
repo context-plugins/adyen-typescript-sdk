@@ -3,8 +3,6 @@
 
 Additional information for raising a dispute of `type` **notDelivered**. Required for disputes of `type` **notDelivered**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NotDeliveredInfo1`
@@ -22,27 +20,23 @@ Additional information for raising a dispute of `type` **notDelivered**. Require
 | `isMerchantBankrupt` | `boolean \| undefined` | Optional | Indicates if the transaction was processed by a bankrupt merchant.<br><br>Possible values: **true**, **false**. |
 | `isNonFiatOrNft` | `boolean \| undefined` | Optional | Indicates if the transaction is non-fiat or non-fungible token (NFT) related.<br><br>Possible values: **true**, **false**. |
 | `lastExpectedDate` | `string` | Required | The date the undelivered goods or services were expected to be delivered in YYYY-MM-DD format. |
-| `whatWasNotDelivered` | [`ProductType2`](../../doc/models/product-type-2.md) | Required | - |
-| `whoCancelled` | [`CancellingEntity1 \| undefined`](../../doc/models/cancelling-entity-1.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `whatWasNotDelivered` | [`ProductType21Enum`](../../doc/models/product-type-21-enum.md) | Required | The type of product that you expected to receive.<br><br>Possible values: **goods**, **services**. |
+| `whoCancelled` | [`CancellingEntity1Enum \| undefined`](../../doc/models/cancelling-entity-1-enum.md) | Optional | The party that initiated the cancellation of the transaction.<br><br>Possible values: **merchant**, **cardholder**. |
 
 ## Example
 
 ```ts
-import { NotDeliveredInfo1, ProductType2 } from 'adyen';
+import { NotDeliveredInfo1, ProductType21Enum } from 'adyen';
 
 const notDeliveredInfo1: NotDeliveredInfo1 = {
   descriptionOfIssue: 'descriptionOfIssue6',
   lastExpectedDate: '2016-03-13T12:52:32.123Z',
-  whatWasNotDelivered: ProductType2.Goods,
+  whatWasNotDelivered: ProductType21Enum.Goods,
   agreedDeliveryLocation: 'agreedDeliveryLocation6',
   dateOfCancellation: '2016-03-13T12:52:32.123Z',
   deliveredToWrongLocation: false,
   didCardholderReturn: false,
   isDeliveryLate: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

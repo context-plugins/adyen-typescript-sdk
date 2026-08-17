@@ -1,8 +1,6 @@
 
 # Sepa Direct Debit Update Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SepaDirectDebitUpdateInfo`
@@ -11,24 +9,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionInfo1 \| undefined`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```ts
-import { SepaDirectDebitUpdateInfo, Type33 } from 'adyen';
+import { SepaDirectDebitUpdateInfo, Type8Enum } from 'adyen';
 
 const sepaDirectDebitUpdateInfo: SepaDirectDebitUpdateInfo = {
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

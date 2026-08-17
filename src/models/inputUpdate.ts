@@ -8,46 +8,48 @@ import {
   array,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { MenuEntry, menuEntrySchema } from './menuEntry.js';
 import {
-  MessageReference1,
-  messageReference1Schema,
-} from './messageReference1.js';
-import { OutputContent2, outputContent2Schema } from './outputContent2.js';
+  MessageReference,
+  messageReferenceSchema,
+} from './messageReference.js';
+import { OutputContent, outputContentSchema } from './outputContent.js';
 
 /**
  * Definition: Content of the Input Update message. : It conveys
  * update of the display of an Input request in progress.
  */
 export interface InputUpdate {
-  messageReference: MessageReference1;
-  outputContent: OutputContent2;
+  /**
+   * Identification of a previous POI transaction.
+   * To abort a transaction in progress or to request the status of a transaction from which no response has been received. It identifies the message header of the message request to abort or request the status.
+   */
+  messageReference: MessageReference;
+  /**
+   * Content to display or print.
+   * This is a sequence of elements if they have different formats.
+   */
+  outputContent: OutputContent;
   menuEntry?: MenuEntry[];
   outputSignature?: string;
   minLength?: number;
   maxLength?: number;
   maxDecimalLength?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const inputUpdateSchema: Schema<InputUpdate> = lazy(() =>
-  typedExpandoObject(
-    {
-      messageReference: ['MessageReference', messageReference1Schema],
-      outputContent: ['OutputContent', outputContent2Schema],
-      menuEntry: ['MenuEntry', optional(array(menuEntrySchema))],
-      outputSignature: ['OutputSignature', optional(string())],
-      minLength: ['MinLength', optional(number())],
-      maxLength: ['MaxLength', optional(number())],
-      maxDecimalLength: ['MaxDecimalLength', optional(number())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    messageReference: ['MessageReference', messageReferenceSchema],
+    outputContent: ['OutputContent', outputContentSchema],
+    menuEntry: ['MenuEntry', optional(array(menuEntrySchema))],
+    outputSignature: ['OutputSignature', optional(string())],
+    minLength: ['MinLength', optional(number())],
+    maxLength: ['MaxLength', optional(number())],
+    maxDecimalLength: ['MaxDecimalLength', optional(number())],
+  })
 );

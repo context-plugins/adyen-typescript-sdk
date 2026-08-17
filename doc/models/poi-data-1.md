@@ -1,39 +1,30 @@
 
-# Poi Data 1
+# POI Data 1
 
 Data related to the POI System.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`PoiData1`
+`POIData1`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `poiTransactionId` | [`PoiTransactionId`](../../doc/models/poi-transaction-id.md) | Required | - |
-| `poiReconciliationId` | `number \| undefined` | Optional | Identification of the reconciliation period between Sale and POI.<br>If Result is Success. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `pOITransactionID` | [`TransactionIDType2`](../../doc/models/transaction-id-type-2.md) | Required | Unique identification of a POI transaction for a POI. |
+| `pOIReconciliationID` | `number \| undefined` | Optional | Identification of the reconciliation period between Sale and POI.<br>If Result is Success. |
 
 ## Example
 
 ```ts
-import { PoiData1 } from 'adyen';
+import { POIData1 } from 'adyen';
 
-const poiData1: PoiData1 = {
-  poiTransactionId: {
-    transactionId: 'TransactionID2',
+const pOIData1: POIData1 = {
+  pOITransactionID: {
+    transactionID: 'TransactionID2',
     timeStamp: '2016-03-13T12:52:32.123Z',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  poiReconciliationId: 112,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  pOIReconciliationID: 66,
 };
 ```
 

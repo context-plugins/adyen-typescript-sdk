@@ -7,11 +7,10 @@
 import {
   boolean,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 export interface PatchableDuplicateInfo {
@@ -21,15 +20,12 @@ export interface PatchableDuplicateInfo {
   sameCard?: boolean;
   /** The issuer associated with each charge is the same. Possible values: **true**, **false**. */
   sameIssuer?: boolean | null;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const patchableDuplicateInfoSchema: Schema<PatchableDuplicateInfo> = typedExpandoObject(
+export const patchableDuplicateInfoSchema: Schema<PatchableDuplicateInfo> = object(
   {
     duplicateTransactionId: ['duplicateTransactionId', optional(string())],
     sameCard: ['sameCard', optional(boolean())],
     sameIssuer: ['sameIssuer', optional(nullable(boolean()))],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

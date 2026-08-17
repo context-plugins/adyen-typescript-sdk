@@ -5,8 +5,6 @@ List of merchant category codes (MCCs) and the operation.
 
 Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MccsRestriction1`
@@ -17,7 +15,6 @@ Supported operations: **anyMatch**, **noneMatch**.
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | `string[] \| undefined` | Optional | List of merchant category codes (MCCs). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const mccsRestriction1: MccsRestriction1 = {
   value: [
     'value2'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

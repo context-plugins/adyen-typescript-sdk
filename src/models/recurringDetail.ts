@@ -8,16 +8,15 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Bank, bankSchema } from './bank.js';
-import { BillingAddress7, billingAddress7Schema } from './billingAddress7.js';
-import { Card6, card6Schema } from './card6.js';
-import { ShopperName, shopperNameSchema } from './shopperName.js';
+import { Address, addressSchema } from './address.js';
+import { BankAccount, bankAccountSchema } from './bankAccount.js';
+import { Card, cardSchema } from './card.js';
+import { Name, nameSchema } from './name.js';
 import { TokenDetails, tokenDetailsSchema } from './tokenDetails.js';
 
 export interface RecurringDetail {
@@ -36,9 +35,12 @@ export interface RecurringDetail {
    * Applies only to recurring contracts storing credit card details.
    */
   aliasType?: string;
-  bank?: Bank;
-  billingAddress?: BillingAddress7;
-  card?: Card6;
+  /** A container for bank account data. */
+  bank?: BankAccount;
+  /** The billing address. */
+  billingAddress?: Address;
+  /** A container for card data. */
+  card?: Card;
   /** Types of recurring contracts. */
   contractTypes?: string[];
   /** The date when the recurring details were created. */
@@ -56,7 +58,8 @@ export interface RecurringDetail {
   paymentMethodVariant?: string;
   /** The reference that uniquely identifies the recurring detail. */
   recurringDetailReference: string;
-  shopperName?: ShopperName;
+  /** The name of the shopper. */
+  shopperName?: Name;
   /** A shopper's social security number (only in countries where it is legal to collect). */
   socialSecurityNumber?: string;
   tokenDetails?: TokenDetails;
@@ -64,32 +67,27 @@ export interface RecurringDetail {
   transactionLinkId?: string;
   /** The payment method, such as “mc", "visa", "ideal", "paypal". */
   variant: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const recurringDetailSchema: Schema<RecurringDetail> = lazy(() =>
-  typedExpandoObject(
-    {
-      additionalData: ['additionalData', optional(dict(string()))],
-      alias: ['alias', optional(string())],
-      aliasType: ['aliasType', optional(string())],
-      bank: ['bank', optional(bankSchema)],
-      billingAddress: ['billingAddress', optional(billingAddress7Schema)],
-      card: ['card', optional(card6Schema)],
-      contractTypes: ['contractTypes', optional(array(string()))],
-      creationDate: ['creationDate', optional(string())],
-      firstPspReference: ['firstPspReference', optional(string())],
-      name: ['name', optional(string())],
-      networkTxReference: ['networkTxReference', optional(string())],
-      paymentMethodVariant: ['paymentMethodVariant', optional(string())],
-      recurringDetailReference: ['recurringDetailReference', string()],
-      shopperName: ['shopperName', optional(shopperNameSchema)],
-      socialSecurityNumber: ['socialSecurityNumber', optional(string())],
-      tokenDetails: ['tokenDetails', optional(tokenDetailsSchema)],
-      transactionLinkId: ['transactionLinkId', optional(string())],
-      variant: ['variant', string()],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    additionalData: ['additionalData', optional(dict(string()))],
+    alias: ['alias', optional(string())],
+    aliasType: ['aliasType', optional(string())],
+    bank: ['bank', optional(bankAccountSchema)],
+    billingAddress: ['billingAddress', optional(addressSchema)],
+    card: ['card', optional(cardSchema)],
+    contractTypes: ['contractTypes', optional(array(string()))],
+    creationDate: ['creationDate', optional(string())],
+    firstPspReference: ['firstPspReference', optional(string())],
+    name: ['name', optional(string())],
+    networkTxReference: ['networkTxReference', optional(string())],
+    paymentMethodVariant: ['paymentMethodVariant', optional(string())],
+    recurringDetailReference: ['recurringDetailReference', string()],
+    shopperName: ['shopperName', optional(nameSchema)],
+    socialSecurityNumber: ['socialSecurityNumber', optional(string())],
+    tokenDetails: ['tokenDetails', optional(tokenDetailsSchema)],
+    transactionLinkId: ['transactionLinkId', optional(string())],
+    variant: ['variant', string()],
+  })
 );

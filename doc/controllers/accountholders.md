@@ -83,7 +83,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -94,11 +94,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Close Stores
@@ -152,7 +152,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -163,11 +163,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Create Account Holder
@@ -220,14 +220,14 @@ const body: CreateAccountHolderRequest = {
             firstName: 'John',
             lastName: 'Carpenter',
           },
-          shareholderType: ShareholderType.Controller,
+          shareholderType: ShareholderTypeEnum.Controller,
         }
       ],
     },
     email: 'test@email.com',
     webAddress: 'https://www.your-website.com',
   },
-  legalEntity: LegalEntity.Business,
+  legalEntity: LegalEntityEnum.Business,
 };
 
 try {
@@ -250,7 +250,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -326,11 +326,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Get Account Holder
@@ -388,7 +388,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -399,11 +399,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Get Tax Form
@@ -463,7 +463,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -474,11 +474,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Suspend Account Holder
@@ -536,7 +536,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -547,11 +547,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Un Suspend Account Holder
@@ -612,7 +612,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -623,11 +623,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Update Account Holder
@@ -717,90 +717,10 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
-}
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "invalidFields": [],
-  "pspReference": "ALPHANUMERIC_UNIQUE_RESPONSE_REFERENCE",
-  "accountHolderCode": "YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
-  "accountHolderDetails": {
-    "address": {
-      "country": "US"
-    },
-    "bankAccountDetails": [
-      {
-        "accountNumber": "######6852",
-        "bankAccountUUID": "BANK_ACCOUNT_UUID",
-        "branchCode": "053101273",
-        "countryCode": "US",
-        "currencyCode": "USD",
-        "ownerCity": "Springfield",
-        "ownerCountryCode": "US",
-        "ownerHouseNumberOrName": "100",
-        "ownerName": "Tim Green",
-        "ownerPostalCode": "02894",
-        "ownerState": "AZ",
-        "ownerStreet": "Main Street",
-        "primaryAccount": false
-      }
-    ],
-    "businessDetails": {
-      "doingBusinessAs": "Real Good Restaurant",
-      "legalBusinessName": "Real Good Restaurant Inc.",
-      "shareholders": [
-        {
-          "address": {
-            "country": "NL"
-          },
-          "email": "testshareholder@email.com",
-          "name": {
-            "firstName": "John",
-            "lastName": "Carpenter"
-          },
-          "shareholderCode": "SHAREHOLDER_CODE",
-          "shareholderType": "Controller"
-        }
-      ]
-    },
-    "email": "tim@green.com",
-    "merchantCategoryCode": "MCC_DEFAULT_VALUE",
-    "payoutMethods": [],
-    "webAddress": "https://www.your-website.com"
-  },
-  "accountHolderStatus": {
-    "status": "Active",
-    "processingState": {
-      "disabled": false,
-      "processedFrom": {
-        "currency": "USD",
-        "value": 0
-      },
-      "processedTo": {
-        "currency": "USD",
-        "value": 0
-      },
-      "tierNumber": 0
-    },
-    "payoutState": {
-      "allowPayout": true,
-      "payoutLimit": {
-        "currency": "USD",
-        "value": 0
-      },
-      "disabled": false,
-      "tierNumber": 0
-    }
-  },
-  "legalEntity": "Business",
-  "verification": {}
 }
 ```
 
@@ -808,11 +728,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Update Account Holder State
@@ -849,7 +769,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const body: UpdateAccountHolderStateRequest = {
   accountHolderCode: 'CODE_OF_ACCOUNT_HOLDER',
   disable: true,
-  stateType: StateType.Payout,
+  stateType: StateTypeEnum.Payout,
   reason: 'test reason payout',
 };
 
@@ -873,7 +793,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     }
   }
@@ -884,11 +804,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError`](../../doc/models/service-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError`](../../doc/models/service-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError`](../../doc/models/service-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 
 
 # Post-Account Holders
@@ -899,7 +819,7 @@ Creates an account holder linked to a [legal entity](https://docs.adyen.com/api-
 async postAccountHolders(
   body?: AccountHolderInfo,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<AccountHolder2>>
+): Promise<ApiResponse<AccountHolder>>
 ```
 
 ## Authentication
@@ -917,7 +837,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AccountHolder2`](../../doc/models/account-holder-2.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AccountHolder`](../../doc/models/account-holder.md).
 
 ## Example Usage
 
@@ -1020,7 +940,7 @@ Returns an account holder.
 async getAccountHoldersId(
   id: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<AccountHolder2>>
+): Promise<ApiResponse<AccountHolder>>
 ```
 
 ## Authentication
@@ -1038,7 +958,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AccountHolder2`](../../doc/models/account-holder-2.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AccountHolder`](../../doc/models/account-holder.md).
 
 ## Example Usage
 
@@ -1140,7 +1060,7 @@ async patchAccountHoldersId(
   id: string,
   body?: AccountHolderUpdateRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<AccountHolder2>>
+): Promise<ApiResponse<AccountHolder>>
 ```
 
 ## Authentication
@@ -1159,7 +1079,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AccountHolder2`](../../doc/models/account-holder-2.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`AccountHolder`](../../doc/models/account-holder.md).
 
 ## Example Usage
 
@@ -1360,7 +1280,7 @@ Generates a tax form for account holders operating in the US. For more informati
 ```ts
 async getAccountHoldersIdTaxForms(
   id: string,
-  formType: FormType1,
+  formType: FormTypeEnum,
   year: number,
   legalEntityId?: string,
   requestOptions?: RequestOptions
@@ -1376,7 +1296,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | The unique identifier of the account holder. |
-| `formType` | [`FormType1`](../../doc/models/form-type-1.md) | Query, Required | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
+| `formType` | [`FormTypeEnum`](../../doc/models/form-type-enum.md) | Query, Required | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
 | `year` | `number` | Query, Required | The tax year in **YYYY** format for the tax form you want to retrieve. |
 | `legalEntityId` | `string \| undefined` | Query, Optional | The legal entity reference whose tax form you want to retrieve. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
@@ -1392,7 +1312,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const id = 'id0';
 
-const formType = FormType1.Us1099K;
+const formType = FormTypeEnum.US1099k;
 
 const year = 248;
 

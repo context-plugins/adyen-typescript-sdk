@@ -7,21 +7,61 @@
 import {
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Device2, device2Schema } from './device2.js';
-import { InfoQualify2, infoQualify2Schema } from './infoQualify2.js';
-import { InputCommand1, inputCommand1Schema } from './inputCommand1.js';
+import { Device2Enum, device2EnumSchema } from './device2Enum.js';
+import {
+  InfoQualify2Enum,
+  infoQualify2EnumSchema,
+} from './infoQualify2Enum.js';
+import {
+  InputCommand1Enum,
+  inputCommand1EnumSchema,
+} from './inputCommand1Enum.js';
 
 /** Information related to an Input request. It conveys the target input logical device, the type of input command, and possible minimum and maximum length of the input. In addition, if the requestor might require to receive an Event Notification if a card is inserted in a card reader, with the `NotifyCardInputFlag`. */
 export interface InputData2 {
-  device: Device2;
-  infoQualify: InfoQualify2;
-  inputCommand: InputCommand1;
+  /**
+   * Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer.
+   * Possible values:
+   * * **CashierDisplay**
+   * * **CashierInput**
+   * * **CustomerDisplay**
+   * * **CustomerInput**
+   */
+  device: Device2Enum;
+  /**
+   * Qualification of the information to send to an output logical device, to display or print to the Cashier or the Customer.
+   * Possible values:
+   * * **CustomerAssistance**
+   * * **Display**
+   * * **Document**
+   * * **Error**
+   * * **Input**
+   * * **POIReplication**
+   * * **Receipt**
+   * * **Sound**
+   * * **Status**
+   * * **Voucher**
+   */
+  infoQualify: InfoQualify2Enum;
+  /**
+   * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**, **DecimalString** or **GetMenuEntry**.
+   * Possible values:
+   * * **DecimalString**
+   * * **DigitString**
+   * * **GetAnyKey**
+   * * **GetConfirmation**
+   * * **GetFunctionKey**
+   * * **GetMenuEntry**
+   * * **Password**
+   * * **SiteManager**
+   * * **TextString**
+   */
+  inputCommand: InputCommand1Enum;
   /** Request Notification of the card entered in the POI card reader. */
   notifyCardInputFlag?: boolean;
   /** Maximum input time in seconds. Limits the time to answer to an Input request message. */
@@ -57,33 +97,28 @@ export interface InputData2 {
   disableValidFlag?: boolean;
   /** If it has the value True, it indicates that the Back function key (respectively Home function key) may be used to go back to the immediate upper level of the menu. If it has the value False, it indicates that the current menu level has no parent menu. */
   menuBackFlag?: boolean;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const inputData2Schema: Schema<InputData2> = typedExpandoObject(
-  {
-    device: ['Device', device2Schema],
-    infoQualify: ['InfoQualify', infoQualify2Schema],
-    inputCommand: ['InputCommand', inputCommand1Schema],
-    notifyCardInputFlag: ['NotifyCardInputFlag', optional(boolean())],
-    maxInputTime: ['MaxInputTime', optional(number())],
-    immediateResponseFlag: ['ImmediateResponseFlag', optional(boolean())],
-    minLength: ['MinLength', optional(number())],
-    maxLength: ['MaxLength', optional(number())],
-    maxDecimalLength: ['MaxDecimalLength', optional(number())],
-    waitUserValidationFlag: ['WaitUserValidationFlag', optional(boolean())],
-    defaultInputString: ['DefaultInputString', optional(string())],
-    defaultLayoutString: ['DefaultLayoutString', optional(string())],
-    stringMask: ['StringMask', optional(string())],
-    fromRightToLeftFlag: ['FromRightToLeftFlag', optional(boolean())],
-    maskCharactersFlag: ['MaskCharactersFlag', optional(boolean())],
-    beepKeyFlag: ['BeepKeyFlag', optional(boolean())],
-    globalCorrectionFlag: ['GlobalCorrectionFlag', optional(boolean())],
-    disableCancelFlag: ['DisableCancelFlag', optional(boolean())],
-    disableCorrectFlag: ['DisableCorrectFlag', optional(boolean())],
-    disableValidFlag: ['DisableValidFlag', optional(boolean())],
-    menuBackFlag: ['MenuBackFlag', optional(boolean())],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const inputData2Schema: Schema<InputData2> = object({
+  device: ['Device', device2EnumSchema],
+  infoQualify: ['InfoQualify', infoQualify2EnumSchema],
+  inputCommand: ['InputCommand', inputCommand1EnumSchema],
+  notifyCardInputFlag: ['NotifyCardInputFlag', optional(boolean())],
+  maxInputTime: ['MaxInputTime', optional(number())],
+  immediateResponseFlag: ['ImmediateResponseFlag', optional(boolean())],
+  minLength: ['MinLength', optional(number())],
+  maxLength: ['MaxLength', optional(number())],
+  maxDecimalLength: ['MaxDecimalLength', optional(number())],
+  waitUserValidationFlag: ['WaitUserValidationFlag', optional(boolean())],
+  defaultInputString: ['DefaultInputString', optional(string())],
+  defaultLayoutString: ['DefaultLayoutString', optional(string())],
+  stringMask: ['StringMask', optional(string())],
+  fromRightToLeftFlag: ['FromRightToLeftFlag', optional(boolean())],
+  maskCharactersFlag: ['MaskCharactersFlag', optional(boolean())],
+  beepKeyFlag: ['BeepKeyFlag', optional(boolean())],
+  globalCorrectionFlag: ['GlobalCorrectionFlag', optional(boolean())],
+  disableCancelFlag: ['DisableCancelFlag', optional(boolean())],
+  disableCorrectFlag: ['DisableCorrectFlag', optional(boolean())],
+  disableValidFlag: ['DisableValidFlag', optional(boolean())],
+  menuBackFlag: ['MenuBackFlag', optional(boolean())],
+});

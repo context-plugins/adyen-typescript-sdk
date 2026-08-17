@@ -8,101 +8,228 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { AccelUpdateInfo, accelUpdateInfoSchema } from './accelUpdateInfo.js';
 import {
-  AffirmUpdateInfo,
-  affirmUpdateInfoSchema,
-} from './affirmUpdateInfo.js';
+  AccelUpdateInfo1,
+  accelUpdateInfo1Schema,
+} from './accelUpdateInfo1.js';
 import {
-  CashAppUpdateInfo,
-  cashAppUpdateInfoSchema,
-} from './cashAppUpdateInfo.js';
+  AffirmUpdateInfo1,
+  affirmUpdateInfo1Schema,
+} from './affirmUpdateInfo1.js';
+import { BcmcUpdateInfo1, bcmcUpdateInfo1Schema } from './bcmcUpdateInfo1.js';
+import {
+  CartesBancairesUpdateInfo1,
+  cartesBancairesUpdateInfo1Schema,
+} from './cartesBancairesUpdateInfo1.js';
+import {
+  CashAppUpdateInfo1,
+  cashAppUpdateInfo1Schema,
+} from './cashAppUpdateInfo1.js';
+import {
+  GenericPmWithTdiUpdateInfo1,
+  genericPmWithTdiUpdateInfo1Schema,
+} from './genericPmWithTdiUpdateInfo1.js';
+import {
+  GenericPmWithTdiUpdateInfo10,
+  genericPmWithTdiUpdateInfo10Schema,
+} from './genericPmWithTdiUpdateInfo10.js';
+import {
+  GenericPmWithTdiUpdateInfo11,
+  genericPmWithTdiUpdateInfo11Schema,
+} from './genericPmWithTdiUpdateInfo11.js';
+import {
+  GenericPmWithTdiUpdateInfo12,
+  genericPmWithTdiUpdateInfo12Schema,
+} from './genericPmWithTdiUpdateInfo12.js';
+import {
+  GenericPmWithTdiUpdateInfo13,
+  genericPmWithTdiUpdateInfo13Schema,
+} from './genericPmWithTdiUpdateInfo13.js';
+import {
+  GenericPmWithTdiUpdateInfo14,
+  genericPmWithTdiUpdateInfo14Schema,
+} from './genericPmWithTdiUpdateInfo14.js';
+import {
+  GenericPmWithTdiUpdateInfo2,
+  genericPmWithTdiUpdateInfo2Schema,
+} from './genericPmWithTdiUpdateInfo2.js';
+import {
+  GenericPmWithTdiUpdateInfo3,
+  genericPmWithTdiUpdateInfo3Schema,
+} from './genericPmWithTdiUpdateInfo3.js';
+import {
+  GenericPmWithTdiUpdateInfo4,
+  genericPmWithTdiUpdateInfo4Schema,
+} from './genericPmWithTdiUpdateInfo4.js';
+import {
+  GenericPmWithTdiUpdateInfo5,
+  genericPmWithTdiUpdateInfo5Schema,
+} from './genericPmWithTdiUpdateInfo5.js';
+import {
+  GenericPmWithTdiUpdateInfo6,
+  genericPmWithTdiUpdateInfo6Schema,
+} from './genericPmWithTdiUpdateInfo6.js';
+import {
+  GenericPmWithTdiUpdateInfo7,
+  genericPmWithTdiUpdateInfo7Schema,
+} from './genericPmWithTdiUpdateInfo7.js';
+import {
+  GenericPmWithTdiUpdateInfo8,
+  genericPmWithTdiUpdateInfo8Schema,
+} from './genericPmWithTdiUpdateInfo8.js';
+import {
+  GenericPmWithTdiUpdateInfo9,
+  genericPmWithTdiUpdateInfo9Schema,
+} from './genericPmWithTdiUpdateInfo9.js';
+import { NyceUpdateInfo1, nyceUpdateInfo1Schema } from './nyceUpdateInfo1.js';
+import {
+  PayByBankPlaidUpdateInfo1,
+  payByBankPlaidUpdateInfo1Schema,
+} from './payByBankPlaidUpdateInfo1.js';
+import {
+  PulseUpdateInfo1,
+  pulseUpdateInfo1Schema,
+} from './pulseUpdateInfo1.js';
+import {
+  SepaDirectDebitUpdateInfo1,
+  sepaDirectDebitUpdateInfo1Schema,
+} from './sepaDirectDebitUpdateInfo1.js';
+import { StarUpdateInfo1, starUpdateInfo1Schema } from './starUpdateInfo1.js';
 
 export interface UpdatePaymentMethodInfo {
-  accel?: AccelUpdateInfo;
-  affirm?: AffirmUpdateInfo;
-  bcmc?: AccelUpdateInfo;
-  carnet?: AccelUpdateInfo;
-  cartesBancaires?: AccelUpdateInfo;
-  cashapp?: CashAppUpdateInfo;
+  /** Details to provide if `type` is **accel**. */
+  accel?: AccelUpdateInfo1;
+  /** Details to provide if `type` is **affirm**. */
+  affirm?: AffirmUpdateInfo1;
+  /** Details to provide if `type` is **bcmc** (Bancontact). */
+  bcmc?: BcmcUpdateInfo1;
+  /** Details to provide if `type` is **carnet**. */
+  carnet?: GenericPmWithTdiUpdateInfo1;
+  /** Details to provide if `type` is **cartebancaire**. */
+  cartesBancaires?: CartesBancairesUpdateInfo1;
+  /** Details to provide if `type` is **cashapp**. */
+  cashapp?: CashAppUpdateInfo1;
   /** The list of countries where a payment method is available. By default, all countries supported by the payment method. */
   countries?: string[];
-  cup?: AccelUpdateInfo;
+  /** Details to provide if `type` is **cup** (China Union Pay). */
+  cup?: GenericPmWithTdiUpdateInfo2;
   /** The list of currencies that a payment method supports. By default, all currencies supported by the payment method. */
   currencies?: string[];
   /** Custom routing flags for acquirer routing. */
   customRoutingFlags?: string[];
-  diners?: AccelUpdateInfo;
-  discover?: AccelUpdateInfo;
-  eftDirectdebitCa?: AccelUpdateInfo;
-  eftposAustralia?: AccelUpdateInfo;
+  /**
+   * Details to provide if `type` is **diners**.
+   * For merchants operating in Japan, Diners payments are processed through the JCB network. This means that you must include [JCB-specific fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb) in this object.
+   */
+  diners?: GenericPmWithTdiUpdateInfo3;
+  /**
+   * Details to provide if `type` is **discover**.
+   * For merchants operating in Japan, request [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners) payment method instead. Discover is automatically requested, together with Diners.
+   */
+  discover?: GenericPmWithTdiUpdateInfo4;
+  /** Details to provide if `type` is **eft_directdebit_CA** (EFT PAD). */
+  eftDirectdebitCA?: GenericPmWithTdiUpdateInfo5;
+  /** Details to provide if `type` is **eftpos_australia**. */
+  eftposAustralia?: GenericPmWithTdiUpdateInfo6;
   /** Indicates whether the payment method is enabled (**true**) or disabled (**false**). */
   enabled?: boolean;
-  girocard?: AccelUpdateInfo;
-  ideal?: AccelUpdateInfo;
-  interacCard?: AccelUpdateInfo;
-  jcb?: AccelUpdateInfo;
-  maestro?: AccelUpdateInfo;
-  maestroUsa?: AccelUpdateInfo;
-  mc?: AccelUpdateInfo;
-  nyce?: AccelUpdateInfo;
-  paybybankPlaid?: AccelUpdateInfo;
-  pulse?: AccelUpdateInfo;
-  sepadirectdebit?: AccelUpdateInfo;
-  star?: AccelUpdateInfo;
+  /** Details to provide if `type` is **girocard**. */
+  girocard?: GenericPmWithTdiUpdateInfo7;
+  /** Details to provide if `type` is **ideal**. */
+  ideal?: GenericPmWithTdiUpdateInfo8;
+  /** Details to provide if `type` is **interac_card**. */
+  interacCard?: GenericPmWithTdiUpdateInfo9;
+  /**
+   * Details to provide if `type` is **jcb**.
+   * For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required.
+   * For merchants operating outside of Japan, these fields are not required.
+   */
+  jcb?: GenericPmWithTdiUpdateInfo10;
+  /**
+   * Details to provide if `type` is **maestro**.
+   * In the US, `maestro` is not supported; use `maestro_usa` instead.
+   */
+  maestro?: GenericPmWithTdiUpdateInfo11;
+  /**
+   * Details to provide if `type` is **maestro_usa**.
+   * Only for Maestro USA, otherwise use `maestro`.
+   */
+  maestroUsa?: GenericPmWithTdiUpdateInfo12;
+  /** Details to provide if `type` is **mc**. */
+  mc?: GenericPmWithTdiUpdateInfo13;
+  /** Details to provide if `type` is **nyce**. */
+  nyce?: NyceUpdateInfo1;
+  /** Details to provide if `type` is **paybybank_plaid**. */
+  paybybankPlaid?: PayByBankPlaidUpdateInfo1;
+  /** Details to provide if `type` is **pulse**. */
+  pulse?: PulseUpdateInfo1;
+  /** Details to provide if `type` is **sepadirectdebit**. */
+  sepadirectdebit?: SepaDirectDebitUpdateInfo1;
+  /** Details to provide if `type` is **star**. */
+  star?: StarUpdateInfo1;
   /** The store for this payment method */
   storeId?: string;
   /** The list of stores for this payment method */
   storeIds?: string[];
-  visa?: AccelUpdateInfo;
-  additionalProperties?: Record<string, unknown>;
+  /** Details to provide if `type` is **visa**. */
+  visa?: GenericPmWithTdiUpdateInfo14;
 }
 
 export const updatePaymentMethodInfoSchema: Schema<UpdatePaymentMethodInfo> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accel: ['accel', optional(accelUpdateInfoSchema)],
-        affirm: ['affirm', optional(affirmUpdateInfoSchema)],
-        bcmc: ['bcmc', optional(accelUpdateInfoSchema)],
-        carnet: ['carnet', optional(accelUpdateInfoSchema)],
-        cartesBancaires: ['cartesBancaires', optional(accelUpdateInfoSchema)],
-        cashapp: ['cashapp', optional(cashAppUpdateInfoSchema)],
-        countries: ['countries', optional(array(string()))],
-        cup: ['cup', optional(accelUpdateInfoSchema)],
-        currencies: ['currencies', optional(array(string()))],
-        customRoutingFlags: ['customRoutingFlags', optional(array(string()))],
-        diners: ['diners', optional(accelUpdateInfoSchema)],
-        discover: ['discover', optional(accelUpdateInfoSchema)],
-        eftDirectdebitCa: [
-          'eft_directdebit_CA',
-          optional(accelUpdateInfoSchema),
-        ],
-        eftposAustralia: ['eftpos_australia', optional(accelUpdateInfoSchema)],
-        enabled: ['enabled', optional(boolean())],
-        girocard: ['girocard', optional(accelUpdateInfoSchema)],
-        ideal: ['ideal', optional(accelUpdateInfoSchema)],
-        interacCard: ['interac_card', optional(accelUpdateInfoSchema)],
-        jcb: ['jcb', optional(accelUpdateInfoSchema)],
-        maestro: ['maestro', optional(accelUpdateInfoSchema)],
-        maestroUsa: ['maestro_usa', optional(accelUpdateInfoSchema)],
-        mc: ['mc', optional(accelUpdateInfoSchema)],
-        nyce: ['nyce', optional(accelUpdateInfoSchema)],
-        paybybankPlaid: ['paybybank_plaid', optional(accelUpdateInfoSchema)],
-        pulse: ['pulse', optional(accelUpdateInfoSchema)],
-        sepadirectdebit: ['sepadirectdebit', optional(accelUpdateInfoSchema)],
-        star: ['star', optional(accelUpdateInfoSchema)],
-        storeId: ['storeId', optional(string())],
-        storeIds: ['storeIds', optional(array(string()))],
-        visa: ['visa', optional(accelUpdateInfoSchema)],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accel: ['accel', optional(accelUpdateInfo1Schema)],
+      affirm: ['affirm', optional(affirmUpdateInfo1Schema)],
+      bcmc: ['bcmc', optional(bcmcUpdateInfo1Schema)],
+      carnet: ['carnet', optional(genericPmWithTdiUpdateInfo1Schema)],
+      cartesBancaires: [
+        'cartesBancaires',
+        optional(cartesBancairesUpdateInfo1Schema),
+      ],
+      cashapp: ['cashapp', optional(cashAppUpdateInfo1Schema)],
+      countries: ['countries', optional(array(string()))],
+      cup: ['cup', optional(genericPmWithTdiUpdateInfo2Schema)],
+      currencies: ['currencies', optional(array(string()))],
+      customRoutingFlags: ['customRoutingFlags', optional(array(string()))],
+      diners: ['diners', optional(genericPmWithTdiUpdateInfo3Schema)],
+      discover: ['discover', optional(genericPmWithTdiUpdateInfo4Schema)],
+      eftDirectdebitCA: [
+        'eft_directdebit_CA',
+        optional(genericPmWithTdiUpdateInfo5Schema),
+      ],
+      eftposAustralia: [
+        'eftpos_australia',
+        optional(genericPmWithTdiUpdateInfo6Schema),
+      ],
+      enabled: ['enabled', optional(boolean())],
+      girocard: ['girocard', optional(genericPmWithTdiUpdateInfo7Schema)],
+      ideal: ['ideal', optional(genericPmWithTdiUpdateInfo8Schema)],
+      interacCard: [
+        'interac_card',
+        optional(genericPmWithTdiUpdateInfo9Schema),
+      ],
+      jcb: ['jcb', optional(genericPmWithTdiUpdateInfo10Schema)],
+      maestro: ['maestro', optional(genericPmWithTdiUpdateInfo11Schema)],
+      maestroUsa: ['maestro_usa', optional(genericPmWithTdiUpdateInfo12Schema)],
+      mc: ['mc', optional(genericPmWithTdiUpdateInfo13Schema)],
+      nyce: ['nyce', optional(nyceUpdateInfo1Schema)],
+      paybybankPlaid: [
+        'paybybank_plaid',
+        optional(payByBankPlaidUpdateInfo1Schema),
+      ],
+      pulse: ['pulse', optional(pulseUpdateInfo1Schema)],
+      sepadirectdebit: [
+        'sepadirectdebit',
+        optional(sepaDirectDebitUpdateInfo1Schema),
+      ],
+      star: ['star', optional(starUpdateInfo1Schema)],
+      storeId: ['storeId', optional(string())],
+      storeIds: ['storeIds', optional(array(string()))],
+      visa: ['visa', optional(genericPmWithTdiUpdateInfo14Schema)],
+    })
 );

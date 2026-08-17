@@ -1,8 +1,6 @@
 
 # Doku
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Doku`
@@ -16,24 +14,20 @@
 | `lastName` | `string` | Required | The shopper's last name. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopperEmail` | `string` | Required | The shopper's email. |
-| `type` | [`Type23`](../../doc/models/type-23.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type23Enum`](../../doc/models/type-23-enum.md) | Required | **doku** |
 
 ## Example
 
 ```ts
-import { Doku, Type23 } from 'adyen';
+import { Doku, Type23Enum } from 'adyen';
 
 const doku: Doku = {
   firstName: 'firstName8',
   lastName: 'lastName0',
   shopperEmail: 'shopperEmail0',
-  type: Type23.DokuOvo,
+  type: Type23Enum.DokuOvo,
   checkoutAttemptId: 'checkoutAttemptId2',
   sdkData: 'sdkData4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

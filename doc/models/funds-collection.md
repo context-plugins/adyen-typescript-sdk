@@ -1,8 +1,6 @@
 
 # Funds Collection
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `FundsCollection`
@@ -11,26 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountIdentification` | [`BankAccountIdentification1 \| undefined`](../../doc/models/bank-account-identification-1.md) | Optional | - |
-| `fundsCollectionType` | [`FundsCollectionType2 \| undefined`](../../doc/models/funds-collection-type-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `accountIdentification` | [`BankAccountIdentification1 \| undefined`](../../doc/models/bank-account-identification-1.md) | Optional | Contains the identification information of the account to which you can transfer funds related to repayments. |
+| `fundsCollectionType` | [`FundsCollectionType2Enum \| undefined`](../../doc/models/funds-collection-type-2-enum.md) | Optional | The type of funds collection.<br><br>Possible values: **UnscheduledRepayment**, **Revocation**. |
 
 ## Example
 
 ```ts
-import { FundsCollection, FundsCollectionType2 } from 'adyen';
+import { FundsCollection, FundsCollectionType2Enum } from 'adyen';
 
 const fundsCollection: FundsCollection = {
   accountIdentification: {
     type: 'BankAccountIdentification1',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  fundsCollectionType: FundsCollectionType2.UnscheduledRepayment,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  fundsCollectionType: FundsCollectionType2Enum.UnscheduledRepayment,
 };
 ```
 

@@ -8,11 +8,10 @@ import {
   bigint,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 export interface BalanceAccountConfiguration {
@@ -85,10 +84,9 @@ export interface BalanceAccountConfiguration {
   transferInstrumentId: string;
   /** The date and time when the payout schedule was updated. */
   updatedAt?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const balanceAccountConfigurationSchema: Schema<BalanceAccountConfiguration> = typedExpandoObject(
+export const balanceAccountConfigurationSchema: Schema<BalanceAccountConfiguration> = object(
   {
     balanceAccountId: ['balanceAccountId', string()],
     balancePlatformPayoutScheduleId: [
@@ -110,7 +108,5 @@ export const balanceAccountConfigurationSchema: Schema<BalanceAccountConfigurati
     salesDayClosingTime: ['salesDayClosingTime', optional(string())],
     transferInstrumentId: ['transferInstrumentId', string()],
     updatedAt: ['updatedAt', optional(string())],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

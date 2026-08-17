@@ -10,7 +10,6 @@
 | Type |
 |  --- |
 | [`DonationAmountUpdate`](../../../doc/models/donation-amount-update.md) |
-| `unknown \| null` |
 
 ## DonationAmountUpdate
 
@@ -21,15 +20,5 @@
 ```ts
 const value: OnlineDonationSettingsUpdateDefaultAmount = {
 };
-```
-
-## unknown | null
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: OnlineDonationSettingsUpdateDefaultAmount = { 'key1': 'val1', 'key2': 'val2' };
 ```
 

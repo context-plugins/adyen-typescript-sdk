@@ -9,26 +9,15 @@
 
 | Type |
 |  --- |
-| [`DonationType`](../../../doc/models/donation-type.md) |
-| `unknown \| null` |
+| [`DonationTypeEnum`](../../../doc/models/donation-type-enum.md) |
 
-## DonationType
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: OnlineDonationSettingsUpdateDonationType = DonationType.Roundup;
-```
-
-## unknown | null
+## DonationTypeEnum
 
 ### Initialization Code
 
 #### Example
 
 ```ts
-const value: OnlineDonationSettingsUpdateDonationType = { 'key1': 'val1', 'key2': 'val2' };
+const value: OnlineDonationSettingsUpdateDonationType = DonationTypeEnum.Roundup;
 ```
 

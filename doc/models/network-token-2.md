@@ -3,8 +3,6 @@
 
 The details of the network token.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NetworkToken2`
@@ -15,14 +13,13 @@ The details of the network token.
 |  --- | --- | --- | --- |
 | `brandVariant` | `string \| undefined` | Optional | The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**. |
 | `creationDate` | `string \| undefined` | Optional | Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2025-03-19T10:15:30+01:00**.. |
-| `device` | [`DeviceInfo \| undefined`](../../doc/models/device-info.md) | Optional | - |
+| `device` | [`DeviceInfo1 \| undefined`](../../doc/models/device-info-1.md) | Optional | Contains information about the device used to provision the network token. |
 | `id` | `string \| undefined` | Optional | The unique identifier of the network token. |
 | `paymentInstrumentId` | `string \| undefined` | Optional | The unique identifier of the payment instrument to which this network token belongs to. |
-| `status` | [`Status9 \| undefined`](../../doc/models/status-9.md) | Optional | - |
+| `status` | [`Status91Enum \| undefined`](../../doc/models/status-91-enum.md) | Optional | The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**. |
 | `tokenLastFour` | `string \| undefined` | Optional | The last four digits of the network token `id`. |
-| `tokenRequestor` | [`NetworkTokenRequestor \| undefined`](../../doc/models/network-token-requestor.md) | Optional | - |
+| `tokenRequestor` | [`Item \| undefined`](../../doc/models/item.md) | Optional | The token requestor is an entity who requested tokenization of the card for secure payments. |
 | `type` | `string \| undefined` | Optional | The type of network token. For example, **wallet**, **cof**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -39,19 +36,10 @@ const networkToken2: NetworkToken2 = {
       hashedNumber: 'hashedNumber2',
       lastFourDigits: 'lastFourDigits8',
       number: 'number8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   id: 'id2',
   paymentInstrumentId: 'paymentInstrumentId4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

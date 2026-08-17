@@ -1,8 +1,6 @@
 
 # Referenced
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Referenced`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `enableStandaloneRefunds` | `boolean \| undefined` | Optional | Indicates whether referenced refunds are enabled on the standalone terminal. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -21,9 +18,6 @@ import { Referenced } from 'adyen';
 
 const referenced: Referenced = {
   enableStandaloneRefunds: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

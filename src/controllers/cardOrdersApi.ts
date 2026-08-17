@@ -62,6 +62,7 @@ export class CardOrdersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaginatedGetCardOrderResponse>> {
     const req = this.createRequest('GET', '/cardorders');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, optional(string())],
       cardManufacturingProfileId: [
@@ -134,6 +135,7 @@ export class CardOrdersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaginatedGetCardOrderItemResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       offset: [offset, optional(number())],

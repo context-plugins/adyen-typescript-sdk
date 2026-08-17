@@ -1,11 +1,9 @@
 
-# Pse Latam
-
-*This model accepts additional fields of type unknown.*
+# PSE Latam
 
 ## Structure
 
-`PseLatam`
+`PSELatam`
 
 ## Fields
 
@@ -17,25 +15,21 @@
 | `identification` | `string` | Required | The identification code. |
 | `identificationType` | `string` | Required | The identification type. |
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
-| `type` | [`Type46 \| undefined`](../../doc/models/type-46.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type46Enum \| undefined`](../../doc/models/type-46-enum.md) | Optional | The payment method type. |
 
 ## Example
 
 ```ts
-import { PseLatam, Type46 } from 'adyen';
+import { PSELatam, Type46Enum } from 'adyen';
 
-const pseLatam: PseLatam = {
-  bank: 'bank2',
-  clientType: 'clientType2',
-  identification: 'identification8',
-  identificationType: 'identificationType6',
-  checkoutAttemptId: 'checkoutAttemptId0',
-  sdkData: 'sdkData6',
-  type: Type46.PsePayulatam,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const pSELatam: PSELatam = {
+  bank: 'bank6',
+  clientType: 'clientType6',
+  identification: 'identification4',
+  identificationType: 'identificationType0',
+  checkoutAttemptId: 'checkoutAttemptId4',
+  sdkData: 'sdkData2',
+  type: Type46Enum.PsePayulatam,
 };
 ```
 

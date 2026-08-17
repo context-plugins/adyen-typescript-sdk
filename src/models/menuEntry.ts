@@ -8,51 +8,67 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { MenuEntryTag1, menuEntryTag1Schema } from './menuEntryTag1.js';
-import { OutputFormat2, outputFormat2Schema } from './outputFormat2.js';
+import {
+  MenuEntryTag1Enum,
+  menuEntryTag1EnumSchema,
+} from './menuEntryTag1Enum.js';
+import {
+  OutputFormat2Enum,
+  outputFormat2EnumSchema,
+} from './outputFormat2Enum.js';
 import { OutputText, outputTextSchema } from './outputText.js';
 import {
-  PredefinedContent2,
-  predefinedContent2Schema,
-} from './predefinedContent2.js';
+  PredefinedContent,
+  predefinedContentSchema,
+} from './predefinedContent.js';
 
 /**
  * An entry of the menu to present to the Cashier.
  * It conveys message text and parameters of the menu entry. This output data could be only provided for an input command, in order to choose an entry of the menu.
  */
 export interface MenuEntry {
-  menuEntryTag?: MenuEntryTag1;
+  /**
+   * Characteristics related to the selection of a menu entry.
+   * Possible values:
+   * * **NonSelectable**
+   * * **NonSelectableSubMenu**
+   * * **Selectable**
+   * * **SubMenu**
+   */
+  menuEntryTag?: MenuEntryTag1Enum;
   /** Selection of a menu entry to be displayed. In Input request message, it allows selection of one or several menu entries before any user action. */
   defaultSelectedFlag?: boolean;
-  outputFormat: OutputFormat2;
-  predefinedContent?: PredefinedContent2;
+  /**
+   * Possible values:
+   * * **BarCode**
+   * * **MessageRef**
+   * * **Text**
+   * * **XHTML**
+   */
+  outputFormat: OutputFormat2Enum;
+  /**
+   * Reference of a predefined message to display or print.
+   * It conveys information related to the predefined message.
+   */
+  predefinedContent?: PredefinedContent;
   /** Content of text message to display or print. It conveys Information related to the content of the text message and its format. All the data elements related to the format of the text to display or print are parameters valid for the whole Text content. */
   outputText?: OutputText[];
   /** XHTML document body containing the message to display or print. */
-  outputXhtml?: string;
-  additionalProperties?: Record<string, unknown>;
+  outputXHTML?: string;
 }
 
 export const menuEntrySchema: Schema<MenuEntry> = lazy(() =>
-  typedExpandoObject(
-    {
-      menuEntryTag: ['MenuEntryTag', optional(menuEntryTag1Schema)],
-      defaultSelectedFlag: ['DefaultSelectedFlag', optional(boolean())],
-      outputFormat: ['OutputFormat', outputFormat2Schema],
-      predefinedContent: [
-        'PredefinedContent',
-        optional(predefinedContent2Schema),
-      ],
-      outputText: ['OutputText', optional(array(outputTextSchema))],
-      outputXhtml: ['OutputXHTML', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    menuEntryTag: ['MenuEntryTag', optional(menuEntryTag1EnumSchema)],
+    defaultSelectedFlag: ['DefaultSelectedFlag', optional(boolean())],
+    outputFormat: ['OutputFormat', outputFormat2EnumSchema],
+    predefinedContent: ['PredefinedContent', optional(predefinedContentSchema)],
+    outputText: ['OutputText', optional(array(outputTextSchema))],
+    outputXHTML: ['OutputXHTML', optional(string())],
+  })
 );

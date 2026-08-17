@@ -8,14 +8,13 @@ import {
   array,
   bigint,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { ErrorFieldType, errorFieldTypeSchema } from './errorFieldType.js';
-import { EventType1, eventType1Schema } from './eventType1.js';
+import { EventType1Enum, eventType1EnumSchema } from './eventType1Enum.js';
 import { ExchangeMessage, exchangeMessageSchema } from './exchangeMessage.js';
 
 export interface TestNotificationConfigurationResponse {
@@ -25,7 +24,7 @@ export interface TestNotificationConfigurationResponse {
    * The event types that were tested.
    * >Permitted values: `ACCOUNT_HOLDER_CREATED`, `ACCOUNT_CREATED`, `ACCOUNT_UPDATED`, `ACCOUNT_HOLDER_UPDATED`, `ACCOUNT_HOLDER_STATUS_CHANGE`, `ACCOUNT_HOLDER_STORE_STATUS_CHANGE` `ACCOUNT_HOLDER_VERIFICATION`, `ACCOUNT_HOLDER_LIMIT_REACHED`, `ACCOUNT_HOLDER_PAYOUT`, `PAYMENT_FAILURE`, `SCHEDULED_REFUNDS`, `REPORT_AVAILABLE`, `TRANSFER_FUNDS`, `BENEFICIARY_SETUP`, `COMPENSATE_NEGATIVE_BALANCE`.
    */
-  eventTypes?: EventType1[];
+  eventTypes?: EventType1Enum[];
   /** The notification message and related response messages. */
   exchangeMessages?: ExchangeMessage[];
   /** Contains field validation errors that would prevent requests from being processed. */
@@ -38,26 +37,21 @@ export interface TestNotificationConfigurationResponse {
   pspReference?: string;
   /** The result code. */
   resultCode?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const testNotificationConfigurationResponseSchema: Schema<TestNotificationConfigurationResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        errorMessages: ['errorMessages', optional(array(string()))],
-        eventTypes: ['eventTypes', optional(array(eventType1Schema))],
-        exchangeMessages: [
-          'exchangeMessages',
-          optional(array(exchangeMessageSchema)),
-        ],
-        invalidFields: ['invalidFields', optional(array(errorFieldTypeSchema))],
-        notificationId: ['notificationId', bigint()],
-        okMessages: ['okMessages', optional(array(string()))],
-        pspReference: ['pspReference', optional(string())],
-        resultCode: ['resultCode', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      errorMessages: ['errorMessages', optional(array(string()))],
+      eventTypes: ['eventTypes', optional(array(eventType1EnumSchema))],
+      exchangeMessages: [
+        'exchangeMessages',
+        optional(array(exchangeMessageSchema)),
+      ],
+      invalidFields: ['invalidFields', optional(array(errorFieldTypeSchema))],
+      notificationId: ['notificationId', bigint()],
+      okMessages: ['okMessages', optional(array(string()))],
+      pspReference: ['pspReference', optional(string())],
+      resultCode: ['resultCode', optional(string())],
+    })
 );

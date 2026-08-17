@@ -54,19 +54,19 @@ const body: TransactionRuleInfo = {
     entityType: 'paymentInstrument',
   },
   interval: {
-    type: Type13.PerTransaction,
+    type: Type131Enum.PerTransaction,
   },
   reference: 'YOUR_REFERENCE_4F7346',
   ruleRestrictions: {
     processingTypes: {
       operation: 'noneMatch',
       value: [
-        Value4.Pos
+        Value4Enum.Pos
       ],
     },
   },
-  type: Type14.BlockList,
-  status: Status14.Active,
+  type: Type141Enum.BlockList,
+  status: Status6Enum.Active,
 };
 
 try {
@@ -394,19 +394,19 @@ const body: TransactionRuleInfo = {
     entityType: 'paymentInstrument',
   },
   interval: {
-    type: Type13.Weekly,
+    type: Type131Enum.Weekly,
   },
   reference: 'YOUR_REFERENCE_4F7346',
   ruleRestrictions: {
     processingTypes: {
       operation: 'noneMatch',
       value: [
-        Value4.Pos
+        Value4Enum.Pos
       ],
     },
   },
-  type: Type14.BlockList,
-  status: Status14.Inactive,
+  type: Type141Enum.BlockList,
+  status: Status6Enum.Inactive,
 };
 
 try {

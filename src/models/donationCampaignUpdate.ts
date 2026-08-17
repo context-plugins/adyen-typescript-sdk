@@ -8,11 +8,10 @@ import {
   array,
   lazy,
   nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   DonationCampaignUpdateInPerson,
@@ -27,27 +26,28 @@ export interface DonationCampaignUpdate {
   /** The unique identifiers of the account holders associated with the donation campaign. */
   accountHolderIds?: string[] | null;
   /** The settings for in-person donations collected as part of the campaign. */
-  inPerson?: DonationCampaignUpdateInPerson;
+  inPerson?: DonationCampaignUpdateInPerson | null;
   /** The name of the donation campaign. */
   name?: string;
   /** The settings for online donations collected as part of the campaign. */
-  online?: DonationCampaignUpdateOnline;
-  additionalProperties?: Record<string, unknown>;
+  online?: DonationCampaignUpdateOnline | null;
 }
 
 export const donationCampaignUpdateSchema: Schema<DonationCampaignUpdate> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accountHolderIds: [
-          'accountHolderIds',
-          optional(nullable(array(string()))),
-        ],
-        inPerson: ['inPerson', optional(donationCampaignUpdateInPersonSchema)],
-        name: ['name', optional(string())],
-        online: ['online', optional(donationCampaignUpdateOnlineSchema)],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accountHolderIds: [
+        'accountHolderIds',
+        optional(nullable(array(string()))),
+      ],
+      inPerson: [
+        'inPerson',
+        optional(nullable(donationCampaignUpdateInPersonSchema)),
+      ],
+      name: ['name', optional(string())],
+      online: [
+        'online',
+        optional(nullable(donationCampaignUpdateOnlineSchema)),
+      ],
+    })
 );

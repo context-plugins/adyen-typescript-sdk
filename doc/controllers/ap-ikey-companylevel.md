@@ -1,12 +1,12 @@
 # AP Ikey-Companylevel
 
 ```ts
-const apIkeyCompanylevelApi = new ApIkeyCompanylevelApi(client);
+const aPIkeyCompanylevelApi = new APIkeyCompanylevelApi(client);
 ```
 
 ## Class Name
 
-`ApIkeyCompanylevelApi`
+`APIkeyCompanylevelApi`
 
 
 # Post-Companies-Company Id-Api Credentials-Api Credential Id-Generate Api Key
@@ -51,7 +51,7 @@ const companyId = 'companyId0';
 const apiCredentialId = 'apiCredentialId8';
 
 try {
-  const response = await apiKeyCompanyLevelApi.postCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKey(
+  const response = await aPIKeyCompanyLevelApi.postCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKey(
     companyId,
     apiCredentialId
   );

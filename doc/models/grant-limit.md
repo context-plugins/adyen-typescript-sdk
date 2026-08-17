@@ -1,8 +1,6 @@
 
 # Grant Limit
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GrantLimit`
@@ -11,8 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5 \| undefined`](../../doc/models/amount-5.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `amount` | [`Amount17 \| undefined`](../../doc/models/amount-17.md) | Optional | The amount available on the grant account. |
 
 ## Example
 
@@ -23,12 +20,6 @@ const grantLimit: GrantLimit = {
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

@@ -1,8 +1,6 @@
 
 # Terminal Order Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TerminalOrderRequest`
@@ -17,7 +15,6 @@
 | `orderType` | `string \| undefined` | Optional | Type of order |
 | `shippingLocationId` | `string \| undefined` | Optional | The identification of the shipping location to use for the order. |
 | `taxId` | `string \| undefined` | Optional | The tax number of the billing entity. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,16 +30,10 @@ const terminalOrderRequest: TerminalOrderRequest = {
       installments: BigInt(204),
       name: 'name8',
       quantity: 22,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   orderType: 'orderType6',
   shippingLocationId: 'shippingLocationId6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 export interface OnboardingLinkSettings {
@@ -103,10 +102,9 @@ export interface OnboardingLinkSettings {
   requirePciSignPosMoto?: boolean;
   /** The maximum number of transfer instruments the user can create. */
   transferInstrumentLimit?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const onboardingLinkSettingsSchema: Schema<OnboardingLinkSettings> = typedExpandoObject(
+export const onboardingLinkSettingsSchema: Schema<OnboardingLinkSettings> = object(
   {
     acceptedCountries: ['acceptedCountries', optional(array(string()))],
     allowBankAccountFormatSelection: [
@@ -143,7 +141,5 @@ export const onboardingLinkSettingsSchema: Schema<OnboardingLinkSettings> = type
     requirePciSignPos: ['requirePciSignPos', optional(boolean())],
     requirePciSignPosMoto: ['requirePciSignPosMoto', optional(boolean())],
     transferInstrumentLimit: ['transferInstrumentLimit', optional(number())],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

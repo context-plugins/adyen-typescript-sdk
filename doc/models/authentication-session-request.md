@@ -1,8 +1,6 @@
 
 # Authentication Session Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AuthenticationSessionRequest`
@@ -12,14 +10,13 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `allowOrigin` | `string` | Required | The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with `https://`. |
-| `policy` | [`Policy`](../../doc/models/policy.md) | Required | - |
-| `product` | [`ProductType21`](../../doc/models/product-type-21.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `policy` | [`Policy2`](../../doc/models/policy-2.md) | Required | An object that contains a description of the allowed resources and roles for the requested session. |
+| `product` | [`ProductType2Enum`](../../doc/models/product-type-2-enum.md) | Required | The type of component.<br><br>For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), set this to **onboarding**.<br><br>For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), set this to **platform**. |
 
 ## Example
 
 ```ts
-import { AuthenticationSessionRequest, ProductType21 } from 'adyen';
+import { AuthenticationSessionRequest, ProductType2Enum } from 'adyen';
 
 const authenticationSessionRequest: AuthenticationSessionRequest = {
   allowOrigin: 'allowOrigin0',
@@ -27,22 +24,13 @@ const authenticationSessionRequest: AuthenticationSessionRequest = {
     resources: [
       {
         type: 'Resource',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     roles: [
       'roles8'
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  product: ProductType21.Onboarding,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  product: ProductType2Enum.Onboarding,
 };
 ```
 

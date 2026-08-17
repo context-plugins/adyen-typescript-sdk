@@ -1,9 +1,8 @@
 
 # Amount 1
 
-The amount of the payment.
-
-*This model accepts additional fields of type unknown.*
+If you want a [BIN or card verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification) request to use a non-zero value, assign this value to `additionalAmount` (while the amount must be still set to 0 to trigger BIN or card verification).
+Required to be in the same currency as the `amount`.
 
 ## Structure
 
@@ -13,9 +12,8 @@ The amount of the payment.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `currency` | `string` | Required | The three-character [ISO 4217 currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).<br><br>**Constraints**: *Minimum Length*: `1` |
-| `value` | `bigint` | Required | The amount of the transaction in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units) (cents). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `currency` | `string` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
+| `value` | `bigint` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
 
 ## Example
 
@@ -23,11 +21,8 @@ The amount of the payment.
 import { Amount1 } from 'adyen';
 
 const amount1: Amount1 = {
-  currency: 'EUR',
-  value: BigInt(499),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  currency: 'currency2',
+  value: BigInt(94),
 };
 ```
 

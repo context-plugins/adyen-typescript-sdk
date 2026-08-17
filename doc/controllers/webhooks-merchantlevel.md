@@ -259,7 +259,7 @@ const merchantId = 'merchantId6';
 
 const body: CreateMerchantWebhookRequest = {
   active: true,
-  communicationFormat: CommunicationFormat.Json,
+  communicationFormat: CommunicationFormatEnum.Json,
   type: 'standard',
   url: 'YOUR_WEBHOOK_URL',
   acceptsExpiredCertificate: false,

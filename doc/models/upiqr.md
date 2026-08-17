@@ -1,11 +1,9 @@
 
-# Upiqr
-
-*This model accepts additional fields of type unknown.*
+# UPIQR
 
 ## Structure
 
-`Upiqr`
+`UPIQR`
 
 ## Fields
 
@@ -17,24 +15,20 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopperNotificationReference` | `string \| undefined` | Optional | The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only. |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type80`](../../doc/models/type-80.md) | Required | **upi_qr** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **upi_qr**<br><br>**Value**: `'upi_qr'` |
 
 ## Example
 
 ```ts
-import { Type80, Upiqr } from 'adyen';
+import { UPIQR } from 'adyen';
 
-const upiqr: Upiqr = {
-  type: Type80.UpiQr,
-  billingSequenceNumber: 'billingSequenceNumber8',
-  checkoutAttemptId: 'checkoutAttemptId4',
-  recurringDetailReference: 'recurringDetailReference8',
-  sdkData: 'sdkData2',
-  shopperNotificationReference: 'shopperNotificationReference8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const uPIQR: UPIQR = {
+  type: 'upi_qr',
+  billingSequenceNumber: 'billingSequenceNumber2',
+  checkoutAttemptId: 'checkoutAttemptId8',
+  recurringDetailReference: 'recurringDetailReference2',
+  sdkData: 'sdkData8',
+  shopperNotificationReference: 'shopperNotificationReference2',
 };
 ```
 

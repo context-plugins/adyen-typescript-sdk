@@ -1,8 +1,6 @@
 
 # Klarna
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Klarna`
@@ -20,24 +18,20 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `subtype` | `string \| undefined` | Optional | The type of flow to initiate. |
-| `type` | [`Type34`](../../doc/models/type-34.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type34Enum`](../../doc/models/type-34-enum.md) | Required | **klarna**<br><br>**Default**: `Type34Enum.Klarna` |
 
 ## Example
 
 ```ts
-import { Klarna, Type34 } from 'adyen';
+import { Klarna, Type34Enum } from 'adyen';
 
 const klarna: Klarna = {
-  type: Type34.KlarnaB2B,
+  type: Type34Enum.Klarna,
   billingAddress: 'billingAddress8',
   checkoutAttemptId: 'checkoutAttemptId6',
   deliveryAddress: 'deliveryAddress6',
   merchantData: 'merchantData4',
   personalDetails: 'personalDetails8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

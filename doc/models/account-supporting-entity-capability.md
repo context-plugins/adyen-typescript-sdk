@@ -1,8 +1,6 @@
 
 # Account Supporting Entity Capability
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountSupportingEntityCapability`
@@ -12,28 +10,21 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `allowed` | `boolean \| undefined` | Optional, Read-only | Indicates whether the supporting entity capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability. |
-| `allowedLevel` | [`AllowedLevel \| undefined`](../../doc/models/allowed-level.md) | Optional, Read-only | - |
+| `allowedLevel` | [`AllowedLevelEnum \| undefined`](../../doc/models/allowed-level-enum.md) | Optional, Read-only | The capability level that is allowed for the account holder.<br><br>Possible values: **notApplicable**, **low**, **medium**, **high**. |
 | `enabled` | `boolean \| undefined` | Optional | Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder. |
 | `id` | `string \| undefined` | Optional, Read-only | The ID of the supporting entity. |
 | `requested` | `boolean \| undefined` | Optional | Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the `allowed` field. |
-| `requestedLevel` | [`RequestedLevel \| undefined`](../../doc/models/requested-level.md) | Optional | - |
-| `verificationStatus` | [`VerificationStatus \| undefined`](../../doc/models/verification-status.md) | Optional, Read-only | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `requestedLevel` | [`RequestedLevelEnum \| undefined`](../../doc/models/requested-level-enum.md) | Optional | The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.<br><br>Possible values: **notApplicable**, **low**, **medium**, **high**. |
+| `verificationStatus` | [`VerificationStatusEnum \| undefined`](../../doc/models/verification-status-enum.md) | Optional, Read-only | The status of the verification checks for the supporting entity capability.<br><br>Possible values:<br><br>* **pending**: Adyen is running the verification.<br><br>* **invalid**: The verification failed. Check if the `errors` array contains more information.<br><br>* **valid**: The verification has been successfully completed.<br><br>* **rejected**: Adyen has verified the information, but found reasons to not allow the capability. |
 
 ## Example
 
 ```ts
-import { AccountSupportingEntityCapability, AllowedLevel } from 'adyen';
+import { AccountSupportingEntityCapability } from 'adyen';
 
 const accountSupportingEntityCapability: AccountSupportingEntityCapability = {
-  allowed: false,
-  allowedLevel: AllowedLevel.High,
   enabled: false,
-  id: 'id2',
   requested: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

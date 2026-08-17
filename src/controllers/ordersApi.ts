@@ -31,7 +31,7 @@ import {
 } from '../models/createOrderResponse.js';
 import { optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError1Error } from '../errors/serviceError1Error.js';
+import { ServiceError } from '../errors/serviceError.js';
 
 export class OrdersApi extends BaseApi {
   /**
@@ -58,27 +58,23 @@ export class OrdersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -109,27 +105,23 @@ export class OrdersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -161,27 +153,23 @@ export class OrdersApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

@@ -4,8 +4,6 @@
 Required for Back-to-Back/ purchase driven load in Wallet transactions.
 Contains the final merchant who will be receiving the money, also known as subMerchant, information.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SubMerchant`
@@ -19,7 +17,6 @@ Contains the final merchant who will be receiving the money, also known as subMe
 | `mcc` | `string \| undefined` | Optional | The sub-merchant's 4-digit Merchant Category Code (MCC).<br><br>* Format: Numeric<br>* Fixed length: 4 digits |
 | `name` | `string \| undefined` | Optional | The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement.<br><br>* Format: Alphanumeric<br>* Maximum length: 22 characters |
 | `taxId` | `string \| undefined` | Optional | The tax ID of the sub-merchant.<br><br>* Format: Numeric<br>* Fixed length: 11 digits for the CPF or 14 digits for the CNPJ |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const subMerchant: SubMerchant = {
   mcc: 'mcc6',
   name: 'name6',
   taxId: 'taxId8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

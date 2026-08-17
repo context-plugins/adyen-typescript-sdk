@@ -1,55 +1,40 @@
 
-# Checkout Session Three Ds 2 Request Data
-
-*This model accepts additional fields of type unknown.*
+# Checkout Session Three DS 2 Request Data
 
 ## Structure
 
-`CheckoutSessionThreeDs2RequestData`
+`CheckoutSessionThreeDS2RequestData`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `homePhone` | [`HomePhone \| undefined`](../../doc/models/home-phone.md) | Optional | - |
-| `mobilePhone` | [`MobilePhone \| undefined`](../../doc/models/mobile-phone.md) | Optional | - |
-| `threeDsRequestorChallengeInd` | [`ThreeDsRequestorChallengeInd \| undefined`](../../doc/models/three-ds-requestor-challenge-ind.md) | Optional | - |
-| `workPhone` | [`WorkPhone \| undefined`](../../doc/models/work-phone.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `homePhone` | [`Phone3 \| undefined`](../../doc/models/phone-3.md) | Optional | The home phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`. |
+| `mobilePhone` | [`Phone1 \| undefined`](../../doc/models/phone-1.md) | Optional | The mobile phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`. |
+| `threeDSRequestorChallengeInd` | [`ThreeDSRequestorChallengeIndEnum \| undefined`](../../doc/models/three-ds-requestor-challenge-ind-enum.md) | Optional | Indicates whether a challenge is requested for this transaction. Possible values:<br><br>* **01** — No preference<br>* **02** — No challenge requested<br>* **03** — Challenge requested (3DS Requestor preference)<br>* **04** — Challenge requested (Mandate)<br>* **05** — No challenge (transactional risk analysis is already performed)<br>* **06** — Data Only |
+| `workPhone` | [`Phone2 \| undefined`](../../doc/models/phone-2.md) | Optional | The work phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`. |
 
 ## Example
 
 ```ts
 import {
-  CheckoutSessionThreeDs2RequestData,
-  ThreeDsRequestorChallengeInd,
+  CheckoutSessionThreeDS2RequestData,
+  ThreeDSRequestorChallengeIndEnum,
 } from 'adyen';
 
-const checkoutSessionThreeDs2RequestData: CheckoutSessionThreeDs2RequestData = {
+const checkoutSessionThreeDS2RequestData: CheckoutSessionThreeDS2RequestData = {
   homePhone: {
     cc: 'cc0',
     subscriber: 'subscriber2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   mobilePhone: {
     cc: 'cc4',
     subscriber: 'subscriber6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  threeDsRequestorChallengeInd: ThreeDsRequestorChallengeInd.Enum05,
+  threeDSRequestorChallengeInd: ThreeDSRequestorChallengeIndEnum.Enum03,
   workPhone: {
     cc: 'cc2',
     subscriber: 'subscriber4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

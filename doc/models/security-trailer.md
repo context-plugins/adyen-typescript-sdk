@@ -4,8 +4,6 @@
 It contains information related to the security of the message.
 SecurityTrailer as used by Adyen.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SecurityTrailer`
@@ -19,7 +17,6 @@ SecurityTrailer as used by Adyen.
 | `keyVersion` | `number` | Required | - |
 | `nonce` | `string` | Required | **Constraints**: *Pattern*: `^.+$` |
 | `hmac` | `string` | Required | **Constraints**: *Pattern*: `^.+$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const securityTrailer: SecurityTrailer = {
   keyVersion: 22,
   nonce: 'Nonce0',
   hmac: 'Hmac2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

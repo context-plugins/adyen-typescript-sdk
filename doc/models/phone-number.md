@@ -1,8 +1,6 @@
 
 # Phone Number
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PhoneNumber`
@@ -14,7 +12,6 @@
 | `number` | `string` | Required | The full phone number, including the country code. For example, **+3112345678**. |
 | `phoneCountryCode` | `string \| undefined` | Optional, Read-only | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.<br><br>The value of the `phoneCountryCode` is determined by the country code digit(s) of `phone.number` |
 | `type` | `string \| undefined` | Optional | The type of phone number.<br>Possible values: **mobile**, **landline**, **sip**, **fax.** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,11 +20,7 @@ import { PhoneNumber } from 'adyen';
 
 const phoneNumber: PhoneNumber = {
   number: 'number8',
-  phoneCountryCode: 'phoneCountryCode8',
   type: 'type0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

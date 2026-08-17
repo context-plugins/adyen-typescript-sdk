@@ -1,8 +1,6 @@
 
 # Response Additional Data Sepa
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ResponseAdditionalDataSepa`
@@ -15,7 +13,6 @@
 | `sepadirectdebitMandateId` | `string \| undefined` | Optional | Its value corresponds to the pspReference value of the transaction. |
 | `sepadirectdebitSepadirectdebitDueDate` | `string \| undefined` | Optional | The date that the the shopper's bank account is charged. |
 | `sepadirectdebitSequenceType` | `string \| undefined` | Optional | This field can take one of the following values:<br><br>* OneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.<br><br>* First: (FRST) Initial/first collection in a series of direct debit instructions.<br><br>* Recurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor.<br><br>* Final: (FNAL) Last/final collection in a series of direct debit instructions.<br><br>Example: OOFF |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const responseAdditionalDataSepa: ResponseAdditionalDataSepa = {
   sepadirectdebitMandateId: 'sepadirectdebit.mandateId2',
   sepadirectdebitSepadirectdebitDueDate: 'sepadirectdebit.sepadirectdebit.dueDate6',
   sepadirectdebitSequenceType: 'sepadirectdebit.sequenceType0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

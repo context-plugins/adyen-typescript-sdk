@@ -6,36 +6,32 @@
 
 import {
   isMappedValueValidForSchema,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  IbanAccountIdentification,
-  ibanAccountIdentificationSchema,
-} from './ibanAccountIdentification.js';
+  IbanAccountIdentification2,
+  ibanAccountIdentification2Schema,
+} from './ibanAccountIdentification2.js';
 
 export interface AccountIdentification {
   type?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export namespace AccountIdentification {
   /**
    * Validation method to check if the given AccountIdentification instance is
-   * also a IbanAccountIdentification.
+   * also a IbanAccountIdentification2.
    */
-  export function isIbanAccountIdentification(
+  export function isIbanAccountIdentification2(
     value: AccountIdentification
-  ): value is IbanAccountIdentification {
-    return isMappedValueValidForSchema(value, ibanAccountIdentificationSchema);
+  ): value is IbanAccountIdentification2 {
+    return isMappedValueValidForSchema(value, ibanAccountIdentification2Schema);
   }
 }
 
-export const accountIdentificationSchema: Schema<AccountIdentification> = typedExpandoObject(
-  { type: ['type', optional(string())] },
-  'additionalProperties',
-  optional(unknown())
+export const accountIdentificationSchema: Schema<AccountIdentification> = object(
+  { type: ['type', optional(string())] }
 );

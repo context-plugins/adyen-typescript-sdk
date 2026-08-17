@@ -3,8 +3,6 @@
 
 Content of the TransactionStatus Request message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransactionStatusRequest2`
@@ -13,40 +11,33 @@ Content of the TransactionStatus Request message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `messageReference` | [`MessageReference1 \| undefined`](../../doc/models/message-reference-1.md) | Optional | - |
+| `messageReference` | [`MessageReference2 \| undefined`](../../doc/models/message-reference-2.md) | Optional | Identification of a previous POI transaction.<br>Present if it contains any data. |
 | `receiptReprintFlag` | `boolean \| undefined` | Optional | Request to reprint the POI receipt(s). Allows reprinting a receipt with a `TransactionStatus` message<br><br>**Default**: `false` |
-| `documentQualifier` | [`DocumentQualifier[] \| undefined`](../../doc/models/document-qualifier.md) | Optional | Qualification of the document to print to the Cashier or the Customer. Allows the manager of the printer, Sale or POI Terminal, to send the information to a particular physical printer or to use the paper type accordingly.<br>Possible values:<br><br>* **CashierReceipt**<br>* **CustomerReceipt**<br>* **Document**<br>* **Journal**<br>* **SaleReceipt**<br>* **Voucher** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `documentQualifier` | [`DocumentQualifierEnum[] \| undefined`](../../doc/models/document-qualifier-enum.md) | Optional | Qualification of the document to print to the Cashier or the Customer. Allows the manager of the printer, Sale or POI Terminal, to send the information to a particular physical printer or to use the paper type accordingly.<br>Possible values:<br><br>* **CashierReceipt**<br>* **CustomerReceipt**<br>* **Document**<br>* **Journal**<br>* **SaleReceipt**<br>* **Voucher** |
 
 ## Example
 
 ```ts
 import {
-  DocumentQualifier,
-  MessageCategory2,
+  DocumentQualifierEnum,
+  MessageCategory2Enum,
   TransactionStatusRequest2,
 } from 'adyen';
 
 const transactionStatusRequest2: TransactionStatusRequest2 = {
   messageReference: {
-    messageCategory: MessageCategory2.Payment,
-    serviceId: 'ServiceID0',
-    deviceId: 'DeviceID2',
-    saleId: 'SaleID8',
-    poiid: 'POIID2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    messageCategory: MessageCategory2Enum.Payment,
+    serviceID: 'ServiceID0',
+    deviceID: 'DeviceID2',
+    saleID: 'SaleID8',
+    pOIID: 'POIID2',
   },
   receiptReprintFlag: false,
   documentQualifier: [
-    DocumentQualifier.CashierReceipt,
-    DocumentQualifier.CustomerReceipt,
-    DocumentQualifier.Document
+    DocumentQualifierEnum.CashierReceipt,
+    DocumentQualifierEnum.CustomerReceipt,
+    DocumentQualifierEnum.Document
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

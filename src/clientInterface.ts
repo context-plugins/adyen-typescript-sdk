@@ -18,7 +18,36 @@ export type SdkRequestBuilderFactory = RequestBuilderFactory<
 
 export type SdkRequestBuilder = ReturnType<SdkRequestBuilderFactory>;
 
-export type Server = 'default';
+export type Server =
+  | 'default'
+  | 'default1'
+  | 'default2'
+  | 'default3'
+  | 'default4'
+  | 'default5'
+  | 'default6'
+  | 'default7'
+  | 'default8'
+  | 'default9'
+  | 'default10'
+  | 'default11'
+  | 'default12'
+  | 'default13'
+  | 'default14'
+  | 'default15'
+  | 'default16'
+  | 'default17'
+  | 'default18'
+  | 'default19'
+  | 'default20'
+  | 'default21'
+  | 'default22'
+  | 'default23'
+  | 'default24'
+  | 'default25'
+  | 'default26'
+  | 'default27'
+  | 'default28';
 
 export type AuthParams = ReturnType<
   typeof createAuthProviderFromConfig

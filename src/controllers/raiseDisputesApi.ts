@@ -19,9 +19,7 @@ import {
 } from '../models/patchableDisputeRequest.js';
 import { array, optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { Disputes401Error } from '../errors/disputes401Error.js';
-import { Disputes403Error } from '../errors/disputes403Error.js';
-import { Disputes422Error } from '../errors/disputes422Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class RaiseDisputesApi extends BaseApi {
   /**
@@ -55,6 +53,7 @@ export class RaiseDisputesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DisputeResponse[]>> {
     const req = this.createRequest('GET', '/disputes');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({
       status: [status, optional(string())],
       paymentInstrument: [paymentInstrument, optional(string())],
@@ -69,13 +68,21 @@ export class RaiseDisputesApi extends BaseApi {
     req.query('createdUntil', mapped.createdUntil);
     req.query('offset', mapped.offset);
     req.query('limit', mapped.limit);
-    req.throwOn(401, Disputes401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      Disputes403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
-    req.throwOn(422, Disputes422Error, 'A request validation error.');
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'A request validation error.'
+    );
     req.authenticate(false);
     return req.callAsJson(array(disputeResponseSchema), requestOptions);
   }
@@ -96,16 +103,25 @@ export class RaiseDisputesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DisputeResponse>> {
     const req = this.createRequest('POST', '/disputes');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({ body: [body, disputeRequestSchema] });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
-    req.throwOn(401, Disputes401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      Disputes403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
-    req.throwOn(422, Disputes422Error, 'A request validation error.');
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'A request validation error.'
+    );
     req.authenticate(false);
     return req.callAsJson(disputeResponseSchema, requestOptions);
   }
@@ -121,15 +137,24 @@ export class RaiseDisputesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DisputeResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/disputes/${mapped.id}`;
-    req.throwOn(401, Disputes401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      Disputes403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
-    req.throwOn(422, Disputes422Error, 'A request validation error.');
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'A request validation error.'
+    );
     req.authenticate(false);
     return req.callAsJson(disputeResponseSchema, requestOptions);
   }
@@ -155,6 +180,7 @@ export class RaiseDisputesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DisputeResponse>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default23');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(patchableDisputeRequestSchema)],
@@ -162,13 +188,21 @@ export class RaiseDisputesApi extends BaseApi {
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.appendTemplatePath`/disputes/${mapped.id}`;
-    req.throwOn(401, Disputes401Error, 'Authentication required.');
+    req.throwOn(
+      401,
+      DefaultErrorResponseEntityError,
+      'Authentication required.'
+    );
     req.throwOn(
       403,
-      Disputes403Error,
+      DefaultErrorResponseEntityError,
       'Insufficient permissions to process the request.'
     );
-    req.throwOn(422, Disputes422Error, 'A request validation error.');
+    req.throwOn(
+      422,
+      DefaultErrorResponseEntityError,
+      'A request validation error.'
+    );
     req.authenticate(false);
     return req.callAsJson(disputeResponseSchema, requestOptions);
   }

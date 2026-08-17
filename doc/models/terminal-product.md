@@ -1,8 +1,6 @@
 
 # Terminal Product
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TerminalProduct`
@@ -15,8 +13,7 @@
 | `id` | `string \| undefined` | Optional | The unique identifier of the product. |
 | `itemsIncluded` | `string[] \| undefined` | Optional | A list of parts included in the terminal package. |
 | `name` | `string \| undefined` | Optional | The descriptive name of the product. |
-| `price` | [`TerminalProductPrice \| undefined`](../../doc/models/terminal-product-price.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `price` | [`TerminalProductPrice2 \| undefined`](../../doc/models/terminal-product-price-2.md) | Optional | The price of the product. |
 
 ## Example
 
@@ -33,12 +30,6 @@ const terminalProduct: TerminalProduct = {
   price: {
     currency: 'currency2',
     value: 203.04,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

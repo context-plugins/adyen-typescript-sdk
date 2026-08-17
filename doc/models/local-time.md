@@ -1,8 +1,6 @@
 
 # Local Time
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LocalTime`
@@ -15,7 +13,6 @@
 | `minute` | `number \| undefined` | Optional | - |
 | `nano` | `number \| undefined` | Optional | - |
 | `second` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const localTime: LocalTime = {
   minute: 76,
   nano: 100,
   second: 138,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

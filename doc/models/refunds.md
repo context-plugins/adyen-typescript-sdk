@@ -1,8 +1,6 @@
 
 # Refunds
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Refunds`
@@ -11,9 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `referenced` | [`Referenced \| undefined`](../../doc/models/referenced.md) | Optional | - |
-| `unreferenced` | [`Unreferenced \| undefined`](../../doc/models/unreferenced.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `referenced` | [`Referenced1 \| undefined`](../../doc/models/referenced-1.md) | Optional | Settings for referenced refunds. |
+| `unreferenced` | [`Unreferenced2 \| undefined`](../../doc/models/unreferenced-2.md) | Optional | Settings for unreferenced refunds. |
 
 ## Example
 
@@ -23,18 +20,9 @@ import { Refunds } from 'adyen';
 const refunds: Refunds = {
   referenced: {
     enableStandaloneRefunds: false,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   unreferenced: {
     enableUnreferencedRefunds: false,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

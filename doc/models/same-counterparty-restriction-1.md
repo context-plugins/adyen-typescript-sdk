@@ -13,8 +13,6 @@ To use this restriction, you must:
 
 Supported operations: **equals**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SameCounterpartyRestriction1`
@@ -25,7 +23,6 @@ Supported operations: **equals**.
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | `boolean \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -35,9 +32,6 @@ import { SameCounterpartyRestriction1 } from 'adyen';
 const sameCounterpartyRestriction1: SameCounterpartyRestriction1 = {
   operation: 'operation6',
   value: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

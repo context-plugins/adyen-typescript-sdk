@@ -7,30 +7,34 @@
 import {
   array,
   lazy,
+  nullable,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount16, amount16Schema } from './amount16.js';
+import { Amount38, amount38Schema } from './amount38.js';
+import { ApplicationInfo, applicationInfoSchema } from './applicationInfo.js';
 import {
-  ApplicationInfo1,
-  applicationInfo1Schema,
-} from './applicationInfo1.js';
-import {
-  EnhancedSchemeData,
-  enhancedSchemeDataSchema,
-} from './enhancedSchemeData.js';
+  EnhancedSchemeData1,
+  enhancedSchemeData1Schema,
+} from './enhancedSchemeData1.js';
 import { LineItem, lineItemSchema } from './lineItem.js';
+import {
+  MerchantRefundReasonEnum,
+  merchantRefundReasonEnumSchema,
+} from './merchantRefundReasonEnum.js';
 import { Split, splitSchema } from './split.js';
 
 export interface PaymentRefundRequest {
-  amount: Amount16;
-  applicationInfo?: ApplicationInfo1;
+  /** The amount that you want to refund. The `currency` must match the currency used in authorisation, the `value` must be smaller than or equal to the authorised amount. */
+  amount: Amount38;
+  /** Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions). */
+  applicationInfo?: ApplicationInfo;
   /** This is only available for PayPal refunds. The [`pspReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference) of the specific capture to refund. */
   capturePspReference?: string;
-  enhancedSchemeData?: EnhancedSchemeData;
+  /** Enhanced scheme data that may be required for processing the payment. For example, airline information. */
+  enhancedSchemeData?: EnhancedSchemeData1;
   /**
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment).
    * > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
@@ -38,35 +42,42 @@ export interface PaymentRefundRequest {
   lineItems?: LineItem[];
   /** The merchant account that is used to process the payment. */
   merchantAccount: string;
-  merchantRefundReason?: unknown;
+  /**
+   * The reason for the refund request.
+   * Possible values:
+   * * **FRAUD**
+   * * **CUSTOMER REQUEST**
+   * * **RETURN**
+   * * **DUPLICATE**
+   * * **OTHER**
+   */
+  merchantRefundReason?: MerchantRefundReasonEnum | null;
   /** Your reference for the refund request. Maximum length: 80 characters. */
   reference?: string;
   /** An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/). */
   splits?: Split[];
   /** The online store or [physical store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores) that is processing the refund. This must be the same as the store name configured in your Customer Area.  Otherwise, you get an error and the refund fails. */
   store?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const paymentRefundRequestSchema: Schema<PaymentRefundRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        amount: ['amount', amount16Schema],
-        applicationInfo: ['applicationInfo', optional(applicationInfo1Schema)],
-        capturePspReference: ['capturePspReference', optional(string())],
-        enhancedSchemeData: [
-          'enhancedSchemeData',
-          optional(enhancedSchemeDataSchema),
-        ],
-        lineItems: ['lineItems', optional(array(lineItemSchema))],
-        merchantAccount: ['merchantAccount', string()],
-        merchantRefundReason: ['merchantRefundReason', optional(unknown())],
-        reference: ['reference', optional(string())],
-        splits: ['splits', optional(array(splitSchema))],
-        store: ['store', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      amount: ['amount', amount38Schema],
+      applicationInfo: ['applicationInfo', optional(applicationInfoSchema)],
+      capturePspReference: ['capturePspReference', optional(string())],
+      enhancedSchemeData: [
+        'enhancedSchemeData',
+        optional(enhancedSchemeData1Schema),
+      ],
+      lineItems: ['lineItems', optional(array(lineItemSchema))],
+      merchantAccount: ['merchantAccount', string()],
+      merchantRefundReason: [
+        'merchantRefundReason',
+        optional(nullable(merchantRefundReasonEnumSchema)),
+      ],
+      reference: ['reference', optional(string())],
+      splits: ['splits', optional(array(splitSchema))],
+      store: ['store', optional(string())],
+    })
 );

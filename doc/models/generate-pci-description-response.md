@@ -1,8 +1,6 @@
 
 # Generate Pci Description Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GeneratePciDescriptionResponse`
@@ -14,7 +12,6 @@
 | `content` | `string \| undefined` | Optional | The generated questionnaires in a base64 encoded format. |
 | `language` | `string \| undefined` | Optional | The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code for the questionnaire. For example, **en**. |
 | `pciTemplateReferences` | `string[] \| undefined` | Optional | The array of Adyen-generated unique identifiers for the questionnaires. If empty, the user is not required to sign questionnaires. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,9 +25,6 @@ const generatePciDescriptionResponse: GeneratePciDescriptionResponse = {
     'pciTemplateReferences6',
     'pciTemplateReferences7'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

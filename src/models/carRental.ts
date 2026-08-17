@@ -9,14 +9,13 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { PickupInfo, pickupInfoSchema } from './pickupInfo.js';
-import { RateType, rateTypeSchema } from './rateType.js';
+import { RateTypeEnum, rateTypeEnumSchema } from './rateTypeEnum.js';
 import {
   RentalSurcharges,
   rentalSurchargesSchema,
@@ -41,7 +40,11 @@ export interface CarRental {
    */
   noShow?: boolean;
   pickupInfo?: PickupInfo;
-  rateType?: RateType;
+  /**
+   * Indicates whether the rental rate is daily or weekly.
+   * * **additionalData key:** `carRental.rateIndicator`
+   */
+  rateType?: RateTypeEnum;
   /**
    * The rental agreement number for the car rental.
    * * Format: ASCII
@@ -91,29 +94,24 @@ export interface CarRental {
    * * **additionalData key:** `carRental.taxExemptIndicator`
    */
   taxExempt?: boolean;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const carRentalSchema: Schema<CarRental> = lazy(() =>
-  typedExpandoObject(
-    {
-      customerServicePhoneNumber: [
-        'customerServicePhoneNumber',
-        optional(string()),
-      ],
-      noShow: ['noShow', optional(boolean())],
-      pickupInfo: ['pickupInfo', optional(pickupInfoSchema)],
-      rateType: ['rateType', optional(rateTypeSchema)],
-      rentalAgreementNumber: ['rentalAgreementNumber', optional(string())],
-      rentalClassId: ['rentalClassId', optional(string())],
-      rentalDays: ['rentalDays', optional(number())],
-      rentalRate: ['rentalRate', optional(bigint())],
-      rentalSurcharges: ['rentalSurcharges', optional(rentalSurchargesSchema)],
-      renterName: ['renterName', string()],
-      returnInfo: ['returnInfo', optional(returnInfoSchema)],
-      taxExempt: ['taxExempt', optional(boolean())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    customerServicePhoneNumber: [
+      'customerServicePhoneNumber',
+      optional(string()),
+    ],
+    noShow: ['noShow', optional(boolean())],
+    pickupInfo: ['pickupInfo', optional(pickupInfoSchema)],
+    rateType: ['rateType', optional(rateTypeEnumSchema)],
+    rentalAgreementNumber: ['rentalAgreementNumber', optional(string())],
+    rentalClassId: ['rentalClassId', optional(string())],
+    rentalDays: ['rentalDays', optional(number())],
+    rentalRate: ['rentalRate', optional(bigint())],
+    rentalSurcharges: ['rentalSurcharges', optional(rentalSurchargesSchema)],
+    renterName: ['renterName', string()],
+    returnInfo: ['returnInfo', optional(returnInfoSchema)],
+    taxExempt: ['taxExempt', optional(boolean())],
+  })
 );

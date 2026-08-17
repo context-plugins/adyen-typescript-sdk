@@ -29,6 +29,7 @@ export class NetworkTokensApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetNetworkTokenResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       networkTokenId: [networkTokenId, string()],
     });
@@ -74,6 +75,7 @@ export class NetworkTokensApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       networkTokenId: [networkTokenId, string()],
       body: [body, optional(updateNetworkTokenRequestSchema)],

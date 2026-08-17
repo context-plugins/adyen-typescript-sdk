@@ -1,8 +1,6 @@
 
 # Confidence Score
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ConfidenceScore`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `errors` | `string[] \| undefined` | Optional | - |
 | `score` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const confidenceScore: ConfidenceScore = {
     'errors1'
   ],
   score: 155.44,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

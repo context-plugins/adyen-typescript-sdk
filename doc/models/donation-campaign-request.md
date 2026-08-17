@@ -1,8 +1,6 @@
 
 # Donation Campaign Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DonationCampaignRequest`
@@ -12,20 +10,19 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderIds` | `string[] \| undefined` | Optional | The unique identifiers of the account holders associated with the donation campaign. |
-| `inPerson` | [`InPersonDonationSettings \| undefined`](../../doc/models/in-person-donation-settings.md) | Optional | - |
+| `inPerson` | [`InPersonDonationSettings2 \| undefined`](../../doc/models/in-person-donation-settings-2.md) | Optional | The settings for in-person donations collected as part of the campaign. |
 | `name` | `string` | Required | The name of the donation campaign.<br><br>**Constraints**: *Minimum Length*: `1` |
 | `nonprofitCauseId` | `string` | Required | The unique identifier of the nonprofit cause that the campaign supports.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `online` | [`OnlineDonationSettings \| undefined`](../../doc/models/online-donation-settings.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `online` | [`OnlineDonationSettings2 \| undefined`](../../doc/models/online-donation-settings-2.md) | Optional | The settings for online donations collected as part of the campaign. |
 
 ## Example
 
 ```ts
 import {
-  DisplayTextField2,
+  DisplayTextField2Enum,
   DonationCampaignRequest,
-  DonationFlow1,
-  DonationType1,
+  DonationFlow1Enum,
+  DonationType1Enum,
 } from 'adyen';
 
 const donationCampaignRequest: DonationCampaignRequest = {
@@ -35,8 +32,8 @@ const donationCampaignRequest: DonationCampaignRequest = {
     'accountHolderIds1'
   ],
   inPerson: {
-    displayTextField: DisplayTextField2.CauseName,
-    donationFlow: DonationFlow1.OneStep,
+    displayTextField: DisplayTextField2Enum.CauseName,
+    donationFlow: DonationFlow1Enum.OneStep,
     defaultAmount: {
       amounts: [
         BigInt(78),
@@ -44,11 +41,8 @@ const donationCampaignRequest: DonationCampaignRequest = {
         BigInt(80)
       ],
       currencyCode: 'currencyCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    donationType: DonationType1.FixedAmountsRoundup,
+    donationType: DonationType1Enum.FixedAmountsRoundup,
     merchantAccounts: [
       'merchantAccounts6',
       'merchantAccounts5',
@@ -56,9 +50,6 @@ const donationCampaignRequest: DonationCampaignRequest = {
     ],
     presentCardTimeoutMs: BigInt(102),
     promptTimeoutMs: BigInt(66),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   online: {
     defaultAmount: {
@@ -68,11 +59,8 @@ const donationCampaignRequest: DonationCampaignRequest = {
         BigInt(80)
       ],
       currencyCode: 'currencyCode6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    donationType: DonationType1.FixedAmounts,
+    donationType: DonationType1Enum.FixedAmounts,
     merchantAccounts: [
       'merchantAccounts4',
       'merchantAccounts3',
@@ -83,12 +71,6 @@ const donationCampaignRequest: DonationCampaignRequest = {
       'storeIds0',
       'storeIds1'
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

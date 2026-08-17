@@ -1,8 +1,6 @@
 
 # Install Android App Details
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `InstallAndroidAppDetails`
@@ -12,20 +10,16 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `appId` | `string \| undefined` | Optional | The unique identifier of the app to be installed. |
-| `type` | [`Type310 \| undefined`](../../doc/models/type-310.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type32Enum \| undefined`](../../doc/models/type-32-enum.md) | Optional | Type of terminal action: Install an Android app.<br><br>**Default**: `Type32Enum.InstallAndroidApp` |
 
 ## Example
 
 ```ts
-import { InstallAndroidAppDetails, Type310 } from 'adyen';
+import { InstallAndroidAppDetails, Type32Enum } from 'adyen';
 
 const installAndroidAppDetails: InstallAndroidAppDetails = {
   appId: 'appId8',
-  type: Type310.InstallAndroidApp,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type32Enum.InstallAndroidApp,
 };
 ```
 

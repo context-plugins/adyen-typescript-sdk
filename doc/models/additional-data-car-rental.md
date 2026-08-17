@@ -1,8 +1,6 @@
 
 # Additional Data Car Rental
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataCarRental`
@@ -34,7 +32,6 @@
 | `carRentalTaxExemptIndicator` | `string \| undefined` | Optional | Indicates if the goods or services were tax-exempt, or if tax was not paid on them.<br><br>Values:<br><br>* Y - Goods or services were tax exempt<br>* N - Tax was not collected |
 | `travelEntertainmentAuthDataDuration` | `string \| undefined` | Optional | Number of days the car is rented for. This should be included in the auth message.<br><br>* Format: Numeric<br>* maxLength: 4 |
 | `travelEntertainmentAuthDataMarket` | `string \| undefined` | Optional | Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message.<br><br>* Format: Alphanumeric<br>* maxLength: 1 |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -47,9 +44,6 @@ const additionalDataCarRental: AdditionalDataCarRental = {
   carRentalDaysRented: 'carRental.daysRented4',
   carRentalFuelCharges: 'carRental.fuelCharges8',
   carRentalInsuranceCharges: 'carRental.insuranceCharges8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

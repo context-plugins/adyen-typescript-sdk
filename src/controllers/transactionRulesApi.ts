@@ -37,6 +37,7 @@ export class TransactionRulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRule>> {
     const req = this.createRequest('POST', '/transactionRules');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(transactionRuleInfoSchema)],
     });
@@ -86,6 +87,7 @@ export class TransactionRulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRuleResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       transactionRuleId: [transactionRuleId, string()],
     });
@@ -134,6 +136,7 @@ export class TransactionRulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRule>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       transactionRuleId: [transactionRuleId, string()],
     });
@@ -190,6 +193,7 @@ export class TransactionRulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRule>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       transactionRuleId: [transactionRuleId, string()],
       body: [body, optional(transactionRuleInfoSchema)],

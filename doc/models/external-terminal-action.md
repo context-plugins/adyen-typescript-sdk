@@ -1,8 +1,6 @@
 
 # External Terminal Action
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ExternalTerminalAction`
@@ -19,7 +17,6 @@
 | `scheduledAt` | `string \| undefined` | Optional | The date and time when the action was scheduled to happen. |
 | `status` | `string \| undefined` | Optional | The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**. |
 | `terminalId` | `string \| undefined` | Optional | The unique ID of the terminal that the action applies to. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const externalTerminalAction: ExternalTerminalAction = {
   confirmedAt: '2016-03-13T12:52:32.123Z',
   id: 'id4',
   result: 'result2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

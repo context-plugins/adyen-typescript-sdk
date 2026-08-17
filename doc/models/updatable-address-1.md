@@ -3,8 +3,6 @@
 
 The address of the store. It is not possible to update the country of the store.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdatableAddress1`
@@ -19,7 +17,6 @@ The address of the store. It is not possible to update the country of the store.
 | `line3` | `string \| undefined` | Optional | Third address line. |
 | `postalCode` | `string \| undefined` | Optional | The postal code. |
 | `stateOrProvince` | `string \| undefined` | Optional | The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.<br><br>Required for the following countries:<br><br>- Australia<br>- Brazil<br>- Canada<br>- India<br>- Mexico<br>- New Zealand<br>- United States |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const updatableAddress1: UpdatableAddress1 = {
   line2: 'line24',
   line3: 'line32',
   postalCode: 'postalCode2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 The [time interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) when the rule conditions apply.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransactionRuleInterval1`
@@ -14,34 +12,32 @@ The [time interval](https://docs.adyen.com/issuing/transaction-rules#time-interv
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `dayOfMonth` | `number \| undefined` | Optional | The day of month, used when the `duration.unit` is **months**. If not provided, by default, this is set to **1**, the first day of the month. |
-| `dayOfWeek` | [`DayOfWeek \| undefined`](../../doc/models/day-of-week.md) | Optional | - |
-| `duration` | [`Duration \| undefined`](../../doc/models/duration.md) | Optional | - |
+| `dayOfWeek` | [`DayOfWeekEnum \| undefined`](../../doc/models/day-of-week-enum.md) | Optional | The day of week, used when the `duration.unit` is **weeks**. If not provided, by default, this is set to **monday**.<br><br>Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**. |
+| `duration` | [`Duration1 \| undefined`](../../doc/models/duration-1.md) | Optional | The duration, which you can specify in hours, days, weeks, or months. The maximum duration is 90 days or an equivalent in other units. Required when the `type` is **rolling** or **sliding**. |
 | `timeOfDay` | `string \| undefined` | Optional | The time of day, in **hh:mm:ss** format, used when the `duration.unit` is **hours**. If not provided, by default, this is set to **00:00:00**. |
 | `timeZone` | `string \| undefined` | Optional | The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example, **Europe/Amsterdam**. By default, this is set to **UTC**. |
-| `type` | [`Type13`](../../doc/models/type-13.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type131Enum`](../../doc/models/type-131-enum.md) | Required | The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.<br><br>Possible values:<br><br>* **perTransaction**: conditions are evaluated and the counters are reset for every transaction.<br>* **daily**: the counters are reset daily at 00:00:00 CET.<br>* **weekly**: the counters are reset every Monday at 00:00:00 CET.<br>* **monthly**: the counters reset every first day of the month at 00:00:00 CET.<br>* **lifetime**: conditions are applied to the lifetime of the payment instrument.<br>* **rolling**: conditions are applied and the counters are reset based on a `duration`. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 CET.<br>* **sliding**: conditions are applied and the counters are reset based on the current time and a `duration` that you specify. |
 
 ## Example
 
 ```ts
-import { DayOfWeek, TransactionRuleInterval1, Type13, Unit } from 'adyen';
+import {
+  DayOfWeekEnum,
+  TransactionRuleInterval1,
+  Type131Enum,
+  UnitEnum,
+} from 'adyen';
 
 const transactionRuleInterval1: TransactionRuleInterval1 = {
-  type: Type13.Daily,
+  type: Type131Enum.Daily,
   dayOfMonth: 96,
-  dayOfWeek: DayOfWeek.Thursday,
+  dayOfWeek: DayOfWeekEnum.Thursday,
   duration: {
-    unit: Unit.Weeks,
+    unit: UnitEnum.Weeks,
     value: 176,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   timeOfDay: 'timeOfDay0',
   timeZone: 'timeZone2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

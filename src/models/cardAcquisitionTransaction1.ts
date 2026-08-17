@@ -8,18 +8,23 @@ import {
   array,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { ForceEntryMode, forceEntryModeSchema } from './forceEntryMode.js';
 import {
-  LoyaltyHandling2,
-  loyaltyHandling2Schema,
-} from './loyaltyHandling2.js';
-import { PaymentType1, paymentType1Schema } from './paymentType1.js';
+  ForceEntryModeEnum,
+  forceEntryModeEnumSchema,
+} from './forceEntryModeEnum.js';
+import {
+  LoyaltyHandling2Enum,
+  loyaltyHandling2EnumSchema,
+} from './loyaltyHandling2Enum.js';
+import {
+  PaymentType1Enum,
+  paymentType1EnumSchema,
+} from './paymentType1Enum.js';
 
 /** Data related to the payment and loyalty card acquisition. */
 export interface CardAcquisitionTransaction1 {
@@ -27,7 +32,16 @@ export interface CardAcquisitionTransaction1 {
   allowedPaymentBrand?: string[];
   /** Loyalty brands or programs allowed by the Sale System for the loyalty transaction. */
   allowedLoyaltyBrand?: string[];
-  loyaltyHandling?: LoyaltyHandling2;
+  /**
+   * Type of Loyalty processing requested by the Sale System. An way to specify what the POI has to handle concerning the loyalty.
+   * Possible values:
+   * * **Allowed**
+   * * **Forbidden**
+   * * **Processed**
+   * * **Proposed**
+   * * **Required**
+   */
+  loyaltyHandling?: LoyaltyHandling2Enum;
   /**
    * The language used on the terminal screen or in text printed by the terminal.
    *   Typical use case is setting the language on unattended terminals. Format: two-character [ISO 639:2023](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format.
@@ -48,32 +62,48 @@ export interface CardAcquisitionTransaction1 {
    * * **SynchronousICC**
    * * **Tapped**
    */
-  forceEntryMode?: ForceEntryMode[];
+  forceEntryMode?: ForceEntryModeEnum[];
   /** Indicates if the Customer realises the selection of the card application. */
   forceCustomerSelectionFlag?: boolean;
   /** Amount of a transaction. In the Card Acquisition Request message, it allows the processing of a contactless card. */
   totalAmount?: number;
-  paymentType?: PaymentType1;
+  /**
+   * Type of payment transaction. Elements requested by the Sale System that are related to the payment only.
+   * Possible values:
+   * * **CashAdvance**
+   * * **CashDeposit**
+   * * **Completion**
+   * * **FirstReservation**
+   * * **Instalment**
+   * * **IssuerInstalment**
+   * * **Normal**
+   * * **OneTimeReservation**
+   * * **PaidOut**
+   * * **Recurring**
+   * * **Refund**
+   * * **UpdateReservation**
+   */
+  paymentType?: PaymentType1Enum;
   /** Cash back has been requested with the payment transaction. Allows choice of the Customer language when the POI displays messages or print text to Merchant interface. */
   cashBackFlag?: boolean;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const cardAcquisitionTransaction1Schema: Schema<CardAcquisitionTransaction1> = typedExpandoObject(
+export const cardAcquisitionTransaction1Schema: Schema<CardAcquisitionTransaction1> = object(
   {
     allowedPaymentBrand: ['AllowedPaymentBrand', optional(array(string()))],
     allowedLoyaltyBrand: ['AllowedLoyaltyBrand', optional(array(string()))],
-    loyaltyHandling: ['LoyaltyHandling', optional(loyaltyHandling2Schema)],
+    loyaltyHandling: ['LoyaltyHandling', optional(loyaltyHandling2EnumSchema)],
     customerLanguage: ['CustomerLanguage', optional(string())],
-    forceEntryMode: ['ForceEntryMode', optional(array(forceEntryModeSchema))],
+    forceEntryMode: [
+      'ForceEntryMode',
+      optional(array(forceEntryModeEnumSchema)),
+    ],
     forceCustomerSelectionFlag: [
       'ForceCustomerSelectionFlag',
       optional(boolean()),
     ],
     totalAmount: ['TotalAmount', optional(number())],
-    paymentType: ['PaymentType', optional(paymentType1Schema)],
+    paymentType: ['PaymentType', optional(paymentType1EnumSchema)],
     cashBackFlag: ['CashBackFlag', optional(boolean())],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

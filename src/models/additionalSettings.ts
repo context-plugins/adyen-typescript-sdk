@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   dict,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 export interface AdditionalSettings {
@@ -23,14 +22,9 @@ export interface AdditionalSettings {
    * For example, `includeCaptureDelayHours`: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    */
   properties?: Record<string, boolean>;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const additionalSettingsSchema: Schema<AdditionalSettings> = typedExpandoObject(
-  {
-    includeEventCodes: ['includeEventCodes', optional(array(string()))],
-    properties: ['properties', optional(dict(boolean()))],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const additionalSettingsSchema: Schema<AdditionalSettings> = object({
+  includeEventCodes: ['includeEventCodes', optional(array(string()))],
+  properties: ['properties', optional(dict(boolean()))],
+});

@@ -1,8 +1,6 @@
 
 # Update Split Configuration Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UpdateSplitConfigurationRequest`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `description` | `string` | Required | Your description for the split configuration.<br><br>**Constraints**: *Maximum Length*: `300` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -21,9 +18,6 @@ import { UpdateSplitConfigurationRequest } from 'adyen';
 
 const updateSplitConfigurationRequest: UpdateSplitConfigurationRequest = {
   description: 'description8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

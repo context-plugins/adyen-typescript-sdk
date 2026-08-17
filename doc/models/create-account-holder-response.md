@@ -1,8 +1,6 @@
 
 # Create Account Holder Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CreateAccountHolderResponse`
@@ -13,22 +11,26 @@
 |  --- | --- | --- | --- |
 | `accountCode` | `string \| undefined` | Optional | The code of a new account created for the account holder. |
 | `accountHolderCode` | `string \| undefined` | Optional | The code of the new account holder. |
-| `accountHolderDetails` | [`AccountHolderDetails \| undefined`](../../doc/models/account-holder-details.md) | Optional | - |
-| `accountHolderStatus` | [`AccountHolderStatus \| undefined`](../../doc/models/account-holder-status.md) | Optional | - |
+| `accountHolderDetails` | [`AccountHolderDetails2 \| undefined`](../../doc/models/account-holder-details-2.md) | Optional | Details of the new account holder. |
+| `accountHolderStatus` | [`AccountHolderStatus2 \| undefined`](../../doc/models/account-holder-status-2.md) | Optional | The status of the new account holder. |
 | `description` | `string \| undefined` | Optional | The description of the new account holder. |
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | A list of fields that caused the `/createAccountHolder` request to fail. |
-| `legalEntity` | [`LegalEntity1 \| undefined`](../../doc/models/legal-entity-1.md) | Optional | - |
+| `legalEntity` | [`LegalEntity1Enum \| undefined`](../../doc/models/legal-entity-1-enum.md) | Optional | The type of legal entity of the new account holder. |
 | `primaryCurrency` | `string \| undefined` | Optional | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective account holder primarily deals. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `verification` | [`KycVerificationResult \| undefined`](../../doc/models/kyc-verification-result.md) | Optional | - |
+| `verification` | [`KYCVerificationResult1 \| undefined`](../../doc/models/kyc-verification-result-1.md) | Optional | The details of KYC Verification of the account holder. |
 | `verificationProfile` | `string \| undefined` | Optional | The identifier of the profile that applies to this entity. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CreateAccountHolderResponse, Event, Gender, Status1 } from 'adyen';
+import {
+  CreateAccountHolderResponse,
+  EventEnum,
+  GenderEnum,
+  Status12Enum,
+} from 'adyen';
 
 const createAccountHolderResponse: CreateAccountHolderResponse = {
   accountCode: 'accountCode4',
@@ -41,9 +43,6 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
       postalCode: 'postalCode8',
       stateOrProvince: 'stateOrProvince4',
       street: 'street6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     bankAccountDetails: [
       {
@@ -51,30 +50,21 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
         accountType: 'accountType4',
         bankAccountName: 'bankAccountName4',
         bankAccountReference: 'bankAccountReference4',
-        bankAccountUuid: 'bankAccountUUID0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        bankAccountUUID: 'bankAccountUUID0',
       },
       {
         accountNumber: 'accountNumber8',
         accountType: 'accountType4',
         bankAccountName: 'bankAccountName4',
         bankAccountReference: 'bankAccountReference4',
-        bankAccountUuid: 'bankAccountUUID0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        bankAccountUUID: 'bankAccountUUID0',
       },
       {
         accountNumber: 'accountNumber8',
         accountType: 'accountType4',
         bankAccountName: 'bankAccountName4',
         bankAccountReference: 'bankAccountReference4',
-        bankAccountUuid: 'bankAccountUUID0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        bankAccountUUID: 'bankAccountUUID0',
       }
     ],
     bankAggregatorDataReference: 'bankAggregatorDataReference6',
@@ -90,9 +80,6 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           businessDetails: {
             legalBusinessName: 'legalBusinessName8',
@@ -100,14 +87,8 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
             stockExchange: 'stockExchange4',
             stockNumber: 'stockNumber6',
             stockTicker: 'stockTicker6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           address: {
@@ -117,9 +98,6 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           businessDetails: {
             legalBusinessName: 'legalBusinessName8',
@@ -127,14 +105,8 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
             stockExchange: 'stockExchange4',
             stockNumber: 'stockNumber6',
             stockTicker: 'stockTicker6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           ultimateParentCompanyCode: 'ultimateParentCompanyCode2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       registrationNumber: 'registrationNumber6',
@@ -147,24 +119,15 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           email: 'email8',
           fullPhoneNumber: 'fullPhoneNumber2',
           jobTitle: 'jobTitle2',
           name: {
             firstName: 'firstName4',
-            gender: Gender.Male,
+            gender: GenderEnum.MALE,
             infix: 'infix4',
             lastName: 'lastName4',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         },
         {
@@ -175,47 +138,29 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
             postalCode: 'postalCode8',
             stateOrProvince: 'stateOrProvince4',
             street: 'street6',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           email: 'email8',
           fullPhoneNumber: 'fullPhoneNumber2',
           jobTitle: 'jobTitle2',
           name: {
             firstName: 'firstName4',
-            gender: Gender.Male,
+            gender: GenderEnum.MALE,
             infix: 'infix4',
             lastName: 'lastName4',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     email: 'email2',
     fullPhoneNumber: 'fullPhoneNumber8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   accountHolderStatus: {
-    status: Status1.Inactive,
+    status: Status12Enum.Inactive,
     events: [
       {
-        event: Event.InactivateAccount,
+        event: EventEnum.InactivateAccount,
         executionDate: '2016-03-13T12:52:32.123Z',
         reason: 'reason6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     payoutState: {
@@ -226,12 +171,6 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
       payoutLimit: {
         currency: 'currency8',
         value: BigInt(88),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     processingState: {
@@ -240,31 +179,16 @@ const createAccountHolderResponse: CreateAccountHolderResponse = {
       processedFrom: {
         currency: 'currency4',
         value: BigInt(148),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       processedTo: {
         currency: 'currency2',
         value: BigInt(54),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       tierNumber: 156,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     statusReason: 'statusReason8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   description: 'description4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

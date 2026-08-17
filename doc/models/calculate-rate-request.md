@@ -3,8 +3,6 @@
 
 The request to calculate an amount in a different currency.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CalculateRateRequest`
@@ -14,34 +12,28 @@ The request to calculate an amount in a different currency.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `exchangeCalculations` | [`CalculateRateRequestItem[]`](../../doc/models/calculate-rate-request-item.md) | Required | An array of objects, where each object defines a currency and value for which you want to perform an exchange calculation.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `1000` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CalculateRateRequest, ExchangeSide2, RateType2 } from 'adyen';
+import {
+  CalculateRateRequest,
+  ExchangeSide2Enum,
+  RateType2Enum,
+} from 'adyen';
 
 const calculateRateRequest: CalculateRateRequest = {
   exchangeCalculations: [
     {
-      exchangeSide: ExchangeSide2.Buy,
+      exchangeSide: ExchangeSide2Enum.Buy,
       sourceAmount: {
         currency: 'currency8',
         value: BigInt(232),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       targetCurrency: 'targetCurrency8',
-      type: RateType2.Transfer,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      type: RateType2Enum.Transfer,
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

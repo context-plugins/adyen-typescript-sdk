@@ -8,27 +8,39 @@ import {
   dict,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount16, amount16Schema } from './amount16.js';
-import { Bank, bankSchema } from './bank.js';
-import { BillingAddress7, billingAddress7Schema } from './billingAddress7.js';
-import { Card6, card6Schema } from './card6.js';
-import { EntityType1, entityType1Schema } from './entityType1.js';
-import { Recurring3, recurring3Schema } from './recurring3.js';
-import { ShopperName, shopperNameSchema } from './shopperName.js';
+import { Address, addressSchema } from './address.js';
+import { Amount, amountSchema } from './amount.js';
+import { BankAccount, bankAccountSchema } from './bankAccount.js';
+import { Card, cardSchema } from './card.js';
+import { EntityType1Enum, entityType1EnumSchema } from './entityType1Enum.js';
+import { Name, nameSchema } from './name.js';
+import { Recurring, recurringSchema } from './recurring.js';
 
 export interface StoreDetailAndSubmitRequest {
   /** This field contains additional data, which may be required for a particular request. */
   additionalData?: Record<string, string>;
-  amount: Amount16;
-  bank?: Bank;
-  billingAddress?: BillingAddress7;
-  card?: Card6;
+  /** A container object for the payable amount information of the transaction. */
+  amount: Amount;
+  /**
+   * A container for bank account data.
+   * > This field is mandatory if `card` is not provided.
+   */
+  bank?: BankAccount;
+  /**
+   * The billing address.
+   * > The `billingAddress` object is required for cross-border payouts to and from Canada. Include all of the fields within this object.
+   */
+  billingAddress?: Address;
+  /**
+   * A container for card data.
+   * > This field is mandatory if `bank` is not provided.
+   */
+  card?: Card;
   /**
    * The date of birth.
    * Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD
@@ -36,7 +48,8 @@ export interface StoreDetailAndSubmitRequest {
    * > This field is mandatory for natural persons.
    */
   dateOfBirth: string;
-  entityType: EntityType1;
+  /** The type of the entity the payout is processed for. */
+  entityType: EntityType1Enum;
   /** An integer value that is added to the normal fraud score. The value can be either positive or negative. */
   fraudOffset?: number;
   /** The merchant account identifier, with which you want to process the transaction. */
@@ -46,7 +59,11 @@ export interface StoreDetailAndSubmitRequest {
    * A valid value is an ISO 2-character country code (e.g. 'NL').
    */
   nationality: string;
-  recurring: Recurring3;
+  /**
+   * A container for the type of recurring contract to be retrieved.
+   * The recurring.contract must be set to `PAYOUT`
+   */
+  recurring: Recurring;
   /** The merchant reference for this payment. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement. */
   reference: string;
   /**
@@ -56,7 +73,11 @@ export interface StoreDetailAndSubmitRequest {
   selectedBrand?: string;
   /** The shopper's email address. */
   shopperEmail: string;
-  shopperName?: ShopperName;
+  /**
+   * The shopper's name.
+   * When the `entityType` is `Company`, the `shopperName.lastName` must contain the company name.
+   */
+  shopperName?: Name;
   /** The shopper's reference for the payment transaction. */
   shopperReference: string;
   /** The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method). */
@@ -65,34 +86,29 @@ export interface StoreDetailAndSubmitRequest {
   socialSecurityNumber?: string;
   /** The shopper's phone number. */
   telephoneNumber?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const storeDetailAndSubmitRequestSchema: Schema<StoreDetailAndSubmitRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        additionalData: ['additionalData', optional(dict(string()))],
-        amount: ['amount', amount16Schema],
-        bank: ['bank', optional(bankSchema)],
-        billingAddress: ['billingAddress', optional(billingAddress7Schema)],
-        card: ['card', optional(card6Schema)],
-        dateOfBirth: ['dateOfBirth', string()],
-        entityType: ['entityType', entityType1Schema],
-        fraudOffset: ['fraudOffset', optional(number())],
-        merchantAccount: ['merchantAccount', string()],
-        nationality: ['nationality', string()],
-        recurring: ['recurring', recurring3Schema],
-        reference: ['reference', string()],
-        selectedBrand: ['selectedBrand', optional(string())],
-        shopperEmail: ['shopperEmail', string()],
-        shopperName: ['shopperName', optional(shopperNameSchema)],
-        shopperReference: ['shopperReference', string()],
-        shopperStatement: ['shopperStatement', optional(string())],
-        socialSecurityNumber: ['socialSecurityNumber', optional(string())],
-        telephoneNumber: ['telephoneNumber', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      additionalData: ['additionalData', optional(dict(string()))],
+      amount: ['amount', amountSchema],
+      bank: ['bank', optional(bankAccountSchema)],
+      billingAddress: ['billingAddress', optional(addressSchema)],
+      card: ['card', optional(cardSchema)],
+      dateOfBirth: ['dateOfBirth', string()],
+      entityType: ['entityType', entityType1EnumSchema],
+      fraudOffset: ['fraudOffset', optional(number())],
+      merchantAccount: ['merchantAccount', string()],
+      nationality: ['nationality', string()],
+      recurring: ['recurring', recurringSchema],
+      reference: ['reference', string()],
+      selectedBrand: ['selectedBrand', optional(string())],
+      shopperEmail: ['shopperEmail', string()],
+      shopperName: ['shopperName', optional(nameSchema)],
+      shopperReference: ['shopperReference', string()],
+      shopperStatement: ['shopperStatement', optional(string())],
+      socialSecurityNumber: ['socialSecurityNumber', optional(string())],
+      telephoneNumber: ['telephoneNumber', optional(string())],
+    })
 );

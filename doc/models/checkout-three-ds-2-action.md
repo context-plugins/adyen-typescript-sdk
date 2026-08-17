@@ -1,11 +1,9 @@
 
-# Checkout Three Ds 2 Action
-
-*This model accepts additional fields of type unknown.*
+# Checkout Three DS 2 Action
 
 ## Structure
 
-`CheckoutThreeDs2Action`
+`CheckoutThreeDS2Action`
 
 ## Fields
 
@@ -16,25 +14,21 @@
 | `paymentMethodType` | `string \| undefined` | Optional | Specifies the payment method. |
 | `subtype` | `string \| undefined` | Optional | A subtype of the token. |
 | `token` | `string \| undefined` | Optional | A token to pass to the 3DS2 Component to get the fingerprint. |
-| `type` | [`Type583`](../../doc/models/type-583.md) | Required | **threeDS2** |
+| `type` | `string` | Required, Constant | **threeDS2**<br><br>**Value**: `'threeDS2'` |
 | `url` | `string \| undefined` | Optional | Specifies the URL to redirect to. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CheckoutThreeDs2Action, Type583 } from 'adyen';
+import { CheckoutThreeDS2Action } from 'adyen';
 
-const checkoutThreeDs2Action: CheckoutThreeDs2Action = {
-  type: Type583.ThreeDs2,
-  authorisationToken: 'authorisationToken6',
-  paymentData: 'paymentData4',
-  paymentMethodType: 'paymentMethodType4',
-  subtype: 'subtype4',
-  token: 'token4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const checkoutThreeDS2Action: CheckoutThreeDS2Action = {
+  type: 'threeDS2',
+  authorisationToken: 'authorisationToken0',
+  paymentData: 'paymentData8',
+  paymentMethodType: 'paymentMethodType8',
+  subtype: 'subtype8',
+  token: 'token0',
 };
 ```
 

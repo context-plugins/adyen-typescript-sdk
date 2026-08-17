@@ -1,8 +1,6 @@
 
 # Pay To
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PayTo`
@@ -16,13 +14,12 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopperAccountIdentifier` | `string \| undefined` | Optional | The shopper's banking details or payId reference, used to complete payment. |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `type` | [`Type411 \| undefined`](../../doc/models/type-411.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type41Enum \| undefined`](../../doc/models/type-41-enum.md) | Optional | **payto**<br><br>**Default**: `Type41Enum.Payto` |
 
 ## Example
 
 ```ts
-import { PayTo } from 'adyen';
+import { PayTo, Type41Enum } from 'adyen';
 
 const payTo: PayTo = {
   checkoutAttemptId: 'checkoutAttemptId4',
@@ -30,9 +27,7 @@ const payTo: PayTo = {
   sdkData: 'sdkData2',
   shopperAccountIdentifier: 'shopperAccountIdentifier8',
   storedPaymentMethodId: 'storedPaymentMethodId2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type41Enum.Payto,
 };
 ```
 

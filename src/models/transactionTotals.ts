@@ -8,16 +8,15 @@ import {
   array,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
-  PaymentInstrumentType11,
-  paymentInstrumentType11Schema,
-} from './paymentInstrumentType11.js';
+  PaymentInstrumentType11Enum,
+  paymentInstrumentType11EnumSchema,
+} from './paymentInstrumentType11Enum.js';
 import { PaymentTotals, paymentTotalsSchema } from './paymentTotals.js';
 
 /**
@@ -25,11 +24,20 @@ import { PaymentTotals, paymentTotalsSchema } from './paymentTotals.js';
  * Result of the Sale to POI Reconciliation processing.
  */
 export interface TransactionTotals {
-  paymentInstrumentType: PaymentInstrumentType11;
+  /**
+   * Type of payment instrument.
+   * Possible values:
+   * * **Card**
+   * * **Cash**
+   * * **Check**
+   * * **Mobile**
+   * * **StoredValue**
+   */
+  paymentInstrumentType: PaymentInstrumentType11Enum;
   /** Identification of the Acquirer. */
-  acquirerId?: number;
+  acquirerID?: number;
   /** Identifier of a reconciliation period with a payment or loyalty host. */
-  hostReconciliationId?: string;
+  hostReconciliationID?: string;
   /**
    * Type of payment or loyalty card.
    * If configured to present totals per card brand, and Response.Result is Success.
@@ -39,17 +47,17 @@ export interface TransactionTotals {
    * Identification of a POI System or a POI Terminal for the Sale to POI protocol.
    * Sent if requested in the message request.
    */
-  poiid?: string;
+  pOIID?: string;
   /**
    * Identification of a Sale System or a Sale Terminal for the Sale to POI protocol.
    * Sent if requested in the message request.
    */
-  saleId?: string;
+  saleID?: string;
   /**
    * Identification of the Cashier or Operator.
    * Sent if requested in the message request.
    */
-  operatorId?: string;
+  operatorID?: string;
   /**
    * Shift number.
    * Sent if requested in the message request.
@@ -59,7 +67,7 @@ export interface TransactionTotals {
    * Identification of a group of transaction on a POI Terminal, having the same Sale features.
    * Sent if requested in the message request.
    */
-  totalsGroupId?: string;
+  totalsGroupID?: string;
   /** Currency of a monetary amount. */
   paymentCurrency?: string;
   /**
@@ -67,28 +75,23 @@ export interface TransactionTotals {
    * If both `TransactionCount` and `TransactionAmount` are not equal to zero.
    */
   paymentTotals?: PaymentTotals[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const transactionTotalsSchema: Schema<TransactionTotals> = lazy(() =>
-  typedExpandoObject(
-    {
-      paymentInstrumentType: [
-        'PaymentInstrumentType',
-        paymentInstrumentType11Schema,
-      ],
-      acquirerId: ['AcquirerID', optional(number())],
-      hostReconciliationId: ['HostReconciliationID', optional(string())],
-      cardBrand: ['CardBrand', optional(string())],
-      poiid: ['POIID', optional(string())],
-      saleId: ['SaleID', optional(string())],
-      operatorId: ['OperatorID', optional(string())],
-      shiftNumber: ['ShiftNumber', optional(string())],
-      totalsGroupId: ['TotalsGroupID', optional(string())],
-      paymentCurrency: ['PaymentCurrency', optional(string())],
-      paymentTotals: ['PaymentTotals', optional(array(paymentTotalsSchema))],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    paymentInstrumentType: [
+      'PaymentInstrumentType',
+      paymentInstrumentType11EnumSchema,
+    ],
+    acquirerID: ['AcquirerID', optional(number())],
+    hostReconciliationID: ['HostReconciliationID', optional(string())],
+    cardBrand: ['CardBrand', optional(string())],
+    pOIID: ['POIID', optional(string())],
+    saleID: ['SaleID', optional(string())],
+    operatorID: ['OperatorID', optional(string())],
+    shiftNumber: ['ShiftNumber', optional(string())],
+    totalsGroupID: ['TotalsGroupID', optional(string())],
+    paymentCurrency: ['PaymentCurrency', optional(string())],
+    paymentTotals: ['PaymentTotals', optional(array(paymentTotalsSchema))],
+  })
 );

@@ -8,19 +8,18 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { ErrorFieldType, errorFieldTypeSchema } from './errorFieldType.js';
 import {
-  PayoutScheduleResponse,
-  payoutScheduleResponseSchema,
-} from './payoutScheduleResponse.js';
-import { PayoutSpeed, payoutSpeedSchema } from './payoutSpeed.js';
-import { Status4, status4Schema } from './status4.js';
+  PayoutScheduleResponse1,
+  payoutScheduleResponse1Schema,
+} from './payoutScheduleResponse1.js';
+import { PayoutSpeedEnum, payoutSpeedEnumSchema } from './payoutSpeedEnum.js';
+import { Status42Enum, status42EnumSchema } from './status42Enum.js';
 
 export interface CreateAccountResponse {
   /** The code of the new account. */
@@ -28,7 +27,7 @@ export interface CreateAccountResponse {
   /** The code of the account holder. */
   accountHolderCode?: string;
   /** The bankAccountUUID of the bank account held by the account holder to couple the account with. Scheduled payouts in currencies matching the currency of this bank account will be sent to this bank account. Payouts in different currencies will be sent to a matching bank account of the account holder. */
-  bankAccountUuid?: string;
+  bankAccountUUID?: string;
   /** The description of the account. */
   description?: string;
   /** A list of fields that caused the `/createAccount` request to fail. */
@@ -37,37 +36,38 @@ export interface CreateAccountResponse {
   metadata?: Record<string, string>;
   /** The payout method code held by the account holder to couple the account with. Scheduled card payouts will be sent using this payout method code. */
   payoutMethodCode?: string;
-  payoutSchedule?: PayoutScheduleResponse;
-  payoutSpeed?: PayoutSpeed;
+  /** The details of the payout schedule added to the account. */
+  payoutSchedule?: PayoutScheduleResponse1;
+  /** Speed with which payouts for this account are processed. Permitted values: `STANDARD`, `SAME_DAY`. */
+  payoutSpeed?: PayoutSpeedEnum;
   /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
   /** The result code. */
   resultCode?: string;
-  status?: Status4;
-  additionalProperties?: Record<string, unknown>;
+  /**
+   * The status of the account.
+   * >Permitted values: `Active`.
+   */
+  status?: Status42Enum;
 }
 
 export const createAccountResponseSchema: Schema<CreateAccountResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accountCode: ['accountCode', optional(string())],
-        accountHolderCode: ['accountHolderCode', optional(string())],
-        bankAccountUuid: ['bankAccountUUID', optional(string())],
-        description: ['description', optional(string())],
-        invalidFields: ['invalidFields', optional(array(errorFieldTypeSchema))],
-        metadata: ['metadata', optional(dict(string()))],
-        payoutMethodCode: ['payoutMethodCode', optional(string())],
-        payoutSchedule: [
-          'payoutSchedule',
-          optional(payoutScheduleResponseSchema),
-        ],
-        payoutSpeed: ['payoutSpeed', optional(payoutSpeedSchema)],
-        pspReference: ['pspReference', optional(string())],
-        resultCode: ['resultCode', optional(string())],
-        status: ['status', optional(status4Schema)],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accountCode: ['accountCode', optional(string())],
+      accountHolderCode: ['accountHolderCode', optional(string())],
+      bankAccountUUID: ['bankAccountUUID', optional(string())],
+      description: ['description', optional(string())],
+      invalidFields: ['invalidFields', optional(array(errorFieldTypeSchema))],
+      metadata: ['metadata', optional(dict(string()))],
+      payoutMethodCode: ['payoutMethodCode', optional(string())],
+      payoutSchedule: [
+        'payoutSchedule',
+        optional(payoutScheduleResponse1Schema),
+      ],
+      payoutSpeed: ['payoutSpeed', optional(payoutSpeedEnumSchema)],
+      pspReference: ['pspReference', optional(string())],
+      resultCode: ['resultCode', optional(string())],
+      status: ['status', optional(status42EnumSchema)],
+    })
 );

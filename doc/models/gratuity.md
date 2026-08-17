@@ -1,8 +1,6 @@
 
 # Gratuity
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Gratuity`
@@ -15,7 +13,6 @@
 | `currency` | `string \| undefined` | Optional | The currency that the tipping settings apply to. |
 | `predefinedTipEntries` | `string[] \| undefined` | Optional | Tipping options the shopper can choose from if `usePredefinedTipEntries` is **true**. The maximum number of predefined options is four, or three plus the option to enter a custom tip.<br>The options can be a mix of:<br><br>- A percentage of the transaction amount. Example: **5%**<br>- A tip amount in [minor units](https://docs.adyen.com/development-resources/currency-codes). Example: **500** for a EUR 5 tip. |
 | `usePredefinedTipEntries` | `boolean \| undefined` | Optional | Indicates whether the terminal shows a prompt to enter a tip (**false**), or predefined tipping options to choose from (**true**). |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const gratuity: Gratuity = {
     'predefinedTipEntries6'
   ],
   usePredefinedTipEntries: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

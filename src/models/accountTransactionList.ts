@@ -8,13 +8,12 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Transaction, transactionSchema } from './transaction.js';
+import { Transaction1, transaction1Schema } from './transaction1.js';
 
 export interface AccountTransactionList {
   /** The code of the account. */
@@ -22,19 +21,14 @@ export interface AccountTransactionList {
   /** Indicates whether there is a next page of transactions available. */
   hasNextPage?: boolean;
   /** The list of transactions. */
-  transactions?: Transaction[];
-  additionalProperties?: Record<string, unknown>;
+  transactions?: Transaction1[];
 }
 
 export const accountTransactionListSchema: Schema<AccountTransactionList> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        accountCode: ['accountCode', optional(string())],
-        hasNextPage: ['hasNextPage', optional(boolean())],
-        transactions: ['transactions', optional(array(transactionSchema))],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      accountCode: ['accountCode', optional(string())],
+      hasNextPage: ['hasNextPage', optional(boolean())],
+      transactions: ['transactions', optional(array(transaction1Schema))],
+    })
 );

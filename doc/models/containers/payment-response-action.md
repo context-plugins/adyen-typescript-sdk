@@ -15,8 +15,8 @@
 | [`CheckoutNativeRedirectAction`](../../../doc/models/checkout-native-redirect-action.md) |
 | [`CheckoutQrCodeAction`](../../../doc/models/checkout-qr-code-action.md) |
 | [`CheckoutRedirectAction`](../../../doc/models/checkout-redirect-action.md) |
-| [`CheckoutSdkAction`](../../../doc/models/checkout-sdk-action.md) |
-| [`CheckoutThreeDs2Action`](../../../doc/models/checkout-three-ds-2-action.md) |
+| [`CheckoutSDKAction`](../../../doc/models/checkout-sdk-action.md) |
+| [`CheckoutThreeDS2Action`](../../../doc/models/checkout-three-ds-2-action.md) |
 | [`CheckoutVoucherAction`](../../../doc/models/checkout-voucher-action.md) |
 
 ## CheckoutAwaitAction
@@ -27,7 +27,7 @@
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type493.Await,
+  type: 'await',
 };
 ```
 
@@ -39,7 +39,7 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type503.BankTransfer,
+  type: 'bankTransfer',
 };
 ```
 
@@ -51,7 +51,7 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type543.DelegatedAuthentication,
+  type: 'delegatedAuthentication',
 };
 ```
 
@@ -63,7 +63,7 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type553.NativeRedirect,
+  type: 'nativeRedirect',
 };
 ```
 
@@ -75,7 +75,7 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type563.QrCode,
+  type: 'qrCode',
 };
 ```
 
@@ -87,11 +87,11 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type573.Redirect,
+  type: 'redirect',
 };
 ```
 
-## CheckoutSdkAction
+## CheckoutSDKAction
 
 ### Initialization Code
 
@@ -99,11 +99,11 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type19.Sdk,
+  type: Type19Enum.Sdk,
 };
 ```
 
-## CheckoutThreeDs2Action
+## CheckoutThreeDS2Action
 
 ### Initialization Code
 
@@ -111,7 +111,7 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type583.ThreeDs2,
+  type: 'threeDS2',
 };
 ```
 
@@ -123,7 +123,7 @@ const value: PaymentResponseAction = {
 
 ```ts
 const value: PaymentResponseAction = {
-  type: Type594.Voucher,
+  type: 'voucher',
 };
 ```
 

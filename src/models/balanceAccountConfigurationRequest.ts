@@ -8,13 +8,12 @@ import {
   bigint,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Frequency, frequencySchema } from './frequency.js';
+import { Frequency1Enum, frequency1EnumSchema } from './frequency1Enum.js';
 
 export interface BalanceAccountConfigurationRequest {
   /** The unique identifier of the payout schedule that is applied to the balance account. */
@@ -29,7 +28,16 @@ export interface BalanceAccountConfigurationRequest {
   description?: string;
   /** Specifies whether the payout schedule is enabled immediately after it is created. */
   enabled?: boolean;
-  frequency: Frequency;
+  /**
+   * The frequency of payouts initiated by this payout schedule.
+   * Possible values:
+   * * daily
+   * * weekdays
+   * * weekly
+   * * monthly
+   * Default value: The `defaultFrequency` from the balance platform schedule that you are applying.
+   */
+  frequency: Frequency1Enum;
   /**
    * The date of the month or day of the week when payouts are initiated. Allowed only if `frequency` is **monthly** or **weekly**.
    * Possible values if `frequency` is **monthly**: **[1 - 31]**.
@@ -69,10 +77,9 @@ export interface BalanceAccountConfigurationRequest {
   salesDayClosingTime?: string;
   /** The unique identifier of the transfer instrument to which the funds are paid out. */
   transferInstrumentId: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const balanceAccountConfigurationRequestSchema: Schema<BalanceAccountConfigurationRequest> = typedExpandoObject(
+export const balanceAccountConfigurationRequestSchema: Schema<BalanceAccountConfigurationRequest> = object(
   {
     balancePlatformPayoutScheduleId: [
       'balancePlatformPayoutScheduleId',
@@ -81,7 +88,7 @@ export const balanceAccountConfigurationRequestSchema: Schema<BalanceAccountConf
     currency: ['currency', optional(string())],
     description: ['description', optional(string())],
     enabled: ['enabled', optional(boolean())],
-    frequency: ['frequency', frequencySchema],
+    frequency: ['frequency', frequency1EnumSchema],
     frequencyValue: ['frequencyValue', optional(number())],
     maxPayoutAmount: ['maxPayoutAmount', optional(bigint())],
     minPayoutAmount: ['minPayoutAmount', optional(bigint())],
@@ -90,7 +97,5 @@ export const balanceAccountConfigurationRequestSchema: Schema<BalanceAccountConf
     retainedAmount: ['retainedAmount', optional(bigint())],
     salesDayClosingTime: ['salesDayClosingTime', optional(string())],
     transferInstrumentId: ['transferInstrumentId', string()],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

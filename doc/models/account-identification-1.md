@@ -3,8 +3,6 @@
 
 Contains the account number to which the payment funds are sent.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountIdentification1`
@@ -14,7 +12,6 @@ Contains the account number to which the payment funds are sent.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `type` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -23,9 +20,6 @@ import { AccountIdentification1 } from 'adyen';
 
 const accountIdentification1: AccountIdentification1 = {
   type: 'AccountIdentification1',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Create Merchant Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CreateMerchantResponse`
@@ -18,7 +16,6 @@
 | `legalEntityId` | `string \| undefined` | Optional | The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). |
 | `pricingPlan` | `string \| undefined` | Optional | Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts. |
 | `reference` | `string \| undefined` | Optional | Your reference for the merchant account. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const createMerchantResponse: CreateMerchantResponse = {
   description: 'description4',
   id: 'id4',
   legalEntityId: 'legalEntityId0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -5,8 +5,6 @@ List of merchant ID and acquirer ID pairs, and the operation.
 
 Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MerchantsRestriction1`
@@ -17,7 +15,6 @@ Supported operations: **anyMatch**, **noneMatch**.
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | [`MerchantAcquirerPair[] \| undefined`](../../doc/models/merchant-acquirer-pair.md) | Optional | List of merchant ID and acquirer ID pairs. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -30,28 +27,16 @@ const merchantsRestriction1: MerchantsRestriction1 = {
     {
       acquirerId: 'acquirerId4',
       merchantId: 'merchantId8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       acquirerId: 'acquirerId4',
       merchantId: 'merchantId8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       acquirerId: 'acquirerId4',
       merchantId: 'merchantId8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

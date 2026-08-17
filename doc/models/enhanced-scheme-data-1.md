@@ -3,8 +3,6 @@
 
 Enhanced scheme data that may be required for processing the payment. For example, airline information.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `EnhancedSchemeData1`
@@ -13,18 +11,17 @@ Enhanced scheme data that may be required for processing the payment. For exampl
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `airline` | [`Airline \| undefined`](../../doc/models/airline.md) | Optional | - |
-| `carRental` | [`CarRental \| undefined`](../../doc/models/car-rental.md) | Optional | - |
-| `healthcare` | [`Healthcare \| undefined`](../../doc/models/healthcare.md) | Optional | - |
-| `levelTwoThree` | [`LevelTwoThree \| undefined`](../../doc/models/level-two-three.md) | Optional | - |
-| `lodging` | [`Lodging \| undefined`](../../doc/models/lodging.md) | Optional | - |
-| `temporaryServices` | [`TemporaryServices \| undefined`](../../doc/models/temporary-services.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `airline` | [`Airline1 \| undefined`](../../doc/models/airline-1.md) | Optional | [Airline enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/airline/) that may be required for processing the transaction and/or for interchange savings. |
+| `carRental` | [`CarRental1 \| undefined`](../../doc/models/car-rental-1.md) | Optional | [Car rental enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/car-rental/) that may be required for processing the transaction and/or for interchange savings. |
+| `healthcare` | [`Healthcare2 \| undefined`](../../doc/models/healthcare-2.md) | Optional | Healthcare auto-substantiation amounts for FSA/HSA card transactions. The amounts are used to qualify for reduced interchange rates on healthcare-eligible cards. |
+| `levelTwoThree` | [`LevelTwoThree2 \| undefined`](../../doc/models/level-two-three-2.md) | Optional | [Level 2 and Level 3 enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3/) that may be required for processing the transaction and/or for interchange savings. |
+| `lodging` | [`Lodging2 \| undefined`](../../doc/models/lodging-2.md) | Optional | [Lodging enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/lodging/) that may be required for processing the transaction and/or for interchange savings. |
+| `temporaryServices` | [`TemporaryServices2 \| undefined`](../../doc/models/temporary-services-2.md) | Optional | [Temporary services enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/temporary-services/) that may be required for processing the transaction and/or for interchange savings. |
 
 ## Example
 
 ```ts
-import { EnhancedSchemeData1, RateType } from 'adyen';
+import { EnhancedSchemeData1, RateTypeEnum } from 'adyen';
 
 const enhancedSchemeData1: EnhancedSchemeData1 = {
   airline: {
@@ -32,17 +29,11 @@ const enhancedSchemeData1: EnhancedSchemeData1 = {
     agency: {
       invoiceNumber: 'invoiceNumber6',
       planName: 'planName6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     boardingFee: BigInt(160),
     code: 'code0',
     computerizedReservationSystem: 'computerizedReservationSystem4',
     customerReferenceNumber: 'customerReferenceNumber6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   carRental: {
     renterName: 'renterName2',
@@ -53,15 +44,9 @@ const enhancedSchemeData1: EnhancedSchemeData1 = {
       countryCode: 'countryCode8',
       date: '2016-03-13T12:52:32.123Z',
       stateOrProvince: 'stateOrProvince4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    rateType: RateType.Daily,
+    rateType: RateTypeEnum.Daily,
     rentalAgreementNumber: 'rentalAgreementNumber4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   healthcare: {
     totalHealthcareValue: BigInt(16),
@@ -69,9 +54,6 @@ const enhancedSchemeData1: EnhancedSchemeData1 = {
     otherMedicalValue: BigInt(150),
     prescriptionValue: BigInt(116),
     visionPrescriptionValue: BigInt(166),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   levelTwoThree: {
     customerReferenceNumber: 'customerReferenceNumber0',
@@ -79,9 +61,6 @@ const enhancedSchemeData1: EnhancedSchemeData1 = {
       countryCode: 'countryCode0',
       postalCode: 'postalCode6',
       stateOrProvince: 'stateOrProvince2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     dutyAmount: BigInt(234),
     freightAmount: BigInt(136),
@@ -92,14 +71,8 @@ const enhancedSchemeData1: EnhancedSchemeData1 = {
         discountAmount: BigInt(220),
         productCode: 'productCode0',
         quantity: BigInt(184),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   lodging: {
     checkInDate: '2016-03-13T12:52:32.123Z',
@@ -109,16 +82,7 @@ const enhancedSchemeData1: EnhancedSchemeData1 = {
     folio: {
       cashAdvances: BigInt(122),
       number: 'number8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

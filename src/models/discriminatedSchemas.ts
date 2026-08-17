@@ -14,9 +14,9 @@ import {
   accountIdentificationSchema,
 } from './accountIdentification.js';
 import {
-  AuLocalAccountIdentification1,
-  auLocalAccountIdentification1Schema,
-} from './auLocalAccountIdentification1.js';
+  AULocalAccountIdentification1,
+  aULocalAccountIdentification1Schema,
+} from './aULocalAccountIdentification1.js';
 import {
   BalanceWebhookSetting,
   balanceWebhookSettingSchema,
@@ -26,33 +26,33 @@ import {
   bankAccountIdentificationSchema,
 } from './bankAccountIdentification.js';
 import {
-  BrLocalAccountIdentification1,
-  brLocalAccountIdentification1Schema,
-} from './brLocalAccountIdentification1.js';
+  BRLocalAccountIdentification1,
+  bRLocalAccountIdentification1Schema,
+} from './bRLocalAccountIdentification1.js';
 import {
-  CaLocalAccountIdentification1,
-  caLocalAccountIdentification1Schema,
-} from './caLocalAccountIdentification1.js';
+  CALocalAccountIdentification1,
+  cALocalAccountIdentification1Schema,
+} from './cALocalAccountIdentification1.js';
 import {
-  CzLocalAccountIdentification1,
-  czLocalAccountIdentification1Schema,
-} from './czLocalAccountIdentification1.js';
+  CZLocalAccountIdentification1,
+  cZLocalAccountIdentification1Schema,
+} from './cZLocalAccountIdentification1.js';
 import {
-  DkLocalAccountIdentification1,
-  dkLocalAccountIdentification1Schema,
-} from './dkLocalAccountIdentification1.js';
+  DKLocalAccountIdentification1,
+  dKLocalAccountIdentification1Schema,
+} from './dKLocalAccountIdentification1.js';
 import {
-  HkLocalAccountIdentification1,
-  hkLocalAccountIdentification1Schema,
-} from './hkLocalAccountIdentification1.js';
+  HKLocalAccountIdentification1,
+  hKLocalAccountIdentification1Schema,
+} from './hKLocalAccountIdentification1.js';
 import {
-  HuLocalAccountIdentification1,
-  huLocalAccountIdentification1Schema,
-} from './huLocalAccountIdentification1.js';
+  HULocalAccountIdentification1,
+  hULocalAccountIdentification1Schema,
+} from './hULocalAccountIdentification1.js';
 import {
-  IbanAccountIdentification,
-  ibanAccountIdentificationSchema,
-} from './ibanAccountIdentification.js';
+  IbanAccountIdentification1,
+  ibanAccountIdentification1Schema,
+} from './ibanAccountIdentification1.js';
 import {
   IbanAccountIdentification2,
   ibanAccountIdentification2Schema,
@@ -70,21 +70,21 @@ import {
   mandateAccountIdentificationSchema,
 } from './mandateAccountIdentification.js';
 import {
-  NoLocalAccountIdentification1,
-  noLocalAccountIdentification1Schema,
-} from './noLocalAccountIdentification1.js';
+  NOLocalAccountIdentification1,
+  nOLocalAccountIdentification1Schema,
+} from './nOLocalAccountIdentification1.js';
 import {
   NumberAndBicAccountIdentification1,
   numberAndBicAccountIdentification1Schema,
 } from './numberAndBicAccountIdentification1.js';
 import {
-  NzLocalAccountIdentification1,
-  nzLocalAccountIdentification1Schema,
-} from './nzLocalAccountIdentification1.js';
+  NZLocalAccountIdentification1,
+  nZLocalAccountIdentification1Schema,
+} from './nZLocalAccountIdentification1.js';
 import {
-  PaymentDetailsRequest,
-  paymentDetailsRequestSchema,
-} from './paymentDetailsRequest.js';
+  PaymentDetailsRequest1,
+  paymentDetailsRequest1Schema,
+} from './paymentDetailsRequest1.js';
 import {
   PaymentInstrumentResource,
   paymentInstrumentResourceSchema,
@@ -94,70 +94,60 @@ import {
   payToPaymentMethodSchema,
 } from './payToPaymentMethod.js';
 import {
-  PlLocalAccountIdentification1,
-  plLocalAccountIdentification1Schema,
-} from './plLocalAccountIdentification1.js';
+  PLLocalAccountIdentification1,
+  pLLocalAccountIdentification1Schema,
+} from './pLLocalAccountIdentification1.js';
 import { Resource, resourceSchema } from './resource.js';
 import {
-  SeLocalAccountIdentification1,
-  seLocalAccountIdentification1Schema,
-} from './seLocalAccountIdentification1.js';
+  SELocalAccountIdentification1,
+  sELocalAccountIdentification1Schema,
+} from './sELocalAccountIdentification1.js';
 import {
-  SgLocalAccountIdentification1,
-  sgLocalAccountIdentification1Schema,
-} from './sgLocalAccountIdentification1.js';
+  SGLocalAccountIdentification1,
+  sGLocalAccountIdentification1Schema,
+} from './sGLocalAccountIdentification1.js';
 import {
   ShopperIdPaymentMethod,
   shopperIdPaymentMethodSchema,
 } from './shopperIdPaymentMethod.js';
 import {
-  UkLocalAccountIdentification1,
-  ukLocalAccountIdentification1Schema,
-} from './ukLocalAccountIdentification1.js';
+  UKLocalAccountIdentification1,
+  uKLocalAccountIdentification1Schema,
+} from './uKLocalAccountIdentification1.js';
 import {
-  UkLocalMandateAccountIdentification,
-  ukLocalMandateAccountIdentificationSchema,
-} from './ukLocalMandateAccountIdentification.js';
+  UKLocalMandateAccountIdentification,
+  uKLocalMandateAccountIdentificationSchema,
+} from './uKLocalMandateAccountIdentification.js';
 import {
-  UpiPaymentMethod,
-  upiPaymentMethodSchema,
-} from './upiPaymentMethod.js';
+  UPIPaymentMethod,
+  uPIPaymentMethodSchema,
+} from './uPIPaymentMethod.js';
 import {
-  UsLocalAccountIdentification1,
-  usLocalAccountIdentification1Schema,
-} from './usLocalAccountIdentification1.js';
+  USLocalAccountIdentification1,
+  uSLocalAccountIdentification1Schema,
+} from './uSLocalAccountIdentification1.js';
 import { WebhookSetting, webhookSettingSchema } from './webhookSetting.js';
 
-export const discriminatedAccountIdentificationSchema: Schema<
-  AccountIdentification | IbanAccountIdentification
+export const discriminatedShopperIdPaymentMethodSchema: Schema<
+  ShopperIdPaymentMethod | PayToPaymentMethod | UPIPaymentMethod
 > = discriminatedObject(
   'type',
   'type',
   {
-    'AccountIdentification': accountIdentificationSchema,
-    'iban': ibanAccountIdentificationSchema,
+    'ShopperIdPaymentMethod': shopperIdPaymentMethodSchema,
+    'payTo': payToPaymentMethodSchema,
+    'upi_collect': uPIPaymentMethodSchema,
   },
-  'AccountIdentification'
-);
-export const discriminatedPaymentDetailsRequestSchema: Schema<
-  PaymentDetailsRequest | IdealPaymentDetailsRequest
-> = discriminatedObject(
-  'method',
-  'method',
-  {
-    'PaymentDetailsRequest': paymentDetailsRequestSchema,
-    'ideal': idealPaymentDetailsRequestSchema,
-  },
-  'PaymentDetailsRequest'
+  'ShopperIdPaymentMethod'
 );
 export const discriminatedMandateAccountIdentificationSchema: Schema<
-  MandateAccountIdentification | UkLocalMandateAccountIdentification
+  MandateAccountIdentification | UKLocalMandateAccountIdentification
 > = discriminatedObject(
   'type',
   'type',
   {
     'MandateAccountIdentification': mandateAccountIdentificationSchema,
-    'ukLocal': ukLocalMandateAccountIdentificationSchema,
+    'ukLocal': uKLocalMandateAccountIdentificationSchema,
   },
   'MandateAccountIdentification'
 );
@@ -174,57 +164,45 @@ export const discriminatedWebhookSettingSchema: Schema<
 );
 export const discriminatedBankAccountIdentificationSchema: Schema<
   | BankAccountIdentification
-  | AuLocalAccountIdentification1
-  | BrLocalAccountIdentification1
-  | CaLocalAccountIdentification1
-  | CzLocalAccountIdentification1
-  | DkLocalAccountIdentification1
-  | HkLocalAccountIdentification1
-  | HuLocalAccountIdentification1
-  | IbanAccountIdentification2
-  | NoLocalAccountIdentification1
-  | NzLocalAccountIdentification1
+  | AULocalAccountIdentification1
+  | BRLocalAccountIdentification1
+  | CALocalAccountIdentification1
+  | CZLocalAccountIdentification1
+  | DKLocalAccountIdentification1
+  | HKLocalAccountIdentification1
+  | HULocalAccountIdentification1
+  | IbanAccountIdentification1
+  | NOLocalAccountIdentification1
+  | NZLocalAccountIdentification1
   | NumberAndBicAccountIdentification1
-  | PlLocalAccountIdentification1
-  | SeLocalAccountIdentification1
-  | SgLocalAccountIdentification1
-  | UkLocalAccountIdentification1
-  | UsLocalAccountIdentification1
+  | PLLocalAccountIdentification1
+  | SELocalAccountIdentification1
+  | SGLocalAccountIdentification1
+  | UKLocalAccountIdentification1
+  | USLocalAccountIdentification1
 > = discriminatedObject(
   'type',
   'type',
   {
     'BankAccountIdentification': bankAccountIdentificationSchema,
-    'auLocal': auLocalAccountIdentification1Schema,
-    'brLocal': brLocalAccountIdentification1Schema,
-    'caLocal': caLocalAccountIdentification1Schema,
-    'czLocal': czLocalAccountIdentification1Schema,
-    'dkLocal': dkLocalAccountIdentification1Schema,
-    'hkLocal': hkLocalAccountIdentification1Schema,
-    'huLocal': huLocalAccountIdentification1Schema,
-    'iban': ibanAccountIdentification2Schema,
-    'noLocal': noLocalAccountIdentification1Schema,
-    'nzLocal': nzLocalAccountIdentification1Schema,
+    'auLocal': aULocalAccountIdentification1Schema,
+    'brLocal': bRLocalAccountIdentification1Schema,
+    'caLocal': cALocalAccountIdentification1Schema,
+    'czLocal': cZLocalAccountIdentification1Schema,
+    'dkLocal': dKLocalAccountIdentification1Schema,
+    'hkLocal': hKLocalAccountIdentification1Schema,
+    'huLocal': hULocalAccountIdentification1Schema,
+    'iban': ibanAccountIdentification1Schema,
+    'noLocal': nOLocalAccountIdentification1Schema,
+    'nzLocal': nZLocalAccountIdentification1Schema,
     'numberAndBic': numberAndBicAccountIdentification1Schema,
-    'plLocal': plLocalAccountIdentification1Schema,
-    'seLocal': seLocalAccountIdentification1Schema,
-    'sgLocal': sgLocalAccountIdentification1Schema,
-    'ukLocal': ukLocalAccountIdentification1Schema,
-    'usLocal': usLocalAccountIdentification1Schema,
+    'plLocal': pLLocalAccountIdentification1Schema,
+    'seLocal': sELocalAccountIdentification1Schema,
+    'sgLocal': sGLocalAccountIdentification1Schema,
+    'ukLocal': uKLocalAccountIdentification1Schema,
+    'usLocal': uSLocalAccountIdentification1Schema,
   },
   'BankAccountIdentification'
-);
-export const discriminatedShopperIdPaymentMethodSchema: Schema<
-  ShopperIdPaymentMethod | PayToPaymentMethod | UpiPaymentMethod
-> = discriminatedObject(
-  'type',
-  'type',
-  {
-    'ShopperIdPaymentMethod': shopperIdPaymentMethodSchema,
-    'payTo': payToPaymentMethodSchema,
-    'upi_collect': upiPaymentMethodSchema,
-  },
-  'ShopperIdPaymentMethod'
 );
 export const discriminatedResourceSchema: Schema<
   | Resource
@@ -241,4 +219,26 @@ export const discriminatedResourceSchema: Schema<
     'paymentInstrument': paymentInstrumentResourceSchema,
   },
   'Resource'
+);
+export const discriminatedAccountIdentificationSchema: Schema<
+  AccountIdentification | IbanAccountIdentification2
+> = discriminatedObject(
+  'type',
+  'type',
+  {
+    'AccountIdentification': accountIdentificationSchema,
+    'iban': ibanAccountIdentification2Schema,
+  },
+  'AccountIdentification'
+);
+export const discriminatedPaymentDetailsRequest1Schema: Schema<
+  PaymentDetailsRequest1 | IdealPaymentDetailsRequest
+> = discriminatedObject(
+  'method',
+  'method',
+  {
+    'PaymentDetailsRequest': paymentDetailsRequest1Schema,
+    'ideal': idealPaymentDetailsRequestSchema,
+  },
+  'PaymentDetailsRequest'
 );

@@ -3,8 +3,6 @@
 
 Details to provide if `type` is **cup** (China Union Pay).
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GenericPmWithTdiUpdateInfo2`
@@ -13,24 +11,17 @@ Details to provide if `type` is **cup** (China Union Pay).
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionInfo1 \| undefined`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```ts
-import { GenericPmWithTdiUpdateInfo2, Type33 } from 'adyen';
+import { GenericPmWithTdiUpdateInfo2, Type8Enum } from 'adyen';
 
 const genericPmWithTdiUpdateInfo2: GenericPmWithTdiUpdateInfo2 = {
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

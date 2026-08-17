@@ -1,8 +1,6 @@
 
 # Online Donation Settings
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OnlineDonationSettings`
@@ -11,16 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `defaultAmount` | [`DonationAmount \| undefined`](../../doc/models/donation-amount.md) | Optional | - |
-| `donationType` | [`DonationType1 \| undefined`](../../doc/models/donation-type-1.md) | Optional | - |
+| `defaultAmount` | [`DonationAmount1 \| undefined`](../../doc/models/donation-amount-1.md) | Optional | The default amount for donations. |
+| `donationType` | [`DonationType1Enum \| undefined`](../../doc/models/donation-type-1-enum.md) | Optional | The type of donation to collect from the shopper. Possible values:<br><br>- **roundup**: Round up the transaction amount.<br><br>- **fixedAmounts**: Choose a fixed amount.<br><br>- **fixedAmountsRoundup**: Round up, or choose a fixed amount. |
 | `merchantAccounts` | `string[] \| undefined` | Optional | The merchant accounts for this sales channel that are associated with the donation campaign. |
 | `storeIds` | `string[] \| undefined` | Optional | The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation campaign. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { DonationType1, OnlineDonationSettings } from 'adyen';
+import { DonationType1Enum, OnlineDonationSettings } from 'adyen';
 
 const onlineDonationSettings: OnlineDonationSettings = {
   defaultAmount: {
@@ -30,11 +27,8 @@ const onlineDonationSettings: OnlineDonationSettings = {
       BigInt(80)
     ],
     currencyCode: 'currencyCode6',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  donationType: DonationType1.Roundup,
+  donationType: DonationType1Enum.Roundup,
   merchantAccounts: [
     'merchantAccounts2'
   ],
@@ -42,9 +36,6 @@ const onlineDonationSettings: OnlineDonationSettings = {
     'storeIds7',
     'storeIds8'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

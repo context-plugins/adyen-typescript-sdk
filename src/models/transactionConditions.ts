@@ -8,17 +8,19 @@ import {
   array,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { ForceEntryMode, forceEntryModeSchema } from './forceEntryMode.js';
 import {
-  LoyaltyHandling1,
-  loyaltyHandling1Schema,
-} from './loyaltyHandling1.js';
+  ForceEntryModeEnum,
+  forceEntryModeEnumSchema,
+} from './forceEntryModeEnum.js';
+import {
+  LoyaltyHandling1Enum,
+  loyaltyHandling1EnumSchema,
+} from './loyaltyHandling1Enum.js';
 
 /** Conditions on which the transaction must be processed. */
 export interface TransactionConditions {
@@ -32,7 +34,7 @@ export interface TransactionConditions {
    * Identification of the Acquirer.
    * Restrict to these Acquirer if present.
    */
-  acquirerId?: number[];
+  acquirerID?: number[];
   /** The preferred type of payment is a debit transaction rather than a credit transaction. */
   debitPreferredFlag?: boolean;
   /**
@@ -40,7 +42,16 @@ export interface TransactionConditions {
    * Restrict brand if data sent.
    */
   allowedLoyaltyBrand?: string[];
-  loyaltyHandling?: LoyaltyHandling1;
+  /**
+   * Type of Loyalty processing requested by the Sale System.
+   * Possible values:
+   * * **Allowed**
+   * * **Forbidden**
+   * * **Processed**
+   * * **Proposed**
+   * * **Required**
+   */
+  loyaltyHandling?: LoyaltyHandling1Enum;
   /**
    * The language used on the terminal screen or in text printed by the terminal.
    * Typical use case is setting the language on unattended terminals. Format: two-character [ISO 639:2023](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format.
@@ -67,27 +78,27 @@ export interface TransactionConditions {
    * * **SynchronousICC**
    * * **Tapped**
    */
-  forceEntryMode?: ForceEntryMode[];
+  forceEntryMode?: ForceEntryModeEnum[];
   /**
    * The code which identifies the category of the transaction (MCC).
    * The payment implies a specific MCC.
    */
   merchantCategoryCode?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const transactionConditionsSchema: Schema<TransactionConditions> = typedExpandoObject(
+export const transactionConditionsSchema: Schema<TransactionConditions> = object(
   {
     allowedPaymentBrand: ['AllowedPaymentBrand', optional(array(string()))],
-    acquirerId: ['AcquirerID', optional(array(number()))],
+    acquirerID: ['AcquirerID', optional(array(number()))],
     debitPreferredFlag: ['DebitPreferredFlag', optional(boolean())],
     allowedLoyaltyBrand: ['AllowedLoyaltyBrand', optional(array(string()))],
-    loyaltyHandling: ['LoyaltyHandling', optional(loyaltyHandling1Schema)],
+    loyaltyHandling: ['LoyaltyHandling', optional(loyaltyHandling1EnumSchema)],
     customerLanguage: ['CustomerLanguage', optional(string())],
     forceOnlineFlag: ['ForceOnlineFlag', optional(boolean())],
-    forceEntryMode: ['ForceEntryMode', optional(array(forceEntryModeSchema))],
+    forceEntryMode: [
+      'ForceEntryMode',
+      optional(array(forceEntryModeEnumSchema)),
+    ],
     merchantCategoryCode: ['MerchantCategoryCode', optional(string())],
-  },
-  'additionalProperties',
-  optional(unknown())
+  }
 );

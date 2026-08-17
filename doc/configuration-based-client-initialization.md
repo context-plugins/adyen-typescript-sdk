@@ -41,11 +41,9 @@ const client = Client.fromJsonConfig(JSON.stringify(configModule.default));
 ```json
 {
   "timeout": 30000,
-  "environment": "production",
-  "merchantAccount": "merchantAccountDefaultValue",
-  "deviceId": "deviceIdDefaultValue",
+  "environment": "Test",
   "apiKeyAuthCredentials": {
-    "xApiKey": "x-api-key"
+    "xAPIKey": "x-api-key"
   },
   "basicAuthCredentials": {
     "username": "username",
@@ -72,43 +70,6 @@ const client = Client.fromJsonConfig(JSON.stringify(configModule.default));
         "username": "username",
         "password": "password"
       }
-    }
-  },
-  "logging": {
-    "logLevel": "info",
-    "maskSensitiveHeaders": true,
-    "logRequest": {
-      "logBody": true,
-      "logHeaders": true,
-      "includeQueryInPath": true,
-      "headersToInclude": [
-        "Content-Type",
-        "X-Request-ID"
-      ],
-      "headersToExclude": [
-        "Authorization"
-      ],
-      "headersToWhitelist": [
-        "X-Request-ID"
-      ]
-    },
-    "logResponse": {
-      "logBody": true,
-      "logHeaders": true,
-      "headersToInclude": [
-        "Content-Type",
-        "X-Correlation-ID",
-        "Date",
-        "Server"
-      ],
-      "headersToExclude": [
-        "Set-Cookie",
-        "Authorization",
-        "X-API-Key"
-      ],
-      "headersToWhitelist": [
-        "X-Correlation-ID"
-      ]
     }
   }
 }

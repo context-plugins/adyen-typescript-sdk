@@ -4,8 +4,6 @@
 Information related to the paper check used for the transaction.
 If PaymentInstrumentType is Check.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CheckData1`
@@ -14,36 +12,29 @@ If PaymentInstrumentType is Check.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bankId` | `string \| undefined` | Optional | Identification of the bank.<br>Mandatory if TrackData absent.<br><br>**Constraints**: *Pattern*: `^.+$` |
+| `bankID` | `string \| undefined` | Optional | Identification of the bank.<br>Mandatory if TrackData absent.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `accountNumber` | `string \| undefined` | Optional | Identification of the customer account.<br>Mandatory if TrackData absent.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `checkNumber` | `string \| undefined` | Optional | Identification of the bank check.<br>Mandatory if TrackData absent.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `trackData` | [`TrackData2 \| undefined`](../../doc/models/track-data-2.md) | Optional | - |
+| `trackData` | [`TrackData1 \| undefined`](../../doc/models/track-data-1.md) | Optional | Magnetic track or magnetic ink characters line.<br>Mandatory if CheckNumber absent. |
 | `checkCardNumber` | `string \| undefined` | Optional | Check guarantee card number.<br>If provided by the customer.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `typeCode` | [`TypeCode1 \| undefined`](../../doc/models/type-code-1.md) | Optional | - |
+| `typeCode` | [`TypeCode1Enum \| undefined`](../../doc/models/type-code-1-enum.md) | Optional | Type of bank check.<br>Possible values:<br><br>* **Company**<br>* **Personal** |
 | `country` | `string \| undefined` | Optional | Country of the bank check.<br>Absent if country of the Sale system.<br><br>**Constraints**: *Pattern*: `^[A-Z]{3,3}$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CheckData1, TrackFormat1 } from 'adyen';
+import { CheckData1, TrackFormat1Enum } from 'adyen';
 
 const checkData1: CheckData1 = {
-  bankId: 'BankID2',
+  bankID: 'BankID2',
   accountNumber: 'AccountNumber8',
   checkNumber: 'CheckNumber0',
   trackData: {
     trackValue: 'TrackValue6',
     trackNumb: 3,
-    trackFormat: TrackFormat1.Jisii,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    trackFormat: TrackFormat1Enum.JISII,
   },
   checkCardNumber: 'CheckCardNumber8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

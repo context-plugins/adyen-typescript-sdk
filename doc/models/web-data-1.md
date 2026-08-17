@@ -3,8 +3,6 @@
 
 The website and app URL of the legal entity.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `WebData1`
@@ -15,7 +13,6 @@ The website and app URL of the legal entity.
 |  --- | --- | --- | --- |
 | `webAddress` | `string \| undefined` | Optional | The URL of the website or the app store URL. |
 | `webAddressId` | `string \| undefined` | Optional, Read-only | The unique identifier of the web address. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -24,10 +21,6 @@ import { WebData1 } from 'adyen';
 
 const webData1: WebData1 = {
   webAddress: 'webAddress4',
-  webAddressId: 'webAddressId0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

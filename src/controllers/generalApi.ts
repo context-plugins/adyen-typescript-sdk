@@ -34,6 +34,10 @@ import {
   assignTerminalsResponseSchema,
 } from '../models/assignTerminalsResponse.js';
 import {
+  CertificateLoadingResponse,
+  certificateLoadingResponseSchema,
+} from '../models/certificateLoadingResponse.js';
+import {
   CloseAccountHolderRequest,
   closeAccountHolderRequestSchema,
 } from '../models/closeAccountHolderRequest.js';
@@ -58,6 +62,10 @@ import {
   createPermitResultSchema,
 } from '../models/createPermitResult.js';
 import {
+  CreateSessionRequest,
+  createSessionRequestSchema,
+} from '../models/createSessionRequest.js';
+import {
   CreateTestCardRangesRequest,
   createTestCardRangesRequestSchema,
 } from '../models/createTestCardRangesRequest.js';
@@ -81,6 +89,10 @@ import {
   DefendDisputeResponse,
   defendDisputeResponseSchema,
 } from '../models/defendDisputeResponse.js';
+import {
+  DefenseReasonsRequest,
+  defenseReasonsRequestSchema,
+} from '../models/defenseReasonsRequest.js';
 import {
   DefenseReasonsResponse,
   defenseReasonsResponseSchema,
@@ -142,6 +154,10 @@ import {
   GetStoresUnderAccountResponse,
   getStoresUnderAccountResponseSchema,
 } from '../models/getStoresUnderAccountResponse.js';
+import {
+  GetTerminalDetailsRequest,
+  getTerminalDetailsRequestSchema,
+} from '../models/getTerminalDetailsRequest.js';
 import {
   GetTerminalDetailsResponse,
   getTerminalDetailsResponseSchema,
@@ -275,13 +291,13 @@ import {
   testNotificationConfigurationResponseSchema,
 } from '../models/testNotificationConfigurationResponse.js';
 import {
-  ThreeDsAvailabilityRequest,
-  threeDsAvailabilityRequestSchema,
-} from '../models/threeDsAvailabilityRequest.js';
+  ThreeDSAvailabilityRequest,
+  threeDSAvailabilityRequestSchema,
+} from '../models/threeDSAvailabilityRequest.js';
 import {
-  ThreeDsAvailabilityResponse,
-  threeDsAvailabilityResponseSchema,
-} from '../models/threeDsAvailabilityResponse.js';
+  ThreeDSAvailabilityResponse,
+  threeDSAvailabilityResponseSchema,
+} from '../models/threeDSAvailabilityResponse.js';
 import {
   TransferFundsRequest,
   transferFundsRequestSchema,
@@ -297,9 +313,279 @@ import {
 import { optional, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
 import { ServiceError } from '../errors/serviceError.js';
-import { ServiceError1Error } from '../errors/serviceError1Error.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 
 export class GeneralApi extends BaseApi {
+  /**
+   * Create permits for a recurring contract, including support for defining restrictions.
+   *
+   * @param body
+   * @return Response from the API call
+   * @deprecated
+   */
+  async postCreatePermit(
+    body?: CreatePermitRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<CreatePermitResult>> {
+    const req = this.createRequest('POST', '/createPermit');
+    req.baseUrl('default2');
+    const mapped = req.prepareArgs({
+      body: [body, optional(createPermitRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.deprecated('GeneralApi.postCreatePermit');
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(createPermitResultSchema, requestOptions);
+  }
+
+  /**
+   * Disables stored payment details to stop charging a shopper with this particular recurring detail ID.
+   *
+   * For more information, refer to [Disable stored details](https://docs.adyen.com/online-
+   * payments/classic-integrations/classic-api-integration/tokenization/disable-stored-details).
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postDisable(
+    body?: DisableRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<DisableResult>> {
+    const req = this.createRequest('POST', '/disable');
+    req.baseUrl('default2');
+    const mapped = req.prepareArgs({
+      body: [body, optional(disableRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(disableResultSchema, requestOptions);
+  }
+
+  /**
+   * Disable a permit that was previously linked to a recurringDetailReference.
+   *
+   * @param body
+   * @return Response from the API call
+   * @deprecated
+   */
+  async postDisablePermit(
+    body?: DisablePermitRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<DisablePermitResult>> {
+    const req = this.createRequest('POST', '/disablePermit');
+    req.baseUrl('default2');
+    const mapped = req.prepareArgs({
+      body: [body, optional(disablePermitRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.deprecated('GeneralApi.postDisablePermit');
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(disablePermitResultSchema, requestOptions);
+  }
+
+  /**
+   * Lists the stored payment details for a shopper, if there are any available. The recurring detail ID
+   * can be used with a regular authorisation request to charge the shopper. A summary of the payment
+   * detail is returned for presentation to the shopper.
+   *
+   * For more information, refer to [Retrieve stored details](https://docs.adyen.com/classic-
+   * integration/recurring-payments/retrieve-stored-details/).
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postListRecurringDetails(
+    body?: RecurringDetailsRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<RecurringDetailsResult>> {
+    const req = this.createRequest('POST', '/listRecurringDetails');
+    req.baseUrl('default2');
+    const mapped = req.prepareArgs({
+      body: [body, optional(recurringDetailsRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(recurringDetailsResultSchema, requestOptions);
+  }
+
+  /**
+   * Sends a request to the issuer so they can inform the shopper about the upcoming recurring payment.
+   * This endpoint is used only for local acquiring in India. For more information, refer to [Recurring
+   * card payments in India](https://docs.adyen.com/payment-methods/cards/cards-recurring-india).
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postNotifyShopper(
+    body?: NotifyShopperRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<NotifyShopperResult>> {
+    const req = this.createRequest('POST', '/notifyShopper');
+    req.baseUrl('default2');
+    const mapped = req.prepareArgs({
+      body: [body, optional(notifyShopperRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(notifyShopperResultSchema, requestOptions);
+  }
+
+  /**
+   * When making the API call, you can submit either the credit card information, or the recurring detail
+   * reference and the shopper reference:
+   * * If the card information is provided, all the sub-fields for `card` are mandatory.
+   * * If the recurring detail reference is provided, the fields for `shopperReference` and
+   * `selectedRecurringDetailReference` are mandatory.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postScheduleAccountUpdater(
+    body?: ScheduleAccountUpdaterRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<ScheduleAccountUpdaterResult>> {
+    const req = this.createRequest('POST', '/scheduleAccountUpdater');
+    req.baseUrl('default2');
+    const mapped = req.prepareArgs({
+      body: [body, optional(scheduleAccountUpdaterRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceError,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(scheduleAccountUpdaterResultSchema, requestOptions);
+  }
+
   /**
    * Verifies whether 3D Secure is available for the specified BIN or card brand. For 3D Secure 2, this
    * endpoint also returns device fingerprinting keys.
@@ -310,43 +596,40 @@ export class GeneralApi extends BaseApi {
    * @param body
    * @return Response from the API call
    */
-  async postGet3DsAvailability(
-    body?: ThreeDsAvailabilityRequest,
+  async postGet3dsAvailability(
+    body?: ThreeDSAvailabilityRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ThreeDsAvailabilityResponse>> {
+  ): Promise<ApiResponse<ThreeDSAvailabilityResponse>> {
     const req = this.createRequest('POST', '/get3dsAvailability');
+    req.baseUrl('default4');
     const mapped = req.prepareArgs({
-      body: [body, optional(threeDsAvailabilityRequestSchema)],
+      body: [body, optional(threeDSAvailabilityRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(threeDsAvailabilityResponseSchema, requestOptions);
+    return req.callAsJson(threeDSAvailabilityResponseSchema, requestOptions);
   }
 
   /**
@@ -372,6 +655,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<CostEstimateResponse>> {
     const req = this.createRequest('POST', '/getCostEstimate');
+    req.baseUrl('default4');
     const mapped = req.prepareArgs({
       body: [body, optional(costEstimateRequestSchema)],
     });
@@ -379,31 +663,258 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError1Error,
+      ServiceError,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
     req.throwOn(
       403,
-      ServiceError1Error,
+      ServiceError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError1Error,
+      ServiceError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError1Error,
+      ServiceError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
     return req.callAsJson(costEstimateResponseSchema, requestOptions);
+  }
+
+  /**
+   * Changes the status of the provided payment method to the specified status.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postChangeStatus(
+    body?: StoredValueStatusChangeRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<StoredValueStatusChangeResponse>> {
+    const req = this.createRequest('POST', '/changeStatus');
+    req.baseUrl('default5');
+    const mapped = req.prepareArgs({
+      body: [body, optional(storedValueStatusChangeRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(
+      storedValueStatusChangeResponseSchema,
+      requestOptions
+    );
+  }
+
+  /**
+   * Checks the balance of the provided payment method.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postCheckBalance(
+    body?: StoredValueBalanceCheckRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<StoredValueBalanceCheckResponse>> {
+    const req = this.createRequest('POST', '/checkBalance');
+    req.baseUrl('default5');
+    const mapped = req.prepareArgs({
+      body: [body, optional(storedValueBalanceCheckRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(
+      storedValueBalanceCheckResponseSchema,
+      requestOptions
+    );
+  }
+
+  /**
+   * Issues a new card of the given payment method.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postIssue(
+    body?: StoredValueIssueRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<StoredValueIssueResponse>> {
+    const req = this.createRequest('POST', '/issue');
+    req.baseUrl('default5');
+    const mapped = req.prepareArgs({
+      body: [body, optional(storedValueIssueRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(storedValueIssueResponseSchema, requestOptions);
+  }
+
+  /**
+   * Loads the payment method with the specified funds.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postLoad(
+    body?: StoredValueLoadRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<StoredValueLoadResponse>> {
+    const req = this.createRequest('POST', '/load');
+    req.baseUrl('default5');
+    const mapped = req.prepareArgs({
+      body: [body, optional(storedValueLoadRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(storedValueLoadResponseSchema, requestOptions);
+  }
+
+  /**
+   * Increases the balance of the paymentmethod by the full amount left on the source paymentmethod
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postMergeBalance(
+    body?: StoredValueBalanceMergeRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<StoredValueBalanceMergeResponse>> {
+    const req = this.createRequest('POST', '/mergeBalance');
+    req.baseUrl('default5');
+    const mapped = req.prepareArgs({
+      body: [body, optional(storedValueBalanceMergeRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(
+      storedValueBalanceMergeResponseSchema,
+      requestOptions
+    );
+  }
+
+  /**
+   * Voids the referenced stored value transaction.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postVoidTransaction(
+    body?: StoredValueVoidRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<StoredValueVoidResponse>> {
+    const req = this.createRequest('POST', '/voidTransaction');
+    req.baseUrl('default5');
+    const mapped = req.prepareArgs({
+      body: [body, optional(storedValueVoidRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceError,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      403,
+      ServiceError,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      500,
+      ServiceError,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(storedValueVoidResponseSchema, requestOptions);
   }
 
   /**
@@ -417,6 +928,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SubjectErasureResponse>> {
     const req = this.createRequest('POST', '/requestSubjectErasure');
+    req.baseUrl('default6');
     const mapped = req.prepareArgs({
       body: [body, optional(subjectErasureByPspReferenceRequestSchema)],
     });
@@ -424,23 +936,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -448,208 +964,348 @@ export class GeneralApi extends BaseApi {
   }
 
   /**
-   * Accepts a specific dispute.
+   * Creates one or more test card ranges.
    *
    * @param body
    * @return Response from the API call
    */
-  async postAcceptDispute(
-    body?: AcceptDisputeRequest,
+  async postCreateTestCardRanges(
+    body?: CreateTestCardRangesRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<AcceptDisputeResponse>> {
-    const req = this.createRequest('POST', '/acceptDispute');
+  ): Promise<ApiResponse<CreateTestCardRangesResult>> {
+    const req = this.createRequest('POST', '/createTestCardRanges');
+    req.baseUrl('default8');
     const mapped = req.prepareArgs({
-      body: [body, optional(acceptDisputeRequestSchema)],
+      body: [body, optional(createTestCardRangesRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(acceptDisputeResponseSchema, requestOptions);
+    return req.callAsJson(createTestCardRangesResultSchema, requestOptions);
   }
 
   /**
-   * Defends a specific dispute.
+   * Creates a subscription to notifications informing you of events on your platform. After the
+   * subscription is created, the events specified in the configuration will be sent to the URL specified
+   * in the configuration. Subscriptions must be configured on a per-event basis (as opposed to, for
+   * example, a per-account holder basis), so all event notifications of a marketplace and of a given
+   * type will be sent to the same endpoint(s). A marketplace may have multiple endpoints if desired; an
+   * event notification may be sent to as many or as few different endpoints as configured.
    *
    * @param body
    * @return Response from the API call
    */
-  async postDefendDispute(
-    body?: DefendDisputeRequest,
+  async postCreateNotificationConfiguration(
+    body?: CreateNotificationConfigurationRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DefendDisputeResponse>> {
-    const req = this.createRequest('POST', '/defendDispute');
+  ): Promise<ApiResponse<GetNotificationConfigurationResponse>> {
+    const req = this.createRequest('POST', '/createNotificationConfiguration');
+    req.baseUrl('default12');
     const mapped = req.prepareArgs({
-      body: [body, optional(defendDisputeRequestSchema)],
+      body: [body, optional(createNotificationConfigurationRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(defendDisputeResponseSchema, requestOptions);
+    return req.callAsJson(
+      getNotificationConfigurationResponseSchema,
+      requestOptions
+    );
   }
 
   /**
-   * Deletes a specific dispute defense document that was supplied earlier.
+   * Deletes an existing notification subscription configuration. After the subscription is deleted, no
+   * further event notifications will be sent to the URL defined in the subscription.
    *
    * @param body
    * @return Response from the API call
    */
-  async postDeleteDisputeDefenseDocument(
-    body?: DeleteDefenseDocumentRequest,
+  async postDeleteNotificationConfigurations(
+    body?: DeleteNotificationConfigurationRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DeleteDefenseDocumentResponse>> {
-    const req = this.createRequest('POST', '/deleteDisputeDefenseDocument');
+  ): Promise<ApiResponse<GenericResponse>> {
+    const req = this.createRequest('POST', '/deleteNotificationConfigurations');
+    req.baseUrl('default12');
     const mapped = req.prepareArgs({
-      body: [body, optional(deleteDefenseDocumentRequestSchema)],
+      body: [body, optional(deleteNotificationConfigurationRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(deleteDefenseDocumentResponseSchema, requestOptions);
+    return req.callAsJson(genericResponseSchema, requestOptions);
   }
 
   /**
-   * Returns a list of all applicable defense reasons to defend a specific dispute.
+   * Returns the details of the configuration of a notification subscription.
    *
    * @param body
    * @return Response from the API call
    */
-  async postRetrieveApplicableDefenseReasons(
-    body?: AcceptDisputeRequest,
+  async postGetNotificationConfiguration(
+    body?: GetNotificationConfigurationRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DefenseReasonsResponse>> {
-    const req = this.createRequest('POST', '/retrieveApplicableDefenseReasons');
+  ): Promise<ApiResponse<GetNotificationConfigurationResponse>> {
+    const req = this.createRequest('POST', '/getNotificationConfiguration');
+    req.baseUrl('default12');
     const mapped = req.prepareArgs({
-      body: [body, optional(acceptDisputeRequestSchema)],
+      body: [body, optional(getNotificationConfigurationRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(defenseReasonsResponseSchema, requestOptions);
+    return req.callAsJson(
+      getNotificationConfigurationResponseSchema,
+      requestOptions
+    );
   }
 
   /**
-   * Supplies a specific dispute defense document.
+   * Returns the details of the configurations of all of the notification subscriptions in the platform
+   * of the executing user.
    *
    * @param body
    * @return Response from the API call
    */
-  async postSupplyDefenseDocument(
-    body?: SupplyDefenseDocumentRequest,
+  async postGetNotificationConfigurationList(
+    body?: unknown,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<SupplyDefenseDocumentResponse>> {
-    const req = this.createRequest('POST', '/supplyDefenseDocument');
+  ): Promise<ApiResponse<GetNotificationConfigurationListResponse>> {
+    const req = this.createRequest('POST', '/getNotificationConfigurationList');
+    req.baseUrl('default12');
+    const mapped = req.prepareArgs({ body: [body, optional(unknown())] });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceErrorError1Error,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
+    req.throwOn(
+      403,
+      ServiceErrorError1Error,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceErrorError1Error,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceErrorError1Error,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(
+      getNotificationConfigurationListResponseSchema,
+      requestOptions
+    );
+  }
+
+  /**
+   * Tests an existing notification subscription configuration. For each event type specified, a test
+   * notification will be generated and sent to the URL configured in the subscription specified.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postTestNotificationConfiguration(
+    body?: TestNotificationConfigurationRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<TestNotificationConfigurationResponse>> {
+    const req = this.createRequest('POST', '/testNotificationConfiguration');
+    req.baseUrl('default12');
     const mapped = req.prepareArgs({
-      body: [body, optional(supplyDefenseDocumentRequestSchema)],
+      body: [body, optional(testNotificationConfigurationRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(supplyDefenseDocumentResponseSchema, requestOptions);
+    return req.callAsJson(
+      testNotificationConfigurationResponseSchema,
+      requestOptions
+    );
+  }
+
+  /**
+   * Updates an existing notification subscription configuration. If you are updating the event types,
+   * you must provide all event types, otherwise the previous event type configuration will be
+   * overwritten.
+   *
+   * @param body
+   * @return Response from the API call
+   */
+  async postUpdateNotificationConfiguration(
+    body?: UpdateNotificationConfigurationRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<GetNotificationConfigurationResponse>> {
+    const req = this.createRequest('POST', '/updateNotificationConfiguration');
+    req.baseUrl('default12');
+    const mapped = req.prepareArgs({
+      body: [body, optional(updateNotificationConfigurationRequestSchema)],
+    });
+    req.header('Content-Type', 'application/json');
+    req.json(mapped.body);
+    req.throwOn(
+      400,
+      ServiceErrorError1Error,
+      'Bad Request - a problem reading or understanding the request.'
+    );
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
+    req.throwOn(
+      403,
+      ServiceErrorError1Error,
+      'Forbidden - insufficient permissions to process the request.'
+    );
+    req.throwOn(
+      422,
+      ServiceErrorError1Error,
+      'Unprocessable Entity - a request validation error.'
+    );
+    req.throwOn(
+      500,
+      ServiceErrorError1Error,
+      'Internal Server Error - the server could not process the request.'
+    );
+    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
+    return req.callAsJson(
+      getNotificationConfigurationResponseSchema,
+      requestOptions
+    );
   }
 
   /**
@@ -664,6 +1320,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AccountHolderBalanceResponse>> {
     const req = this.createRequest('POST', '/accountHolderBalance');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(closeAccountHolderRequestSchema)],
     });
@@ -671,23 +1328,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -708,6 +1369,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AccountHolderTransactionListResponse>> {
     const req = this.createRequest('POST', '/accountHolderTransactionList');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(accountHolderTransactionListRequestSchema)],
     });
@@ -715,23 +1377,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -758,6 +1424,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<DebitAccountHolderResponse>> {
     const req = this.createRequest('POST', '/debitAccountHolder');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(debitAccountHolderRequestSchema)],
     });
@@ -765,23 +1432,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -799,6 +1470,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PayoutAccountHolderResponse>> {
     const req = this.createRequest('POST', '/payoutAccountHolder');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(payoutAccountHolderRequestSchema)],
     });
@@ -806,23 +1478,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -841,6 +1517,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<RefundFundsTransferResponse>> {
     const req = this.createRequest('POST', '/refundFundsTransfer');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(refundFundsTransferRequestSchema)],
     });
@@ -848,23 +1525,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -886,6 +1567,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/refundNotPaidOutTransfers');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(refundNotPaidOutTransfersRequestSchema)],
     });
@@ -893,23 +1575,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -931,6 +1617,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GenericResponse>> {
     const req = this.createRequest('POST', '/setupBeneficiary');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(setupBeneficiaryRequestSchema)],
     });
@@ -938,23 +1625,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -974,6 +1665,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferFundsResponse>> {
     const req = this.createRequest('POST', '/transferFunds');
+    req.baseUrl('default16');
     const mapped = req.prepareArgs({
       body: [body, optional(transferFundsRequestSchema)],
     });
@@ -981,23 +1673,27 @@ export class GeneralApi extends BaseApi {
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -1005,850 +1701,264 @@ export class GeneralApi extends BaseApi {
   }
 
   /**
-   * Creates a subscription to notifications informing you of events on your platform. After the
-   * subscription is created, the events specified in the configuration will be sent to the URL specified
-   * in the configuration. Subscriptions must be configured on a per-event basis (as opposed to, for
-   * example, a per-account holder basis), so all event notifications of a marketplace and of a given
-   * type will be sent to the same endpoint(s). A marketplace may have multiple endpoints if desired; an
-   * event notification may be sent to as many or as few different endpoints as configured.
+   * Accepts a specific dispute.
    *
    * @param body
    * @return Response from the API call
    */
-  async postCreateNotificationConfiguration(
-    body?: CreateNotificationConfigurationRequest,
+  async postAcceptDispute(
+    body?: AcceptDisputeRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<GetNotificationConfigurationResponse>> {
-    const req = this.createRequest('POST', '/createNotificationConfiguration');
+  ): Promise<ApiResponse<AcceptDisputeResponse>> {
+    const req = this.createRequest('POST', '/acceptDispute');
+    req.baseUrl('default22');
     const mapped = req.prepareArgs({
-      body: [body, optional(createNotificationConfigurationRequestSchema)],
+      body: [body, optional(acceptDisputeRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      getNotificationConfigurationResponseSchema,
-      requestOptions
-    );
+    return req.callAsJson(acceptDisputeResponseSchema, requestOptions);
   }
 
   /**
-   * Deletes an existing notification subscription configuration. After the subscription is deleted, no
-   * further event notifications will be sent to the URL defined in the subscription.
+   * Defends a specific dispute.
    *
    * @param body
    * @return Response from the API call
    */
-  async postDeleteNotificationConfigurations(
-    body?: DeleteNotificationConfigurationRequest,
+  async postDefendDispute(
+    body?: DefendDisputeRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<GenericResponse>> {
-    const req = this.createRequest('POST', '/deleteNotificationConfigurations');
+  ): Promise<ApiResponse<DefendDisputeResponse>> {
+    const req = this.createRequest('POST', '/defendDispute');
+    req.baseUrl('default22');
     const mapped = req.prepareArgs({
-      body: [body, optional(deleteNotificationConfigurationRequestSchema)],
+      body: [body, optional(defendDisputeRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(genericResponseSchema, requestOptions);
+    return req.callAsJson(defendDisputeResponseSchema, requestOptions);
   }
 
   /**
-   * Returns the details of the configuration of a notification subscription.
+   * Deletes a specific dispute defense document that was supplied earlier.
    *
    * @param body
    * @return Response from the API call
    */
-  async postGetNotificationConfiguration(
-    body?: GetNotificationConfigurationRequest,
+  async postDeleteDisputeDefenseDocument(
+    body?: DeleteDefenseDocumentRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<GetNotificationConfigurationResponse>> {
-    const req = this.createRequest('POST', '/getNotificationConfiguration');
+  ): Promise<ApiResponse<DeleteDefenseDocumentResponse>> {
+    const req = this.createRequest('POST', '/deleteDisputeDefenseDocument');
+    req.baseUrl('default22');
     const mapped = req.prepareArgs({
-      body: [body, optional(getNotificationConfigurationRequestSchema)],
+      body: [body, optional(deleteDefenseDocumentRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      getNotificationConfigurationResponseSchema,
-      requestOptions
-    );
+    return req.callAsJson(deleteDefenseDocumentResponseSchema, requestOptions);
   }
 
   /**
-   * Returns the details of the configurations of all of the notification subscriptions in the platform
-   * of the executing user.
+   * Returns a list of all applicable defense reasons to defend a specific dispute.
    *
    * @param body
    * @return Response from the API call
    */
-  async postGetNotificationConfigurationList(
-    body?: unknown,
+  async postRetrieveApplicableDefenseReasons(
+    body?: DefenseReasonsRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<GetNotificationConfigurationListResponse>> {
-    const req = this.createRequest('POST', '/getNotificationConfigurationList');
-    const mapped = req.prepareArgs({ body: [body, optional(unknown())] });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
-    req.throwOn(
-      403,
-      ServiceError,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      getNotificationConfigurationListResponseSchema,
-      requestOptions
-    );
-  }
-
-  /**
-   * Tests an existing notification subscription configuration. For each event type specified, a test
-   * notification will be generated and sent to the URL configured in the subscription specified.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postTestNotificationConfiguration(
-    body?: TestNotificationConfigurationRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<TestNotificationConfigurationResponse>> {
-    const req = this.createRequest('POST', '/testNotificationConfiguration');
+  ): Promise<ApiResponse<DefenseReasonsResponse>> {
+    const req = this.createRequest('POST', '/retrieveApplicableDefenseReasons');
+    req.baseUrl('default22');
     const mapped = req.prepareArgs({
-      body: [body, optional(testNotificationConfigurationRequestSchema)],
+      body: [body, optional(defenseReasonsRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      testNotificationConfigurationResponseSchema,
-      requestOptions
-    );
+    return req.callAsJson(defenseReasonsResponseSchema, requestOptions);
   }
 
   /**
-   * Updates an existing notification subscription configuration. If you are updating the event types,
-   * you must provide all event types, otherwise the previous event type configuration will be
-   * overwritten.
+   * Supplies a specific dispute defense document.
    *
    * @param body
    * @return Response from the API call
    */
-  async postUpdateNotificationConfiguration(
-    body?: UpdateNotificationConfigurationRequest,
+  async postSupplyDefenseDocument(
+    body?: SupplyDefenseDocumentRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<GetNotificationConfigurationResponse>> {
-    const req = this.createRequest('POST', '/updateNotificationConfiguration');
+  ): Promise<ApiResponse<SupplyDefenseDocumentResponse>> {
+    const req = this.createRequest('POST', '/supplyDefenseDocument');
+    req.baseUrl('default22');
     const mapped = req.prepareArgs({
-      body: [body, optional(updateNotificationConfigurationRequestSchema)],
+      body: [body, optional(supplyDefenseDocumentRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      getNotificationConfigurationResponseSchema,
-      requestOptions
-    );
+    return req.callAsJson(supplyDefenseDocumentResponseSchema, requestOptions);
   }
 
   /**
-   * Create permits for a recurring contract, including support for defining restrictions.
+   * Establishes a secure communications session between the POS Mobile SDK and the Adyen payments
+   * platform, through mutual authentication.
+   * The request sends a setup token that identifies the SDK and the device. The response returns a
+   * session token that the SDK can use to authenticate responses received from the Adyen payments
+   * platform.
+   * >This request applies to **mobile in-person** transactions. You cannot use this request to create
+   * online payments sessions.
+   *
+   *
    *
    * @param body
    * @return Response from the API call
    * @deprecated
    */
-  async postCreatePermit(
-    body?: CreatePermitRequest,
+  async postSessions(
+    body?: CreateSessionRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<CreatePermitResult>> {
-    const req = this.createRequest('POST', '/createPermit');
+  ): Promise<ApiResponse<CertificateLoadingResponse>> {
+    const req = this.createRequest('POST', '/sessions');
+    req.baseUrl('default27');
     const mapped = req.prepareArgs({
-      body: [body, optional(createPermitRequestSchema)],
+      body: [body, optional(createSessionRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
-    req.deprecated('GeneralApi.postCreatePermit');
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError1Error,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
+    req.deprecated('GeneralApi.postSessions');
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(createPermitResultSchema, requestOptions);
-  }
-
-  /**
-   * Disables stored payment details to stop charging a shopper with this particular recurring detail ID.
-   *
-   * For more information, refer to [Disable stored details](https://docs.adyen.com/online-
-   * payments/classic-integrations/classic-api-integration/tokenization/disable-stored-details).
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postDisable(
-    body?: DisableRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DisableResult>> {
-    const req = this.createRequest('POST', '/disable');
-    const mapped = req.prepareArgs({
-      body: [body, optional(disableRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError1Error,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(disableResultSchema, requestOptions);
-  }
-
-  /**
-   * Disable a permit that was previously linked to a recurringDetailReference.
-   *
-   * @param body
-   * @return Response from the API call
-   * @deprecated
-   */
-  async postDisablePermit(
-    body?: DisablePermitRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<DisablePermitResult>> {
-    const req = this.createRequest('POST', '/disablePermit');
-    const mapped = req.prepareArgs({
-      body: [body, optional(disablePermitRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.deprecated('GeneralApi.postDisablePermit');
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError1Error,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(disablePermitResultSchema, requestOptions);
-  }
-
-  /**
-   * Lists the stored payment details for a shopper, if there are any available. The recurring detail ID
-   * can be used with a regular authorisation request to charge the shopper. A summary of the payment
-   * detail is returned for presentation to the shopper.
-   *
-   * For more information, refer to [Retrieve stored details](https://docs.adyen.com/classic-
-   * integration/recurring-payments/retrieve-stored-details/).
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postListRecurringDetails(
-    body?: RecurringDetailsRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<RecurringDetailsResult>> {
-    const req = this.createRequest('POST', '/listRecurringDetails');
-    const mapped = req.prepareArgs({
-      body: [body, optional(recurringDetailsRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError1Error,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(recurringDetailsResultSchema, requestOptions);
-  }
-
-  /**
-   * Sends a request to the issuer so they can inform the shopper about the upcoming recurring payment.
-   * This endpoint is used only for local acquiring in India. For more information, refer to [Recurring
-   * card payments in India](https://docs.adyen.com/payment-methods/cards/cards-recurring-india).
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postNotifyShopper(
-    body?: NotifyShopperRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<NotifyShopperResult>> {
-    const req = this.createRequest('POST', '/notifyShopper');
-    const mapped = req.prepareArgs({
-      body: [body, optional(notifyShopperRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError1Error,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(notifyShopperResultSchema, requestOptions);
-  }
-
-  /**
-   * When making the API call, you can submit either the credit card information, or the recurring detail
-   * reference and the shopper reference:
-   * * If the card information is provided, all the sub-fields for `card` are mandatory.
-   * * If the recurring detail reference is provided, the fields for `shopperReference` and
-   * `selectedRecurringDetailReference` are mandatory.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postScheduleAccountUpdater(
-    body?: ScheduleAccountUpdaterRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ScheduleAccountUpdaterResult>> {
-    const req = this.createRequest('POST', '/scheduleAccountUpdater');
-    const mapped = req.prepareArgs({
-      body: [body, optional(scheduleAccountUpdaterRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError1Error,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(scheduleAccountUpdaterResultSchema, requestOptions);
-  }
-
-  /**
-   * Changes the status of the provided payment method to the specified status.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postChangeStatus(
-    body?: StoredValueStatusChangeRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredValueStatusChangeResponse>> {
-    const req = this.createRequest('POST', '/changeStatus');
-    const mapped = req.prepareArgs({
-      body: [body, optional(storedValueStatusChangeRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      storedValueStatusChangeResponseSchema,
-      requestOptions
-    );
-  }
-
-  /**
-   * Checks the balance of the provided payment method.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postCheckBalance(
-    body?: StoredValueBalanceCheckRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredValueBalanceCheckResponse>> {
-    const req = this.createRequest('POST', '/checkBalance');
-    const mapped = req.prepareArgs({
-      body: [body, optional(storedValueBalanceCheckRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      storedValueBalanceCheckResponseSchema,
-      requestOptions
-    );
-  }
-
-  /**
-   * Issues a new card of the given payment method.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postIssue(
-    body?: StoredValueIssueRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredValueIssueResponse>> {
-    const req = this.createRequest('POST', '/issue');
-    const mapped = req.prepareArgs({
-      body: [body, optional(storedValueIssueRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(storedValueIssueResponseSchema, requestOptions);
-  }
-
-  /**
-   * Loads the payment method with the specified funds.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postLoad(
-    body?: StoredValueLoadRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredValueLoadResponse>> {
-    const req = this.createRequest('POST', '/load');
-    const mapped = req.prepareArgs({
-      body: [body, optional(storedValueLoadRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(storedValueLoadResponseSchema, requestOptions);
-  }
-
-  /**
-   * Increases the balance of the paymentmethod by the full amount left on the source paymentmethod
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postMergeBalance(
-    body?: StoredValueBalanceMergeRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredValueBalanceMergeResponse>> {
-    const req = this.createRequest('POST', '/mergeBalance');
-    const mapped = req.prepareArgs({
-      body: [body, optional(storedValueBalanceMergeRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(
-      storedValueBalanceMergeResponseSchema,
-      requestOptions
-    );
-  }
-
-  /**
-   * Voids the referenced stored value transaction.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postVoidTransaction(
-    body?: StoredValueVoidRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<StoredValueVoidResponse>> {
-    const req = this.createRequest('POST', '/voidTransaction');
-    const mapped = req.prepareArgs({
-      body: [body, optional(storedValueVoidRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError1Error,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(
-      401,
-      ServiceError1Error,
-      'Unauthorized - authentication required.'
-    );
-    req.throwOn(
-      403,
-      ServiceError1Error,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      500,
-      ServiceError1Error,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(storedValueVoidResponseSchema, requestOptions);
-  }
-
-  /**
-   * Creates one or more test card ranges.
-   *
-   * @param body
-   * @return Response from the API call
-   */
-  async postCreateTestCardRanges(
-    body?: CreateTestCardRangesRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<CreateTestCardRangesResult>> {
-    const req = this.createRequest('POST', '/createTestCardRanges');
-    const mapped = req.prepareArgs({
-      body: [body, optional(createTestCardRangesRequestSchema)],
-    });
-    req.header('Content-Type', 'application/json');
-    req.json(mapped.body);
-    req.throwOn(
-      400,
-      ServiceError,
-      'Bad Request - a problem reading or understanding the request.'
-    );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
-    req.throwOn(
-      403,
-      ServiceError,
-      'Forbidden - insufficient permissions to process the request.'
-    );
-    req.throwOn(
-      422,
-      ServiceError,
-      'Unprocessable Entity - a request validation error.'
-    );
-    req.throwOn(
-      500,
-      ServiceError,
-      'Internal Server Error - the server could not process the request.'
-    );
-    req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
-    return req.callAsJson(createTestCardRangesResultSchema, requestOptions);
+    return req.callAsJson(certificateLoadingResponseSchema, requestOptions);
   }
 
   /**
@@ -1869,6 +1979,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<AssignTerminalsResponse>> {
     const req = this.createRequest('POST', '/assignTerminals');
+    req.baseUrl('default28');
     const mapped = req.prepareArgs({
       body: [body, optional(assignTerminalsRequestSchema)],
     });
@@ -1877,23 +1988,27 @@ export class GeneralApi extends BaseApi {
     req.deprecated('GeneralApi.postAssignTerminals');
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -1916,6 +2031,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<FindTerminalResponse>> {
     const req = this.createRequest('POST', '/findTerminal');
+    req.baseUrl('default28');
     const mapped = req.prepareArgs({
       body: [body, optional(findTerminalRequestSchema)],
     });
@@ -1924,23 +2040,27 @@ export class GeneralApi extends BaseApi {
     req.deprecated('GeneralApi.postFindTerminal');
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -1964,6 +2084,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetStoresUnderAccountResponse>> {
     const req = this.createRequest('POST', '/getStoresUnderAccount');
+    req.baseUrl('default28');
     const mapped = req.prepareArgs({
       body: [body, optional(getStoresUnderAccountRequestSchema)],
     });
@@ -1972,23 +2093,27 @@ export class GeneralApi extends BaseApi {
     req.deprecated('GeneralApi.postGetStoresUnderAccount');
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -2009,35 +2134,40 @@ export class GeneralApi extends BaseApi {
    * @deprecated
    */
   async postGetTerminalDetails(
-    body?: FindTerminalRequest,
+    body?: GetTerminalDetailsRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetTerminalDetailsResponse>> {
     const req = this.createRequest('POST', '/getTerminalDetails');
+    req.baseUrl('default28');
     const mapped = req.prepareArgs({
-      body: [body, optional(findTerminalRequestSchema)],
+      body: [body, optional(getTerminalDetailsRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.deprecated('GeneralApi.postGetTerminalDetails');
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);
@@ -2062,6 +2192,7 @@ export class GeneralApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<GetTerminalsUnderAccountResponse>> {
     const req = this.createRequest('POST', '/getTerminalsUnderAccount');
+    req.baseUrl('default28');
     const mapped = req.prepareArgs({
       body: [body, optional(getTerminalsUnderAccountRequestSchema)],
     });
@@ -2070,23 +2201,27 @@ export class GeneralApi extends BaseApi {
     req.deprecated('GeneralApi.postGetTerminalsUnderAccount');
     req.throwOn(
       400,
-      ServiceError,
+      ServiceErrorError1Error,
       'Bad Request - a problem reading or understanding the request.'
     );
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
-      ServiceError,
+      ServiceErrorError1Error,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       422,
-      ServiceError,
+      ServiceErrorError1Error,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      ServiceError,
+      ServiceErrorError1Error,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([{ basicAuth: true }, { apiKeyAuth: true }]);

@@ -8,22 +8,21 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
+import { Amount, amountSchema } from './amount.js';
 import {
-  ModificationAmount,
-  modificationAmountSchema,
-} from './modificationAmount.js';
-import { MpiData, mpiDataSchema } from './mpiData.js';
-import {
-  PlatformChargebackLogic1,
-  platformChargebackLogic1Schema,
-} from './platformChargebackLogic1.js';
+  PlatformChargebackLogic,
+  platformChargebackLogicSchema,
+} from './platformChargebackLogic.js';
 import { Split, splitSchema } from './split.js';
+import {
+  ThreeDSecureData,
+  threeDSecureDataSchema,
+} from './threeDSecureData.js';
 
 export interface VoidPendingRefundRequest {
   /**
@@ -33,8 +32,10 @@ export interface VoidPendingRefundRequest {
   additionalData?: Record<string, string>;
   /** The merchant account that is used to process the payment. */
   merchantAccount: string;
-  modificationAmount?: ModificationAmount;
-  mpiData?: MpiData;
+  /** The amount that needs to be captured/refunded. Required for `/capture` and `/refund`, not allowed for `/cancel`. The `currency` must match the currency used in authorisation, the `value` must be smaller than or equal to the authorised amount. */
+  modificationAmount?: Amount;
+  /** Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires). */
+  mpiData?: ThreeDSecureData;
   /** The original merchant reference to cancel. */
   originalMerchantReference?: string;
   /**
@@ -44,7 +45,8 @@ export interface VoidPendingRefundRequest {
    * * authorisation notification
    */
   originalReference?: string;
-  platformChargebackLogic?: PlatformChargebackLogic1;
+  /** Defines how to book chargebacks when using [Adyen for Platforms](https://docs.adyen.com/adyen-for-platforms-model). */
+  platformChargebackLogic?: PlatformChargebackLogic;
   /**
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports.
    * Maximum length: 80 characters.
@@ -56,35 +58,27 @@ export interface VoidPendingRefundRequest {
   tenderReference?: string;
   /** Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only. */
   uniqueTerminalId?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const voidPendingRefundRequestSchema: Schema<VoidPendingRefundRequest> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        additionalData: ['additionalData', optional(dict(string()))],
-        merchantAccount: ['merchantAccount', string()],
-        modificationAmount: [
-          'modificationAmount',
-          optional(modificationAmountSchema),
-        ],
-        mpiData: ['mpiData', optional(mpiDataSchema)],
-        originalMerchantReference: [
-          'originalMerchantReference',
-          optional(string()),
-        ],
-        originalReference: ['originalReference', optional(string())],
-        platformChargebackLogic: [
-          'platformChargebackLogic',
-          optional(platformChargebackLogic1Schema),
-        ],
-        reference: ['reference', optional(string())],
-        splits: ['splits', optional(array(splitSchema))],
-        tenderReference: ['tenderReference', optional(string())],
-        uniqueTerminalId: ['uniqueTerminalId', optional(string())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      additionalData: ['additionalData', optional(dict(string()))],
+      merchantAccount: ['merchantAccount', string()],
+      modificationAmount: ['modificationAmount', optional(amountSchema)],
+      mpiData: ['mpiData', optional(threeDSecureDataSchema)],
+      originalMerchantReference: [
+        'originalMerchantReference',
+        optional(string()),
+      ],
+      originalReference: ['originalReference', optional(string())],
+      platformChargebackLogic: [
+        'platformChargebackLogic',
+        optional(platformChargebackLogicSchema),
+      ],
+      reference: ['reference', optional(string())],
+      splits: ['splits', optional(array(splitSchema))],
+      tenderReference: ['tenderReference', optional(string())],
+      uniqueTerminalId: ['uniqueTerminalId', optional(string())],
+    })
 );

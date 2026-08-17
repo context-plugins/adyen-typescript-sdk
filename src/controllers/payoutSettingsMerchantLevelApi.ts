@@ -44,6 +44,7 @@ export class PayoutSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PayoutSettingsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ merchantId: [merchantId, string()] });
     req.appendTemplatePath`/merchants/${mapped.merchantId}/payoutSettings`;
     req.throwOn(
@@ -102,6 +103,7 @@ export class PayoutSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PayoutSettings>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(payoutSettingsRequestSchema)],
@@ -158,6 +160,7 @@ export class PayoutSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PayoutSettings>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       payoutSettingsId: [payoutSettingsId, string()],
@@ -213,6 +216,7 @@ export class PayoutSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       payoutSettingsId: [payoutSettingsId, string()],
@@ -270,6 +274,7 @@ export class PayoutSettingsMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PayoutSettings>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       payoutSettingsId: [payoutSettingsId, string()],

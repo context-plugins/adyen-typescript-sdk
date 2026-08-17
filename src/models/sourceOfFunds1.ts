@@ -9,21 +9,26 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount64, amount64Schema } from './amount64.js';
 import { Financier, financierSchema } from './financier.js';
-import { Type72, type72Schema } from './type72.js';
+import {
+  PatchableAmountDTO,
+  patchableAmountDTOSchema,
+} from './patchableAmountDTO.js';
+import { Type74Enum, type74EnumSchema } from './type74Enum.js';
 
-/** Contains information about the source of your user's funds. Required only if the `service` is **banking** or **issuing**. */
 export interface SourceOfFunds1 {
   /** Indicates whether the funds are coming from transactions processed by Adyen. If **false**, the `type` is required. */
   adyenProcessedFunds: boolean;
-  amount?: Amount64;
+  /**
+   * Required if `type` is **business**, **assetSale**, **gamblingWinnings** or **inheritance**.
+   * For `type` **business**, provide the annual turn over of the business. For `type` **assetSale**, **gamblingWinnings** or **inheritance**, provide the amount of the funds.
+   */
+  amount?: PatchableAmountDTO;
   /**
    * The number of months that the asset has been in possession of the user.
    * For example, if the source of funds is of type **cryptocurrencyIncome** then `assetMonthsHeld` is the number of months the user has owned the cryptocurrency.
@@ -54,33 +59,47 @@ export interface SourceOfFunds1 {
   purpose?: string;
   /** Required if `type` is **donations** or **inheritance**. The relationship of the originator of the funds to the recipient. */
   relationship?: string;
-  type?: Type72;
+  /**
+   * The type of the source of funds.
+   * Possible values:
+   * *  **business**
+   * *  **employment**
+   * *  **donations**
+   * *  **inheritance**
+   * *  **financialAid**
+   * *  **rentalIncome**
+   * *  **dividendIncome**
+   * *  **royaltyIncome**
+   * *  **thirdPartyFunding**
+   * *  **pensionIncome**
+   * *  **insuranceSettlement**
+   * *  **cryptocurrencyIncome**
+   * *  **assetSale**
+   * *  **loans**
+   * *  **gamblingWinnings**
+   */
+  type?: Type74Enum;
   /**
    * Required if `type` is **gamblingWinnings**. The location of the gambling site for the winnings.
    * For example, if the source of funds is online gambling, provide the website of the gambling company.
    */
   website?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const sourceOfFunds1Schema: Schema<SourceOfFunds1> = lazy(() =>
-  typedExpandoObject(
-    {
-      adyenProcessedFunds: ['adyenProcessedFunds', boolean()],
-      amount: ['amount', optional(amount64Schema)],
-      assetMonthsHeld: ['assetMonthsHeld', optional(number())],
-      cryptocurrencyExchange: ['cryptocurrencyExchange', optional(string())],
-      dateOfFundsReceived: ['dateOfFundsReceived', optional(string())],
-      dateOfSourceEvent: ['dateOfSourceEvent', optional(string())],
-      description: ['description', optional(string())],
-      financiers: ['financiers', optional(array(financierSchema))],
-      originatorLegalEntityId: ['originatorLegalEntityId', optional(string())],
-      purpose: ['purpose', optional(string())],
-      relationship: ['relationship', optional(string())],
-      type: ['type', optional(type72Schema)],
-      website: ['website', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    adyenProcessedFunds: ['adyenProcessedFunds', boolean()],
+    amount: ['amount', optional(patchableAmountDTOSchema)],
+    assetMonthsHeld: ['assetMonthsHeld', optional(number())],
+    cryptocurrencyExchange: ['cryptocurrencyExchange', optional(string())],
+    dateOfFundsReceived: ['dateOfFundsReceived', optional(string())],
+    dateOfSourceEvent: ['dateOfSourceEvent', optional(string())],
+    description: ['description', optional(string())],
+    financiers: ['financiers', optional(array(financierSchema))],
+    originatorLegalEntityId: ['originatorLegalEntityId', optional(string())],
+    purpose: ['purpose', optional(string())],
+    relationship: ['relationship', optional(string())],
+    type: ['type', optional(type74EnumSchema)],
+    website: ['website', optional(string())],
+  })
 );

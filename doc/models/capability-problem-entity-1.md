@@ -1,8 +1,6 @@
 
 # Capability Problem Entity 1
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CapabilityProblemEntity1`
@@ -13,14 +11,13 @@
 |  --- | --- | --- | --- |
 | `documents` | `string[] \| undefined` | Optional | List of document IDs corresponding to the verification errors from capabilities. |
 | `id` | `string \| undefined` | Optional | - |
-| `owner` | [`CapabilityProblemEntityRecursive \| undefined`](../../doc/models/capability-problem-entity-recursive.md) | Optional | - |
-| `type` | [`Type32 \| undefined`](../../doc/models/type-32.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `owner` | [`CapabilityProblemEntityRecursive1 \| undefined`](../../doc/models/capability-problem-entity-recursive-1.md) | Optional | - |
+| `type` | [`Type311Enum \| undefined`](../../doc/models/type-311-enum.md) | Optional | - |
 
 ## Example
 
 ```ts
-import { CapabilityProblemEntity1, Type3, Type32 } from 'adyen';
+import { CapabilityProblemEntity1, Type311Enum } from 'adyen';
 
 const capabilityProblemEntity1: CapabilityProblemEntity1 = {
   documents: [
@@ -35,15 +32,9 @@ const capabilityProblemEntity1: CapabilityProblemEntity1 = {
       'documents4'
     ],
     id: 'id4',
-    type: Type3.LegalEntity,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: Type311Enum.LegalEntity,
   },
-  type: Type32.LegalEntity,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  type: Type311Enum.LegalEntity,
 };
 ```
 

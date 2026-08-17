@@ -77,11 +77,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Disputes401Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes403Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -92,9 +88,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401Error`](../../doc/models/disputes-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403Error`](../../doc/models/disputes-403-error.md) |
-| 422 | A request validation error. | [`Disputes422Error`](../../doc/models/disputes-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Disputes
@@ -153,11 +149,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Disputes401Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes403Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -168,9 +160,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401Error`](../../doc/models/disputes-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403Error`](../../doc/models/disputes-403-error.md) |
-| 422 | A request validation error. | [`Disputes422Error`](../../doc/models/disputes-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Disputes-Id
@@ -224,11 +216,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Disputes401Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes403Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -239,9 +227,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401Error`](../../doc/models/disputes-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403Error`](../../doc/models/disputes-403-error.md) |
-| 422 | A request validation error. | [`Disputes422Error`](../../doc/models/disputes-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Disputes-Id
@@ -299,11 +287,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Disputes401Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes403Error) {
-      console.log(error.result);
-    } else if (error instanceof Disputes422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -314,7 +298,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401Error`](../../doc/models/disputes-401-error.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403Error`](../../doc/models/disputes-403-error.md) |
-| 422 | A request validation error. | [`Disputes422Error`](../../doc/models/disputes-422-error.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

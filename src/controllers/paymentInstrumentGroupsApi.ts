@@ -34,6 +34,7 @@ export class PaymentInstrumentGroupsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentInstrumentGroup>> {
     const req = this.createRequest('POST', '/paymentInstrumentGroups');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(paymentInstrumentGroupInfoSchema)],
     });
@@ -83,6 +84,7 @@ export class PaymentInstrumentGroupsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentInstrumentGroup>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstrumentGroups/${mapped.id}`;
     req.throwOn(
@@ -129,6 +131,7 @@ export class PaymentInstrumentGroupsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRulesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstrumentGroups/${mapped.id}/transactionRules`;
     req.throwOn(

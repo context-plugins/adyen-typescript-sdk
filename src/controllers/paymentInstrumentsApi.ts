@@ -18,9 +18,9 @@ import {
   networkTokenActivationDataResponseSchema,
 } from '../models/networkTokenActivationDataResponse.js';
 import {
-  PaymentInstrument,
-  paymentInstrumentSchema,
-} from '../models/paymentInstrument.js';
+  PaymentInstrument1,
+  paymentInstrument1Schema,
+} from '../models/paymentInstrument1.js';
 import {
   PaymentInstrumentInfo,
   paymentInstrumentInfoSchema,
@@ -67,8 +67,9 @@ export class PaymentInstrumentsApi extends BaseApi {
   async postPaymentInstruments(
     body?: PaymentInstrumentInfo,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PaymentInstrument>> {
+  ): Promise<ApiResponse<PaymentInstrument1>> {
     const req = this.createRequest('POST', '/paymentInstruments');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(paymentInstrumentInfoSchema)],
     });
@@ -104,7 +105,7 @@ export class PaymentInstrumentsApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(paymentInstrumentSchema, requestOptions);
+    return req.callAsJson(paymentInstrument1Schema, requestOptions);
   }
 
   /**
@@ -127,6 +128,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentInstrumentRevealResponse>> {
     const req = this.createRequest('POST', '/paymentInstruments/reveal');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(paymentInstrumentRevealRequestSchema)],
     });
@@ -177,8 +179,9 @@ export class PaymentInstrumentsApi extends BaseApi {
   async getPaymentInstrumentsId(
     id: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PaymentInstrument>> {
+  ): Promise<ApiResponse<PaymentInstrument1>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstruments/${mapped.id}`;
     req.throwOn(
@@ -211,7 +214,7 @@ export class PaymentInstrumentsApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(paymentInstrumentSchema, requestOptions);
+    return req.callAsJson(paymentInstrument1Schema, requestOptions);
   }
 
   /**
@@ -229,6 +232,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UpdatePaymentInstrument>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(paymentInstrumentUpdateRequestSchema)],
@@ -280,6 +284,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NetworkTokenActivationDataResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstruments/${mapped.id}/networkTokenActivationData`;
     req.throwOn(
@@ -332,6 +337,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NetworkTokenActivationDataResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(networkTokenActivationDataRequestSchema)],
@@ -386,6 +392,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListNetworkTokensResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstruments/${mapped.id}/networkTokens`;
     req.throwOn(
@@ -437,6 +444,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaymentInstrumentRevealInfo>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstruments/${mapped.id}/reveal`;
     req.throwOn(
@@ -483,6 +491,7 @@ export class PaymentInstrumentsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRulesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/paymentInstruments/${mapped.id}/transactionRules`;
     req.throwOn(

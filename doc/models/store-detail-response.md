@@ -1,8 +1,6 @@
 
 # Store Detail Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `StoreDetailResponse`
@@ -15,7 +13,6 @@
 | `pspReference` | `string` | Required | A new reference to uniquely identify this request. |
 | `recurringDetailReference` | `string` | Required | The token which you can use later on for submitting the payout. |
 | `resultCode` | `string` | Required | The result code of the transaction. `Success` indicates that the details were stored successfully. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const storeDetailResponse: StoreDetailResponse = {
   additionalData: {
     'key0': 'additionalData0',
     'key1': 'additionalData1'
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

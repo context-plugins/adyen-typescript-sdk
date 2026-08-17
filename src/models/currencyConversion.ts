@@ -8,13 +8,15 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { ConvertedAmount, convertedAmountSchema } from './convertedAmount.js';
+import {
+  ConvertedAmount1,
+  convertedAmount1Schema,
+} from './convertedAmount1.js';
 
 /**
  * Information related to a currency conversion.
@@ -23,7 +25,8 @@ import { ConvertedAmount, convertedAmountSchema } from './convertedAmount.js';
 export interface CurrencyConversion {
   /** Notify if the customer has approved something. Indicates if the customer has accepted a currency conversion. */
   customerApprovedFlag?: boolean;
-  convertedAmount: ConvertedAmount;
+  /** Amount after a currency conversion. */
+  convertedAmount: ConvertedAmount1;
   /** Rate of currency conversion. */
   rate?: number;
   /** Markup of a currency conversion amount as a percentage. */
@@ -35,20 +38,15 @@ export interface CurrencyConversion {
    * If a declaration has to be presented to the customer.
    */
   declaration?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const currencyConversionSchema: Schema<CurrencyConversion> = lazy(() =>
-  typedExpandoObject(
-    {
-      customerApprovedFlag: ['CustomerApprovedFlag', optional(boolean())],
-      convertedAmount: ['ConvertedAmount', convertedAmountSchema],
-      rate: ['Rate', optional(number())],
-      markup: ['Markup', optional(number())],
-      commission: ['Commission', optional(number())],
-      declaration: ['Declaration', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    customerApprovedFlag: ['CustomerApprovedFlag', optional(boolean())],
+    convertedAmount: ['ConvertedAmount', convertedAmount1Schema],
+    rate: ['Rate', optional(number())],
+    markup: ['Markup', optional(number())],
+    commission: ['Commission', optional(number())],
+    declaration: ['Declaration', optional(string())],
+  })
 );

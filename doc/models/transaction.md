@@ -1,8 +1,6 @@
 
 # Transaction
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Transaction`
@@ -11,52 +9,61 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16 \| undefined`](../../doc/models/amount-16.md) | Optional | - |
-| `bankAccountDetail` | [`BankAccountDetail1 \| undefined`](../../doc/models/bank-account-detail-1.md) | Optional | - |
-| `captureMerchantReference` | `string \| undefined` | Optional | The merchant reference of a related capture. |
-| `capturePspReference` | `string \| undefined` | Optional | The psp reference of a related capture. |
-| `creationDate` | `string \| undefined` | Optional | The date on which the transaction was performed. |
-| `description` | `string \| undefined` | Optional | A description of the transaction. |
-| `destinationAccountCode` | `string \| undefined` | Optional | The code of the account to which funds were credited during an outgoing fund transfer. |
-| `disputePspReference` | `string \| undefined` | Optional | The psp reference of the related dispute. |
-| `disputeReasonCode` | `string \| undefined` | Optional | The reason code of a dispute. |
-| `merchantReference` | `string \| undefined` | Optional | The merchant reference of a transaction. |
-| `paymentPspReference` | `string \| undefined` | Optional | The psp reference of the related authorisation or transfer. |
-| `payoutPspReference` | `string \| undefined` | Optional | The psp reference of the related payout. |
-| `pspReference` | `string \| undefined` | Optional | The psp reference of a transaction. |
-| `sourceAccountCode` | `string \| undefined` | Optional | The code of the account from which funds were debited during an incoming fund transfer. |
-| `transactionStatus` | [`TransactionStatus1 \| undefined`](../../doc/models/transaction-status-1.md) | Optional | - |
-| `transferCode` | `string \| undefined` | Optional | The transfer code of the transaction. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `accountHolder` | [`ResourceReference3`](../../doc/models/resource-reference-3.md) | Required | Contains information about the account holder associated with the `balanceAccount`. |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | Contains information about the amount of the transaction. |
+| `balanceAccount` | [`ResourceReference4`](../../doc/models/resource-reference-4.md) | Required | Contains information about the balance account involved in the transaction. |
+| `balancePlatform` | `string` | Required | The unique identifier of the balance platform. |
+| `bookingDate` | `string` | Required | The date the transaction was booked into the balance account. |
+| `creationDate` | `string \| undefined` | Optional | The date and time when the event was triggered, in ISO 8601 extended format. For example, **2025-03-19T10:15:30+01:00**. |
+| `description` | `string \| undefined` | Optional | The `description` from the `/transfers` request. |
+| `id` | `string` | Required | The unique identifier of the transaction. |
+| `paymentInstrument` | [`PaymentInstrument21 \| undefined`](../../doc/models/payment-instrument-21.md) | Optional | Contains information about the payment instrument that was used for the transaction. |
+| `referenceForBeneficiary` | `string \| undefined` | Optional | The reference sent to or received from the counterparty.<br><br>* For outgoing funds, this is the [`referenceForBeneficiary`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [`/transfers`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.<br><br>* For incoming funds, this is the reference from the sender. |
+| `status` | [`Status72Enum`](../../doc/models/status-72-enum.md) | Required | The status of the transaction.<br><br>Possible values:<br><br>* **pending**: The transaction is still pending.<br><br>* **booked**: The transaction has been booked to the balance account. |
+| `transfer` | [`TransferView2 \| undefined`](../../doc/models/transfer-view-2.md) | Optional | Contains information about the transfer related to the transaction. |
+| `valueDate` | `string` | Required | The date the transfer amount becomes available in the balance account. |
 
 ## Example
 
 ```ts
-import { Transaction } from 'adyen';
+import { Priority1Enum, Status72Enum, Transaction, Type310Enum } from 'adyen';
 
 const transaction: Transaction = {
+  accountHolder: {
+    description: 'description0',
+    id: 'id0',
+    reference: 'reference4',
+  },
   amount: {
     currency: 'currency2',
     value: BigInt(110),
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  bankAccountDetail: {
-    accountNumber: 'accountNumber8',
-    accountType: 'accountType4',
-    bankAccountName: 'bankAccountName4',
-    bankAccountReference: 'bankAccountReference4',
-    bankAccountUuid: 'bankAccountUUID0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+  balanceAccount: {
+    description: 'description2',
+    id: 'id2',
+    reference: 'reference2',
   },
-  captureMerchantReference: 'captureMerchantReference2',
-  capturePspReference: 'capturePspReference6',
+  balancePlatform: 'balancePlatform0',
+  bookingDate: '2016-03-13T12:52:32.123Z',
+  id: 'id8',
+  status: Status72Enum.Booked,
+  valueDate: '2016-03-13T12:52:32.123Z',
   creationDate: '2016-03-13T12:52:32.123Z',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  description: 'description8',
+  paymentInstrument: {
+    description: 'description0',
+    id: 'id0',
+    reference: 'reference6',
+    tokenType: 'tokenType6',
+  },
+  referenceForBeneficiary: 'referenceForBeneficiary2',
+  transfer: {
+    reference: 'reference4',
+    categoryData: {
+      priority: Priority1Enum.Instant,
+      type: Type310Enum.Bank,
+    },
+    id: 'id8',
   },
 };
 ```

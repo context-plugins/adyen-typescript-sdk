@@ -9,11 +9,10 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   TransactionEventViolation,
@@ -29,25 +28,17 @@ export interface TransactionRulesResult {
   score?: number;
   /** Array containing all the transaction rules that the transaction triggered. */
   triggeredTransactionRules?: TransactionEventViolation[];
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const transactionRulesResultSchema: Schema<TransactionRulesResult> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        advice: ['advice', optional(string())],
-        allHardBlockRulesPassed: [
-          'allHardBlockRulesPassed',
-          optional(boolean()),
-        ],
-        score: ['score', optional(number())],
-        triggeredTransactionRules: [
-          'triggeredTransactionRules',
-          optional(array(transactionEventViolationSchema)),
-        ],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      advice: ['advice', optional(string())],
+      allHardBlockRulesPassed: ['allHardBlockRulesPassed', optional(boolean())],
+      score: ['score', optional(number())],
+      triggeredTransactionRules: [
+        'triggeredTransactionRules',
+        optional(array(transactionEventViolationSchema)),
+      ],
+    })
 );

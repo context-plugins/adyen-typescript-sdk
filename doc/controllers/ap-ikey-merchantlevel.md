@@ -1,12 +1,12 @@
 # AP Ikey-Merchantlevel
 
 ```ts
-const apIkeyMerchantlevelApi = new ApIkeyMerchantlevelApi(client);
+const aPIkeyMerchantlevelApi = new APIkeyMerchantlevelApi(client);
 ```
 
 ## Class Name
 
-`ApIkeyMerchantlevelApi`
+`APIkeyMerchantlevelApi`
 
 
 # Post-Merchants-Merchant Id-Api Credentials-Api Credential Id-Generate Api Key
@@ -51,7 +51,7 @@ const merchantId = 'merchantId6';
 const apiCredentialId = 'apiCredentialId8';
 
 try {
-  const response = await apiKeyMerchantLevelApi.postMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKey(
+  const response = await aPIKeyMerchantLevelApi.postMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKey(
     merchantId,
     apiCredentialId
   );

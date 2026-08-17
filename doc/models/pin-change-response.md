@@ -1,8 +1,6 @@
 
 # Pin Change Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PinChangeResponse`
@@ -11,19 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | [`Status13`](../../doc/models/status-13.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`Status13Enum`](../../doc/models/status-13-enum.md) | Required | The status of the request for PIN change.<br><br>Possible values: **completed**, **pending**, **unavailable**. |
 
 ## Example
 
 ```ts
-import { PinChangeResponse, Status13 } from 'adyen';
+import { PinChangeResponse, Status13Enum } from 'adyen';
 
 const pinChangeResponse: PinChangeResponse = {
-  status: Status13.Completed,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  status: Status13Enum.Completed,
 };
 ```
 

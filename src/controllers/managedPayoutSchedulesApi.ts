@@ -30,30 +30,16 @@ import {
   balancePlatformConfigurationsSchema,
 } from '../models/balancePlatformConfigurations.js';
 import {
-  ExecutionResult,
-  executionResultSchema,
-} from '../models/executionResult.js';
+  ExecutionResultEnum,
+  executionResultEnumSchema,
+} from '../models/executionResultEnum.js';
 import {
   PayoutScheduleExecutions,
   payoutScheduleExecutionsSchema,
 } from '../models/payoutScheduleExecutions.js';
 import { array, number, optional, string } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { BalanceAccountsPayoutSchedules401Error } from '../errors/balanceAccountsPayoutSchedules401Error.js';
-import { BalanceAccountsPayoutSchedules403Error } from '../errors/balanceAccountsPayoutSchedules403Error.js';
-import { BalanceAccountsPayoutSchedules404Error } from '../errors/balanceAccountsPayoutSchedules404Error.js';
-import { BalanceAccountsPayoutSchedules422Error } from '../errors/balanceAccountsPayoutSchedules422Error.js';
-import { BalanceAccountsPayoutSchedules500Error } from '../errors/balanceAccountsPayoutSchedules500Error.js';
-import { BalanceAccountsPayoutSchedulesExecutions401Error } from '../errors/balanceAccountsPayoutSchedulesExecutions401Error.js';
-import { BalanceAccountsPayoutSchedulesExecutions403Error } from '../errors/balanceAccountsPayoutSchedulesExecutions403Error.js';
-import { BalanceAccountsPayoutSchedulesExecutions404Error } from '../errors/balanceAccountsPayoutSchedulesExecutions404Error.js';
-import { BalanceAccountsPayoutSchedulesExecutions422Error } from '../errors/balanceAccountsPayoutSchedulesExecutions422Error.js';
-import { BalanceAccountsPayoutSchedulesExecutions500Error } from '../errors/balanceAccountsPayoutSchedulesExecutions500Error.js';
-import { BalancePlatformsPayoutSchedules401Error } from '../errors/balancePlatformsPayoutSchedules401Error.js';
-import { BalancePlatformsPayoutSchedules403Error } from '../errors/balancePlatformsPayoutSchedules403Error.js';
-import { BalancePlatformsPayoutSchedules404Error } from '../errors/balancePlatformsPayoutSchedules404Error.js';
-import { BalancePlatformsPayoutSchedules422Error } from '../errors/balancePlatformsPayoutSchedules422Error.js';
-import { BalancePlatformsPayoutSchedules500Error } from '../errors/balancePlatformsPayoutSchedules500Error.js';
+import { DefaultErrorResponseEntityError } from '../errors/defaultErrorResponseEntityError.js';
 
 export class ManagedPayoutSchedulesApi extends BaseApi {
   /**
@@ -76,6 +62,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccountConfigurations>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       currency: [currency, optional(string())],
@@ -88,27 +75,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/payoutSchedules`;
     req.throwOn(
       401,
-      BalanceAccountsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -129,6 +116,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccountConfiguration>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       body: [body, balanceAccountConfigurationRequestSchema],
@@ -138,27 +126,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/payoutSchedules`;
     req.throwOn(
       401,
-      BalanceAccountsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -178,6 +166,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccountConfiguration>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       id: [id, string()],
@@ -185,27 +174,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/payoutSchedules/${mapped.id}`;
     req.throwOn(
       401,
-      BalanceAccountsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -225,6 +214,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       id: [id, string()],
@@ -232,27 +222,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/payoutSchedules/${mapped.id}`;
     req.throwOn(
       401,
-      BalanceAccountsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -276,6 +266,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccountConfiguration>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       id: [id, string()],
@@ -286,27 +277,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/payoutSchedules/${mapped.id}`;
     req.throwOn(
       401,
-      BalanceAccountsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -318,13 +309,15 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
    * An execution is an attempt to make a payout according to the payout schedule.
    *
    * @param balanceAccountId The unique identifier of the balance account.
-   * @param id               The unique identifier of the payout schedule on the balance account.
+   * @param id               The unique identifier of the payout schedule on the balance
+   *                                                  account.
    * @param offset           The page number to be returned.  Default: **1**
    * @param results          Contains a list of payout statuses. If included, the response
-   *                                              returns only executed payouts that currently have one of the
-   *                                              specified statuses.  Possible statuses: - **succeeded**: The payout
-   *                                              was sent successfully. - **failed**: The payout was not sent due to
-   *                                              an error. - **skipped**: The payout was not triggered as expected.
+   *                                                  returns only executed payouts that currently have one of the
+   *                                                  specified statuses.  Possible statuses: - **succeeded**: The
+   *                                                  payout was sent successfully. - **failed**: The payout was not
+   *                                                  sent due to an error. - **skipped**: The payout was not triggered
+   *                                                  as expected.
    * @param limit            The number of items returned per page.  Default: **10**
    * @return Response from the API call
    */
@@ -332,16 +325,17 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     balanceAccountId: string,
     id: string,
     offset: number,
-    results?: ExecutionResult[],
+    results?: ExecutionResultEnum[],
     limit?: number,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PayoutScheduleExecutions>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balanceAccountId: [balanceAccountId, string()],
       id: [id, string()],
       offset: [offset, number()],
-      results: [results, optional(array(executionResultSchema))],
+      results: [results, optional(array(executionResultEnumSchema))],
       limit: [limit, optional(number())],
     });
     req.query('offset', mapped.offset);
@@ -350,27 +344,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balanceAccounts/${mapped.balanceAccountId}/payoutSchedules/${mapped.id}/executions`;
     req.throwOn(
       401,
-      BalanceAccountsPayoutSchedulesExecutions401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalanceAccountsPayoutSchedulesExecutions403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalanceAccountsPayoutSchedulesExecutions404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalanceAccountsPayoutSchedulesExecutions422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalanceAccountsPayoutSchedulesExecutions500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -396,6 +390,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalancePlatformConfigurations>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       countryCode: [countryCode, optional(string())],
@@ -406,27 +401,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/payoutSchedules`;
     req.throwOn(
       401,
-      BalancePlatformsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);
@@ -446,6 +441,7 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalancePlatformConfiguration>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       balancePlatformId: [balancePlatformId, string()],
       id: [id, string()],
@@ -453,27 +449,27 @@ export class ManagedPayoutSchedulesApi extends BaseApi {
     req.appendTemplatePath`/balancePlatforms/${mapped.balancePlatformId}/payoutSchedules/${mapped.id}`;
     req.throwOn(
       401,
-      BalancePlatformsPayoutSchedules401Error,
+      DefaultErrorResponseEntityError,
       'Unauthorized - authentication required.'
     );
     req.throwOn(
       403,
-      BalancePlatformsPayoutSchedules403Error,
+      DefaultErrorResponseEntityError,
       'Forbidden - insufficient permissions to process the request.'
     );
     req.throwOn(
       404,
-      BalancePlatformsPayoutSchedules404Error,
+      DefaultErrorResponseEntityError,
       'Not Found - the resource was not found'
     );
     req.throwOn(
       422,
-      BalancePlatformsPayoutSchedules422Error,
+      DefaultErrorResponseEntityError,
       'Unprocessable Entity - a request validation error.'
     );
     req.throwOn(
       500,
-      BalancePlatformsPayoutSchedules500Error,
+      DefaultErrorResponseEntityError,
       'Internal Server Error - the server could not process the request.'
     );
     req.authenticate([]);

@@ -77,15 +77,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof CompaniesCampaignManagement400Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement401Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement403Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement422Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -96,11 +88,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagement400Error`](../../doc/models/companies-campaign-management-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagement401Error`](../../doc/models/companies-campaign-management-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagement403Error`](../../doc/models/companies-campaign-management-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagement422Error`](../../doc/models/companies-campaign-management-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagement500Error`](../../doc/models/companies-campaign-management-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Companies-Company Id-Campaign Management-Account Holders-Account Holder Id
@@ -181,15 +173,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof CompaniesCampaignManagementAccountHolders400Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementAccountHolders401Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementAccountHolders403Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementAccountHolders422Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementAccountHolders500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -200,11 +184,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagementAccountHolders400Error`](../../doc/models/companies-campaign-management-account-holders-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagementAccountHolders401Error`](../../doc/models/companies-campaign-management-account-holders-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagementAccountHolders403Error`](../../doc/models/companies-campaign-management-account-holders-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagementAccountHolders422Error`](../../doc/models/companies-campaign-management-account-holders-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagementAccountHolders500Error`](../../doc/models/companies-campaign-management-account-holders-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Companies-Company Id-Campaign Management-Donation Campaign Id
@@ -271,15 +255,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof CompaniesCampaignManagement400Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement401Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement403Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement422Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -290,11 +266,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagement400Error`](../../doc/models/companies-campaign-management-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagement401Error`](../../doc/models/companies-campaign-management-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagement403Error`](../../doc/models/companies-campaign-management-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagement422Error`](../../doc/models/companies-campaign-management-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagement500Error`](../../doc/models/companies-campaign-management-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Companies-Company Id-Campaign Management-Donation Campaign Id
@@ -366,15 +342,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof CompaniesCampaignManagement400Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement401Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement403Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement422Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagement500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -385,11 +353,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagement400Error`](../../doc/models/companies-campaign-management-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagement401Error`](../../doc/models/companies-campaign-management-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagement403Error`](../../doc/models/companies-campaign-management-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagement422Error`](../../doc/models/companies-campaign-management-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagement500Error`](../../doc/models/companies-campaign-management-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Companies-Company Id-Campaign Management-Donation Campaign Id-Status-Status
@@ -405,7 +373,7 @@ To make this request, your API credential must have the following [role](https:/
 async postCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(
   companyId: string,
   donationCampaignId: string,
-  status: CampaignStatusTransition1,
+  status: CampaignStatusTransitionEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<DonationCampaign1>>
 ```
@@ -420,7 +388,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 |  --- | --- | --- | --- |
 | `companyId` | `string` | Template, Required | The unique identifier of the company account. |
 | `donationCampaignId` | `string` | Template, Required | The unique identifier of the donation campaign to activate or end. |
-| `status` | [`CampaignStatusTransition1`](../../doc/models/campaign-status-transition-1.md) | Template, Required | The desired status change. Possible values: **activate** or **end**. |
+| `status` | [`CampaignStatusTransitionEnum`](../../doc/models/campaign-status-transition-enum.md) | Template, Required | The desired status change. Possible values: **activate** or **end**. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -436,7 +404,7 @@ const companyId = 'companyId0';
 
 const donationCampaignId = 'donationCampaignId0';
 
-const status = CampaignStatusTransition1.Activate;
+const status = CampaignStatusTransitionEnum.Activate;
 
 try {
   const response = await donationCampaignsApi.postCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatus(
@@ -462,15 +430,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof CompaniesCampaignManagementStatusStatus400Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementStatusStatus401Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementStatusStatus403Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementStatusStatus422Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesCampaignManagementStatusStatus500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -481,11 +441,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagementStatusStatus400Error`](../../doc/models/companies-campaign-management-status-status-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagementStatusStatus401Error`](../../doc/models/companies-campaign-management-status-status-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagementStatusStatus403Error`](../../doc/models/companies-campaign-management-status-status-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagementStatusStatus422Error`](../../doc/models/companies-campaign-management-status-status-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagementStatusStatus500Error`](../../doc/models/companies-campaign-management-status-status-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Companies-Company Id-Nonprofits
@@ -558,15 +518,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof CompaniesNonprofits400Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesNonprofits401Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesNonprofits403Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesNonprofits422Error) {
-      console.log(error.result);
-    } else if (error instanceof CompaniesNonprofits500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -577,9 +529,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesNonprofits400Error`](../../doc/models/companies-nonprofits-400-error.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesNonprofits401Error`](../../doc/models/companies-nonprofits-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesNonprofits403Error`](../../doc/models/companies-nonprofits-403-error.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesNonprofits422Error`](../../doc/models/companies-nonprofits-422-error.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesNonprofits500Error`](../../doc/models/companies-nonprofits-500-error.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

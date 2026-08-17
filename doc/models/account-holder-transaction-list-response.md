@@ -1,8 +1,6 @@
 
 # Account Holder Transaction List Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AccountHolderTransactionListResponse`
@@ -15,12 +13,11 @@
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { AccountHolderTransactionListResponse, FieldName } from 'adyen';
+import { AccountHolderTransactionListResponse, FieldNameEnum } from 'adyen';
 
 const accountHolderTransactionListResponse: AccountHolderTransactionListResponse = {
   accountTransactionLists: [
@@ -32,81 +29,51 @@ const accountHolderTransactionListResponse: AccountHolderTransactionListResponse
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       accountCode: 'accountCode8',
@@ -116,81 +83,51 @@ const accountHolderTransactionListResponse: AccountHolderTransactionListResponse
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       accountCode: 'accountCode8',
@@ -200,81 +137,51 @@ const accountHolderTransactionListResponse: AccountHolderTransactionListResponse
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           amount: {
             currency: 'currency2',
             value: BigInt(110),
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           bankAccountDetail: {
             accountNumber: 'accountNumber8',
             accountType: 'accountType4',
             bankAccountName: 'bankAccountName4',
             bankAccountReference: 'bankAccountReference4',
-            bankAccountUuid: 'bankAccountUUID0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            bankAccountUUID: 'bankAccountUUID0',
           },
           captureMerchantReference: 'captureMerchantReference8',
           capturePspReference: 'capturePspReference6',
           creationDate: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   invalidFields: [
@@ -283,14 +190,8 @@ const accountHolderTransactionListResponse: AccountHolderTransactionListResponse
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -298,14 +199,8 @@ const accountHolderTransactionListResponse: AccountHolderTransactionListResponse
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -313,22 +208,13 @@ const accountHolderTransactionListResponse: AccountHolderTransactionListResponse
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
   pspReference: 'pspReference8',
   resultCode: 'resultCode2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

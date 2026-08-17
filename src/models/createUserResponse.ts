@@ -8,17 +8,17 @@ import {
   array,
   boolean,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Links2, links2Schema } from './links2.js';
-import { Name5, name5Schema } from './name5.js';
+import { Links1, links1Schema } from './links1.js';
+import { Name, nameSchema } from './name.js';
 
 export interface CreateUserResponse {
-  links?: Links2;
+  /** References to resources connected with this user. */
+  links?: Links1;
   /** The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user. */
   accountGroups?: string[];
   /** Indicates whether this user is active. */
@@ -29,31 +29,27 @@ export interface CreateUserResponse {
   email: string;
   /** The unique identifier of the user. */
   id: string;
-  name?: Name5;
+  /** The user's full name. */
+  name?: Name;
   /** The list of [roles](https://docs.adyen.com/account/user-roles) for this user. */
   roles: string[];
   /** The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**. */
   timeZoneCode: string;
   /** The username for this user. */
   username: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const createUserResponseSchema: Schema<CreateUserResponse> = lazy(() =>
-  typedExpandoObject(
-    {
-      links: ['_links', optional(links2Schema)],
-      accountGroups: ['accountGroups', optional(array(string()))],
-      active: ['active', optional(boolean())],
-      apps: ['apps', optional(array(string()))],
-      email: ['email', string()],
-      id: ['id', string()],
-      name: ['name', optional(name5Schema)],
-      roles: ['roles', array(string())],
-      timeZoneCode: ['timeZoneCode', string()],
-      username: ['username', string()],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    links: ['_links', optional(links1Schema)],
+    accountGroups: ['accountGroups', optional(array(string()))],
+    active: ['active', optional(boolean())],
+    apps: ['apps', optional(array(string()))],
+    email: ['email', string()],
+    id: ['id', string()],
+    name: ['name', optional(nameSchema)],
+    roles: ['roles', array(string())],
+    timeZoneCode: ['timeZoneCode', string()],
+    username: ['username', string()],
+  })
 );

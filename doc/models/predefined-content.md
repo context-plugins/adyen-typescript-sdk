@@ -4,8 +4,6 @@
 Reference of a predefined message to display or print.
 It conveys information related to the predefined message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PredefinedContent`
@@ -14,9 +12,8 @@ It conveys information related to the predefined message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `referenceId` | `string` | Required | Identification of a predefined message to display or print.<br><br>**Constraints**: *Pattern*: `^.+$` |
+| `referenceID` | `string` | Required | Identification of a predefined message to display or print.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `language` | `string \| undefined` | Optional | Identification of a language.<br><br>**Constraints**: *Pattern*: `^[a-z]{2,2}$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -24,11 +21,8 @@ It conveys information related to the predefined message.
 import { PredefinedContent } from 'adyen';
 
 const predefinedContent: PredefinedContent = {
-  referenceId: 'ReferenceID2',
+  referenceID: 'ReferenceID2',
   language: 'Language0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -65,17 +65,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof AccountVerificationReports400Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationReports401Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationReports404Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationReports422Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationReports429Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationReports500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -143,12 +133,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not in the expected format. | [`AccountVerificationReports400Error`](../../doc/models/account-verification-reports-400-error.md) |
-| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`AccountVerificationReports401Error`](../../doc/models/account-verification-reports-401-error.md) |
-| 404 | Not Found - The entity was not found. | [`AccountVerificationReports404Error`](../../doc/models/account-verification-reports-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`AccountVerificationReports422Error`](../../doc/models/account-verification-reports-422-error.md) |
-| 429 | Too Many Requests - Request rate limit exceeded. | [`AccountVerificationReports429Error`](../../doc/models/account-verification-reports-429-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`AccountVerificationReports500Error`](../../doc/models/account-verification-reports-500-error.md) |
+| 400 | Bad Request - The request is malformed or is not in the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 429 | Too Many Requests - Request rate limit exceeded. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Account Verification-Routes
@@ -181,7 +171,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```ts
 const body: AccountVerificationRoutesRequest = {
-  country: AccountVerificationCountry2.Nl,
+  country: AccountVerificationCountry2Enum.NL,
   redirectUrl: 'https://merchanturl.example.org/redirect/url',
   locale: 'en-US',
   state: '11a1e60a-18b0-4dda-9258-e0ae29e1e2a3',
@@ -207,15 +197,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof AccountVerificationRoutes400Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationRoutes401Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationRoutes422Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationRoutes429Error) {
-      console.log(error.result);
-    } else if (error instanceof AccountVerificationRoutes500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -242,9 +224,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not in the expected format. | [`AccountVerificationRoutes400Error`](../../doc/models/account-verification-routes-400-error.md) |
-| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`AccountVerificationRoutes401Error`](../../doc/models/account-verification-routes-401-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`AccountVerificationRoutes422Error`](../../doc/models/account-verification-routes-422-error.md) |
-| 429 | Too Many Requests - Request rate limit exceeded. | [`AccountVerificationRoutes429Error`](../../doc/models/account-verification-routes-429-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`AccountVerificationRoutes500Error`](../../doc/models/account-verification-routes-500-error.md) |
+| 400 | Bad Request - The request is malformed or is not in the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 429 | Too Many Requests - Request rate limit exceeded. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

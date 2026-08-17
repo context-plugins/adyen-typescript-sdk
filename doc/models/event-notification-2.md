@@ -3,8 +3,6 @@
 
 Content of the EventNotification message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `EventNotification2`
@@ -14,46 +12,42 @@ Content of the EventNotification message.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `timeStamp` | `string` | Required | Date and time of a transaction for the Sale System, the POI System or the Acquirer. |
-| `eventToNotify` | [`EventToNotify1`](../../doc/models/event-to-notify-1.md) | Required | - |
+| `eventToNotify` | [`EventToNotify1Enum`](../../doc/models/event-to-notify-1-enum.md) | Required | Event the POI notifies to the Sale System.<br>Possible values:<br><br>* **Abort**<br>* **BeginMaintenance**<br>* **CardInserted**<br>* **CardRemoved**<br>* **Completed**<br>* **CustomerLanguage**<br>* **EndMaintenance**<br>* **Initialised**<br>* **KeyPressed**<br>* **OutOfOrder**<br>* **Reject**<br>* **SaleAdmin**<br>* **SaleWakeUp**<br>* **ScanBarcodeResult**<br>* **SecurityAlarm**<br>* **Shutdown**<br>* **StopAssistance**<br>* **UseAnotherCardForPreauth** |
 | `eventDetails` | `string \| undefined` | Optional | Information about the event the POI notifies to the Sale System.<br>If present, the Sale logs it for further examination.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `rejectedMessage` | `string \| undefined` | Optional | Message request rejected by the receiver.<br>Mandatory if EventToNotify is Reject, absent in other cases.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `maintenanceRequiredFlag` | `boolean \| undefined` | Optional | Indicates if the occurred event requires maintenance call or action.<br><br>**Default**: `false` |
 | `displayOutput` | [`DisplayOutput[] \| undefined`](../../doc/models/display-output.md) | Optional | Information to display and the way to process the display.<br>To display an event message. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  Device11,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  Device11Enum,
   EventNotification2,
-  EventToNotify1,
-  InfoQualify1,
-  MenuEntryTag1,
-  OutputFormat1,
-  OutputFormat2,
+  EventToNotify1Enum,
+  InfoQualify1Enum,
+  MenuEntryTag1Enum,
+  OutputFormat1Enum,
+  OutputFormat2Enum,
 } from 'adyen';
 
 const eventNotification2: EventNotification2 = {
   timeStamp: '2016-03-13T12:52:32.123Z',
-  eventToNotify: EventToNotify1.Shutdown,
+  eventToNotify: EventToNotify1Enum.Shutdown,
   eventDetails: 'EventDetails2',
   rejectedMessage: 'RejectedMessage2',
   maintenanceRequiredFlag: false,
   displayOutput: [
     {
-      device: Device11.CashierDisplay,
-      infoQualify: InfoQualify1.Status,
+      device: Device11Enum.CashierDisplay,
+      infoQualify: InfoQualify1Enum.Status,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -61,37 +55,25 @@ const eventNotification2: EventNotification2 = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       responseRequiredFlag: false,
       minimumDisplayTime: 110,
       menuEntry: [
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -99,39 +81,27 @@ const eventNotification2: EventNotification2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         },
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -139,46 +109,31 @@ const eventNotification2: EventNotification2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         }
       ],
       outputSignature: 'OutputSignature4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      device: Device11.CashierDisplay,
-      infoQualify: InfoQualify1.Status,
+      device: Device11Enum.CashierDisplay,
+      infoQualify: InfoQualify1Enum.Status,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -186,37 +141,25 @@ const eventNotification2: EventNotification2 = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       responseRequiredFlag: false,
       minimumDisplayTime: 110,
       menuEntry: [
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -224,39 +167,27 @@ const eventNotification2: EventNotification2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         },
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -264,46 +195,31 @@ const eventNotification2: EventNotification2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         }
       ],
       outputSignature: 'OutputSignature4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      device: Device11.CashierDisplay,
-      infoQualify: InfoQualify1.Status,
+      device: Device11Enum.CashierDisplay,
+      infoQualify: InfoQualify1Enum.Status,
       outputContent: {
-        outputFormat: OutputFormat1.Xhtml,
+        outputFormat: OutputFormat1Enum.XHTML,
         predefinedContent: {
-          referenceId: 'ReferenceID0',
+          referenceID: 'ReferenceID0',
           language: 'Language2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         outputText: [
           {
@@ -311,37 +227,25 @@ const eventNotification2: EventNotification2 = {
             characterSet: 194,
             startRow: 74,
             startColumn: 220,
-            characterWidth: CharacterWidth1.SingleWidth,
-            characterHeight: CharacterHeight1.SingleHeight,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            characterWidth: CharacterWidth1Enum.SingleWidth,
+            characterHeight: CharacterHeight1Enum.SingleHeight,
           }
         ],
-        outputXhtml: 'OutputXHTML2',
+        outputXHTML: 'OutputXHTML2',
         outputBarcode: {
           barcodeValue: 'BarcodeValue2',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       responseRequiredFlag: false,
       minimumDisplayTime: 110,
       menuEntry: [
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -349,39 +253,27 @@ const eventNotification2: EventNotification2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         },
         {
-          outputFormat: OutputFormat2.Xhtml,
-          menuEntryTag: MenuEntryTag1.SubMenu,
+          outputFormat: OutputFormat2Enum.XHTML,
+          menuEntryTag: MenuEntryTag1Enum.SubMenu,
           defaultSelectedFlag: false,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -389,39 +281,24 @@ const eventNotification2: EventNotification2 = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             },
             {
               text: 'Text6',
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          outputXHTML: 'OutputXHTML8',
         }
       ],
       outputSignature: 'OutputSignature4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

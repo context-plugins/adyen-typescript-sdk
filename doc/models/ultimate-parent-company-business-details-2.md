@@ -3,8 +3,6 @@
 
 Details about the ultimate parent company's business.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UltimateParentCompanyBusinessDetails2`
@@ -18,7 +16,6 @@ Details about the ultimate parent company's business.
 | `stockExchange` | `string \| undefined` | Optional | Market Identifier Code (MIC). |
 | `stockNumber` | `string \| undefined` | Optional | International Securities Identification Number (ISIN). |
 | `stockTicker` | `string \| undefined` | Optional | Stock Ticker symbol. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const ultimateParentCompanyBusinessDetails2: UltimateParentCompanyBusinessDetail
   stockExchange: 'stockExchange6',
   stockNumber: 'stockNumber8',
   stockTicker: 'stockTicker8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

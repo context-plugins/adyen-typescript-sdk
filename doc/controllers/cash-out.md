@@ -77,19 +77,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof Cashouts400Error) {
-      console.log(error.result);
-    } else if (error instanceof Cashouts401Error) {
-      console.log(error.result);
-    } else if (error instanceof Cashouts403Error) {
-      console.log(error.result);
-    } else if (error instanceof Cashouts404Error) {
-      console.log(error.result);
-    } else if (error instanceof Cashouts422Error) {
-      console.log(error.result);
-    } else if (error instanceof Cashouts429Error) {
-      console.log(error.result);
-    } else if (error instanceof Cashouts500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -142,11 +130,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not in the expected format. | [`Cashouts400Error`](../../doc/models/cashouts-400-error.md) |
-| 401 | Unauthorized - The API credential used in the request is invalid. | [`Cashouts401Error`](../../doc/models/cashouts-401-error.md) |
-| 403 | Forbidden - The API credential does not have the right permissions. | [`Cashouts403Error`](../../doc/models/cashouts-403-error.md) |
-| 404 | Not Found - The requested resource was not found. | [`Cashouts404Error`](../../doc/models/cashouts-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`Cashouts422Error`](../../doc/models/cashouts-422-error.md) |
-| 429 | Too Many Requests - Request rate limit exceeded. | [`Cashouts429Error`](../../doc/models/cashouts-429-error.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`Cashouts500Error`](../../doc/models/cashouts-500-error.md) |
+| 400 | Bad Request - The request is malformed or is not in the expected format. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - The API credential used in the request is invalid. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - The API credential does not have the right permissions. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - The requested resource was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 429 | Too Many Requests - Request rate limit exceeded. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

@@ -1,8 +1,6 @@
 
 # Donation Campaign Nonprofit Cause
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DonationCampaignNonprofitCause`
@@ -19,7 +17,6 @@
 | `logoUrl` | `string \| undefined` | Optional | The URL to the logo of the nonprofit organization. |
 | `nonprofitName` | `string \| undefined` | Optional | The name of the nonprofit organization. |
 | `termsAndConditionsUrl` | `string \| undefined` | Optional | The URL to the terms and conditions of the nonprofit organization. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,9 +33,6 @@ const donationCampaignNonprofitCause: DonationCampaignNonprofitCause = {
     'goals4',
     'goals5'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

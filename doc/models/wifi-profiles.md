@@ -1,8 +1,6 @@
 
 # Wifi Profiles
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `WifiProfiles`
@@ -12,8 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `profiles` | [`Profile[] \| undefined`](../../doc/models/profile.md) | Optional | List of remote Wi-Fi profiles. |
-| `settings` | [`Settings \| undefined`](../../doc/models/settings.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `settings` | [`Settings1 \| undefined`](../../doc/models/settings-1.md) | Optional | General Wi-Fi settings. |
 
 ## Example
 
@@ -32,21 +29,12 @@ const wifiProfiles: WifiProfiles = {
       defaultProfile: false,
       domainSuffix: 'domainSuffix2',
       eap: 'eap0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   settings: {
     band: 'band0',
     roaming: false,
     timeout: 124,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

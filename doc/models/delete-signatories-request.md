@@ -1,8 +1,6 @@
 
 # Delete Signatories Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeleteSignatoriesRequest`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string` | Required | The code of the account holder from which to delete the signatories. |
 | `signatoryCodes` | `string[]` | Required | Array of codes of the signatories to be deleted. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ const deleteSignatoriesRequest: DeleteSignatoriesRequest = {
   signatoryCodes: [
     'signatoryCodes3'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Create Test Card Ranges Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CreateTestCardRangesRequest`
@@ -14,15 +12,14 @@
 | `accountCode` | `string` | Required | The code of the account, for which the test card ranges should be created. |
 | `accountTypeCode` | `string` | Required | The type of the account, for which the test card ranges should be created.<br><br>Permitted values:<br><br>* Company<br>* MerchantAccount<br><br>> These values are case-sensitive. |
 | `testCardRanges` | [`TestCardRange[]`](../../doc/models/test-card-range.md) | Required | A list of test card ranges to create. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
   CreateTestCardRangesRequest,
-  ExpiryMonth,
-  ThreeDDirectoryServerResponse,
+  ExpiryMonthEnum,
+  ThreeDDirectoryServerResponseEnum,
 } from 'adyen';
 
 const createTestCardRangesRequest: CreateTestCardRangesRequest = {
@@ -31,29 +28,20 @@ const createTestCardRangesRequest: CreateTestCardRangesRequest = {
   testCardRanges: [
     {
       cardHolderName: 'cardHolderName0',
-      expiryMonth: ExpiryMonth.December,
+      expiryMonth: ExpiryMonthEnum.DECEMBER,
       expiryYear: 138,
       rangeEnd: 'rangeEnd6',
       rangeStart: 'rangeStart4',
       address: {
         streetAddress: 'streetAddress6',
         zip: 'zip0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       cvc: 'cvc0',
-      threeDDirectoryServerResponse: ThreeDDirectoryServerResponse.N,
+      threeDDirectoryServerResponse: ThreeDDirectoryServerResponseEnum.N,
       threeDPassword: 'threeDPassword2',
       threeDUsername: 'threeDUsername8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

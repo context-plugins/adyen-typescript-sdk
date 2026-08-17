@@ -8,11 +8,10 @@ import {
   array,
   bigint,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import { Agency, agencySchema } from './agency.js';
 import { Leg, legSchema } from './leg.js';
@@ -103,30 +102,25 @@ export interface Airline {
   passengers?: Passenger[];
   ticket?: Ticket;
   travelAgency?: TravelAgency;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const airlineSchema: Schema<Airline> = lazy(() =>
-  typedExpandoObject(
-    {
-      agency: ['agency', optional(agencySchema)],
-      boardingFee: ['boardingFee', optional(bigint())],
-      code: ['code', optional(string())],
-      computerizedReservationSystem: [
-        'computerizedReservationSystem',
-        optional(string()),
-      ],
-      customerReferenceNumber: ['customerReferenceNumber', optional(string())],
-      designatorCode: ['designatorCode', optional(string())],
-      documentType: ['documentType', optional(string())],
-      flightDate: ['flightDate', optional(string())],
-      legs: ['legs', optional(array(legSchema))],
-      passengerName: ['passengerName', string()],
-      passengers: ['passengers', optional(array(passengerSchema))],
-      ticket: ['ticket', optional(ticketSchema)],
-      travelAgency: ['travelAgency', optional(travelAgencySchema)],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    agency: ['agency', optional(agencySchema)],
+    boardingFee: ['boardingFee', optional(bigint())],
+    code: ['code', optional(string())],
+    computerizedReservationSystem: [
+      'computerizedReservationSystem',
+      optional(string()),
+    ],
+    customerReferenceNumber: ['customerReferenceNumber', optional(string())],
+    designatorCode: ['designatorCode', optional(string())],
+    documentType: ['documentType', optional(string())],
+    flightDate: ['flightDate', optional(string())],
+    legs: ['legs', optional(array(legSchema))],
+    passengerName: ['passengerName', string()],
+    passengers: ['passengers', optional(array(passengerSchema))],
+    ticket: ['ticket', optional(ticketSchema)],
+    travelAgency: ['travelAgency', optional(travelAgencySchema)],
+  })
 );

@@ -1,8 +1,6 @@
 
 # Alipay plus Response Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AlipayPlusResponseInfo`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `settlementCurrencyCode` | `string \| undefined` | Optional | The currency used for settlement. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -21,9 +18,6 @@ import { AlipayPlusResponseInfo } from 'adyen';
 
 const alipayPlusResponseInfo: AlipayPlusResponseInfo = {
   settlementCurrencyCode: 'settlementCurrencyCode4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

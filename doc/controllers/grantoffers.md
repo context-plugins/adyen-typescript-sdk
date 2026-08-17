@@ -12,6 +12,7 @@ const grantoffersApi = new GrantoffersApi(client);
 
 * [Get-Grant Offers](../../doc/controllers/grantoffers.md#get-grant-offers)
 * [Get-Grant Offers-Grant Offer Id](../../doc/controllers/grantoffers.md#get-grant-offers-grant-offer-id)
+* [Get-Grant Offers 1](../../doc/controllers/grantoffers.md#get-grant-offers-1)
 * [Get-Grant Offers-Id](../../doc/controllers/grantoffers.md#get-grant-offers-id)
 
 
@@ -161,6 +162,72 @@ try {
 | 500 | Internal Server Error - the server could not process the request. | [`RestServiceError`](../../doc/models/rest-service-error.md) |
 
 
+# Get-Grant Offers 1
+
+Returns a list of all [static offers](https://docs.adyen.com/capital/get-grant-offers/static-offers) available for `accountHolderId` specified as a query parameter. This also includes static offers created for financing amounts that the user selected from [dynamic offers](https://docs.adyen.com/capital/get-grant-offers/dynamic-offers/).
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```ts
+async getGrantOffers1(
+  accountHolderId: string,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<GrantOffers>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `accountHolderId` | `string` | Query, Required | The unique identifier of the account holder for which you want to get the available static offers.<br><br>**Constraints**: *Minimum Length*: `1` |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`GrantOffers`](../../doc/models/grant-offers.md).
+
+## Example Usage
+
+```ts
+const accountHolderId = 'accountHolderId8';
+
+try {
+  const response = await grantOffersApi.getGrantOffers1(accountHolderId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
+} catch (error) {
+  if (error instanceof ApiError) {
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
+    if (error instanceof DefaultErrorResponseEntityError) {
+      console.log(error.result);
+    }
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+
+
 # Get-Grant Offers-Id
 
 Returns the details of the specified static offer.
@@ -212,9 +279,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof GrantOffers404Error) {
-      console.log(error.result);
-    } else if (error instanceof GrantOffers422Error3Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -225,6 +290,6 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantOffers404Error`](../../doc/models/grant-offers-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantOffers422Error3Error`](../../doc/models/grant-offers-422-error-3-error.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

@@ -1,8 +1,6 @@
 
 # Business Lines
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BusinessLines`
@@ -12,28 +10,25 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `businessLines` | [`BusinessLine[]`](../../doc/models/business-line.md) | Required | List of business lines. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
   BusinessLines,
-  Capability,
-  Service,
-  Type3,
-  Type32,
-  Type59,
+  CapabilityEnum,
+  ServiceEnum,
+  Type311Enum,
+  Type512Enum,
 } from 'adyen';
 
 const businessLines: BusinessLines = {
   businessLines: [
     {
-      id: 'id0',
+      id: '',
       industryCode: 'industryCode2',
       legalEntityId: 'legalEntityId4',
-      service: Service.Issuing,
-      industryCodeDescription: 'industryCodeDescription4',
+      service: ServiceEnum.Issuing,
       problems: [
         {
           entity: {
@@ -48,20 +43,14 @@ const businessLines: BusinessLines = {
                 'documents4'
               ],
               id: 'id4',
-              type: Type3.LegalEntity,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              type: Type311Enum.LegalEntity,
             },
-            type: Type32.BankAccount,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            type: Type311Enum.BankAccount,
           },
           verificationErrors: [
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -69,132 +58,87 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -202,132 +146,87 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -335,133 +234,85 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             }
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           entity: {
@@ -476,20 +327,14 @@ const businessLines: BusinessLines = {
                 'documents4'
               ],
               id: 'id4',
-              type: Type3.LegalEntity,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              type: Type311Enum.LegalEntity,
             },
-            type: Type32.BankAccount,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            type: Type311Enum.BankAccount,
           },
           verificationErrors: [
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -497,132 +342,87 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -630,132 +430,87 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -763,133 +518,85 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             }
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           entity: {
@@ -904,20 +611,14 @@ const businessLines: BusinessLines = {
                 'documents4'
               ],
               id: 'id4',
-              type: Type3.LegalEntity,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              type: Type311Enum.LegalEntity,
             },
-            type: Type32.BankAccount,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            type: Type311Enum.BankAccount,
           },
           verificationErrors: [
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -925,132 +626,87 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -1058,132 +714,87 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
             {
               capabilities: [
-                Capability.UseCardInRestrictedIndustriesCommercial
+                CapabilityEnum.UseCardInRestrictedIndustriesCommercial
               ],
               code: 'code0',
               message: 'message8',
@@ -1191,133 +802,85 @@ const businessLines: BusinessLines = {
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   code: 'code4',
                   message: 'message6',
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
               subErrors: [
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 },
                 {
                   capabilities: [
-                    Capability.Processing,
-                    Capability.PayoutToTransferInstrument
+                    CapabilityEnum.Processing,
+                    CapabilityEnum.PayoutToTransferInstrument
                   ],
                   code: 'code2',
                   message: 'message4',
-                  type: Type59.DataReview,
+                  type: Type512Enum.DataReview,
                   remediatingActions: [
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     },
                     {
                       code: 'code4',
                       message: 'message6',
-                      additionalProperties: {
-                        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                      },
                     }
                   ],
-                  additionalProperties: {
-                    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-                  },
                 }
               ],
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             }
           ],
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
       salesChannels: [
@@ -1329,49 +892,25 @@ const businessLines: BusinessLines = {
         amount: {
           currency: 'currency2',
           value: BigInt(110),
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         assetMonthsHeld: 46,
         cryptocurrencyExchange: 'cryptocurrencyExchange2',
         dateOfFundsReceived: '2016-03-13T12:52:32.123Z',
         dateOfSourceEvent: '2016-03-13T12:52:32.123Z',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       webData: [
         {
           webAddress: 'webAddress4',
-          webAddressId: 'webAddressId8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           webAddress: 'webAddress4',
-          webAddressId: 'webAddressId8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         {
           webAddress: 'webAddress4',
-          webAddressId: 'webAddressId8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         }
       ],
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

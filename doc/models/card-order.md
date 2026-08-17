@@ -1,8 +1,6 @@
 
 # Card Order
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CardOrder`
@@ -18,8 +16,7 @@
 | `id` | `string \| undefined` | Optional | The unique identifier of the card order. |
 | `lockDate` | `string \| undefined` | Optional | The date when the card order processing begins. |
 | `serviceCenter` | `string \| undefined` | Optional | The service center. |
-| `status` | [`Status6 \| undefined`](../../doc/models/status-6.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | [`Status61Enum \| undefined`](../../doc/models/status-61-enum.md) | Optional | The status of the card order.<br><br>Possible values: **Open**, **Closed**. |
 
 ## Example
 
@@ -32,9 +29,6 @@ const cardOrder: CardOrder = {
   closedDate: '2016-03-13T12:52:32.123Z',
   endDate: '2016-03-13T12:52:32.123Z',
   id: 'id2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

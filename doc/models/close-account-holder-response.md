@@ -1,8 +1,6 @@
 
 # Close Account Holder Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CloseAccountHolderResponse`
@@ -11,28 +9,29 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountHolderStatus` | [`AccountHolderStatus \| undefined`](../../doc/models/account-holder-status.md) | Optional | - |
+| `accountHolderStatus` | [`AccountHolderStatus1 \| undefined`](../../doc/models/account-holder-status-1.md) | Optional | The new status of the Account Holder. |
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CloseAccountHolderResponse, Event, FieldName, Status1 } from 'adyen';
+import {
+  CloseAccountHolderResponse,
+  EventEnum,
+  FieldNameEnum,
+  Status12Enum,
+} from 'adyen';
 
 const closeAccountHolderResponse: CloseAccountHolderResponse = {
   accountHolderStatus: {
-    status: Status1.Inactive,
+    status: Status12Enum.Inactive,
     events: [
       {
-        event: Event.InactivateAccount,
+        event: EventEnum.InactivateAccount,
         executionDate: '2016-03-13T12:52:32.123Z',
         reason: 'reason6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     payoutState: {
@@ -43,12 +42,6 @@ const closeAccountHolderResponse: CloseAccountHolderResponse = {
       payoutLimit: {
         currency: 'currency8',
         value: BigInt(88),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     processingState: {
@@ -57,26 +50,14 @@ const closeAccountHolderResponse: CloseAccountHolderResponse = {
       processedFrom: {
         currency: 'currency4',
         value: BigInt(148),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       processedTo: {
         currency: 'currency2',
         value: BigInt(54),
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       tierNumber: 156,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     statusReason: 'statusReason8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   invalidFields: [
     {
@@ -84,14 +65,8 @@ const closeAccountHolderResponse: CloseAccountHolderResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -99,22 +74,13 @@ const closeAccountHolderResponse: CloseAccountHolderResponse = {
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
   pspReference: 'pspReference8',
   resultCode: 'resultCode8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

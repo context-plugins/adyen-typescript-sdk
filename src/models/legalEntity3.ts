@@ -8,11 +8,10 @@ import {
   array,
   dict,
   lazy,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 import {
   CapabilityProblem1,
@@ -22,8 +21,7 @@ import {
   DocumentReference,
   documentReferenceSchema,
 } from './documentReference.js';
-import { EntityReference, entityReferenceSchema } from './entityReference.js';
-import { Individual, individualSchema } from './individual.js';
+import { Individual1, individual1Schema } from './individual1.js';
 import {
   LegalEntityAssociation,
   legalEntityAssociationSchema,
@@ -32,21 +30,25 @@ import {
   LegalEntityCapability,
   legalEntityCapabilitySchema,
 } from './legalEntityCapability.js';
-import { Organization, organizationSchema } from './organization.js';
+import { Organization1, organization1Schema } from './organization1.js';
 import {
-  SoleProprietorship,
-  soleProprietorshipSchema,
-} from './soleProprietorship.js';
+  SoleProprietorship1,
+  soleProprietorship1Schema,
+} from './soleProprietorship1.js';
 import {
   TransferInstrumentReference,
   transferInstrumentReferenceSchema,
 } from './transferInstrumentReference.js';
-import { Trust, trustSchema } from './trust.js';
-import { Type182, type182Schema } from './type182.js';
+import { Trust1, trust1Schema } from './trust1.js';
+import { Type182Enum, type182EnumSchema } from './type182Enum.js';
 import {
-  UnincorporatedPartnership,
-  unincorporatedPartnershipSchema,
-} from './unincorporatedPartnership.js';
+  UnincorporatedPartnership1,
+  unincorporatedPartnership1Schema,
+} from './unincorporatedPartnership1.js';
+import {
+  UploadAndroidAppResponse,
+  uploadAndroidAppResponseSchema,
+} from './uploadAndroidAppResponse.js';
 import {
   VerificationDeadline,
   verificationDeadlineSchema,
@@ -58,7 +60,7 @@ export interface LegalEntity3 {
   /** List of documents uploaded for the legal entity. */
   documentDetails?: DocumentReference[];
   /** List of documents uploaded for the legal entity. */
-  documents?: EntityReference[];
+  documents?: UploadAndroidAppResponse[];
   /**
    * List of legal entities associated with the current legal entity.
    * For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
@@ -66,67 +68,68 @@ export interface LegalEntity3 {
   entityAssociations?: LegalEntityAssociation[];
   /** The unique identifier of the legal entity. */
   id: string;
-  individual?: Individual;
-  organization?: Organization;
+  /** Information about the individual. Required if `type` is **individual**. */
+  individual?: Individual1;
+  /** Information about the organization. Required if `type` is **organization**. */
+  organization?: Organization1;
   /** List of verification errors related to capabilities for the legal entity. */
   problems?: CapabilityProblem1[];
   /** Your reference for the legal entity, maximum 150 characters. */
   reference?: string;
-  soleProprietorship?: SoleProprietorship;
+  /** Information about the sole proprietorship. Required if `type` is **soleProprietorship**. */
+  soleProprietorship?: SoleProprietorship1;
   /** List of transfer instruments that the legal entity owns. */
   transferInstruments?: TransferInstrumentReference[];
-  trust?: Trust;
-  type?: Type182;
-  unincorporatedPartnership?: UnincorporatedPartnership;
+  /** Information about the trust. Required if `type` is **trust**. */
+  trust?: Trust1;
+  /**
+   * The type of legal entity.
+   * Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
+   */
+  type?: Type182Enum;
+  /** Information about the unincorporated partnership. Required if `type` is **unincorporatedPartnership**. */
+  unincorporatedPartnership?: UnincorporatedPartnership1;
   /** List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved. */
   verificationDeadlines?: VerificationDeadline[];
   /** A key-value pair that specifies the verification process for a legal entity. Set to **upfront** for upfront verification for [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification). */
   verificationPlan?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const legalEntity3Schema: Schema<LegalEntity3> = lazy(() =>
-  typedExpandoObject(
-    {
-      capabilities: [
-        'capabilities',
-        optional(dict(legalEntityCapabilitySchema)),
-      ],
-      documentDetails: [
-        'documentDetails',
-        optional(array(documentReferenceSchema)),
-      ],
-      documents: ['documents', optional(array(entityReferenceSchema))],
-      entityAssociations: [
-        'entityAssociations',
-        optional(array(legalEntityAssociationSchema)),
-      ],
-      id: ['id', string()],
-      individual: ['individual', optional(individualSchema)],
-      organization: ['organization', optional(organizationSchema)],
-      problems: ['problems', optional(array(capabilityProblem1Schema))],
-      reference: ['reference', optional(string())],
-      soleProprietorship: [
-        'soleProprietorship',
-        optional(soleProprietorshipSchema),
-      ],
-      transferInstruments: [
-        'transferInstruments',
-        optional(array(transferInstrumentReferenceSchema)),
-      ],
-      trust: ['trust', optional(trustSchema)],
-      type: ['type', optional(type182Schema)],
-      unincorporatedPartnership: [
-        'unincorporatedPartnership',
-        optional(unincorporatedPartnershipSchema),
-      ],
-      verificationDeadlines: [
-        'verificationDeadlines',
-        optional(array(verificationDeadlineSchema)),
-      ],
-      verificationPlan: ['verificationPlan', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    capabilities: ['capabilities', optional(dict(legalEntityCapabilitySchema))],
+    documentDetails: [
+      'documentDetails',
+      optional(array(documentReferenceSchema)),
+    ],
+    documents: ['documents', optional(array(uploadAndroidAppResponseSchema))],
+    entityAssociations: [
+      'entityAssociations',
+      optional(array(legalEntityAssociationSchema)),
+    ],
+    id: ['id', string()],
+    individual: ['individual', optional(individual1Schema)],
+    organization: ['organization', optional(organization1Schema)],
+    problems: ['problems', optional(array(capabilityProblem1Schema))],
+    reference: ['reference', optional(string())],
+    soleProprietorship: [
+      'soleProprietorship',
+      optional(soleProprietorship1Schema),
+    ],
+    transferInstruments: [
+      'transferInstruments',
+      optional(array(transferInstrumentReferenceSchema)),
+    ],
+    trust: ['trust', optional(trust1Schema)],
+    type: ['type', optional(type182EnumSchema)],
+    unincorporatedPartnership: [
+      'unincorporatedPartnership',
+      optional(unincorporatedPartnership1Schema),
+    ],
+    verificationDeadlines: [
+      'verificationDeadlines',
+      optional(array(verificationDeadlineSchema)),
+    ],
+    verificationPlan: ['verificationPlan', optional(string())],
+  })
 );

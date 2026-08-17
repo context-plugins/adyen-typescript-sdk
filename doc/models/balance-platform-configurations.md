@@ -1,8 +1,6 @@
 
 # Balance Platform Configurations
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BalancePlatformConfigurations`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `balancePlatformPayoutSchedules` | [`BalancePlatformConfiguration[]`](../../doc/models/balance-platform-configuration.md) | Required | Contains a list of the payout schedules configured in your balance platform. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const balancePlatformConfigurations: BalancePlatformConfigurations = {
         minute: 138,
         nano: 162,
         second: 200,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       userSettlementTimeZone: 'userSettlementTimeZone4',
       automaticApplication: false,
@@ -41,14 +35,8 @@ const balancePlatformConfigurations: BalancePlatformConfigurations = {
       currency: 'currency2',
       defaultDescription: 'defaultDescription6',
       defaultFrequency: 'defaultFrequency6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -9,23 +9,23 @@
 
 | Type |
 |  --- |
-| [`AuLocalAccountIdentification`](../../../doc/models/au-local-account-identification.md) |
-| [`CaLocalAccountIdentification`](../../../doc/models/ca-local-account-identification.md) |
-| [`CzLocalAccountIdentification`](../../../doc/models/cz-local-account-identification.md) |
-| [`DkLocalAccountIdentification`](../../../doc/models/dk-local-account-identification.md) |
-| [`HkLocalAccountIdentification`](../../../doc/models/hk-local-account-identification.md) |
-| [`HuLocalAccountIdentification`](../../../doc/models/hu-local-account-identification.md) |
-| [`IbanAccountIdentification1`](../../../doc/models/iban-account-identification-1.md) |
-| [`NoLocalAccountIdentification`](../../../doc/models/no-local-account-identification.md) |
-| [`NzLocalAccountIdentification`](../../../doc/models/nz-local-account-identification.md) |
+| [`AULocalAccountIdentification`](../../../doc/models/au-local-account-identification.md) |
+| [`CALocalAccountIdentification`](../../../doc/models/ca-local-account-identification.md) |
+| [`CZLocalAccountIdentification`](../../../doc/models/cz-local-account-identification.md) |
+| [`DKLocalAccountIdentification`](../../../doc/models/dk-local-account-identification.md) |
+| [`HKLocalAccountIdentification`](../../../doc/models/hk-local-account-identification.md) |
+| [`HULocalAccountIdentification`](../../../doc/models/hu-local-account-identification.md) |
+| [`IbanAccountIdentification`](../../../doc/models/iban-account-identification.md) |
+| [`NOLocalAccountIdentification`](../../../doc/models/no-local-account-identification.md) |
+| [`NZLocalAccountIdentification`](../../../doc/models/nz-local-account-identification.md) |
 | [`NumberAndBicAccountIdentification`](../../../doc/models/number-and-bic-account-identification.md) |
-| [`PlLocalAccountIdentification`](../../../doc/models/pl-local-account-identification.md) |
-| [`SeLocalAccountIdentification`](../../../doc/models/se-local-account-identification.md) |
-| [`SgLocalAccountIdentification`](../../../doc/models/sg-local-account-identification.md) |
-| [`UkLocalAccountIdentification`](../../../doc/models/uk-local-account-identification.md) |
-| [`UsLocalAccountIdentification`](../../../doc/models/us-local-account-identification.md) |
+| [`PLLocalAccountIdentification`](../../../doc/models/pl-local-account-identification.md) |
+| [`SELocalAccountIdentification`](../../../doc/models/se-local-account-identification.md) |
+| [`SGLocalAccountIdentification`](../../../doc/models/sg-local-account-identification.md) |
+| [`UKLocalAccountIdentification`](../../../doc/models/uk-local-account-identification.md) |
+| [`USLocalAccountIdentification`](../../../doc/models/us-local-account-identification.md) |
 
-## AuLocalAccountIdentification
+## AULocalAccountIdentification
 
 ### Initialization Code
 
@@ -35,11 +35,11 @@
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber4',
   bsbCode: 'bsbCode8',
-  type: Type413.AuLocal,
+  type: 'auLocal',
 };
 ```
 
-## CaLocalAccountIdentification
+## CALocalAccountIdentification
 
 ### Initialization Code
 
@@ -50,11 +50,12 @@ const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber8',
   institutionNumber: 'institutionNumber2',
   transitNumber: 'transitNumber8',
-  type: Type153.CaLocal,
+  type: 'caLocal',
+  accountType: AccountType2Enum.Checking,
 };
 ```
 
-## CzLocalAccountIdentification
+## CZLocalAccountIdentification
 
 ### Initialization Code
 
@@ -64,11 +65,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber4',
   bankCode: 'bankCode8',
-  type: Type163.CzLocal,
+  type: 'czLocal',
 };
 ```
 
-## DkLocalAccountIdentification
+## DKLocalAccountIdentification
 
 ### Initialization Code
 
@@ -78,11 +79,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber6',
   bankCode: 'bankCode6',
-  type: Type173.DkLocal,
+  type: 'dkLocal',
 };
 ```
 
-## HkLocalAccountIdentification
+## HKLocalAccountIdentification
 
 ### Initialization Code
 
@@ -92,11 +93,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber8',
   clearingCode: 'clearingCode2',
-  type: Type1810.HkLocal,
+  type: 'hkLocal',
 };
 ```
 
-## HuLocalAccountIdentification
+## HULocalAccountIdentification
 
 ### Initialization Code
 
@@ -105,11 +106,11 @@ const value: BankAccountInfo1AccountIdentification = {
 ```ts
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber8',
-  type: Type193.HuLocal,
+  type: 'huLocal',
 };
 ```
 
-## IbanAccountIdentification1
+## IbanAccountIdentification
 
 ### Initialization Code
 
@@ -117,25 +118,12 @@ const value: BankAccountInfo1AccountIdentification = {
 
 ```ts
 const value: BankAccountInfo1AccountIdentification = {
-  iban: 'iban4',
-  type: Type203.Iban,
+  iban: 'iban6',
+  type: 'iban',
 };
 ```
 
-## NoLocalAccountIdentification
-
-### Initialization Code
-
-#### Example
-
-```ts
-const value: BankAccountInfo1AccountIdentification = {
-  accountNumber: 'accountNumber6',
-  type: Type223.NoLocal,
-};
-```
-
-## NzLocalAccountIdentification
+## NOLocalAccountIdentification
 
 ### Initialization Code
 
@@ -144,7 +132,20 @@ const value: BankAccountInfo1AccountIdentification = {
 ```ts
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber6',
-  type: Type233.NzLocal,
+  type: 'noLocal',
+};
+```
+
+## NZLocalAccountIdentification
+
+### Initialization Code
+
+#### Example
+
+```ts
+const value: BankAccountInfo1AccountIdentification = {
+  accountNumber: 'accountNumber6',
+  type: 'nzLocal',
 };
 ```
 
@@ -158,11 +159,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber0',
   bic: 'bic4',
-  type: Type244.NumberAndBic,
+  type: 'numberAndBic',
 };
 ```
 
-## PlLocalAccountIdentification
+## PLLocalAccountIdentification
 
 ### Initialization Code
 
@@ -171,11 +172,11 @@ const value: BankAccountInfo1AccountIdentification = {
 ```ts
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber4',
-  type: Type256.PlLocal,
+  type: 'plLocal',
 };
 ```
 
-## SeLocalAccountIdentification
+## SELocalAccountIdentification
 
 ### Initialization Code
 
@@ -185,11 +186,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber0',
   clearingNumber: 'clearingNumber2',
-  type: Type264.SeLocal,
+  type: 'seLocal',
 };
 ```
 
-## SgLocalAccountIdentification
+## SGLocalAccountIdentification
 
 ### Initialization Code
 
@@ -199,10 +200,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber2',
   bic: 'bic2',
+  type: Type82Enum.SgLocal,
 };
 ```
 
-## UkLocalAccountIdentification
+## UKLocalAccountIdentification
 
 ### Initialization Code
 
@@ -212,11 +214,11 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber8',
   sortCode: 'sortCode8',
-  type: Type273.UkLocal,
+  type: 'ukLocal',
 };
 ```
 
-## UsLocalAccountIdentification
+## USLocalAccountIdentification
 
 ### Initialization Code
 
@@ -226,7 +228,8 @@ const value: BankAccountInfo1AccountIdentification = {
 const value: BankAccountInfo1AccountIdentification = {
   accountNumber: 'accountNumber2',
   routingNumber: 'routingNumber2',
-  type: Type283.UsLocal,
+  type: 'usLocal',
+  accountType: AccountType2Enum.Checking,
 };
 ```
 

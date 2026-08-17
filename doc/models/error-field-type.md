@@ -1,8 +1,6 @@
 
 # Error Field Type
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ErrorFieldType`
@@ -13,27 +11,20 @@
 |  --- | --- | --- | --- |
 | `errorCode` | `number \| undefined` | Optional | The validation error code. |
 | `errorDescription` | `string \| undefined` | Optional | A description of the validation error. |
-| `fieldType` | [`FieldType2 \| undefined`](../../doc/models/field-type-2.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `fieldType` | [`FieldType \| undefined`](../../doc/models/field-type.md) | Optional | The type of error field. |
 
 ## Example
 
 ```ts
-import { ErrorFieldType, FieldName } from 'adyen';
+import { ErrorFieldType, FieldNameEnum } from 'adyen';
 
 const errorFieldType: ErrorFieldType = {
   errorCode: 124,
   errorDescription: 'errorDescription2',
   fieldType: {
     field: 'field6',
-    fieldName: FieldName.DrivingLicenceFront,
+    fieldName: FieldNameEnum.DrivingLicenceFront,
     shareholderCode: 'shareholderCode0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

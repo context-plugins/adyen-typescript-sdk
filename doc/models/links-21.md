@@ -1,9 +1,7 @@
 
 # Links 21
 
-References to resources linked to the allowed origin.
-
-*This model accepts additional fields of type unknown.*
+Contains links to the next and previous page whenever applicable.
 
 ## Structure
 
@@ -13,8 +11,8 @@ References to resources linked to the allowed origin.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `self` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `next` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | Contains a link to the next page. |
+| `prev` | [`LinksElement \| undefined`](../../doc/models/links-element.md) | Optional | Contains a link to the previous page. |
 
 ## Example
 
@@ -22,14 +20,11 @@ References to resources linked to the allowed origin.
 import { Links21 } from 'adyen';
 
 const links21: Links21 = {
-  self: {
-    href: 'href0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+  next: {
+    href: 'href4',
   },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+  prev: {
+    href: 'href8',
   },
 };
 ```

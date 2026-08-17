@@ -1,8 +1,6 @@
 
 # Additional Data Risk
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataRisk`
@@ -17,7 +15,7 @@
 | `riskdataBasketItemItemNrCategory` | `string \| undefined` | Optional | Category of the item. |
 | `riskdataBasketItemItemNrColor` | `string \| undefined` | Optional | Color of the item. |
 | `riskdataBasketItemItemNrCurrency` | `string \| undefined` | Optional | The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217). |
-| `riskdataBasketItemItemNrItemId` | `string \| undefined` | Optional | ID of the item. |
+| `riskdataBasketItemItemNrItemID` | `string \| undefined` | Optional | ID of the item. |
 | `riskdataBasketItemItemNrManufacturer` | `string \| undefined` | Optional | Manufacturer of the item. |
 | `riskdataBasketItemItemNrProductTitle` | `string \| undefined` | Optional | A text description of the product the invoice line refers to. |
 | `riskdataBasketItemItemNrQuantity` | `string \| undefined` | Optional | Quantity of the item purchased. |
@@ -32,7 +30,6 @@
 | `riskdataPromotionsPromotionItemNrPromotionName` | `string \| undefined` | Optional | Name of the promotion. |
 | `riskdataRiskProfileReference` | `string \| undefined` | Optional | Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment). |
 | `riskdataSkipRisk` | `string \| undefined` | Optional | If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -45,9 +42,6 @@ const additionalDataRisk: AdditionalDataRisk = {
   riskdataBasketItemItemNrBrand: Liquid error: Value cannot be null. (Parameter 'key'),
   riskdataBasketItemItemNrCategory: Liquid error: Value cannot be null. (Parameter 'key'),
   riskdataBasketItemItemNrColor: Liquid error: Value cannot be null. (Parameter 'key'),
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

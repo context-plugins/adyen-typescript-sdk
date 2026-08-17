@@ -143,7 +143,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const merchantId = 'merchantId6';
 
 const body: PaymentMethodSetupInfo = {
-  type: Type510.Visa,
+  type: Type59Enum.Visa,
   countries: [
     'US'
   ],

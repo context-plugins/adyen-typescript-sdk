@@ -1,8 +1,6 @@
 
 # Paginated Payment Instruments Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaginatedPaymentInstrumentsResponse`
@@ -13,19 +11,17 @@
 |  --- | --- | --- | --- |
 | `hasNext` | `boolean` | Required | Indicates whether there are more items on the next page. |
 | `hasPrevious` | `boolean` | Required | Indicates whether there are more items on the previous page. |
-| `paymentInstruments` | [`PaymentInstrument[]`](../../doc/models/payment-instrument.md) | Required | List of payment instruments associated with the balance account. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `paymentInstruments` | [`PaymentInstrument1[]`](../../doc/models/payment-instrument-1.md) | Required | List of payment instruments associated with the balance account. |
 
 ## Example
 
 ```ts
 import {
-  FormFactor1,
+  FormFactor1Enum,
   PaginatedPaymentInstrumentsResponse,
-  PhoneType,
-  Type11,
-  Type203,
-  Type4,
+  PhoneTypeEnum,
+  Type111Enum,
+  Type410Enum,
 } from 'adyen';
 
 const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse = {
@@ -36,23 +32,17 @@ const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse =
       balanceAccountId: 'balanceAccountId0',
       id: 'id8',
       issuingCountryCode: 'issuingCountryCode0',
-      type: Type11.BankAccount,
+      type: Type111Enum.BankAccount,
       additionalBankAccountIdentifications: [
         {
-          iban: 'iban8',
-          type: Type203.Iban,
-          bic: 'bic6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          iban: 'iban6',
+          type: 'type8',
+          bic: 'bic4',
         },
         {
-          iban: 'iban8',
-          type: Type203.Iban,
-          bic: 'bic6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          iban: 'iban6',
+          type: 'type8',
+          bic: 'bic4',
         }
       ],
       bankAccount: {
@@ -62,27 +52,18 @@ const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse =
         branchNumber: 'branchNumber8',
         formFactor: 'formFactor2',
         iban: 'iban2',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       card: {
         brand: 'brand0',
         brandVariant: 'brandVariant8',
         cardholderName: 'cardholderName8',
-        formFactor: FormFactor1.Physical,
+        formFactor: FormFactor1Enum.Physical,
         authentication: {
           email: 'email8',
           password: 'password2',
           phone: {
             number: 'number8',
-            type: Type4.Landline,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+            type: Type410Enum.Landline,
           },
         },
         bin: 'bin6',
@@ -97,15 +78,9 @@ const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse =
             email: 'email0',
             houseNumberOrName: 'houseNumberOrName4',
             line1: 'line18',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           cardImageId: 'cardImageId0',
           carrier: 'carrier8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         cvc: 'cvc0',
         deliveryContact: {
@@ -116,16 +91,10 @@ const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse =
             line2: 'line20',
             line3: 'line38',
             postalCode: 'postalCode8',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           name: {
             firstName: 'firstName4',
             lastName: 'lastName4',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           company: 'company4',
           email: 'email0',
@@ -133,30 +102,15 @@ const paginatedPaymentInstrumentsResponse: PaginatedPaymentInstrumentsResponse =
           phoneNumber: {
             phoneCountryCode: 'phoneCountryCode8',
             phoneNumber: 'phoneNumber0',
-            phoneType: PhoneType.Fax,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            phoneType: PhoneTypeEnum.Fax,
           },
           webAddress: 'webAddress4',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       description: 'description2',
       paymentInstrumentGroupId: 'paymentInstrumentGroupId2',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

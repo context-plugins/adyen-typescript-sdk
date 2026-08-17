@@ -1,8 +1,6 @@
 
 # Payment Cancel Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentCancelResponse`
@@ -15,23 +13,19 @@
 | `paymentPspReference` | `string` | Required | The [`pspReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference) of the payment to cancel. |
 | `pspReference` | `string` | Required | Adyen's 16-character reference associated with the cancel request. |
 | `reference` | `string \| undefined` | Optional | Your reference for the cancel request. |
-| `status` | [`Status20`](../../doc/models/status-20.md) | Required | The status of your request. This will always have the value **received**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `status` | `string` | Required, Constant | The status of your request. This will always have the value **received**.<br><br>**Value**: `'received'` |
 
 ## Example
 
 ```ts
-import { PaymentCancelResponse, Status20 } from 'adyen';
+import { PaymentCancelResponse } from 'adyen';
 
 const paymentCancelResponse: PaymentCancelResponse = {
   merchantAccount: 'merchantAccount4',
   paymentPspReference: 'paymentPspReference8',
   pspReference: 'pspReference4',
-  status: Status20.Received,
+  status: 'received',
   reference: 'reference0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

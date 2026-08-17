@@ -1,8 +1,6 @@
 
 # Amounts Resp
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AmountsResp`
@@ -17,7 +15,6 @@
 | `totalFeesAmount` | `number \| undefined` | Optional | Total amount of financial fees.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `cashBackAmount` | `number \| undefined` | Optional | The cash-back part of the amount requested by the Sale for the payment.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `tipAmount` | `number \| undefined` | Optional | Amount paid for a tip. Allow the printing of the tip on the receipt, and to qualify the tip part of the amount.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const amountsResp: AmountsResp = {
   totalFeesAmount: 147.46,
   cashBackAmount: 240.2,
   tipAmount: 53.34,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

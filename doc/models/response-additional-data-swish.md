@@ -1,8 +1,6 @@
 
 # Response Additional Data Swish
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ResponseAdditionalDataSwish`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `swishPayerAlias` | `string \| undefined` | Optional | A Swish shopper's telephone number. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -21,9 +18,6 @@ import { ResponseAdditionalDataSwish } from 'adyen';
 
 const responseAdditionalDataSwish: ResponseAdditionalDataSwish = {
   swishPayerAlias: 'swish.payerAlias8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

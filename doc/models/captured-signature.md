@@ -1,8 +1,6 @@
 
 # Captured Signature
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `CapturedSignature`
@@ -11,9 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `areaSize` | [`AreaSize \| undefined`](../../doc/models/area-size.md) | Optional | - |
+| `areaSize` | [`AreaSize1 \| undefined`](../../doc/models/area-size-1.md) | Optional | Size of an area. Contain the size of the pad area where the signature is written, given with the maximum abscissa and ordinate values (X and Y). The maximum value is FFFF. |
 | `signaturePoint` | [`Point[] \| undefined`](../../doc/models/point.md) | Optional | Coordinates of a point where the pen changes direction or lift. Contain the Coordinates of a point of the written signature where the pen changes direction or lift where (X and Y). When the signer lifts the pen, both X and Y have the value FFFF. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -24,36 +21,21 @@ const capturedSignature: CapturedSignature = {
   areaSize: {
     x: 'X4',
     y: 'Y8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   signaturePoint: [
     {
       x: 'X0',
       y: 'Y6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       x: 'X0',
       y: 'Y6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       x: 'X0',
       y: 'Y6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

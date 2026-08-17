@@ -1,8 +1,6 @@
 
 # Connectivity
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Connectivity`
@@ -11,27 +9,23 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `simcardStatus` | [`SimcardStatus \| undefined`](../../doc/models/simcard-status.md) | Optional | - |
-| `terminalIpAddressUrl` | [`EventUrl \| undefined`](../../doc/models/event-url.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `simcardStatus` | [`SimcardStatusEnum \| undefined`](../../doc/models/simcard-status-enum.md) | Optional | Indicates the status of the SIM card in the payment terminal. Can be updated and received only at terminal level, and only for models that support cellular connectivity.<br><br>Possible values:<br><br>* **ACTIVATED**: the SIM card is activated. Cellular connectivity may still need to be enabled on the terminal itself, in the **Network** settings.<br>* **INVENTORY**: the SIM card is not activated. The terminal can't use cellular connectivity. |
+| `terminalIPAddressURL` | [`EventUrl3 \| undefined`](../../doc/models/event-url-3.md) | Optional | The list of local and public URLs to send notifications to when using local integrations. |
 
 ## Example
 
 ```ts
-import { Connectivity, SimcardStatus } from 'adyen';
+import { Connectivity, SimcardStatusEnum } from 'adyen';
 
 const connectivity: Connectivity = {
-  simcardStatus: SimcardStatus.Activated,
-  terminalIpAddressUrl: {
+  simcardStatus: SimcardStatusEnum.ACTIVATED,
+  terminalIPAddressURL: {
     eventLocalUrls: [
       {
         encrypted: false,
         password: 'password4',
         url: 'url4',
         username: 'username0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
     eventPublicUrls: [
@@ -40,26 +34,14 @@ const connectivity: Connectivity = {
         password: 'password8',
         url: 'url8',
         username: 'username4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
         encrypted: false,
         password: 'password8',
         url: 'url8',
         username: 'username4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

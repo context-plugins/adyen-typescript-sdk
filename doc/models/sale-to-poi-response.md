@@ -1,204 +1,156 @@
 
-# Sale to Poi Response
+# Sale to POI Response
 
 The SaleToPOIResponse message pair is a container for the response message content. It contains a MessageHeader and a message body.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
-`SaleToPoiResponse`
+`SaleToPOIResponse`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `messageHeader` | [`MessageHeader1`](../../doc/models/message-header-1.md) | Required | - |
-| `balanceInquiryResponse` | [`BalanceInquiryResponse3 \| undefined`](../../doc/models/balance-inquiry-response-3.md) | Optional | - |
-| `cardAcquisitionResponse` | [`CardAcquisitionResponse1 \| undefined`](../../doc/models/card-acquisition-response-1.md) | Optional | - |
-| `adminResponse` | [`AdminResponse3 \| undefined`](../../doc/models/admin-response-3.md) | Optional | - |
-| `diagnosisResponse` | [`DiagnosisResponse3 \| undefined`](../../doc/models/diagnosis-response-3.md) | Optional | - |
-| `displayResponse` | [`DisplayResponse3 \| undefined`](../../doc/models/display-response-3.md) | Optional | - |
-| `enableServiceResponse` | [`EnableServiceResponse3 \| undefined`](../../doc/models/enable-service-response-3.md) | Optional | - |
-| `getTotalsResponse` | [`GetTotalsResponse3 \| undefined`](../../doc/models/get-totals-response-3.md) | Optional | - |
-| `inputResponse` | [`InputResponse3 \| undefined`](../../doc/models/input-response-3.md) | Optional | - |
-| `loginResponse` | [`LoginResponse3 \| undefined`](../../doc/models/login-response-3.md) | Optional | - |
-| `logoutResponse` | [`LogoutResponse3 \| undefined`](../../doc/models/logout-response-3.md) | Optional | - |
-| `loyaltyResponse` | [`LoyaltyResponse1 \| undefined`](../../doc/models/loyalty-response-1.md) | Optional | - |
-| `paymentResponse` | [`PaymentResponse5 \| undefined`](../../doc/models/payment-response-5.md) | Optional | - |
-| `printResponse` | [`PrintResponse3 \| undefined`](../../doc/models/print-response-3.md) | Optional | - |
-| `cardReaderApduResponse` | [`CardReaderApduResponse1 \| undefined`](../../doc/models/card-reader-apdu-response-1.md) | Optional | - |
-| `reconciliationResponse` | [`ReconciliationResponse3 \| undefined`](../../doc/models/reconciliation-response-3.md) | Optional | - |
-| `reversalResponse` | [`ReversalResponse1 \| undefined`](../../doc/models/reversal-response-1.md) | Optional | - |
-| `storedValueResponse` | [`StoredValueResponse1 \| undefined`](../../doc/models/stored-value-response-1.md) | Optional | - |
-| `transactionStatusResponse` | [`TransactionStatusResponse3 \| undefined`](../../doc/models/transaction-status-response-3.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `messageHeader` | [`MessageHeader`](../../doc/models/message-header.md) | Required | Message header of the Sale to POI protocol message.<br>It conveys Information related to the Sale to POI protocol management. |
+| `balanceInquiryResponse` | [`BalanceInquiryResponse2 \| undefined`](../../doc/models/balance-inquiry-response-2.md) | Optional | Content of the Balance Inquiry Response message. |
+| `cardAcquisitionResponse` | [`CardAcquisitionResponse2 \| undefined`](../../doc/models/card-acquisition-response-2.md) | Optional | Content of the Card Acquisition Response message. |
+| `adminResponse` | [`AdminResponse2 \| undefined`](../../doc/models/admin-response-2.md) | Optional | Content of the Admin Response message. |
+| `diagnosisResponse` | [`DiagnosisResponse2 \| undefined`](../../doc/models/diagnosis-response-2.md) | Optional | Content of the Diagnosis Response message. |
+| `displayResponse` | [`DisplayResponse2 \| undefined`](../../doc/models/display-response-2.md) | Optional | Content of the Display Response message. |
+| `enableServiceResponse` | [`EnableServiceResponse2 \| undefined`](../../doc/models/enable-service-response-2.md) | Optional | Content of the Enable Service Response message. |
+| `getTotalsResponse` | [`GetTotalsResponse2 \| undefined`](../../doc/models/get-totals-response-2.md) | Optional | Content of the Get Totals Response message. |
+| `inputResponse` | [`InputResponse2 \| undefined`](../../doc/models/input-response-2.md) | Optional | Content of the Input Response message. |
+| `loginResponse` | [`LoginResponse2 \| undefined`](../../doc/models/login-response-2.md) | Optional | Content of the Login Response message. |
+| `logoutResponse` | [`LogoutResponse2 \| undefined`](../../doc/models/logout-response-2.md) | Optional | Content of the Logout Response message. |
+| `loyaltyResponse` | [`LoyaltyResponse2 \| undefined`](../../doc/models/loyalty-response-2.md) | Optional | Content of the Loyalty Response message. |
+| `paymentResponse` | [`PaymentResponse21 \| undefined`](../../doc/models/payment-response-21.md) | Optional | Content of the Payment Response message. |
+| `printResponse` | [`PrintResponse2 \| undefined`](../../doc/models/print-response-2.md) | Optional | Content of the Print Response message. |
+| `cardReaderAPDUResponse` | [`CardReaderAPDUResponse2 \| undefined`](../../doc/models/card-reader-apdu-response-2.md) | Optional | Content of the Card Reader APDU Response message. |
+| `reconciliationResponse` | [`ReconciliationResponse2 \| undefined`](../../doc/models/reconciliation-response-2.md) | Optional | Content of the Reconciliation Response message. |
+| `reversalResponse` | [`ReversalResponse2 \| undefined`](../../doc/models/reversal-response-2.md) | Optional | Content of the Reversal Response message. |
+| `storedValueResponse` | [`StoredValueResponse2 \| undefined`](../../doc/models/stored-value-response-2.md) | Optional | Content of the Stored Value Response message. |
+| `transactionStatusResponse` | [`TransactionStatusResponse2 \| undefined`](../../doc/models/transaction-status-response-2.md) | Optional | Content of the TransactionStatus Response message. |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
-  Device3,
-  DocumentQualifier1,
-  EntryMode,
-  ErrorCondition1,
-  GlobalStatus1,
-  IdentificationSupport1,
-  IdentificationType11,
-  InfoQualify3,
-  MessageCategory1,
-  MessageClass1,
-  MessageType1,
-  OutputFormat1,
-  PaymentInstrumentType11,
-  PrinterStatus1,
-  Result11,
-  SaleToPoiResponse,
-  StoredValueAccountType1,
-  TrackFormat1,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
+  Device3Enum,
+  DocumentQualifier1Enum,
+  EntryModeEnum,
+  ErrorCondition1Enum,
+  GlobalStatus1Enum,
+  IdentificationSupport1Enum,
+  IdentificationType11Enum,
+  InfoQualify3Enum,
+  MessageCategory1Enum,
+  MessageClass1Enum,
+  MessageType1Enum,
+  OutputFormat1Enum,
+  PaymentInstrumentType11Enum,
+  PrinterStatus1Enum,
+  Result11Enum,
+  SaleToPOIResponse,
+  StoredValueAccountType1Enum,
+  TrackFormat1Enum,
 } from 'adyen';
 
-const saleToPoiResponse: SaleToPoiResponse = {
+const saleToPOIResponse: SaleToPOIResponse = {
   messageHeader: {
-    messageClass: MessageClass1.Service,
-    messageCategory: MessageCategory1.StoredValue,
-    messageType: MessageType1.Notification,
-    saleId: 'SaleID4',
-    poiid: 'POIID0',
+    messageClass: MessageClass1Enum.Service,
+    messageCategory: MessageCategory1Enum.StoredValue,
+    messageType: MessageType1Enum.Notification,
+    saleID: 'SaleID4',
+    pOIID: 'POIID0',
     protocolVersion: 'ProtocolVersion2',
-    serviceId: 'ServiceID2',
-    deviceId: 'DeviceID4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    serviceID: 'ServiceID2',
+    deviceID: 'DeviceID4',
   },
   balanceInquiryResponse: {
     response: {
-      result: Result11.Partial,
-      errorCondition: ErrorCondition1.PaymentRestriction,
+      result: Result11Enum.Partial,
+      errorCondition: ErrorCondition1Enum.PaymentRestriction,
       additionalResponse: 'AdditionalResponse8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     paymentAccountStatus: {
       paymentInstrumentData: {
-        paymentInstrumentType: PaymentInstrumentType11.Cash,
+        paymentInstrumentType: PaymentInstrumentType11Enum.Cash,
         protectedCardData: 'ProtectedCardData8',
         cardData: {
           paymentBrand: 'PaymentBrand0',
           maskedPan: 'MaskedPan0',
           paymentAccountRef: 'PaymentAccountRef8',
           entryMode: [
-            EntryMode.Manual,
-            EntryMode.Keyed
+            EntryModeEnum.Manual,
+            EntryModeEnum.Keyed
           ],
           cardCountryCode: 3,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         checkData: {
-          bankId: 'BankID0',
+          bankID: 'BankID0',
           accountNumber: 'AccountNumber6',
           checkNumber: 'CheckNumber2',
           trackData: {
             trackValue: 'TrackValue6',
             trackNumb: 3,
-            trackFormat: TrackFormat1.Jisii,
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
+            trackFormat: TrackFormat1Enum.JISII,
           },
           checkCardNumber: 'CheckCardNumber6',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         mobileData: {
           mobileCountryCode: 3,
           mobileNetworkCode: 3,
-          maskedMsisdn: 22,
+          maskedMSISDN: 22,
           geolocation: {
             geographicCoordinates: {
               latitude: 'Latitude4',
               longitude: 'Longitude2',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
             },
-            utmCoordinates: {
-              utmZone: 'UTMZone6',
-              utmEastward: 'UTMEastward0',
-              utmNorthward: 'UTMNorthward0',
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
-            },
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+            uTMCoordinates: {
+              uTMZone: 'UTMZone6',
+              uTMEastward: 'UTMEastward0',
+              uTMNorthward: 'UTMNorthward0',
             },
           },
           protectedMobileData: 'ProtectedMobileData0',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
-        storedValueAccountId: {
-          storedValueAccountType: StoredValueAccountType1.PhoneCard,
+        storedValueAccountID: {
+          storedValueAccountType: StoredValueAccountType1Enum.PhoneCard,
           entryMode: [
-            EntryMode.MagStripe,
-            EntryMode.Scanned
+            EntryModeEnum.MagStripe,
+            EntryModeEnum.Scanned
           ],
-          identificationType: IdentificationType11.PhoneNumber,
-          storedValueId: 'StoredValueID8',
+          identificationType: IdentificationType11Enum.PhoneNumber,
+          storedValueID: 'StoredValueID8',
           storedValueProvider: 'StoredValueProvider4',
           ownerName: 'OwnerName0',
           expiryDate: 4,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       currentBalance: 83.4,
       currency: 'Currency4',
       paymentAcquirerData: {
-        merchantId: 'MerchantID6',
-        acquirerPoiid: 'AcquirerPOIID4',
-        acquirerId: 238,
-        acquirerTransactionId: {
-          transactionId: 'TransactionID2',
+        merchantID: 'MerchantID6',
+        acquirerPOIID: 'AcquirerPOIID4',
+        acquirerID: 238,
+        acquirerTransactionID: {
+          transactionID: 'TransactionID2',
           timeStamp: '2016-03-13T12:52:32.123Z',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
         },
         approvalCode: 'ApprovalCode8',
-        hostReconciliationId: 'HostReconciliationID8',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        hostReconciliationID: 'HostReconciliationID8',
       },
     },
     paymentReceipt: [
       {
-        documentQualifier: DocumentQualifier1.CustomerReceipt,
+        documentQualifier: DocumentQualifier1Enum.CustomerReceipt,
         outputContent: {
-          outputFormat: OutputFormat1.Xhtml,
+          outputFormat: OutputFormat1Enum.XHTML,
           predefinedContent: {
-            referenceId: 'ReferenceID0',
+            referenceID: 'ReferenceID0',
             language: 'Language2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
           outputText: [
             {
@@ -206,78 +158,45 @@ const saleToPoiResponse: SaleToPoiResponse = {
               characterSet: 194,
               startRow: 74,
               startColumn: 220,
-              characterWidth: CharacterWidth1.SingleWidth,
-              characterHeight: CharacterHeight1.SingleHeight,
-              additionalProperties: {
-                'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-              },
+              characterWidth: CharacterWidth1Enum.SingleWidth,
+              characterHeight: CharacterHeight1Enum.SingleHeight,
             }
           ],
-          outputXhtml: 'OutputXHTML2',
+          outputXHTML: 'OutputXHTML2',
           outputBarcode: {
             barcodeValue: 'BarcodeValue2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
           },
         },
         integratedPrintFlag: false,
         requiredSignatureFlag: false,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   cardAcquisitionResponse: {
     response: {
-      result: Result11.Partial,
-      errorCondition: ErrorCondition1.PaymentRestriction,
+      result: Result11Enum.Partial,
+      errorCondition: ErrorCondition1Enum.PaymentRestriction,
       additionalResponse: 'AdditionalResponse8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     saleData: {
-      saleTransactionId: {
-        transactionId: 'TransactionID2',
+      saleTransactionID: {
+        transactionID: 'TransactionID2',
         timeStamp: '2016-03-13T12:52:32.123Z',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      operatorId: 'OperatorID8',
+      operatorID: 'OperatorID8',
       operatorLanguage: 'OperatorLanguage2',
       shiftNumber: 'ShiftNumber0',
-      saleReferenceId: 'SaleReferenceID8',
+      saleReferenceID: 'SaleReferenceID8',
       saleTerminalData: {
-        totalsGroupId: 'TotalsGroupID4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+        totalsGroupID: 'TotalsGroupID4',
       },
     },
-    poiData: {
-      poiTransactionId: {
-        transactionId: 'TransactionID2',
+    pOIData: {
+      pOITransactionID: {
+        transactionID: 'TransactionID2',
         timeStamp: '2016-03-13T12:52:32.123Z',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      poiReconciliationId: 52,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      pOIReconciliationID: 52,
     },
     paymentBrand: [
       'PaymentBrand1',
@@ -285,216 +204,135 @@ const saleToPoiResponse: SaleToPoiResponse = {
       'PaymentBrand3'
     ],
     paymentInstrumentData: {
-      paymentInstrumentType: PaymentInstrumentType11.Cash,
+      paymentInstrumentType: PaymentInstrumentType11Enum.Cash,
       protectedCardData: 'ProtectedCardData8',
       cardData: {
         paymentBrand: 'PaymentBrand0',
         maskedPan: 'MaskedPan0',
         paymentAccountRef: 'PaymentAccountRef8',
         entryMode: [
-          EntryMode.Manual,
-          EntryMode.Keyed
+          EntryModeEnum.Manual,
+          EntryModeEnum.Keyed
         ],
         cardCountryCode: 3,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       checkData: {
-        bankId: 'BankID0',
+        bankID: 'BankID0',
         accountNumber: 'AccountNumber6',
         checkNumber: 'CheckNumber2',
         trackData: {
           trackValue: 'TrackValue6',
           trackNumb: 3,
-          trackFormat: TrackFormat1.Jisii,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          trackFormat: TrackFormat1Enum.JISII,
         },
         checkCardNumber: 'CheckCardNumber6',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       mobileData: {
         mobileCountryCode: 3,
         mobileNetworkCode: 3,
-        maskedMsisdn: 22,
+        maskedMSISDN: 22,
         geolocation: {
           geographicCoordinates: {
             latitude: 'Latitude4',
             longitude: 'Longitude2',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
           },
-          utmCoordinates: {
-            utmZone: 'UTMZone6',
-            utmEastward: 'UTMEastward0',
-            utmNorthward: 'UTMNorthward0',
-            additionalProperties: {
-              'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-            },
-          },
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+          uTMCoordinates: {
+            uTMZone: 'UTMZone6',
+            uTMEastward: 'UTMEastward0',
+            uTMNorthward: 'UTMNorthward0',
           },
         },
         protectedMobileData: 'ProtectedMobileData0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
-      storedValueAccountId: {
-        storedValueAccountType: StoredValueAccountType1.PhoneCard,
+      storedValueAccountID: {
+        storedValueAccountType: StoredValueAccountType1Enum.PhoneCard,
         entryMode: [
-          EntryMode.MagStripe,
-          EntryMode.Scanned
+          EntryModeEnum.MagStripe,
+          EntryModeEnum.Scanned
         ],
-        identificationType: IdentificationType11.PhoneNumber,
-        storedValueId: 'StoredValueID8',
+        identificationType: IdentificationType11Enum.PhoneNumber,
+        storedValueID: 'StoredValueID8',
         storedValueProvider: 'StoredValueProvider4',
         ownerName: 'OwnerName0',
         expiryDate: 4,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     loyaltyAccount: [
       {
-        loyaltyAccountId: {
+        loyaltyAccountID: {
           entryMode: [
-            EntryMode.File
+            EntryModeEnum.File
           ],
-          identificationType: IdentificationType11.IsoTrack2,
-          loyaltyId: 'LoyaltyID4',
-          identificationSupport: IdentificationSupport1.HybridCard,
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
+          identificationType: IdentificationType11Enum.ISOTrack2,
+          loyaltyID: 'LoyaltyID4',
+          identificationSupport: IdentificationSupport1Enum.HybridCard,
         },
         loyaltyBrand: 'LoyaltyBrand0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   adminResponse: {
     response: {
-      result: Result11.Partial,
-      errorCondition: ErrorCondition1.PaymentRestriction,
+      result: Result11Enum.Partial,
+      errorCondition: ErrorCondition1Enum.PaymentRestriction,
       additionalResponse: 'AdditionalResponse8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   diagnosisResponse: {
     response: {
-      result: Result11.Partial,
-      errorCondition: ErrorCondition1.PaymentRestriction,
+      result: Result11Enum.Partial,
+      errorCondition: ErrorCondition1Enum.PaymentRestriction,
       additionalResponse: 'AdditionalResponse8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    poiStatus: {
-      globalStatus: GlobalStatus1.Maintenance,
-      securityOkFlag: false,
-      pedokFlag: false,
-      cardReaderOkFlag: false,
-      printerStatus: PrinterStatus1.PaperLow,
-      communicationOkFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+    pOIStatus: {
+      globalStatus: GlobalStatus1Enum.Maintenance,
+      securityOKFlag: false,
+      pEDOKFlag: false,
+      cardReaderOKFlag: false,
+      printerStatus: PrinterStatus1Enum.PaperLow,
+      communicationOKFlag: false,
     },
     hostStatus: [
       {
-        acquirerId: 120,
+        acquirerID: 120,
         isReachableFlag: false,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       {
-        acquirerId: 120,
+        acquirerID: 120,
         isReachableFlag: false,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   displayResponse: {
     outputResult: [
       {
-        device: Device3.CashierInput,
-        infoQualify: InfoQualify3.Document,
+        device: Device3Enum.CashierInput,
+        infoQualify: InfoQualify3Enum.Document,
         response: {
-          result: Result11.Partial,
-          errorCondition: ErrorCondition1.PaymentRestriction,
+          result: Result11Enum.Partial,
+          errorCondition: ErrorCondition1Enum.PaymentRestriction,
           additionalResponse: 'AdditionalResponse8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       {
-        device: Device3.CashierInput,
-        infoQualify: InfoQualify3.Document,
+        device: Device3Enum.CashierInput,
+        infoQualify: InfoQualify3Enum.Document,
         response: {
-          result: Result11.Partial,
-          errorCondition: ErrorCondition1.PaymentRestriction,
+          result: Result11Enum.Partial,
+          errorCondition: ErrorCondition1Enum.PaymentRestriction,
           additionalResponse: 'AdditionalResponse8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       },
       {
-        device: Device3.CashierInput,
-        infoQualify: InfoQualify3.Document,
+        device: Device3Enum.CashierInput,
+        infoQualify: InfoQualify3Enum.Document,
         response: {
-          result: Result11.Partial,
-          errorCondition: ErrorCondition1.PaymentRestriction,
+          result: Result11Enum.Partial,
+          errorCondition: ErrorCondition1Enum.PaymentRestriction,
           additionalResponse: 'AdditionalResponse8',
-          additionalProperties: {
-            'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-          },
-        },
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
         },
       }
     ],
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

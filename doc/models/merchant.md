@@ -1,8 +1,6 @@
 
 # Merchant
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Merchant`
@@ -11,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`CompanyLinks \| undefined`](../../doc/models/company-links.md) | Optional | - |
+| `links` | [`MerchantLinks2 \| undefined`](../../doc/models/merchant-links-2.md) | Optional | References to resources connected with this merchant. |
 | `captureDelay` | `string \| undefined` | Optional | The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.<br><br>Possible values:<br><br>* **Immediate**<br>* **Manual**<br>* Number of days from **1** to **29** |
 | `companyId` | `string \| undefined` | Optional | The unique identifier of the company account this merchant belongs to |
 | `dataCenters` | [`DataCenter[] \| undefined`](../../doc/models/data-center.md) | Optional | List of available data centers.<br><br>Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers. |
@@ -25,7 +23,6 @@
 | `reference` | `string \| undefined` | Optional | Reference of the merchant account. |
 | `shopWebAddress` | `string \| undefined` | Optional | The URL for the ecommerce website used with this merchant account. |
 | `status` | `string \| undefined` | Optional | The status of the merchant account.<br><br>Possible values:<br><br>* **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments.<br>* **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled.<br>* **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts.<br>* **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled.<br>* **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -36,30 +33,15 @@ const merchant: Merchant = {
   links: {
     self: {
       href: 'href0',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     apiCredentials: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     users: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     webhooks: {
       href: 'href8',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
     },
   },
   captureDelay: 'captureDelay0',
@@ -68,29 +50,17 @@ const merchant: Merchant = {
     {
       livePrefix: 'livePrefix4',
       name: 'name6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       livePrefix: 'livePrefix4',
       name: 'name6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       livePrefix: 'livePrefix4',
       name: 'name6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
   defaultShopperInteraction: 'defaultShopperInteraction2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

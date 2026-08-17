@@ -3,8 +3,6 @@
 
 Contains information about the merchant.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MerchantData2`
@@ -16,9 +14,8 @@ Contains information about the merchant.
 | `acquirerId` | `string \| undefined` | Optional | The unique identifier of the merchant's acquirer. |
 | `mcc` | `string \| undefined` | Optional | The merchant category code. |
 | `merchantId` | `string \| undefined` | Optional | The unique identifier of the merchant. |
-| `nameLocation` | [`NameLocation \| undefined`](../../doc/models/name-location.md) | Optional | - |
+| `nameLocation` | [`NameLocation2 \| undefined`](../../doc/models/name-location-2.md) | Optional | Contains the name and location of the merchant. |
 | `postalCode` | `string \| undefined` | Optional | The postal code of the merchant. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -35,14 +32,8 @@ const merchantData2: MerchantData2 = {
     countryOfOrigin: 'countryOfOrigin0',
     name: 'name4',
     rawData: 'rawData0',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   postalCode: 'postalCode6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

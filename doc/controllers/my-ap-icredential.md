@@ -1,12 +1,12 @@
 # My AP Icredential
 
 ```ts
-const myApIcredentialApi = new MyApIcredentialApi(client);
+const myAPIcredentialApi = new MyAPIcredentialApi(client);
 ```
 
 ## Class Name
 
-`MyApIcredentialApi`
+`MyAPIcredentialApi`
 
 ## Methods
 
@@ -50,7 +50,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```ts
 try {
-  const response = await myApiCredentialApi.getMe();
+  const response = await myAPICredentialApi.getMe();
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -119,7 +119,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```ts
 try {
-  const response = await myApiCredentialApi.getMeAllowedOrigins();
+  const response = await myAPICredentialApi.getMeAllowedOrigins();
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -195,7 +195,7 @@ const body: CreateAllowedOriginRequest = {
 };
 
 try {
-  const response = await myApiCredentialApi.postMeAllowedOrigins(body);
+  const response = await myAPICredentialApi.postMeAllowedOrigins(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -269,7 +269,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const originId = 'originId6';
 
 try {
-  const response = await myApiCredentialApi.getMeAllowedOriginsOriginId(originId);
+  const response = await myAPICredentialApi.getMeAllowedOriginsOriginId(originId);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -343,7 +343,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const originId = 'originId6';
 
 try {
-  const response = await myApiCredentialApi.deleteMeAllowedOriginsOriginId(originId);
+  const response = await myAPICredentialApi.deleteMeAllowedOriginsOriginId(originId);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -416,7 +416,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```ts
 try {
-  const response = await myApiCredentialApi.postMeGenerateClientKey();
+  const response = await myAPICredentialApi.postMeGenerateClientKey();
 
   // Extracting fully parsed response body.
   console.log(response.result);

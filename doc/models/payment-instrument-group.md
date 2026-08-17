@@ -1,8 +1,6 @@
 
 # Payment Instrument Group
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrumentGroup`
@@ -17,7 +15,6 @@
 | `properties` | `Record<string, string> \| undefined` | Optional | Properties of the payment instrument group. |
 | `reference` | `string \| undefined` | Optional | Your reference for the payment instrument group.<br><br>**Constraints**: *Maximum Length*: `150` |
 | `txVariant` | `string` | Required | The tx variant of the payment instrument group. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const paymentInstrumentGroup: PaymentInstrumentGroup = {
     'key0': 'properties8'
   },
   reference: 'reference4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,12 +1,12 @@
 # SC Adevicemanagement
 
 ```ts
-const scAdevicemanagementApi = new ScAdevicemanagementApi(client);
+const sCAdevicemanagementApi = new SCAdevicemanagementApi(client);
 ```
 
 ## Class Name
 
-`ScAdevicemanagementApi`
+`SCAdevicemanagementApi`
 
 ## Methods
 
@@ -51,7 +51,7 @@ const body: BeginScaDeviceRegistrationRequest = {
 };
 
 try {
-  const response = await scaDeviceManagementApi.postScaDevices(body);
+  const response = await sCADeviceManagementApi.postScaDevices(body);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -70,15 +70,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ScaDevices400Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices401Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices403Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices422Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -102,11 +94,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request contains invalid input and fails validation. | [`ScaDevices400Error`](../../doc/models/sca-devices-400-error.md) |
-| 401 | Unauthorized - Authentication required. | [`ScaDevices401Error`](../../doc/models/sca-devices-401-error.md) |
-| 403 | Forbidden - Insufficient permissions to process the request. | [`ScaDevices403Error`](../../doc/models/sca-devices-403-error.md) |
-| 422 | Unprocessable entity - A request validation error. | [`ScaDevices422Error`](../../doc/models/sca-devices-422-error.md) |
-| 500 | Internal Server Error - The server could not process the request. | [`ScaDevices500Error`](../../doc/models/sca-devices-500-error.md) |
+| 400 | Bad Request - The request contains invalid input and fails validation. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - The server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Delete-Sca Devices-Device Id
@@ -141,7 +133,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const deviceId = 'deviceId0';
 
 try {
-  const response = await scaDeviceManagementApi.deleteScaDevicesDeviceId(deviceId);
+  const response = await sCADeviceManagementApi.deleteScaDevicesDeviceId(deviceId);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -160,17 +152,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ScaDevices400Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices401Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices403Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices404Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices422Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -181,12 +163,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request contains invalid input and fails validation. | [`ScaDevices400Error`](../../doc/models/sca-devices-400-error.md) |
-| 401 | Unauthorized - Authentication required. | [`ScaDevices401Error`](../../doc/models/sca-devices-401-error.md) |
-| 403 | Forbidden - Insufficient permissions to process the request. | [`ScaDevices403Error`](../../doc/models/sca-devices-403-error.md) |
-| 404 | Not Found - Device not found. | [`ScaDevices404Error`](../../doc/models/sca-devices-404-error.md) |
-| 422 | Unprocessable entity - A request validation error. | [`ScaDevices422Error`](../../doc/models/sca-devices-422-error.md) |
-| 500 | Internal Server Error - The server could not process the request. | [`ScaDevices500Error`](../../doc/models/sca-devices-500-error.md) |
+| 400 | Bad Request - The request contains invalid input and fails validation. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - Device not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - The server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Patch-Sca Devices-Device Id
@@ -227,7 +209,7 @@ const body: FinishScaDeviceRegistrationRequest = {
 };
 
 try {
-  const response = await scaDeviceManagementApi.patchScaDevicesDeviceId(
+  const response = await sCADeviceManagementApi.patchScaDevicesDeviceId(
     deviceId,
     body
   );
@@ -249,17 +231,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ScaDevices400Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices401Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices403Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices404Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices422Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevices500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -282,12 +254,12 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request contains invalid input and fails validation. | [`ScaDevices400Error`](../../doc/models/sca-devices-400-error.md) |
-| 401 | Unauthorized - Authentication required. | [`ScaDevices401Error`](../../doc/models/sca-devices-401-error.md) |
-| 403 | Forbidden - Insufficient permissions to process the request. | [`ScaDevices403Error`](../../doc/models/sca-devices-403-error.md) |
-| 404 | Not Found - Device not found. | [`ScaDevices404Error`](../../doc/models/sca-devices-404-error.md) |
-| 422 | Unprocessable entity - A request validation error. | [`ScaDevices422Error`](../../doc/models/sca-devices-422-error.md) |
-| 500 | Internal Server Error - The server could not process the request. | [`ScaDevices500Error`](../../doc/models/sca-devices-500-error.md) |
+| 400 | Bad Request - The request contains invalid input and fails validation. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - Device not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - The server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Sca Devices-Device Id-Sca Associations
@@ -327,13 +299,13 @@ const body: SubmitScaAssociationRequest = {
   entities: [
     {
       id: 'AH00000000000000000000001',
-      type: ScaEntityType4.AccountHolder,
+      type: ScaEntityType4Enum.AccountHolder,
     }
   ],
 };
 
 try {
-  const response = await scaDeviceManagementApi.postScaDevicesDeviceIdScaAssociations(
+  const response = await sCADeviceManagementApi.postScaDevicesDeviceIdScaAssociations(
     deviceId,
     body
   );
@@ -355,17 +327,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ScaDevicesScaAssociations400Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevicesScaAssociations401Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevicesScaAssociations403Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevicesScaAssociations404Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevicesScaAssociations422Error) {
-      console.log(error.result);
-    } else if (error instanceof ScaDevicesScaAssociations500Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -391,10 +353,10 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request contains invalid input and fails validation. | [`ScaDevicesScaAssociations400Error`](../../doc/models/sca-devices-sca-associations-400-error.md) |
-| 401 | Unauthorized - Authentication required. | [`ScaDevicesScaAssociations401Error`](../../doc/models/sca-devices-sca-associations-401-error.md) |
-| 403 | Forbidden - Insufficient permissions to process the request. | [`ScaDevicesScaAssociations403Error`](../../doc/models/sca-devices-sca-associations-403-error.md) |
-| 404 | Not Found - Device not found. | [`ScaDevicesScaAssociations404Error`](../../doc/models/sca-devices-sca-associations-404-error.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`ScaDevicesScaAssociations422Error`](../../doc/models/sca-devices-sca-associations-422-error.md) |
-| 500 | Internal Server Error - The server could not process the request. | [`ScaDevicesScaAssociations500Error`](../../doc/models/sca-devices-sca-associations-500-error.md) |
+| 400 | Bad Request - The request contains invalid input and fails validation. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - Insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 404 | Not Found - Device not found. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 500 | Internal Server Error - The server could not process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

@@ -8,14 +8,12 @@ import {
   boolean,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { ProcessedFrom, processedFromSchema } from './processedFrom.js';
-import { ProcessedTo, processedToSchema } from './processedTo.js';
+import { Amount, amountSchema } from './amount.js';
 
 /** The processing state of the account holder. */
 export interface AccountProcessingState2 {
@@ -23,24 +21,21 @@ export interface AccountProcessingState2 {
   disableReason?: string;
   /** Indicates whether the processing of payments is allowed. */
   disabled?: boolean;
-  processedFrom?: ProcessedFrom;
-  processedTo?: ProcessedTo;
+  /** The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier). */
+  processedFrom?: Amount;
+  /** The upper bound of the processing tier (i.e., an account holder must have processed less than this amount of money in order to be placed into this tier). */
+  processedTo?: Amount;
   /** The processing tier that the account holder occupies. */
   tierNumber?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const accountProcessingState2Schema: Schema<AccountProcessingState2> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        disableReason: ['disableReason', optional(string())],
-        disabled: ['disabled', optional(boolean())],
-        processedFrom: ['processedFrom', optional(processedFromSchema)],
-        processedTo: ['processedTo', optional(processedToSchema)],
-        tierNumber: ['tierNumber', optional(number())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      disableReason: ['disableReason', optional(string())],
+      disabled: ['disabled', optional(boolean())],
+      processedFrom: ['processedFrom', optional(amountSchema)],
+      processedTo: ['processedTo', optional(amountSchema)],
+      tierNumber: ['tierNumber', optional(number())],
+    })
 );

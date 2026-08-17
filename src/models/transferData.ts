@@ -8,15 +8,14 @@ import {
   array,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
-import { Amount5, amount5Schema } from './amount5.js';
+import { Amount17, amount17Schema } from './amount17.js';
 import { BalanceMutation, balanceMutationSchema } from './balanceMutation.js';
-import { Category3, category3Schema } from './category3.js';
+import { Category3Enum, category3EnumSchema } from './category3Enum.js';
 import {
   TransferDataCategoryData,
   transferDataCategoryDataSchema,
@@ -30,51 +29,69 @@ import {
   transferDataTrackingSchema,
 } from './containers/transferDataTracking.js';
 import {
-  DirectDebitInformation,
-  directDebitInformationSchema,
-} from './directDebitInformation.js';
-import { Direction, directionSchema } from './direction.js';
-import { ExecutionDate, executionDateSchema } from './executionDate.js';
-import { ExternalReason, externalReasonSchema } from './externalReason.js';
-import { NetworkReason, networkReasonSchema } from './networkReason.js';
+  DirectDebitInformation1,
+  directDebitInformation1Schema,
+} from './directDebitInformation1.js';
+import { DirectionEnum, directionEnumSchema } from './directionEnum.js';
+import { ExecutionDate1, executionDate1Schema } from './executionDate1.js';
+import { ExternalReason2, externalReason2Schema } from './externalReason2.js';
+import { NetworkReason2, networkReason2Schema } from './networkReason2.js';
 import {
-  PaymentInstrument2,
-  paymentInstrument2Schema,
-} from './paymentInstrument2.js';
-import { Reason21, reason21Schema } from './reason21.js';
+  PaymentInstrument3,
+  paymentInstrument3Schema,
+} from './paymentInstrument3.js';
+import { Reason2Enum, reason2EnumSchema } from './reason2Enum.js';
 import {
-  ResourceReference,
-  resourceReferenceSchema,
-} from './resourceReference.js';
-import { Status53, status53Schema } from './status53.js';
+  ResourceReference1,
+  resourceReference1Schema,
+} from './resourceReference1.js';
 import {
-  TransactionRulesResult,
-  transactionRulesResultSchema,
-} from './transactionRulesResult.js';
+  ResourceReference5,
+  resourceReference5Schema,
+} from './resourceReference5.js';
+import { Status51Enum, status51EnumSchema } from './status51Enum.js';
+import {
+  TransactionRulesResult2,
+  transactionRulesResult2Schema,
+} from './transactionRulesResult2.js';
 import { TransferEvent, transferEventSchema } from './transferEvent.js';
 import {
-  TransferNotificationCounterParty,
-  transferNotificationCounterPartySchema,
-} from './transferNotificationCounterParty.js';
-import { TransferReview, transferReviewSchema } from './transferReview.js';
-import { Type83, type83Schema } from './type83.js';
+  TransferNotificationCounterParty2,
+  transferNotificationCounterParty2Schema,
+} from './transferNotificationCounterParty2.js';
+import { TransferReview1, transferReview1Schema } from './transferReview1.js';
+import { Type83Enum, type83EnumSchema } from './type83Enum.js';
 import {
-  UltimatePartyIdentification,
-  ultimatePartyIdentificationSchema,
-} from './ultimatePartyIdentification.js';
+  UltimatePartyIdentification1,
+  ultimatePartyIdentification1Schema,
+} from './ultimatePartyIdentification1.js';
 
 export interface TransferData {
-  accountHolder?: ResourceReference;
-  amount: Amount5;
-  balanceAccount?: ResourceReference;
+  /** The account holder associated with the balance account involved in the transfer. */
+  accountHolder?: ResourceReference5;
+  /** The amount of the transfer. */
+  amount: Amount17;
+  /** Contains information about the balance account involved in the transfer. */
+  balanceAccount?: ResourceReference1;
   /** The unique identifier of the balance platform. */
   balancePlatform?: string;
   /** The list of the latest balance statuses in the transfer. */
   balances?: BalanceMutation[];
-  category: Category3;
+  /**
+   * The category of the transfer.
+   * Possible values:
+   *  - **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.
+   * - **card**: A transfer involving a third-party card.
+   * - **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.
+   * - **issuedCard**: A transfer initiated by an Adyen-issued card.
+   * - **platformPayment**: Funds movements related to payments that are acquired for your users.
+   * - **topUp**: An incoming transfer initiated by your user to top up their balance account.
+   */
+  category: Category3Enum;
   /** The relevant data according to the transfer category. */
   categoryData?: TransferDataCategoryData;
-  counterparty?: TransferNotificationCounterParty;
+  /** The other party in the transfer. */
+  counterparty?: TransferNotificationCounterParty2;
   /** The date and time when the transfer was created, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. */
   createdAt?: string;
   /** The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. */
@@ -85,19 +102,34 @@ export interface TransferData {
    * Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z] [0-9] & $ % # @** **~ = + - _ ' " ! ?**
    */
   description?: string;
-  directDebitInformation?: DirectDebitInformation;
-  direction?: Direction;
+  /** The details of the direct debit. */
+  directDebitInformation?: DirectDebitInformation1;
+  /**
+   * The direction of the transfer.
+   * Possible values: **incoming**, **outgoing**.
+   */
+  direction?: DirectionEnum;
   /** The unique identifier of the latest transfer event. Included only when the `category` is **issuedCard**. */
   eventId?: string;
   /** The list of events leading up to the current status of the transfer. */
   events?: TransferEvent[];
-  executionDate?: ExecutionDate;
-  externalReason?: ExternalReason;
+  /**
+   * Contains information about the date when the transfer will be processed. The execution date must be within 30 days of the current date.
+   * Until the execution date:
+   * - The `status` of the transfer remains as **received**.
+   * - The `reason` of the transfer remains as **pending**.
+   */
+  executionDate?: ExecutionDate1;
+  /** The external reason of this transfer. */
+  externalReason?: ExternalReason2;
   /** The ID of the resource. */
   id?: string;
-  networkReason?: NetworkReason;
-  paymentInstrument?: PaymentInstrument2;
-  reason?: Reason21;
+  /** Contains information that explains why the transfer was rejected or returned by the network. */
+  networkReason?: NetworkReason2;
+  /** Contains information about the payment instrument used in the transfer. */
+  paymentInstrument?: PaymentInstrument3;
+  /** Additional information about the status of the transfer. */
+  reason?: Reason2Enum;
   /** Your reference for the transfer, used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference. */
   reference?: string;
   /**
@@ -107,77 +139,88 @@ export interface TransferData {
    * - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    */
   referenceForBeneficiary?: string;
-  review?: TransferReview;
+  /** Contains status updates related to additional reviews. */
+  review?: TransferReview1;
   /**
    * The sequence number of the transfer webhook. The numbers start from 1 and increase with each new webhook for a specific transfer.
    * The sequence number can help you restore the correct sequence of events even if they arrive out of order.
    */
   sequenceNumber?: number;
-  status: Status53;
+  /**
+   * The result of the transfer.
+   * For example:
+   * - **received**: an outgoing transfer request is created.
+   * - **refused**: the transfer request is rejected by Adyen for one of the following reasons:
+   *   - Transfer limit exceeded.
+   *   - Transaction rule requirements violated.
+   * - **authorised**: the transfer request is authorized and the funds are reserved.
+   * - **booked**: the funds are deducted from your user's balance account.
+   *  - **failed**: the transfer is rejected by the counterparty's bank.
+   * - **returned**: the transfer is returned by the counterparty's bank.
+   */
+  status: Status51Enum;
   /** Contains information for tracing the transfer after Adyen forwards it to the network. */
   tracing?: TransferDataTracing;
   /** The latest tracking information of the transfer. */
   tracking?: TransferDataTracking;
-  transactionRulesResult?: TransactionRulesResult;
-  type?: Type83;
-  ultimateParty?: UltimatePartyIdentification;
+  /** Contains the results of the evaluation of the transaction rules. */
+  transactionRulesResult?: TransactionRulesResult2;
+  /** The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**. */
+  type?: Type83Enum;
+  /** The ultimate sender of the funds of the transfer (ultimate debtor). */
+  ultimateParty?: UltimatePartyIdentification1;
   /** The date and time when the event was triggered, in ISO 8601 extended format. For example, **2020-12-18T10:15:30+01:00**. */
   updatedAt?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const transferDataSchema: Schema<TransferData> = lazy(() =>
-  typedExpandoObject(
-    {
-      accountHolder: ['accountHolder', optional(resourceReferenceSchema)],
-      amount: ['amount', amount5Schema],
-      balanceAccount: ['balanceAccount', optional(resourceReferenceSchema)],
-      balancePlatform: ['balancePlatform', optional(string())],
-      balances: ['balances', optional(array(balanceMutationSchema))],
-      category: ['category', category3Schema],
-      categoryData: ['categoryData', optional(transferDataCategoryDataSchema)],
-      counterparty: [
-        'counterparty',
-        optional(transferNotificationCounterPartySchema),
-      ],
-      createdAt: ['createdAt', optional(string())],
-      creationDate: ['creationDate', optional(string())],
-      description: ['description', optional(string())],
-      directDebitInformation: [
-        'directDebitInformation',
-        optional(directDebitInformationSchema),
-      ],
-      direction: ['direction', optional(directionSchema)],
-      eventId: ['eventId', optional(string())],
-      events: ['events', optional(array(transferEventSchema))],
-      executionDate: ['executionDate', optional(executionDateSchema)],
-      externalReason: ['externalReason', optional(externalReasonSchema)],
-      id: ['id', optional(string())],
-      networkReason: ['networkReason', optional(networkReasonSchema)],
-      paymentInstrument: [
-        'paymentInstrument',
-        optional(paymentInstrument2Schema),
-      ],
-      reason: ['reason', optional(reason21Schema)],
-      reference: ['reference', optional(string())],
-      referenceForBeneficiary: ['referenceForBeneficiary', optional(string())],
-      review: ['review', optional(transferReviewSchema)],
-      sequenceNumber: ['sequenceNumber', optional(number())],
-      status: ['status', status53Schema],
-      tracing: ['tracing', optional(transferDataTracingSchema)],
-      tracking: ['tracking', optional(transferDataTrackingSchema)],
-      transactionRulesResult: [
-        'transactionRulesResult',
-        optional(transactionRulesResultSchema),
-      ],
-      type: ['type', optional(type83Schema)],
-      ultimateParty: [
-        'ultimateParty',
-        optional(ultimatePartyIdentificationSchema),
-      ],
-      updatedAt: ['updatedAt', optional(string())],
-    },
-    'additionalProperties',
-    optional(unknown())
-  )
+  object({
+    accountHolder: ['accountHolder', optional(resourceReference5Schema)],
+    amount: ['amount', amount17Schema],
+    balanceAccount: ['balanceAccount', optional(resourceReference1Schema)],
+    balancePlatform: ['balancePlatform', optional(string())],
+    balances: ['balances', optional(array(balanceMutationSchema))],
+    category: ['category', category3EnumSchema],
+    categoryData: ['categoryData', optional(transferDataCategoryDataSchema)],
+    counterparty: [
+      'counterparty',
+      optional(transferNotificationCounterParty2Schema),
+    ],
+    createdAt: ['createdAt', optional(string())],
+    creationDate: ['creationDate', optional(string())],
+    description: ['description', optional(string())],
+    directDebitInformation: [
+      'directDebitInformation',
+      optional(directDebitInformation1Schema),
+    ],
+    direction: ['direction', optional(directionEnumSchema)],
+    eventId: ['eventId', optional(string())],
+    events: ['events', optional(array(transferEventSchema))],
+    executionDate: ['executionDate', optional(executionDate1Schema)],
+    externalReason: ['externalReason', optional(externalReason2Schema)],
+    id: ['id', optional(string())],
+    networkReason: ['networkReason', optional(networkReason2Schema)],
+    paymentInstrument: [
+      'paymentInstrument',
+      optional(paymentInstrument3Schema),
+    ],
+    reason: ['reason', optional(reason2EnumSchema)],
+    reference: ['reference', optional(string())],
+    referenceForBeneficiary: ['referenceForBeneficiary', optional(string())],
+    review: ['review', optional(transferReview1Schema)],
+    sequenceNumber: ['sequenceNumber', optional(number())],
+    status: ['status', status51EnumSchema],
+    tracing: ['tracing', optional(transferDataTracingSchema)],
+    tracking: ['tracking', optional(transferDataTrackingSchema)],
+    transactionRulesResult: [
+      'transactionRulesResult',
+      optional(transactionRulesResult2Schema),
+    ],
+    type: ['type', optional(type83EnumSchema)],
+    ultimateParty: [
+      'ultimateParty',
+      optional(ultimatePartyIdentification1Schema),
+    ],
+    updatedAt: ['updatedAt', optional(string())],
+  })
 );

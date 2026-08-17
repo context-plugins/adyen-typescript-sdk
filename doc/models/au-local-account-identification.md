@@ -1,11 +1,9 @@
 
-# Au Local Account Identification
-
-*This model accepts additional fields of type unknown.*
+# AU Local Account Identification
 
 ## Structure
 
-`AuLocalAccountIdentification`
+`AULocalAccountIdentification`
 
 ## Fields
 
@@ -13,21 +11,17 @@
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `5`, *Maximum Length*: `9` |
 | `bsbCode` | `string` | Required | The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6` |
-| `type` | [`Type413`](../../doc/models/type-413.md) | Required | **auLocal** |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | `string` | Required, Constant | **auLocal**<br><br>**Value**: `'auLocal'` |
 
 ## Example
 
 ```ts
-import { AuLocalAccountIdentification, Type413 } from 'adyen';
+import { AULocalAccountIdentification } from 'adyen';
 
-const auLocalAccountIdentification: AuLocalAccountIdentification = {
-  accountNumber: 'accountNumber8',
-  bsbCode: 'bsbCode0',
-  type: Type413.AuLocal,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const aULocalAccountIdentification: AULocalAccountIdentification = {
+  accountNumber: 'accountNumber0',
+  bsbCode: 'bsbCode8',
+  type: 'auLocal',
 };
 ```
 

@@ -62,6 +62,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BillingEntitiesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       name: [name, optional(string())],
@@ -124,6 +125,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ShippingLocationsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       name: [name, optional(string())],
@@ -184,6 +186,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ShippingLocation>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(shippingLocationSchema)],
@@ -241,6 +244,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalModelsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ merchantId: [merchantId, string()] });
     req.appendTemplatePath`/merchants/${mapped.merchantId}/terminalModels`;
     req.throwOn(
@@ -300,6 +304,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrdersResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       customerOrderReference: [customerOrderReference, optional(string())],
@@ -364,6 +369,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(terminalOrderRequestSchema)],
@@ -421,6 +427,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       orderId: [orderId, string()],
@@ -484,6 +491,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       orderId: [orderId, string()],
@@ -544,6 +552,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalOrder>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       orderId: [orderId, string()],
@@ -610,6 +619,7 @@ export class TerminalOrdersMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TerminalProductsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       country: [country, string()],

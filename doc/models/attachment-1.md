@@ -3,8 +3,6 @@
 
 Object that contains the document.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Attachment1`
@@ -18,7 +16,6 @@ Object that contains the document.
 | `filename` | `string \| undefined` | Optional | The name of the file including the file extension. |
 | `pageName` | `string \| undefined` | Optional | The name of the file including the file extension. |
 | `pageType` | `string \| undefined` | Optional | Specifies which side of the ID card is uploaded.<br><br>* If the `type` is **driversLicense** or **identityCard**, you must set this to **front** or **back** and include both sides in the same API request.<br><br>* For any other types, when this is omitted, we infer the page number based on the order of attachments. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -31,9 +28,6 @@ const attachment1: Attachment1 = {
   filename: 'filename4',
   pageName: 'pageName4',
   pageType: 'pageType0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

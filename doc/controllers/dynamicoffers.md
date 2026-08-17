@@ -24,7 +24,7 @@ Returns a list of all [dynamic offers](https://docs.adyen.com/capital/get-grant-
 ```ts
 async getDynamicOffers(
   accountHolderId: string,
-  financingType?: FinancingType1,
+  financingType?: FinancingTypeEnum,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<GetDynamicOffersResponse>>
 ```
@@ -34,7 +34,7 @@ async getDynamicOffers(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderId` | `string` | Query, Required | The unique identifier of the account holder that the dynamic offer is for.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `financingType` | [`FinancingType1 \| undefined`](../../doc/models/financing-type-1.md) | Query, Optional | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing** |
+| `financingType` | [`FinancingTypeEnum \| undefined`](../../doc/models/financing-type-enum.md) | Query, Optional | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing** |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -68,7 +68,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DynamicOffers422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -79,7 +79,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`DynamicOffers422Error`](../../doc/models/dynamic-offers-422-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Dynamic Offers-Id-Calculate
@@ -141,7 +141,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DynamicOffersCalculate422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -152,7 +152,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`DynamicOffersCalculate422Error`](../../doc/models/dynamic-offers-calculate-422-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Post-Dynamic Offers-Id-Grant Offer
@@ -214,7 +214,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof DynamicOffersGrantOffer422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -225,5 +225,5 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`DynamicOffersGrantOffer422Error`](../../doc/models/dynamic-offers-grant-offer-422-error.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

@@ -1,11 +1,9 @@
 
-# Kyc Check Summary
-
-*This model accepts additional fields of type unknown.*
+# KYC Check Summary
 
 ## Structure
 
-`KycCheckSummary`
+`KYCCheckSummary`
 
 ## Fields
 
@@ -13,19 +11,15 @@
 |  --- | --- | --- | --- |
 | `kycCheckCode` | `number \| undefined` | Optional | The code of the check. For possible values, refer to [Verification codes](https://docs.adyen.com/classic-platforms/verification-process/verification-codes). |
 | `kycCheckDescription` | `string \| undefined` | Optional | A description of the check. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { KycCheckSummary } from 'adyen';
+import { KYCCheckSummary } from 'adyen';
 
-const kycCheckSummary: KycCheckSummary = {
-  kycCheckCode: 164,
+const kYCCheckSummary: KYCCheckSummary = {
+  kycCheckCode: 70,
   kycCheckDescription: 'kycCheckDescription8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

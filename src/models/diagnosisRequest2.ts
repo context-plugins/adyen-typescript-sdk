@@ -8,11 +8,10 @@ import {
   array,
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 /** Content of the Diagnosis Request message. */
@@ -21,23 +20,18 @@ export interface DiagnosisRequest2 {
    * Identification of a POI System or a POI Terminal for the Sale to POI protocol.
    * MessageHeader.POIID.
    */
-  poiid?: string;
+  pOIID?: string;
   /** Indicates if Host Diagnosis are required. */
   hostDiagnosisFlag?: boolean;
   /**
    * Identification of the Acquirer.
    * Present if requesting the diagnosis of these hosts only.
    */
-  acquirerId?: number[];
-  additionalProperties?: Record<string, unknown>;
+  acquirerID?: number[];
 }
 
-export const diagnosisRequest2Schema: Schema<DiagnosisRequest2> = typedExpandoObject(
-  {
-    poiid: ['POIID', optional(string())],
-    hostDiagnosisFlag: ['HostDiagnosisFlag', optional(boolean())],
-    acquirerId: ['AcquirerID', optional(array(number()))],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const diagnosisRequest2Schema: Schema<DiagnosisRequest2> = object({
+  pOIID: ['POIID', optional(string())],
+  hostDiagnosisFlag: ['HostDiagnosisFlag', optional(boolean())],
+  acquirerID: ['AcquirerID', optional(array(number()))],
+});

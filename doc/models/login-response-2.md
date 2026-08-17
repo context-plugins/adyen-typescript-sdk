@@ -3,8 +3,6 @@
 
 Content of the Login Response message.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LoginResponse2`
@@ -13,61 +11,45 @@ Content of the Login Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `poiSystemData` | [`PoiSystemData \| undefined`](../../doc/models/poi-system-data.md) | Optional | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `pOISystemData` | [`POISystemData1 \| undefined`](../../doc/models/poi-system-data-1.md) | Optional | Information related to the POI System.<br>Returned if the response result is Success. |
 | `tokenRequestStatus` | `boolean \| undefined` | Optional | If token is managed by the POI, the status of the token request. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  ErrorCondition1,
-  GlobalStatus1,
+  ErrorCondition1Enum,
+  GlobalStatus1Enum,
   LoginResponse2,
-  PrinterStatus1,
-  Result11,
+  PrinterStatus1Enum,
+  Result11Enum,
 } from 'adyen';
 
 const loginResponse2: LoginResponse2 = {
   response: {
-    result: Result11.Partial,
-    errorCondition: ErrorCondition1.PaymentRestriction,
+    result: Result11Enum.Partial,
+    errorCondition: ErrorCondition1Enum.PaymentRestriction,
     additionalResponse: 'AdditionalResponse8',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
-  poiSystemData: {
+  pOISystemData: {
     dateTime: '2016-03-13T12:52:32.123Z',
-    poiSoftware: {
-      manufacturerId: 'ManufacturerID4',
+    pOISoftware: {
+      manufacturerID: 'ManufacturerID4',
       applicationName: 'ApplicationName8',
       softwareVersion: 'SoftwareVersion0',
       certificationCode: 'CertificationCode4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
-    poiStatus: {
-      globalStatus: GlobalStatus1.Maintenance,
-      securityOkFlag: false,
-      pedokFlag: false,
-      cardReaderOkFlag: false,
-      printerStatus: PrinterStatus1.PaperLow,
-      communicationOkFlag: false,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
-    },
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    pOIStatus: {
+      globalStatus: GlobalStatus1Enum.Maintenance,
+      securityOKFlag: false,
+      pEDOKFlag: false,
+      cardReaderOKFlag: false,
+      printerStatus: PrinterStatus1Enum.PaperLow,
+      communicationOKFlag: false,
     },
   },
   tokenRequestStatus: false,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

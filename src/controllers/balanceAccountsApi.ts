@@ -41,6 +41,7 @@ export class BalanceAccountsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccount>> {
     const req = this.createRequest('POST', '/balanceAccounts');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       body: [body, optional(balanceAccountInfoSchema)],
     });
@@ -91,6 +92,7 @@ export class BalanceAccountsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccount>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/balanceAccounts/${mapped.id}`;
     req.throwOn(
@@ -139,6 +141,7 @@ export class BalanceAccountsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<BalanceAccount>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       body: [body, optional(balanceAccountUpdateRequestSchema)],
@@ -202,6 +205,7 @@ export class BalanceAccountsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PaginatedPaymentInstrumentsResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({
       id: [id, string()],
       offset: [offset, optional(number())],
@@ -259,6 +263,7 @@ export class BalanceAccountsApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransactionRulesResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default13');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/balanceAccounts/${mapped.id}/transactionRules`;
     req.throwOn(

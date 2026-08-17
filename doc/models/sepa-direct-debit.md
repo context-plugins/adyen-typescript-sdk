@@ -1,11 +1,9 @@
 
-# Sepa Direct Debit
-
-*This model accepts additional fields of type unknown.*
+# SEPA Direct Debit
 
 ## Structure
 
-`SepaDirectDebit`
+`SEPADirectDebit`
 
 ## Fields
 
@@ -19,25 +17,22 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `transferInstrumentId` | `string \| undefined` | Optional | The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts. |
-| `type` | [`Type511 \| undefined`](../../doc/models/type-511.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type51Enum \| undefined`](../../doc/models/type-51-enum.md) | Optional | **sepadirectdebit**<br><br>**Default**: `Type51Enum.Sepadirectdebit` |
 
 ## Example
 
 ```ts
-import { SepaDirectDebit } from 'adyen';
+import { SEPADirectDebit, Type51Enum } from 'adyen';
 
-const sepaDirectDebit: SepaDirectDebit = {
-  iban: 'iban0',
-  ownerName: 'ownerName0',
-  checkoutAttemptId: 'checkoutAttemptId2',
-  dueDate: 'dueDate2',
-  recurringDetailReference: 'recurringDetailReference6',
-  sdkData: 'sdkData6',
-  storedPaymentMethodId: 'storedPaymentMethodId0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const sEPADirectDebit: SEPADirectDebit = {
+  iban: 'iban6',
+  ownerName: 'ownerName6',
+  checkoutAttemptId: 'checkoutAttemptId8',
+  dueDate: 'dueDate8',
+  recurringDetailReference: 'recurringDetailReference2',
+  sdkData: 'sdkData8',
+  storedPaymentMethodId: 'storedPaymentMethodId6',
+  type: Type51Enum.Sepadirectdebit,
 };
 ```
 

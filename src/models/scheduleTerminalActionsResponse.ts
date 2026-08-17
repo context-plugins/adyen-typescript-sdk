@@ -9,10 +9,10 @@ import {
   dict,
   lazy,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
   unknown,
 } from '../schema.js';
 import {
@@ -44,25 +44,20 @@ export interface ScheduleTerminalActionsResponse {
   totalErrors?: number;
   /** The number of terminals for which the action was successfully scheduled. This doesn't mean the action has happened yet. */
   totalScheduled?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export const scheduleTerminalActionsResponseSchema: Schema<ScheduleTerminalActionsResponse> = lazy(
   () =>
-    typedExpandoObject(
-      {
-        actionDetails: [
-          'actionDetails',
-          optional(scheduleTerminalActionsResponseActionDetailsSchema),
-        ],
-        items: ['items', optional(array(terminalActionScheduleDetailSchema))],
-        scheduledAt: ['scheduledAt', optional(string())],
-        storeId: ['storeId', optional(string())],
-        terminalsWithErrors: ['terminalsWithErrors', optional(dict(unknown()))],
-        totalErrors: ['totalErrors', optional(number())],
-        totalScheduled: ['totalScheduled', optional(number())],
-      },
-      'additionalProperties',
-      optional(unknown())
-    )
+    object({
+      actionDetails: [
+        'actionDetails',
+        optional(scheduleTerminalActionsResponseActionDetailsSchema),
+      ],
+      items: ['items', optional(array(terminalActionScheduleDetailSchema))],
+      scheduledAt: ['scheduledAt', optional(string())],
+      storeId: ['storeId', optional(string())],
+      terminalsWithErrors: ['terminalsWithErrors', optional(dict(unknown()))],
+      totalErrors: ['totalErrors', optional(number())],
+      totalScheduled: ['totalScheduled', optional(number())],
+    })
 );

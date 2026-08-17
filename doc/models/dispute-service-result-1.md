@@ -3,8 +3,6 @@
 
 The result of the dispute service.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DisputeServiceResult1`
@@ -15,7 +13,6 @@ The result of the dispute service.
 |  --- | --- | --- | --- |
 | `errorMessage` | `string \| undefined` | Optional | The general error message. |
 | `success` | `boolean` | Required | Indicates whether the request succeeded. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -25,9 +22,6 @@ import { DisputeServiceResult1 } from 'adyen';
 const disputeServiceResult1: DisputeServiceResult1 = {
   success: false,
   errorMessage: 'errorMessage8',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

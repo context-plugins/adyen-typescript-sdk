@@ -39,8 +39,8 @@ async getTransfers(
   balanceAccountId?: string,
   paymentInstrumentId?: string,
   reference?: string,
-  category?: Category2,
-  sortOrder?: SortOrder1,
+  category?: Category2Enum,
+  sortOrder?: SortOrderEnum,
   cursor?: string,
   limit?: number,
   requestOptions?: RequestOptions
@@ -62,8 +62,8 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | `balanceAccountId` | `string \| undefined` | Query, Optional | The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id).<br><br>Required if you don't provide an `accountHolderId` or `balancePlatform`.<br><br>If you provide an `accountHolderId`, the `balanceAccountId` must be related to the `accountHolderId`. |
 | `paymentInstrumentId` | `string \| undefined` | Query, Optional | The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).<br><br>To use this parameter, you must also provide a `balanceAccountId`, `accountHolderId`, or `balancePlatform`.<br><br>The `paymentInstrumentId` must be related to the `balanceAccountId` or `accountHolderId` that you provide. |
 | `reference` | `string \| undefined` | Query, Optional | The reference you provided in the POST [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) request |
-| `category` | [`Category2 \| undefined`](../../doc/models/category-2.md) | Query, Optional | The category of the transfer.<br><br>Possible values:<br><br>- **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.<br><br>- **card**: A transfer involving a third-party card.<br><br>- **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.<br><br>- **issuedCard**: A transfer initiated by an Adyen-issued card.<br><br>- **platformPayment**: Funds movements related to payments that are acquired for your users.<br><br>- **topUp**: An incoming transfer initiated by your user to top up their balance account. |
-| `sortOrder` | [`SortOrder1 \| undefined`](../../doc/models/sort-order-1.md) | Query, Optional | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br>- **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
+| `category` | [`Category2Enum \| undefined`](../../doc/models/category-2-enum.md) | Query, Optional | The category of the transfer.<br><br>Possible values:<br><br>- **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.<br><br>- **card**: A transfer involving a third-party card.<br><br>- **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.<br><br>- **issuedCard**: A transfer initiated by an Adyen-issued card.<br><br>- **platformPayment**: Funds movements related to payments that are acquired for your users.<br><br>- **topUp**: An incoming transfer initiated by your user to top up their balance account. |
+| `sortOrder` | [`SortOrderEnum \| undefined`](../../doc/models/sort-order-enum.md) | Query, Optional | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br>- **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
 | `cursor` | `string \| undefined` | Query, Optional | The `cursor` returned in the links of the previous response. |
 | `limit` | `number \| undefined` | Query, Optional | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
@@ -326,7 +326,7 @@ Reach out to your Adyen contact to set up these permissions.
 ```ts
 async postTransfers(
   idempotencyKey?: string,
-  wwwAuthenticate?: string,
+  wWWAuthenticate?: string,
   body?: TransferInfo,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Transfer>>
@@ -341,7 +341,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `idempotencyKey` | `string \| undefined` | Header, Optional | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID). |
-| `wwwAuthenticate` | `string \| undefined` | Header, Optional | Header for authenticating through SCA |
+| `wWWAuthenticate` | `string \| undefined` | Header, Optional | Header for authenticating through SCA |
 | `body` | [`TransferInfo \| undefined`](../../doc/models/transfer-info.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -359,7 +359,7 @@ const body: TransferInfo = {
     currency: 'EUR',
     value: BigInt(110000),
   },
-  category: Category3.Bank,
+  category: Category3Enum.Bank,
   counterparty: {
     bankAccount: {
       accountHolder: {
@@ -376,13 +376,13 @@ const body: TransferInfo = {
       accountIdentification: {
         accountNumber: '123456789',
         bic: 'BOFAUS3NXXX',
-        type: Type244.NumberAndBic,
+        type: 'numberAndBic',
       },
     },
   },
   balanceAccountId: 'BAB8B2C3D4E5F6G7H8D9J6GD4',
   description: 'Your description for the transfer',
-  priority: Priority.CrossBorder,
+  priority: Priority1Enum.CrossBorder,
   reference: 'Your internal reference for the transfer',
   referenceForBeneficiary: 'Your-reference-sent-to-the-beneficiary',
 };
@@ -411,7 +411,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     } else if (error instanceof TransferServiceRestServiceError) {
       console.log(error.result);
@@ -424,7 +424,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 | 403 | Forbidden - insufficient permissions to process the request. | [`TransferServiceRestServiceError`](../../doc/models/transfer-service-rest-service-error.md) |
 | 422 | Unprocessable Entity - a request validation error. | [`TransferServiceRestServiceError`](../../doc/models/transfer-service-rest-service-error.md) |
 | 500 | Internal Server Error - the server could not process the request. | [`TransferServiceRestServiceError`](../../doc/models/transfer-service-rest-service-error.md) |
@@ -444,10 +444,10 @@ Reach out to your Adyen contact to set up these permissions.
 ```ts
 async postTransfersApprove(
   idempotencyKey?: string,
-  wwwAuthenticate?: string,
+  wWWAuthenticate?: string,
   body?: ApproveTransfersRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown | undefined>>
+): Promise<ApiResponse<unknown>>
 ```
 
 ## Authentication
@@ -459,7 +459,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `idempotencyKey` | `string \| undefined` | Header, Optional | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID). |
-| `wwwAuthenticate` | `string \| undefined` | Header, Optional | Header for authenticating through SCA |
+| `wWWAuthenticate` | `string \| undefined` | Header, Optional | Header for authenticating through SCA |
 | `body` | [`ApproveTransfersRequest \| undefined`](../../doc/models/approve-transfers-request.md) | Body, Optional | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -503,7 +503,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof ServiceError) {
+    if (error instanceof ServiceErrorError1Error) {
       console.log(error.result);
     } else if (error instanceof TransferServiceRestServiceError) {
       console.log(error.result);
@@ -522,7 +522,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`ServiceError`](../../doc/models/service-error.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Error`](../../doc/models/service-error-error-1-error.md) |
 | 403 | Forbidden - insufficient permissions to process the request. | [`TransferServiceRestServiceError`](../../doc/models/transfer-service-rest-service-error.md) |
 | 422 | Unprocessable Entity - a request validation error. | [`TransferServiceRestServiceError`](../../doc/models/transfer-service-rest-service-error.md) |
 | 500 | Internal Server Error - the server could not process the request. | [`TransferServiceRestServiceError`](../../doc/models/transfer-service-rest-service-error.md) |
@@ -544,7 +544,7 @@ async postTransfersCancel(
   idempotencyKey?: string,
   body?: CancelTransfersRequest,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown | undefined>>
+): Promise<ApiResponse<unknown>>
 ```
 
 ## Authentication

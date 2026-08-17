@@ -21,7 +21,7 @@
 
 ```ts
 const value: TransferEventEventsData = {
-  type: Type85.InterchangeData,
+  type: 'interchangeData',
 };
 ```
 
@@ -33,7 +33,7 @@ const value: TransferEventEventsData = {
 
 ```ts
 const value: TransferEventEventsData = {
-  type: Type86.IssuingTransactionData,
+  type: 'issuingTransactionData',
 };
 ```
 
@@ -45,7 +45,7 @@ const value: TransferEventEventsData = {
 
 ```ts
 const value: TransferEventEventsData = {
-  type: Type87.MerchantPurchaseData,
+  type: 'merchantPurchaseData',
 };
 ```
 

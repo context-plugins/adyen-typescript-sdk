@@ -1,8 +1,6 @@
 
 # Delete Notification Configuration Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeleteNotificationConfigurationRequest`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `notificationIds` | `bigint[]` | Required | A list of IDs of the notification subscription configurations to be deleted. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -24,9 +21,6 @@ const deleteNotificationConfigurationRequest: DeleteNotificationConfigurationReq
     BigInt(76),
     BigInt(77)
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

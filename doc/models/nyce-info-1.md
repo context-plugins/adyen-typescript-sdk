@@ -3,8 +3,6 @@
 
 Details to provide if `type` is **nyce**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NyceInfo1`
@@ -13,26 +11,19 @@ Details to provide if `type` is **nyce**.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `processingType` | [`ProcessingType`](../../doc/models/processing-type.md) | Required | - |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `processingType` | [`ProcessingTypeEnum`](../../doc/models/processing-type-enum.md) | Required | The type of transactions processed over this payment method.<br>Allowed values:<br><br>- **pos** for in-person payments.<br>- **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have `recurringProcessingModel` **Subscription**.<br>- **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with `recurringProcessingModel` **CardOnFile** or **UnscheduledCardOnFile**. |
+| `transactionDescription` | [`TransactionDescriptionInfo1 \| undefined`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```ts
-import { NyceInfo1, ProcessingType, Type33 } from 'adyen';
+import { NyceInfo1, ProcessingTypeEnum, Type8Enum } from 'adyen';
 
 const nyceInfo1: NyceInfo1 = {
-  processingType: ProcessingType.Pos,
+  processingType: ProcessingTypeEnum.Pos,
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

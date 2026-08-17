@@ -14,13 +14,13 @@ import {
   splitConfigurationListSchema,
 } from '../models/splitConfigurationList.js';
 import {
-  SplitConfigurationLogic,
-  splitConfigurationLogicSchema,
-} from '../models/splitConfigurationLogic.js';
-import {
   SplitConfigurationRule,
   splitConfigurationRuleSchema,
 } from '../models/splitConfigurationRule.js';
+import {
+  UpdateSplitConfigurationLogicRequest,
+  updateSplitConfigurationLogicRequestSchema,
+} from '../models/updateSplitConfigurationLogicRequest.js';
 import {
   UpdateSplitConfigurationRequest,
   updateSplitConfigurationRequestSchema,
@@ -49,6 +49,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfigurationList>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ merchantId: [merchantId, string()] });
     req.appendTemplatePath`/merchants/${mapped.merchantId}/splitConfigurations`;
     req.throwOn(
@@ -104,6 +105,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(splitConfigurationSchema)],
@@ -157,6 +159,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
@@ -211,6 +214,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
@@ -265,6 +269,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
@@ -320,6 +325,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
@@ -376,6 +382,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('DELETE');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
@@ -436,6 +443,7 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
@@ -482,12 +490,14 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
    * com/development-resources/api-credentials#api-permissions):
    * * Management API - SplitConfiguration read and write
    *
-   * @param merchantId           The unique identifier of the merchant account.
-   * @param splitConfigurationId The unique identifier of the split configuration.
-   * @param ruleId               The unique identifier of the split configuration
-   *                                                               rule.
-   * @param splitLogicId         The unique identifier of the split configuration
-   *                                                               split.
+   * @param merchantId           The unique identifier of the merchant
+   *                                                                            account.
+   * @param splitConfigurationId The unique identifier of the split
+   *                                                                            configuration.
+   * @param ruleId               The unique identifier of the split
+   *                                                                            configuration rule.
+   * @param splitLogicId         The unique identifier of the split
+   *                                                                            configuration split.
    * @param body
    * @return Response from the API call
    */
@@ -496,16 +506,17 @@ export class SplitConfigurationMerchantLevelApi extends BaseApi {
     splitConfigurationId: string,
     ruleId: string,
     splitLogicId: string,
-    body?: SplitConfigurationLogic,
+    body?: UpdateSplitConfigurationLogicRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SplitConfiguration>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       splitConfigurationId: [splitConfigurationId, string()],
       ruleId: [ruleId, string()],
       splitLogicId: [splitLogicId, string()],
-      body: [body, optional(splitConfigurationLogicSchema)],
+      body: [body, optional(updateSplitConfigurationLogicRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);

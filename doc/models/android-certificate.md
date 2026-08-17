@@ -1,8 +1,6 @@
 
 # Android Certificate
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AndroidCertificate`
@@ -18,7 +16,6 @@
 | `notAfter` | `string \| undefined` | Optional | The date when the certificate stops to be valid. |
 | `notBefore` | `string \| undefined` | Optional | The date when the certificate starts to be valid. |
 | `status` | `string \| undefined` | Optional | The status of the certificate. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -32,9 +29,6 @@ const androidCertificate: AndroidCertificate = {
   name: 'name2',
   notAfter: '2016-03-13T12:52:32.123Z',
   notBefore: '2016-03-13T12:52:32.123Z',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

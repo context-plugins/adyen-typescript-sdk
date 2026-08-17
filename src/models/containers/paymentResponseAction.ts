@@ -35,13 +35,13 @@ import {
   checkoutRedirectActionSchema,
 } from '../checkoutRedirectAction.js';
 import {
-  CheckoutSdkAction,
-  checkoutSdkActionSchema,
-} from '../checkoutSdkAction.js';
+  CheckoutSDKAction,
+  checkoutSDKActionSchema,
+} from '../checkoutSDKAction.js';
 import {
-  CheckoutThreeDs2Action,
-  checkoutThreeDs2ActionSchema,
-} from '../checkoutThreeDs2Action.js';
+  CheckoutThreeDS2Action,
+  checkoutThreeDS2ActionSchema,
+} from '../checkoutThreeDS2Action.js';
 import {
   CheckoutVoucherAction,
   checkoutVoucherActionSchema,
@@ -55,8 +55,8 @@ export type PaymentResponseAction =
   | CheckoutNativeRedirectAction
   | CheckoutQrCodeAction
   | CheckoutRedirectAction
-  | CheckoutSdkAction
-  | CheckoutThreeDs2Action
+  | CheckoutSDKAction
+  | CheckoutThreeDS2Action
   | CheckoutVoucherAction;
 
 export const paymentResponseActionSchema: Schema<PaymentResponseAction> = lazy(
@@ -68,8 +68,8 @@ export const paymentResponseActionSchema: Schema<PaymentResponseAction> = lazy(
       checkoutNativeRedirectActionSchema,
       checkoutQrCodeActionSchema,
       checkoutRedirectActionSchema,
-      checkoutSdkActionSchema,
-      checkoutThreeDs2ActionSchema,
+      checkoutSDKActionSchema,
+      checkoutThreeDS2ActionSchema,
       checkoutVoucherActionSchema,
     ])
 );
@@ -148,25 +148,25 @@ export namespace PaymentResponseAction {
   }
 
   /**
-   * Validation method to narrow down union type to CheckoutSdkAction type case.
+   * Validation method to narrow down union type to CheckoutSDKAction type case.
    *
    * This is CheckoutSDKAction case.
    */
-  export function isCheckoutSdkAction(
+  export function isCheckoutSDKAction(
     value: unknown
-  ): value is CheckoutSdkAction {
-    return isMappedValueValidForSchema(value, checkoutSdkActionSchema);
+  ): value is CheckoutSDKAction {
+    return isMappedValueValidForSchema(value, checkoutSDKActionSchema);
   }
 
   /**
-   * Validation method to narrow down union type to CheckoutThreeDs2Action type case.
+   * Validation method to narrow down union type to CheckoutThreeDS2Action type case.
    *
    * This is CheckoutThreeDS2Action case.
    */
-  export function isCheckoutThreeDs2Action(
+  export function isCheckoutThreeDS2Action(
     value: unknown
-  ): value is CheckoutThreeDs2Action {
-    return isMappedValueValidForSchema(value, checkoutThreeDs2ActionSchema);
+  ): value is CheckoutThreeDS2Action {
+    return isMappedValueValidForSchema(value, checkoutThreeDS2ActionSchema);
   }
 
   /**

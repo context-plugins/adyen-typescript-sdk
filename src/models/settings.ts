@@ -7,11 +7,10 @@
 import {
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 export interface Settings {
@@ -21,15 +20,10 @@ export interface Settings {
   roaming?: boolean;
   /** The connection time-out in seconds. Minimum value: 0. */
   timeout?: number;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const settingsSchema: Schema<Settings> = typedExpandoObject(
-  {
-    band: ['band', optional(string())],
-    roaming: ['roaming', optional(boolean())],
-    timeout: ['timeout', optional(number())],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const settingsSchema: Schema<Settings> = object({
+  band: ['band', optional(string())],
+  roaming: ['roaming', optional(boolean())],
+  timeout: ['timeout', optional(number())],
+});

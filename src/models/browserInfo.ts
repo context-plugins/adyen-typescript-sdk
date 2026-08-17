@@ -7,11 +7,10 @@
 import {
   boolean,
   number,
+  object,
   optional,
   Schema,
   string,
-  typedExpandoObject,
-  unknown,
 } from '../schema.js';
 
 /**
@@ -37,21 +36,16 @@ export interface BrowserInfo {
   timeZoneOffset: number;
   /** The user agent value of the shopper's browser. */
   userAgent: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
-export const browserInfoSchema: Schema<BrowserInfo> = typedExpandoObject(
-  {
-    acceptHeader: ['acceptHeader', string()],
-    colorDepth: ['colorDepth', number()],
-    javaEnabled: ['javaEnabled', boolean()],
-    javaScriptEnabled: ['javaScriptEnabled', optional(boolean())],
-    language: ['language', string()],
-    screenHeight: ['screenHeight', number()],
-    screenWidth: ['screenWidth', number()],
-    timeZoneOffset: ['timeZoneOffset', number()],
-    userAgent: ['userAgent', string()],
-  },
-  'additionalProperties',
-  optional(unknown())
-);
+export const browserInfoSchema: Schema<BrowserInfo> = object({
+  acceptHeader: ['acceptHeader', string()],
+  colorDepth: ['colorDepth', number()],
+  javaEnabled: ['javaEnabled', boolean()],
+  javaScriptEnabled: ['javaScriptEnabled', optional(boolean())],
+  language: ['language', string()],
+  screenHeight: ['screenHeight', number()],
+  screenWidth: ['screenWidth', number()],
+  timeZoneOffset: ['timeZoneOffset', number()],
+  userAgent: ['userAgent', string()],
+});

@@ -1,8 +1,6 @@
 
 # Number and Bic Account Identification 1
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `NumberAndBicAccountIdentification1`
@@ -16,15 +14,14 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The bank account number, without separators or whitespace. The length and format depends on the bank or country.<br><br>**Constraints**: *Maximum Length*: `34` |
-| `additionalBankIdentification` | [`AdditionalBankIdentification \| undefined`](../../doc/models/additional-bank-identification.md) | Optional | - |
+| `additionalBankIdentification` | [`AdditionalBankIdentification11 \| undefined`](../../doc/models/additional-bank-identification-11.md) | Optional | Additional identification codes of the bank. Some banks may require these identifiers for cross-border transfers. |
 | `bic` | `string` | Required | The bank's 8- or 11-character BIC or SWIFT code.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `11` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  AdditionalBankIdentificationType,
+  AdditionalBankIdentificationTypeEnum,
   NumberAndBicAccountIdentification1,
 } from 'adyen';
 
@@ -33,15 +30,9 @@ const numberAndBicAccountIdentification1: NumberAndBicAccountIdentification1 = {
   bic: 'bic0',
   additionalBankIdentification: {
     code: 'code2',
-    type: AdditionalBankIdentificationType.GbSortCode,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
+    type: AdditionalBankIdentificationTypeEnum.GbSortCode,
   },
   type: 'numberAndBic',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

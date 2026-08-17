@@ -42,13 +42,13 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const body: TransferRouteRequest = {
   balancePlatform: 'YOUR_BALANCE_PLATFORM',
-  category: Category35.Bank,
+  category: 'bank',
   currency: 'USD',
   counterparty: {
     bankAccount: {
       accountIdentification: {
         iban: 'NL91ABNA0417164300',
-        type: Type203.Iban,
+        type: 'iban',
       },
     },
   },

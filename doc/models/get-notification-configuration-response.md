@@ -1,8 +1,6 @@
 
 # Get Notification Configuration Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GetNotificationConfigurationResponse`
@@ -11,20 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `configurationDetails` | [`NotificationConfigurationDetails`](../../doc/models/notification-configuration-details.md) | Required | - |
+| `configurationDetails` | [`NotificationConfigurationDetails2`](../../doc/models/notification-configuration-details-2.md) | Required | Details of the notification subscription configuration. |
 | `invalidFields` | [`ErrorFieldType[] \| undefined`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `pspReference` | `string \| undefined` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `resultCode` | `string \| undefined` | Optional | The result code. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
 import {
-  EventType,
-  FieldName,
+  EventTypeEnum,
+  FieldNameEnum,
   GetNotificationConfigurationResponse,
-  IncludeMode,
+  IncludeModeEnum,
 } from 'adyen';
 
 const getNotificationConfigurationResponse: GetNotificationConfigurationResponse = {
@@ -34,24 +31,15 @@ const getNotificationConfigurationResponse: GetNotificationConfigurationResponse
     description: 'description6',
     eventConfigs: [
       {
-        eventType: EventType.ScheduledRefunds,
-        includeMode: IncludeMode.Exclude,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+        includeMode: IncludeModeEnum.EXCLUDE,
       },
       {
-        eventType: EventType.ScheduledRefunds,
-        includeMode: IncludeMode.Exclude,
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
+        eventType: EventTypeEnum.SCHEDULEDREFUNDS,
+        includeMode: IncludeModeEnum.EXCLUDE,
       }
     ],
     hmacSignatureKey: 'hmacSignatureKey2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   invalidFields: [
     {
@@ -59,14 +47,8 @@ const getNotificationConfigurationResponse: GetNotificationConfigurationResponse
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     },
     {
@@ -74,22 +56,13 @@ const getNotificationConfigurationResponse: GetNotificationConfigurationResponse
       errorDescription: 'errorDescription6',
       fieldType: {
         field: 'field6',
-        fieldName: FieldName.DrivingLicenceFront,
+        fieldName: FieldNameEnum.DrivingLicenceFront,
         shareholderCode: 'shareholderCode0',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
-      },
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
       },
     }
   ],
   pspReference: 'pspReference2',
   resultCode: 'resultCode4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 The time when the payout funds are settled in your user's transfer instrument.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `LocalTime2`
@@ -17,7 +15,6 @@ The time when the payout funds are settled in your user's transfer instrument.
 | `minute` | `number \| undefined` | Optional | - |
 | `nano` | `number \| undefined` | Optional | - |
 | `second` | `number \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -29,9 +26,6 @@ const localTime2: LocalTime2 = {
   minute: 96,
   nano: 120,
   second: 158,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

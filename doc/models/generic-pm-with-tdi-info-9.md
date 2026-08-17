@@ -4,8 +4,6 @@
 Details to provide if `type` is **maestro_usa**.
 Only for Maestro USA, otherwise use `maestro`.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `GenericPmWithTdiInfo9`
@@ -14,24 +12,17 @@ Only for Maestro USA, otherwise use `maestro`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionInfo1 \| undefined`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```ts
-import { GenericPmWithTdiInfo9, Type33 } from 'adyen';
+import { GenericPmWithTdiInfo9, Type8Enum } from 'adyen';
 
 const genericPmWithTdiInfo9: GenericPmWithTdiInfo9 = {
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

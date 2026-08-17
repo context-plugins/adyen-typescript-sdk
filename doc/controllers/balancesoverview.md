@@ -82,11 +82,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceOverviewCompaniesBalances401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceOverviewCompaniesBalances403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceOverviewCompaniesBalances422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -97,9 +93,9 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - Authentication required. | [`BalanceOverviewCompaniesBalances401Error`](../../doc/models/balance-overview-companies-balances-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceOverviewCompaniesBalances403Error`](../../doc/models/balance-overview-companies-balances-403-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceOverviewCompaniesBalances422Error`](../../doc/models/balance-overview-companies-balances-422-error.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 
 
 # Get-Balance Overview-Merchants-Merchant Account Code-Balances
@@ -170,11 +166,7 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
-    if (error instanceof BalanceOverviewMerchantsBalances401Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceOverviewMerchantsBalances403Error) {
-      console.log(error.result);
-    } else if (error instanceof BalanceOverviewMerchantsBalances422Error) {
+    if (error instanceof DefaultErrorResponseEntityError) {
       console.log(error.result);
     }
   }
@@ -185,7 +177,7 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - Authentication required. | [`BalanceOverviewMerchantsBalances401Error`](../../doc/models/balance-overview-merchants-balances-401-error.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceOverviewMerchantsBalances403Error`](../../doc/models/balance-overview-merchants-balances-403-error.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceOverviewMerchantsBalances422Error`](../../doc/models/balance-overview-merchants-balances-422-error.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityError`](../../doc/models/default-error-response-entity-error.md) |
 

@@ -53,6 +53,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListStoresResponse>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       pageNumber: [pageNumber, optional(number())],
@@ -112,6 +113,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Store>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       body: [body, optional(storeCreationRequestSchema)],
@@ -169,6 +171,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Store>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       storeId: [storeId, string()],
@@ -225,6 +228,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Store>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       merchantId: [merchantId, string()],
       storeId: [storeId, string()],
@@ -287,6 +291,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ListStoresResponse>> {
     const req = this.createRequest('GET', '/stores');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       pageNumber: [pageNumber, optional(number())],
       pageSize: [pageSize, optional(number())],
@@ -344,6 +349,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Store>> {
     const req = this.createRequest('POST', '/stores');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       body: [body, optional(storeCreationWithMerchantCodeRequestSchema)],
     });
@@ -397,6 +403,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Store>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({ storeId: [storeId, string()] });
     req.appendTemplatePath`/stores/${mapped.storeId}`;
     req.throwOn(
@@ -449,6 +456,7 @@ export class AccountStoreLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Store>> {
     const req = this.createRequest('PATCH');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       storeId: [storeId, string()],
       body: [body, optional(updateStoreRequestSchema)],

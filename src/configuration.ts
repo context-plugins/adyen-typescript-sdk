@@ -5,7 +5,6 @@
  */
 
 import { HttpClientOptions } from './clientAdapter.js';
-import { LogLevel, PartialLoggingOptions } from './core.js';
 import {
   anyOf,
   array,
@@ -24,8 +23,6 @@ import {
 export interface Configuration {
   timeout: number;
   environment: Environment;
-  merchantAccount: string;
-  deviceId: string;
   apiKeyAuthCredentials?: {
     'X-API-Key': string;
   };
@@ -38,191 +35,11 @@ export interface Configuration {
   };
   httpClientOptions?: Partial<HttpClientOptions>;
   unstable_httpClientOptions?: any;
-  logging?: PartialLoggingOptions;
 }
 
 /** Environments available for API */
 export enum Environment {
-  Production = 'production',
-  Environment2 = 'environment2',
-  Environment3 = 'environment3',
-  Environment4 = 'environment4',
-  Environment5 = 'environment5',
-  Environment6 = 'environment6',
-  Environment7 = 'environment7',
-  Environment8 = 'environment8',
-  Environment9 = 'environment9',
-  Environment10 = 'environment10',
-  Environment11 = 'environment11',
-  Environment12 = 'environment12',
-  Environment13 = 'environment13',
-  Environment14 = 'environment14',
-  Environment15 = 'environment15',
-  Environment16 = 'environment16',
-  Environment17 = 'environment17',
-  Environment18 = 'environment18',
-  Environment19 = 'environment19',
-  Environment20 = 'environment20',
-  Environment21 = 'environment21',
-  Environment22 = 'environment22',
-  Environment23 = 'environment23',
-  Environment24 = 'environment24',
-  Environment25 = 'environment25',
-  Environment26 = 'environment26',
-  Environment27 = 'environment27',
-  Environment28 = 'environment28',
-  Environment29 = 'environment29',
-  Environment30 = 'environment30',
-  Environment31 = 'environment31',
-  Environment32 = 'environment32',
-  Environment33 = 'environment33',
-  Environment34 = 'environment34',
-  Environment35 = 'environment35',
-  Environment36 = 'environment36',
-  Environment37 = 'environment37',
-  Environment38 = 'environment38',
-  Environment39 = 'environment39',
-  Environment40 = 'environment40',
-  Environment41 = 'environment41',
-  Environment42 = 'environment42',
-  Environment43 = 'environment43',
-  Environment44 = 'environment44',
-  Environment45 = 'environment45',
-  Environment46 = 'environment46',
-  Environment47 = 'environment47',
-  Environment48 = 'environment48',
-  Environment49 = 'environment49',
-  Environment50 = 'environment50',
-  Environment51 = 'environment51',
-  Environment52 = 'environment52',
-  Environment53 = 'environment53',
-  Environment54 = 'environment54',
-  Environment55 = 'environment55',
-  Environment56 = 'environment56',
-  Environment57 = 'environment57',
-  Environment58 = 'environment58',
-  Environment59 = 'environment59',
-  Environment60 = 'environment60',
-  Environment61 = 'environment61',
-  Environment62 = 'environment62',
-  Environment63 = 'environment63',
-  Environment64 = 'environment64',
-  Environment65 = 'environment65',
-  Environment66 = 'environment66',
-  Environment67 = 'environment67',
-  Environment68 = 'environment68',
-  Environment69 = 'environment69',
-  Environment70 = 'environment70',
-  Environment71 = 'environment71',
-  Environment72 = 'environment72',
-  Environment73 = 'environment73',
-  Environment74 = 'environment74',
-  Environment75 = 'environment75',
-  Environment76 = 'environment76',
-  Environment77 = 'environment77',
-  Environment78 = 'environment78',
-  Environment79 = 'environment79',
-  Environment80 = 'environment80',
-  Environment81 = 'environment81',
-  Environment82 = 'environment82',
-  Environment83 = 'environment83',
-  Environment84 = 'environment84',
-  Environment85 = 'environment85',
-  Environment86 = 'environment86',
-  Environment87 = 'environment87',
-  Environment88 = 'environment88',
-  Environment89 = 'environment89',
-  Environment90 = 'environment90',
-  Environment91 = 'environment91',
-  Environment92 = 'environment92',
-  Environment93 = 'environment93',
-  Environment94 = 'environment94',
-  Environment95 = 'environment95',
-  Environment96 = 'environment96',
-  Environment97 = 'environment97',
-  Environment98 = 'environment98',
-  Environment99 = 'environment99',
-  Environment100 = 'environment100',
-  Environment101 = 'environment101',
-  Environment102 = 'environment102',
-  Environment103 = 'environment103',
-  Environment104 = 'environment104',
-  Environment105 = 'environment105',
-  Environment106 = 'environment106',
-  Environment107 = 'environment107',
-  Environment108 = 'environment108',
-  Environment109 = 'environment109',
-  Environment110 = 'environment110',
-  Environment111 = 'environment111',
-  Environment112 = 'environment112',
-  Environment113 = 'environment113',
-  Environment114 = 'environment114',
-  Environment115 = 'environment115',
-  Environment116 = 'environment116',
-  Environment117 = 'environment117',
-  Environment118 = 'environment118',
-  Environment119 = 'environment119',
-  Environment120 = 'environment120',
-  Environment121 = 'environment121',
-  Environment122 = 'environment122',
-  Environment123 = 'environment123',
-  Environment124 = 'environment124',
-  Environment125 = 'environment125',
-  Environment126 = 'environment126',
-  Environment127 = 'environment127',
-  Environment128 = 'environment128',
-  Environment129 = 'environment129',
-  Environment130 = 'environment130',
-  Environment131 = 'environment131',
-  Environment132 = 'environment132',
-  Environment133 = 'environment133',
-  Environment134 = 'environment134',
-  Environment135 = 'environment135',
-  Environment136 = 'environment136',
-  Environment137 = 'environment137',
-  Environment138 = 'environment138',
-  Environment139 = 'environment139',
-  Environment140 = 'environment140',
-  Environment141 = 'environment141',
-  Environment142 = 'environment142',
-  Environment143 = 'environment143',
-  Environment144 = 'environment144',
-  Environment145 = 'environment145',
-  Environment146 = 'environment146',
-  Environment147 = 'environment147',
-  Environment148 = 'environment148',
-  Environment149 = 'environment149',
-  Environment150 = 'environment150',
-  Environment151 = 'environment151',
-  Environment152 = 'environment152',
-  Environment153 = 'environment153',
-  Environment154 = 'environment154',
-  Environment155 = 'environment155',
-  Environment156 = 'environment156',
-  Environment157 = 'environment157',
-  Environment158 = 'environment158',
-  Environment159 = 'environment159',
-  Environment160 = 'environment160',
-  Environment161 = 'environment161',
-  Environment162 = 'environment162',
-  Environment163 = 'environment163',
-  Environment164 = 'environment164',
-  Environment165 = 'environment165',
-  Environment166 = 'environment166',
-  Environment167 = 'environment167',
-  Environment168 = 'environment168',
-  Environment169 = 'environment169',
-  Environment170 = 'environment170',
-  Environment171 = 'environment171',
-  Environment172 = 'environment172',
-  Environment173 = 'environment173',
-  Environment174 = 'environment174',
-  Environment175 = 'environment175',
-  Environment176 = 'environment176',
-  Environment177 = 'environment177',
-  Environment178 = 'environment178',
-  Environment179 = 'environment179',
-  Environment180 = 'environment180',
+  Test = 'Test',
 }
 
 export namespace Configuration {
@@ -247,8 +64,6 @@ export namespace Configuration {
 
     config.timeout = envVariables.TIMEOUT;
     config.environment = envVariables.ENVIRONMENT;
-    config.merchantAccount = envVariables.MERCHANT_ACCOUNT;
-    config.deviceId = envVariables.DEVICE_ID;
 
     if (envVariables.API_KEY_AUTH_X_API_KEY) {
       config.apiKeyAuthCredentials = {
@@ -302,38 +117,6 @@ export namespace Configuration {
         };
       }
     }
-
-    config.logging = {
-      logLevel: envVariables.LOG_LEVEL,
-      maskSensitiveHeaders: envVariables.MASK_SENSITIVE_HEADERS,
-      logRequest: {
-        logBody: envVariables.REQUEST_LOG_BODY,
-        logHeaders: envVariables.REQUEST_LOG_HEADERS,
-        includeQueryInPath: envVariables.REQUEST_INCLUDE_QUERY_IN_PATH,
-        headersToInclude: envVariables.REQUEST_HEADERS_TO_INCLUDE?.split(
-          ','
-        ).map((s) => s.trim()),
-        headersToExclude: envVariables.REQUEST_HEADERS_TO_EXCLUDE?.split(
-          ','
-        ).map((s) => s.trim()),
-        headersToWhitelist: envVariables.REQUEST_HEADERS_TO_WHITELIST?.split(
-          ','
-        ).map((s) => s.trim()),
-      },
-      logResponse: {
-        logBody: envVariables.RESPONSE_LOG_BODY,
-        logHeaders: envVariables.RESPONSE_LOG_HEADERS,
-        headersToInclude: envVariables.RESPONSE_HEADERS_TO_INCLUDE?.split(
-          ','
-        ).map((s) => s.trim()),
-        headersToExclude: envVariables.RESPONSE_HEADERS_TO_EXCLUDE?.split(
-          ','
-        ).map((s) => s.trim()),
-        headersToWhitelist: envVariables.RESPONSE_HEADERS_TO_WHITELIST?.split(
-          ','
-        ).map((s) => s.trim()),
-      },
-    };
 
     const result = validateAndMap(config, configurationSchema);
 
@@ -424,51 +207,6 @@ const configurationSchema: Schema<Partial<Configuration>> = object({
                     password: ['password', string()],
                   })
                 ),
-              ],
-            })
-          ),
-        ],
-      })
-    ),
-  ],
-  merchantAccount: ['merchantAccount', optional(string())],
-  deviceId: ['deviceId', optional(string())],
-  logging: [
-    'logging',
-    optional(
-      object({
-        logLevel: ['logLevel', optional(stringEnum(LogLevel))],
-        logRequest: [
-          'logRequest',
-          optional(
-            object({
-              logBody: ['logBody', optional(boolean())],
-              logHeaders: ['logHeaders', optional(boolean())],
-              headersToExclude: ['headersToExclude', optional(array(string()))],
-              headersToInclude: ['headersToInclude', optional(array(string()))],
-              headersToWhiteList: [
-                'headersToWhiteList',
-                optional(array(string())),
-              ],
-              includeQueryInPath: ['includeQueryInPath', optional(boolean())],
-            })
-          ),
-        ],
-        logResponse: [
-          'logResponse',
-          optional(
-            object({
-              logBody: ['logBody', optional(boolean())],
-              logHeaders: ['logHeaders', optional(boolean())],
-              headersToExclude: ['headersToExclude', optional(array(string()))],
-              headersToInclude: ['headersToInclude', optional(array(string()))],
-              headersToWhiteList: [
-                'headersToWhiteList',
-                optional(array(string())),
-              ],
-              makeSensitiveHeaders: [
-                'makeSensitiveHeaders',
-                optional(boolean()),
               ],
             })
           ),

@@ -1489,7 +1489,7 @@ try {
       "name": "Receipt Roll",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1497,7 +1497,7 @@ try {
       "name": "Adyen Test Card",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1505,7 +1505,7 @@ try {
       "name": "Battery - V400m",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1513,7 +1513,7 @@ try {
       "name": "Bluetooth Charging Base - V400m",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1521,7 +1521,7 @@ try {
       "name": "Power Supply EU - V400m",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1530,7 +1530,7 @@ try {
       "description": "Includes an EU Power Supply, SIM Card and battery",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       },
       "itemsIncluded": [
         "Receipt Roll",

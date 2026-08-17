@@ -1,8 +1,6 @@
 
 # Un Suspend Account Holder Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `UnSuspendAccountHolderRequest`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string` | Required | The code of the account holder to be reinstated. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -21,9 +18,6 @@ import { UnSuspendAccountHolderRequest } from 'adyen';
 
 const unSuspendAccountHolderRequest: UnSuspendAccountHolderRequest = {
   accountHolderCode: 'accountHolderCode0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

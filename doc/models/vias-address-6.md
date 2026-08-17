@@ -3,8 +3,6 @@
 
 The principal business address of the account holder.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ViasAddress6`
@@ -19,7 +17,6 @@ The principal business address of the account holder.
 | `postalCode` | `string \| undefined` | Optional | The postal code. Required if the `houseNumberOrName`, `street`, `city`, or `stateOrProvince` are provided.<br><br>Maximum length:<br><br>* 5 digits for addresses in the US.<br><br>* 10 characters for all other countries. |
 | `stateOrProvince` | `string \| undefined` | Optional | The abbreviation of the state or province. Required if the `houseNumberOrName`, `street`, `city`, or `postalCode` are provided.<br><br>Maximum length:<br><br>* 2 characters for addresses in the US or Canada.<br><br>* 3 characters for all other countries. |
 | `street` | `string \| undefined` | Optional | The name of the street. Required if the `houseNumberOrName`, `city`, `postalCode`, or `stateOrProvince` are provided. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -33,9 +30,6 @@ const viasAddress6: ViasAddress6 = {
   postalCode: 'postalCode8',
   stateOrProvince: 'stateOrProvince8',
   street: 'street0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -3,8 +3,6 @@
 
 Content to display or print.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `OutputContent1`
@@ -13,31 +11,27 @@ Content to display or print.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `outputFormat` | [`OutputFormat1`](../../doc/models/output-format-1.md) | Required | - |
-| `predefinedContent` | [`PredefinedContent2 \| undefined`](../../doc/models/predefined-content-2.md) | Optional | - |
+| `outputFormat` | [`OutputFormat1Enum`](../../doc/models/output-format-1-enum.md) | Required | Format of the content to display or print.<br>Possible values:<br><br>* **BarCode**<br>* **MessageRef**<br>* **Text**<br>* **XHTML** |
+| `predefinedContent` | [`PredefinedContent1 \| undefined`](../../doc/models/predefined-content-1.md) | Optional | Reference of a predefined message to display or print.<br>Mandatory, if `OutputFormat` is MessageRef, not allowed otherwise. |
 | `outputText` | [`OutputText[] \| undefined`](../../doc/models/output-text.md) | Optional | Content of text message to display or print.<br>Mandatory, if `OutputFormat` is Text, not allowed otherwise. One instance of `OutputText` per shared format. |
-| `outputXhtml` | `string \| undefined` | Optional | XHTML document body containing the message to display or print.<br>Mandatory if `OutputFormat` is XHTML, not allowed otherwise.<br><br>**Constraints**: *Pattern*: `^.{0,262144}$` |
-| `outputBarcode` | [`OutputBarcode \| undefined`](../../doc/models/output-barcode.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `outputXHTML` | `string \| undefined` | Optional | XHTML document body containing the message to display or print.<br>Mandatory if `OutputFormat` is XHTML, not allowed otherwise.<br><br>**Constraints**: *Pattern*: `^.{0,262144}$` |
+| `outputBarcode` | [`OutputBarcode1 \| undefined`](../../doc/models/output-barcode-1.md) | Optional | Barcode content to display or print.<br>Mandatory if `OutputFormat` is Barcode, not allowed otherwise. |
 
 ## Example
 
 ```ts
 import {
-  CharacterHeight1,
-  CharacterWidth1,
+  CharacterHeight1Enum,
+  CharacterWidth1Enum,
   OutputContent1,
-  OutputFormat1,
+  OutputFormat1Enum,
 } from 'adyen';
 
 const outputContent1: OutputContent1 = {
-  outputFormat: OutputFormat1.MessageRef,
+  outputFormat: OutputFormat1Enum.MessageRef,
   predefinedContent: {
-    referenceId: 'ReferenceID0',
+    referenceID: 'ReferenceID0',
     language: 'Language2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   outputText: [
     {
@@ -45,44 +39,29 @@ const outputContent1: OutputContent1 = {
       characterSet: 194,
       startRow: 74,
       startColumn: 220,
-      characterWidth: CharacterWidth1.SingleWidth,
-      characterHeight: CharacterHeight1.SingleHeight,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      characterWidth: CharacterWidth1Enum.SingleWidth,
+      characterHeight: CharacterHeight1Enum.SingleHeight,
     },
     {
       text: 'Text6',
       characterSet: 194,
       startRow: 74,
       startColumn: 220,
-      characterWidth: CharacterWidth1.SingleWidth,
-      characterHeight: CharacterHeight1.SingleHeight,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      characterWidth: CharacterWidth1Enum.SingleWidth,
+      characterHeight: CharacterHeight1Enum.SingleHeight,
     },
     {
       text: 'Text6',
       characterSet: 194,
       startRow: 74,
       startColumn: 220,
-      characterWidth: CharacterWidth1.SingleWidth,
-      characterHeight: CharacterHeight1.SingleHeight,
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
+      characterWidth: CharacterWidth1Enum.SingleWidth,
+      characterHeight: CharacterHeight1Enum.SingleHeight,
     }
   ],
-  outputXhtml: 'OutputXHTML4',
+  outputXHTML: 'OutputXHTML4',
   outputBarcode: {
     barcodeValue: 'BarcodeValue2',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

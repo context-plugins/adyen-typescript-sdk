@@ -1,8 +1,6 @@
 
 # Billing Entities Response
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `BillingEntitiesResponse`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `data` | [`BillingEntity[] \| undefined`](../../doc/models/billing-entity.md) | Optional | List of legal entities that can be used for the billing of orders. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -28,17 +25,11 @@ const billingEntitiesResponse: BillingEntitiesResponse = {
         country: 'country0',
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email6',
       id: 'id0',
       name: 'name0',
       taxId: 'taxId6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       address: {
@@ -47,17 +38,11 @@ const billingEntitiesResponse: BillingEntitiesResponse = {
         country: 'country0',
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email6',
       id: 'id0',
       name: 'name0',
       taxId: 'taxId6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
       address: {
@@ -66,22 +51,13 @@ const billingEntitiesResponse: BillingEntitiesResponse = {
         country: 'country0',
         postalCode: 'postalCode8',
         stateOrProvince: 'stateOrProvince4',
-        additionalProperties: {
-          'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-        },
       },
       email: 'email6',
       id: 'id0',
       name: 'name0',
       taxId: 'taxId6',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

@@ -1,8 +1,6 @@
 
 # Payment Instrument 2
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrument2`
@@ -15,7 +13,6 @@
 | `id` | `string \| undefined` | Optional | The unique identifier of the resource. |
 | `reference` | `string \| undefined` | Optional | The reference for the resource. |
 | `tokenType` | `string \| undefined` | Optional | The type of wallet that the network token is associated with. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -27,9 +24,6 @@ const paymentInstrument2: PaymentInstrument2 = {
   id: 'id0',
   reference: 'reference4',
   tokenType: 'tokenType4',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

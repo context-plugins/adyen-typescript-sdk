@@ -46,6 +46,7 @@ export class TerminalActionsTerminalLevelApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ScheduleTerminalActionsResponse>> {
     const req = this.createRequest('POST', '/terminals/scheduleActions');
+    req.baseUrl('default9');
     const mapped = req.prepareArgs({
       body: [body, optional(scheduleTerminalActionsRequestSchema)],
     });

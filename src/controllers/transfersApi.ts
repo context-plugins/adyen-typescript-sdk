@@ -13,7 +13,7 @@ import {
   CancelTransfersRequest,
   cancelTransfersRequestSchema,
 } from '../models/cancelTransfersRequest.js';
-import { Category2, category2Schema } from '../models/category2.js';
+import { Category2Enum, category2EnumSchema } from '../models/category2Enum.js';
 import {
   FindTransfersResponse,
   findTransfersResponseSchema,
@@ -26,13 +26,13 @@ import {
   ReturnTransferResponse,
   returnTransferResponseSchema,
 } from '../models/returnTransferResponse.js';
-import { SortOrder1, sortOrder1Schema } from '../models/sortOrder1.js';
+import { SortOrderEnum, sortOrderEnumSchema } from '../models/sortOrderEnum.js';
 import { Transfer, transferSchema } from '../models/transfer.js';
 import { TransferData, transferDataSchema } from '../models/transferData.js';
 import { TransferInfo, transferInfoSchema } from '../models/transferInfo.js';
 import { number, optional, string, unknown } from '../schema.js';
 import { BaseApi } from './baseApi.js';
-import { ServiceError } from '../errors/serviceError.js';
+import { ServiceErrorError1Error } from '../errors/serviceErrorError1Error.js';
 import { TransferServiceRestServiceError } from '../errors/transferServiceRestServiceError.js';
 
 export class TransfersApi extends BaseApi {
@@ -50,53 +50,57 @@ export class TransfersApi extends BaseApi {
    *
    *
    *
-   * @param createdSince        Only include transfers that have been created on or after this point in
-   *                                          time. The value must be in ISO 8601 format and not earlier than 6 months
-   *                                          before the `createdUntil` date. For example, **2021-05-30T15:07:40Z**.
-   * @param createdUntil        Only include transfers that have been created on or before this point in
-   *                                          time. The value must be in ISO 8601 format and not later than 6 months
-   *                                          after the `createdSince` date. For example, **2021-05-30T15:07:40Z**.
+   * @param createdSince        Only include transfers that have been created on or after this point
+   *                                             in time. The value must be in ISO 8601 format and not earlier than 6
+   *                                             months before the `createdUntil` date. For example, **2021-05-30T15:07:
+   *                                             40Z**.
+   * @param createdUntil        Only include transfers that have been created on or before this point
+   *                                             in time. The value must be in ISO 8601 format and not later than 6
+   *                                             months after the `createdSince` date. For example, **2021-05-30T15:07:
+   *                                             40Z**.
    * @param balancePlatform     The unique identifier of the [balance platform](https://docs.adyen.
-   *                                          com/api-
-   *                                          explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_i
-   *                                          d).  Required if you don't provide a `balanceAccountId` or
-   *                                          `accountHolderId`.
-   * @param accountHolderId     The unique identifier of the [account holder](https://docs.adyen.com/api-
-   *                                          explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_id).
-   *                                          Required if you don't provide a `balanceAccountId` or `balancePlatform`.
-   *                                          If you provide a `balanceAccountId`, the `accountHolderId` must be
-   *                                          related to the `balanceAccountId`.
+   *                                             com/api-
+   *                                             explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryPara
+   *                                             m_id).  Required if you don't provide a `balanceAccountId` or
+   *                                             `accountHolderId`.
+   * @param accountHolderId     The unique identifier of the [account holder](https://docs.adyen.
+   *                                             com/api-
+   *                                             explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_
+   *                                             id).  Required if you don't provide a `balanceAccountId` or
+   *                                             `balancePlatform`.  If you provide a `balanceAccountId`, the
+   *                                             `accountHolderId` must be related to the `balanceAccountId`.
    * @param balanceAccountId    The unique identifier of the [balance account](https://docs.adyen.
-   *                                          com/api-
-   *                                          explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id
-   *                                          ).  Required if you don't provide an `accountHolderId` or
-   *                                          `balancePlatform`.  If you provide an `accountHolderId`, the
-   *                                          `balanceAccountId` must be related to the `accountHolderId`.
+   *                                             com/api-
+   *                                             explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam
+   *                                             _id).  Required if you don't provide an `accountHolderId` or
+   *                                             `balancePlatform`.  If you provide an `accountHolderId`, the
+   *                                             `balanceAccountId` must be related to the `accountHolderId`.
    * @param paymentInstrumentId The unique identifier of the [payment instrument](https://docs.adyen.
-   *                                          com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).  To
-   *                                          use this parameter, you must also provide a `balanceAccountId`,
-   *                                          `accountHolderId`, or `balancePlatform`.  The `paymentInstrumentId` must
-   *                                          be related to the `balanceAccountId` or `accountHolderId` that you
-   *                                          provide.
-   * @param reference           The reference you provided in the POST [/transfers](https://docs.adyen.
-   *                                          com/api-explorer/transfers/latest/post/transfers) request
-   * @param category            The category of the transfer.  Possible values:   - **bank**: A transfer
-   *                                          involving a [transfer instrument](https://docs.adyen.com/api-
-   *                                          explorer/legalentity/latest/post/transferInstruments#responses-200-id) or
-   *                                          a bank account.  - **card**: A transfer involving a third-party card.  -
-   *                                          **internal**: A transfer between [balance accounts](https://docs.adyen.
-   *                                          com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-
-   *                                          200-id) within your platform.  - **issuedCard**: A transfer initiated by
-   *                                          an Adyen-issued card.  - **platformPayment**: Funds movements related to
-   *                                          payments that are acquired for your users.  - **topUp**: An incoming
-   *                                          transfer initiated by your user to top up their balance account.
-   * @param sortOrder           Determines the sort order of the returned transfers. The sort order is
-   *                                          based on the creation date of the transfers.  Possible values:   -
-   *                                          **asc**: Ascending order, from oldest to most recent.  - **desc**:
-   *                                          Descending order, from most recent to oldest.  Default value: **asc**.
+   *                                             com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).
+   *                                             To use this parameter, you must also provide a `balanceAccountId`,
+   *                                             `accountHolderId`, or `balancePlatform`.  The `paymentInstrumentId`
+   *                                             must be related to the `balanceAccountId` or `accountHolderId` that
+   *                                             you provide.
+   * @param reference           The reference you provided in the POST [/transfers](https://docs.
+   *                                             adyen.com/api-explorer/transfers/latest/post/transfers) request
+   * @param category            The category of the transfer.  Possible values:   - **bank**: A
+   *                                             transfer involving a [transfer instrument](https://docs.adyen.com/api-
+   *                                             explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *                                             or a bank account.  - **card**: A transfer involving a third-party
+   *                                             card.  - **internal**: A transfer between [balance accounts](https:
+   *                                             //docs.adyen.com/api-
+   *                                             explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *                                             within your platform.  - **issuedCard**: A transfer initiated by an
+   *                                             Adyen-issued card.  - **platformPayment**: Funds movements related to
+   *                                             payments that are acquired for your users.  - **topUp**: An incoming
+   *                                             transfer initiated by your user to top up their balance account.
+   * @param sortOrder           Determines the sort order of the returned transfers. The sort order
+   *                                             is based on the creation date of the transfers.  Possible values:   -
+   *                                             **asc**: Ascending order, from oldest to most recent.  - **desc**:
+   *                                             Descending order, from most recent to oldest.  Default value: **asc**.
    * @param cursor              The `cursor` returned in the links of the previous response.
-   * @param limit               The number of items returned per page, maximum of 100 items. By default,
-   *                                          the response returns 10 items per page.
+   * @param limit               The number of items returned per page, maximum of 100 items. By
+   *                                             default, the response returns 10 items per page.
    * @return Response from the API call
    */
   async getTransfers(
@@ -107,13 +111,14 @@ export class TransfersApi extends BaseApi {
     balanceAccountId?: string,
     paymentInstrumentId?: string,
     reference?: string,
-    category?: Category2,
-    sortOrder?: SortOrder1,
+    category?: Category2Enum,
+    sortOrder?: SortOrderEnum,
     cursor?: string,
     limit?: number,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<FindTransfersResponse>> {
     const req = this.createRequest('GET', '/transfers');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({
       createdSince: [createdSince, string()],
       createdUntil: [createdUntil, string()],
@@ -122,8 +127,8 @@ export class TransfersApi extends BaseApi {
       balanceAccountId: [balanceAccountId, optional(string())],
       paymentInstrumentId: [paymentInstrumentId, optional(string())],
       reference: [reference, optional(string())],
-      category: [category, optional(category2Schema)],
-      sortOrder: [sortOrder, optional(sortOrder1Schema)],
+      category: [category, optional(category2EnumSchema)],
+      sortOrder: [sortOrder, optional(sortOrderEnumSchema)],
       cursor: [cursor, optional(string())],
       limit: [limit, optional(number())],
     });
@@ -191,27 +196,32 @@ export class TransfersApi extends BaseApi {
    *
    * @param idempotencyKey   A unique identifier for the message with a maximum of 64
    *                                                characters (we recommend a UUID).
-   * @param wwwAuthenticate  Header for authenticating through SCA
+   * @param wWWAuthenticate  Header for authenticating through SCA
    * @param body
    * @return Response from the API call
    */
   async postTransfers(
     idempotencyKey?: string,
-    wwwAuthenticate?: string,
+    wWWAuthenticate?: string,
     body?: TransferInfo,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transfer>> {
     const req = this.createRequest('POST', '/transfers');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({
       idempotencyKey: [idempotencyKey, optional(string())],
-      wwwAuthenticate: [wwwAuthenticate, optional(string())],
+      wWWAuthenticate: [wWWAuthenticate, optional(string())],
       body: [body, optional(transferInfoSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.header('Idempotency-Key', mapped.idempotencyKey);
-    req.header('WWW-Authenticate', mapped.wwwAuthenticate);
+    req.header('WWW-Authenticate', mapped.wWWAuthenticate);
     req.json(mapped.body);
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
       TransferServiceRestServiceError,
@@ -250,27 +260,32 @@ export class TransfersApi extends BaseApi {
    *
    * @param idempotencyKey   A unique identifier for the message with a maximum of
    *                                                           64 characters (we recommend a UUID).
-   * @param wwwAuthenticate  Header for authenticating through SCA
+   * @param wWWAuthenticate  Header for authenticating through SCA
    * @param body
    * @return Response from the API call
    */
   async postTransfersApprove(
     idempotencyKey?: string,
-    wwwAuthenticate?: string,
+    wWWAuthenticate?: string,
     body?: ApproveTransfersRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<unknown | undefined>> {
+  ): Promise<ApiResponse<unknown>> {
     const req = this.createRequest('POST', '/transfers/approve');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({
       idempotencyKey: [idempotencyKey, optional(string())],
-      wwwAuthenticate: [wwwAuthenticate, optional(string())],
+      wWWAuthenticate: [wWWAuthenticate, optional(string())],
       body: [body, optional(approveTransfersRequestSchema)],
     });
     req.header('Content-Type', 'application/json');
     req.header('Idempotency-Key', mapped.idempotencyKey);
-    req.header('WWW-Authenticate', mapped.wwwAuthenticate);
+    req.header('WWW-Authenticate', mapped.wWWAuthenticate);
     req.json(mapped.body);
-    req.throwOn(401, ServiceError, 'Unauthorized - authentication required.');
+    req.throwOn(
+      401,
+      ServiceErrorError1Error,
+      'Unauthorized - authentication required.'
+    );
     req.throwOn(
       403,
       TransferServiceRestServiceError,
@@ -291,7 +306,7 @@ export class TransfersApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(optional(unknown()), requestOptions);
+    return req.callAsJson(unknown(), requestOptions);
   }
 
   /**
@@ -316,8 +331,9 @@ export class TransfersApi extends BaseApi {
     idempotencyKey?: string,
     body?: CancelTransfersRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<unknown | undefined>> {
+  ): Promise<ApiResponse<unknown>> {
     const req = this.createRequest('POST', '/transfers/cancel');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({
       idempotencyKey: [idempotencyKey, optional(string())],
       body: [body, optional(cancelTransfersRequestSchema)],
@@ -350,7 +366,7 @@ export class TransfersApi extends BaseApi {
       { basicAuth: true },
       { apiKeyAuth: true },
     ]);
-    return req.callAsJson(optional(unknown()), requestOptions);
+    return req.callAsJson(unknown(), requestOptions);
   }
 
   /**
@@ -364,6 +380,7 @@ export class TransfersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<TransferData>> {
     const req = this.createRequest('GET');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({ id: [id, string()] });
     req.appendTemplatePath`/transfers/${mapped.id}`;
     req.throwOn(
@@ -410,6 +427,7 @@ export class TransfersApi extends BaseApi {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ReturnTransferResponse>> {
     const req = this.createRequest('POST');
+    req.baseUrl('default14');
     const mapped = req.prepareArgs({
       transferId: [transferId, string()],
       idempotencyKey: [idempotencyKey, optional(string())],

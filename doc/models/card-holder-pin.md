@@ -1,33 +1,27 @@
 
-# Card Holder Pin
-
-*This model accepts additional fields of type unknown.*
+# Card Holder PIN
 
 ## Structure
 
-`CardHolderPin`
+`CardHolderPIN`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `encrPinBlock` | `string` | Required | - |
-| `pinFormat` | [`PinFormat1`](../../doc/models/pin-format-1.md) | Required | - |
+| `encrPINBlock` | `string` | Required | - |
+| `pINFormat` | [`PINFormat1Enum`](../../doc/models/pin-format-1-enum.md) | Required | Possible values:<br><br>* **ISO0**<br>* **ISO1**<br>* **ISO2**<br>* **ISO3** |
 | `additionalInput` | `string \| undefined` | Optional | **Constraints**: *Pattern*: `^.+$` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { CardHolderPin, PinFormat1 } from 'adyen';
+import { CardHolderPIN, PINFormat1Enum } from 'adyen';
 
-const cardHolderPin: CardHolderPin = {
-  encrPinBlock: 'EncrPINBlock6',
-  pinFormat: PinFormat1.Iso2,
-  additionalInput: 'AdditionalInput6',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const cardHolderPIN: CardHolderPIN = {
+  encrPINBlock: 'EncrPINBlock4',
+  pINFormat: PINFormat1Enum.ISO0,
+  additionalInput: 'AdditionalInput4',
 };
 ```
 

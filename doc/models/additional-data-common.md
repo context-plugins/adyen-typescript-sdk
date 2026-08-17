@@ -1,8 +1,6 @@
 
 # Additional Data Common
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `AdditionalDataCommon`
@@ -17,7 +15,7 @@
 | `authorisationType` | `string \| undefined` | Optional | Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to [Authorisation types](https://docs.adyen.com/online-payments/adjust-authorisation#authorisation-types).<br><br>Allowed values:<br><br>* **PreAuth** – flags the payment request to be handled as a pre-authorisation.<br>* **FinalAuth** – flags the payment request to be handled as a final authorisation. |
 | `autoRescue` | `string \| undefined` | Optional | Set to **true** to enable [Auto Rescue](https://docs.adyen.com/online-payments/auto-rescue/) for a transaction. Use the `maxDaysToRescue` to specify a rescue window. |
 | `customRoutingFlag` | `string \| undefined` | Optional | Allows you to determine or override the acquirer account that should be used for the transaction.<br><br>If you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request's additional data to target a specific acquirer.<br><br>To enable this functionality, contact [Support](https://www.adyen.help/hc/en-us/requests/new). |
-| `industryUsage` | [`IndustryUsage \| undefined`](../../doc/models/industry-usage.md) | Optional | - |
+| `industryUsage` | [`IndustryUsageEnum \| undefined`](../../doc/models/industry-usage-enum.md) | Optional | In case of [asynchronous authorisation adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#adjust-authorisation), this field denotes why the additional payment is made.<br><br>Possible values:<br><br>* **NoShow**: An incremental charge is carried out because of a no-show for a guaranteed reservation.<br><br>* **DelayedCharge**: An incremental charge is carried out to process an additional payment after the original services have been rendered and the respective payment has been processed. |
 | `manualCapture` | `string \| undefined` | Optional | Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction. |
 | `maxDaysToRescue` | `string \| undefined` | Optional | The rescue window for a transaction, in days, when `autoRescue` is set to **true**. You can specify a value between 1 and 48.<br><br>* For [cards](https://docs.adyen.com/online-payments/auto-rescue/cards/), the default is one calendar month.<br>* For [SEPA](https://docs.adyen.com/online-payments/auto-rescue/sepa/), the default is 42 days. |
 | `networkTxReference` | `string \| undefined` | Optional | Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.<br><br>Transaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.<br><br>Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.<br><br>Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT. |
@@ -25,7 +23,7 @@
 | `subMerchantCity` | `string \| undefined` | Optional | This field is required if the transaction is performed by a registered payment facilitator. This field must contain the city of the actual merchant's address.<br><br>* Format: alpha-numeric.<br>* Maximum length: 13 characters. |
 | `subMerchantCountry` | `string \| undefined` | Optional | This field is required if the transaction is performed by a registered payment facilitator. This field must contain the three-letter country code of the actual merchant's address.<br><br>* Format: alpha-numeric.<br>* Fixed length: 3 characters. |
 | `subMerchantEmail` | `string \| undefined` | Optional | This field is required for transactions performed by registered payment facilitators. This field contains the email address of the sub-merchant.<br><br>* Format: Alphanumeric<br>* Maximum length: 40 characters |
-| `subMerchantId` | `string \| undefined` | Optional | This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.<br><br>A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator.<br><br>* Format: alpha-numeric.<br>* Fixed length: 15 characters. |
+| `subMerchantID` | `string \| undefined` | Optional | This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID.<br><br>A unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator.<br><br>* Format: alpha-numeric.<br>* Fixed length: 15 characters. |
 | `subMerchantName` | `string \| undefined` | Optional | This field is required if the transaction is performed by a registered payment facilitator. This field must contain the name of the actual merchant.<br><br>* Format: alpha-numeric.<br>* Maximum length: 22 characters. |
 | `subMerchantPhoneNumber` | `string \| undefined` | Optional | This field is required for transactions performed by registered payment facilitators. This field contains the phone number of the sub-merchant.* Format: Alphanumeric<br><br>* Maximum length: 20 characters |
 | `subMerchantPostalCode` | `string \| undefined` | Optional | This field is required if the transaction is performed by a registered payment facilitator. This field must contain the postal code of the actual merchant's address.<br><br>* Format: alpha-numeric.<br>* Maximum length: 10 characters. |
@@ -33,7 +31,6 @@
 | `subMerchantStreet` | `string \| undefined` | Optional | This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant's address.<br><br>* Format: alpha-numeric.<br>* Maximum length: 60 characters. |
 | `subMerchantTaxId` | `string \| undefined` | Optional | This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant.<br><br>* Format: alpha-numeric.<br>* Fixed length: 11 or 14 characters. |
 | `transactionLinkId` | `string \| undefined` | Optional | Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain For Mastercard payments. This field is required for token-based transactions where Adyen does not tokenize the card.<br><br>Transaction identifier from Mastercard.<br><br>Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.<br><br>Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -46,9 +43,6 @@ const additionalDataCommon: AdditionalDataCommon = {
   allowPartialAuth: 'allowPartialAuth2',
   authorisationType: 'authorisationType8',
   autoRescue: 'autoRescue0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

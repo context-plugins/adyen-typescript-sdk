@@ -1,8 +1,6 @@
 
 # Transaction Event Violation
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `TransactionEventViolation`
@@ -12,9 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `reason` | `string \| undefined` | Optional | An explanation about why the transaction rule failed. |
-| `transactionRule` | [`TransactionRuleReference \| undefined`](../../doc/models/transaction-rule-reference.md) | Optional | - |
-| `transactionRuleSource` | [`TransactionRuleSource \| undefined`](../../doc/models/transaction-rule-source.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionRule` | [`TransactionRuleReference2 \| undefined`](../../doc/models/transaction-rule-reference-2.md) | Optional | Contains information about the transaction rule. |
+| `transactionRuleSource` | [`TransactionRuleSource2 \| undefined`](../../doc/models/transaction-rule-source-2.md) | Optional | Contains information about the resource to which the transaction rule applies. |
 
 ## Example
 
@@ -29,19 +26,10 @@ const transactionEventViolation: TransactionEventViolation = {
     outcomeType: 'outcomeType8',
     reference: 'reference2',
     score: 68,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
   },
   transactionRuleSource: {
     id: 'id4',
     type: 'type4',
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
   },
 };
 ```

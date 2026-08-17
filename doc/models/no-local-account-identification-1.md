@@ -1,11 +1,9 @@
 
-# No Local Account Identification 1
-
-*This model accepts additional fields of type unknown.*
+# NO Local Account Identification 1
 
 ## Structure
 
-`NoLocalAccountIdentification1`
+`NOLocalAccountIdentification1`
 
 ## Inherits From
 
@@ -16,19 +14,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `accountNumber` | `string` | Required | The 11-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `11`, *Maximum Length*: `11` |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { NoLocalAccountIdentification1 } from 'adyen';
+import { NOLocalAccountIdentification1 } from 'adyen';
 
-const noLocalAccountIdentification1: NoLocalAccountIdentification1 = {
-  accountNumber: 'accountNumber2',
+const nOLocalAccountIdentification1: NOLocalAccountIdentification1 = {
+  accountNumber: 'accountNumber6',
   type: 'noLocal',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

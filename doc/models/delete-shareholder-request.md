@@ -1,8 +1,6 @@
 
 # Delete Shareholder Request
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DeleteShareholderRequest`
@@ -13,7 +11,6 @@
 |  --- | --- | --- | --- |
 | `accountHolderCode` | `string` | Required | The code of the Account Holder from which to delete the Shareholders. |
 | `shareholderCodes` | `string[]` | Required | The code(s) of the Shareholders to be deleted. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
@@ -26,9 +23,6 @@ const deleteShareholderRequest: DeleteShareholderRequest = {
     'shareholderCodes5',
     'shareholderCodes6'
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

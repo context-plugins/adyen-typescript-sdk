@@ -3,8 +3,6 @@
 
 List of week days and the operation. Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `DayOfWeekRestriction1`
@@ -14,22 +12,18 @@ List of week days and the operation. Supported operations: **anyMatch**, **noneM
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value1[] \| undefined`](../../doc/models/value-1.md) | Optional | List of days of the week.<br><br>Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `value` | [`Value1Enum[] \| undefined`](../../doc/models/value-1-enum.md) | Optional | List of days of the week.<br><br>Possible values: **monday**, **tuesday**, **wednesday**, **thursday**, **friday**, **saturday**, **sunday**. |
 
 ## Example
 
 ```ts
-import { DayOfWeekRestriction1, Value1 } from 'adyen';
+import { DayOfWeekRestriction1, Value1Enum } from 'adyen';
 
 const dayOfWeekRestriction1: DayOfWeekRestriction1 = {
   operation: 'operation6',
   value: [
-    Value1.Tuesday
+    Value1Enum.Tuesday
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 

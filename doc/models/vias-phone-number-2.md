@@ -3,8 +3,6 @@
 
 The phone number of the entity.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `ViasPhoneNumber2`
@@ -15,21 +13,17 @@ The phone number of the entity.
 |  --- | --- | --- | --- |
 | `phoneCountryCode` | `string \| undefined` | Optional | The two-character country code of the phone number.<br><br>> The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL'). |
 | `phoneNumber` | `string \| undefined` | Optional | The phone number.<br><br>> The inclusion of the phone number country code is not necessary. |
-| `phoneType` | [`PhoneType \| undefined`](../../doc/models/phone-type.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `phoneType` | [`PhoneTypeEnum \| undefined`](../../doc/models/phone-type-enum.md) | Optional | The type of the phone number.<br><br>> The following values are permitted: `Landline`, `Mobile`, `SIP`, `Fax`. |
 
 ## Example
 
 ```ts
-import { PhoneType, ViasPhoneNumber2 } from 'adyen';
+import { PhoneTypeEnum, ViasPhoneNumber2 } from 'adyen';
 
 const viasPhoneNumber2: ViasPhoneNumber2 = {
   phoneCountryCode: 'phoneCountryCode8',
   phoneNumber: 'phoneNumber0',
-  phoneType: PhoneType.Mobile,
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  phoneType: PhoneTypeEnum.Mobile,
 };
 ```
 

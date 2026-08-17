@@ -1,8 +1,6 @@
 
 # Sepa Direct Debit Response Info
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `SepaDirectDebitResponseInfo`
@@ -12,25 +10,18 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `creditorId` | `string \| undefined` | Optional | Creditor id |
-| `transactionDescription` | [`TransactionDescriptionInfo \| undefined`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `transactionDescription` | [`TransactionDescriptionResponseInfo1 \| undefined`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```ts
-import { SepaDirectDebitResponseInfo, Type33 } from 'adyen';
+import { SepaDirectDebitResponseInfo, Type8Enum } from 'adyen';
 
 const sepaDirectDebitResponseInfo: SepaDirectDebitResponseInfo = {
   creditorId: 'creditorId2',
   transactionDescription: {
     doingBusinessAsName: 'doingBusinessAsName0',
-    type: Type33.Fixed,
-    additionalProperties: {
-      'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-    },
-  },
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
+    type: Type8Enum.Fixed,
   },
 };
 ```

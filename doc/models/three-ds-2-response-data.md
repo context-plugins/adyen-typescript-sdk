@@ -1,51 +1,45 @@
 
-# Three Ds 2 Response Data
-
-*This model accepts additional fields of type unknown.*
+# Three DS 2 Response Data
 
 ## Structure
 
-`ThreeDs2ResponseData`
+`ThreeDS2ResponseData`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `acsChallengeMandated` | `string \| undefined` | Optional | - |
-| `acsOperatorId` | `string \| undefined` | Optional | - |
+| `acsOperatorID` | `string \| undefined` | Optional | - |
 | `acsReferenceNumber` | `string \| undefined` | Optional | - |
 | `acsSignedContent` | `string \| undefined` | Optional | - |
-| `acsTransId` | `string \| undefined` | Optional | - |
-| `acsUrl` | `string \| undefined` | Optional | - |
+| `acsTransID` | `string \| undefined` | Optional | - |
+| `acsURL` | `string \| undefined` | Optional | - |
 | `authenticationType` | `string \| undefined` | Optional | - |
 | `cardHolderInfo` | `string \| undefined` | Optional | - |
 | `cavvAlgorithm` | `string \| undefined` | Optional | - |
 | `challengeIndicator` | `string \| undefined` | Optional | - |
 | `dsReferenceNumber` | `string \| undefined` | Optional | - |
-| `dsTransId` | `string \| undefined` | Optional | - |
+| `dsTransID` | `string \| undefined` | Optional | - |
 | `exemptionIndicator` | `string \| undefined` | Optional | - |
 | `messageVersion` | `string \| undefined` | Optional | - |
 | `riskScore` | `string \| undefined` | Optional | - |
 | `sdkEphemPubKey` | `string \| undefined` | Optional | - |
-| `threeDsServerTransId` | `string \| undefined` | Optional | - |
+| `threeDSServerTransID` | `string \| undefined` | Optional | - |
 | `transStatus` | `string \| undefined` | Optional | - |
 | `transStatusReason` | `string \| undefined` | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { ThreeDs2ResponseData } from 'adyen';
+import { ThreeDS2ResponseData } from 'adyen';
 
-const threeDs2ResponseData: ThreeDs2ResponseData = {
+const threeDS2ResponseData: ThreeDS2ResponseData = {
   acsChallengeMandated: 'acsChallengeMandated0',
-  acsOperatorId: 'acsOperatorID0',
+  acsOperatorID: 'acsOperatorID0',
   acsReferenceNumber: 'acsReferenceNumber0',
   acsSignedContent: 'acsSignedContent6',
-  acsTransId: 'acsTransID0',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+  acsTransID: 'acsTransID0',
 };
 ```
 

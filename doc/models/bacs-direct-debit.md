@@ -1,11 +1,9 @@
 
-# Bacs Direct Debit
-
-*This model accepts additional fields of type unknown.*
+# BACS Direct Debit
 
 ## Structure
 
-`BacsDirectDebit`
+`BACSDirectDebit`
 
 ## Fields
 
@@ -19,23 +17,20 @@
 | `sdkData` | `string \| undefined` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `storedPaymentMethodId` | `string \| undefined` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `transferInstrumentId` | `string \| undefined` | Optional | The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts. |
-| `type` | [`Type101 \| undefined`](../../doc/models/type-101.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
+| `type` | [`Type10Enum \| undefined`](../../doc/models/type-10-enum.md) | Optional | **directdebit_GB**<br><br>**Default**: `Type10Enum.DirectdebitGB` |
 
 ## Example
 
 ```ts
-import { BacsDirectDebit } from 'adyen';
+import { BACSDirectDebit, Type10Enum } from 'adyen';
 
-const bacsDirectDebit: BacsDirectDebit = {
-  bankAccountNumber: 'bankAccountNumber2',
-  bankLocationId: 'bankLocationId6',
-  checkoutAttemptId: 'checkoutAttemptId8',
-  holderName: 'holderName8',
-  recurringDetailReference: 'recurringDetailReference2',
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
+const bACSDirectDebit: BACSDirectDebit = {
+  bankAccountNumber: 'bankAccountNumber8',
+  bankLocationId: 'bankLocationId2',
+  checkoutAttemptId: 'checkoutAttemptId4',
+  holderName: 'holderName4',
+  recurringDetailReference: 'recurringDetailReference8',
+  type: Type10Enum.DirectdebitGB,
 };
 ```
 

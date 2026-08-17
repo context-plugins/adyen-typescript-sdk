@@ -39,17 +39,17 @@ import {
   paymentInstrumentRequirementSchema,
 } from '../paymentInstrumentRequirement.js';
 import {
-  UsInstantPayoutAddressRequirement,
-  usInstantPayoutAddressRequirementSchema,
-} from '../usInstantPayoutAddressRequirement.js';
+  USInstantPayoutAddressRequirement,
+  uSInstantPayoutAddressRequirementSchema,
+} from '../uSInstantPayoutAddressRequirement.js';
 import {
-  UsInternationalAchAddressRequirement,
-  usInternationalAchAddressRequirementSchema,
-} from '../usInternationalAchAddressRequirement.js';
+  USInternationalAchAddressRequirement,
+  uSInternationalAchAddressRequirementSchema,
+} from '../uSInternationalAchAddressRequirement.js';
 import {
-  UsInternationalAchPriorityRequirement,
-  usInternationalAchPriorityRequirementSchema,
-} from '../usInternationalAchPriorityRequirement.js';
+  USInternationalAchPriorityRequirement,
+  uSInternationalAchPriorityRequirementSchema,
+} from '../uSInternationalAchPriorityRequirement.js';
 
 /** This is a container type for one-of types. */
 export type TransferRouteRequirements =
@@ -60,9 +60,9 @@ export type TransferRouteRequirements =
   | BankAccountIdentificationTypeRequirement
   | IbanAccountIdentificationRequirement
   | PaymentInstrumentRequirement
-  | UsInstantPayoutAddressRequirement
-  | UsInternationalAchAddressRequirement
-  | UsInternationalAchPriorityRequirement;
+  | USInstantPayoutAddressRequirement
+  | USInternationalAchAddressRequirement
+  | USInternationalAchPriorityRequirement;
 
 export const transferRouteRequirementsSchema: Schema<TransferRouteRequirements> = lazy(
   () =>
@@ -74,9 +74,9 @@ export const transferRouteRequirementsSchema: Schema<TransferRouteRequirements> 
       bankAccountIdentificationTypeRequirementSchema,
       ibanAccountIdentificationRequirementSchema,
       paymentInstrumentRequirementSchema,
-      usInstantPayoutAddressRequirementSchema,
-      usInternationalAchAddressRequirementSchema,
-      usInternationalAchPriorityRequirementSchema,
+      uSInstantPayoutAddressRequirementSchema,
+      uSInternationalAchAddressRequirementSchema,
+      uSInternationalAchPriorityRequirementSchema,
     ])
 );
 
@@ -174,44 +174,44 @@ export namespace TransferRouteRequirements {
   }
 
   /**
-   * Validation method to narrow down union type to UsInstantPayoutAddressRequirement type case.
+   * Validation method to narrow down union type to USInstantPayoutAddressRequirement type case.
    *
    * This is USInstantPayoutAddressRequirement case.
    */
-  export function isUsInstantPayoutAddressRequirement(
+  export function isUSInstantPayoutAddressRequirement(
     value: unknown
-  ): value is UsInstantPayoutAddressRequirement {
+  ): value is USInstantPayoutAddressRequirement {
     return isMappedValueValidForSchema(
       value,
-      usInstantPayoutAddressRequirementSchema
+      uSInstantPayoutAddressRequirementSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to UsInternationalAchAddressRequirement type case.
+   * Validation method to narrow down union type to USInternationalAchAddressRequirement type case.
    *
    * This is USInternationalAchAddressRequirement case.
    */
-  export function isUsInternationalAchAddressRequirement(
+  export function isUSInternationalAchAddressRequirement(
     value: unknown
-  ): value is UsInternationalAchAddressRequirement {
+  ): value is USInternationalAchAddressRequirement {
     return isMappedValueValidForSchema(
       value,
-      usInternationalAchAddressRequirementSchema
+      uSInternationalAchAddressRequirementSchema
     );
   }
 
   /**
-   * Validation method to narrow down union type to UsInternationalAchPriorityRequirement type case.
+   * Validation method to narrow down union type to USInternationalAchPriorityRequirement type case.
    *
    * This is USInternationalAchPriorityRequirement case.
    */
-  export function isUsInternationalAchPriorityRequirement(
+  export function isUSInternationalAchPriorityRequirement(
     value: unknown
-  ): value is UsInternationalAchPriorityRequirement {
+  ): value is USInternationalAchPriorityRequirement {
     return isMappedValueValidForSchema(
       value,
-      usInternationalAchPriorityRequirementSchema
+      uSInternationalAchPriorityRequirementSchema
     );
   }
 }

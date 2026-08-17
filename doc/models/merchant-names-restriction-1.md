@@ -5,8 +5,6 @@ List of names that will be compared to the merchant name according to the matchi
 
 Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `MerchantNamesRestriction1`
@@ -17,41 +15,28 @@ Supported operations: **anyMatch**, **noneMatch**.
 |  --- | --- | --- | --- |
 | `operation` | `string` | Required | Defines how the condition must be evaluated. |
 | `value` | [`StringMatch[] \| undefined`](../../doc/models/string-match.md) | Optional | - |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example
 
 ```ts
-import { MerchantNamesRestriction1, Operation } from 'adyen';
+import { MerchantNamesRestriction1, OperationEnum } from 'adyen';
 
 const merchantNamesRestriction1: MerchantNamesRestriction1 = {
   operation: 'operation4',
   value: [
     {
-      operation: Operation.IsEqualTo,
+      operation: OperationEnum.IsEqualTo,
       value: 'value4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      operation: Operation.IsEqualTo,
+      operation: OperationEnum.IsEqualTo,
       value: 'value4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     },
     {
-      operation: Operation.IsEqualTo,
+      operation: OperationEnum.IsEqualTo,
       value: 'value4',
-      additionalProperties: {
-        'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-      },
     }
   ],
-  additionalProperties: {
-    'exampleAdditionalProperty': { 'key1': 'val1', 'key2': 'val2' }
-  },
 };
 ```
 
