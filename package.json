@@ -34,7 +34,10 @@
   "files": [
     "dist",
     "src",
-    "README.md"
+    "README.md",
+    "api-reference.md",
+    "sdk-map.md",
+    "map"
   ],
   "sideEffects": false,
   "engines": {
