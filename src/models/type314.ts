@@ -1,0 +1,46 @@
+import * as s from "../core/validation/index.js";
+import type { EnumSchema } from "../core/validation/schema.js";
+
+export const Type314 = {
+  Payment: "payment",
+  Capture: "capture",
+  CaptureReversal: "captureReversal",
+  Refund: "refund",
+  RefundReversal: "refundReversal",
+  Chargeback: "chargeback",
+  ChargebackCorrection: "chargebackCorrection",
+  ChargebackReversal: "chargebackReversal",
+  ChargebackReversalCorrection: "chargebackReversalCorrection",
+  SecondChargeback: "secondChargeback",
+  SecondChargebackCorrection: "secondChargebackCorrection",
+  AtmWithdrawal: "atmWithdrawal",
+  AtmWithdrawalReversal: "atmWithdrawalReversal",
+  InternalTransfer: "internalTransfer",
+  InternalDirectDebit: "internalDirectDebit",
+  ManualCorrection: "manualCorrection",
+  InvoiceDeduction: "invoiceDeduction",
+  DepositCorrection: "depositCorrection",
+  ReserveAdjustment: "reserveAdjustment",
+  BankTransfer: "bankTransfer",
+  BankDirectDebit: "bankDirectDebit",
+  CardTransfer: "cardTransfer",
+  MiscCost: "miscCost",
+  PaymentCost: "paymentCost",
+  Fee: "fee",
+  Leftover: "leftover",
+  Grant: "grant",
+  CapitalFundsCollection: "capitalFundsCollection",
+  CashOutInstruction: "cashOutInstruction",
+  CashoutFee: "cashoutFee",
+  CashoutRepayment: "cashoutRepayment",
+  CashoutFunding: "cashoutFunding",
+  Repayment: "repayment",
+  Installment: "installment",
+  InstallmentReversal: "installmentReversal",
+  BalanceAdjustment: "balanceAdjustment",
+  BalanceRollover: "balanceRollover",
+  BalanceMigration: "balanceMigration",
+} as const;
+export type Type314 = (typeof Type314)[keyof typeof Type314] | (string & {});
+
+export const type314Schema: EnumSchema<Type314> = s.enumOf<Type314>(Type314);

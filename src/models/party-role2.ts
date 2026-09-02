@@ -1,0 +1,12 @@
+import * as s from "../core/validation/index.js";
+import type { EnumSchema } from "../core/validation/schema.js";
+
+export const PartyRole2 = {
+  Holder: "HOLDER",
+  AuthorizedUser: "AUTHORIZED_USER",
+  Other: "OTHER",
+  Unknown: "UNKNOWN",
+} as const;
+export type PartyRole2 = (typeof PartyRole2)[keyof typeof PartyRole2] | (string & {});
+
+export const partyRole2Schema: EnumSchema<PartyRole2> = s.enumOf<PartyRole2>(PartyRole2);

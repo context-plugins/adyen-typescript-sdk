@@ -1,0 +1,16 @@
+import * as s from "../core/validation/index.js";
+import type { Schema } from "../core/validation/schema.js";
+
+export type PaymentInstrument3 = {
+  description?: string;
+  id?: string;
+  reference?: string;
+  tokenType?: string;
+};
+
+export const paymentInstrument3Schema: Schema<PaymentInstrument3> = s.object<PaymentInstrument3>({
+  description: s.optional(s.string()),
+  id: s.optional(s.string()),
+  reference: s.optional(s.string()),
+  tokenType: s.optional(s.string()),
+});
