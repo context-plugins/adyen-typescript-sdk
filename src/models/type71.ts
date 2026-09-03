@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type71 = {
-  UpiIntent: "upi_intent",
+  UninstallAndroidApp: "UninstallAndroidApp",
 } as const;
 export type Type71 = (typeof Type71)[keyof typeof Type71] | (string & {});
 

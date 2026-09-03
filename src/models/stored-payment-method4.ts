@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { pixRecurringSchema, type PixRecurring } from "./pix-recurring.js";
-import { type60Schema, type Type60 } from "./type60.js";
+import { type44Schema, type Type44 } from "./type44.js";
 
 export type StoredPaymentMethod4 = {
   checkoutAttemptId?: string;
@@ -9,7 +9,7 @@ export type StoredPaymentMethod4 = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type60;
+  type?: Type44;
 };
 
 export const storedPaymentMethod4Schema: Schema<StoredPaymentMethod4> = s.object<StoredPaymentMethod4>({
@@ -18,5 +18,5 @@ export const storedPaymentMethod4Schema: Schema<StoredPaymentMethod4> = s.object
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type60Schema)),
+  type: s.optional(s.lazy(() => type44Schema)),
 });

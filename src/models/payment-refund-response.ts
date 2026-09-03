@@ -4,7 +4,6 @@ import { amount39Schema, type Amount39 } from "./amount39.js";
 import { lineItemSchema, type LineItem } from "./line-item.js";
 import { merchantRefundReason1Schema, type MerchantRefundReason1 } from "./merchant-refund-reason1.js";
 import { splitSchema, type Split } from "./split.js";
-import { status3Schema, type Status3 } from "./status3.js";
 
 export type PaymentRefundResponse = {
   amount: Amount39;
@@ -16,7 +15,7 @@ export type PaymentRefundResponse = {
   pspReference: string;
   reference?: string;
   splits?: Split[];
-  status: Status3;
+  status: "received";
   store?: string;
 };
 
@@ -30,6 +29,6 @@ export const paymentRefundResponseSchema: Schema<PaymentRefundResponse> = s.obje
   pspReference: s.string(),
   reference: s.optional(s.string()),
   splits: s.optional(s.array(s.lazy(() => splitSchema))),
-  status: status3Schema,
+  status: s.literal("received"),
   store: s.optional(s.string()),
 });

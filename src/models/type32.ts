@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type32 = {
-  Googlepay: "googlepay",
+  InstallAndroidApp: "InstallAndroidApp",
 } as const;
 export type Type32 = (typeof Type32)[keyof typeof Type32] | (string & {});
 

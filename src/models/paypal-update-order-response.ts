@@ -1,14 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { status8Schema, type Status8 } from "./status8.js";
+import { status4Schema, type Status4 } from "./status4.js";
 
 export type PaypalUpdateOrderResponse = {
   paymentData: string;
-  status: Status8;
+  status: Status4;
 };
 
 export const paypalUpdateOrderResponseSchema: Schema<PaypalUpdateOrderResponse> =
   s.object<PaypalUpdateOrderResponse>({
     paymentData: s.string(),
-    status: status8Schema,
+    status: status4Schema,
   });

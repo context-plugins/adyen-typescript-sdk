@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type64Schema, type Type64 } from "./type64.js";
+import { type48Schema, type Type48 } from "./type48.js";
 
 export type Ratepay = {
   billingAddress?: string;
@@ -10,7 +10,7 @@ export type Ratepay = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type: Type64;
+  type: Type48;
 };
 
 export const ratepaySchema: Schema<Ratepay> = s.object<Ratepay>({
@@ -21,5 +21,5 @@ export const ratepaySchema: Schema<Ratepay> = s.object<Ratepay>({
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: type64Schema,
+  type: type48Schema,
 });

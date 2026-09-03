@@ -1,13 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type461Schema, type Type461 } from "./type461.js";
+import { type181Schema, type Type181 } from "./type181.js";
 
 export type Target = {
   id: string;
-  type: Type461;
+  type: Type181;
 };
 
 export const targetSchema: Schema<Target> = s.object<Target>({
   id: s.string(),
-  type: type461Schema,
+  type: type181Schema,
 });

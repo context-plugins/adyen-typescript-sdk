@@ -2,11 +2,11 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Status7 = {
-  Active: "Active",
-  Closed: "Closed",
-  Inactive: "Inactive",
-  InactiveWithModifications: "InactiveWithModifications",
-  Pending: "Pending",
+  Archived: "archived",
+  Error: "error",
+  Invalid: "invalid",
+  Processing: "processing",
+  Ready: "ready",
 } as const;
 export type Status7 = (typeof Status7)[keyof typeof Status7] | (string & {});
 

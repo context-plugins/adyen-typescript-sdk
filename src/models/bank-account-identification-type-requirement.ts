@@ -4,17 +4,16 @@ import {
   bankAccountIdentificationTypeSchema,
   type BankAccountIdentificationType,
 } from "./bank-account-identification-type.js";
-import { type312Schema, type Type312 } from "./type312.js";
 
 export type BankAccountIdentificationTypeRequirement = {
   bankAccountIdentificationTypes?: BankAccountIdentificationType[];
   description?: string;
-  type: Type312;
+  type: "bankAccountIdentificationTypeRequirement";
 };
 
 export const bankAccountIdentificationTypeRequirementSchema: Schema<BankAccountIdentificationTypeRequirement> =
   s.object<BankAccountIdentificationTypeRequirement>({
     bankAccountIdentificationTypes: s.optional(s.array(s.lazy(() => bankAccountIdentificationTypeSchema))),
     description: s.optional(s.string()),
-    type: type312Schema,
+    type: s.literal("bankAccountIdentificationTypeRequirement"),
   });

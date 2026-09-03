@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { capabilitySchema, type Capability } from "./capability.js";
 import { remediatingActionSchema, type RemediatingAction } from "./remediating-action.js";
-import { type311Schema, type Type311 } from "./type311.js";
+import { type212Schema, type Type212 } from "./type212.js";
 import {
   verificationErrorRecursiveSchema,
   type VerificationErrorRecursive,
@@ -14,7 +14,7 @@ export type VerificationError = {
   message?: string;
   remediatingActions?: RemediatingAction[];
   subErrors?: VerificationErrorRecursive[];
-  type?: Type311;
+  type?: Type212;
 };
 
 export const verificationErrorSchema: Schema<VerificationError> = s.object<VerificationError>({
@@ -23,5 +23,5 @@ export const verificationErrorSchema: Schema<VerificationError> = s.object<Verif
   message: s.optional(s.string()),
   remediatingActions: s.optional(s.array(s.lazy(() => remediatingActionSchema))),
   subErrors: s.optional(s.array(s.lazy(() => verificationErrorRecursiveSchema))),
-  type: s.optional(s.lazy(() => type311Schema)),
+  type: s.optional(s.lazy(() => type212Schema)),
 });

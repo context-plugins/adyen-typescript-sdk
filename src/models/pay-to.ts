@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type56Schema, type Type56 } from "./type56.js";
+import { type41Schema, type Type41 } from "./type41.js";
 
 export type PayTo = {
   checkoutAttemptId?: string;
@@ -8,7 +8,7 @@ export type PayTo = {
   sdkData?: string;
   shopperAccountIdentifier?: string;
   storedPaymentMethodId?: string;
-  type?: Type56;
+  type?: Type41;
 };
 
 export const payToSchema: Schema<PayTo> = s.object<PayTo>({
@@ -17,5 +17,5 @@ export const payToSchema: Schema<PayTo> = s.object<PayTo>({
   sdkData: s.optional(s.string()),
   shopperAccountIdentifier: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type56Schema)),
+  type: s.optional(s.lazy(() => type41Schema)),
 });

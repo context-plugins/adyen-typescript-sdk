@@ -1,12 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type25Schema, type Type25 } from "./type25.js";
+import { type19Schema, type Type19 } from "./type19.js";
 
 export type CheckoutSdkAction = {
   paymentData?: string;
   paymentMethodType?: string;
   sdkData?: Record<string, string>;
-  type: Type25;
+  type: Type19;
   url?: string;
 };
 
@@ -14,6 +14,6 @@ export const checkoutSdkActionSchema: Schema<CheckoutSdkAction> = s.object<Check
   paymentData: s.optional(s.string()),
   paymentMethodType: s.optional(s.string()),
   sdkData: s.optional(s.record(s.string(), s.string())),
-  type: type25Schema,
+  type: type19Schema,
   url: s.optional(s.string()),
 });

@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type37 = {
-  EbankingFi: "ebanking_FI",
+  Mobilepay: "mobilepay",
 } as const;
 export type Type37 = (typeof Type37)[keyof typeof Type37] | (string & {});
 

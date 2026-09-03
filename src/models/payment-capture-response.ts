@@ -4,7 +4,6 @@ import { amount33Schema, type Amount33 } from "./amount33.js";
 import { lineItemSchema, type LineItem } from "./line-item.js";
 import { platformChargebackLogicSchema, type PlatformChargebackLogic } from "./platform-chargeback-logic.js";
 import { splitSchema, type Split } from "./split.js";
-import { status3Schema, type Status3 } from "./status3.js";
 import { subMerchantInfoSchema, type SubMerchantInfo } from "./sub-merchant-info.js";
 
 export type PaymentCaptureResponse = {
@@ -16,7 +15,7 @@ export type PaymentCaptureResponse = {
   pspReference: string;
   reference?: string;
   splits?: Split[];
-  status: Status3;
+  status: "received";
   subMerchants?: SubMerchantInfo[];
 };
 
@@ -29,6 +28,6 @@ export const paymentCaptureResponseSchema: Schema<PaymentCaptureResponse> = s.ob
   pspReference: s.string(),
   reference: s.optional(s.string()),
   splits: s.optional(s.array(s.lazy(() => splitSchema))),
-  status: status3Schema,
+  status: s.literal("received"),
   subMerchants: s.optional(s.array(s.lazy(() => subMerchantInfoSchema))),
 });

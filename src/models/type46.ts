@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type46 = {
-  KlarnaNetwork: "klarna_network",
+  PsePayulatam: "pse_payulatam",
 } as const;
 export type Type46 = (typeof Type46)[keyof typeof Type46] | (string & {});
 

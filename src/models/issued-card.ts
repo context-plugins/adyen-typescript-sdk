@@ -11,7 +11,7 @@ import {
   transferNotificationValidationFactSchema,
   type TransferNotificationValidationFact,
 } from "./transfer-notification-validation-fact.js";
-import { type222Schema, type Type222 } from "./type222.js";
+import { type511Schema, type Type511 } from "./type511.js";
 
 export type IssuedCard = {
   authorisationType?: string;
@@ -21,7 +21,7 @@ export type IssuedCard = {
   schemeTraceId?: string;
   schemeUniqueTransactionId?: string;
   threeDSecure?: ThreeDSecure2;
-  type?: Type222;
+  type?: Type511;
   validationFacts?: TransferNotificationValidationFact[];
 };
 
@@ -33,6 +33,6 @@ export const issuedCardSchema: Schema<IssuedCard> = s.object<IssuedCard>({
   schemeTraceId: s.optional(s.string()),
   schemeUniqueTransactionId: s.optional(s.string()),
   threeDSecure: s.optional(s.lazy(() => threeDSecure2Schema)),
-  type: s.optional(s.lazy(() => type222Schema)),
+  type: s.optional(s.lazy(() => type511Schema)),
   validationFacts: s.optional(s.array(s.lazy(() => transferNotificationValidationFactSchema))),
 });

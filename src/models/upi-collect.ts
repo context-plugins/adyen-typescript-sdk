@@ -1,6 +1,5 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type70Schema, type Type70 } from "./type70.js";
 
 export type UpiCollect = {
   billingSequenceNumber?: string;
@@ -9,7 +8,7 @@ export type UpiCollect = {
   sdkData?: string;
   shopperNotificationReference?: string;
   storedPaymentMethodId?: string;
-  type: Type70;
+  type: "upi_collect";
   virtualPaymentAddress?: string;
 };
 
@@ -20,6 +19,6 @@ export const upiCollectSchema: Schema<UpiCollect> = s.object<UpiCollect>({
   sdkData: s.optional(s.string()),
   shopperNotificationReference: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: type70Schema,
+  type: s.literal("upi_collect"),
   virtualPaymentAddress: s.optional(s.string()),
 });

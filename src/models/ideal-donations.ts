@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type33Schema, type Type33 } from "./type33.js";
+import { type25Schema, type Type25 } from "./type25.js";
 
 export type IdealDonations = {
   checkoutAttemptId?: string;
@@ -8,7 +8,7 @@ export type IdealDonations = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type33;
+  type?: Type25;
 };
 
 export const idealDonationsSchema: Schema<IdealDonations> = s.object<IdealDonations>({
@@ -17,5 +17,5 @@ export const idealDonationsSchema: Schema<IdealDonations> = s.object<IdealDonati
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type33Schema)),
+  type: s.optional(s.lazy(() => type25Schema)),
 });

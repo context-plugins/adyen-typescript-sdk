@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type273Schema, type Type273 } from "./type273.js";
+import { type132Schema, type Type132 } from "./type132.js";
 
 export type IdentificationData1 = {
   cardNumber?: string;
@@ -9,7 +9,7 @@ export type IdentificationData1 = {
   issuerState?: string;
   nationalIdExempt?: boolean;
   number?: string;
-  type: Type273;
+  type: Type132;
 };
 
 export const identificationData1Schema: Schema<IdentificationData1> = s.object<IdentificationData1>({
@@ -19,5 +19,5 @@ export const identificationData1Schema: Schema<IdentificationData1> = s.object<I
   issuerState: s.optional(s.string()),
   nationalIdExempt: s.optional(s.boolean()),
   number: s.optional(s.string()),
-  type: type273Schema,
+  type: type132Schema,
 });

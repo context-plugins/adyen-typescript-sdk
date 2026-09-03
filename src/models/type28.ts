@@ -2,7 +2,10 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type28 = {
-  Dbarai: "dbarai",
+  DragonpayEbanking: "dragonpay_ebanking",
+  DragonpayOtcBanking: "dragonpay_otc_banking",
+  DragonpayOtcNonBanking: "dragonpay_otc_non_banking",
+  DragonpayOtcPhilippines: "dragonpay_otc_philippines",
 } as const;
 export type Type28 = (typeof Type28)[keyof typeof Type28] | (string & {});
 

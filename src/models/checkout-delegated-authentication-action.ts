@@ -1,13 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type20Schema, type Type20 } from "./type20.js";
 
 export type CheckoutDelegatedAuthenticationAction = {
   authorisationToken?: string;
   paymentData?: string;
   paymentMethodType?: string;
   token?: string;
-  type: Type20;
+  type: "delegatedAuthentication";
   url?: string;
 };
 
@@ -17,6 +16,6 @@ export const checkoutDelegatedAuthenticationActionSchema: Schema<CheckoutDelegat
     paymentData: s.optional(s.string()),
     paymentMethodType: s.optional(s.string()),
     token: s.optional(s.string()),
-    type: type20Schema,
+    type: s.literal("delegatedAuthentication"),
     url: s.optional(s.string()),
   });

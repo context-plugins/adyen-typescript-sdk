@@ -3,7 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { attachmentSchema, type Attachment } from "./attachment.js";
 import { attachment1Schema, type Attachment1 } from "./attachment1.js";
 import { ownerEntity2Schema, type OwnerEntity2 } from "./owner-entity2.js";
-import { type223Schema, type Type223 } from "./type223.js";
+import { type84Schema, type Type84 } from "./type84.js";
 
 export type Document = {
   attachment?: Attachment1;
@@ -18,7 +18,7 @@ export type Document = {
   modificationDate?: Date;
   number?: string;
   owner?: OwnerEntity2;
-  type: Type223;
+  type: Type84;
 };
 
 export const documentSchema: Schema<Document> = s.object<Document>({
@@ -34,5 +34,5 @@ export const documentSchema: Schema<Document> = s.object<Document>({
   modificationDate: s.optional(s.dateTime()),
   number: s.optional(s.string()),
   owner: s.optional(s.lazy(() => ownerEntity2Schema)),
-  type: type223Schema,
+  type: type84Schema,
 });

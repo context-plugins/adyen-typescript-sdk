@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type44 = {
-  AuLocal: "auLocal",
+  Pix: "pix",
 } as const;
 export type Type44 = (typeof Type44)[keyof typeof Type44] | (string & {});
 

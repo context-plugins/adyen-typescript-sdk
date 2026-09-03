@@ -1,13 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type23Schema, type Type23 } from "./type23.js";
 
 export type CheckoutQrCodeAction = {
   expiresAt?: string;
   paymentData?: string;
   paymentMethodType?: string;
   qrCodeData?: string;
-  type: Type23;
+  type: "qrCode";
   url?: string;
 };
 
@@ -16,6 +15,6 @@ export const checkoutQrCodeActionSchema: Schema<CheckoutQrCodeAction> = s.object
   paymentData: s.optional(s.string()),
   paymentMethodType: s.optional(s.string()),
   qrCodeData: s.optional(s.string()),
-  type: type23Schema,
+  type: s.literal("qrCode"),
   url: s.optional(s.string()),
 });

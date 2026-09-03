@@ -1,14 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { accountType2Schema, type AccountType2 } from "./account-type2.js";
-import { type171Schema, type Type171 } from "./type171.js";
 
 export type CaLocalAccountIdentification = {
   accountNumber: string;
   accountType?: AccountType2;
   institutionNumber: string;
   transitNumber: string;
-  type: Type171;
+  type: "caLocal";
 };
 
 export const caLocalAccountIdentificationSchema: Schema<CaLocalAccountIdentification> =
@@ -17,5 +16,5 @@ export const caLocalAccountIdentificationSchema: Schema<CaLocalAccountIdentifica
     accountType: s.optional(s.lazy(() => accountType2Schema)),
     institutionNumber: s.string(),
     transitNumber: s.string(),
-    type: type171Schema,
+    type: s.literal("caLocal"),
   });

@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { amountSchema, type Amount } from "./amount.js";
 import { fraudResult2Schema, type FraudResult2 } from "./fraud-result2.js";
-import { resultCode3Schema, type ResultCode3 } from "./result-code3.js";
+import { resultCode1Schema, type ResultCode1 } from "./result-code1.js";
 
 export type PayoutResponse = {
   additionalData?: Record<string, string>;
@@ -15,7 +15,7 @@ export type PayoutResponse = {
   paRequest?: string;
   pspReference?: string;
   refusalReason?: string;
-  resultCode?: ResultCode3;
+  resultCode?: ResultCode1;
 };
 
 export const payoutResponseSchema: Schema<PayoutResponse> = s.object<PayoutResponse>({
@@ -29,5 +29,5 @@ export const payoutResponseSchema: Schema<PayoutResponse> = s.object<PayoutRespo
   paRequest: s.optional(s.string()),
   pspReference: s.optional(s.string()),
   refusalReason: s.optional(s.string()),
-  resultCode: s.optional(s.lazy(() => resultCode3Schema)),
+  resultCode: s.optional(s.lazy(() => resultCode1Schema)),
 });

@@ -2,7 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type33 = {
-  Ideal: "ideal",
+  BankAccount: "BankAccount",
+  Document: "Document",
+  LegalEntity: "LegalEntity",
 } as const;
 export type Type33 = (typeof Type33)[keyof typeof Type33] | (string & {});
 

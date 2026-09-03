@@ -1,12 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import {
-  accountIdentification3Schema,
-  type AccountIdentification3,
-} from "./unions/account-identification3.js";
+  accountIdentification21Schema,
+  type AccountIdentification21,
+} from "./unions/account-identification21.js";
 
 export type BankAccountInfo1 = {
-  accountIdentification?: AccountIdentification3;
+  accountIdentification?: AccountIdentification21;
   accountType?: string;
   bankName?: string;
   countryCode?: string;
@@ -14,7 +14,7 @@ export type BankAccountInfo1 = {
 };
 
 export const bankAccountInfo1Schema: Schema<BankAccountInfo1> = s.object<BankAccountInfo1>({
-  accountIdentification: s.optional(s.lazy(() => accountIdentification3Schema)),
+  accountIdentification: s.optional(s.lazy(() => accountIdentification21Schema)),
   accountType: s.optional(s.string()),
   bankName: s.optional(s.string()),
   countryCode: s.optional(s.string()),

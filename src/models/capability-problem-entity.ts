@@ -4,13 +4,13 @@ import {
   capabilityProblemEntityRecursive2Schema,
   type CapabilityProblemEntityRecursive2,
 } from "./capability-problem-entity-recursive2.js";
-import { type111Schema, type Type111 } from "./type111.js";
+import { type33Schema, type Type33 } from "./type33.js";
 
 export type CapabilityProblemEntity = {
   documents?: string[];
   id?: string;
   owner?: CapabilityProblemEntityRecursive2;
-  type?: Type111;
+  type?: Type33;
 };
 
 export const capabilityProblemEntitySchema: Schema<CapabilityProblemEntity> =
@@ -18,5 +18,5 @@ export const capabilityProblemEntitySchema: Schema<CapabilityProblemEntity> =
     documents: s.optional(s.array(s.string())),
     id: s.optional(s.string()),
     owner: s.optional(s.lazy(() => capabilityProblemEntityRecursive2Schema)),
-    type: s.optional(s.lazy(() => type111Schema)),
+    type: s.optional(s.lazy(() => type33Schema)),
   });

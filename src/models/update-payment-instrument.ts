@@ -7,8 +7,8 @@ import {
   type IbanAccountIdentification,
 } from "./iban-account-identification.js";
 import { statusReasonSchema, type StatusReason } from "./status-reason.js";
-import { status101Schema, type Status101 } from "./status101.js";
-import { type351Schema, type Type351 } from "./type351.js";
+import { status10Schema, type Status10 } from "./status10.js";
+import { type111Schema, type Type111 } from "./type111.js";
 
 export type UpdatePaymentInstrument = {
   additionalBankAccountIdentifications?: IbanAccountIdentification[];
@@ -22,10 +22,10 @@ export type UpdatePaymentInstrument = {
   reference?: string;
   replacedById?: string;
   replacementOfId?: string;
-  status?: Status101;
+  status?: Status10;
   statusComment?: string;
   statusReason?: StatusReason;
-  type: Type351;
+  type: Type111;
 };
 
 export const updatePaymentInstrumentSchema: Schema<UpdatePaymentInstrument> =
@@ -41,8 +41,8 @@ export const updatePaymentInstrumentSchema: Schema<UpdatePaymentInstrument> =
     reference: s.optional(s.string()),
     replacedById: s.optional(s.string()),
     replacementOfId: s.optional(s.string()),
-    status: s.optional(s.lazy(() => status101Schema)),
+    status: s.optional(s.lazy(() => status10Schema)),
     statusComment: s.optional(s.string()),
     statusReason: s.optional(s.lazy(() => statusReasonSchema)),
-    type: type351Schema,
+    type: type111Schema,
   });

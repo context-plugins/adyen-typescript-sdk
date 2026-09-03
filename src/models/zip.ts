@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type77Schema, type Type77 } from "./type77.js";
+import { type58Schema, type Type58 } from "./type58.js";
 
 export type Zip = {
   checkoutAttemptId?: string;
@@ -8,7 +8,7 @@ export type Zip = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type77;
+  type?: Type58;
 };
 
 export const zipSchema: Schema<Zip> = s.object<Zip>({
@@ -17,5 +17,5 @@ export const zipSchema: Schema<Zip> = s.object<Zip>({
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type77Schema)),
+  type: s.optional(s.lazy(() => type58Schema)),
 });

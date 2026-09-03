@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type76Schema, type Type76 } from "./type76.js";
+import { type57Schema, type Type57 } from "./type57.js";
 
 export type WeChatPayMiniProgram = {
   appId?: string;
@@ -9,7 +9,7 @@ export type WeChatPayMiniProgram = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type76;
+  type?: Type57;
 };
 
 export const weChatPayMiniProgramSchema: Schema<WeChatPayMiniProgram> = s.object<WeChatPayMiniProgram>({
@@ -19,5 +19,5 @@ export const weChatPayMiniProgramSchema: Schema<WeChatPayMiniProgram> = s.object
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type76Schema)),
+  type: s.optional(s.lazy(() => type57Schema)),
 });

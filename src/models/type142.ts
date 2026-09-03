@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
-export const Type283 = {
+export const Type142 = {
   DefinedBeneficiary: "definedBeneficiary",
   Director: "director",
   ImmediateParentCompany: "immediateParentCompany",
@@ -21,6 +21,6 @@ export const Type283 = {
   UndefinedBeneficiary: "undefinedBeneficiary",
   UnincorporatedPartnership: "unincorporatedPartnership",
 } as const;
-export type Type283 = (typeof Type283)[keyof typeof Type283] | (string & {});
+export type Type142 = (typeof Type142)[keyof typeof Type142] | (string & {});
 
-export const type283Schema: EnumSchema<Type283> = s.enumOf<Type283>(Type283);
+export const type142Schema: EnumSchema<Type142> = s.enumOf<Type142>(Type142);

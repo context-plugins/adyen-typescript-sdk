@@ -6,7 +6,7 @@ import { legalEntityCapabilitySchema, type LegalEntityCapability } from "./legal
 import { organization1Schema, type Organization1 } from "./organization1.js";
 import { soleProprietorship1Schema, type SoleProprietorship1 } from "./sole-proprietorship1.js";
 import { trust1Schema, type Trust1 } from "./trust1.js";
-import { type321Schema, type Type321 } from "./type321.js";
+import { type182Schema, type Type182 } from "./type182.js";
 import {
   unincorporatedPartnership1Schema,
   type UnincorporatedPartnership1,
@@ -20,7 +20,7 @@ export type LegalEntityInfo = {
   reference?: string;
   soleProprietorship?: SoleProprietorship1;
   trust?: Trust1;
-  type?: Type321;
+  type?: Type182;
   unincorporatedPartnership?: UnincorporatedPartnership1;
   verificationPlan?: string;
 };
@@ -38,7 +38,7 @@ export const legalEntityInfoSchema: Schema<LegalEntityInfo> = s.object<LegalEnti
   reference: s.optional(s.string()),
   soleProprietorship: s.optional(s.lazy(() => soleProprietorship1Schema)),
   trust: s.optional(s.lazy(() => trust1Schema)),
-  type: s.optional(s.lazy(() => type321Schema)),
+  type: s.optional(s.lazy(() => type182Schema)),
   unincorporatedPartnership: s.optional(s.lazy(() => unincorporatedPartnership1Schema)),
   verificationPlan: s.optional(s.string()),
 });

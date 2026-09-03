@@ -4,10 +4,10 @@ import { amount17Schema, type Amount17 } from "./amount17.js";
 import { category1Schema, type Category1 } from "./category1.js";
 import { priority1Schema, type Priority1 } from "./priority1.js";
 import { reasonSchema, type Reason } from "./reason.js";
-import { status4Schema, type Status4 } from "./status4.js";
+import { status6Schema, type Status6 } from "./status6.js";
 import { sweepCounterparty1Schema, type SweepCounterparty1 } from "./sweep-counterparty1.js";
 import { sweepSchedule1Schema, type SweepSchedule1 } from "./sweep-schedule1.js";
-import { type161Schema, type Type161 } from "./type161.js";
+import { type72Schema, type Type72 } from "./type72.js";
 
 export type UpdateSweepConfigurationV2 = {
   category?: Category1;
@@ -21,11 +21,11 @@ export type UpdateSweepConfigurationV2 = {
   reference?: string;
   referenceForBeneficiary?: string;
   schedule?: SweepSchedule1;
-  status?: Status4;
+  status?: Status6;
   sweepAmount?: Amount17;
   targetAmount?: Amount17;
   triggerAmount?: Amount17;
-  type?: Type161;
+  type?: Type72;
 };
 
 export const updateSweepConfigurationV2Schema: Schema<UpdateSweepConfigurationV2> =
@@ -41,9 +41,9 @@ export const updateSweepConfigurationV2Schema: Schema<UpdateSweepConfigurationV2
     reference: s.optional(s.string()),
     referenceForBeneficiary: s.optional(s.string()),
     schedule: s.optional(s.lazy(() => sweepSchedule1Schema)),
-    status: s.optional(s.lazy(() => status4Schema)),
+    status: s.optional(s.lazy(() => status6Schema)),
     sweepAmount: s.optional(s.lazy(() => amount17Schema)),
     targetAmount: s.optional(s.lazy(() => amount17Schema)),
     triggerAmount: s.optional(s.lazy(() => amount17Schema)),
-    type: s.optional(s.lazy(() => type161Schema)),
+    type: s.optional(s.lazy(() => type72Schema)),
   });

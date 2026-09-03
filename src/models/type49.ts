@@ -2,7 +2,10 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type49 = {
-  Mobilepay: "mobilepay",
+  Riverty: "riverty",
+  RivertyAccount: "riverty_account",
+  RivertyInstallments: "riverty_installments",
+  SepadirectdebitRiverty: "sepadirectdebit_riverty",
 } as const;
 export type Type49 = (typeof Type49)[keyof typeof Type49] | (string & {});
 

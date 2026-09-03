@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type40 = {
-  ExternalToken: "externalToken",
+  Paypay: "paypay",
 } as const;
 export type Type40 = (typeof Type40)[keyof typeof Type40] | (string & {});
 

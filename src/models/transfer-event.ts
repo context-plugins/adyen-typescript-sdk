@@ -7,7 +7,7 @@ import { externalReason1Schema, type ExternalReason1 } from "./external-reason1.
 import { modification2Schema, type Modification2 } from "./modification2.js";
 import { reason1Schema, type Reason1 } from "./reason1.js";
 import { status24Schema, type Status24 } from "./status24.js";
-import { type302Schema, type Type302 } from "./type302.js";
+import { type73Schema, type Type73 } from "./type73.js";
 import { eventsDatumSchema, type EventsDatum } from "./unions/events-datum.js";
 import { tracingDataSchema, type TracingData } from "./unions/tracing-data.js";
 import { trackingDataSchema, type TrackingData } from "./unions/tracking-data.js";
@@ -29,7 +29,7 @@ export type TransferEvent = {
   tracingData?: TracingData;
   trackingData?: TrackingData;
   transactionId?: string;
-  type?: Type302;
+  type?: Type73;
   updateDate?: Date;
   valueDate?: Date;
 };
@@ -51,7 +51,7 @@ export const transferEventSchema: Schema<TransferEvent> = s.object<TransferEvent
   tracingData: s.optional(s.lazy(() => tracingDataSchema)),
   trackingData: s.optional(s.lazy(() => trackingDataSchema)),
   transactionId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type302Schema)),
+  type: s.optional(s.lazy(() => type73Schema)),
   updateDate: s.optional(s.dateTime()),
   valueDate: s.optional(s.dateTime()),
 });

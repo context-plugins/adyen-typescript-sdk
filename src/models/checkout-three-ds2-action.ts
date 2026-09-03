@@ -1,6 +1,5 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type26Schema, type Type26 } from "./type26.js";
 
 export type CheckoutThreeDs2Action = {
   authorisationToken?: string;
@@ -8,7 +7,7 @@ export type CheckoutThreeDs2Action = {
   paymentMethodType?: string;
   subtype?: string;
   token?: string;
-  type: Type26;
+  type: "threeDS2";
   url?: string;
 };
 
@@ -18,6 +17,6 @@ export const checkoutThreeDs2ActionSchema: Schema<CheckoutThreeDs2Action> = s.ob
   paymentMethodType: s.optional(s.string()),
   subtype: s.optional(s.string()),
   token: s.optional(s.string()),
-  type: type26Schema,
+  type: s.literal("threeDS2"),
   url: s.optional(s.string()),
 });

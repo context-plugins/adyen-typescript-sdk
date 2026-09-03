@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type57 = {
-  PayuInUpi: "payu_IN_upi",
+  WechatpayMiniProgram: "wechatpayMiniProgram",
 } as const;
 export type Type57 = (typeof Type57)[keyof typeof Type57] | (string & {});
 

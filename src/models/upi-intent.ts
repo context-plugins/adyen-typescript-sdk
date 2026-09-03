@@ -1,6 +1,5 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type71Schema, type Type71 } from "./type71.js";
 
 export type UpiIntent = {
   appId?: string;
@@ -10,7 +9,7 @@ export type UpiIntent = {
   sdkData?: string;
   shopperNotificationReference?: string;
   storedPaymentMethodId?: string;
-  type: Type71;
+  type: "upi_intent";
 };
 
 export const upiIntentSchema: Schema<UpiIntent> = s.object<UpiIntent>({
@@ -21,5 +20,5 @@ export const upiIntentSchema: Schema<UpiIntent> = s.object<UpiIntent>({
   sdkData: s.optional(s.string()),
   shopperNotificationReference: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: type71Schema,
+  type: s.literal("upi_intent"),
 });

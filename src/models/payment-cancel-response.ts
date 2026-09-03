@@ -1,13 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { status3Schema, type Status3 } from "./status3.js";
 
 export type PaymentCancelResponse = {
   merchantAccount: string;
   paymentPspReference: string;
   pspReference: string;
   reference?: string;
-  status: Status3;
+  status: "received";
 };
 
 export const paymentCancelResponseSchema: Schema<PaymentCancelResponse> = s.object<PaymentCancelResponse>({
@@ -15,5 +14,5 @@ export const paymentCancelResponseSchema: Schema<PaymentCancelResponse> = s.obje
   paymentPspReference: s.string(),
   pspReference: s.string(),
   reference: s.optional(s.string()),
-  status: status3Schema,
+  status: s.literal("received"),
 });

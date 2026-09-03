@@ -4,6 +4,7 @@ import type { EnumSchema } from "../core/validation/schema.js";
 export const Status10 = {
   Active: "active",
   Closed: "closed",
+  Inactive: "inactive",
   Suspended: "suspended",
 } as const;
 export type Status10 = (typeof Status10)[keyof typeof Status10] | (string & {});

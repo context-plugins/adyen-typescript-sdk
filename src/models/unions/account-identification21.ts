@@ -5,10 +5,6 @@ import {
   type AuLocalAccountIdentification,
 } from "../au-local-account-identification.js";
 import {
-  brLocalAccountIdentificationSchema,
-  type BrLocalAccountIdentification,
-} from "../br-local-account-identification.js";
-import {
   caLocalAccountIdentificationSchema,
   type CaLocalAccountIdentification,
 } from "../ca-local-account-identification.js";
@@ -37,9 +33,9 @@ import {
   type NoLocalAccountIdentification,
 } from "../no-local-account-identification.js";
 import {
-  numberAndBicAccountIdentification1Schema,
-  type NumberAndBicAccountIdentification1,
-} from "../number-and-bic-account-identification1.js";
+  numberAndBicAccountIdentificationSchema,
+  type NumberAndBicAccountIdentification,
+} from "../number-and-bic-account-identification.js";
 import {
   nzLocalAccountIdentificationSchema,
   type NzLocalAccountIdentification,
@@ -66,39 +62,38 @@ import {
 } from "../us-local-account-identification.js";
 
 export type AccountIdentification21 =
-  | (IbanAccountIdentification & { type: "iban" })
-  | (NumberAndBicAccountIdentification1 & { type: "numberAndBic" })
-  | (AuLocalAccountIdentification & { type: "auLocal" })
-  | (CzLocalAccountIdentification & { type: "czLocal" })
-  | (NoLocalAccountIdentification & { type: "noLocal" })
-  | (PlLocalAccountIdentification & { type: "plLocal" })
-  | (HuLocalAccountIdentification & { type: "huLocal" })
-  | (SeLocalAccountIdentification & { type: "seLocal" })
-  | (SgLocalAccountIdentification & { type: "sgLocal" })
-  | (UkLocalAccountIdentification & { type: "ukLocal" })
-  | (UsLocalAccountIdentification & { type: "usLocal" })
-  | (BrLocalAccountIdentification & { type: "brLocal" })
-  | (DkLocalAccountIdentification & { type: "dkLocal" })
-  | (CaLocalAccountIdentification & { type: "caLocal" })
-  | (NzLocalAccountIdentification & { type: "nzLocal" })
-  | (HkLocalAccountIdentification & { type: "hkLocal" });
+  | AuLocalAccountIdentification
+  | CaLocalAccountIdentification
+  | CzLocalAccountIdentification
+  | DkLocalAccountIdentification
+  | HkLocalAccountIdentification
+  | HuLocalAccountIdentification
+  | IbanAccountIdentification
+  | NoLocalAccountIdentification
+  | NzLocalAccountIdentification
+  | NumberAndBicAccountIdentification
+  | PlLocalAccountIdentification
+  | SeLocalAccountIdentification
+  | SgLocalAccountIdentification
+  | UkLocalAccountIdentification
+  | UsLocalAccountIdentification;
 
-export const accountIdentification21Schema: Schema<AccountIdentification21> =
-  s.discriminatedUnion<AccountIdentification21>("type", {
-    iban: ibanAccountIdentificationSchema,
-    numberAndBic: numberAndBicAccountIdentification1Schema,
-    auLocal: auLocalAccountIdentificationSchema,
-    czLocal: czLocalAccountIdentificationSchema,
-    noLocal: noLocalAccountIdentificationSchema,
-    plLocal: plLocalAccountIdentificationSchema,
-    huLocal: huLocalAccountIdentificationSchema,
-    seLocal: seLocalAccountIdentificationSchema,
-    sgLocal: sgLocalAccountIdentificationSchema,
-    ukLocal: ukLocalAccountIdentificationSchema,
-    usLocal: usLocalAccountIdentificationSchema,
-    brLocal: brLocalAccountIdentificationSchema,
-    dkLocal: dkLocalAccountIdentificationSchema,
-    caLocal: caLocalAccountIdentificationSchema,
-    nzLocal: nzLocalAccountIdentificationSchema,
-    hkLocal: hkLocalAccountIdentificationSchema,
-  });
+export const accountIdentification21Schema: Schema<AccountIdentification21> = s.of<AccountIdentification21>(
+  s.union([
+    s.lazy(() => auLocalAccountIdentificationSchema),
+    s.lazy(() => caLocalAccountIdentificationSchema),
+    s.lazy(() => czLocalAccountIdentificationSchema),
+    s.lazy(() => dkLocalAccountIdentificationSchema),
+    s.lazy(() => hkLocalAccountIdentificationSchema),
+    s.lazy(() => huLocalAccountIdentificationSchema),
+    s.lazy(() => ibanAccountIdentificationSchema),
+    s.lazy(() => noLocalAccountIdentificationSchema),
+    s.lazy(() => nzLocalAccountIdentificationSchema),
+    s.lazy(() => numberAndBicAccountIdentificationSchema),
+    s.lazy(() => plLocalAccountIdentificationSchema),
+    s.lazy(() => seLocalAccountIdentificationSchema),
+    s.lazy(() => sgLocalAccountIdentificationSchema),
+    s.lazy(() => ukLocalAccountIdentificationSchema),
+    s.lazy(() => usLocalAccountIdentificationSchema),
+  ]),
+);

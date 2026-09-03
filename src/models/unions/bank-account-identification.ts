@@ -37,9 +37,9 @@ import {
   type NoLocalAccountIdentification1,
 } from "../no-local-account-identification1.js";
 import {
-  numberAndBicAccountIdentification2Schema,
-  type NumberAndBicAccountIdentification2,
-} from "../number-and-bic-account-identification2.js";
+  numberAndBicAccountIdentification1Schema,
+  type NumberAndBicAccountIdentification1,
+} from "../number-and-bic-account-identification1.js";
 import {
   nzLocalAccountIdentification1Schema,
   type NzLocalAccountIdentification1,
@@ -76,7 +76,7 @@ export type BankAccountIdentification =
   | (IbanAccountIdentification1 & { type: "iban" })
   | (NoLocalAccountIdentification1 & { type: "noLocal" })
   | (NzLocalAccountIdentification1 & { type: "nzLocal" })
-  | (NumberAndBicAccountIdentification2 & { type: "numberAndBic" })
+  | (NumberAndBicAccountIdentification1 & { type: "numberAndBic" })
   | (PlLocalAccountIdentification1 & { type: "plLocal" })
   | (SeLocalAccountIdentification1 & { type: "seLocal" })
   | (SgLocalAccountIdentification1 & { type: "sgLocal" })
@@ -95,7 +95,7 @@ export const bankAccountIdentificationSchema: Schema<BankAccountIdentification> 
     iban: ibanAccountIdentification1Schema,
     noLocal: noLocalAccountIdentification1Schema,
     nzLocal: nzLocalAccountIdentification1Schema,
-    numberAndBic: numberAndBicAccountIdentification2Schema,
+    numberAndBic: numberAndBicAccountIdentification1Schema,
     plLocal: plLocalAccountIdentification1Schema,
     seLocal: seLocalAccountIdentification1Schema,
     sgLocal: sgLocalAccountIdentification1Schema,

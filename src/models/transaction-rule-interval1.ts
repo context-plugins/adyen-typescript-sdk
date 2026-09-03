@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { dayOfWeekSchema, type DayOfWeek } from "./day-of-week.js";
 import { duration1Schema, type Duration1 } from "./duration1.js";
-import { type381Schema, type Type381 } from "./type381.js";
+import { type131Schema, type Type131 } from "./type131.js";
 
 export type TransactionRuleInterval1 = {
   dayOfMonth?: number;
@@ -10,7 +10,7 @@ export type TransactionRuleInterval1 = {
   duration?: Duration1;
   timeOfDay?: string;
   timeZone?: string;
-  type: Type381;
+  type: Type131;
 };
 
 export const transactionRuleInterval1Schema: Schema<TransactionRuleInterval1> =
@@ -20,5 +20,5 @@ export const transactionRuleInterval1Schema: Schema<TransactionRuleInterval1> =
     duration: s.optional(s.lazy(() => duration1Schema)),
     timeOfDay: s.optional(s.string()),
     timeZone: s.optional(s.string()),
-    type: type381Schema,
+    type: type131Schema,
   });

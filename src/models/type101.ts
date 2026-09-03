@@ -2,7 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type101 = {
-  AmountNonZeroDecimalsRequirement: "amountNonZeroDecimalsRequirement",
+  Ios: "ios",
+  Android: "android",
+  Browser: "browser",
 } as const;
 export type Type101 = (typeof Type101)[keyof typeof Type101] | (string & {});
 

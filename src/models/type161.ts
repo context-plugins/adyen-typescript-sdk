@@ -2,8 +2,12 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type161 = {
-  Pull: "pull",
-  Push: "push",
+  AssociationIncorporated: "associationIncorporated",
+  GovernmentalOrganization: "governmentalOrganization",
+  ListedPublicCompany: "listedPublicCompany",
+  NonProfit: "nonProfit",
+  PartnershipIncorporated: "partnershipIncorporated",
+  PrivateCompany: "privateCompany",
 } as const;
 export type Type161 = (typeof Type161)[keyof typeof Type161] | (string & {});
 

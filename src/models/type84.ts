@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
-export const Type223 = {
+export const Type84 = {
   BankStatement: "bankStatement",
   DriversLicense: "driversLicense",
   IdentityCard: "identityCard",
@@ -23,6 +23,6 @@ export const Type223 = {
   ProofOfRelationship: "proofOfRelationship",
   ProofOfDirector: "proofOfDirector",
 } as const;
-export type Type223 = (typeof Type223)[keyof typeof Type223] | (string & {});
+export type Type84 = (typeof Type84)[keyof typeof Type84] | (string & {});
 
-export const type223Schema: EnumSchema<Type223> = s.enumOf<Type223>(Type223);
+export const type84Schema: EnumSchema<Type84> = s.enumOf<Type84>(Type84);

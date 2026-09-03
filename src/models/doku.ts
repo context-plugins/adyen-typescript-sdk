@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type31Schema, type Type31 } from "./type31.js";
+import { type23Schema, type Type23 } from "./type23.js";
 
 export type Doku = {
   checkoutAttemptId?: string;
@@ -8,7 +8,7 @@ export type Doku = {
   lastName: string;
   sdkData?: string;
   shopperEmail: string;
-  type: Type31;
+  type: Type23;
 };
 
 export const dokuSchema: Schema<Doku> = s.object<Doku>({
@@ -17,5 +17,5 @@ export const dokuSchema: Schema<Doku> = s.object<Doku>({
   lastName: s.string(),
   sdkData: s.optional(s.string()),
   shopperEmail: s.string(),
-  type: type31Schema,
+  type: type23Schema,
 });

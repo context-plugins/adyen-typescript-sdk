@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { fundingSourceSchema, type FundingSource } from "./funding-source.js";
-import { type34Schema, type Type34 } from "./type34.js";
+import { type26Schema, type Type26 } from "./type26.js";
 
 export type PayWithGoogleDonations = {
   checkoutAttemptId?: string;
@@ -11,7 +11,7 @@ export type PayWithGoogleDonations = {
   sdkData?: string;
   storedPaymentMethodId?: string;
   threeDs2SdkVersion?: string;
-  type?: Type34;
+  type?: Type26;
 };
 
 export const payWithGoogleDonationsSchema: Schema<PayWithGoogleDonations> = s.object<PayWithGoogleDonations>({
@@ -22,7 +22,7 @@ export const payWithGoogleDonationsSchema: Schema<PayWithGoogleDonations> = s.ob
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   threeDs2SdkVersion: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type34Schema)),
+  type: s.optional(s.lazy(() => type26Schema)),
   _keysMap: {
     threeDs2SdkVersion: "threeDS2SdkVersion",
   },

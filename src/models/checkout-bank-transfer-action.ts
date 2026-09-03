@@ -1,7 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { amount10Schema, type Amount10 } from "./amount10.js";
-import { type19Schema, type Type19 } from "./type19.js";
 
 export type CheckoutBankTransferAction = {
   accountNumber?: string;
@@ -17,7 +16,7 @@ export type CheckoutBankTransferAction = {
   shopperEmail?: string;
   sortCode?: string;
   totalAmount?: Amount10;
-  type: Type19;
+  type: "bankTransfer";
   url?: string;
 };
 
@@ -36,6 +35,6 @@ export const checkoutBankTransferActionSchema: Schema<CheckoutBankTransferAction
     shopperEmail: s.optional(s.string()),
     sortCode: s.optional(s.string()),
     totalAmount: s.optional(s.lazy(() => amount10Schema)),
-    type: type19Schema,
+    type: s.literal("bankTransfer"),
     url: s.optional(s.string()),
   });

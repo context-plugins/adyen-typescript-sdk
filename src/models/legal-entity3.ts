@@ -12,7 +12,7 @@ import {
   type TransferInstrumentReference,
 } from "./transfer-instrument-reference.js";
 import { trust1Schema, type Trust1 } from "./trust1.js";
-import { type321Schema, type Type321 } from "./type321.js";
+import { type182Schema, type Type182 } from "./type182.js";
 import {
   unincorporatedPartnership1Schema,
   type UnincorporatedPartnership1,
@@ -36,7 +36,7 @@ export type LegalEntity3 = {
   soleProprietorship?: SoleProprietorship1;
   transferInstruments?: TransferInstrumentReference[];
   trust?: Trust1;
-  type?: Type321;
+  type?: Type182;
   unincorporatedPartnership?: UnincorporatedPartnership1;
   verificationDeadlines?: VerificationDeadline[];
   verificationPlan?: string;
@@ -60,7 +60,7 @@ export const legalEntity3Schema: Schema<LegalEntity3> = s.object<LegalEntity3>({
   soleProprietorship: s.optional(s.lazy(() => soleProprietorship1Schema)),
   transferInstruments: s.optional(s.array(s.lazy(() => transferInstrumentReferenceSchema))),
   trust: s.optional(s.lazy(() => trust1Schema)),
-  type: s.optional(s.lazy(() => type321Schema)),
+  type: s.optional(s.lazy(() => type182Schema)),
   unincorporatedPartnership: s.optional(s.lazy(() => unincorporatedPartnership1Schema)),
   verificationDeadlines: s.optional(s.array(s.lazy(() => verificationDeadlineSchema))),
   verificationPlan: s.optional(s.string()),

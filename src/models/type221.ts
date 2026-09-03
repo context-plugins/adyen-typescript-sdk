@@ -2,7 +2,8 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type221 = {
-  Iban: "iban",
+  BankAccount: "bankAccount",
+  RecurringDetail: "recurringDetail",
 } as const;
 export type Type221 = (typeof Type221)[keyof typeof Type221] | (string & {});
 

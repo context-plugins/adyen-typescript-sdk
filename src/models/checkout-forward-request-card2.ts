@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type21Schema, type Type21 } from "./type21.js";
+import { type18Schema, type Type18 } from "./type18.js";
 
 export type CheckoutForwardRequestCard2 = {
   cvc?: string;
@@ -12,7 +12,7 @@ export type CheckoutForwardRequestCard2 = {
   expiryYear?: string;
   holderName?: string;
   number?: string;
-  type?: Type21;
+  type?: Type18;
 };
 
 export const checkoutForwardRequestCard2Schema: Schema<CheckoutForwardRequestCard2> =
@@ -26,5 +26,5 @@ export const checkoutForwardRequestCard2Schema: Schema<CheckoutForwardRequestCar
     expiryYear: s.optional(s.string()),
     holderName: s.optional(s.string()),
     number: s.optional(s.string()),
-    type: s.optional(s.lazy(() => type21Schema)),
+    type: s.optional(s.lazy(() => type18Schema)),
   });

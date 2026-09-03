@@ -13,7 +13,7 @@ import {
   taxReportingClassification2Schema,
   type TaxReportingClassification2,
 } from "./tax-reporting-classification2.js";
-import { type303Schema, type Type303 } from "./type303.js";
+import { type161Schema, type Type161 } from "./type161.js";
 import { vatAbsenceReasonSchema, type VatAbsenceReason } from "./vat-absence-reason.js";
 import { webData1Schema, type WebData1 } from "./web-data1.js";
 
@@ -42,7 +42,7 @@ export type Organization = {
   support?: Support1;
   taxInformation?: TaxInformation[];
   taxReportingClassification?: TaxReportingClassification2;
-  type?: Type303;
+  type?: Type161;
   vatAbsenceReason?: VatAbsenceReason;
   vatNumber?: string;
   webData?: WebData1;
@@ -73,7 +73,7 @@ export const organizationSchema: Schema<Organization> = s.object<Organization>({
   support: s.optional(s.lazy(() => support1Schema)),
   taxInformation: s.optional(s.array(s.lazy(() => taxInformationSchema))),
   taxReportingClassification: s.optional(s.lazy(() => taxReportingClassification2Schema)),
-  type: s.optional(s.lazy(() => type303Schema)),
+  type: s.optional(s.lazy(() => type161Schema)),
   vatAbsenceReason: s.optional(s.lazy(() => vatAbsenceReasonSchema)),
   vatNumber: s.optional(s.string()),
   webData: s.optional(s.lazy(() => webData1Schema)),

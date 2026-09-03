@@ -2,11 +2,8 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type38 = {
-  EcontextSevenEleven: "econtext_seven_eleven",
-  EcontextOnline: "econtext_online",
-  Econtext: "econtext",
-  EcontextStores: "econtext_stores",
-  EcontextAtm: "econtext_atm",
+  MolpayEbankingFpxMy: "molpay_ebanking_fpx_MY",
+  MolpayEbankingTh: "molpay_ebanking_TH",
 } as const;
 export type Type38 = (typeof Type38)[keyof typeof Type38] | (string & {});
 

@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type42Schema, type Type42 } from "./type42.js";
+import { type31Schema, type Type31 } from "./type31.js";
 
 export type StoredPaymentMethod2 = {
   checkoutAttemptId?: string;
@@ -8,7 +8,7 @@ export type StoredPaymentMethod2 = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type: Type42;
+  type: Type31;
 };
 
 export const storedPaymentMethod2Schema: Schema<StoredPaymentMethod2> = s.object<StoredPaymentMethod2>({
@@ -17,5 +17,5 @@ export const storedPaymentMethod2Schema: Schema<StoredPaymentMethod2> = s.object
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: type42Schema,
+  type: type31Schema,
 });

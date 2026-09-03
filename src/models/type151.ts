@@ -2,11 +2,10 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type151 = {
-  Daily: "daily",
-  Weekly: "weekly",
-  Monthly: "monthly",
-  Balance: "balance",
-  Cron: "cron",
+  NonFinancialNonReportable: "nonFinancialNonReportable",
+  FinancialNonReportable: "financialNonReportable",
+  NonFinancialActive: "nonFinancialActive",
+  NonFinancialPassive: "nonFinancialPassive",
 } as const;
 export type Type151 = (typeof Type151)[keyof typeof Type151] | (string & {});
 

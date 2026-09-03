@@ -3,7 +3,6 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount14Schema, type Amount14 } from "./amount14.js";
 import { amount15Schema, type Amount15 } from "./amount15.js";
 import { amount16Schema, type Amount16 } from "./amount16.js";
-import { type27Schema, type Type27 } from "./type27.js";
 
 export type CheckoutVoucherAction = {
   alternativeReference?: string;
@@ -25,7 +24,7 @@ export type CheckoutVoucherAction = {
   shopperName?: string;
   surcharge?: Amount15;
   totalAmount?: Amount16;
-  type: Type27;
+  type: "voucher";
   url?: string;
 };
 
@@ -49,6 +48,6 @@ export const checkoutVoucherActionSchema: Schema<CheckoutVoucherAction> = s.obje
   shopperName: s.optional(s.string()),
   surcharge: s.optional(s.lazy(() => amount15Schema)),
   totalAmount: s.optional(s.lazy(() => amount16Schema)),
-  type: type27Schema,
+  type: s.literal("voucher"),
   url: s.optional(s.string()),
 });

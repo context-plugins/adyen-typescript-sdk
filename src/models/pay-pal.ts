@@ -1,7 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { subtype1Schema, type Subtype1 } from "./subtype1.js";
-import { type54Schema, type Type54 } from "./type54.js";
+import { subtypeSchema, type Subtype } from "./subtype.js";
 
 export type PayPal = {
   checkoutAttemptId?: string;
@@ -12,8 +11,8 @@ export type PayPal = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  subtype?: Subtype1;
-  type: Type54;
+  subtype?: Subtype;
+  type: "paypal";
 };
 
 export const payPalSchema: Schema<PayPal> = s.object<PayPal>({
@@ -25,8 +24,8 @@ export const payPalSchema: Schema<PayPal> = s.object<PayPal>({
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  subtype: s.optional(s.lazy(() => subtype1Schema)),
-  type: type54Schema,
+  subtype: s.optional(s.lazy(() => subtypeSchema)),
+  type: s.literal("paypal"),
   _keysMap: {
     orderId: "orderID",
     payerId: "payerID",

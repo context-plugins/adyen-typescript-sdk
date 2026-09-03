@@ -2,7 +2,10 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type212 = {
-  HuLocal: "huLocal",
+  DataMissing: "dataMissing",
+  DataReview: "dataReview",
+  InvalidInput: "invalidInput",
+  PendingStatus: "pendingStatus",
 } as const;
 export type Type212 = (typeof Type212)[keyof typeof Type212] | (string & {});
 

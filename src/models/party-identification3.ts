@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { address12Schema, type Address12 } from "./address12.js";
-import { type313Schema, type Type313 } from "./type313.js";
+import { type112Schema, type Type112 } from "./type112.js";
 
 export type PartyIdentification3 = {
   address?: Address12;
@@ -11,7 +11,7 @@ export type PartyIdentification3 = {
   fullName?: string;
   lastName?: string;
   reference?: string;
-  type?: Type313;
+  type?: Type112;
   url?: string;
 };
 
@@ -23,6 +23,6 @@ export const partyIdentification3Schema: Schema<PartyIdentification3> = s.object
   fullName: s.optional(s.string()),
   lastName: s.optional(s.string()),
   reference: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type313Schema)),
+  type: s.optional(s.lazy(() => type112Schema)),
   url: s.optional(s.string()),
 });

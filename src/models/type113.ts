@@ -2,16 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type113 = {
-  AdyenAccount: "adyenAccount",
-  AdyenCapital: "adyenCapital",
-  AdyenCard: "adyenCard",
-  AdyenChargeCard: "adyenChargeCard",
-  AdyenForPlatformsAdvanced: "adyenForPlatformsAdvanced",
-  AdyenForPlatformsManage: "adyenForPlatformsManage",
-  AdyenFranchisee: "adyenFranchisee",
-  AdyenIssuing: "adyenIssuing",
-  AdyenPccr: "adyenPccr",
-  KycOnInvite: "kycOnInvite",
+  BankTransfer: "bankTransfer",
+  InternalTransfer: "internalTransfer",
+  InternalDirectDebit: "internalDirectDebit",
 } as const;
 export type Type113 = (typeof Type113)[keyof typeof Type113] | (string & {});
 

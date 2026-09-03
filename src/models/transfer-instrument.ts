@@ -7,7 +7,7 @@ import {
   supportingEntityCapabilitySchema,
   type SupportingEntityCapability,
 } from "./supporting-entity-capability.js";
-import { type361Schema, type Type361 } from "./type361.js";
+import { type221Schema, type Type221 } from "./type221.js";
 
 export type TransferInstrument = {
   bankAccount: BankAccountInfo1;
@@ -16,7 +16,7 @@ export type TransferInstrument = {
   id: string;
   legalEntityId: string;
   problems?: CapabilityProblem1[];
-  type: Type361;
+  type: Type221;
 };
 
 export const transferInstrumentSchema: Schema<TransferInstrument> = s.object<TransferInstrument>({
@@ -31,5 +31,5 @@ export const transferInstrumentSchema: Schema<TransferInstrument> = s.object<Tra
   id: s.string(),
   legalEntityId: s.string(),
   problems: s.optional(s.array(s.lazy(() => capabilityProblem1Schema))),
-  type: type361Schema,
+  type: type221Schema,
 });

@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type65Schema, type Type65 } from "./type65.js";
+import { type49Schema, type Type49 } from "./type49.js";
 
 export type Riverty = {
   billingAddress?: string;
@@ -14,7 +14,7 @@ export type Riverty = {
   sdkData?: string;
   storedPaymentMethodId?: string;
   subtype?: string;
-  type: Type65;
+  type: Type49;
 };
 
 export const rivertySchema: Schema<Riverty> = s.object<Riverty>({
@@ -29,5 +29,5 @@ export const rivertySchema: Schema<Riverty> = s.object<Riverty>({
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   subtype: s.optional(s.string()),
-  type: type65Schema,
+  type: type49Schema,
 });

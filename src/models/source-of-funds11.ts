@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { financierSchema, type Financier } from "./financier.js";
 import { patchableAmountDtoSchema, type PatchableAmountDto } from "./patchable-amount-dto.js";
-import { type214Schema, type Type214 } from "./type214.js";
+import { type74Schema, type Type74 } from "./type74.js";
 
 export type SourceOfFunds11 = {
   adyenProcessedFunds: boolean;
@@ -16,7 +16,7 @@ export type SourceOfFunds11 = {
   originatorLegalEntityId?: string;
   purpose?: string;
   relationship?: string;
-  type?: Type214;
+  type?: Type74;
   website?: string;
 };
 
@@ -32,6 +32,6 @@ export const sourceOfFunds11Schema: Schema<SourceOfFunds11> = s.object<SourceOfF
   originatorLegalEntityId: s.optional(s.string()),
   purpose: s.optional(s.string()),
   relationship: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type214Schema)),
+  type: s.optional(s.lazy(() => type74Schema)),
   website: s.optional(s.string()),
 });

@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { address12Schema, type Address12 } from "./address12.js";
 import { fundingInstrument2Schema, type FundingInstrument2 } from "./funding-instrument2.js";
-import { type313Schema, type Type313 } from "./type313.js";
+import { type112Schema, type Type112 } from "./type112.js";
 
 export type UltimatePartyIdentification = {
   address?: Address12;
@@ -13,7 +13,7 @@ export type UltimatePartyIdentification = {
   fundingInstrument?: FundingInstrument2;
   lastName?: string;
   reference?: string;
-  type?: Type313;
+  type?: Type112;
   url?: string;
 };
 
@@ -27,6 +27,6 @@ export const ultimatePartyIdentificationSchema: Schema<UltimatePartyIdentificati
     fundingInstrument: s.optional(s.lazy(() => fundingInstrument2Schema)),
     lastName: s.optional(s.string()),
     reference: s.optional(s.string()),
-    type: s.optional(s.lazy(() => type313Schema)),
+    type: s.optional(s.lazy(() => type112Schema)),
     url: s.optional(s.string()),
   });

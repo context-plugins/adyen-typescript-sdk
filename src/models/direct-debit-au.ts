@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type30Schema, type Type30 } from "./type30.js";
+import { type22Schema, type Type22 } from "./type22.js";
 
 export type DirectDebitAu = {
   bankAccountNumber?: string;
@@ -10,7 +10,7 @@ export type DirectDebitAu = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type30;
+  type?: Type22;
 };
 
 export const directDebitAuSchema: Schema<DirectDebitAu> = s.object<DirectDebitAu>({
@@ -21,5 +21,5 @@ export const directDebitAuSchema: Schema<DirectDebitAu> = s.object<DirectDebitAu
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type30Schema)),
+  type: s.optional(s.lazy(() => type22Schema)),
 });

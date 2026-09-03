@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type38Schema, type Type38 } from "./type38.js";
+import { type29Schema, type Type29 } from "./type29.js";
 
 export type Voucher = {
   checkoutAttemptId?: string;
@@ -9,7 +9,7 @@ export type Voucher = {
   sdkData?: string;
   shopperEmail: string;
   telephoneNumber: string;
-  type: Type38;
+  type: Type29;
 };
 
 export const voucherSchema: Schema<Voucher> = s.object<Voucher>({
@@ -19,5 +19,5 @@ export const voucherSchema: Schema<Voucher> = s.object<Voucher>({
   sdkData: s.optional(s.string()),
   shopperEmail: s.string(),
   telephoneNumber: s.string(),
-  type: type38Schema,
+  type: type29Schema,
 });

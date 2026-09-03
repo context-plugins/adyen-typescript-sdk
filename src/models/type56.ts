@@ -2,7 +2,8 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type56 = {
-  Payto: "payto",
+  Wechatpay: "wechatpay",
+  WechatpayPos: "wechatpay_pos",
 } as const;
 export type Type56 = (typeof Type56)[keyof typeof Type56] | (string & {});
 

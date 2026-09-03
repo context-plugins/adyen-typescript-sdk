@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type283Schema, type Type283 } from "./type283.js";
+import { type142Schema, type Type142 } from "./type142.js";
 
 export type LegalEntityAssociation = {
   associatorId?: string;
@@ -11,7 +11,7 @@ export type LegalEntityAssociation = {
   nominee?: boolean;
   relationship?: string;
   settlorExemptionReason?: string[];
-  type: Type283;
+  type: Type142;
 };
 
 export const legalEntityAssociationSchema: Schema<LegalEntityAssociation> = s.object<LegalEntityAssociation>({
@@ -23,5 +23,5 @@ export const legalEntityAssociationSchema: Schema<LegalEntityAssociation> = s.ob
   nominee: s.optional(s.boolean()),
   relationship: s.optional(s.string()),
   settlorExemptionReason: s.optional(s.array(s.string())),
-  type: type283Schema,
+  type: type142Schema,
 });

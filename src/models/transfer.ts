@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
-import { category4Schema, type Category4 } from "./category4.js";
+import { category3Schema, type Category3 } from "./category3.js";
 import { counterpartyV31Schema, type CounterpartyV31 } from "./counterparty-v31.js";
 import { directDebitInformation1Schema, type DirectDebitInformation1 } from "./direct-debit-information1.js";
 import { directionSchema, type Direction } from "./direction.js";
@@ -12,7 +12,7 @@ import { resourceReference1Schema, type ResourceReference1 } from "./resource-re
 import { resourceReference5Schema, type ResourceReference5 } from "./resource-reference5.js";
 import { status51Schema, type Status51 } from "./status51.js";
 import { transferReview1Schema, type TransferReview1 } from "./transfer-review1.js";
-import { type314Schema, type Type314 } from "./type314.js";
+import { type83Schema, type Type83 } from "./type83.js";
 import {
   ultimatePartyIdentification1Schema,
   type UltimatePartyIdentification1,
@@ -23,7 +23,7 @@ export type Transfer = {
   accountHolder?: ResourceReference5;
   amount: Amount17;
   balanceAccount?: ResourceReference1;
-  category: Category4;
+  category: Category3;
   categoryData?: CategoryData;
   counterparty: CounterpartyV31;
   createdAt?: Date;
@@ -39,7 +39,7 @@ export type Transfer = {
   referenceForBeneficiary?: string;
   review?: TransferReview1;
   status: Status51;
-  type?: Type314;
+  type?: Type83;
   ultimateParty?: UltimatePartyIdentification1;
 };
 
@@ -47,7 +47,7 @@ export const transferSchema: Schema<Transfer> = s.object<Transfer>({
   accountHolder: s.optional(s.lazy(() => resourceReference5Schema)),
   amount: amount17Schema,
   balanceAccount: s.optional(s.lazy(() => resourceReference1Schema)),
-  category: category4Schema,
+  category: category3Schema,
   categoryData: s.optional(s.lazy(() => categoryDataSchema)),
   counterparty: counterpartyV31Schema,
   createdAt: s.optional(s.dateTime()),
@@ -63,6 +63,6 @@ export const transferSchema: Schema<Transfer> = s.object<Transfer>({
   referenceForBeneficiary: s.optional(s.string()),
   review: s.optional(s.lazy(() => transferReview1Schema)),
   status: status51Schema,
-  type: s.optional(s.lazy(() => type314Schema)),
+  type: s.optional(s.lazy(() => type83Schema)),
   ultimateParty: s.optional(s.lazy(() => ultimatePartyIdentification1Schema)),
 });

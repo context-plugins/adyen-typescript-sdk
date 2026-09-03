@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type35 = {
-  Sepadirectdebit: "sepadirectdebit",
+  Masterpass: "masterpass",
 } as const;
 export type Type35 = (typeof Type35)[keyof typeof Type35] | (string & {});
 

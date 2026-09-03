@@ -42,7 +42,7 @@ import { svsInfo2Schema, type SvsInfo2 } from "./svs-info2.js";
 import { swishInfo2Schema, type SwishInfo2 } from "./swish-info2.js";
 import { ticketInfo2Schema, type TicketInfo2 } from "./ticket-info2.js";
 import { twintInfo2Schema, type TwintInfo2 } from "./twint-info2.js";
-import { type58Schema, type Type58 } from "./type58.js";
+import { type59Schema, type Type59 } from "./type59.js";
 import { valuelinkInfo2Schema, type ValuelinkInfo2 } from "./valuelink-info2.js";
 import { vippsInfo2Schema, type VippsInfo2 } from "./vipps-info2.js";
 import { weChatPayInfo2Schema, type WeChatPayInfo2 } from "./we-chat-pay-info2.js";
@@ -96,7 +96,7 @@ export type PaymentMethodSetupInfo = {
   swish?: SwishInfo2;
   ticket?: TicketInfo2;
   twint?: TwintInfo2;
-  type: Type58;
+  type: Type59;
   valuelink?: ValuelinkInfo2;
   vipps?: VippsInfo2;
   visa?: GenericPmWithTdiInfo11;
@@ -152,7 +152,7 @@ export const paymentMethodSetupInfoSchema: Schema<PaymentMethodSetupInfo> = s.ob
   swish: s.optional(s.lazy(() => swishInfo2Schema)),
   ticket: s.optional(s.lazy(() => ticketInfo2Schema)),
   twint: s.optional(s.lazy(() => twintInfo2Schema)),
-  type: type58Schema,
+  type: type59Schema,
   valuelink: s.optional(s.lazy(() => valuelinkInfo2Schema)),
   vipps: s.optional(s.lazy(() => vippsInfo2Schema)),
   visa: s.optional(s.lazy(() => genericPmWithTdiInfo11Schema)),

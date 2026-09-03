@@ -3,7 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { outcomeTypeSchema, type OutcomeType } from "./outcome-type.js";
 import { purposeSchema, type Purpose } from "./purpose.js";
 import { requestTypeSchema, type RequestType } from "./request-type.js";
-import { status4Schema, type Status4 } from "./status4.js";
+import { status6Schema, type Status6 } from "./status6.js";
 import {
   transactionRuleEntityKey2Schema,
   type TransactionRuleEntityKey2,
@@ -16,7 +16,7 @@ import {
   transactionRuleRestrictions1Schema,
   type TransactionRuleRestrictions1,
 } from "./transaction-rule-restrictions1.js";
-import { type391Schema, type Type391 } from "./type391.js";
+import { type141Schema, type Type141 } from "./type141.js";
 
 export type TransactionRuleInfo = {
   aggregationLevel?: string;
@@ -32,8 +32,8 @@ export type TransactionRuleInfo = {
   ruleRestrictions: TransactionRuleRestrictions1;
   score?: number;
   startDate?: string;
-  status?: Status4;
-  type: Type391;
+  status?: Status6;
+  type: Type141;
 };
 
 export const transactionRuleInfoSchema: Schema<TransactionRuleInfo> = s.object<TransactionRuleInfo>({
@@ -50,6 +50,6 @@ export const transactionRuleInfoSchema: Schema<TransactionRuleInfo> = s.object<T
   ruleRestrictions: transactionRuleRestrictions1Schema,
   score: s.optional(s.number()),
   startDate: s.optional(s.string()),
-  status: s.optional(s.lazy(() => status4Schema)),
-  type: type391Schema,
+  status: s.optional(s.lazy(() => status6Schema)),
+  type: type141Schema,
 });

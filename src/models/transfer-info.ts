@@ -1,12 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
-import { category4Schema, type Category4 } from "./category4.js";
+import { category3Schema, type Category3 } from "./category3.js";
 import { counterpartyInfoV31Schema, type CounterpartyInfoV31 } from "./counterparty-info-v31.js";
 import { executionDate3Schema, type ExecutionDate3 } from "./execution-date3.js";
 import { priority1Schema, type Priority1 } from "./priority1.js";
 import { transferRequestReview2Schema, type TransferRequestReview2 } from "./transfer-request-review2.js";
-import { type342Schema, type Type342 } from "./type342.js";
+import { type113Schema, type Type113 } from "./type113.js";
 import {
   ultimatePartyIdentification1Schema,
   type UltimatePartyIdentification1,
@@ -15,7 +15,7 @@ import {
 export type TransferInfo = {
   amount: Amount17;
   balanceAccountId?: string;
-  category: Category4;
+  category: Category3;
   counterparty: CounterpartyInfoV31;
   description?: string;
   executionDate?: ExecutionDate3;
@@ -25,14 +25,14 @@ export type TransferInfo = {
   reference?: string;
   referenceForBeneficiary?: string;
   review?: TransferRequestReview2;
-  type?: Type342;
+  type?: Type113;
   ultimateParty?: UltimatePartyIdentification1;
 };
 
 export const transferInfoSchema: Schema<TransferInfo> = s.object<TransferInfo>({
   amount: amount17Schema,
   balanceAccountId: s.optional(s.string()),
-  category: category4Schema,
+  category: category3Schema,
   counterparty: counterpartyInfoV31Schema,
   description: s.optional(s.string()),
   executionDate: s.optional(s.lazy(() => executionDate3Schema)),
@@ -42,6 +42,6 @@ export const transferInfoSchema: Schema<TransferInfo> = s.object<TransferInfo>({
   reference: s.optional(s.string()),
   referenceForBeneficiary: s.optional(s.string()),
   review: s.optional(s.lazy(() => transferRequestReview2Schema)),
-  type: s.optional(s.lazy(() => type342Schema)),
+  type: s.optional(s.lazy(() => type113Schema)),
   ultimateParty: s.optional(s.lazy(() => ultimatePartyIdentification1Schema)),
 });

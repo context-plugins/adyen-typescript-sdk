@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type67Schema, type Type67 } from "./type67.js";
+import { type51Schema, type Type51 } from "./type51.js";
 
 export type SepaDirectDebit = {
   checkoutAttemptId?: string;
@@ -11,7 +11,7 @@ export type SepaDirectDebit = {
   sdkData?: string;
   storedPaymentMethodId?: string;
   transferInstrumentId?: string;
-  type?: Type67;
+  type?: Type51;
 };
 
 export const sepaDirectDebitSchema: Schema<SepaDirectDebit> = s.object<SepaDirectDebit>({
@@ -23,5 +23,5 @@ export const sepaDirectDebitSchema: Schema<SepaDirectDebit> = s.object<SepaDirec
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   transferInstrumentId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type67Schema)),
+  type: s.optional(s.lazy(() => type51Schema)),
 });

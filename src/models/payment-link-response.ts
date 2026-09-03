@@ -24,7 +24,7 @@ import {
 import { requiredShopperFieldSchema, type RequiredShopperField } from "./required-shopper-field.js";
 import { riskData1Schema, type RiskData1 } from "./risk-data1.js";
 import { splitSchema, type Split } from "./split.js";
-import { status5Schema, type Status5 } from "./status5.js";
+import { status3Schema, type Status3 } from "./status3.js";
 import { storePaymentMethodMode2Schema, type StorePaymentMethodMode2 } from "./store-payment-method-mode2.js";
 
 export type PaymentLinkResponse = {
@@ -66,7 +66,7 @@ export type PaymentLinkResponse = {
   socialSecurityNumber?: string;
   splitCardFundingSources?: boolean;
   splits?: Split[];
-  status: Status5;
+  status: Status3;
   store?: string;
   storePaymentMethodMode?: StorePaymentMethodMode2;
   telephoneNumber?: string;
@@ -120,7 +120,7 @@ export const paymentLinkResponseSchema: Schema<PaymentLinkResponse> = s.object<P
   socialSecurityNumber: s.optional(s.string()),
   splitCardFundingSources: s.optional(s.boolean()),
   splits: s.optional(s.array(s.lazy(() => splitSchema))),
-  status: status5Schema,
+  status: status3Schema,
   store: s.optional(s.string()),
   storePaymentMethodMode: s.optional(s.lazy(() => storePaymentMethodMode2Schema)),
   telephoneNumber: s.optional(s.string()),

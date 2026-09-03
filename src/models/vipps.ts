@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type73Schema, type Type73 } from "./type73.js";
+import { type54Schema, type Type54 } from "./type54.js";
 
 export type Vipps = {
   checkoutAttemptId?: string;
@@ -8,7 +8,7 @@ export type Vipps = {
   sdkData?: string;
   storedPaymentMethodId?: string;
   telephoneNumber: string;
-  type?: Type73;
+  type?: Type54;
 };
 
 export const vippsSchema: Schema<Vipps> = s.object<Vipps>({
@@ -17,5 +17,5 @@ export const vippsSchema: Schema<Vipps> = s.object<Vipps>({
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   telephoneNumber: s.string(),
-  type: s.optional(s.lazy(() => type73Schema)),
+  type: s.optional(s.lazy(() => type54Schema)),
 });

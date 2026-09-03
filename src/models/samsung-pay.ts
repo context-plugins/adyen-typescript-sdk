@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { fundingSourceSchema, type FundingSource } from "./funding-source.js";
-import { type66Schema, type Type66 } from "./type66.js";
+import { type50Schema, type Type50 } from "./type50.js";
 
 export type SamsungPay = {
   checkoutAttemptId?: string;
@@ -10,7 +10,7 @@ export type SamsungPay = {
   samsungPayToken: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type66;
+  type?: Type50;
 };
 
 export const samsungPaySchema: Schema<SamsungPay> = s.object<SamsungPay>({
@@ -20,5 +20,5 @@ export const samsungPaySchema: Schema<SamsungPay> = s.object<SamsungPay>({
   samsungPayToken: s.string(),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type66Schema)),
+  type: s.optional(s.lazy(() => type50Schema)),
 });

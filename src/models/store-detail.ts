@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { paymentFlowSchema, type PaymentFlow } from "./payment-flow.js";
-import { status7Schema, type Status7 } from "./status7.js";
+import { status8Schema, type Status8 } from "./status8.js";
 import { viasAddress7Schema, type ViasAddress7 } from "./vias-address7.js";
 import { viasPhoneNumber4Schema, type ViasPhoneNumber4 } from "./vias-phone-number4.js";
 
@@ -15,7 +15,7 @@ export type StoreDetail = {
   phoneNumber?: ViasPhoneNumber4;
   shopperInteraction?: PaymentFlow;
   splitConfigurationUuid?: string;
-  status?: Status7;
+  status?: Status8;
   store?: string;
   storeName?: string;
   storeReference?: string;
@@ -33,7 +33,7 @@ export const storeDetailSchema: Schema<StoreDetail> = s.object<StoreDetail>({
   phoneNumber: s.optional(s.lazy(() => viasPhoneNumber4Schema)),
   shopperInteraction: s.optional(s.lazy(() => paymentFlowSchema)),
   splitConfigurationUuid: s.optional(s.string()),
-  status: s.optional(s.lazy(() => status7Schema)),
+  status: s.optional(s.lazy(() => status8Schema)),
   store: s.optional(s.string()),
   storeName: s.optional(s.string()),
   storeReference: s.optional(s.string()),

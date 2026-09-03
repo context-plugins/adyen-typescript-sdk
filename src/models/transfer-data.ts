@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
 import { balanceMutationSchema, type BalanceMutation } from "./balance-mutation.js";
-import { category4Schema, type Category4 } from "./category4.js";
+import { category3Schema, type Category3 } from "./category3.js";
 import { directDebitInformation1Schema, type DirectDebitInformation1 } from "./direct-debit-information1.js";
 import { directionSchema, type Direction } from "./direction.js";
 import { executionDate1Schema, type ExecutionDate1 } from "./execution-date1.js";
@@ -20,7 +20,7 @@ import {
   type TransferNotificationCounterParty2,
 } from "./transfer-notification-counter-party2.js";
 import { transferReview1Schema, type TransferReview1 } from "./transfer-review1.js";
-import { type314Schema, type Type314 } from "./type314.js";
+import { type83Schema, type Type83 } from "./type83.js";
 import {
   ultimatePartyIdentification1Schema,
   type UltimatePartyIdentification1,
@@ -35,7 +35,7 @@ export type TransferData = {
   balanceAccount?: ResourceReference1;
   balancePlatform?: string;
   balances?: BalanceMutation[];
-  category: Category4;
+  category: Category3;
   categoryData?: CategoryData;
   counterparty?: TransferNotificationCounterParty2;
   createdAt?: Date;
@@ -59,7 +59,7 @@ export type TransferData = {
   tracing?: Tracing;
   tracking?: Tracking;
   transactionRulesResult?: TransactionRulesResult2;
-  type?: Type314;
+  type?: Type83;
   ultimateParty?: UltimatePartyIdentification1;
   updatedAt?: Date;
 };
@@ -70,7 +70,7 @@ export const transferDataSchema: Schema<TransferData> = s.object<TransferData>({
   balanceAccount: s.optional(s.lazy(() => resourceReference1Schema)),
   balancePlatform: s.optional(s.string()),
   balances: s.optional(s.array(s.lazy(() => balanceMutationSchema))),
-  category: category4Schema,
+  category: category3Schema,
   categoryData: s.optional(s.lazy(() => categoryDataSchema)),
   counterparty: s.optional(s.lazy(() => transferNotificationCounterParty2Schema)),
   createdAt: s.optional(s.dateTime()),
@@ -94,7 +94,7 @@ export const transferDataSchema: Schema<TransferData> = s.object<TransferData>({
   tracing: s.optional(s.lazy(() => tracingSchema)),
   tracking: s.optional(s.lazy(() => trackingSchema)),
   transactionRulesResult: s.optional(s.lazy(() => transactionRulesResult2Schema)),
-  type: s.optional(s.lazy(() => type314Schema)),
+  type: s.optional(s.lazy(() => type83Schema)),
   ultimateParty: s.optional(s.lazy(() => ultimatePartyIdentification1Schema)),
   updatedAt: s.optional(s.dateTime()),
 });

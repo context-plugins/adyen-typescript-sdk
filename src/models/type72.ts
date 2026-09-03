@@ -2,7 +2,8 @@ import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
 export const Type72 = {
-  UpiQr: "upi_qr",
+  Pull: "pull",
+  Push: "push",
 } as const;
 export type Type72 = (typeof Type72)[keyof typeof Type72] | (string & {});
 

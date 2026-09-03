@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type51Schema, type Type51 } from "./type51.js";
+import { type39Schema, type Type39 } from "./type39.js";
 
 export type OpenInvoice = {
   billingAddress?: string;
@@ -10,7 +10,7 @@ export type OpenInvoice = {
   recurringDetailReference?: string;
   sdkData?: string;
   storedPaymentMethodId?: string;
-  type?: Type51;
+  type?: Type39;
 };
 
 export const openInvoiceSchema: Schema<OpenInvoice> = s.object<OpenInvoice>({
@@ -21,5 +21,5 @@ export const openInvoiceSchema: Schema<OpenInvoice> = s.object<OpenInvoice>({
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type51Schema)),
+  type: s.optional(s.lazy(() => type39Schema)),
 });

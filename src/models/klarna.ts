@@ -1,6 +1,6 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type45Schema, type Type45 } from "./type45.js";
+import { type34Schema, type Type34 } from "./type34.js";
 
 export type Klarna = {
   billingAddress?: string;
@@ -12,7 +12,7 @@ export type Klarna = {
   sdkData?: string;
   storedPaymentMethodId?: string;
   subtype?: string;
-  type: Type45;
+  type: Type34;
 };
 
 export const klarnaSchema: Schema<Klarna> = s.object<Klarna>({
@@ -25,5 +25,5 @@ export const klarnaSchema: Schema<Klarna> = s.object<Klarna>({
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   subtype: s.optional(s.string()),
-  type: type45Schema,
+  type: type34Schema,
 });

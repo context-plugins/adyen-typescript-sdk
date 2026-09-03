@@ -2,7 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { links7Schema, type Links7 } from "./links7.js";
 import { localizedInformation4Schema, type LocalizedInformation4 } from "./localized-information4.js";
-import { status12Schema, type Status12 } from "./status12.js";
+import { status11Schema, type Status11 } from "./status11.js";
 import { storeLocation1Schema, type StoreLocation1 } from "./store-location1.js";
 import {
   storeSplitConfiguration1Schema,
@@ -23,7 +23,7 @@ export type Store = {
   reference?: string;
   shopperStatement?: string;
   splitConfiguration?: StoreSplitConfiguration1;
-  status?: Status12;
+  status?: Status11;
   subMerchantData?: SubMerchantData1;
 };
 
@@ -40,7 +40,7 @@ export const storeSchema: Schema<Store> = s.object<Store>({
   reference: s.optional(s.string()),
   shopperStatement: s.optional(s.string()),
   splitConfiguration: s.optional(s.lazy(() => storeSplitConfiguration1Schema)),
-  status: s.optional(s.lazy(() => status12Schema)),
+  status: s.optional(s.lazy(() => status11Schema)),
   subMerchantData: s.optional(s.lazy(() => subMerchantData1Schema)),
   _keysMap: {
     links: "_links",

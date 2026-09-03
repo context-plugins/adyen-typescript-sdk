@@ -1,7 +1,5 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { subtypeSchema, type Subtype } from "./subtype.js";
-import { type40Schema, type Type40 } from "./type40.js";
 
 export type DetailsOfTokensThatAreNotStoredWithAdyen = {
   checkoutAttemptId?: string;
@@ -10,8 +8,8 @@ export type DetailsOfTokensThatAreNotStoredWithAdyen = {
   holderName?: string;
   number?: string;
   storedPaymentMethodId: string;
-  subtype: Subtype;
-  type: Type40;
+  subtype: "hilton";
+  type: "externalToken";
 };
 
 export const detailsOfTokensThatAreNotStoredWithAdyenSchema: Schema<DetailsOfTokensThatAreNotStoredWithAdyen> =
@@ -22,6 +20,6 @@ export const detailsOfTokensThatAreNotStoredWithAdyenSchema: Schema<DetailsOfTok
     holderName: s.optional(s.string()),
     number: s.optional(s.string()),
     storedPaymentMethodId: s.string(),
-    subtype: subtypeSchema,
-    type: type40Schema,
+    subtype: s.literal("hilton"),
+    type: s.literal("externalToken"),
   });

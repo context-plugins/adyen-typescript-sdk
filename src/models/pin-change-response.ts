@@ -1,11 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { status131Schema, type Status131 } from "./status131.js";
+import { status13Schema, type Status13 } from "./status13.js";
 
 export type PinChangeResponse = {
-  status: Status131;
+  status: Status13;
 };
 
 export const pinChangeResponseSchema: Schema<PinChangeResponse> = s.object<PinChangeResponse>({
-  status: status131Schema,
+  status: status13Schema,
 });

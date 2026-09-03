@@ -1,7 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { androidAppErrorSchema, type AndroidAppError } from "./android-app-error.js";
-import { status6Schema, type Status6 } from "./status6.js";
+import { status7Schema, type Status7 } from "./status7.js";
 
 export type AndroidApp = {
   description?: string;
@@ -10,7 +10,7 @@ export type AndroidApp = {
   id: string;
   label?: string;
   packageName?: string;
-  status: Status6;
+  status: Status7;
   versionCode?: number;
   versionName?: string;
 };
@@ -22,7 +22,7 @@ export const androidAppSchema: Schema<AndroidApp> = s.object<AndroidApp>({
   id: s.string(),
   label: s.optional(s.string()),
   packageName: s.optional(s.string()),
-  status: status6Schema,
+  status: status7Schema,
   versionCode: s.optional(s.number()),
   versionName: s.optional(s.string()),
 });
