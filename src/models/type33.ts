@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of entity.
+ *
+ * Possible values: **LegalEntity**, **BankAccount**, **Document**.
+ */
 export const Type33 = {
   BankAccount: "BankAccount",
   Document: "Document",

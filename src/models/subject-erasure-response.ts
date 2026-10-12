@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { result2Schema, type Result2 } from "./result2.js";
 
 export type SubjectErasureResponse = {
+  /** The result of this operation. */
   result?: Result2;
 };
 

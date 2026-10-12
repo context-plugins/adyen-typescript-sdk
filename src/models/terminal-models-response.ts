@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { itemSchema, type Item } from "./item.js";
 
 export type TerminalModelsResponse = {
+  /** The terminal models that the API credential has access to. */
   data?: Item[];
 };
 

@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { transactionRule1Schema, type TransactionRule1 } from "./transaction-rule1.js";
 
 export type TransactionRuleResponse = {
+  /** The transaction rule. */
   transactionRule?: TransactionRule1;
 };
 

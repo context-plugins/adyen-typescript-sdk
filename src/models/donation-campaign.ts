@@ -4,16 +4,27 @@ import { amounts1Schema, type Amounts1 } from "./amounts1.js";
 import { donation1Schema, type Donation1 } from "./donation1.js";
 
 export type DonationCampaign = {
+  /** The object that contains the fixed donation amounts that the shopper can select from. */
   amounts?: Amounts1;
+  /** The URL for the banner of the nonprofit or campaign. */
   bannerUrl?: string;
+  /** The name of the donation campaign.. */
   campaignName?: string;
+  /** The cause of the nonprofit. */
   causeName?: string;
+  /** The object that contains the details of the donation. */
   donation?: Donation1;
+  /** The unique campaign ID of the donation campaign. */
   id?: string;
+  /** The URL for the logo of the nonprofit. */
   logoUrl?: string;
+  /** The description of the nonprofit. */
   nonprofitDescription?: string;
+  /** The name of the nonprofit organization that receives the donation. */
   nonprofitName?: string;
+  /** The website URL of the nonprofit. */
   nonprofitUrl?: string;
+  /** The URL of the terms and conditions page of the nonprofit and the campaign. */
   termsAndConditionsUrl?: string;
 };
 

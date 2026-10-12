@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The current status of the dispute.
+ *
+ * When you create a dispute, you can only set the `status` to **draft**. When you update a dispute,
+ * you can set the `status` to **submitted** or **closed**.
+ *
+ * Possible values: **draft**, **submitted**, **closed**, **won**, **chargeback**,
+ * **secondPresentment**.
+ */
 export const DisputeStatus1 = {
   Draft: "draft",
   Submitted: "submitted",

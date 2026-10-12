@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the store. Possible values: **Pending**, **Active**, **Inactive**,
+ * **InactiveWithModifications**, **Closed**.
+ */
 export const Status8 = {
   Active: "Active",
   Closed: "Closed",

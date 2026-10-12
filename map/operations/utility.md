@@ -4,16 +4,16 @@
 
 Accessor: `client.utility` · Source: `src/resources/utility.ts` · 4 operations · Request and error types: namespace `Utility`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postApplePaySessions
 
-- **Signature**: `postApplePaySessions(request: Utility.PostApplePaySessionsRequest, options?: RequestOptions): ApiPromise<ApplePaySessionResponse, ResponseError>`
+- **Signature**: `postApplePaySessions(request: Utility.PostApplePaySessionsRequest, options?: RequestOptions): ApiPromise<ApplePaySessionResponse, ApiError>`
 - **Wire**: `POST /applePay/sessions`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `ApplePaySessionResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `Utility.PostApplePaySessionsRequest` (2):
 
@@ -30,11 +30,12 @@ Accessor: `client.utility` · Source: `src/resources/utility.ts` · 4 operations
 ### postOriginKeys
 
 - **Signature**: `postOriginKeys(request: Utility.PostOriginKeysRequest, options?: RequestOptions): ApiPromise<UtilityResponse, Utility.PostOriginKeysError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /originKeys`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `UtilityResponse`
-- **Error**: `Utility.PostOriginKeysError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Utility.PostOriginKeysError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Utility.PostOriginKeysRequest` (2):
@@ -55,9 +56,9 @@ Accessor: `client.utility` · Source: `src/resources/utility.ts` · 4 operations
 - **Signature**: `postPaypalUpdateOrder(request: Utility.PostPaypalUpdateOrderRequest, options?: RequestOptions): ApiPromise<PaypalUpdateOrderResponse, Utility.PostPaypalUpdateOrderError>`
 - **Wire**: `POST /paypal/updateOrder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaypalUpdateOrderResponse`
-- **Error**: `Utility.PostPaypalUpdateOrderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Utility.PostPaypalUpdateOrderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Utility.PostPaypalUpdateOrderRequest` (2):
@@ -79,8 +80,9 @@ Accessor: `client.utility` · Source: `src/resources/utility.ts` · 4 operations
 - **Wire**: `POST /validateShopperId`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ValidateShopperIdResponse`
-- **Error**: `Utility.PostValidateShopperIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Utility.PostValidateShopperIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"checkoutErrorResponseEntity"` [400] `CheckoutErrorResponseEntity` · `"checkoutErrorResponseEntity2"` [401] `CheckoutErrorResponseEntity` · `"checkoutErrorResponseEntity3"` [403] `CheckoutErrorResponseEntity` · `"checkoutErrorResponseEntity4"` [422] `CheckoutErrorResponseEntity` · `"checkoutErrorResponseEntity5"` [500] `CheckoutErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Utility.PostValidateShopperIdRequest` (1):

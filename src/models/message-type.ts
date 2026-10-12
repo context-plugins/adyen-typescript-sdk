@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Request**
+ * * **Response**
+ * * **Notification**
+ */
 export const MessageType = {
   Request: "Request",
   Response: "Response",

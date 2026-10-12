@@ -1,7 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** *affirm** details */
 export type AffirmResponseInfo1 = {
+  /** Affirm public API key */
   publicApiKey?: string;
 };
 

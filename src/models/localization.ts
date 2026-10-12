@@ -2,8 +2,11 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type Localization = {
+  /** Language of the terminal. */
   language?: string;
+  /** Secondary language of the terminal. */
   secondaryLanguage?: string;
+  /** The time zone of the terminal. */
   timezone?: string;
 };
 

@@ -1,7 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Content of the Admin Request message. */
 export type AdminRequest2 = {
+  /** Identification of the administrative service to process. */
   serviceIdentification?: string;
 };
 

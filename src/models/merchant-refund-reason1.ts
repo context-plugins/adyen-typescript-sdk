@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Your reason for the refund request. */
 export const MerchantRefundReason1 = {
   Fraud: "FRAUD",
   CustomerRequest: "CUSTOMER REQUEST",

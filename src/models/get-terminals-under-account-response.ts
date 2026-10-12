@@ -3,8 +3,13 @@ import type { Schema } from "../core/validation/schema.js";
 import { merchantAccountSchema, type MerchantAccount } from "./merchant-account.js";
 
 export type GetTerminalsUnderAccountResponse = {
+  /** Your company account. */
   companyAccount: string;
+  /**
+   * Array that returns a list of all terminals that are in the inventory of the company account.
+   */
   inventoryTerminals?: string[];
+  /** Array that returns a list of all merchant accounts belonging to the company account. */
   merchantAccounts?: MerchantAccount[];
 };
 

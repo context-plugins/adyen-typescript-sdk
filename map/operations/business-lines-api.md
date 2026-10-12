@@ -4,7 +4,7 @@
 
 Accessor: `client.businessLinesApi` · Source: `src/resources/business-lines-api.ts` · 4 operations · Request and error types: namespace `BusinessLinesApi`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteBusinessLinesId
 
@@ -13,8 +13,9 @@ Accessor: `client.businessLinesApi` · Source: `src/resources/business-lines-api
 - **Wire**: `DELETE /businessLines/{id}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `BusinessLinesApi.DeleteBusinessLinesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BusinessLinesApi.DeleteBusinessLinesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BusinessLinesApi.DeleteBusinessLinesIdRequest` (1):
@@ -35,7 +36,7 @@ Accessor: `client.businessLinesApi` · Source: `src/resources/business-lines-api
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BusinessLine`
-- **Error**: `BusinessLinesApi.GetBusinessLinesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BusinessLinesApi.GetBusinessLinesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BusinessLinesApi.GetBusinessLinesIdRequest` (1):
@@ -55,9 +56,10 @@ Accessor: `client.businessLinesApi` · Source: `src/resources/business-lines-api
 - **Signature**: `patchBusinessLinesId(request: BusinessLinesApi.PatchBusinessLinesIdRequest, options?: RequestOptions): ApiPromise<BusinessLine, BusinessLinesApi.PatchBusinessLinesIdError>`
 - **Wire**: `PATCH /businessLines/{id}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BusinessLine`
-- **Error**: `BusinessLinesApi.PatchBusinessLinesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BusinessLinesApi.PatchBusinessLinesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BusinessLinesApi.PatchBusinessLinesIdRequest` (2):
@@ -79,9 +81,10 @@ Accessor: `client.businessLinesApi` · Source: `src/resources/business-lines-api
 - **Signature**: `postBusinessLines(request: BusinessLinesApi.PostBusinessLinesRequest, options?: RequestOptions): ApiPromise<BusinessLine, BusinessLinesApi.PostBusinessLinesError>`
 - **Wire**: `POST /businessLines`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BusinessLine`
-- **Error**: `BusinessLinesApi.PostBusinessLinesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BusinessLinesApi.PostBusinessLinesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BusinessLinesApi.PostBusinessLinesRequest` (1):

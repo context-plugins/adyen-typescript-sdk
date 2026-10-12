@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Reserve**
+ * * **Activate**
+ * * **Load**
+ * * **Unload**
+ * * **Reverse**
+ * * **Duplicate**
+ */
 export const StoredValueTransactionType = {
   Reserve: "Reserve",
   Activate: "Activate",

@@ -4,17 +4,34 @@ import { originalPoiTransaction2Schema, type OriginalPoiTransaction2 } from "./o
 import { reversalReason1Schema, type ReversalReason1 } from "./reversal-reason1.js";
 import { saleDataSchema, type SaleData } from "./sale-data.js";
 
+/** Content of the Reversal Request message. */
 export type ReversalRequest2 = {
+  /**
+   * Data associated with the Sale System, with a particular value during the processing of the
+   * payment by the POI, including the cards acquisition.
+   */
   saleData?: SaleData;
+  /** Identification of a previous POI transaction. */
   originalPoiTransaction: OriginalPoiTransaction2;
+  /**
+   * Amount of the payment or loyalty to reverse. ReversedAmount is implicitly equal to the
+   * AuthorizedAmount if absent.
+   */
   reversedAmount?: number;
+  /**
+   * Reason of the payment or loyalty reversal. Possible values:
+   * * **CustCancel**
+   * * **Malfunction**
+   * * **MerchantCancel**
+   * * **Unable2Compl**
+   */
   reversalReason: ReversalReason1;
 };
 
 export const reversalRequest2Schema: Schema<ReversalRequest2> = s.object<ReversalRequest2>({
   saleData: s.optional(s.lazy(() => saleDataSchema)),
   originalPoiTransaction: originalPoiTransaction2Schema,
-  reversedAmount: s.optional(s.number()),
+  reversedAmount: s.optional(s.float64()),
   reversalReason: reversalReason1Schema,
   _keysMap: {
     saleData: "SaleData",

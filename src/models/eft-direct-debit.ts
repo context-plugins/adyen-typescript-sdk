@@ -1,16 +1,43 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type30Schema, type Type30 } from "./type30.js";
+import { Type30, type30Schema } from "./type30.js";
 
 export type EftDirectDebit = {
+  /** The bank account number (without separators). */
   bankAccountNumber?: string;
+  /** The financial institution code. */
   bankCode?: string;
+  /** The bank routing number of the account. */
   bankLocationId?: string;
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
+  /**
+   * The name of the bank account holder. If you submit a name with non-Latin characters, we
+   * automatically replace some of them with corresponding Latin characters to meet the FATF
+   * recommendations. For example:
+   * * χ12 is converted to ch12.
+   * * üA is converted to euA.
+   * * Peter Møller is converted to Peter Mller, because banks don't accept 'ø'. After replacement,
+   *   the ownerName must have at least three alphanumeric characters (A-Z, a-z, 0-9), and at least
+   *   one of them must be a valid Latin character (A-Z, a-z). For example:
+   * * John17 - allowed.
+   * * J17 - allowed.
+   * * 171 - not allowed.
+   * * John-7 - allowed. > If provided details don't match the required format, the response returns
+   *   the error message: 203 'Invalid bank account holder name'.
+   */
   ownerName?: string;
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @deprecated
+   */
   recurringDetailReference?: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /** **eft** @default Type30.EftDirectdebitCa */
   type?: Type30;
 };
 
@@ -23,5 +50,5 @@ export const eftDirectDebitSchema: Schema<EftDirectDebit> = s.object<EftDirectDe
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type30Schema)),
+  type: s.defaulted(type30Schema, Type30.EftDirectdebitCa),
 });

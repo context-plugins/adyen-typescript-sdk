@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The current status of the donation campaign. */
 export const DonationCampaignStatus2 = {
   Active: "active",
   Inactive: "inactive",

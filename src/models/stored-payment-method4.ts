@@ -4,11 +4,20 @@ import { pixRecurringSchema, type PixRecurring } from "./pix-recurring.js";
 import { type44Schema, type Type44 } from "./type44.js";
 
 export type StoredPaymentMethod4 = {
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
   pixRecurring?: PixRecurring;
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @deprecated
+   */
   recurringDetailReference?: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /** The payment method type. */
   type?: Type44;
 };
 

@@ -65,6 +65,7 @@ import {
   type UsLocalAccountIdentification,
 } from "../us-local-account-identification.js";
 
+/** Bank account identification. */
 export type AccountIdentification11 =
   | (IbanAccountIdentification & { type: "iban" })
   | (NumberAndBicAccountIdentification & { type: "numberAndBic" })

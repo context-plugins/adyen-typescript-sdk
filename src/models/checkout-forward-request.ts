@@ -15,14 +15,37 @@ import {
 } from "./checkout-outgoing-forward-request2.js";
 
 export type CheckoutForwardRequest = {
+  /** The amount of the forwarded payment. */
   amount?: Amount11;
+  /**
+   * The base URL of the third party API, where Adyen will send the request to forward the payment
+   * details.
+   */
   baseUrl: string;
+  /** Your merchant account. */
   merchantAccount: string;
+  /** Merchant defined payment reference. */
   merchantReference?: string;
+  /** The customizations that can be applied when making a forward request. */
   options?: CheckoutForwardRequestOptions2;
+  /** The card details. */
   paymentMethod?: CheckoutForwardRequestCard2;
+  /**
+   * The [details of the
+   * request](https://docs.adyen.com/online-payments/tokenization/forward-payment-details#request-to-adyen-card)
+   * that you want to forward to the third-party.
+   */
   request: CheckoutOutgoingForwardRequest2;
+  /**
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. The value
+   * is case-sensitive and must be at least three characters. > Your reference must not include
+   * personally identifiable information (PII) such as name or email address.
+   */
   shopperReference: string;
+  /**
+   * The unique identifier of the token that you want to forward to the third party. This is the
+   * `storedPaymentMethodId` you received in the webhook after you created the token.
+   */
   storedPaymentMethodId?: string;
 };
 

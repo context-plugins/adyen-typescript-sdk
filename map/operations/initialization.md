@@ -4,7 +4,7 @@
 
 Accessor: `client.initialization` · Source: `src/resources/initialization.ts` · 3 operations · Request and error types: namespace `Initialization`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postStoreDetail
 
@@ -12,9 +12,10 @@ Accessor: `client.initialization` · Source: `src/resources/initialization.ts` �
 - **Signature**: `postStoreDetail(request: Initialization.PostStoreDetailRequest, options?: RequestOptions): ApiPromise<StoreDetailResponse, Initialization.PostStoreDetailError>`
 - **Wire**: `POST /storeDetail`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoreDetailResponse`
-- **Error**: `Initialization.PostStoreDetailError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Initialization.PostStoreDetailError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Initialization.PostStoreDetailRequest` (1):
@@ -35,9 +36,10 @@ Accessor: `client.initialization` · Source: `src/resources/initialization.ts` �
 - **Signature**: `postStoreDetailAndSubmitThirdParty(request: Initialization.PostStoreDetailAndSubmitThirdPartyRequest, options?: RequestOptions): ApiPromise<StoreDetailAndSubmitResponse, Initialization.PostStoreDetailAndSubmitThirdPartyError>`
 - **Wire**: `POST /storeDetailAndSubmitThirdParty`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoreDetailAndSubmitResponse`
-- **Error**: `Initialization.PostStoreDetailAndSubmitThirdPartyError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Initialization.PostStoreDetailAndSubmitThirdPartyError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Initialization.PostStoreDetailAndSubmitThirdPartyRequest` (1):
@@ -58,9 +60,10 @@ Accessor: `client.initialization` · Source: `src/resources/initialization.ts` �
 - **Signature**: `postSubmitThirdParty(request: Initialization.PostSubmitThirdPartyRequest, options?: RequestOptions): ApiPromise<SubmitResponse, Initialization.PostSubmitThirdPartyError>`
 - **Wire**: `POST /submitThirdParty`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `SubmitResponse`
-- **Error**: `Initialization.PostSubmitThirdPartyError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Initialization.PostSubmitThirdPartyError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Initialization.PostSubmitThirdPartyRequest` (1):

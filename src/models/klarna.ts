@@ -1,18 +1,34 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type34Schema, type Type34 } from "./type34.js";
+import { Type34, type34Schema } from "./type34.js";
 
 export type Klarna = {
+  /** The address where to send the invoice. */
   billingAddress?: string;
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
+  /** The address where the goods should be delivered. */
   deliveryAddress?: string;
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna at authorization.
+   */
   merchantData?: string;
+  /** Shopper name, date of birth, phone number, and email address. */
   personalDetails?: string;
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @deprecated
+   */
   recurringDetailReference?: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /** The type of flow to initiate. */
   subtype?: string;
-  type: Type34;
+  /** **klarna** @default Type34.Klarna */
+  type?: Type34;
 };
 
 export const klarnaSchema: Schema<Klarna> = s.object<Klarna>({
@@ -25,5 +41,5 @@ export const klarnaSchema: Schema<Klarna> = s.object<Klarna>({
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   subtype: s.optional(s.string()),
-  type: type34Schema,
+  type: s.defaulted(type34Schema, Type34.Klarna),
 });

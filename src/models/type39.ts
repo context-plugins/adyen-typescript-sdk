@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **openinvoice**
+ */
 export const Type39 = {
   Openinvoice: "openinvoice",
   AfterpayDirectdebit: "afterpay_directdebit",

@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **NotRequired**
+ * * **Immediate**
+ * * **PrintEnd**
+ * * **SoundEnd**
+ */
 export const ResponseMode = {
   NotRequired: "NotRequired",
   Immediate: "Immediate",

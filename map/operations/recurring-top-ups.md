@@ -4,7 +4,7 @@
 
 Accessor: `client.recurringTopUps` · Source: `src/resources/recurring-top-ups.ts` · 4 operations · Request and error types: namespace `RecurringTopUps`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpId
 
@@ -13,8 +13,9 @@ Accessor: `client.recurringTopUps` · Source: `src/resources/recurring-top-ups.t
 - **Wire**: `DELETE /balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `unknown` — a bare `application/json` unknown; the success type *is* the unknown
-- **Error**: `RecurringTopUps.DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RecurringTopUps.DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity6"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RecurringTopUps.DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.recurringTopUps` · Source: `src/resources/recurring-top-ups.t
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `RecurringTopUpsResult`
-- **Error**: `RecurringTopUps.GetBalanceAccountsBalanceAccountIdRecurringTopUpsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RecurringTopUps.GetBalanceAccountsBalanceAccountIdRecurringTopUpsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RecurringTopUps.GetBalanceAccountsBalanceAccountIdRecurringTopUpsRequest` (3):
@@ -59,8 +60,9 @@ Accessor: `client.recurringTopUps` · Source: `src/resources/recurring-top-ups.t
 - **Wire**: `PATCH /balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RecurringTopUp`
-- **Error**: `RecurringTopUps.PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RecurringTopUps.PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RecurringTopUps.PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdRequest` (3):
@@ -84,8 +86,9 @@ Accessor: `client.recurringTopUps` · Source: `src/resources/recurring-top-ups.t
 - **Wire**: `POST /balanceAccounts/{balanceAccountId}/recurringTopUps`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RecurringTopUp`
-- **Error**: `RecurringTopUps.PostBalanceAccountsBalanceAccountIdRecurringTopUpsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RecurringTopUps.PostBalanceAccountsBalanceAccountIdRecurringTopUpsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RecurringTopUps.PostBalanceAccountsBalanceAccountIdRecurringTopUpsRequest` (2):

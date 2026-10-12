@@ -3,9 +3,17 @@ import type { Schema } from "../core/validation/schema.js";
 import { status62Schema, type Status62 } from "./status62.js";
 
 export type ReturnTransferResponse = {
+  /** The unique identifier of the return. */
   id?: string;
+  /** Your internal reference for the return. */
   reference?: string;
+  /**
+   * The resulting status of the return.
+   *
+   * Possible values: **Authorised**, **Declined**.
+   */
   status?: Status62;
+  /** The unique identifier of the original transfer. */
   transferId?: string;
 };
 

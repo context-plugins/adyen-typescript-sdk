@@ -8,15 +8,67 @@ import { merchantRefundReasonSchema, type MerchantRefundReason } from "./merchan
 import { splitSchema, type Split } from "./split.js";
 
 export type PaymentRefundRequest = {
+  /**
+   * The amount that you want to refund. The `currency` must match the currency used in
+   * authorisation, the `value` must be smaller than or equal to the authorised amount.
+   */
   amount: Amount38;
+  /**
+   * Information about your application. For more details, see [Building Adyen
+   * solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
+   */
   applicationInfo?: ApplicationInfo;
+  /**
+   * This is only available for PayPal refunds. The
+   * [`pspReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference)
+   * of the specific capture to refund.
+   */
   capturePspReference?: string;
+  /**
+   * Enhanced scheme data that may be required for processing the payment. For example, airline
+   * information.
+   */
   enhancedSchemeData?: EnhancedSchemeData1;
+  /**
+   * Price and product information of the refunded items, required for [partial
+   * refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is
+   * required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna,
+   * Ratepay, Walley, and Zip.
+   */
   lineItems?: LineItem[];
+  /** The merchant account that is used to process the payment. */
   merchantAccount: string;
+  /**
+   * The reason for the refund request.
+   *
+   * Possible values:
+   *
+   * * **FRAUD**
+   *
+   * * **CUSTOMER REQUEST**
+   *
+   * * **RETURN**
+   *
+   * * **DUPLICATE**
+   *
+   * * **OTHER**
+   */
   merchantRefundReason?: MerchantRefundReason | null;
+  /** Your reference for the refund request. Maximum length: 80 characters. */
   reference?: string;
+  /**
+   * An array of objects specifying how the amount should be split between accounts when using Adyen
+   * for Platforms. For more information, see how to process payments for
+   * [marketplaces](https://docs.adyen.com/marketplaces/split-payments) or
+   * [platforms](https://docs.adyen.com/platforms/online-payments/split-payments/).
+   */
   splits?: Split[];
+  /**
+   * The online store or [physical
+   * store](https://docs.adyen.com/point-of-sale/design-your-integration/determine-account-structure/#create-stores)
+   * that is processing the refund. This must be the same as the store name configured in your
+   * Customer Area. Otherwise, you get an error and the refund fails.
+   */
   store?: string;
 };
 

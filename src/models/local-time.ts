@@ -9,8 +9,8 @@ export type LocalTime = {
 };
 
 export const localTimeSchema: Schema<LocalTime> = s.object<LocalTime>({
-  hour: s.optional(s.number()),
-  minute: s.optional(s.number()),
-  nano: s.optional(s.number()),
-  second: s.optional(s.number()),
+  hour: s.optional(s.int()),
+  minute: s.optional(s.int()),
+  nano: s.optional(s.int()),
+  second: s.optional(s.int()),
 });

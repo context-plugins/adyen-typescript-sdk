@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Additional information about the status of the transfer. */
 export const Reason2 = {
   AccountHierarchyNotActive: "accountHierarchyNotActive",
   AmountLimitExceeded: "amountLimitExceeded",

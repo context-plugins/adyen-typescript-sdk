@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Notification message. It informs about the outcome of the operation. Possible values:
+ * * CREATED
+ * * ALREADY_EXISTS
+ * * ERROR
+ */
 export const CreationResultCode = {
   AlreadyExists: "ALREADY_EXISTS",
   Created: "CREATED",

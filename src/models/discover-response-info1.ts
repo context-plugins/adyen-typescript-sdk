@@ -5,7 +5,9 @@ import {
   type TransactionDescriptionResponseInfo1,
 } from "./transaction-description-response-info1.js";
 
+/** **discover**. details */
 export type DiscoverResponseInfo1 = {
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

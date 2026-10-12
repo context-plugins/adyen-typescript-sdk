@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Format of the content to display or print. Possible values:
+ * * **BarCode**
+ * * **MessageRef**
+ * * **Text**
+ * * **XHTML**
+ */
 export const OutputFormat1 = {
   MessageRef: "MessageRef",
   Text: "Text",

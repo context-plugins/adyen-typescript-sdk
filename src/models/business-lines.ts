@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { businessLineSchema, type BusinessLine } from "./business-line.js";
 
 export type BusinessLines = {
+  /** List of business lines. */
   businessLines: BusinessLine[];
 };
 

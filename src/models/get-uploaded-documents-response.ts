@@ -4,9 +4,13 @@ import { documentDetailSchema, type DocumentDetail } from "./document-detail.js"
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type GetUploadedDocumentsResponse = {
+  /** A list of the documents and their details. */
   documentDetails?: DocumentDetail[];
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

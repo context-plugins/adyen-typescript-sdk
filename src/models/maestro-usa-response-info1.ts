@@ -5,7 +5,9 @@ import {
   type TransactionDescriptionResponseInfo1,
 } from "./transaction-description-response-info1.js";
 
+/** Details to provide if `type` is **maestro_usa** details */
 export type MaestroUsaResponseInfo1 = {
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

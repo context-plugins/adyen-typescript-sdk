@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **affirm**
+ */
 export const Type1 = {
   Affirm: "affirm",
 } as const;

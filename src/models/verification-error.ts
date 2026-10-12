@@ -9,11 +9,27 @@ import {
 } from "./verification-error-recursive.js";
 
 export type VerificationError = {
+  /** Contains the capabilities that the verification error applies to. */
   capabilities?: Capability[];
+  /** The verification error code. */
   code?: string;
+  /** A description of the error. */
   message?: string;
+  /** Contains the actions that you can take to resolve the verification error. */
   remediatingActions?: RemediatingAction[];
+  /** Contains more granular information about the verification error. */
   subErrors?: VerificationErrorRecursive[];
+  /**
+   * The type of error.
+   *
+   *
+   *
+   * Possible values:
+   * * **invalidInput**
+   * * **dataMissing**
+   * * **pendingStatus**
+   * * **dataReview**
+   */
   type?: Type212;
 };
 

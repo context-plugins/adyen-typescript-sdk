@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of message of the Sale to POI protocol. Possible values:
+ * * **Notification**
+ * * **Request**
+ * * **Response**
+ */
 export const MessageType1 = {
   Request: "Request",
   Response: "Response",

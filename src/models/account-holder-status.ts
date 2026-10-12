@@ -6,10 +6,18 @@ import { accountProcessingState2Schema, type AccountProcessingState2 } from "./a
 import { status12Schema, type Status12 } from "./status12.js";
 
 export type AccountHolderStatus = {
+  /** A list of events scheduled for the account holder. */
   events?: AccountEvent[];
+  /** The payout state of the account holder. */
   payoutState?: AccountPayoutState2;
+  /** The processing state of the account holder. */
   processingState?: AccountProcessingState2;
+  /**
+   * The status of the account holder. >Permitted values: `Active`, `Inactive`, `Suspended`,
+   * `Closed`.
+   */
   status: Status12;
+  /** The reason why the status was assigned to the account holder. */
   statusReason?: string;
 };
 

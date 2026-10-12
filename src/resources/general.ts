@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { acceptDisputeRequestSchema, type AcceptDisputeRequest } from "../models/accept-dispute-request.js";
 import {
@@ -277,6 +278,21 @@ export class General {
     this.#auth = auth;
   }
 
+  /**
+   * Accept a dispute
+   *
+   * @remarks
+   * Accepts a specific dispute.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostAcceptDisputeError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postAcceptDispute(
     request: General.PostAcceptDisputeRequest,
     options?: RequestOptions,
@@ -284,8 +300,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default22("/acceptDispute"),
+        urlTemplate: this.#servers.default22("/acceptDispute"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -300,6 +319,23 @@ export class General {
     );
   }
 
+  /**
+   * Get the balances of an account holder
+   *
+   * @remarks
+   * Returns the account balances of an account holder. An account's balances are organized
+   * according by currencies. This mean that an account may have multiple balances: one for each
+   * currency.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostAccountHolderBalanceError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postAccountHolderBalance(
     request: General.PostAccountHolderBalanceRequest,
     options?: RequestOptions,
@@ -307,8 +343,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/accountHolderBalance"),
+        urlTemplate: this.#servers.default16("/accountHolderBalance"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -323,6 +362,25 @@ export class General {
     );
   }
 
+  /**
+   * Get a list of transactions
+   *
+   * @remarks
+   * Returns a list of transactions for an account holder's accounts. You can specify the accounts
+   * and transaction statuses to be included on the list. The call returns a maximum of 50
+   * transactions for each account. To retrieve all transactions, you must make another call with
+   * the 'page' value incremented. Transactions are listed in chronological order, with the most
+   * recent transaction first.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostAccountHolderTransactionListError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postAccountHolderTransactionList(
     request: General.PostAccountHolderTransactionListRequest,
     options?: RequestOptions,
@@ -330,8 +388,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/accountHolderTransactionList"),
+        urlTemplate: this.#servers.default16("/accountHolderTransactionList"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -346,6 +407,29 @@ export class General {
     );
   }
 
+  /**
+   * Assign terminals
+   *
+   * @remarks
+   * Assigns one or more payment terminals to a merchant account or a store. You can also use this
+   * endpoint to reassign terminals between merchant accounts or stores, and to unassign a terminal
+   * and return it to company inventory.
+   *
+   * >From January 1, 2025 POS Terminal Management API is deprecated and support stops on April 1,
+   * 2025. To automate the management of your terminal fleet, use our [Management
+   * API](https://docs.adyen.com/api-explorer/Management/latest/overview).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostAssignTerminalsError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postAssignTerminals(
     request: General.PostAssignTerminalsRequest,
     options?: RequestOptions,
@@ -353,8 +437,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default28("/assignTerminals"),
+        urlTemplate: this.#servers.default28("/assignTerminals"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -369,6 +456,21 @@ export class General {
     );
   }
 
+  /**
+   * Changes the status of the payment method.
+   *
+   * @remarks
+   * Changes the status of the provided payment method to the specified status.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostChangeStatusError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postChangeStatus(
     request: General.PostChangeStatusRequest,
     options?: RequestOptions,
@@ -376,8 +478,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default5("/changeStatus"),
+        urlTemplate: this.#servers.default5("/changeStatus"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -392,6 +497,21 @@ export class General {
     );
   }
 
+  /**
+   * Checks the balance.
+   *
+   * @remarks
+   * Checks the balance of the provided payment method.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostCheckBalanceError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCheckBalance(
     request: General.PostCheckBalanceRequest,
     options?: RequestOptions,
@@ -399,8 +519,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default5("/checkBalance"),
+        urlTemplate: this.#servers.default5("/checkBalance"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -415,6 +538,27 @@ export class General {
     );
   }
 
+  /**
+   * Subscribe to notifications
+   *
+   * @remarks
+   * Creates a subscription to notifications informing you of events on your platform. After the
+   * subscription is created, the events specified in the configuration will be sent to the URL
+   * specified in the configuration. Subscriptions must be configured on a per-event basis (as
+   * opposed to, for example, a per-account holder basis), so all event notifications of a
+   * marketplace and of a given type will be sent to the same endpoint(s). A marketplace may have
+   * multiple endpoints if desired; an event notification may be sent to as many or as few different
+   * endpoints as configured.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostCreateNotificationConfigurationError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCreateNotificationConfiguration(
     request: General.PostCreateNotificationConfigurationRequest,
     options?: RequestOptions,
@@ -422,8 +566,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default12("/createNotificationConfiguration"),
+        urlTemplate: this.#servers.default12("/createNotificationConfiguration"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -438,6 +585,23 @@ export class General {
     );
   }
 
+  /**
+   * Create new permits linked to a recurring contract.
+   *
+   * @remarks
+   * Create permits for a recurring contract, including support for defining restrictions.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostCreatePermitError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postCreatePermit(
     request: General.PostCreatePermitRequest,
     options?: RequestOptions,
@@ -445,8 +609,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default2("/createPermit"),
+        urlTemplate: this.#servers.default2("/createPermit"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -461,6 +628,21 @@ export class General {
     );
   }
 
+  /**
+   * Creates one or more test card ranges.
+   *
+   * @remarks
+   * Creates one or more test card ranges.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostCreateTestCardRangesError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCreateTestCardRanges(
     request: General.PostCreateTestCardRangesRequest,
     options?: RequestOptions,
@@ -468,8 +650,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default8("/createTestCardRanges"),
+        urlTemplate: this.#servers.default8("/createTestCardRanges"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -484,6 +669,28 @@ export class General {
     );
   }
 
+  /**
+   * Send a direct debit request
+   *
+   * @remarks
+   * Sends a direct debit request to an account holder's bank account. If the direct debit is
+   * successful, the funds are settled in the accounts specified in the split instructions. Adyen
+   * sends the result of the direct debit in a
+   * [`DIRECT_DEBIT_INITIATED`](https://docs.adyen.com/api-explorer/#/NotificationService/latest/post/DIRECT_DEBIT_INITIATED)
+   * notification webhook.
+   *
+   * To learn more about direct debits, see [Top up
+   * accounts](https://docs.adyen.com/classic-platforms/top-up-accounts).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostDebitAccountHolderError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDebitAccountHolder(
     request: General.PostDebitAccountHolderRequest,
     options?: RequestOptions,
@@ -491,8 +698,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/debitAccountHolder"),
+        urlTemplate: this.#servers.default16("/debitAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -507,6 +717,21 @@ export class General {
     );
   }
 
+  /**
+   * Defend a dispute
+   *
+   * @remarks
+   * Defends a specific dispute.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostDefendDisputeError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDefendDispute(
     request: General.PostDefendDisputeRequest,
     options?: RequestOptions,
@@ -514,8 +739,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default22("/defendDispute"),
+        urlTemplate: this.#servers.default22("/defendDispute"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -530,6 +758,21 @@ export class General {
     );
   }
 
+  /**
+   * Delete a defense document
+   *
+   * @remarks
+   * Deletes a specific dispute defense document that was supplied earlier.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostDeleteDisputeDefenseDocumentError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeleteDisputeDefenseDocument(
     request: General.PostDeleteDisputeDefenseDocumentRequest,
     options?: RequestOptions,
@@ -537,8 +780,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default22("/deleteDisputeDefenseDocument"),
+        urlTemplate: this.#servers.default22("/deleteDisputeDefenseDocument"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -553,6 +799,22 @@ export class General {
     );
   }
 
+  /**
+   * Delete a notification subscription configuration
+   *
+   * @remarks
+   * Deletes an existing notification subscription configuration. After the subscription is deleted,
+   * no further event notifications will be sent to the URL defined in the subscription.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostDeleteNotificationConfigurationsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeleteNotificationConfigurations(
     request: General.PostDeleteNotificationConfigurationsRequest,
     options?: RequestOptions,
@@ -560,8 +822,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default12("/deleteNotificationConfigurations"),
+        urlTemplate: this.#servers.default12("/deleteNotificationConfigurations"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -576,6 +841,25 @@ export class General {
     );
   }
 
+  /**
+   * Disable stored payment details
+   *
+   * @remarks
+   * Disables stored payment details to stop charging a shopper with this particular recurring
+   * detail ID.
+   *
+   * For more information, refer to [Disable stored
+   * details](https://docs.adyen.com/online-payments/classic-integrations/classic-api-integration/tokenization/disable-stored-details).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostDisableError} when the API answers with an error status — narrow on
+   * `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDisable(
     request: General.PostDisableRequest,
     options?: RequestOptions,
@@ -583,8 +867,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default2("/disable"),
+        urlTemplate: this.#servers.default2("/disable"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: s.optional(s.lazy(() => disableRequestSchema)) },
       },
       {
@@ -595,6 +882,23 @@ export class General {
     );
   }
 
+  /**
+   * Disable an existing permit.
+   *
+   * @remarks
+   * Disable a permit that was previously linked to a recurringDetailReference.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostDisablePermitError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postDisablePermit(
     request: General.PostDisablePermitRequest,
     options?: RequestOptions,
@@ -602,8 +906,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default2("/disablePermit"),
+        urlTemplate: this.#servers.default2("/disablePermit"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -618,6 +925,27 @@ export class General {
     );
   }
 
+  /**
+   * Get the account or store of a terminal
+   *
+   * @remarks
+   * Returns the company account, merchant account, or store that a payment terminal is assigned to.
+   *
+   * >From January 1, 2025 POS Terminal Management API is deprecated and support stops on April 1,
+   * 2025. To automate the management of your terminal fleet, use our [Management
+   * API](https://docs.adyen.com/api-explorer/Management/latest/overview).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostFindTerminalError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postFindTerminal(
     request: General.PostFindTerminalRequest,
     options?: RequestOptions,
@@ -625,8 +953,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default28("/findTerminal"),
+        urlTemplate: this.#servers.default28("/findTerminal"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -641,6 +972,25 @@ export class General {
     );
   }
 
+  /**
+   * Check if 3D Secure is available
+   *
+   * @remarks
+   * Verifies whether 3D Secure is available for the specified BIN or card brand. For 3D Secure 2,
+   * this endpoint also returns device fingerprinting keys.
+   *
+   * For more information, refer to [3D Secure
+   * 2](https://docs.adyen.com/online-payments/3d-secure/native-3ds2).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGet3DsAvailabilityError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGet3DsAvailability(
     request: General.PostGet3DsAvailabilityRequest,
     options?: RequestOptions,
@@ -648,8 +998,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default4("/get3dsAvailability"),
+        urlTemplate: this.#servers.default4("/get3dsAvailability"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -664,6 +1017,34 @@ export class General {
     );
   }
 
+  /**
+   * Get a fees cost estimate
+   *
+   * @remarks
+   * >This API is available only for merchants operating in Australia, the EU, and the UK.
+   *
+   * Use the Adyen Cost Estimation API to pre-calculate interchange and scheme fee costs. Knowing
+   * these costs prior actual payment authorisation gives you an opportunity to charge those costs
+   * to the cardholder, if necessary.
+   *
+   * To retrieve this information, make the call to the `/getCostEstimate` endpoint. The response to
+   * this call contains the amount of the interchange and scheme fees charged by the network for
+   * this transaction, and also which surcharging policy is possible (based on current regulations).
+   *
+   * > Since not all information is known in advance (for example, if the cardholder will
+   * successfully authenticate via 3D Secure or if you also plan to provide additional Level 2/3
+   * data), the returned amounts are based on a set of assumption criteria you define in the
+   * `assumptions` parameter.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGetCostEstimateError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGetCostEstimate(
     request: General.PostGetCostEstimateRequest,
     options?: RequestOptions,
@@ -671,8 +1052,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default4("/getCostEstimate"),
+        urlTemplate: this.#servers.default4("/getCostEstimate"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -687,6 +1071,21 @@ export class General {
     );
   }
 
+  /**
+   * Get a notification subscription configuration
+   *
+   * @remarks
+   * Returns the details of the configuration of a notification subscription.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGetNotificationConfigurationError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGetNotificationConfiguration(
     request: General.PostGetNotificationConfigurationRequest,
     options?: RequestOptions,
@@ -694,8 +1093,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default12("/getNotificationConfiguration"),
+        urlTemplate: this.#servers.default12("/getNotificationConfiguration"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -710,6 +1112,22 @@ export class General {
     );
   }
 
+  /**
+   * Get a list of notification subscription configurations
+   *
+   * @remarks
+   * Returns the details of the configurations of all of the notification subscriptions in the
+   * platform of the executing user.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGetNotificationConfigurationListError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGetNotificationConfigurationList(
     request: General.PostGetNotificationConfigurationListRequest,
     options?: RequestOptions,
@@ -717,8 +1135,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default12("/getNotificationConfigurationList"),
+        urlTemplate: this.#servers.default12("/getNotificationConfigurationList"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: s.optional(s.record(s.string(), s.unknown())) },
       },
       {
@@ -729,6 +1150,28 @@ export class General {
     );
   }
 
+  /**
+   * Get the stores of an account
+   *
+   * @remarks
+   * Returns a list of stores associated with a company account or a merchant account, including the
+   * status of each store.
+   *
+   * >From January 1, 2025 POS Terminal Management API is deprecated and support stops on April 1,
+   * 2025. To automate the management of your terminal fleet, use our [Management
+   * API](https://docs.adyen.com/api-explorer/Management/latest/overview).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGetStoresUnderAccountError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postGetStoresUnderAccount(
     request: General.PostGetStoresUnderAccountRequest,
     options?: RequestOptions,
@@ -736,8 +1179,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default28("/getStoresUnderAccount"),
+        urlTemplate: this.#servers.default28("/getStoresUnderAccount"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -752,6 +1198,29 @@ export class General {
     );
   }
 
+  /**
+   * Get the details of a terminal
+   *
+   * @remarks
+   * Returns the details of a payment terminal, including where the terminal is assigned to. The
+   * response returns the same details that are provided in the terminal list in your Customer Area
+   * and in the Terminal Fleet report.
+   *
+   * >From January 1, 2025 POS Terminal Management API is deprecated and support stops on April 1,
+   * 2025. To automate the management of your terminal fleet, use our [Management
+   * API](https://docs.adyen.com/api-explorer/Management/latest/overview).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGetTerminalDetailsError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postGetTerminalDetails(
     request: General.PostGetTerminalDetailsRequest,
     options?: RequestOptions,
@@ -759,8 +1228,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default28("/getTerminalDetails"),
+        urlTemplate: this.#servers.default28("/getTerminalDetails"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -775,6 +1247,29 @@ export class General {
     );
   }
 
+  /**
+   * Get the list of terminals
+   *
+   * @remarks
+   * Returns a list of payment terminals associated with a company account, merchant account, or
+   * store. The response shows whether the terminals are in the inventory, or in-store (ready for
+   * boarding or already boarded).
+   *
+   * >From January 1, 2025 POS Terminal Management API is deprecated and support stops on April 1,
+   * 2025. To automate the management of your terminal fleet, use our [Management
+   * API](https://docs.adyen.com/api-explorer/Management/latest/overview).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostGetTerminalsUnderAccountError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postGetTerminalsUnderAccount(
     request: General.PostGetTerminalsUnderAccountRequest,
     options?: RequestOptions,
@@ -782,8 +1277,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default28("/getTerminalsUnderAccount"),
+        urlTemplate: this.#servers.default28("/getTerminalsUnderAccount"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -798,6 +1296,21 @@ export class General {
     );
   }
 
+  /**
+   * Issues a new card.
+   *
+   * @remarks
+   * Issues a new card of the given payment method.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostIssueError} when the API answers with an error status — narrow on
+   * `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postIssue(
     request: General.PostIssueRequest,
     options?: RequestOptions,
@@ -805,8 +1318,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default5("/issue"),
+        urlTemplate: this.#servers.default5("/issue"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -821,6 +1337,26 @@ export class General {
     );
   }
 
+  /**
+   * Get stored payment details
+   *
+   * @remarks
+   * Lists the stored payment details for a shopper, if there are any available. The recurring
+   * detail ID can be used with a regular authorisation request to charge the shopper. A summary of
+   * the payment detail is returned for presentation to the shopper.
+   *
+   * For more information, refer to [Retrieve stored
+   * details](https://docs.adyen.com/classic-integration/recurring-payments/retrieve-stored-details/).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostListRecurringDetailsError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postListRecurringDetails(
     request: General.PostListRecurringDetailsRequest,
     options?: RequestOptions,
@@ -828,8 +1364,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default2("/listRecurringDetails"),
+        urlTemplate: this.#servers.default2("/listRecurringDetails"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -844,6 +1383,21 @@ export class General {
     );
   }
 
+  /**
+   * Loads the payment method.
+   *
+   * @remarks
+   * Loads the payment method with the specified funds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostLoadError} when the API answers with an error status — narrow on
+   * `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postLoad(
     request: General.PostLoadRequest,
     options?: RequestOptions,
@@ -851,8 +1405,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default5("/load"),
+        urlTemplate: this.#servers.default5("/load"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -867,6 +1424,21 @@ export class General {
     );
   }
 
+  /**
+   * Merge the balance of two cards.
+   *
+   * @remarks
+   * Increases the balance of the paymentmethod by the full amount left on the source paymentmethod
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostMergeBalanceError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postMergeBalance(
     request: General.PostMergeBalanceRequest,
     options?: RequestOptions,
@@ -874,8 +1446,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default5("/mergeBalance"),
+        urlTemplate: this.#servers.default5("/mergeBalance"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -890,6 +1465,24 @@ export class General {
     );
   }
 
+  /**
+   * Ask issuer to notify the shopper
+   *
+   * @remarks
+   * Sends a request to the issuer so they can inform the shopper about the upcoming recurring
+   * payment. This endpoint is used only for local acquiring in India. For more information, refer
+   * to [Recurring card payments in
+   * India](https://docs.adyen.com/payment-methods/cards/cards-recurring-india).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostNotifyShopperError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postNotifyShopper(
     request: General.PostNotifyShopperRequest,
     options?: RequestOptions,
@@ -897,8 +1490,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default2("/notifyShopper"),
+        urlTemplate: this.#servers.default2("/notifyShopper"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -913,6 +1509,21 @@ export class General {
     );
   }
 
+  /**
+   * Pay out from an account to the account holder
+   *
+   * @remarks
+   * Pays out a specified amount from an account to the bank account of account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostPayoutAccountHolderError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postPayoutAccountHolder(
     request: General.PostPayoutAccountHolderRequest,
     options?: RequestOptions,
@@ -920,8 +1531,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/payoutAccountHolder"),
+        urlTemplate: this.#servers.default16("/payoutAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -936,6 +1550,22 @@ export class General {
     );
   }
 
+  /**
+   * Refund a funds transfer
+   *
+   * @remarks
+   * Refunds funds transferred from one account to another. Both accounts must be in the same
+   * platform, but can have different account holders.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostRefundFundsTransferError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postRefundFundsTransfer(
     request: General.PostRefundFundsTransferRequest,
     options?: RequestOptions,
@@ -943,8 +1573,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/refundFundsTransfer"),
+        urlTemplate: this.#servers.default16("/refundFundsTransfer"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -959,6 +1592,25 @@ export class General {
     );
   }
 
+  /**
+   * Refund all transactions of an account since the most recent payout
+   *
+   * @remarks
+   * Refunds all the transactions of an account that have taken place since the most recent payout.
+   * This request is on a account basis (as opposed to a payment basis), so only the portion of the
+   * payment that was made to the specified account is refunded. The commissions, fees, and payments
+   * to other accounts remain in the accounts to which they were sent as designated by the original
+   * payment's split details.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostRefundNotPaidOutTransfersError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postRefundNotPaidOutTransfers(
     request: General.PostRefundNotPaidOutTransfersRequest,
     options?: RequestOptions,
@@ -966,8 +1618,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/refundNotPaidOutTransfers"),
+        urlTemplate: this.#servers.default16("/refundNotPaidOutTransfers"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -982,6 +1637,21 @@ export class General {
     );
   }
 
+  /**
+   * Submit a Subject Erasure Request.
+   *
+   * @remarks
+   * Sends the PSP reference containing the shopper data that should be deleted.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostRequestSubjectErasureError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postRequestSubjectErasure(
     request: General.PostRequestSubjectErasureRequest,
     options?: RequestOptions,
@@ -989,8 +1659,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default6("/requestSubjectErasure"),
+        urlTemplate: this.#servers.default6("/requestSubjectErasure"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1005,6 +1678,21 @@ export class General {
     );
   }
 
+  /**
+   * Get applicable defense reasons
+   *
+   * @remarks
+   * Returns a list of all applicable defense reasons to defend a specific dispute.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostRetrieveApplicableDefenseReasonsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postRetrieveApplicableDefenseReasons(
     request: General.PostRetrieveApplicableDefenseReasonsRequest,
     options?: RequestOptions,
@@ -1012,8 +1700,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default22("/retrieveApplicableDefenseReasons"),
+        urlTemplate: this.#servers.default22("/retrieveApplicableDefenseReasons"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1028,6 +1719,25 @@ export class General {
     );
   }
 
+  /**
+   * Schedule running the Account Updater
+   *
+   * @remarks
+   * When making the API call, you can submit either the credit card information, or the recurring
+   * detail reference and the shopper reference:
+   * * If the card information is provided, all the sub-fields for `card` are mandatory.
+   * * If the recurring detail reference is provided, the fields for `shopperReference` and
+   *   `selectedRecurringDetailReference` are mandatory.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostScheduleAccountUpdaterError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postScheduleAccountUpdater(
     request: General.PostScheduleAccountUpdaterRequest,
     options?: RequestOptions,
@@ -1035,8 +1745,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default2("/scheduleAccountUpdater"),
+        urlTemplate: this.#servers.default2("/scheduleAccountUpdater"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1051,15 +1764,39 @@ export class General {
     );
   }
 
+  /**
+   * Create a communication session
+   *
+   * @remarks
+   * Establishes a secure communications session between the POS Mobile SDK and the Adyen payments
+   * platform, through mutual authentication. The request sends a setup token that identifies the
+   * SDK and the device. The response returns a session token that the SDK can use to authenticate
+   * responses received from the Adyen payments platform. >This request applies to **mobile
+   * in-person** transactions. You cannot use this request to create online payments sessions.
+   *
+   * @returns Created - the request has been fulfilled and has resulted in one or more new resources
+   * being created.
+   *
+   * @throws {@link ApiError} when the API answers with an error status
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   *
+   * @deprecated
+   */
   postSessions3(
     request: General.PostSessions3Request,
     options?: RequestOptions,
-  ): ApiPromise<CertificateLoadingResponse, ResponseError> {
-    return this.#rawClient.execute<CertificateLoadingResponse, ResponseError>(
+  ): ApiPromise<CertificateLoadingResponse, ApiError> {
+    return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default27("/sessions"),
+        urlTemplate: this.#servers.default27("/sessions"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1068,12 +1805,31 @@ export class General {
       },
       {
         success: { kind: "json", schema: certificateLoadingResponseSchema },
-        errorFactory: ResponseError,
+        errorFactory: ApiError,
       },
       options,
     );
   }
 
+  /**
+   * Designate a beneficiary account and transfer the benefactor's current balance
+   *
+   * @remarks
+   * Defines a benefactor and a beneficiary relationship between two accounts. At the time of
+   * benefactor/beneficiary setup, the funds in the benefactor account are transferred to the
+   * beneficiary account, and any further payments to the benefactor account are automatically sent
+   * to the beneficiary account. A series of benefactor/beneficiaries may not exceed four
+   * beneficiaries and may not have a cycle in it.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostSetupBeneficiaryError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postSetupBeneficiary(
     request: General.PostSetupBeneficiaryRequest,
     options?: RequestOptions,
@@ -1081,8 +1837,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/setupBeneficiary"),
+        urlTemplate: this.#servers.default16("/setupBeneficiary"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1097,6 +1856,21 @@ export class General {
     );
   }
 
+  /**
+   * Supply a defense document
+   *
+   * @remarks
+   * Supplies a specific dispute defense document.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostSupplyDefenseDocumentError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postSupplyDefenseDocument(
     request: General.PostSupplyDefenseDocumentRequest,
     options?: RequestOptions,
@@ -1104,8 +1878,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default22("/supplyDefenseDocument"),
+        urlTemplate: this.#servers.default22("/supplyDefenseDocument"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1120,6 +1897,23 @@ export class General {
     );
   }
 
+  /**
+   * Test a notification configuration
+   *
+   * @remarks
+   * Tests an existing notification subscription configuration. For each event type specified, a
+   * test notification will be generated and sent to the URL configured in the subscription
+   * specified.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostTestNotificationConfigurationError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postTestNotificationConfiguration(
     request: General.PostTestNotificationConfigurationRequest,
     options?: RequestOptions,
@@ -1127,8 +1921,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default12("/testNotificationConfiguration"),
+        urlTemplate: this.#servers.default12("/testNotificationConfiguration"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1143,6 +1940,23 @@ export class General {
     );
   }
 
+  /**
+   * Transfer funds between platform accounts
+   *
+   * @remarks
+   * Transfers funds from one account to another account. Both accounts must be in the same
+   * platform, but can have different account holders. The transfer must include a transfer code,
+   * which should be determined by the platform, in compliance with local regulations.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostTransferFundsError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postTransferFunds(
     request: General.PostTransferFundsRequest,
     options?: RequestOptions,
@@ -1150,8 +1964,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default16("/transferFunds"),
+        urlTemplate: this.#servers.default16("/transferFunds"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1166,6 +1983,23 @@ export class General {
     );
   }
 
+  /**
+   * Update a notification subscription configuration
+   *
+   * @remarks
+   * Updates an existing notification subscription configuration. If you are updating the event
+   * types, you must provide all event types, otherwise the previous event type configuration will
+   * be overwritten.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostUpdateNotificationConfigurationError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postUpdateNotificationConfiguration(
     request: General.PostUpdateNotificationConfigurationRequest,
     options?: RequestOptions,
@@ -1173,8 +2007,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default12("/updateNotificationConfiguration"),
+        urlTemplate: this.#servers.default12("/updateNotificationConfiguration"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1189,6 +2026,21 @@ export class General {
     );
   }
 
+  /**
+   * Voids a transaction.
+   *
+   * @remarks
+   * Voids the referenced stored value transaction.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link General.PostVoidTransactionError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postVoidTransaction(
     request: General.PostVoidTransactionRequest,
     options?: RequestOptions,
@@ -1196,8 +2048,11 @@ export class General {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default5("/voidTransaction"),
+        urlTemplate: this.#servers.default5("/voidTransaction"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -1218,13 +2073,15 @@ export namespace General {
     body?: AcceptDisputeRequest;
   };
 
-  export class PostAcceptDisputeError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostAcceptDisputeError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostAcceptDisputeError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1238,13 +2095,15 @@ export namespace General {
     body?: CloseAccountHolderRequest;
   };
 
-  export class PostAccountHolderBalanceError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostAccountHolderBalanceError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostAccountHolderBalanceError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1258,13 +2117,15 @@ export namespace General {
     body?: AccountHolderTransactionListRequest;
   };
 
-  export class PostAccountHolderTransactionListError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostAccountHolderTransactionListError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostAccountHolderTransactionListError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1278,13 +2139,15 @@ export namespace General {
     body?: AssignTerminalsRequest;
   };
 
-  export class PostAssignTerminalsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostAssignTerminalsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostAssignTerminalsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1298,12 +2161,14 @@ export namespace General {
     body?: StoredValueStatusChangeRequest;
   };
 
-  export class PostChangeStatusError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-  > {
+  export class PostChangeStatusError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostChangeStatusError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1316,12 +2181,14 @@ export namespace General {
     body?: StoredValueBalanceCheckRequest;
   };
 
-  export class PostCheckBalanceError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-  > {
+  export class PostCheckBalanceError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostCheckBalanceError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1334,13 +2201,15 @@ export namespace General {
     body?: CreateNotificationConfigurationRequest;
   };
 
-  export class PostCreateNotificationConfigurationError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCreateNotificationConfigurationError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCreateNotificationConfigurationError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1354,13 +2223,15 @@ export namespace General {
     body?: CreatePermitRequest;
   };
 
-  export class PostCreatePermitError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostCreatePermitError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostCreatePermitError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1374,13 +2245,15 @@ export namespace General {
     body?: CreateTestCardRangesRequest;
   };
 
-  export class PostCreateTestCardRangesError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCreateTestCardRangesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCreateTestCardRangesError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1394,13 +2267,15 @@ export namespace General {
     body?: DebitAccountHolderRequest;
   };
 
-  export class PostDebitAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDebitAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDebitAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1414,13 +2289,15 @@ export namespace General {
     body?: DefendDisputeRequest;
   };
 
-  export class PostDefendDisputeError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDefendDisputeError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDefendDisputeError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1434,13 +2311,15 @@ export namespace General {
     body?: DeleteDefenseDocumentRequest;
   };
 
-  export class PostDeleteDisputeDefenseDocumentError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeleteDisputeDefenseDocumentError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeleteDisputeDefenseDocumentError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1454,13 +2333,15 @@ export namespace General {
     body?: DeleteNotificationConfigurationRequest;
   };
 
-  export class PostDeleteNotificationConfigurationsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeleteNotificationConfigurationsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeleteNotificationConfigurationsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1474,13 +2355,15 @@ export namespace General {
     body?: DisableRequest;
   };
 
-  export class PostDisableError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostDisableError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostDisableError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1494,13 +2377,15 @@ export namespace General {
     body?: DisablePermitRequest;
   };
 
-  export class PostDisablePermitError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostDisablePermitError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostDisablePermitError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1514,13 +2399,15 @@ export namespace General {
     body?: FindTerminalRequest;
   };
 
-  export class PostFindTerminalError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostFindTerminalError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostFindTerminalError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1534,13 +2421,15 @@ export namespace General {
     body?: ThreeDsAvailabilityRequest;
   };
 
-  export class PostGet3DsAvailabilityError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostGet3DsAvailabilityError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostGet3DsAvailabilityError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1554,13 +2443,15 @@ export namespace General {
     body?: CostEstimateRequest;
   };
 
-  export class PostGetCostEstimateError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostGetCostEstimateError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetCostEstimateError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1574,13 +2465,15 @@ export namespace General {
     body?: GetNotificationConfigurationRequest;
   };
 
-  export class PostGetNotificationConfigurationError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetNotificationConfigurationError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetNotificationConfigurationError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1594,13 +2487,15 @@ export namespace General {
     body?: Record<string, unknown>;
   };
 
-  export class PostGetNotificationConfigurationListError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetNotificationConfigurationListError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetNotificationConfigurationListError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1614,13 +2509,15 @@ export namespace General {
     body?: GetStoresUnderAccountRequest;
   };
 
-  export class PostGetStoresUnderAccountError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetStoresUnderAccountError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetStoresUnderAccountError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1634,13 +2531,15 @@ export namespace General {
     body?: GetTerminalDetailsRequest;
   };
 
-  export class PostGetTerminalDetailsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetTerminalDetailsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetTerminalDetailsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1654,13 +2553,15 @@ export namespace General {
     body?: GetTerminalsUnderAccountRequest;
   };
 
-  export class PostGetTerminalsUnderAccountError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetTerminalsUnderAccountError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetTerminalsUnderAccountError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1674,12 +2575,14 @@ export namespace General {
     body?: StoredValueIssueRequest;
   };
 
-  export class PostIssueError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-  > {
+  export class PostIssueError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostIssueError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1692,13 +2595,15 @@ export namespace General {
     body?: RecurringDetailsRequest;
   };
 
-  export class PostListRecurringDetailsError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostListRecurringDetailsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostListRecurringDetailsError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1712,12 +2617,14 @@ export namespace General {
     body?: StoredValueLoadRequest;
   };
 
-  export class PostLoadError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-  > {
+  export class PostLoadError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostLoadError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1730,12 +2637,14 @@ export namespace General {
     body?: StoredValueBalanceMergeRequest;
   };
 
-  export class PostMergeBalanceError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-  > {
+  export class PostMergeBalanceError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostMergeBalanceError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1748,13 +2657,15 @@ export namespace General {
     body?: NotifyShopperRequest;
   };
 
-  export class PostNotifyShopperError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostNotifyShopperError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostNotifyShopperError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1768,13 +2679,15 @@ export namespace General {
     body?: PayoutAccountHolderRequest;
   };
 
-  export class PostPayoutAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostPayoutAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostPayoutAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1788,13 +2701,15 @@ export namespace General {
     body?: RefundFundsTransferRequest;
   };
 
-  export class PostRefundFundsTransferError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostRefundFundsTransferError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostRefundFundsTransferError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1808,13 +2723,15 @@ export namespace General {
     body?: RefundNotPaidOutTransfersRequest;
   };
 
-  export class PostRefundNotPaidOutTransfersError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostRefundNotPaidOutTransfersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostRefundNotPaidOutTransfersError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1828,13 +2745,15 @@ export namespace General {
     body?: SubjectErasureByPspReferenceRequest;
   };
 
-  export class PostRequestSubjectErasureError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostRequestSubjectErasureError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostRequestSubjectErasureError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1848,13 +2767,15 @@ export namespace General {
     body?: DefenseReasonsRequest;
   };
 
-  export class PostRetrieveApplicableDefenseReasonsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostRetrieveApplicableDefenseReasonsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostRetrieveApplicableDefenseReasonsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1868,13 +2789,15 @@ export namespace General {
     body?: ScheduleAccountUpdaterRequest;
   };
 
-  export class PostScheduleAccountUpdaterError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostScheduleAccountUpdaterError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostScheduleAccountUpdaterError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -1892,13 +2815,15 @@ export namespace General {
     body?: SetupBeneficiaryRequest;
   };
 
-  export class PostSetupBeneficiaryError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostSetupBeneficiaryError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostSetupBeneficiaryError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1912,13 +2837,15 @@ export namespace General {
     body?: SupplyDefenseDocumentRequest;
   };
 
-  export class PostSupplyDefenseDocumentError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostSupplyDefenseDocumentError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostSupplyDefenseDocumentError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1932,13 +2859,15 @@ export namespace General {
     body?: TestNotificationConfigurationRequest;
   };
 
-  export class PostTestNotificationConfigurationError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostTestNotificationConfigurationError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostTestNotificationConfigurationError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1952,13 +2881,15 @@ export namespace General {
     body?: TransferFundsRequest;
   };
 
-  export class PostTransferFundsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostTransferFundsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostTransferFundsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1972,13 +2903,15 @@ export namespace General {
     body?: UpdateNotificationConfigurationRequest;
   };
 
-  export class PostUpdateNotificationConfigurationError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostUpdateNotificationConfigurationError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostUpdateNotificationConfigurationError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -1992,12 +2925,14 @@ export namespace General {
     body?: StoredValueVoidRequest;
   };
 
-  export class PostVoidTransactionError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-  > {
+  export class PostVoidTransactionError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostVoidTransactionError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },

@@ -6,11 +6,17 @@ import { linksElement12Schema, type LinksElement12 } from "./links-element12.js"
 import { linksElement13Schema, type LinksElement13 } from "./links-element13.js";
 import { linksElement9Schema, type LinksElement9 } from "./links-element9.js";
 
+/** Pagination references. */
 export type PaginationLinks1 = {
+  /** The first page. */
   first: LinksElement9;
+  /** The last page. */
   last: LinksElement10;
+  /** The next page. Only present if there is a next page. */
   next?: LinksElement11;
+  /** The previous page. Only present if there is a previous page. */
   prev?: LinksElement12;
+  /** The current page. */
   self: LinksElement13;
 };
 

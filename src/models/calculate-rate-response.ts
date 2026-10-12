@@ -5,7 +5,12 @@ import {
   type CalculateRateResponseItem,
 } from "./calculate-rate-response-item.js";
 
+/** The response returned when you calculate an amount in a different currency. */
 export type CalculateRateResponse = {
+  /**
+   * An array of objects, where each object returns a currency and value for which you performed an
+   * exchange calculation. You can use the calculated amounts in your payment requests.
+   */
   exchangeCalculations?: CalculateRateResponseItem[];
 };
 

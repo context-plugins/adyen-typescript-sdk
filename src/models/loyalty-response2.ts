@@ -6,10 +6,17 @@ import { poiData1Schema, type PoiData1 } from "./poi-data1.js";
 import { response11Schema, type Response11 } from "./response11.js";
 import { saleData1Schema, type SaleData1 } from "./sale-data1.js";
 
+/** Content of the Loyalty Response message. */
 export type LoyaltyResponse2 = {
+  /** Result of a message request processing. */
   response: Response11;
+  /** Data related to the Sale System. */
   saleData: SaleData1;
+  /** Data related to the POI System. */
   poiData: PoiData1;
+  /**
+   * Data related to the result of a processed loyalty transaction. If loyalty account identified.
+   */
   loyaltyResult?: LoyaltyResult[];
   paymentReceipt?: PaymentReceipt[];
 };

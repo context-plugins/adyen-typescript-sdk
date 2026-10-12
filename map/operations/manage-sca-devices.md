@@ -4,7 +4,7 @@
 
 Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices.ts` · 6 operations · Request and error types: namespace `ManageScaDevices`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteRegisteredDevicesId
 
@@ -13,8 +13,9 @@ Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices
 - **Wire**: `DELETE /registeredDevices/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `ManageScaDevices.DeleteRegisteredDevicesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageScaDevices.DeleteRegisteredDevicesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageScaDevices.DeleteRegisteredDevicesIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `SearchRegisteredDevicesResponse`
-- **Error**: `ManageScaDevices.GetRegisteredDevicesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageScaDevices.GetRegisteredDevicesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageScaDevices.GetRegisteredDevicesRequest` (3):
@@ -58,9 +59,10 @@ Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices
 - **Signature**: `patchRegisteredDevicesDeviceIdAssociations(request: ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsRequest, options?: RequestOptions): ApiPromise<AssociationFinaliseResponse, ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsError>`
 - **Wire**: `PATCH /registeredDevices/{deviceId}/associations`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AssociationFinaliseResponse`
-- **Error**: `ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsRequest` (2):
@@ -82,9 +84,10 @@ Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices
 - **Signature**: `patchRegisteredDevicesId(request: ManageScaDevices.PatchRegisteredDevicesIdRequest, options?: RequestOptions): ApiPromise<RegisterScaFinalResponse, ManageScaDevices.PatchRegisteredDevicesIdError>`
 - **Wire**: `PATCH /registeredDevices/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RegisterScaFinalResponse`
-- **Error**: `ManageScaDevices.PatchRegisteredDevicesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageScaDevices.PatchRegisteredDevicesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageScaDevices.PatchRegisteredDevicesIdRequest` (2):
@@ -106,9 +109,10 @@ Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices
 - **Signature**: `postRegisteredDevices(request: ManageScaDevices.PostRegisteredDevicesRequest, options?: RequestOptions): ApiPromise<RegisterScaResponse, ManageScaDevices.PostRegisteredDevicesError>`
 - **Wire**: `POST /registeredDevices`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RegisterScaResponse`
-- **Error**: `ManageScaDevices.PostRegisteredDevicesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageScaDevices.PostRegisteredDevicesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageScaDevices.PostRegisteredDevicesRequest` (1):
@@ -129,9 +133,10 @@ Accessor: `client.manageScaDevices` · Source: `src/resources/manage-sca-devices
 - **Signature**: `postRegisteredDevicesDeviceIdAssociations(request: ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsRequest, options?: RequestOptions): ApiPromise<AssociationInitiateResponse, ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsError>`
 - **Wire**: `POST /registeredDevices/{deviceId}/associations`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AssociationInitiateResponse`
-- **Error**: `ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsRequest` (2):

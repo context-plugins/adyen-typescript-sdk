@@ -3,7 +3,14 @@ import type { Schema } from "../core/validation/schema.js";
 import { value2Schema, type Value2 } from "./value2.js";
 
 export type EntryModesRestriction = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
+  /**
+   * List of point-of-sale entry modes.
+   *
+   * Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**,
+   * **ocr**, **server**.
+   */
   value?: Value2[];
 };
 

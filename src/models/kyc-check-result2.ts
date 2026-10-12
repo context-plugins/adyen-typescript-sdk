@@ -2,7 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { kycCheckStatusDataSchema, type KycCheckStatusData } from "./kyc-check-status-data.js";
 
+/** The results of the checks on the account holder. */
 export type KycCheckResult2 = {
+  /** A list of the checks and their statuses. */
   checks?: KycCheckStatusData[];
 };
 

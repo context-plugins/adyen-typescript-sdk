@@ -4,7 +4,7 @@
 
 Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-company-level.ts` · 7 operations · Request and error types: namespace `WebhooksCompanyLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteCompaniesCompanyIdWebhooksWebhookId
 
@@ -13,8 +13,9 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Wire**: `DELETE /companies/{companyId}/webhooks/{webhookId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `WebhooksCompanyLevel.DeleteCompaniesCompanyIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.DeleteCompaniesCompanyIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.DeleteCompaniesCompanyIdWebhooksWebhookIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListWebhooksResponse`
-- **Error**: `WebhooksCompanyLevel.GetCompaniesCompanyIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.GetCompaniesCompanyIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.GetCompaniesCompanyIdWebhooksRequest` (3):
@@ -60,7 +61,7 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Webhook`
-- **Error**: `WebhooksCompanyLevel.GetCompaniesCompanyIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.GetCompaniesCompanyIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.GetCompaniesCompanyIdWebhooksWebhookIdRequest` (2):
@@ -81,9 +82,10 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Signature**: `patchCompaniesCompanyIdWebhooksWebhookId(request: WebhooksCompanyLevel.PatchCompaniesCompanyIdWebhooksWebhookIdRequest, options?: RequestOptions): ApiPromise<Webhook, WebhooksCompanyLevel.PatchCompaniesCompanyIdWebhooksWebhookIdError>`
 - **Wire**: `PATCH /companies/{companyId}/webhooks/{webhookId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Webhook`
-- **Error**: `WebhooksCompanyLevel.PatchCompaniesCompanyIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.PatchCompaniesCompanyIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.PatchCompaniesCompanyIdWebhooksWebhookIdRequest` (3):
@@ -106,9 +108,10 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Signature**: `postCompaniesCompanyIdWebhooks(request: WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksRequest, options?: RequestOptions): ApiPromise<Webhook, WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksError>`
 - **Wire**: `POST /companies/{companyId}/webhooks`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Webhook`
-- **Error**: `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksRequest` (2):
@@ -131,8 +134,9 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Wire**: `POST /companies/{companyId}/webhooks/{webhookId}/generateHmac`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenerateHmacKeyResponse`
-- **Error**: `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacRequest` (2):
@@ -153,9 +157,10 @@ Accessor: `client.webhooksCompanyLevel` · Source: `src/resources/webhooks-compa
 - **Signature**: `postCompaniesCompanyIdWebhooksWebhookIdTest(request: WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdTestRequest, options?: RequestOptions): ApiPromise<TestWebhookResponse, WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdTestError>`
 - **Wire**: `POST /companies/{companyId}/webhooks/{webhookId}/test`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TestWebhookResponse`
-- **Error**: `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdTestError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdTestError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksCompanyLevel.PostCompaniesCompanyIdWebhooksWebhookIdTestRequest` (3):

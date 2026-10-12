@@ -5,8 +5,15 @@ import {
   type TransactionDescriptionResponseInfo1,
 } from "./transaction-description-response-info1.js";
 
+/** **paybybank_plaid** details */
 export type PayByBankPlaidResponseInfo1 = {
+  /**
+   * Merchant logo
+   *
+   * @deprecated
+   */
   logo?: string;
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

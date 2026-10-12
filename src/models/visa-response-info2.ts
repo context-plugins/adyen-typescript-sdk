@@ -5,7 +5,9 @@ import {
   type TransactionDescriptionResponseInfo1,
 } from "./transaction-description-response-info1.js";
 
+/** **visa** details */
 export type VisaResponseInfo2 = {
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

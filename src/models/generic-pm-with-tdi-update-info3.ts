@@ -5,7 +5,17 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/**
+ * Details to provide if `type` is **diners**. For merchants operating in Japan, Diners payments are
+ * processed through the JCB network. This means that you must include [JCB-specific
+ * fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
+ * in this object.
+ */
 export type GenericPmWithTdiUpdateInfo3 = {
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

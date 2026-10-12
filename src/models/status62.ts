@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The resulting status of the return.
+ *
+ * Possible values: **Authorised**, **Declined**.
+ */
 export const Status62 = {
   Authorised: "Authorised",
   Declined: "Declined",

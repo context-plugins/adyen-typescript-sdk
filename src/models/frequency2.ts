@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The frequency at which the shopper will be charged. */
 export const Frequency2 = {
   Weekly: "weekly",
   Monthly: "monthly",

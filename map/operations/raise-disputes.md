@@ -4,7 +4,7 @@
 
 Accessor: `client.raiseDisputes` · Source: `src/resources/raise-disputes.ts` · 4 operations · Request and error types: namespace `RaiseDisputes`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getDisputes
 
@@ -14,7 +14,7 @@ Accessor: `client.raiseDisputes` · Source: `src/resources/raise-disputes.ts` ·
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `DisputeResponse[][]` — a bare `application/json` array; the success type *is* the array, not a wrapper model
-- **Error**: `RaiseDisputes.GetDisputesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RaiseDisputes.GetDisputesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RaiseDisputes.GetDisputesRequest` (6):
@@ -41,7 +41,7 @@ Accessor: `client.raiseDisputes` · Source: `src/resources/raise-disputes.ts` ·
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `DisputeResponse`
-- **Error**: `RaiseDisputes.GetDisputesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RaiseDisputes.GetDisputesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RaiseDisputes.GetDisputesIdRequest` (1):
@@ -61,9 +61,10 @@ Accessor: `client.raiseDisputes` · Source: `src/resources/raise-disputes.ts` ·
 - **Signature**: `patchDisputesId(request: RaiseDisputes.PatchDisputesIdRequest, options?: RequestOptions): ApiPromise<DisputeResponse, RaiseDisputes.PatchDisputesIdError>`
 - **Wire**: `PATCH /disputes/{id}`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DisputeResponse`
-- **Error**: `RaiseDisputes.PatchDisputesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RaiseDisputes.PatchDisputesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RaiseDisputes.PatchDisputesIdRequest` (2):
@@ -86,8 +87,9 @@ Accessor: `client.raiseDisputes` · Source: `src/resources/raise-disputes.ts` ·
 - **Wire**: `POST /disputes`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DisputeResponse`
-- **Error**: `RaiseDisputes.PostDisputesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `RaiseDisputes.PostDisputesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `RaiseDisputes.PostDisputesRequest` (1):

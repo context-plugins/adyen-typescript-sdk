@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   listNetworkTokensResponseSchema,
@@ -60,6 +61,21 @@ export class PaymentInstruments {
     this.#auth = auth;
   }
 
+  /**
+   * Get a payment instrument
+   *
+   * @remarks
+   * Returns the details of a payment instrument.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.GetPaymentInstrumentsIdError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getPaymentInstrumentsId(
     request: PaymentInstruments.GetPaymentInstrumentsIdRequest,
     options?: RequestOptions,
@@ -67,9 +83,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/paymentInstruments/{id}"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -80,6 +98,21 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Get network token activation data
+   *
+   * @remarks
+   * Get the network token activation data for a payment instrument.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.GetPaymentInstrumentsIdNetworkTokenActivationDataError} when
+   * the API answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getPaymentInstrumentsIdNetworkTokenActivationData(
     request: PaymentInstruments.GetPaymentInstrumentsIdNetworkTokenActivationDataRequest,
     options?: RequestOptions,
@@ -90,9 +123,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/paymentInstruments/{id}/networkTokenActivationData"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}/networkTokenActivationData"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -103,6 +138,21 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * List network tokens
+   *
+   * @remarks
+   * List the network tokens connected to a payment instrument.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.GetPaymentInstrumentsIdNetworkTokensError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getPaymentInstrumentsIdNetworkTokens(
     request: PaymentInstruments.GetPaymentInstrumentsIdNetworkTokensRequest,
     options?: RequestOptions,
@@ -110,9 +160,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/paymentInstruments/{id}/networkTokens"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}/networkTokens"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -123,6 +175,26 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Get the PAN of a payment instrument
+   *
+   * @remarks
+   * Returns the primary account number (PAN) of a payment instrument.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/issuing/manage-access/api-credentials-web-service#api-permissions):
+   *
+   * * Balance Platform BCL PCI role
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.GetPaymentInstrumentsIdRevealError} when the API answers with
+   * an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getPaymentInstrumentsIdReveal(
     request: PaymentInstruments.GetPaymentInstrumentsIdRevealRequest,
     options?: RequestOptions,
@@ -130,9 +202,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/paymentInstruments/{id}/reveal"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}/reveal"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -143,6 +217,21 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Get all transaction rules for a payment instrument
+   *
+   * @remarks
+   * Returns a list of transaction rules associated with a payment instrument.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.GetPaymentInstrumentsIdTransactionRulesError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getPaymentInstrumentsIdTransactionRules(
     request: PaymentInstruments.GetPaymentInstrumentsIdTransactionRulesRequest,
     options?: RequestOptions,
@@ -150,9 +239,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/paymentInstruments/{id}/transactionRules"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}/transactionRules"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -163,6 +254,23 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Update a payment instrument
+   *
+   * @remarks
+   * Updates a payment instrument. Once a payment instrument is already active, you can only update
+   * its status. However, for cards created with **inactive** status, you can still update the
+   * balance account associated with the card.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.PatchPaymentInstrumentsIdError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchPaymentInstrumentsId(
     request: PaymentInstruments.PatchPaymentInstrumentsIdRequest,
     options?: RequestOptions,
@@ -170,9 +278,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default13("/paymentInstruments/{id}"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -187,6 +297,25 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Create a payment instrument
+   *
+   * @remarks
+   * Creates a payment instrument to issue a physical card, a virtual card, or a business account to
+   * your user.
+   *
+   * For more information, refer to [Issue cards](https://docs.adyen.com/issuing/create-cards) or
+   * [Issue business accounts](https://docs.adyen.com/platforms/business-accounts).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.PostPaymentInstrumentsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postPaymentInstruments(
     request: PaymentInstruments.PostPaymentInstrumentsRequest,
     options?: RequestOptions,
@@ -194,8 +323,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/paymentInstruments"),
+        urlTemplate: this.#servers.default13("/paymentInstruments"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -210,6 +342,22 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Create network token provisioning data
+   *
+   * @remarks
+   * Create provisioning data for a network token. Use the provisioning data to add a user's payment
+   * instrument to their digital wallet.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataError} when
+   * the API answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postPaymentInstrumentsIdNetworkTokenActivationData(
     request: PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataRequest,
     options?: RequestOptions,
@@ -220,9 +368,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/paymentInstruments/{id}/networkTokenActivationData"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/{id}/networkTokenActivationData"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -237,6 +387,30 @@ export class PaymentInstruments {
     );
   }
 
+  /**
+   * Reveal the data of a payment instrument
+   *
+   * @remarks
+   * Returns the encrypted data of a specified payment instrument. These data include:
+   *
+   * - The primary account number (PAN)
+   * - The card verification code (CVC)
+   * - The expiry date
+   *
+   * You can decrypt the data to reveal it in your user interface.
+   *
+   * To make this request, your API credential must have the following role:
+   * * Bank Issuing PAN Reveal Webservice role
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link PaymentInstruments.PostPaymentInstrumentsRevealError} when the API answers with
+   * an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postPaymentInstrumentsReveal(
     request: PaymentInstruments.PostPaymentInstrumentsRevealRequest,
     options?: RequestOptions,
@@ -244,8 +418,11 @@ export class PaymentInstruments {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/paymentInstruments/reveal"),
+        urlTemplate: this.#servers.default13("/paymentInstruments/reveal"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -263,16 +440,19 @@ export class PaymentInstruments {
 
 export namespace PaymentInstruments {
   export type GetPaymentInstrumentsIdRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
   };
 
-  export class GetPaymentInstrumentsIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetPaymentInstrumentsIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetPaymentInstrumentsIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -283,16 +463,19 @@ export namespace PaymentInstruments {
   }
 
   export type GetPaymentInstrumentsIdNetworkTokenActivationDataRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
   };
 
-  export class GetPaymentInstrumentsIdNetworkTokenActivationDataError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetPaymentInstrumentsIdNetworkTokenActivationDataError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetPaymentInstrumentsIdNetworkTokenActivationDataError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -303,16 +486,19 @@ export namespace PaymentInstruments {
   }
 
   export type GetPaymentInstrumentsIdNetworkTokensRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
   };
 
-  export class GetPaymentInstrumentsIdNetworkTokensError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetPaymentInstrumentsIdNetworkTokensError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetPaymentInstrumentsIdNetworkTokensError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -323,16 +509,19 @@ export namespace PaymentInstruments {
   }
 
   export type GetPaymentInstrumentsIdRevealRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
   };
 
-  export class GetPaymentInstrumentsIdRevealError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetPaymentInstrumentsIdRevealError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetPaymentInstrumentsIdRevealError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -343,16 +532,19 @@ export namespace PaymentInstruments {
   }
 
   export type GetPaymentInstrumentsIdTransactionRulesRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
   };
 
-  export class GetPaymentInstrumentsIdTransactionRulesError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetPaymentInstrumentsIdTransactionRulesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetPaymentInstrumentsIdTransactionRulesError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -363,17 +555,20 @@ export namespace PaymentInstruments {
   }
 
   export type PatchPaymentInstrumentsIdRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
     body?: PaymentInstrumentUpdateRequest;
   };
 
-  export class PatchPaymentInstrumentsIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PatchPaymentInstrumentsIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PatchPaymentInstrumentsIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -387,13 +582,15 @@ export namespace PaymentInstruments {
     body?: PaymentInstrumentInfo;
   };
 
-  export class PostPaymentInstrumentsError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostPaymentInstrumentsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostPaymentInstrumentsError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -404,17 +601,20 @@ export namespace PaymentInstruments {
   }
 
   export type PostPaymentInstrumentsIdNetworkTokenActivationDataRequest = {
+    /** The unique identifier of the payment instrument. */
     id: string;
     body?: NetworkTokenActivationDataRequest;
   };
 
-  export class PostPaymentInstrumentsIdNetworkTokenActivationDataError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostPaymentInstrumentsIdNetworkTokenActivationDataError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostPaymentInstrumentsIdNetworkTokenActivationDataError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -428,13 +628,15 @@ export namespace PaymentInstruments {
     body?: PaymentInstrumentRevealRequest;
   };
 
-  export class PostPaymentInstrumentsRevealError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostPaymentInstrumentsRevealError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostPaymentInstrumentsRevealError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },

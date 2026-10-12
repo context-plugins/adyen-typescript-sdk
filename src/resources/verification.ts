@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   deleteBankAccountRequestSchema,
@@ -60,6 +61,22 @@ export class Verification {
     this.#auth = auth;
   }
 
+  /**
+   * Trigger verification
+   *
+   * @remarks
+   * Triggers the verification of an account holder even if the checks are not yet required for the
+   * volume that they are currently processing.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostCheckAccountHolderError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCheckAccountHolder(
     request: Verification.PostCheckAccountHolderRequest,
     options?: RequestOptions,
@@ -67,8 +84,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/checkAccountHolder"),
+        urlTemplate: this.#servers.default10("/checkAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -83,6 +103,21 @@ export class Verification {
     );
   }
 
+  /**
+   * Delete bank accounts
+   *
+   * @remarks
+   * Deletes bank accounts associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostDeleteBankAccountsError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeleteBankAccounts(
     request: Verification.PostDeleteBankAccountsRequest,
     options?: RequestOptions,
@@ -90,8 +125,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/deleteBankAccounts"),
+        urlTemplate: this.#servers.default10("/deleteBankAccounts"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -106,6 +144,21 @@ export class Verification {
     );
   }
 
+  /**
+   * Delete legal arrangements
+   *
+   * @remarks
+   * Deletes legal arrangements and/or legal arrangement entities associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostDeleteLegalArrangementsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeleteLegalArrangements(
     request: Verification.PostDeleteLegalArrangementsRequest,
     options?: RequestOptions,
@@ -113,8 +166,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/deleteLegalArrangements"),
+        urlTemplate: this.#servers.default10("/deleteLegalArrangements"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -129,6 +185,21 @@ export class Verification {
     );
   }
 
+  /**
+   * Delete payout methods
+   *
+   * @remarks
+   * Deletes payout methods associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostDeletePayoutMethodsError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeletePayoutMethods(
     request: Verification.PostDeletePayoutMethodsRequest,
     options?: RequestOptions,
@@ -136,8 +207,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/deletePayoutMethods"),
+        urlTemplate: this.#servers.default10("/deletePayoutMethods"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -152,6 +226,21 @@ export class Verification {
     );
   }
 
+  /**
+   * Delete shareholders
+   *
+   * @remarks
+   * Deletes shareholders associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostDeleteShareholdersError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeleteShareholders(
     request: Verification.PostDeleteShareholdersRequest,
     options?: RequestOptions,
@@ -159,8 +248,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/deleteShareholders"),
+        urlTemplate: this.#servers.default10("/deleteShareholders"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -175,6 +267,21 @@ export class Verification {
     );
   }
 
+  /**
+   * Delete signatories
+   *
+   * @remarks
+   * Deletes signatories associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostDeleteSignatoriesError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDeleteSignatories(
     request: Verification.PostDeleteSignatoriesRequest,
     options?: RequestOptions,
@@ -182,8 +289,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/deleteSignatories"),
+        urlTemplate: this.#servers.default10("/deleteSignatories"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -198,6 +308,23 @@ export class Verification {
     );
   }
 
+  /**
+   * Get documents
+   *
+   * @remarks
+   * Returns documents that were previously uploaded for an account holder. Adyen uses the documents
+   * during the [verification
+   * process](https://docs.adyen.com/classic-platforms/verification-process).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostGetUploadedDocumentsError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGetUploadedDocuments(
     request: Verification.PostGetUploadedDocumentsRequest,
     options?: RequestOptions,
@@ -205,8 +332,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/getUploadedDocuments"),
+        urlTemplate: this.#servers.default10("/getUploadedDocuments"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -221,6 +351,22 @@ export class Verification {
     );
   }
 
+  /**
+   * Upload a document
+   *
+   * @remarks
+   * Uploads a document for an account holder. Adyen uses the documents during the [verification
+   * process](https://docs.adyen.com/classic-platforms/verification-process).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Verification.PostUploadDocumentError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postUploadDocument(
     request: Verification.PostUploadDocumentRequest,
     options?: RequestOptions,
@@ -228,8 +374,11 @@ export class Verification {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/uploadDocument"),
+        urlTemplate: this.#servers.default10("/uploadDocument"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -250,13 +399,15 @@ export namespace Verification {
     body?: PerformVerificationRequest;
   };
 
-  export class PostCheckAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCheckAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCheckAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -270,13 +421,15 @@ export namespace Verification {
     body?: DeleteBankAccountRequest;
   };
 
-  export class PostDeleteBankAccountsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeleteBankAccountsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeleteBankAccountsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -290,13 +443,15 @@ export namespace Verification {
     body?: DeleteLegalArrangementRequest;
   };
 
-  export class PostDeleteLegalArrangementsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeleteLegalArrangementsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeleteLegalArrangementsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -310,13 +465,15 @@ export namespace Verification {
     body?: DeletePayoutMethodRequest;
   };
 
-  export class PostDeletePayoutMethodsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeletePayoutMethodsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeletePayoutMethodsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -330,13 +487,15 @@ export namespace Verification {
     body?: DeleteShareholderRequest;
   };
 
-  export class PostDeleteShareholdersError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeleteShareholdersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeleteShareholdersError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -350,13 +509,15 @@ export namespace Verification {
     body?: DeleteSignatoriesRequest;
   };
 
-  export class PostDeleteSignatoriesError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostDeleteSignatoriesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostDeleteSignatoriesError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -370,13 +531,15 @@ export namespace Verification {
     body?: GetUploadedDocumentsRequest;
   };
 
-  export class PostGetUploadedDocumentsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetUploadedDocumentsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetUploadedDocumentsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -390,13 +553,15 @@ export namespace Verification {
     body?: UploadDocumentRequest;
   };
 
-  export class PostUploadDocumentError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostUploadDocumentError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostUploadDocumentError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },

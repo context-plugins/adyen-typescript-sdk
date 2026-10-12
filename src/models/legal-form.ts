@@ -1,6 +1,20 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The form of legal arrangement. Required if `type` is **Trust** or **Partnership**.
+ *
+ * The possible values depend on the `type`.
+ *
+ * - For `type` **Trust**: **CashManagementTrust**, **CorporateUnitTrust**, **DeceasedEstate**,
+ *   **DiscretionaryInvestmentTrust**, **DiscretionaryServicesManagementTrust**,
+ *   **DiscretionaryTradingTrust**, **FirstHomeSaverAccountsTrust**, **FixedTrust**,
+ *   **FixedUnitTrust**, **HybridTrust**, **ListedPublicUnitTrust**, **OtherTrust**,
+ *   **PooledSuperannuationTrust**, **PublicTradingTrust**, or **UnlistedPublicUnitTrust**.
+ *
+ * - For `type` **Partnership**: **LimitedPartnership**, **FamilyPartnership**, or
+ *   **OtherPartnership**
+ */
 export const LegalForm = {
   CashManagementTrust: "CashManagementTrust",
   CorporateUnitTrust: "CorporateUnitTrust",

@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the check.
+ *
+ * Possible values: **AWAITING_DATA** , **DATA_PROVIDED**, **FAILED**, **INVALID_DATA**, **PASSED**,
+ * **PENDING**, **RETRY_LIMIT_REACHED**.
+ */
 export const Status32 = {
   AwaitingData: "AWAITING_DATA",
   DataProvided: "DATA_PROVIDED",

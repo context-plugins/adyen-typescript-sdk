@@ -4,13 +4,24 @@ import { nameSchema, type Name } from "./name.js";
 import { storeLocationSchema, type StoreLocation } from "./store-location.js";
 import { viasPhoneNumberSchema, type ViasPhoneNumber } from "./vias-phone-number.js";
 
+/** The delivery contact (name and address) for physical card delivery. */
 export type DeliveryContact1 = {
+  /** The address of the contact. */
   address: StoreLocation;
+  /** The company name of the contact. */
   company?: string;
+  /** The email address of the contact. */
   email?: string;
+  /**
+   * The full phone number of the contact provided as a single string. It will be handled as a
+   * landline phone. **Examples:** "0031 6 11 22 33 44", "+316/1122-3344", "(0031) 611223344"
+   */
   fullPhoneNumber?: string;
+  /** The name of the contact. */
   name: Name;
+  /** The phone number of the contact. */
   phoneNumber?: ViasPhoneNumber;
+  /** The URL of the contact's website. */
   webAddress?: string;
 };
 

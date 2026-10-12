@@ -5,6 +5,7 @@ import { linksElement6Schema, type LinksElement6 } from "./links-element6.js";
 
 export type MerchantLinks = {
   apiCredentials?: LinksElement;
+  /** Link to the resource itself. */
   self: LinksElement6;
   users?: LinksElement;
   webhooks?: LinksElement;

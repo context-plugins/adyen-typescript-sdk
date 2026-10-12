@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The reason for updating the status of the payment instrument.
+ *
+ * Possible values: **lost**, **stolen**, **damaged**, **suspectedFraud**, **expired**,
+ * **endOfLife**, **accountClosure**, **other**. If the reason is **other**, you must also send the
+ * `statusComment` parameter describing the status change.
+ */
 export const StatusReason2 = {
   AccountClosure: "accountClosure",
   Damaged: "damaged",

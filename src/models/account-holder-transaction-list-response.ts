@@ -4,9 +4,13 @@ import { accountTransactionListSchema, type AccountTransactionList } from "./acc
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type AccountHolderTransactionListResponse = {
+  /** A list of the transactions. */
   accountTransactionLists?: AccountTransactionList[];
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

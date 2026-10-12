@@ -7,9 +7,13 @@ import {
 } from "./notification-configuration-details2.js";
 
 export type GetNotificationConfigurationResponse = {
+  /** Details of the notification subscription configuration. */
   configurationDetails: NotificationConfigurationDetails2;
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

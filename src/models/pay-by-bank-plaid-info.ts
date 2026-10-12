@@ -6,7 +6,16 @@ import {
 } from "./transaction-description-info1.js";
 
 export type PayByBankPlaidInfo = {
+  /**
+   * Merchant logo (max. size 150kB). Format: Base64-encoded string.
+   *
+   * @deprecated
+   */
   logo?: string;
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

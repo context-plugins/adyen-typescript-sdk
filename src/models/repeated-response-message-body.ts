@@ -8,11 +8,35 @@ import { reversalResponseSchema, type ReversalResponse } from "./reversal-respon
 import { storedValueResponseSchema, type StoredValueResponse } from "./stored-value-response.js";
 
 export type RepeatedResponseMessageBody = {
+  /**
+   * It conveys Information related to the Loyalty transaction processed by the POI System. Content
+   * of the Loyalty Response message.
+   */
   loyaltyResponse?: LoyaltyResponse;
+  /**
+   * It conveys Information related to the Payment transaction processed by the POI System. Content
+   * of the Payment Response message.
+   */
   paymentResponse?: PaymentResponse4;
+  /**
+   * It conveys Information related to the reversal processed by the POI System. Content of the
+   * Reversal Response message.
+   */
   reversalResponse?: ReversalResponse;
+  /**
+   * It conveys Information related to the Stored Value transaction processed by the POI System.
+   * Content of the Stored Value Response message.
+   */
   storedValueResponse?: StoredValueResponse;
+  /**
+   * It conveys Information related to the payment and loyalty cards read and processed by the POI
+   * System and entered by the Customer. Content of the Card Acquisition Response message.
+   */
   cardAcquisitionResponse?: CardAcquisitionResponse;
+  /**
+   * Content of the Card Reader APDU Response message. It contains the result of the requested
+   * service, APDU response sent by the chip of the card in response to the APDU request.
+   */
   cardReaderApduResponse?: CardReaderApduResponse;
 };
 

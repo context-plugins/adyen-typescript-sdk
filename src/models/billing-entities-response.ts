@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { billingEntitySchema, type BillingEntity } from "./billing-entity.js";
 
 export type BillingEntitiesResponse = {
+  /** List of legal entities that can be used for the billing of orders. */
   data?: BillingEntity[];
 };
 

@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/**
+ * The merchant account that the webhook is configured for. Only present for merchant-level
+ * webhooks.
+ */
 export type LinksElement17 = {
   href?: string;
 };

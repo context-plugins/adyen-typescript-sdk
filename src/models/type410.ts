@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Type of phone number. Possible values: **Landline**, **Mobile**. */
 export const Type410 = {
   Landline: "landline",
   Mobile: "mobile",

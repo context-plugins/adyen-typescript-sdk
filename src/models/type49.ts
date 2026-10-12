@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **riverty**
+ */
 export const Type49 = {
   Riverty: "riverty",
   RivertyAccount: "riverty_account",

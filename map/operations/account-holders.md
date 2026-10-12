@@ -4,7 +4,7 @@
 
 Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` · 16 operations · Request and error types: namespace `AccountHolders`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getAccountHoldersId
 
@@ -14,7 +14,7 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `AccountHolder`
-- **Error**: `AccountHolders.GetAccountHoldersIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.GetAccountHoldersIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.GetAccountHoldersIdRequest` (1):
@@ -36,7 +36,7 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PaginatedBalanceAccountsResponse`
-- **Error**: `AccountHolders.GetAccountHoldersIdBalanceAccountsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.GetAccountHoldersIdBalanceAccountsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.GetAccountHoldersIdBalanceAccountsRequest` (3):
@@ -55,12 +55,12 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 ### getAccountHoldersIdTaxFormSummary
 
 - **Server**: `default13` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `getAccountHoldersIdTaxFormSummary(request: AccountHolders.GetAccountHoldersIdTaxFormSummaryRequest, options?: RequestOptions): ApiPromise<TaxFormSummaryResponse, ResponseError>`
+- **Signature**: `getAccountHoldersIdTaxFormSummary(request: AccountHolders.GetAccountHoldersIdTaxFormSummaryRequest, options?: RequestOptions): ApiPromise<TaxFormSummaryResponse, ApiError>`
 - **Wire**: `GET /accountHolders/{id}/taxFormSummary`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TaxFormSummaryResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AccountHolders.GetAccountHoldersIdTaxFormSummaryRequest` (2):
 
@@ -81,7 +81,7 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GetTaxFormResponse1`
-- **Error**: `AccountHolders.GetAccountHoldersIdTaxFormsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.GetAccountHoldersIdTaxFormsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [404] `RestServiceError` · `"restServiceError5"` [422] `RestServiceError` · `"restServiceError6"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.GetAccountHoldersIdTaxFormsRequest` (4):
@@ -107,7 +107,7 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransactionRulesResponse`
-- **Error**: `AccountHolders.GetAccountHoldersIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.GetAccountHoldersIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.GetAccountHoldersIdTransactionRulesRequest` (1):
@@ -127,9 +127,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `patchAccountHoldersId(request: AccountHolders.PatchAccountHoldersIdRequest, options?: RequestOptions): ApiPromise<AccountHolder, AccountHolders.PatchAccountHoldersIdError>`
 - **Wire**: `PATCH /accountHolders/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AccountHolder`
-- **Error**: `AccountHolders.PatchAccountHoldersIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PatchAccountHoldersIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PatchAccountHoldersIdRequest` (2):
@@ -151,9 +152,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postAccountHolders(request: AccountHolders.PostAccountHoldersRequest, options?: RequestOptions): ApiPromise<AccountHolder, AccountHolders.PostAccountHoldersError>`
 - **Wire**: `POST /accountHolders`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AccountHolder`
-- **Error**: `AccountHolders.PostAccountHoldersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostAccountHoldersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostAccountHoldersRequest` (1):
@@ -174,9 +176,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postCloseAccountHolder(request: AccountHolders.PostCloseAccountHolderRequest, options?: RequestOptions): ApiPromise<CloseAccountHolderResponse, AccountHolders.PostCloseAccountHolderError>`
 - **Wire**: `POST /closeAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CloseAccountHolderResponse`
-- **Error**: `AccountHolders.PostCloseAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostCloseAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostCloseAccountHolderRequest` (1):
@@ -197,9 +200,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postCloseStores(request: AccountHolders.PostCloseStoresRequest, options?: RequestOptions): ApiPromise<GenericResponse, AccountHolders.PostCloseStoresError>`
 - **Wire**: `POST /closeStores`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `AccountHolders.PostCloseStoresError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostCloseStoresError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostCloseStoresRequest` (1):
@@ -220,9 +224,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postCreateAccountHolder(request: AccountHolders.PostCreateAccountHolderRequest, options?: RequestOptions): ApiPromise<CreateAccountHolderResponse, AccountHolders.PostCreateAccountHolderError>`
 - **Wire**: `POST /createAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreateAccountHolderResponse`
-- **Error**: `AccountHolders.PostCreateAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostCreateAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostCreateAccountHolderRequest` (1):
@@ -243,9 +248,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postGetAccountHolder(request: AccountHolders.PostGetAccountHolderRequest, options?: RequestOptions): ApiPromise<GetAccountHolderResponse, AccountHolders.PostGetAccountHolderError>`
 - **Wire**: `POST /getAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetAccountHolderResponse`
-- **Error**: `AccountHolders.PostGetAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostGetAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostGetAccountHolderRequest` (1):
@@ -266,9 +272,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postGetTaxForm(request: AccountHolders.PostGetTaxFormRequest, options?: RequestOptions): ApiPromise<GetTaxFormResponse, AccountHolders.PostGetTaxFormError>`
 - **Wire**: `POST /getTaxForm`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetTaxFormResponse`
-- **Error**: `AccountHolders.PostGetTaxFormError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostGetTaxFormError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostGetTaxFormRequest` (1):
@@ -289,9 +296,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postSuspendAccountHolder(request: AccountHolders.PostSuspendAccountHolderRequest, options?: RequestOptions): ApiPromise<SuspendAccountHolderResponse, AccountHolders.PostSuspendAccountHolderError>`
 - **Wire**: `POST /suspendAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `SuspendAccountHolderResponse`
-- **Error**: `AccountHolders.PostSuspendAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostSuspendAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostSuspendAccountHolderRequest` (1):
@@ -312,9 +320,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postUnSuspendAccountHolder(request: AccountHolders.PostUnSuspendAccountHolderRequest, options?: RequestOptions): ApiPromise<UnSuspendAccountHolderResponse, AccountHolders.PostUnSuspendAccountHolderError>`
 - **Wire**: `POST /unSuspendAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UnSuspendAccountHolderResponse`
-- **Error**: `AccountHolders.PostUnSuspendAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostUnSuspendAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostUnSuspendAccountHolderRequest` (1):
@@ -335,9 +344,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postUpdateAccountHolder(request: AccountHolders.PostUpdateAccountHolderRequest, options?: RequestOptions): ApiPromise<UpdateAccountHolderResponse, AccountHolders.PostUpdateAccountHolderError>`
 - **Wire**: `POST /updateAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UpdateAccountHolderResponse`
-- **Error**: `AccountHolders.PostUpdateAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostUpdateAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostUpdateAccountHolderRequest` (1):
@@ -358,9 +368,10 @@ Accessor: `client.accountHolders` · Source: `src/resources/account-holders.ts` 
 - **Signature**: `postUpdateAccountHolderState(request: AccountHolders.PostUpdateAccountHolderStateRequest, options?: RequestOptions): ApiPromise<GetAccountHolderStatusResponse, AccountHolders.PostUpdateAccountHolderStateError>`
 - **Wire**: `POST /updateAccountHolderState`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetAccountHolderStatusResponse`
-- **Error**: `AccountHolders.PostUpdateAccountHolderStateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountHolders.PostUpdateAccountHolderStateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountHolders.PostUpdateAccountHolderStateRequest` (1):

@@ -6,6 +6,7 @@ import {
 } from "./test-card-range-creation-result.js";
 
 export type CreateTestCardRangesResult = {
+  /** The results of the test card creation. */
   rangeCreationResults: TestCardRangeCreationResult[];
 };
 

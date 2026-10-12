@@ -7,9 +7,13 @@ import {
 } from "./repeated-message-response2.js";
 import { response11Schema, type Response11 } from "./response11.js";
 
+/** Content of the TransactionStatus Response message. */
 export type TransactionStatusResponse2 = {
+  /** Result of a message request processing. */
   response: Response11;
+  /** Identification of a previous POI transaction. If `Response.Result` is Success. */
   messageReference?: MessageReference3;
+  /** Content of the requested Message Response. If Result is Success (process completed). */
   repeatedMessageResponse?: RepeatedMessageResponse2;
 };
 

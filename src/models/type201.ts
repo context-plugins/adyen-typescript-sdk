@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The type of the webhook you are configuring. Set to **balance**. */
 export const Type201 = {
   Balance: "balance",
 } as const;

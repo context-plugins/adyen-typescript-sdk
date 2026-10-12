@@ -1,6 +1,36 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Category of message. Possible values:
+ * * **Abort**
+ * * **Admin**
+ * * **BalanceInquiry**
+ * * **Batch**
+ * * **CardAcquisition**
+ * * **CardReaderInit**
+ * * **CardReaderPowerOff**
+ * * **Diagnosis**
+ * * **Display**
+ * * **EnableService**
+ * * **Event**
+ * * **GetTotals**
+ * * **Input**
+ * * **InputUpdate**
+ * * **Login**
+ * * **Logout**
+ * * **Loyalty**
+ * * **None**
+ * * **PIN**
+ * * **Payment**
+ * * **Print**
+ * * **Reconciliation**
+ * * **Reversal**
+ * * **Sound**
+ * * **StoredValue**
+ * * **TransactionStatus**
+ * * **Transmit**
+ */
 export const MessageCategory1 = {
   Abort: "Abort",
   Admin: "Admin",

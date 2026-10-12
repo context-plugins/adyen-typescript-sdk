@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of the document. Possible values: **ID**, **DRIVINGLICENSE**, **PASSPORT**,
+ * **SOCIALSECURITY**, **VISA**.
+ *
+ * To delete an existing entry for a document `type`, send only the `type` field in your request.
+ */
 export const Type15 = {
   Drivinglicense: "DRIVINGLICENSE",
   Id: "ID",

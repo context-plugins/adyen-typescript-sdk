@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **afterpay_default**
+ */
 export const Type2 = {
   AfterpayDefault: "afterpay_default",
   Afterpaytouch: "afterpaytouch",

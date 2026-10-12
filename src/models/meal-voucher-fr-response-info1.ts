@@ -1,9 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** **mealVoucher_FR** details */
 export type MealVoucherFrResponseInfo1 = {
+  /** Meal Voucher conecsId. */
   conecsId?: string;
+  /** Meal Voucher siret. */
   siret?: string;
+  /** The list of additional payment methods. */
   subTypes?: string[];
 };
 

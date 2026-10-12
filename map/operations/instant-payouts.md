@@ -4,7 +4,7 @@
 
 Accessor: `client.instantPayouts` · Source: `src/resources/instant-payouts.ts` · 1 operation · Request and error types: namespace `InstantPayouts`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postPayout
 
@@ -12,9 +12,10 @@ Accessor: `client.instantPayouts` · Source: `src/resources/instant-payouts.ts` 
 - **Signature**: `postPayout(request: InstantPayouts.PostPayoutRequest, options?: RequestOptions): ApiPromise<PayoutResponse, InstantPayouts.PostPayoutError>`
 - **Wire**: `POST /payout`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PayoutResponse`
-- **Error**: `InstantPayouts.PostPayoutError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `InstantPayouts.PostPayoutError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `InstantPayouts.PostPayoutRequest` (1):

@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Typographic style of the sequence of characters to display or print. Absence of this data element
+ * means the characters have normal style. Possible values:
+ * * **Bold**
+ * * **Italic**
+ * * **Normal**
+ * * **Underline**
+ */
 export const CharacterStyle1 = {
   Normal: "Normal",
   Bold: "Bold",

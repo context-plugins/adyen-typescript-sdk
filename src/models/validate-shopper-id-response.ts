@@ -3,7 +3,9 @@ import type { Schema } from "../core/validation/schema.js";
 import { result1Schema, type Result1 } from "./result1.js";
 
 export type ValidateShopperIdResponse = {
+  /** Reason for the result. */
   reason?: string;
+  /** Result of the validation. Ex: valid, invalid, unknown */
   result?: Result1;
 };
 

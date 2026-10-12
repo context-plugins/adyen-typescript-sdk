@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **vipps**
+ */
 export const Type54 = {
   Vipps: "vipps",
 } as const;

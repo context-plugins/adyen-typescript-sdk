@@ -3,9 +3,13 @@ import type { Schema } from "../core/validation/schema.js";
 import { poiSystemData1Schema, type PoiSystemData1 } from "./poi-system-data1.js";
 import { response11Schema, type Response11 } from "./response11.js";
 
+/** Content of the Login Response message. */
 export type LoginResponse2 = {
+  /** Result of a message request processing. */
   response: Response11;
+  /** Information related to the POI System. Returned if the response result is Success. */
   poiSystemData?: PoiSystemData1;
+  /** If token is managed by the POI, the status of the token request. */
   tokenRequestStatus?: boolean;
 };
 

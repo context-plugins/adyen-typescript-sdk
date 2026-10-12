@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The text shown on the payment terminal, either the name or the cause of the nonprofit
+ * organization.
+ */
 export const DisplayTextField2 = {
   CauseName: "causeName",
   NonprofitName: "nonprofitName",

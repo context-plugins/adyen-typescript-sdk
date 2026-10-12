@@ -8,19 +8,50 @@ import { undefinedBeneficiarySchema, type UndefinedBeneficiary } from "./undefin
 import { vatAbsenceReason1Schema, type VatAbsenceReason1 } from "./vat-absence-reason1.js";
 
 export type Trust = {
+  /**
+   * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+   * country code of the governing country.
+   */
   countryOfGoverningLaw: string;
+  /** The date when the legal arrangement was incorporated in YYYY-MM-DD format. */
   dateOfIncorporation?: string;
+  /** A short description about the trust. Only applicable for charitable trusts in New Zealand. */
   description?: string;
+  /** The registered name, if different from the `name`. */
   doingBusinessAs?: string;
+  /** Set this to **true** if the legal arrangement does not have a `Doing business as` name. */
   doingBusinessAsAbsent?: boolean | null;
+  /** The legal name. */
   name: string;
+  /**
+   * The business address. Required if the principal place of business is different from the
+   * `registeredAddress`.
+   */
   principalPlaceOfBusiness?: Address41;
+  /** The address registered at the registrar, such as the Chamber of Commerce. */
   registeredAddress: Address51;
+  /** The registration number. */
   registrationNumber?: string;
+  /** The tax information of the entity. */
   taxInformation?: TaxInformation[];
+  /**
+   * Type of trust.
+   *
+   * See possible values for trusts in
+   * [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-australia)
+   * and [New
+   * Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-new-zealand).
+   */
   type: Type171;
+  /** The undefined beneficiary information of the entity. */
   undefinedBeneficiaryInfo?: UndefinedBeneficiary[];
+  /**
+   * The reason for not providing a VAT number.
+   *
+   * Possible values: **industryExemption**, **belowTaxThreshold**.
+   */
   vatAbsenceReason?: VatAbsenceReason1;
+  /** The VAT number. */
   vatNumber?: string;
 };
 

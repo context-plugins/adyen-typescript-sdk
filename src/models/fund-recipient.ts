@@ -7,17 +7,42 @@ import { subMerchant2Schema, type SubMerchant2 } from "./sub-merchant2.js";
 import { walletPurposeSchema, type WalletPurpose } from "./wallet-purpose.js";
 
 export type FundRecipient = {
+  /** The IBAN of the bank account where the funds are being transferred to. */
   iban?: string;
+  /** The address where to send the invoice. */
   billingAddress?: Address3;
+  /** The payment method used by the shopper. */
   paymentMethod?: CardDetails1;
+  /** The email address of the shopper. */
   shopperEmail?: string;
+  /** The name of the shopper. */
   shopperName?: Name2;
+  /**
+   * Required for recurring payments. Your reference to uniquely identify this shopper, for example
+   * user ID or account ID. The value is case-sensitive and must be at least three characters. >
+   * Your reference must not include personally identifiable information (PII) such as name or email
+   * address.
+   */
   shopperReference?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /**
+   * Required for back-to-back/purchase-driven-load transactions, where the funds are taken from the
+   * shopper's stored card when the wallet balance is insufficient. The final merchant who will
+   * receive the money, also known as a
+   * [sub-merchant](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#submerchant).
+   */
   subMerchant?: SubMerchant2;
+  /** The telephone number of the shopper. */
   telephoneNumber?: string;
+  /**
+   * The unique identifier for the wallet the funds are being transferred to. You can use the
+   * shopper reference or any other identifier.
+   */
   walletIdentifier?: string;
+  /** The tax identifier of the person receiving the funds. */
   walletOwnerTaxId?: string;
+  /** The purpose of a digital wallet transaction. */
   walletPurpose?: WalletPurpose;
 };
 

@@ -4,7 +4,7 @@
 
 Accessor: `client.terminalActionsCompanyLevel` · Source: `src/resources/terminal-actions-company-level.ts` · 2 operations · Request and error types: namespace `TerminalActionsCompanyLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getCompaniesCompanyIdTerminalActions
 
@@ -14,7 +14,7 @@ Accessor: `client.terminalActionsCompanyLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListExternalTerminalActionsResponse`
-- **Error**: `TerminalActionsCompanyLevel.GetCompaniesCompanyIdTerminalActionsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalActionsCompanyLevel.GetCompaniesCompanyIdTerminalActionsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalActionsCompanyLevel.GetCompaniesCompanyIdTerminalActionsRequest` (5):
@@ -40,7 +40,7 @@ Accessor: `client.terminalActionsCompanyLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ExternalTerminalAction`
-- **Error**: `TerminalActionsCompanyLevel.GetCompaniesCompanyIdTerminalActionsActionIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalActionsCompanyLevel.GetCompaniesCompanyIdTerminalActionsActionIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalActionsCompanyLevel.GetCompaniesCompanyIdTerminalActionsActionIdRequest` (2):

@@ -1,8 +1,10 @@
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
+import * as s from "../core/validation/index.js";
 import {
   defaultErrorResponseEntitySchema,
   type DefaultErrorResponseEntity,
@@ -39,6 +41,22 @@ export class IDealProfiles {
     this.#servers = servers;
   }
 
+  /**
+   * Manage an iDEAL profile
+   *
+   * @remarks
+   * Manage an already registered iDEAL profile. Generates a redirection URL to manage the iDEAL
+   * profile linked to the account holder from the request.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link IDealProfiles.PostIdealProfileAuthLinkError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postIdealProfileAuthLink(
     request: IDealProfiles.PostIdealProfileAuthLinkRequest,
     options?: RequestOptions,
@@ -46,8 +64,11 @@ export class IDealProfiles {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default20("/ideal/profile/auth-link"),
+        urlTemplate: this.#servers.default20("/ideal/profile/auth-link"),
         auth: noneAuth,
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: idealAuthLinkRequestSchema },
       },
       {
@@ -58,6 +79,22 @@ export class IDealProfiles {
     );
   }
 
+  /**
+   * Authenticate iDEAL profile
+   *
+   * @remarks
+   * Generates an redirection URL to finish the authentication flow when requested by iDEAL. Before
+   * calling this endpoint, make sure that your user has completed multi-factor authentication.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link IDealProfiles.PostIdealProfileAuthenticateError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postIdealProfileAuthenticate(
     request: IDealProfiles.PostIdealProfileAuthenticateRequest,
     options?: RequestOptions,
@@ -65,8 +102,11 @@ export class IDealProfiles {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default20("/ideal/profile/authenticate"),
+        urlTemplate: this.#servers.default20("/ideal/profile/authenticate"),
         auth: noneAuth,
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: idealAuthenticateRequestSchema },
       },
       {
@@ -77,6 +117,23 @@ export class IDealProfiles {
     );
   }
 
+  /**
+   * Register an iDEAL profile
+   *
+   * @remarks
+   * Register a new iDEAL profile. The profile is linked to the account holder and payment
+   * instruments included in the request. The user must be redirected to the URL in the response to
+   * finish their IDEAL profile registration.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link IDealProfiles.PostIdealProfileRegisterError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postIdealProfileRegister(
     request: IDealProfiles.PostIdealProfileRegisterRequest,
     options?: RequestOptions,
@@ -84,8 +141,11 @@ export class IDealProfiles {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default20("/ideal/profile/register"),
+        urlTemplate: this.#servers.default20("/ideal/profile/register"),
         auth: noneAuth,
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: profileRegistrationRequestSchema },
       },
       {
@@ -102,11 +162,13 @@ export namespace IDealProfiles {
     body: IdealAuthLinkRequest;
   };
 
-  export class PostIdealProfileAuthLinkError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class PostIdealProfileAuthLinkError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PostIdealProfileAuthLinkError> = [
       {
         on: 400,
@@ -130,11 +192,13 @@ export namespace IDealProfiles {
     body: IdealAuthenticateRequest;
   };
 
-  export class PostIdealProfileAuthenticateError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class PostIdealProfileAuthenticateError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PostIdealProfileAuthenticateError> = [
       {
         on: 400,
@@ -158,11 +222,13 @@ export namespace IDealProfiles {
     body: ProfileRegistrationRequest;
   };
 
-  export class PostIdealProfileRegisterError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class PostIdealProfileRegisterError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PostIdealProfileRegisterError> = [
       {
         on: 400,

@@ -5,8 +5,18 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/** Details to provide if `type` is **carnet**. */
 export type CarnetInfo1 = {
+  /**
+   * Indicates whether to add the MCC acronym to the merchant name for Prosa acquirer in Mexico.
+   * When set to **true**, the MCC acronym is automatically appended to the merchant name. Default:
+   * **false**.
+   */
   addMccAcronym?: boolean;
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

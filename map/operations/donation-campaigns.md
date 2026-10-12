@@ -4,7 +4,7 @@
 
 Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaigns.ts` · 6 operations · Request and error types: namespace `DonationCampaigns`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteCompaniesCompanyIdCampaignManagementDonationCampaignId
 
@@ -13,8 +13,9 @@ Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaign
 - **Wire**: `DELETE /companies/{companyId}/campaignManagement/{donationCampaignId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `DonationCampaigns.DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DonationCampaigns.DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DonationCampaigns.DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaign
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListDonationCampaignsResponse`
-- **Error**: `DonationCampaigns.GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DonationCampaigns.GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DonationCampaigns.GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdRequest` (5):
@@ -60,9 +61,10 @@ Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaign
 - **Signature**: `patchCompaniesCompanyIdCampaignManagementDonationCampaignId(request: DonationCampaigns.PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest, options?: RequestOptions): ApiPromise<DonationCampaign1, DonationCampaigns.PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError>`
 - **Wire**: `PATCH /companies/{companyId}/campaignManagement/{donationCampaignId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DonationCampaign1`
-- **Error**: `DonationCampaigns.PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DonationCampaigns.PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DonationCampaigns.PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdRequest` (3):
@@ -85,9 +87,10 @@ Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaign
 - **Signature**: `postCompaniesCompanyIdCampaignManagement(request: DonationCampaigns.PostCompaniesCompanyIdCampaignManagementRequest, options?: RequestOptions): ApiPromise<DonationCampaign1, DonationCampaigns.PostCompaniesCompanyIdCampaignManagementError>`
 - **Wire**: `POST /companies/{companyId}/campaignManagement`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DonationCampaign1`
-- **Error**: `DonationCampaigns.PostCompaniesCompanyIdCampaignManagementError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DonationCampaigns.PostCompaniesCompanyIdCampaignManagementError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DonationCampaigns.PostCompaniesCompanyIdCampaignManagementRequest` (2):
@@ -110,8 +113,9 @@ Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaign
 - **Wire**: `POST /companies/{companyId}/campaignManagement/{donationCampaignId}/status/{status}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DonationCampaign1`
-- **Error**: `DonationCampaigns.PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DonationCampaigns.PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DonationCampaigns.PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusRequest` (3):
@@ -134,9 +138,10 @@ Accessor: `client.donationCampaigns` · Source: `src/resources/donation-campaign
 - **Signature**: `postCompaniesCompanyIdNonprofits(request: DonationCampaigns.PostCompaniesCompanyIdNonprofitsRequest, options?: RequestOptions): ApiPromise<ListNonprofitsResponse, DonationCampaigns.PostCompaniesCompanyIdNonprofitsError>`
 - **Wire**: `POST /companies/{companyId}/nonprofits`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ListNonprofitsResponse`
-- **Error**: `DonationCampaigns.PostCompaniesCompanyIdNonprofitsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DonationCampaigns.PostCompaniesCompanyIdNonprofitsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DonationCampaigns.PostCompaniesCompanyIdNonprofitsRequest` (6):

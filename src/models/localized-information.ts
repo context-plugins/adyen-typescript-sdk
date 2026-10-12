@@ -3,6 +3,11 @@ import type { Schema } from "../core/validation/schema.js";
 import { localShopperStatementSchema, type LocalShopperStatement } from "./local-shopper-statement.js";
 
 export type LocalizedInformation = {
+  /**
+   * An array of local shopper statements. Card schemes use this in the bank statement.
+   *
+   * For Japan local shopper statements in both ja-Hani and ja-Kana are required.
+   */
   localShopperStatement: LocalShopperStatement[];
 };
 

@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of Loyalty processing requested by the Sale System. Possible values:
+ * * **Allowed**
+ * * **Forbidden**
+ * * **Processed**
+ * * **Proposed**
+ * * **Required**
+ */
 export const LoyaltyHandling1 = {
   Forbidden: "Forbidden",
   Processed: "Processed",

@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { href5Schema, type Href5 } from "./href5.js";
 
 export type ProfileRegistrationResponse = {
+  /** A short-lived URL that redirects the user to the iDEAL profile registration page. */
   redirectUrl?: Href5;
 };
 

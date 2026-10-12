@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **OK**
+ * * **Busy**
+ * * **Maintenance**
+ * * **Unreachable**
+ */
 export const GlobalStatus = {
   Ok: "OK",
   Busy: "Busy",

@@ -4,16 +4,17 @@
 
 Accessor: `client.recurringApi` · Source: `src/resources/recurring-api.ts` · 4 operations · Request types: namespace `RecurringApi`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteStoredPaymentMethodsStoredPaymentMethodId
 
-- **Signature**: `deleteStoredPaymentMethodsStoredPaymentMethodId(request: RecurringApi.DeleteStoredPaymentMethodsStoredPaymentMethodIdRequest, options?: RequestOptions): ApiPromise<undefined, ResponseError>`
+- **Signature**: `deleteStoredPaymentMethodsStoredPaymentMethodId(request: RecurringApi.DeleteStoredPaymentMethodsStoredPaymentMethodIdRequest, options?: RequestOptions): ApiPromise<undefined, ApiError>`
 - **Wire**: `DELETE /storedPaymentMethods/{storedPaymentMethodId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `RecurringApi.DeleteStoredPaymentMethodsStoredPaymentMethodIdRequest` (3):
 
@@ -25,12 +26,12 @@ Accessor: `client.recurringApi` · Source: `src/resources/recurring-api.ts` · 4
 
 ### getStoredPaymentMethods
 
-- **Signature**: `getStoredPaymentMethods(request: RecurringApi.GetStoredPaymentMethodsRequest, options?: RequestOptions): ApiPromise<ListStoredPaymentMethodsResponse, ResponseError>`
+- **Signature**: `getStoredPaymentMethods(request: RecurringApi.GetStoredPaymentMethodsRequest, options?: RequestOptions): ApiPromise<ListStoredPaymentMethodsResponse, ApiError>`
 - **Wire**: `GET /storedPaymentMethods`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListStoredPaymentMethodsResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `RecurringApi.GetStoredPaymentMethodsRequest` (2):
 
@@ -45,12 +46,12 @@ Accessor: `client.recurringApi` · Source: `src/resources/recurring-api.ts` · 4
 
 ### postForward
 
-- **Signature**: `postForward(request: RecurringApi.PostForwardRequest, options?: RequestOptions): ApiPromise<CheckoutForwardResponse, ResponseError>`
+- **Signature**: `postForward(request: RecurringApi.PostForwardRequest, options?: RequestOptions): ApiPromise<CheckoutForwardResponse, ApiError>`
 - **Wire**: `POST /forward`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `CheckoutForwardResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `RecurringApi.PostForwardRequest` (2):
 
@@ -66,12 +67,12 @@ Accessor: `client.recurringApi` · Source: `src/resources/recurring-api.ts` · 4
 
 ### postStoredPaymentMethods
 
-- **Signature**: `postStoredPaymentMethods(request: RecurringApi.PostStoredPaymentMethodsRequest, options?: RequestOptions): ApiPromise<StoredPaymentMethodResource, ResponseError>`
+- **Signature**: `postStoredPaymentMethods(request: RecurringApi.PostStoredPaymentMethodsRequest, options?: RequestOptions): ApiPromise<StoredPaymentMethodResource, ApiError>`
 - **Wire**: `POST /storedPaymentMethods`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `StoredPaymentMethodResource`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `RecurringApi.PostStoredPaymentMethodsRequest` (2):
 

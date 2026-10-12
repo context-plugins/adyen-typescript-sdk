@@ -1,6 +1,27 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Event the POI notifies to the Sale System. Possible values:
+ * * **Abort**
+ * * **BeginMaintenance**
+ * * **CardInserted**
+ * * **CardRemoved**
+ * * **Completed**
+ * * **CustomerLanguage**
+ * * **EndMaintenance**
+ * * **Initialised**
+ * * **KeyPressed**
+ * * **OutOfOrder**
+ * * **Reject**
+ * * **SaleAdmin**
+ * * **SaleWakeUp**
+ * * **ScanBarcodeResult**
+ * * **SecurityAlarm**
+ * * **Shutdown**
+ * * **StopAssistance**
+ * * **UseAnotherCardForPreauth**
+ */
 export const EventToNotify1 = {
   BeginMaintenance: "BeginMaintenance",
   EndMaintenance: "EndMaintenance",

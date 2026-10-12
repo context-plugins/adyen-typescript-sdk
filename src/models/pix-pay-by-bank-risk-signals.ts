@@ -17,11 +17,11 @@ export type PixPayByBankRiskSignals = {
 export const pixPayByBankRiskSignalsSchema: Schema<PixPayByBankRiskSignals> =
   s.object<PixPayByBankRiskSignals>({
     confidenceScore: s.optional(s.lazy(() => confidenceScoreSchema)),
-    elapsedTimeSinceBoot: s.optional(s.number()),
+    elapsedTimeSinceBoot: s.optional(s.int()),
     isRootedDevice: s.optional(s.boolean()),
     language: s.optional(s.string()),
     osVersion: s.optional(s.string()),
-    screenBrightness: s.optional(s.number()),
+    screenBrightness: s.optional(s.int()),
     screenDimensions: s.optional(s.lazy(() => screenDimensionsSchema)),
-    userTimeZoneOffset: s.optional(s.number()),
+    userTimeZoneOffset: s.optional(s.int()),
   });

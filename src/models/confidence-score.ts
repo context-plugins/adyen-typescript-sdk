@@ -8,5 +8,5 @@ export type ConfidenceScore = {
 
 export const confidenceScoreSchema: Schema<ConfidenceScore> = s.object<ConfidenceScore>({
   errors: s.optional(s.array(s.string())),
-  score: s.optional(s.number()),
+  score: s.optional(s.float64()),
 });

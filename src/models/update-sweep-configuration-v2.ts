@@ -7,24 +7,146 @@ import { reasonSchema, type Reason } from "./reason.js";
 import { status6Schema, type Status6 } from "./status6.js";
 import { sweepCounterparty1Schema, type SweepCounterparty1 } from "./sweep-counterparty1.js";
 import { sweepSchedule1Schema, type SweepSchedule1 } from "./sweep-schedule1.js";
-import { type72Schema, type Type72 } from "./type72.js";
+import { Type72, type72Schema } from "./type72.js";
 
 export type UpdateSweepConfigurationV2 = {
+  /**
+   * The type of transfer that results from the sweep.
+   *
+   * Possible values:
+   *
+   *  - **bank**: Sweep to a [transfer
+   *    instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
+   *
+   * - **internal**: Transfer to another [balance
+   *   account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id)
+   *   within your platform.
+   *
+   * Required when setting `priorities`.
+   */
   category?: Category1;
+  /**
+   * The destination or the source of the funds, depending on the sweep `type`.
+   *
+   * Either a `balanceAccountId`, `transferInstrumentId`, or `merchantAccount` is required.
+   */
   counterparty?: SweepCounterparty1;
+  /**
+   * The three-character [ISO currency
+   * code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example,
+   * **EUR**.
+   *
+   * The sweep currency must match any of the [balances
+   * currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).
+   */
   currency?: string;
+  /**
+   * The message that will be used in the sweep transfer's description body with a maximum length of
+   * 140 characters.
+   *
+   * If the message is longer after replacing placeholders, the message will be cut off at 140
+   * characters.
+   */
   description?: string;
+  /** The unique identifier of the sweep. */
   id?: string;
+  /**
+   * The list of priorities for the bank transfer. This sets the speed at which the transfer is sent
+   * and the fees that you have to pay. You can provide multiple priorities, ordered by your
+   * preference. Adyen will try to pay out using the priorities in the given order. If the first
+   * priority is not currently supported or enabled for your platform, the system will try the next
+   * one, and so on.
+   *
+   * The request will be accepted as long as **at least one** of the provided priorities is valid
+   * (i.e., supported by Adyen and activated for your platform). For example, if you provide
+   * `["wire","regular"]`, and `wire` is not supported but `regular` is, the request will still be
+   * accepted and processed.
+   *
+   * Possible values:
+   *
+   * * **regular**: For normal, low-value transactions.
+   *
+   * * **fast**: A faster way to transfer funds, but the fees are higher. Recommended for
+   *   high-priority, low-value transactions.
+   *
+   * * **wire**: The fastest way to transfer funds, but this has the highest fees. Recommended for
+   *   high-priority, high-value transactions.
+   *
+   * * **instant**: For instant funds transfers within the United States and in [SEPA
+   *   locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).
+   *
+   * * **crossBorder**: For high-value transfers to a recipient in a different country.
+   *
+   * * **internal**: For transfers to an Adyen-issued business bank account (by bank account
+   *   number/IBAN).
+   *
+   * Set `category` to **bank**. For more details, see optional priorities setup for
+   * [marketplaces](https://docs.adyen.com/marketplaces/payout-to-users/scheduled-payouts#optional-priorities-setup)
+   * or
+   * [platforms](https://docs.adyen.com/platforms/payout-to-users/scheduled-payouts#optional-priorities-setup).
+   */
   priorities?: Priority1[];
+  /** The reason for disabling the sweep. */
   reason?: Reason;
+  /** The human readable reason for disabling the sweep. */
   reasonDetail?: string;
+  /** Your reference for the sweep configuration. */
   reference?: string;
+  /**
+   * The reference sent to or received from the counterparty. Only alphanumeric characters are
+   * allowed.
+   */
   referenceForBeneficiary?: string;
+  /**
+   * The schedule when the `triggerAmount` is evaluated. If the balance meets the threshold, funds
+   * are pushed out of or pulled in to the balance account.
+   */
   schedule?: SweepSchedule1;
+  /**
+   * The status of the sweep. If not provided, by default, this is set to **active**.
+   *
+   * Possible values:
+   *
+   *  * **active**: the sweep is enabled and funds will be pulled in or pushed out based on the
+   *    defined configuration.
+   *
+   *  * **inactive**: the sweep is disabled and cannot be triggered.
+   */
   status?: Status6;
+  /**
+   * The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or
+   * `targetAmount`, not both.
+   */
   sweepAmount?: Amount17;
+  /**
+   * The amount that must be available in the balance account after the sweep. You can configure
+   * either `sweepAmount` or `targetAmount`, not both.
+   */
   targetAmount?: Amount17;
+  /**
+   * The threshold amount that triggers the sweep. If not provided, by default, the amount is set to
+   * zero. The `triggerAmount` is evaluated according to the specified `schedule.type`.
+   *
+   * * For `type` **pull**, if the balance is less than or equal to the `triggerAmount`, funds are
+   *   pulled in to the balance account.
+   *
+   * * For `type` **push**, if the balance is more than or equal to the `triggerAmount`, funds are
+   *   pushed out of the balance account.
+   */
   triggerAmount?: Amount17;
+  /**
+   * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not
+   * provided, by default, this is set to **push**.
+   *
+   * Possible values:
+   *
+   *  * **push**: _push out funds_ to a destination balance account or transfer instrument.
+   *
+   *  * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance
+   *    account.
+   *
+   * @default Type72.Push
+   */
   type?: Type72;
 };
 
@@ -45,5 +167,5 @@ export const updateSweepConfigurationV2Schema: Schema<UpdateSweepConfigurationV2
     sweepAmount: s.optional(s.lazy(() => amount17Schema)),
     targetAmount: s.optional(s.lazy(() => amount17Schema)),
     triggerAmount: s.optional(s.lazy(() => amount17Schema)),
-    type: s.optional(s.lazy(() => type72Schema)),
+    type: s.defaulted(type72Schema, Type72.Push),
   });

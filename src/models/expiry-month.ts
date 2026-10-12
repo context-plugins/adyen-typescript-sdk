@@ -1,6 +1,23 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Expiry month for the test card range.
+ *
+ * Allowed values:
+ * * JANUARY
+ * * FEBRUARY
+ * * MARCH
+ * * APRIL
+ * * MAY
+ * * JUNE
+ * * JULY
+ * * AUGUST
+ * * SEPTEMBER
+ * * OCTOBER
+ * * NOVEMBER
+ * * DECEMBER
+ */
 export const ExpiryMonth = {
   April: "APRIL",
   August: "AUGUST",

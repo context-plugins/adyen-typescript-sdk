@@ -4,7 +4,7 @@
 
 Accessor: `client.balanceAccounts` · Source: `src/resources/balance-accounts.ts` · 5 operations · Request and error types: namespace `BalanceAccounts`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getBalanceAccountsId
 
@@ -14,7 +14,7 @@ Accessor: `client.balanceAccounts` · Source: `src/resources/balance-accounts.ts
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BalanceAccount`
-- **Error**: `BalanceAccounts.GetBalanceAccountsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalanceAccounts.GetBalanceAccountsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalanceAccounts.GetBalanceAccountsIdRequest` (1):
@@ -36,7 +36,7 @@ Accessor: `client.balanceAccounts` · Source: `src/resources/balance-accounts.ts
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PaginatedPaymentInstrumentsResponse`
-- **Error**: `BalanceAccounts.GetBalanceAccountsIdPaymentInstrumentsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalanceAccounts.GetBalanceAccountsIdPaymentInstrumentsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalanceAccounts.GetBalanceAccountsIdPaymentInstrumentsRequest` (4):
@@ -61,7 +61,7 @@ Accessor: `client.balanceAccounts` · Source: `src/resources/balance-accounts.ts
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransactionRulesResponse`
-- **Error**: `BalanceAccounts.GetBalanceAccountsIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalanceAccounts.GetBalanceAccountsIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalanceAccounts.GetBalanceAccountsIdTransactionRulesRequest` (1):
@@ -81,9 +81,10 @@ Accessor: `client.balanceAccounts` · Source: `src/resources/balance-accounts.ts
 - **Signature**: `patchBalanceAccountsId(request: BalanceAccounts.PatchBalanceAccountsIdRequest, options?: RequestOptions): ApiPromise<BalanceAccount, BalanceAccounts.PatchBalanceAccountsIdError>`
 - **Wire**: `PATCH /balanceAccounts/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BalanceAccount`
-- **Error**: `BalanceAccounts.PatchBalanceAccountsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalanceAccounts.PatchBalanceAccountsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalanceAccounts.PatchBalanceAccountsIdRequest` (2):
@@ -105,9 +106,10 @@ Accessor: `client.balanceAccounts` · Source: `src/resources/balance-accounts.ts
 - **Signature**: `postBalanceAccounts(request: BalanceAccounts.PostBalanceAccountsRequest, options?: RequestOptions): ApiPromise<BalanceAccount, BalanceAccounts.PostBalanceAccountsError>`
 - **Wire**: `POST /balanceAccounts`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BalanceAccount`
-- **Error**: `BalanceAccounts.PostBalanceAccountsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalanceAccounts.PostBalanceAccountsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalanceAccounts.PostBalanceAccountsRequest` (1):

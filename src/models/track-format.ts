@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Magnetic track or magnetic ink characters line. Possible values:
+ * * **ISO**
+ * * **JIS-I**
+ * * **JIS-II**
+ * * **AAMVA**
+ * * **CMC-7**
+ * * **E-13B**
+ */
 export const TrackFormat = {
   Iso: "ISO",
   JisI: "JIS-I",

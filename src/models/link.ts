@@ -3,10 +3,15 @@ import type { Schema } from "../core/validation/schema.js";
 import { linksElementSchema, type LinksElement } from "./links-element.js";
 
 export type Link = {
+  /** The link to the first page of the list. */
   first?: LinksElement;
+  /** The link to the last page of the list. */
   last?: LinksElement;
+  /** The link to the next page of the list. */
   next?: LinksElement;
+  /** The link to the previous page of the list. */
   previous?: LinksElement;
+  /** The link to the list page you are currently viewing. */
   self?: LinksElement;
 };
 

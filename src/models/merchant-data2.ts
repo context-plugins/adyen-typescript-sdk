@@ -2,11 +2,17 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { nameLocation2Schema, type NameLocation2 } from "./name-location2.js";
 
+/** Contains information about the merchant. */
 export type MerchantData2 = {
+  /** The unique identifier of the merchant's acquirer. */
   acquirerId?: string;
+  /** The merchant category code. */
   mcc?: string;
+  /** The unique identifier of the merchant. */
   merchantId?: string;
+  /** Contains the name and location of the merchant. */
   nameLocation?: NameLocation2;
+  /** The postal code of the merchant. */
   postalCode?: string;
 };
 

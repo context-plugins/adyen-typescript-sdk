@@ -3,8 +3,17 @@ import type { Schema } from "../core/validation/schema.js";
 import { testCardRangeSchema, type TestCardRange } from "./test-card-range.js";
 
 export type CreateTestCardRangesRequest = {
+  /** The code of the account, for which the test card ranges should be created. */
   accountCode: string;
+  /**
+   * The type of the account, for which the test card ranges should be created.
+   *
+   * Permitted values:
+   * * Company
+   * * MerchantAccount > These values are case-sensitive.
+   */
   accountTypeCode: string;
+  /** A list of test card ranges to create. */
   testCardRanges: TestCardRange[];
 };
 

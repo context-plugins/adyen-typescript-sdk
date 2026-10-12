@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of funds collection.
+ *
+ * Possible values: **UnscheduledRepayment**, **Revocation**.
+ */
 export const FundsCollectionType2 = {
   UnscheduledRepayment: "UnscheduledRepayment",
   Revocation: "Revocation",

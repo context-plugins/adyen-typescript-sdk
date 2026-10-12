@@ -5,6 +5,7 @@ import { internalCategoryDataSchema, type InternalCategoryData } from "../intern
 import { issuedCardSchema, type IssuedCard } from "../issued-card.js";
 import { platformPaymentSchema, type PlatformPayment } from "../platform-payment.js";
 
+/** The relevant data according to the transfer category. */
 export type CategoryData =
   | (IssuedCard & { type: "issuedCard" })
   | (PlatformPayment & { type: "platformPayment" })

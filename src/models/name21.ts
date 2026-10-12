@@ -2,7 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type Name21 = {
+  /** The first name. */
   firstName?: string;
+  /** The last name. */
   lastName?: string;
 };
 

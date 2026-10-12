@@ -5,8 +5,14 @@ import { originalPoiTransactionSchema, type OriginalPoiTransaction } from "./ori
 import { transactionConditionsSchema, type TransactionConditions } from "./transaction-conditions.js";
 
 export type PaymentTransaction = {
+  /** Various amounts related to the payment request from the Sale System. */
   amountsReq: AmountsReq;
+  /**
+   * Identification of a previous POI transaction. In the Payment Request message, it allows using
+   * the card of a previous CardAcquisition or Payment request.
+   */
   originalPoiTransaction?: OriginalPoiTransaction;
+  /** Conditions on which the transaction must be processed. */
   transactionConditions?: TransactionConditions;
 };
 

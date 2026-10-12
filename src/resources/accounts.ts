@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { closeAccountRequestSchema, type CloseAccountRequest } from "../models/close-account-request.js";
 import { closeAccountResponseSchema, type CloseAccountResponse } from "../models/close-account-response.js";
@@ -31,6 +32,23 @@ export class Accounts {
     this.#auth = auth;
   }
 
+  /**
+   * Close an account
+   *
+   * @remarks
+   * Closes an account. If an account is closed, you cannot process transactions, pay out its funds,
+   * or reopen it. If payments are made to a closed account, the payments are sent to your liable
+   * account.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Accounts.PostCloseAccountError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCloseAccount(
     request: Accounts.PostCloseAccountRequest,
     options?: RequestOptions,
@@ -38,8 +56,11 @@ export class Accounts {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/closeAccount"),
+        urlTemplate: this.#servers.default10("/closeAccount"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -54,6 +75,22 @@ export class Accounts {
     );
   }
 
+  /**
+   * Create an account
+   *
+   * @remarks
+   * Creates an account under an account holder. An account holder can have [multiple
+   * accounts](https://docs.adyen.com/classic-platforms/account-holders-and-accounts#create-additional-accounts).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Accounts.PostCreateAccountError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCreateAccount(
     request: Accounts.PostCreateAccountRequest,
     options?: RequestOptions,
@@ -61,8 +98,11 @@ export class Accounts {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/createAccount"),
+        urlTemplate: this.#servers.default10("/createAccount"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -77,6 +117,21 @@ export class Accounts {
     );
   }
 
+  /**
+   * Update an account
+   *
+   * @remarks
+   * Updates the description or payout schedule of an account.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Accounts.PostUpdateAccountError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postUpdateAccount(
     request: Accounts.PostUpdateAccountRequest,
     options?: RequestOptions,
@@ -84,8 +139,11 @@ export class Accounts {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/updateAccount"),
+        urlTemplate: this.#servers.default10("/updateAccount"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -106,13 +164,15 @@ export namespace Accounts {
     body?: CloseAccountRequest;
   };
 
-  export class PostCloseAccountError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCloseAccountError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCloseAccountError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -126,13 +186,15 @@ export namespace Accounts {
     body?: CreateAccountRequest;
   };
 
-  export class PostCreateAccountError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCreateAccountError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCreateAccountError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -146,13 +208,15 @@ export namespace Accounts {
     body?: UpdateAccountRequest;
   };
 
-  export class PostUpdateAccountError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostUpdateAccountError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostUpdateAccountError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },

@@ -4,10 +4,15 @@ import { address3Schema, type Address3 } from "./address3.js";
 import { name1Schema, type Name1 } from "./name1.js";
 
 export type FundOrigin = {
+  /** The address where to send the invoice. */
   billingAddress?: Address3;
+  /** The email address of the person funding the money. */
   shopperEmail?: string;
+  /** The name of the person funding the money. */
   shopperName?: Name1;
+  /** The phone number of the person funding the money. */
   telephoneNumber?: string;
+  /** The unique identifier of the wallet where the funds are coming from. */
   walletIdentifier?: string;
 };
 

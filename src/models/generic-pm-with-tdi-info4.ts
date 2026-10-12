@@ -5,7 +5,12 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/** Details to provide if `type` is **eftpos_australia**. */
 export type GenericPmWithTdiInfo4 = {
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

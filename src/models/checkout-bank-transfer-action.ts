@@ -3,20 +3,35 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount10Schema, type Amount10 } from "./amount10.js";
 
 export type CheckoutBankTransferAction = {
+  /** The account number of the bank transfer. */
   accountNumber?: string;
+  /** The bank code of the bank transfer. */
   bankCode?: string;
+  /** The name of the account holder. */
   beneficiary?: string;
+  /** The BIC of the IBAN. */
   bic?: string;
+  /** The branch code of the bank transfer. */
   branchCode?: string;
+  /** The url to download payment details with. */
   downloadUrl?: string;
+  /** The IBAN of the bank transfer. */
   iban?: string;
+  /** Specifies the payment method. */
   paymentMethodType?: string;
+  /** The transfer reference. */
   reference?: string;
+  /** The routing number of the bank transfer. */
   routingNumber?: string;
+  /** The e-mail of the shopper, included if an e-mail was sent to the shopper. */
   shopperEmail?: string;
+  /** The sort code of the bank transfer. */
   sortCode?: string;
+  /** The amount of the bank transfer. */
   totalAmount?: Amount10;
-  type: "bankTransfer";
+  /** The type of the action. @default "bankTransfer" */
+  type?: "bankTransfer";
+  /** Specifies the URL to redirect to. */
   url?: string;
 };
 
@@ -35,6 +50,6 @@ export const checkoutBankTransferActionSchema: Schema<CheckoutBankTransferAction
     shopperEmail: s.optional(s.string()),
     sortCode: s.optional(s.string()),
     totalAmount: s.optional(s.lazy(() => amount10Schema)),
-    type: s.literal("bankTransfer"),
+    type: s.defaulted(s.literal("bankTransfer"), "bankTransfer"),
     url: s.optional(s.string()),
   });

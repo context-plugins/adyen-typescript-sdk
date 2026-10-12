@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card
+ * in the terminal.
+ */
 export const Status31 = {
   Activated: "activated",
   Deactivated: "deactivated",

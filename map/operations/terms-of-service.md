@@ -4,7 +4,7 @@
 
 Accessor: `client.termsOfService` · Source: `src/resources/terms-of-service.ts` · 5 operations · Request and error types: namespace `TermsOfService`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereference
 
@@ -14,7 +14,7 @@ Accessor: `client.termsOfService` · Source: `src/resources/terms-of-service.ts`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GetAcceptedTermsOfServiceDocumentResponse`
-- **Error**: `TermsOfService.GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TermsOfService.GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TermsOfService.GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceRequest` (3):
@@ -38,7 +38,7 @@ Accessor: `client.termsOfService` · Source: `src/resources/terms-of-service.ts`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GetTermsOfServiceAcceptanceInfosResponse`
-- **Error**: `TermsOfService.GetLegalEntitiesIdTermsOfServiceAcceptanceInfosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TermsOfService.GetLegalEntitiesIdTermsOfServiceAcceptanceInfosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TermsOfService.GetLegalEntitiesIdTermsOfServiceAcceptanceInfosRequest` (1):
@@ -60,7 +60,7 @@ Accessor: `client.termsOfService` · Source: `src/resources/terms-of-service.ts`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `CalculateTermsOfServiceStatusResponse`
-- **Error**: `TermsOfService.GetLegalEntitiesIdTermsOfServiceStatusError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TermsOfService.GetLegalEntitiesIdTermsOfServiceStatusError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TermsOfService.GetLegalEntitiesIdTermsOfServiceStatusRequest` (1):
@@ -80,9 +80,10 @@ Accessor: `client.termsOfService` · Source: `src/resources/terms-of-service.ts`
 - **Signature**: `patchLegalEntitiesIdTermsOfServiceTermsofservicedocumentid(request: TermsOfService.PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidRequest, options?: RequestOptions): ApiPromise<AcceptTermsOfServiceResponse, TermsOfService.PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidError>`
 - **Wire**: `PATCH /legalEntities/{id}/termsOfService/{termsofservicedocumentid}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AcceptTermsOfServiceResponse`
-- **Error**: `TermsOfService.PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TermsOfService.PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TermsOfService.PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidRequest` (3):
@@ -105,9 +106,10 @@ Accessor: `client.termsOfService` · Source: `src/resources/terms-of-service.ts`
 - **Signature**: `postLegalEntitiesIdTermsOfService(request: TermsOfService.PostLegalEntitiesIdTermsOfServiceRequest, options?: RequestOptions): ApiPromise<GetTermsOfServiceDocumentResponse, TermsOfService.PostLegalEntitiesIdTermsOfServiceError>`
 - **Wire**: `POST /legalEntities/{id}/termsOfService`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetTermsOfServiceDocumentResponse`
-- **Error**: `TermsOfService.PostLegalEntitiesIdTermsOfServiceError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TermsOfService.PostLegalEntitiesIdTermsOfServiceError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TermsOfService.PostLegalEntitiesIdTermsOfServiceRequest` (2):

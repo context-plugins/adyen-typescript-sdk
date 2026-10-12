@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **BarCode**
+ * * **MessageRef**
+ * * **Text**
+ * * **XHTML**
+ */
 export const OutputFormat2 = {
   MessageRef: "MessageRef",
   Text: "Text",

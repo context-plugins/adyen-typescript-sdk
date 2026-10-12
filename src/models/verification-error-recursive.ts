@@ -5,10 +5,25 @@ import { remediatingActionSchema, type RemediatingAction } from "./remediating-a
 import { type212Schema, type Type212 } from "./type212.js";
 
 export type VerificationErrorRecursive = {
+  /** Contains the capabilities that the verification error applies to. */
   capabilities?: Capability[];
+  /** The verification error code. */
   code?: string;
+  /** A description of the error. */
   message?: string;
+  /**
+   * The type of error.
+   *
+   *
+   *
+   * Possible values:
+   * * **invalidInput**
+   * * **dataMissing**
+   * * **pendingStatus**
+   * * **dataReview**
+   */
   type?: Type212;
+  /** Contains the actions that you can take to resolve the verification error. */
   remediatingActions?: RemediatingAction[];
 };
 

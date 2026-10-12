@@ -3,6 +3,10 @@ import type { Schema } from "../core/validation/schema.js";
 import { routeSchema, type Route } from "./route.js";
 
 export type AccountVerificationRoutesResponse = {
+  /**
+   * This array lists available open banking redirection links, each with its associated provider
+   * metadata.
+   */
   routes: Route[];
 };
 

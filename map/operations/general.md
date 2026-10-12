@@ -4,7 +4,7 @@
 
 Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operations · Request and error types: namespace `General`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postAcceptDispute
 
@@ -12,9 +12,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postAcceptDispute(request: General.PostAcceptDisputeRequest, options?: RequestOptions): ApiPromise<AcceptDisputeResponse, General.PostAcceptDisputeError>`
 - **Wire**: `POST /acceptDispute`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AcceptDisputeResponse`
-- **Error**: `General.PostAcceptDisputeError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostAcceptDisputeError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostAcceptDisputeRequest` (1):
@@ -35,9 +36,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postAccountHolderBalance(request: General.PostAccountHolderBalanceRequest, options?: RequestOptions): ApiPromise<AccountHolderBalanceResponse, General.PostAccountHolderBalanceError>`
 - **Wire**: `POST /accountHolderBalance`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AccountHolderBalanceResponse`
-- **Error**: `General.PostAccountHolderBalanceError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostAccountHolderBalanceError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostAccountHolderBalanceRequest` (1):
@@ -58,9 +60,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postAccountHolderTransactionList(request: General.PostAccountHolderTransactionListRequest, options?: RequestOptions): ApiPromise<AccountHolderTransactionListResponse, General.PostAccountHolderTransactionListError>`
 - **Wire**: `POST /accountHolderTransactionList`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AccountHolderTransactionListResponse`
-- **Error**: `General.PostAccountHolderTransactionListError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostAccountHolderTransactionListError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostAccountHolderTransactionListRequest` (1):
@@ -79,11 +82,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default28` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postAssignTerminals(request: General.PostAssignTerminalsRequest, options?: RequestOptions): ApiPromise<AssignTerminalsResponse, General.PostAssignTerminalsError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /assignTerminals`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AssignTerminalsResponse`
-- **Error**: `General.PostAssignTerminalsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostAssignTerminalsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostAssignTerminalsRequest` (1):
@@ -104,9 +109,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postChangeStatus(request: General.PostChangeStatusRequest, options?: RequestOptions): ApiPromise<StoredValueStatusChangeResponse, General.PostChangeStatusError>`
 - **Wire**: `POST /changeStatus`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueStatusChangeResponse`
-- **Error**: `General.PostChangeStatusError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostChangeStatusError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostChangeStatusRequest` (1):
@@ -127,9 +133,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postCheckBalance(request: General.PostCheckBalanceRequest, options?: RequestOptions): ApiPromise<StoredValueBalanceCheckResponse, General.PostCheckBalanceError>`
 - **Wire**: `POST /checkBalance`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueBalanceCheckResponse`
-- **Error**: `General.PostCheckBalanceError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostCheckBalanceError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostCheckBalanceRequest` (1):
@@ -150,9 +157,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postCreateNotificationConfiguration(request: General.PostCreateNotificationConfigurationRequest, options?: RequestOptions): ApiPromise<GetNotificationConfigurationResponse, General.PostCreateNotificationConfigurationError>`
 - **Wire**: `POST /createNotificationConfiguration`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetNotificationConfigurationResponse`
-- **Error**: `General.PostCreateNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostCreateNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostCreateNotificationConfigurationRequest` (1):
@@ -171,11 +179,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default2` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postCreatePermit(request: General.PostCreatePermitRequest, options?: RequestOptions): ApiPromise<CreatePermitResult, General.PostCreatePermitError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /createPermit`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreatePermitResult`
-- **Error**: `General.PostCreatePermitError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostCreatePermitError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostCreatePermitRequest` (1):
@@ -196,9 +206,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postCreateTestCardRanges(request: General.PostCreateTestCardRangesRequest, options?: RequestOptions): ApiPromise<CreateTestCardRangesResult, General.PostCreateTestCardRangesError>`
 - **Wire**: `POST /createTestCardRanges`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreateTestCardRangesResult`
-- **Error**: `General.PostCreateTestCardRangesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostCreateTestCardRangesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostCreateTestCardRangesRequest` (1):
@@ -219,9 +230,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postDebitAccountHolder(request: General.PostDebitAccountHolderRequest, options?: RequestOptions): ApiPromise<DebitAccountHolderResponse, General.PostDebitAccountHolderError>`
 - **Wire**: `POST /debitAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DebitAccountHolderResponse`
-- **Error**: `General.PostDebitAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostDebitAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostDebitAccountHolderRequest` (1):
@@ -242,9 +254,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postDefendDispute(request: General.PostDefendDisputeRequest, options?: RequestOptions): ApiPromise<DefendDisputeResponse, General.PostDefendDisputeError>`
 - **Wire**: `POST /defendDispute`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DefendDisputeResponse`
-- **Error**: `General.PostDefendDisputeError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostDefendDisputeError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostDefendDisputeRequest` (1):
@@ -265,9 +278,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postDeleteDisputeDefenseDocument(request: General.PostDeleteDisputeDefenseDocumentRequest, options?: RequestOptions): ApiPromise<DeleteDefenseDocumentResponse, General.PostDeleteDisputeDefenseDocumentError>`
 - **Wire**: `POST /deleteDisputeDefenseDocument`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DeleteDefenseDocumentResponse`
-- **Error**: `General.PostDeleteDisputeDefenseDocumentError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostDeleteDisputeDefenseDocumentError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostDeleteDisputeDefenseDocumentRequest` (1):
@@ -288,9 +302,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postDeleteNotificationConfigurations(request: General.PostDeleteNotificationConfigurationsRequest, options?: RequestOptions): ApiPromise<GenericResponse, General.PostDeleteNotificationConfigurationsError>`
 - **Wire**: `POST /deleteNotificationConfigurations`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `General.PostDeleteNotificationConfigurationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostDeleteNotificationConfigurationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostDeleteNotificationConfigurationsRequest` (1):
@@ -311,9 +326,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postDisable(request: General.PostDisableRequest, options?: RequestOptions): ApiPromise<DisableResult, General.PostDisableError>`
 - **Wire**: `POST /disable`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DisableResult`
-- **Error**: `General.PostDisableError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostDisableError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostDisableRequest` (1):
@@ -332,11 +348,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default2` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postDisablePermit(request: General.PostDisablePermitRequest, options?: RequestOptions): ApiPromise<DisablePermitResult, General.PostDisablePermitError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /disablePermit`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DisablePermitResult`
-- **Error**: `General.PostDisablePermitError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostDisablePermitError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostDisablePermitRequest` (1):
@@ -355,11 +373,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default28` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postFindTerminal(request: General.PostFindTerminalRequest, options?: RequestOptions): ApiPromise<FindTerminalResponse, General.PostFindTerminalError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /findTerminal`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `FindTerminalResponse`
-- **Error**: `General.PostFindTerminalError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostFindTerminalError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostFindTerminalRequest` (1):
@@ -380,9 +400,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postGet3DsAvailability(request: General.PostGet3DsAvailabilityRequest, options?: RequestOptions): ApiPromise<ThreeDsAvailabilityResponse, General.PostGet3DsAvailabilityError>`
 - **Wire**: `POST /get3dsAvailability`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ThreeDsAvailabilityResponse`
-- **Error**: `General.PostGet3DsAvailabilityError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGet3DsAvailabilityError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGet3DsAvailabilityRequest` (1):
@@ -403,9 +424,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postGetCostEstimate(request: General.PostGetCostEstimateRequest, options?: RequestOptions): ApiPromise<CostEstimateResponse, General.PostGetCostEstimateError>`
 - **Wire**: `POST /getCostEstimate`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CostEstimateResponse`
-- **Error**: `General.PostGetCostEstimateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGetCostEstimateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGetCostEstimateRequest` (1):
@@ -426,9 +448,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postGetNotificationConfiguration(request: General.PostGetNotificationConfigurationRequest, options?: RequestOptions): ApiPromise<GetNotificationConfigurationResponse, General.PostGetNotificationConfigurationError>`
 - **Wire**: `POST /getNotificationConfiguration`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetNotificationConfigurationResponse`
-- **Error**: `General.PostGetNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGetNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGetNotificationConfigurationRequest` (1):
@@ -449,9 +472,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postGetNotificationConfigurationList(request: General.PostGetNotificationConfigurationListRequest, options?: RequestOptions): ApiPromise<GetNotificationConfigurationListResponse, General.PostGetNotificationConfigurationListError>`
 - **Wire**: `POST /getNotificationConfigurationList`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field, a bare top-level JSON map with no fixed keys
+- **Request body**: `application/json` — the `body` field, a bare top-level JSON map with no fixed keys. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetNotificationConfigurationListResponse`
-- **Error**: `General.PostGetNotificationConfigurationListError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGetNotificationConfigurationListError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGetNotificationConfigurationListRequest` (1):
@@ -469,11 +493,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default28` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postGetStoresUnderAccount(request: General.PostGetStoresUnderAccountRequest, options?: RequestOptions): ApiPromise<GetStoresUnderAccountResponse, General.PostGetStoresUnderAccountError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /getStoresUnderAccount`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetStoresUnderAccountResponse`
-- **Error**: `General.PostGetStoresUnderAccountError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGetStoresUnderAccountError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGetStoresUnderAccountRequest` (1):
@@ -492,11 +518,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default28` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postGetTerminalDetails(request: General.PostGetTerminalDetailsRequest, options?: RequestOptions): ApiPromise<GetTerminalDetailsResponse, General.PostGetTerminalDetailsError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /getTerminalDetails`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetTerminalDetailsResponse`
-- **Error**: `General.PostGetTerminalDetailsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGetTerminalDetailsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGetTerminalDetailsRequest` (1):
@@ -515,11 +543,13 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 
 - **Server**: `default28` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postGetTerminalsUnderAccount(request: General.PostGetTerminalsUnderAccountRequest, options?: RequestOptions): ApiPromise<GetTerminalsUnderAccountResponse, General.PostGetTerminalsUnderAccountError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /getTerminalsUnderAccount`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetTerminalsUnderAccountResponse`
-- **Error**: `General.PostGetTerminalsUnderAccountError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostGetTerminalsUnderAccountError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostGetTerminalsUnderAccountRequest` (1):
@@ -540,9 +570,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postIssue(request: General.PostIssueRequest, options?: RequestOptions): ApiPromise<StoredValueIssueResponse, General.PostIssueError>`
 - **Wire**: `POST /issue`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueIssueResponse`
-- **Error**: `General.PostIssueError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostIssueError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostIssueRequest` (1):
@@ -563,9 +594,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postListRecurringDetails(request: General.PostListRecurringDetailsRequest, options?: RequestOptions): ApiPromise<RecurringDetailsResult, General.PostListRecurringDetailsError>`
 - **Wire**: `POST /listRecurringDetails`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RecurringDetailsResult`
-- **Error**: `General.PostListRecurringDetailsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostListRecurringDetailsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostListRecurringDetailsRequest` (1):
@@ -586,9 +618,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postLoad(request: General.PostLoadRequest, options?: RequestOptions): ApiPromise<StoredValueLoadResponse, General.PostLoadError>`
 - **Wire**: `POST /load`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueLoadResponse`
-- **Error**: `General.PostLoadError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostLoadError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostLoadRequest` (1):
@@ -609,9 +642,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postMergeBalance(request: General.PostMergeBalanceRequest, options?: RequestOptions): ApiPromise<StoredValueBalanceMergeResponse, General.PostMergeBalanceError>`
 - **Wire**: `POST /mergeBalance`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueBalanceMergeResponse`
-- **Error**: `General.PostMergeBalanceError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostMergeBalanceError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostMergeBalanceRequest` (1):
@@ -632,9 +666,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postNotifyShopper(request: General.PostNotifyShopperRequest, options?: RequestOptions): ApiPromise<NotifyShopperResult, General.PostNotifyShopperError>`
 - **Wire**: `POST /notifyShopper`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `NotifyShopperResult`
-- **Error**: `General.PostNotifyShopperError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostNotifyShopperError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostNotifyShopperRequest` (1):
@@ -655,9 +690,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postPayoutAccountHolder(request: General.PostPayoutAccountHolderRequest, options?: RequestOptions): ApiPromise<PayoutAccountHolderResponse, General.PostPayoutAccountHolderError>`
 - **Wire**: `POST /payoutAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PayoutAccountHolderResponse`
-- **Error**: `General.PostPayoutAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostPayoutAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostPayoutAccountHolderRequest` (1):
@@ -678,9 +714,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postRefundFundsTransfer(request: General.PostRefundFundsTransferRequest, options?: RequestOptions): ApiPromise<RefundFundsTransferResponse, General.PostRefundFundsTransferError>`
 - **Wire**: `POST /refundFundsTransfer`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RefundFundsTransferResponse`
-- **Error**: `General.PostRefundFundsTransferError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostRefundFundsTransferError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostRefundFundsTransferRequest` (1):
@@ -701,9 +738,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postRefundNotPaidOutTransfers(request: General.PostRefundNotPaidOutTransfersRequest, options?: RequestOptions): ApiPromise<GenericResponse, General.PostRefundNotPaidOutTransfersError>`
 - **Wire**: `POST /refundNotPaidOutTransfers`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `General.PostRefundNotPaidOutTransfersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostRefundNotPaidOutTransfersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostRefundNotPaidOutTransfersRequest` (1):
@@ -724,9 +762,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postRequestSubjectErasure(request: General.PostRequestSubjectErasureRequest, options?: RequestOptions): ApiPromise<SubjectErasureResponse, General.PostRequestSubjectErasureError>`
 - **Wire**: `POST /requestSubjectErasure`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `SubjectErasureResponse`
-- **Error**: `General.PostRequestSubjectErasureError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostRequestSubjectErasureError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostRequestSubjectErasureRequest` (1):
@@ -747,9 +786,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postRetrieveApplicableDefenseReasons(request: General.PostRetrieveApplicableDefenseReasonsRequest, options?: RequestOptions): ApiPromise<DefenseReasonsResponse, General.PostRetrieveApplicableDefenseReasonsError>`
 - **Wire**: `POST /retrieveApplicableDefenseReasons`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DefenseReasonsResponse`
-- **Error**: `General.PostRetrieveApplicableDefenseReasonsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostRetrieveApplicableDefenseReasonsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostRetrieveApplicableDefenseReasonsRequest` (1):
@@ -770,9 +810,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postScheduleAccountUpdater(request: General.PostScheduleAccountUpdaterRequest, options?: RequestOptions): ApiPromise<ScheduleAccountUpdaterResult, General.PostScheduleAccountUpdaterError>`
 - **Wire**: `POST /scheduleAccountUpdater`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ScheduleAccountUpdaterResult`
-- **Error**: `General.PostScheduleAccountUpdaterError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostScheduleAccountUpdaterError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostScheduleAccountUpdaterRequest` (1):
@@ -790,12 +831,14 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 ### postSessions3
 
 - **Server**: `default27` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `postSessions3(request: General.PostSessions3Request, options?: RequestOptions): ApiPromise<CertificateLoadingResponse, ResponseError>`
+- **Signature**: `postSessions3(request: General.PostSessions3Request, options?: RequestOptions): ApiPromise<CertificateLoadingResponse, ApiError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /sessions`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CertificateLoadingResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `General.PostSessions3Request` (1):
 
@@ -814,9 +857,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postSetupBeneficiary(request: General.PostSetupBeneficiaryRequest, options?: RequestOptions): ApiPromise<GenericResponse, General.PostSetupBeneficiaryError>`
 - **Wire**: `POST /setupBeneficiary`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `General.PostSetupBeneficiaryError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostSetupBeneficiaryError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostSetupBeneficiaryRequest` (1):
@@ -837,9 +881,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postSupplyDefenseDocument(request: General.PostSupplyDefenseDocumentRequest, options?: RequestOptions): ApiPromise<SupplyDefenseDocumentResponse, General.PostSupplyDefenseDocumentError>`
 - **Wire**: `POST /supplyDefenseDocument`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `SupplyDefenseDocumentResponse`
-- **Error**: `General.PostSupplyDefenseDocumentError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostSupplyDefenseDocumentError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostSupplyDefenseDocumentRequest` (1):
@@ -860,9 +905,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postTestNotificationConfiguration(request: General.PostTestNotificationConfigurationRequest, options?: RequestOptions): ApiPromise<TestNotificationConfigurationResponse, General.PostTestNotificationConfigurationError>`
 - **Wire**: `POST /testNotificationConfiguration`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TestNotificationConfigurationResponse`
-- **Error**: `General.PostTestNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostTestNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostTestNotificationConfigurationRequest` (1):
@@ -883,9 +929,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postTransferFunds(request: General.PostTransferFundsRequest, options?: RequestOptions): ApiPromise<TransferFundsResponse, General.PostTransferFundsError>`
 - **Wire**: `POST /transferFunds`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TransferFundsResponse`
-- **Error**: `General.PostTransferFundsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostTransferFundsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostTransferFundsRequest` (1):
@@ -906,9 +953,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postUpdateNotificationConfiguration(request: General.PostUpdateNotificationConfigurationRequest, options?: RequestOptions): ApiPromise<GetNotificationConfigurationResponse, General.PostUpdateNotificationConfigurationError>`
 - **Wire**: `POST /updateNotificationConfiguration`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetNotificationConfigurationResponse`
-- **Error**: `General.PostUpdateNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostUpdateNotificationConfigurationError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostUpdateNotificationConfigurationRequest` (1):
@@ -929,9 +977,10 @@ Accessor: `client.general` · Source: `src/resources/general.ts` · 41 operation
 - **Signature**: `postVoidTransaction(request: General.PostVoidTransactionRequest, options?: RequestOptions): ApiPromise<StoredValueVoidResponse, General.PostVoidTransactionError>`
 - **Wire**: `POST /voidTransaction`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueVoidResponse`
-- **Error**: `General.PostVoidTransactionError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `General.PostVoidTransactionError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `General.PostVoidTransactionRequest` (1):

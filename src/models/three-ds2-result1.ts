@@ -7,20 +7,61 @@ import {
   type ThreeDsRequestorChallengeInd,
 } from "./three-ds-requestor-challenge-ind.js";
 
+/** Result of the 3D Secure 2 authentication. */
 export type ThreeDs2Result1 = {
+  /** The `authenticationValue` value as defined in the 3D Secure 2 specification. */
   authenticationValue?: string;
+  /**
+   * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires
+   * integrations.
+   */
   cavvAlgorithm?: string;
+  /**
+   * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the
+   * authentication has been cancelled. For possible values, refer to [3D Secure API
+   * reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+   */
   challengeCancel?: ChallengeCancel;
+  /** The `dsTransID` value as defined in the 3D Secure 2 specification. */
   dsTransId?: string;
+  /** The `eci` value as defined in the 3D Secure 2 specification. */
   eci?: string;
+  /**
+   * Indicates the exemption type that was applied by the issuer to the authentication, if exemption
+   * applied. Allowed values:
+   * * `lowValue`
+   * * `secureCorporate`
+   * * `trustedBeneficiary`
+   * * `transactionRiskAnalysis`
+   */
   exemptionIndicator?: ExemptionIndicator;
+  /** The `messageVersion` value as defined in the 3D Secure 2 specification. */
   messageVersion?: string;
+  /** Risk score calculated by Cartes Bancaires Directory Server (DS). */
   riskScore?: string;
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values:
+   * * **01** — No preference
+   * * **02** — No challenge requested
+   * * **03** — Challenge requested (3DS Requestor preference)
+   * * **04** — Challenge requested (Mandate)
+   * * **05** — No challenge (transactional risk analysis is already performed)
+   * * **06** — Data Only
+   */
   threeDsRequestorChallengeInd?: ThreeDsRequestorChallengeInd;
+  /** The `threeDSServerTransID` value as defined in the 3D Secure 2 specification. */
   threeDsServerTransId?: string;
+  /** The `timestamp` value of the 3D Secure 2 authentication. */
   timestamp?: string;
+  /** The `transStatus` value as defined in the 3D Secure 2 specification. */
   transStatus?: string;
+  /**
+   * Provides information on why the `transStatus` field has the specified value. For possible
+   * values, refer to [our
+   * docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
+   */
   transStatusReason?: string;
+  /** The `whiteListStatus` value as defined in the 3D Secure 2 specification. */
   whiteListStatus?: string;
 };
 

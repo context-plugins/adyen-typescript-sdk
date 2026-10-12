@@ -5,10 +5,15 @@ import { detailBalance1Schema, type DetailBalance1 } from "./detail-balance1.js"
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type AccountHolderBalanceResponse = {
+  /** A list of each account and their balances. */
   balancePerAccount?: AccountDetailBalance[];
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
+  /** The total balance of the account holder. */
   totalBalance?: DetailBalance1;
 };
 

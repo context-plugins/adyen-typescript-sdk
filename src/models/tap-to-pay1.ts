@@ -1,7 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Settings for Tap to Pay. */
 export type TapToPay1 = {
+  /** The text shown on the screen during the Tap to Pay transaction. */
   merchantDisplayName?: string;
 };
 

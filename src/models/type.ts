@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **ach**
+ */
 export const Type = {
   Ach: "ach",
   AchPlaid: "ach_plaid",

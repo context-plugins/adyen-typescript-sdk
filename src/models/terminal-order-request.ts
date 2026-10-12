@@ -3,11 +3,22 @@ import type { Schema } from "../core/validation/schema.js";
 import { orderItemSchema, type OrderItem } from "./order-item.js";
 
 export type TerminalOrderRequest = {
+  /**
+   * The identification of the billing entity to use for the order.
+   *
+   * > When ordering products in Brazil, you do not need to include the `billingEntityId` in the
+   * request.
+   */
   billingEntityId?: string;
+  /** The merchant-defined purchase order reference. */
   customerOrderReference?: string;
+  /** The products included in the order. */
   items?: OrderItem[];
+  /** Type of order */
   orderType?: string;
+  /** The identification of the shipping location to use for the order. */
   shippingLocationId?: string;
+  /** The tax number of the billing entity. */
   taxId?: string;
 };
 

@@ -4,10 +4,17 @@ import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js
 import { status22Schema, type Status22 } from "./status22.js";
 
 export type CloseAccountResponse = {
+  /** The account code of the account that is closed. */
   accountCode?: string;
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
+  /**
+   * The new status of the account. >Permitted values: `Active`, `Inactive`, `Suspended`, `Closed`.
+   */
   status?: Status22;
 };
 

@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **NoPaper**
+ * * **OK**
+ * * **OutOfOrder**
+ * * **PaperJam**
+ * * **PaperLow**
+ */
 export const PrinterStatus1 = {
   Ok: "OK",
   PaperLow: "PaperLow",

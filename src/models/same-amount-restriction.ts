@@ -2,6 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type SameAmountRestriction = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
   value?: boolean;
 };

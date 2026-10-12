@@ -3,9 +3,13 @@ import type { Schema } from "../core/validation/schema.js";
 import { paymentFlowSchema, type PaymentFlow } from "./payment-flow.js";
 
 export type GivexInfo = {
+  /** The three-character ISO currency code, such as **EUR**. */
   currencyCode: string;
+  /** The password provided by the acquirer. */
   password: string;
+  /** The sales channel used for the payment. */
   paymentFlow: PaymentFlow;
+  /** The username provided by the acquirer. */
   username: string;
 };
 

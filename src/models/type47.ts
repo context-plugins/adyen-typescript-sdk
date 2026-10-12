@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **rakutenpay**
+ */
 export const Type47 = {
   Rakutenpay: "rakutenpay",
 } as const;

@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The operation performed on the source amount. Possible values:
+ * * **buy**
+ * * **sell**
+ */
 export const ExchangeSide2 = {
   Buy: "buy",
   Sell: "sell",

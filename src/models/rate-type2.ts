@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of transaction. Possible values:
+ * * **splitPayment**: for payments
+ * * **splitRefund**: for refunds
+ */
 export const RateType2 = {
   SplitPayment: "splitPayment",
   BalanceConversion: "balanceConversion",

@@ -2,22 +2,109 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type BalanceAccountConfiguration = {
+  /** The unique identifier of the balance account to which you apply the payout schedule. */
   balanceAccountId: string;
+  /**
+   * The unique identifier of the balance platform payout schedule that is applied to the balance
+   * account.
+   */
   balancePlatformPayoutScheduleId: string;
+  /** The date and time when the payout schedule was created. */
   createdAt: Date;
+  /**
+   * The three-character [ISO code](https://docs.adyen.com/development-resources/currency-codes) of
+   * the currency used for this schedule.
+   */
   currency?: string;
+  /**
+   * The description used for all payouts initiated by this payout schedule.
+   *
+   * Maximum length: 140 characters. If your description is longer, it may be truncated.
+   *
+   * Default value: The `defaultDescription` from the balance platform schedule that you are
+   * applying.
+   */
   description?: string;
+  /** Specifies whether the payout schedule is active. */
   enabled?: boolean;
+  /**
+   * The frequency of payouts initiated by this payout schedule.
+   *
+   * Possible values:
+   * * daily
+   * * weekdays
+   * * weekly
+   * * monthly
+   *
+   * Default value: The `defaultFrequency` from the balance platform schedule that you are applying.
+   */
   frequency?: string;
+  /**
+   * The date of the month or day of the week when payouts are initiated. Allowed only if
+   * `frequency` is **monthly** or **weekly**.
+   *
+   * Possible values if `frequency` is **monthly**: **[1 - 31]**.
+   * * If your specified date happens on a weekend, the payout is initiated on the next business
+   *   day.
+   * * If your specified date (**29**, **30**, or **31**) does not exist in a month, the payout is
+   *   initiated on the last day of that month.
+   *
+   * Possible values if `frequency` is **weekly**: **[1 - 5]**.
+   *
+   * Default value: The `defaultFrequencyValue` from the balance platform schedule that you are
+   * applying.
+   */
   frequencyValue?: number;
+  /** The unique identifier of the payout schedule for the balance account. */
   id?: string;
+  /**
+   * The maximum amount that can be paid out from balance accounts that use this payout schedule.
+   *
+   * Default value: **0**
+   */
   maxPayoutAmount?: number;
+  /**
+   * The minimum amount that can be paid out from balance accounts that use this payout schedule.
+   *
+   * Default value: **0**
+   */
   minPayoutAmount?: number;
+  /**
+   * Your reference for the payout schedule. This reference does not appear on statements of payouts
+   * initiated by the payout schedule.
+   */
   reference?: string;
+  /**
+   * The reference for beneficiary used for all payouts initiated by this payout schedule. This
+   * reference is sent to the recipient of the payout and is included in all webhooks related to the
+   * payout.
+   *
+   * Supported characters: **a-z**, **A-Z**, **0-9**.
+   *
+   * Default value: The `defaultReferenceForBeneficiary` from the balance platform schedule that you
+   * are applying.
+   */
   referenceForBeneficiary?: string;
+  /**
+   * The amount of funds that must remain available in the balance account after an execution of the
+   * payout schedule. If the funds in the balance account are less than the retained amount, the
+   * execution is not initiated.
+   *
+   * Default value: **0**
+   */
   retainedAmount?: number;
+  /**
+   * The time of day when the sales day is closed in balance account time zone. The sales day
+   * closing time can be between 00:00 to 07:00.
+   *
+   * Format: **HH:mm:ss**
+   *
+   * @deprecated
+   */
   salesDayClosingTime?: string;
+  /** The unique identifier of the transfer instrument to which the funds are paid out. */
   transferInstrumentId: string;
+  /** The date and time when the payout schedule was updated. */
   updatedAt?: Date;
 };
 
@@ -30,13 +117,13 @@ export const balanceAccountConfigurationSchema: Schema<BalanceAccountConfigurati
     description: s.optional(s.string()),
     enabled: s.optional(s.boolean()),
     frequency: s.optional(s.string()),
-    frequencyValue: s.optional(s.number()),
+    frequencyValue: s.optional(s.int()),
     id: s.optional(s.string()),
-    maxPayoutAmount: s.optional(s.number()),
-    minPayoutAmount: s.optional(s.number()),
+    maxPayoutAmount: s.optional(s.int()),
+    minPayoutAmount: s.optional(s.int()),
     reference: s.optional(s.string()),
     referenceForBeneficiary: s.optional(s.string()),
-    retainedAmount: s.optional(s.number()),
+    retainedAmount: s.optional(s.int()),
     salesDayClosingTime: s.optional(s.string()),
     transferInstrumentId: s.string(),
     updatedAt: s.optional(s.dateTime()),

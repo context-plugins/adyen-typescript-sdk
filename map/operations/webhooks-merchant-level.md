@@ -4,7 +4,7 @@
 
 Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merchant-level.ts` · 7 operations · Request and error types: namespace `WebhooksMerchantLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteMerchantsMerchantIdWebhooksWebhookId
 
@@ -13,8 +13,9 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Wire**: `DELETE /merchants/{merchantId}/webhooks/{webhookId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `WebhooksMerchantLevel.DeleteMerchantsMerchantIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.DeleteMerchantsMerchantIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.DeleteMerchantsMerchantIdWebhooksWebhookIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListWebhooksResponse`
-- **Error**: `WebhooksMerchantLevel.GetMerchantsMerchantIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.GetMerchantsMerchantIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.GetMerchantsMerchantIdWebhooksRequest` (3):
@@ -60,7 +61,7 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Webhook`
-- **Error**: `WebhooksMerchantLevel.GetMerchantsMerchantIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.GetMerchantsMerchantIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.GetMerchantsMerchantIdWebhooksWebhookIdRequest` (2):
@@ -81,9 +82,10 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Signature**: `patchMerchantsMerchantIdWebhooksWebhookId(request: WebhooksMerchantLevel.PatchMerchantsMerchantIdWebhooksWebhookIdRequest, options?: RequestOptions): ApiPromise<Webhook, WebhooksMerchantLevel.PatchMerchantsMerchantIdWebhooksWebhookIdError>`
 - **Wire**: `PATCH /merchants/{merchantId}/webhooks/{webhookId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Webhook`
-- **Error**: `WebhooksMerchantLevel.PatchMerchantsMerchantIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.PatchMerchantsMerchantIdWebhooksWebhookIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.PatchMerchantsMerchantIdWebhooksWebhookIdRequest` (3):
@@ -106,9 +108,10 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Signature**: `postMerchantsMerchantIdWebhooks(request: WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksRequest, options?: RequestOptions): ApiPromise<Webhook, WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksError>`
 - **Wire**: `POST /merchants/{merchantId}/webhooks`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Webhook`
-- **Error**: `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksRequest` (2):
@@ -131,8 +134,9 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Wire**: `POST /merchants/{merchantId}/webhooks/{webhookId}/generateHmac`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenerateHmacKeyResponse`
-- **Error**: `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacRequest` (2):
@@ -153,9 +157,10 @@ Accessor: `client.webhooksMerchantLevel` · Source: `src/resources/webhooks-merc
 - **Signature**: `postMerchantsMerchantIdWebhooksWebhookIdTest(request: WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdTestRequest, options?: RequestOptions): ApiPromise<TestWebhookResponse, WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdTestError>`
 - **Wire**: `POST /merchants/{merchantId}/webhooks/{webhookId}/test`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TestWebhookResponse`
-- **Error**: `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdTestError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdTestError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `WebhooksMerchantLevel.PostMerchantsMerchantIdWebhooksWebhookIdTestRequest` (3):

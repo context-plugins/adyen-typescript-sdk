@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of Reconciliation requested by the Sale to the POI. Possible values:
+ * * **AcquirerReconciliation**
+ * * **AcquirerSynchronisation**
+ * * **PreviousReconciliation**
+ * * **SaleReconciliation**
+ */
 export const ReconciliationType1 = {
   SaleReconciliation: "SaleReconciliation",
   AcquirerSynchronisation: "AcquirerSynchronisation",

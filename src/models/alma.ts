@@ -4,9 +4,15 @@ import { feeTypeSchema, type FeeType } from "./fee-type.js";
 import { type3Schema, type Type3 } from "./type3.js";
 
 export type Alma = {
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
+  /**
+   * **Alma payment request fee type**
+   */
   feeType?: FeeType;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** The payment method type. */
   type?: Type3;
 };
 

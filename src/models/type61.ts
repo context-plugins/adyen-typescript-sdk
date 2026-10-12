@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Type of terminal action: Update Release. */
 export const Type61 = {
   ReleaseUpdate: "ReleaseUpdate",
 } as const;

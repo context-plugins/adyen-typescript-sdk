@@ -10,12 +10,36 @@ import {
   type ShopperInteractionDevice,
 } from "./shopper-interaction-device.js";
 
+/**
+ * Information about your application. For more details, see [Building Adyen
+ * solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
+ */
 export type ApplicationInfo = {
+  /**
+   * Adyen-developed software, such as libraries and plugins, used to interact with the Adyen API.
+   * For example, Magento plugin, Java API library, etc.
+   */
   adyenLibrary?: CommonField4;
+  /**
+   * Adyen-developed software to get payment details. For example, Checkout SDK, Secured Fields SDK,
+   * etc.
+   */
   adyenPaymentSource?: CommonField1;
+  /**
+   * Third-party developed platform used to initiate payment requests. For example, Magento, Zuora,
+   * etc.
+   */
   externalPlatform?: ExternalPlatform;
+  /**
+   * Merchant developed software, such as cashier application, used to interact with the Adyen API.
+   */
   merchantApplication?: CommonField2;
+  /** Merchant device information. */
   merchantDevice?: MerchantDevice;
+  /**
+   * Shopper interaction device, such as terminal, mobile device or web browser, to initiate payment
+   * requests.
+   */
   shopperInteractionDevice?: ShopperInteractionDevice;
 };
 

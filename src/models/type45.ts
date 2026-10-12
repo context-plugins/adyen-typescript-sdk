@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **paybybank_pix**
+ */
 export const Type45 = {
   PaybybankPix: "paybybank_pix",
 } as const;

@@ -10,7 +10,12 @@ import {
 } from "./mandate-party-identification2.js";
 
 export type MandateBankAccount = {
+  /** Contains information about the owner of the counterparty bank account. */
   accountHolder: MandatePartyIdentification2;
+  /**
+   * Contains the bank account details of the counterparty. The fields required in this object
+   * depend on the country of the bank account and the currency of the transfer.
+   */
   accountIdentification: MandateAccountIdentification2;
 };
 

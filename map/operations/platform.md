@@ -4,7 +4,7 @@
 
 Accessor: `client.platform` · Source: `src/resources/platform.ts` · 3 operations · Request and error types: namespace `Platform`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getBalancePlatformsId
 
@@ -14,7 +14,7 @@ Accessor: `client.platform` · Source: `src/resources/platform.ts` · 3 operatio
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BalancePlatform`
-- **Error**: `Platform.GetBalancePlatformsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Platform.GetBalancePlatformsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Platform.GetBalancePlatformsIdRequest` (1):
@@ -36,7 +36,7 @@ Accessor: `client.platform` · Source: `src/resources/platform.ts` · 3 operatio
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PaginatedAccountHoldersResponse`
-- **Error**: `Platform.GetBalancePlatformsIdAccountHoldersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Platform.GetBalancePlatformsIdAccountHoldersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Platform.GetBalancePlatformsIdAccountHoldersRequest` (3):
@@ -60,7 +60,7 @@ Accessor: `client.platform` · Source: `src/resources/platform.ts` · 3 operatio
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransactionRulesResponse`
-- **Error**: `Platform.GetBalancePlatformsIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Platform.GetBalancePlatformsIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Platform.GetBalancePlatformsIdTransactionRulesRequest` (1):

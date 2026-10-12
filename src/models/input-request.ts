@@ -3,8 +3,20 @@ import type { Schema } from "../core/validation/schema.js";
 import { displayOutput2Schema, type DisplayOutput2 } from "./display-output2.js";
 import { inputData2Schema, type InputData2 } from "./input-data2.js";
 
+/**
+ * Content of the `InputRequest` message. It conveys the data to display and how to process it. In
+ * addition to the display on the Input Device, it might contain an operation (the `DisplayOutput`
+ * element) per Display Device type.
+ */
 export type InputRequest = {
+  /** Information to display and the way to process the display. */
   displayOutput?: DisplayOutput2;
+  /**
+   * Information related to an Input request. It conveys the target input logical device, the type
+   * of input command, and possible minimum and maximum length of the input. In addition, if the
+   * requestor might require to receive an Event Notification if a card is inserted in a card
+   * reader, with the `NotifyCardInputFlag`.
+   */
   inputData: InputData2;
 };
 

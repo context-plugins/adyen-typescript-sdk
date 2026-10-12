@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **ideal**
+ */
 export const Type25 = {
   Ideal: "ideal",
 } as const;

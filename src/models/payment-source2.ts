@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The source used to obtain the payload. Possible values: `qr`, `redirect`, and `pushNotification`.
+ */
 export const PaymentSource2 = {
   Redirect: "redirect",
   Qr: "qr",

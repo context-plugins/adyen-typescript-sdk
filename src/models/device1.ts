@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **CashierDisplay**
+ * * **CustomerDisplay**
+ * * **CashierInput**
+ * * **CustomerInput**
+ */
 export const Device1 = {
   CashierDisplay: "CashierDisplay",
   CustomerDisplay: "CustomerDisplay",

@@ -6,7 +6,12 @@ import {
 } from "./transaction-description-response-info1.js";
 
 export type BcmcResponseInfo = {
+  /**
+   * Indicates if [Bancontact
+   * mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
+   */
   enableBcmcMobile?: boolean;
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

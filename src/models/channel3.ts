@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The platform where a payment transaction takes place. This field can be used for filtering out
+ * payment methods that are only available on specific platforms. Possible values:
+ * * iOS
+ * * Android
+ * * Web
+ */
 export const Channel3 = {
   IOs: "iOS",
   Android: "Android",

@@ -7,16 +7,31 @@ import { paymentMethodIssuerSchema, type PaymentMethodIssuer } from "./payment-m
 import { paymentMethodUpiAppsSchema, type PaymentMethodUpiApps } from "./payment-method-upi-apps.js";
 
 export type PaymentMethod = {
+  /** A list of apps for this payment method. */
   apps?: PaymentMethodUpiApps[];
+  /** Brand for the selected gift card. For example: plastix, hmclub. */
   brand?: string;
+  /** List of possible brands. For example: visa, mc. */
   brands?: string[];
+  /** The configuration of the payment method. */
   configuration?: Record<string, string>;
+  /** The funding source of the payment method. */
   fundingSource?: FundingSource9;
+  /** The group where this payment method belongs to. */
   group?: PaymentMethodGroup2;
+  /**
+   * All input details to be provided to complete the payment with this payment method.
+   *
+   * @deprecated
+   */
   inputDetails?: InputDetail[];
+  /** A list of issuers for this payment method. */
   issuers?: PaymentMethodIssuer[];
+  /** The displayable name of this payment method. */
   name?: string;
+  /** Indicates whether this payment method should be promoted or not. */
   promoted?: boolean;
+  /** The unique payment method code. */
   type?: string;
 };
 

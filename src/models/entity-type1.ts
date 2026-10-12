@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The type of the entity the payout is processed for. */
 export const EntityType1 = {
   NaturalPerson: "NaturalPerson",
   Company: "Company",

@@ -76,63 +76,142 @@ import {
 import { weChatPayResponseInfo2Schema, type WeChatPayResponseInfo2 } from "./we-chat-pay-response-info2.js";
 
 export type ManagementPaymentMethod = {
+  /** **accel** details */
   accel?: AccelResponseInfo1;
+  /** *affirm** details */
   affirm?: AffirmResponseInfo1;
+  /** **afterpaytouch** details */
   afterpayTouch?: AfterpayTouchResponseInfo1;
+  /** **alipay_plus** details */
   alipayPlus?: AlipayPlusResponseInfo1;
+  /**
+   * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after
+   * screening your merchant account.
+   */
   allowed?: boolean;
+  /** **amex** details */
   amex?: AmexResponseInfo1;
+  /** **applepay** details */
   applePay?: ApplePayResponseInfo1;
+  /** Payment methods that were also updated as part of an associated transition. */
   associatedPaymentMethods?: AssociatedPaymentMethod[];
+  /** **bcmc** (Bancontact) details */
   bcmc?: BcmcResponseInfo1;
+  /**
+   * The unique identifier of the business line. Required if you are a [platform
+   * model](https://docs.adyen.com/platforms).
+   */
   businessLineId?: string;
+  /** **carnet** details */
   carnet?: CarnetResponseInfo1;
+  /** **cartesbancaire** details */
   cartesBancaires?: CartesBancairesResponseInfo1;
+  /** **clearpay** details */
   clearpay?: ClearpayResponseInfo1;
+  /**
+   * The list of countries where a payment method is available. By default, all countries supported
+   * by the payment method.
+   */
   countries?: string[];
+  /** **cup** (China Union Pay) details */
   cup?: CupResponseInfo1;
+  /**
+   * The list of currencies that a payment method supports. By default, all currencies supported by
+   * the payment method.
+   */
   currencies?: string[];
+  /** The list of custom routing flags to route payment to the intended acquirer. */
   customRoutingFlags?: string[];
+  /** **diners** details */
   diners?: DinersResponseInfo1;
+  /** **discover**. details */
   discover?: DiscoverResponseInfo1;
+  /** **eft_directdebit_CA** (EFT PAD) details */
   eftDirectdebitCa?: EftDirectDebitCaResponseInfo1;
+  /** **eftpos_australia** details */
   eftposAustralia?: EftPosAustraliaResponseInfo1;
+  /** Indicates whether the payment method is enabled (**true**) or disabled (**false**). */
   enabled?: boolean;
+  /** **girocard** details */
   girocard?: GirocardResponseInfo1;
+  /** **givex** details */
   givex?: GivexResponseInfo1;
+  /** **googlepay** details */
   googlePay?: GooglePayResponseInfo1;
+  /** The identifier of the resource. */
   id: string;
+  /** **ideal** details */
   ideal?: IdealResponseInfo1;
+  /** **interac_card** details */
   interacCard?: InteracCardResponseInfo1;
+  /** **jcb** details */
   jcb?: JcbResponseInfo1;
+  /** **klarna** or its variant details */
   klarna?: KlarnaResponseInfo1;
+  /** **maestro** details */
   maestro?: MaestroResponseInfo1;
+  /** Details to provide if `type` is **maestro_usa** details */
   maestroUsa?: MaestroUsaResponseInfo1;
+  /** **mc** details */
   mc?: McResponseInfo1;
+  /** **mealVoucher_FR** details */
   mealVoucherFr?: MealVoucherFrResponseInfo1;
+  /** **nyce** details */
   nyce?: NyceResponseInfo1;
+  /** **paybybank_plaid** details */
   paybybankPlaid?: PayByBankPlaidResponseInfo1;
+  /** **payme** details */
   payme?: PayMeResponseInfo1;
+  /** **paypal** details */
   paypal?: PayPalResponseInfo1;
+  /** **payto** details */
   payto?: PayToResponseInfo1;
+  /** **pulse** details */
   pulse?: PulseResponseInfo2;
+  /** Your reference for the payment method. Supported characters a-z, A-Z, 0-9. */
   reference?: string;
+  /** **sepadirectdebit** details */
   sepadirectdebit?: SepaDirectDebitResponseInfo2;
+  /** The sales channel. */
   shopperInteraction?: string;
+  /** **sodexo** details */
   sodexo?: SodexoResponseInfo2;
+  /** Sofort details. */
   sofort?: SofortResponseInfo2;
+  /** **star** details */
   star?: StarResponseInfo2;
+  /** The unique identifier of the store for which to configure the payment method, if any. */
   storeIds?: string[];
+  /** **svs** details */
   svs?: SvsResponseInfo2;
+  /** **swish** or its variant details */
   swish?: SwishResponseInfo2;
+  /** **ticket** (Edenred Brazil) details */
   ticket?: TicketResponseInfo2;
+  /** **twint** details */
   twint?: TwintResponseInfo2;
+  /**
+   * Payment method
+   * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   */
   type?: string;
+  /** **valuelink** details */
   valuelink?: ValuelinkResponseInfo2;
+  /**
+   * Payment method status. Possible values:
+   * * **valid**
+   * * **pending**
+   * * **invalid**
+   * * **rejected**
+   */
   verificationStatus?: VerificationStatus;
+  /** **vipps** details */
   vipps?: VippsResponseInfo2;
+  /** **visa** details */
   visa?: VisaResponseInfo2;
+  /** **wechatpay** details */
   wechatpay?: WeChatPayResponseInfo2;
+  /** **wechatpay_pos** details */
   wechatpayPos?: WeChatPayPosResponseInfo2;
 };
 

@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the transfer.
+ *
+ * Possible values:
+ *
+ *  - **pending**: the transfer is under internal review by Adyen.
+ *
+ * - **failed**: the transfer failed Adyen's internal review. For details, see `reason`.
+ */
 export const Status44 = {
   Pending: "pending",
   Failed: "failed",

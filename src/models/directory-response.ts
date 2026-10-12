@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** In 3D Secure 2, this is the `transStatus` from the `ARes`. */
 export const DirectoryResponse = {
   A: "A",
   C: "C",

@@ -6,6 +6,7 @@ import {
 } from "./disbursement-repayment-info-update2.js";
 
 export type DisbursementInfoUpdate = {
+  /** Contains information about the basis points configured for repaying the disbursement. */
   repayment?: DisbursementRepaymentInfoUpdate2;
 };
 

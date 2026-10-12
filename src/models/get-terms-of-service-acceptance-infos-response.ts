@@ -6,6 +6,7 @@ import {
 } from "./terms-of-service-acceptance-info.js";
 
 export type GetTermsOfServiceAcceptanceInfosResponse = {
+  /** The Terms of Service acceptance information. */
   data?: TermsOfServiceAcceptanceInfo[];
 };
 

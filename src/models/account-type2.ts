@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The bank account type.
+ *
+ * Possible values: **checking** or **savings**. Defaults to **checking**.
+ */
 export const AccountType2 = {
   Checking: "checking",
   Savings: "savings",

@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The account holder type (personal or business). */
 export const AccountHolderType = {
   Business: "business",
   Personal: "personal",

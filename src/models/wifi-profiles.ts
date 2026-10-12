@@ -4,7 +4,9 @@ import { profileSchema, type Profile } from "./profile.js";
 import { settings1Schema, type Settings1 } from "./settings1.js";
 
 export type WifiProfiles = {
+  /** List of remote Wi-Fi profiles. */
   profiles?: Profile[];
+  /** General Wi-Fi settings. */
   settings?: Settings1;
 };
 

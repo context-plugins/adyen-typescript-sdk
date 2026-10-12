@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Left**
+ * * **Right**
+ * * **Centred**
+ * * **Justified**
+ */
 export const Alignment = {
   Left: "Left",
   Right: "Right",

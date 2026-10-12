@@ -3,6 +3,12 @@ import type { Schema } from "../core/validation/schema.js";
 import { soundFormat1Schema, type SoundFormat1 } from "./sound-format1.js";
 
 export type SoundContent = {
+  /**
+   * Possible values:
+   * * **MessageRef**
+   * * **SoundRef**
+   * * **Text**
+   */
   soundFormat: SoundFormat1;
   language?: string;
   referenceId?: string;

@@ -4,7 +4,7 @@
 
 Accessor: `client.balancesOverview` · Source: `src/resources/balances-overview.ts` · 2 operations · Request and error types: namespace `BalancesOverview`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getBalanceOverviewCompaniesCompanyAccountCodeBalances
 
@@ -14,7 +14,7 @@ Accessor: `client.balancesOverview` · Source: `src/resources/balances-overview.
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `CompanyBalances`
-- **Error**: `BalancesOverview.GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalancesOverview.GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalancesOverview.GetBalanceOverviewCompaniesCompanyAccountCodeBalancesRequest` (2):
@@ -37,7 +37,7 @@ Accessor: `client.balancesOverview` · Source: `src/resources/balances-overview.
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `MerchantBalance`
-- **Error**: `BalancesOverview.GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `BalancesOverview.GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `BalancesOverview.GetBalanceOverviewMerchantsMerchantAccountCodeBalancesRequest` (2):

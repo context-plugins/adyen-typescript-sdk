@@ -4,7 +4,7 @@
 
 Accessor: `client.transferLimitsBalancePlatformLevel` · Source: `src/resources/transfer-limits-balance-platform-level.ts` · 4 operations · Request and error types: namespace `TransferLimitsBalancePlatformLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteBalancePlatformsIdTransferLimitsTransferLimitId
 
@@ -13,8 +13,9 @@ Accessor: `client.transferLimitsBalancePlatformLevel` · Source: `src/resources/
 - **Wire**: `DELETE /balancePlatforms/{id}/transferLimits/{transferLimitId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `TransferLimitsBalancePlatformLevel.DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalancePlatformLevel.DeleteBalancePlatformsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalancePlatformLevel.DeleteBalancePlatformsIdTransferLimitsTransferLimitIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.transferLimitsBalancePlatformLevel` · Source: `src/resources/
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransferLimitListResponse`
-- **Error**: `TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsRequest` (4):
@@ -64,7 +65,7 @@ Accessor: `client.transferLimitsBalancePlatformLevel` · Source: `src/resources/
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransferLimit`
-- **Error**: `TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalancePlatformLevel.GetBalancePlatformsIdTransferLimitsTransferLimitIdRequest` (2):
@@ -86,8 +87,9 @@ Accessor: `client.transferLimitsBalancePlatformLevel` · Source: `src/resources/
 - **Wire**: `POST /balancePlatforms/{id}/transferLimits`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TransferLimit`
-- **Error**: `TransferLimitsBalancePlatformLevel.PostBalancePlatformsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalancePlatformLevel.PostBalancePlatformsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalancePlatformLevel.PostBalancePlatformsIdTransferLimitsRequest` (2):

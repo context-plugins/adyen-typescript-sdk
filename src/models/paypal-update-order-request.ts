@@ -8,14 +8,29 @@ import { deliveryMethodSchema, type DeliveryMethod } from "./delivery-method.js"
 import { taxTotal2Schema, type TaxTotal2 } from "./tax-total2.js";
 
 export type PaypalUpdateOrderRequest = {
+  /**
+   * The updated final payment amount. This amount is the item total plus the shipping costs of the
+   * selected `deliveryMethod`.
+   */
   amount?: Amount44;
+  /** The delivery address for this order. */
   deliveryAddress?: DeliveryAddress5;
+  /** The list of new delivery methods and the cost of each. */
   deliveryMethods?: DeliveryMethod[];
+  /** The discount amount for this order. */
   discountAmount?: Amount45;
+  /**
+   * The `paymentData` from the client side. This value changes every time you make a
+   * `/paypal/updateOrder` request.
+   */
   paymentData?: string;
+  /** The original `pspReference` from the `/payments` response. */
   pspReference?: string;
+  /** The original `sessionId` from the `/sessions` response. */
   sessionId?: string;
+  /** The shipping amount for this order. */
   shippingAmount?: Amount46;
+  /** Total tax amount from the order. */
   taxTotal?: TaxTotal2;
 };
 

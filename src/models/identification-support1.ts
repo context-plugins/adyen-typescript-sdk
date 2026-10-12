@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Support of the loyalty account identification. Allows knowing where and how you have found the
+ * loyalty account identification. Possible values:
+ * * **HybridCard**
+ * * **LinkedCard**
+ * * **LoyaltyCard**
+ * * **NoCard**
+ */
 export const IdentificationSupport1 = {
   NoCard: "NoCard",
   LoyaltyCard: "LoyaltyCard",

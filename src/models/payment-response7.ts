@@ -6,6 +6,10 @@ import {
 } from "./payment-validations-name-response2.js";
 
 export type PaymentResponse7 = {
+  /**
+   * Object that contains the status and outcomes of the [name
+   * validation](https://docs.adyen.com/payment-methods/cards/name-validation).
+   */
   name?: PaymentValidationsNameResponse2;
 };
 

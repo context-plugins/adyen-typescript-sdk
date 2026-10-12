@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The type of the transfer event. Possible values: **accounting**, **tracking**. */
 export const Type73 = {
   Accounting: "accounting",
   Tracing: "tracing",

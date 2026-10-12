@@ -3,10 +3,19 @@ import type { Schema } from "../core/validation/schema.js";
 import { type52Schema, type Type52 } from "./type52.js";
 
 export type StoredPaymentMethod6 = {
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @deprecated
+   */
   recurringDetailReference?: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /** The payment method type. */
   type?: Type52;
 };
 

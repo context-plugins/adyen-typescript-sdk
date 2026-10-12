@@ -5,8 +5,14 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/** Details to provide if `type` is **sepadirectdebit**. */
 export type SepaDirectDebitInfo2 = {
+  /** Creditor id */
   creditorId?: string;
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

@@ -1,6 +1,19 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Status**
+ * * **Error**
+ * * **Display**
+ * * **Sound**
+ * * **Input**
+ * * **POIReplication**
+ * * **CustomerAssistance**
+ * * **Receipt**
+ * * **Document**
+ * * **Voucher**
+ */
 export const InfoQualify = {
   Status: "Status",
   Error: "Error",

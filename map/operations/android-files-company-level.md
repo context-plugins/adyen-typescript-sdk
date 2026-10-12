@@ -4,7 +4,7 @@
 
 Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-files-company-level.ts` · 6 operations · Request and error types: namespace `AndroidFilesCompanyLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getCompaniesCompanyIdAndroidApps
 
@@ -14,7 +14,7 @@ Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-fi
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `AndroidAppsResponse`
-- **Error**: `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidAppsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidAppsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidAppsRequest` (5):
@@ -40,7 +40,7 @@ Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-fi
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `AndroidApp`
-- **Error**: `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidAppsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidAppsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidAppsIdRequest` (2):
@@ -63,7 +63,7 @@ Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-fi
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `AndroidCertificatesResponse`
-- **Error**: `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidCertificatesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidCertificatesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AndroidFilesCompanyLevel.GetCompaniesCompanyIdAndroidCertificatesRequest` (4):
@@ -87,8 +87,9 @@ Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-fi
 - **Wire**: `PATCH /companies/{companyId}/androidApps/{id}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ReprocessAndroidAppResponse`
-- **Error**: `AndroidFilesCompanyLevel.PatchCompaniesCompanyIdAndroidAppsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AndroidFilesCompanyLevel.PatchCompaniesCompanyIdAndroidAppsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AndroidFilesCompanyLevel.PatchCompaniesCompanyIdAndroidAppsIdRequest` (2):
@@ -110,8 +111,9 @@ Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-fi
 - **Wire**: `POST /companies/{companyId}/androidApps`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UploadAndroidAppResponse`
-- **Error**: `AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidAppsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidAppsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidAppsRequest` (1):
@@ -132,8 +134,9 @@ Accessor: `client.androidFilesCompanyLevel` · Source: `src/resources/android-fi
 - **Wire**: `POST /companies/{companyId}/androidCertificates`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UploadAndroidCertificateResponse`
-- **Error**: `AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidCertificatesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidCertificatesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AndroidFilesCompanyLevel.PostCompaniesCompanyIdAndroidCertificatesRequest` (1):

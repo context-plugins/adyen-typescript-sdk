@@ -4,7 +4,7 @@
 
 Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payout-schedules.ts` · 8 operations · Request and error types: namespace `ManagedPayoutSchedules`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteBalanceAccountsBalanceAccountIdPayoutSchedulesId
 
@@ -13,8 +13,9 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Wire**: `DELETE /balanceAccounts/{balanceAccountId}/payoutSchedules/{id}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `ManagedPayoutSchedules.DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BalanceAccountConfigurations`
-- **Error**: `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesRequest` (4):
@@ -61,7 +62,7 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BalanceAccountConfiguration`
-- **Error**: `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest` (2):
@@ -84,7 +85,7 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PayoutScheduleExecutions`
-- **Error**: `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsRequest` (5):
@@ -111,7 +112,7 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BalancePlatformConfigurations`
-- **Error**: `ManagedPayoutSchedules.GetBalancePlatformsBalancePlatformIdPayoutSchedulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.GetBalancePlatformsBalancePlatformIdPayoutSchedulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.GetBalancePlatformsBalancePlatformIdPayoutSchedulesRequest` (3):
@@ -135,7 +136,7 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BalancePlatformConfiguration`
-- **Error**: `ManagedPayoutSchedules.GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdRequest` (2):
@@ -157,8 +158,9 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Wire**: `PATCH /balanceAccounts/{balanceAccountId}/payoutSchedules/{id}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BalanceAccountConfiguration`
-- **Error**: `ManagedPayoutSchedules.PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdRequest` (3):
@@ -182,8 +184,9 @@ Accessor: `client.managedPayoutSchedules` · Source: `src/resources/managed-payo
 - **Wire**: `POST /balanceAccounts/{balanceAccountId}/payoutSchedules`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BalanceAccountConfiguration`
-- **Error**: `ManagedPayoutSchedules.PostBalanceAccountsBalanceAccountIdPayoutSchedulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManagedPayoutSchedules.PostBalanceAccountsBalanceAccountIdPayoutSchedulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManagedPayoutSchedules.PostBalanceAccountsBalanceAccountIdPayoutSchedulesRequest` (2):

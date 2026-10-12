@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth, noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { businessLinesSchema, type BusinessLines } from "../models/business-lines.js";
 import {
@@ -31,6 +32,29 @@ export class LegalEntities {
     this.#auth = auth;
   }
 
+  /**
+   * Get a legal entity
+   *
+   * @remarks
+   * Returns a legal entity.
+   *
+   * Requests to this endpoint are subject to rate limits:
+   *
+   * - Live environments: 700 requests per 5 seconds.
+   *
+   * - Test environments: 200 requests per 5 seconds.
+   *
+   * - Failed requests are subject to a limit of 5 failures per 10 seconds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link LegalEntities.GetLegalEntitiesIdError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getLegalEntitiesId(
     request: LegalEntities.GetLegalEntitiesIdRequest,
     options?: RequestOptions,
@@ -38,9 +62,11 @@ export class LegalEntities {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default18("/legalEntities/{id}"),
+        urlTemplate: this.#servers.default18("/legalEntities/{id}"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -51,6 +77,29 @@ export class LegalEntities {
     );
   }
 
+  /**
+   * Get all business lines under a legal entity
+   *
+   * @remarks
+   * Returns the business lines owned by a legal entity.
+   *
+   * Requests to this endpoint are subject to rate limits:
+   *
+   * - Live environments: 700 requests per 5 seconds.
+   *
+   * - Test environments: 200 requests per 5 seconds.
+   *
+   * - Failed requests are subject to a limit of 5 failures per 10 seconds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link LegalEntities.GetLegalEntitiesIdBusinessLinesError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getLegalEntitiesIdBusinessLines(
     request: LegalEntities.GetLegalEntitiesIdBusinessLinesRequest,
     options?: RequestOptions,
@@ -58,9 +107,11 @@ export class LegalEntities {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default18("/legalEntities/{id}/businessLines"),
+        urlTemplate: this.#servers.default18("/legalEntities/{id}/businessLines"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -71,6 +122,36 @@ export class LegalEntities {
     );
   }
 
+  /**
+   * Update a legal entity
+   *
+   * @remarks
+   * Updates a legal entity.
+   *
+   * >To change the legal entity type, include only the new `type` in your request.
+   *
+   * If you need to update information for the legal entity, make a separate request. To update the
+   * `entityAssociations` array, you need to replace the entire array.For example, if the array has
+   * 3 entries and you want to remove 1 entry, you need to PATCH the resource with the remaining 2
+   * entries.
+   *
+   * Requests to this endpoint are subject to rate limits:
+   *
+   * - Live environments: 700 requests per 5 seconds.
+   *
+   * - Test environments: 200 requests per 5 seconds.
+   *
+   * - Failed requests are subject to a limit of 5 failures per 10 seconds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link LegalEntities.PatchLegalEntitiesIdError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchLegalEntitiesId(
     request: LegalEntities.PatchLegalEntitiesIdRequest,
     options?: RequestOptions,
@@ -78,15 +159,17 @@ export class LegalEntities {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default18("/legalEntities/{id}"),
+        urlTemplate: this.#servers.default18("/legalEntities/{id}"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
         headers: [
           {
             name: "x-requested-verification-code",
             value: request.xRequestedVerificationCode,
             schema: s.optional(s.string()),
           },
+          { name: "Idempotency-Key", value: uuid(), schema: s.string() },
         ],
         body: { kind: "json", value: request.body, schema: s.optional(s.lazy(() => legalEntityInfoSchema)) },
       },
@@ -98,6 +181,33 @@ export class LegalEntities {
     );
   }
 
+  /**
+   * Create a legal entity
+   *
+   * @remarks
+   * Creates a legal entity.
+   *
+   * This resource contains information about the user that will be onboarded in your platform.
+   * Adyen uses this information to perform verification checks as required by payment industry
+   * regulations. Adyen informs you of the verification results through webhooks or API responses.
+   *
+   * Requests to this endpoint are subject to rate limits:
+   *
+   * - Live environments: 700 requests per 5 seconds.
+   *
+   * - Test environments: 200 requests per 5 seconds.
+   *
+   * - Failed requests are subject to a limit of 5 failures per 10 seconds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link LegalEntities.PostLegalEntitiesError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postLegalEntities(
     request: LegalEntities.PostLegalEntitiesRequest,
     options?: RequestOptions,
@@ -105,14 +215,17 @@ export class LegalEntities {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default18("/legalEntities"),
+        urlTemplate: this.#servers.default18("/legalEntities"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
         headers: [
           {
             name: "x-requested-verification-code",
             value: request.xRequestedVerificationCode,
             schema: s.optional(s.string()),
           },
+          { name: "Idempotency-Key", value: uuid(), schema: s.string() },
         ],
         body: {
           kind: "json",
@@ -128,6 +241,29 @@ export class LegalEntities {
     );
   }
 
+  /**
+   * Check a legal entity's verification errors
+   *
+   * @remarks
+   * Returns the verification errors for a legal entity and its supporting entities.
+   *
+   * Requests to this endpoint are subject to rate limits:
+   *
+   * - Live environments: 700 requests per 5 seconds.
+   *
+   * - Test environments: 200 requests per 5 seconds.
+   *
+   * - Failed requests are subject to a limit of 5 failures per 10 seconds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link LegalEntities.PostLegalEntitiesIdCheckVerificationErrorsError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postLegalEntitiesIdCheckVerificationErrors(
     request: LegalEntities.PostLegalEntitiesIdCheckVerificationErrorsRequest,
     options?: RequestOptions,
@@ -135,9 +271,11 @@ export class LegalEntities {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default18("/legalEntities/{id}/checkVerificationErrors"),
+        urlTemplate: this.#servers.default18("/legalEntities/{id}/checkVerificationErrors"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "empty" },
       },
       {
@@ -148,6 +286,31 @@ export class LegalEntities {
     );
   }
 
+  /**
+   * Confirm data review
+   *
+   * @remarks
+   * Confirms that your user has reviewed the data for the legal entity specified in the path. Call
+   * this endpoint to inform Adyen that your user reviewed and verified that the data is up-to-date.
+   * The endpoint returns the timestamp of when Adyen received the request.
+   *
+   * Requests to this endpoint are subject to rate limits:
+   *
+   * - Live environments: 700 requests per 5 seconds.
+   *
+   * - Test environments: 200 requests per 5 seconds.
+   *
+   * - Failed requests are subject to a limit of 5 failures per 10 seconds.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link LegalEntities.PostLegalEntitiesIdConfirmDataReviewError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postLegalEntitiesIdConfirmDataReview(
     request: LegalEntities.PostLegalEntitiesIdConfirmDataReviewRequest,
     options?: RequestOptions,
@@ -155,9 +318,11 @@ export class LegalEntities {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default18("/legalEntities/{id}/confirmDataReview"),
+        urlTemplate: this.#servers.default18("/legalEntities/{id}/confirmDataReview"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "empty" },
       },
       {
@@ -168,21 +333,38 @@ export class LegalEntities {
     );
   }
 
+  /**
+   * Request periodic data review.
+   *
+   * @remarks
+   * Requests a periodic data review for the legal entity of the user specified in the path.
+   *
+   * @returns No Content - the request has been successfully processed, but there is no additional
+   * content.
+   *
+   * @throws {@link ApiError} when the API answers with an error status
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postLegalEntitiesIdRequestPeriodicReview(
     request: LegalEntities.PostLegalEntitiesIdRequestPeriodicReviewRequest,
     options?: RequestOptions,
-  ): ApiPromise<unknown, ResponseError> {
-    return this.#rawClient.execute<unknown, ResponseError>(
+  ): ApiPromise<unknown, ApiError> {
+    return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default18("/legalEntities/{id}/requestPeriodicReview"),
+        urlTemplate: this.#servers.default18("/legalEntities/{id}/requestPeriodicReview"),
         auth: noneAuth,
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "empty" },
       },
       {
         success: { kind: "json", schema: s.unknown() },
-        errorFactory: ResponseError,
+        errorFactory: ApiError,
       },
       options,
     );
@@ -191,16 +373,19 @@ export class LegalEntities {
 
 export namespace LegalEntities {
   export type GetLegalEntitiesIdRequest = {
+    /** The unique identifier of the legal entity. */
     id: string;
   };
 
-  export class GetLegalEntitiesIdError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class GetLegalEntitiesIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<GetLegalEntitiesIdError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -211,16 +396,19 @@ export namespace LegalEntities {
   }
 
   export type GetLegalEntitiesIdBusinessLinesRequest = {
+    /** The unique identifier of the legal entity. */
     id: string;
   };
 
-  export class GetLegalEntitiesIdBusinessLinesError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class GetLegalEntitiesIdBusinessLinesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<GetLegalEntitiesIdBusinessLinesError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -231,18 +419,25 @@ export namespace LegalEntities {
   }
 
   export type PatchLegalEntitiesIdRequest = {
+    /** The unique identifier of the legal entity. */
     id: string;
+    /**
+     * Use the requested verification code 0_0001 to resolve any suberrors associated with the legal
+     * entity. Requested verification codes can only be used in your test environment.
+     */
     xRequestedVerificationCode?: string;
     body?: LegalEntityInfo;
   };
 
-  export class PatchLegalEntitiesIdError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PatchLegalEntitiesIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PatchLegalEntitiesIdError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -253,17 +448,24 @@ export namespace LegalEntities {
   }
 
   export type PostLegalEntitiesRequest = {
+    /**
+     * Use a suberror code as your requested verification code. You can include one code at a time
+     * in your request header. Requested verification codes can only be used in your test
+     * environment.
+     */
     xRequestedVerificationCode?: string;
     body?: LegalEntityInfoRequiredType;
   };
 
-  export class PostLegalEntitiesError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostLegalEntitiesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostLegalEntitiesError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -274,16 +476,19 @@ export namespace LegalEntities {
   }
 
   export type PostLegalEntitiesIdCheckVerificationErrorsRequest = {
+    /** The unique identifier of the legal entity. */
     id: string;
   };
 
-  export class PostLegalEntitiesIdCheckVerificationErrorsError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostLegalEntitiesIdCheckVerificationErrorsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostLegalEntitiesIdCheckVerificationErrorsError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -294,16 +499,19 @@ export namespace LegalEntities {
   }
 
   export type PostLegalEntitiesIdConfirmDataReviewRequest = {
+    /** The unique identifier of the legal entity. */
     id: string;
   };
 
-  export class PostLegalEntitiesIdConfirmDataReviewError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostLegalEntitiesIdConfirmDataReviewError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostLegalEntitiesIdConfirmDataReviewError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -314,6 +522,7 @@ export namespace LegalEntities {
   }
 
   export type PostLegalEntitiesIdRequestPeriodicReviewRequest = {
+    /** The unique identifier of the legal entity. */
     id: string;
   };
 }

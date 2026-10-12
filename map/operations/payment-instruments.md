@@ -4,7 +4,7 @@
 
 Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instruments.ts` · 9 operations · Request and error types: namespace `PaymentInstruments`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getPaymentInstrumentsId
 
@@ -14,7 +14,7 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PaymentInstrument1`
-- **Error**: `PaymentInstruments.GetPaymentInstrumentsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.GetPaymentInstrumentsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.GetPaymentInstrumentsIdRequest` (1):
@@ -36,7 +36,7 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `NetworkTokenActivationDataResponse`
-- **Error**: `PaymentInstruments.GetPaymentInstrumentsIdNetworkTokenActivationDataError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.GetPaymentInstrumentsIdNetworkTokenActivationDataError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.GetPaymentInstrumentsIdNetworkTokenActivationDataRequest` (1):
@@ -58,7 +58,7 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListNetworkTokensResponse`
-- **Error**: `PaymentInstruments.GetPaymentInstrumentsIdNetworkTokensError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.GetPaymentInstrumentsIdNetworkTokensError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.GetPaymentInstrumentsIdNetworkTokensRequest` (1):
@@ -80,7 +80,7 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PaymentInstrumentRevealInfo`
-- **Error**: `PaymentInstruments.GetPaymentInstrumentsIdRevealError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.GetPaymentInstrumentsIdRevealError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.GetPaymentInstrumentsIdRevealRequest` (1):
@@ -102,7 +102,7 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransactionRulesResponse`
-- **Error**: `PaymentInstruments.GetPaymentInstrumentsIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.GetPaymentInstrumentsIdTransactionRulesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.GetPaymentInstrumentsIdTransactionRulesRequest` (1):
@@ -122,9 +122,10 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Signature**: `patchPaymentInstrumentsId(request: PaymentInstruments.PatchPaymentInstrumentsIdRequest, options?: RequestOptions): ApiPromise<UpdatePaymentInstrument, PaymentInstruments.PatchPaymentInstrumentsIdError>`
 - **Wire**: `PATCH /paymentInstruments/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UpdatePaymentInstrument`
-- **Error**: `PaymentInstruments.PatchPaymentInstrumentsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.PatchPaymentInstrumentsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.PatchPaymentInstrumentsIdRequest` (2):
@@ -146,9 +147,10 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Signature**: `postPaymentInstruments(request: PaymentInstruments.PostPaymentInstrumentsRequest, options?: RequestOptions): ApiPromise<PaymentInstrument1, PaymentInstruments.PostPaymentInstrumentsError>`
 - **Wire**: `POST /paymentInstruments`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentInstrument1`
-- **Error**: `PaymentInstruments.PostPaymentInstrumentsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.PostPaymentInstrumentsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.PostPaymentInstrumentsRequest` (1):
@@ -169,9 +171,10 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Signature**: `postPaymentInstrumentsIdNetworkTokenActivationData(request: PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataRequest, options?: RequestOptions): ApiPromise<NetworkTokenActivationDataResponse, PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataError>`
 - **Wire**: `POST /paymentInstruments/{id}/networkTokenActivationData`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `NetworkTokenActivationDataResponse`
-- **Error**: `PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.PostPaymentInstrumentsIdNetworkTokenActivationDataRequest` (2):
@@ -193,9 +196,10 @@ Accessor: `client.paymentInstruments` · Source: `src/resources/payment-instrume
 - **Signature**: `postPaymentInstrumentsReveal(request: PaymentInstruments.PostPaymentInstrumentsRevealRequest, options?: RequestOptions): ApiPromise<PaymentInstrumentRevealResponse, PaymentInstruments.PostPaymentInstrumentsRevealError>`
 - **Wire**: `POST /paymentInstruments/reveal`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentInstrumentRevealResponse`
-- **Error**: `PaymentInstruments.PostPaymentInstrumentsRevealError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentInstruments.PostPaymentInstrumentsRevealError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentInstruments.PostPaymentInstrumentsRevealRequest` (1):

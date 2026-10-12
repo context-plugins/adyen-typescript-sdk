@@ -6,7 +6,12 @@ import {
   type RepeatedResponseMessageBody,
 } from "./repeated-response-message-body.js";
 
+/** Content of the requested Message Response. If Result is Success (process completed). */
 export type RepeatedMessageResponse2 = {
+  /**
+   * Message header of the Sale to POI protocol message. It conveys Information related to the Sale
+   * to POI protocol management.
+   */
   messageHeader: MessageHeader;
   repeatedResponseMessageBody: RepeatedResponseMessageBody;
 };

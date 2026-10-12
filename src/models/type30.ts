@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **eft**
+ */
 export const Type30 = {
   EftDirectdebitCa: "eft_directdebit_CA",
 } as const;

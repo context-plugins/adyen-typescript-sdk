@@ -4,7 +4,9 @@ import { paymentMethodSchema, type PaymentMethod } from "./payment-method.js";
 import { storedPaymentMethod3Schema, type StoredPaymentMethod3 } from "./stored-payment-method3.js";
 
 export type PaymentMethodsResponse = {
+  /** Detailed list of payment methods required to generate payment forms. */
   paymentMethods?: PaymentMethod[];
+  /** List of all stored payment methods. */
   storedPaymentMethods?: StoredPaymentMethod3[];
 };
 

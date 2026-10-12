@@ -3,8 +3,11 @@ import type { Schema } from "../core/validation/schema.js";
 import { capabilitySchema, type Capability } from "./capability.js";
 
 export type VerificationDeadline = {
+  /** The names of the capabilities to be disallowed. */
   capabilities: Capability[];
+  /** The unique identifiers of the bank account(s) that the deadline applies to */
   entityIds?: string[];
+  /** The date that verification is due by before capabilities are disallowed. */
   expiresAt: Date;
 };
 

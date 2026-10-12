@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The type of legal entity of the new account holder. */
 export const LegalEntity1 = {
   Business: "Business",
   Individual: "Individual",

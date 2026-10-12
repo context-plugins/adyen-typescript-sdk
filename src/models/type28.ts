@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **dragonpay**
+ */
 export const Type28 = {
   DragonpayEbanking: "dragonpay_ebanking",
   DragonpayOtcBanking: "dragonpay_otc_banking",

@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **klarna**
+ */
 export const Type34 = {
   Klarna: "klarna",
   Klarnapayments: "klarnapayments",

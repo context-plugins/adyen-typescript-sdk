@@ -1,9 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Merchant device information. */
 export type MerchantDevice = {
+  /** Operating system running on the merchant device. */
   os?: string;
+  /** Version of the operating system on the merchant device. */
   osVersion?: string;
+  /** Merchant device reference. */
   reference?: string;
 };
 

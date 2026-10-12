@@ -7,9 +7,20 @@ import {
 import { type33Schema, type Type33 } from "./type33.js";
 
 export type CapabilityProblemEntity = {
+  /**
+   * List of document IDs to which the verification errors related to the capabilities correspond
+   * to.
+   */
   documents?: string[];
+  /** The ID of the entity. */
   id?: string;
+  /** Contains details about the owner of the entity that has an error. */
   owner?: CapabilityProblemEntityRecursive2;
+  /**
+   * Type of entity.
+   *
+   * Possible values: **LegalEntity**, **BankAccount**, **Document**.
+   */
   type?: Type33;
 };
 

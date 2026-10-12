@@ -6,6 +6,7 @@ import {
 } from "./notification-configuration-details3.js";
 
 export type UpdateNotificationConfigurationRequest = {
+  /** Details of the notification subscription configuration to be updated. */
   configurationDetails: NotificationConfigurationDetails3;
 };
 

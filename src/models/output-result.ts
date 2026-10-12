@@ -4,9 +4,37 @@ import { device3Schema, type Device3 } from "./device3.js";
 import { infoQualify3Schema, type InfoQualify3 } from "./info-qualify3.js";
 import { response11Schema, type Response11 } from "./response11.js";
 
+/**
+ * In the message response, it contains the result of the output, if required in the message
+ * request. Information related to the result the output (display, print, input).
+ */
 export type OutputResult = {
+  /**
+   * Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to
+   * output (display, print or store), or input (keyboard) for the Cashier or the Customer. Copy.
+   * Possible values:
+   * * **CashierDisplay**
+   * * **CashierInput**
+   * * **CustomerDisplay**
+   * * **CustomerInput**
+   */
   device: Device3;
+  /**
+   * Qualification of the information to sent to an output logical device, to display or print to
+   * the Cashier or the Customer. Copy. Possible values:
+   * * **CustomerAssistance**
+   * * **Display**
+   * * **Document**
+   * * **Error**
+   * * **Input**
+   * * **POIReplication**
+   * * **Receipt**
+   * * **Sound**
+   * * **Status**
+   * * **Voucher**
+   */
   infoQualify: InfoQualify3;
+  /** Result of a message request processing. */
   response: Response11;
 };
 

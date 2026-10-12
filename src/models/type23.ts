@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **doku**
+ */
 export const Type23 = {
   DokuMandiriVa: "doku_mandiri_va",
   DokuCimbVa: "doku_cimb_va",

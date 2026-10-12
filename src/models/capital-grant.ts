@@ -8,14 +8,35 @@ import { repaymentSchema, type Repayment } from "./repayment.js";
 import { status14Schema, type Status14 } from "./status14.js";
 
 export type CapitalGrant = {
+  /**
+   * An object containing the amount of the grant, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes).
+   */
   amount?: Amount17;
+  /** An object containing the details of the existing grant. */
   balances: CapitalBalance;
+  /** An object containing the details of the receiving party of the grant. */
   counterparty?: GrantCounterparty2;
+  /**
+   * An object containing the fee currency and value, in [minor
+   * units](https://docs.adyen.com/development-resources/currency-codes).
+   */
   fee?: Fee4;
+  /** The identifier of the grant account used for the grant. */
   grantAccountId: string;
+  /**
+   * The identifier of the grant offer that has been selected and from which the grant details will
+   * be used.
+   */
   grantOfferId: string;
+  /** The identifier of the grant reference. */
   id: string;
+  /** An object containing the details of the 30-day repayment threshold. */
   repayment?: Repayment;
+  /**
+   * The current status of the grant. Possible values: **Pending**, **Active**, **Repaid**,
+   * **WrittenOff**, **Failed**, **Revoked**.
+   */
   status: Status14;
 };
 

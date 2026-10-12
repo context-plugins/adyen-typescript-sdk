@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { value3Schema, type Value3 } from "./value3.js";
 
 export type MatchingValuesRestriction = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
   value?: Value3[];
 };

@@ -5,7 +5,12 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/** Details to provide if `type` is **eft_directdebit_CA** (EFT PAD). */
 export type GenericPmWithTdiInfo3 = {
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Success**
+ * * **Failure**
+ * * **Partial**
+ */
 export const Result3 = {
   Success: "Success",
   Failure: "Failure",

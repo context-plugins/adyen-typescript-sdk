@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { capitalGrantSchema, type CapitalGrant } from "./capital-grant.js";
 
 export type CapitalGrants = {
+  /** The unique identifier of the grant. */
   grants: CapitalGrant[];
 };
 

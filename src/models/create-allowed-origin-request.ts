@@ -3,8 +3,11 @@ import type { Schema } from "../core/validation/schema.js";
 import { links2Schema, type Links2 } from "./links2.js";
 
 export type CreateAllowedOriginRequest = {
+  /** References to resources linked to the allowed origin. */
   links?: Links2;
+  /** Domain of the allowed origin. */
   domain: string;
+  /** Unique identifier of the allowed origin. */
   id?: string;
 };
 

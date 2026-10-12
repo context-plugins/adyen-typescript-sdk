@@ -1,6 +1,22 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of payment transaction. Elements requested by the Sale System that are related to the
+ * payment only. Possible values:
+ * * **CashAdvance**
+ * * **CashDeposit**
+ * * **Completion**
+ * * **FirstReservation**
+ * * **Instalment**
+ * * **IssuerInstalment**
+ * * **Normal**
+ * * **OneTimeReservation**
+ * * **PaidOut**
+ * * **Recurring**
+ * * **Refund**
+ * * **UpdateReservation**
+ */
 export const PaymentType1 = {
   Normal: "Normal",
   Refund: "Refund",

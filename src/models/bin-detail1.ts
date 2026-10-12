@@ -1,7 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Bin Group Details */
 export type BinDetail1 = {
+  /** The country where the card was issued. */
   issuerCountry?: string;
 };
 

@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The party that initiated the cancellation of the transaction.
+ *
+ * Possible values: **merchant**, **cardholder**.
+ */
 export const CancellingEntity1 = {
   Merchant: "merchant",
   Cardholder: "cardholder",

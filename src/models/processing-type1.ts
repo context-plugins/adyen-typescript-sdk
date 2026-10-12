@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Contains information about how the payment was processed.
+ *
+ * Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**,
+ * **purchaseWithCashback**, **recurring**, **token**.
+ */
 export const ProcessingType1 = {
   AtmWithdraw: "atmWithdraw",
   BalanceInquiry: "balanceInquiry",

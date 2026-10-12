@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Global status of a POI Server or POI Terminal. Possible values:
+ * * **Busy**
+ * * **Maintenance**
+ * * **OK**
+ * * **Unreachable**
+ */
 export const GlobalStatus1 = {
   Ok: "OK",
   Busy: "Busy",

@@ -5,7 +5,15 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/**
+ * Details to provide if `type` is **maestro**. In the US, `maestro` is not supported; use
+ * `maestro_usa` instead.
+ */
 export type GenericPmWithTdiInfo8 = {
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

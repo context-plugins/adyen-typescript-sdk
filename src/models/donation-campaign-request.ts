@@ -7,10 +7,15 @@ import {
 import { onlineDonationSettings2Schema, type OnlineDonationSettings2 } from "./online-donation-settings2.js";
 
 export type DonationCampaignRequest = {
+  /** The unique identifiers of the account holders associated with the donation campaign. */
   accountHolderIds?: string[];
+  /** The settings for in-person donations collected as part of the campaign. */
   inPerson?: InPersonDonationSettings2;
+  /** The name of the donation campaign. */
   name: string;
+  /** The unique identifier of the nonprofit cause that the campaign supports. */
   nonprofitCauseId: string;
+  /** The settings for online donations collected as part of the campaign. */
   online?: OnlineDonationSettings2;
 };
 

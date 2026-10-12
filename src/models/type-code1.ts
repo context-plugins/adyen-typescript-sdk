@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of bank check. Possible values:
+ * * **Company**
+ * * **Personal**
+ */
 export const TypeCode1 = {
   Personal: "Personal",
   Company: "Company",

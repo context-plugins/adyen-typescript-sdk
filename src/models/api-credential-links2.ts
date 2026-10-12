@@ -7,12 +7,30 @@ import { linksElement4Schema, type LinksElement4 } from "./links-element4.js";
 import { linksElement5Schema, type LinksElement5 } from "./links-element5.js";
 import { linksElement6Schema, type LinksElement6 } from "./links-element6.js";
 
+/** References to resources linked to the API credential. */
 export type ApiCredentialLinks2 = {
+  /** List of allowed origins. */
   allowedOrigins?: LinksElement1;
+  /**
+   * Company account that the API credential is linked to. Only present for company-level webhooks.
+   */
   company?: LinksElement2;
+  /**
+   * Generates a new API key. When you generate a new one, the existing key remains valid for 24
+   * hours.
+   */
   generateApiKey?: LinksElement3;
+  /**
+   * Generates a new client key, used to authenticate client-side requests. When you generate a new
+   * one, the existing key remains valid for 24 hours.
+   */
   generateClientKey?: LinksElement4;
+  /**
+   * The merchant account that the API credential is linked to. Only present for merchant-level API
+   * credentials.
+   */
   merchant?: LinksElement5;
+  /** Link to the resource itself. */
   self: LinksElement6;
 };
 

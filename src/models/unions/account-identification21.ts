@@ -61,6 +61,7 @@ import {
   type UsLocalAccountIdentification,
 } from "../us-local-account-identification.js";
 
+/** Identification of the bank account. */
 export type AccountIdentification21 =
   | AuLocalAccountIdentification
   | CaLocalAccountIdentification

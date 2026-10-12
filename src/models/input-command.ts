@@ -1,6 +1,18 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **GetAnyKey**
+ * * **GetConfirmation**
+ * * **SiteManager**
+ * * **TextString**
+ * * **DigitString**
+ * * **DecimalString**
+ * * **GetFunctionKey**
+ * * **GetMenuEntry**
+ * * **Password**
+ */
 export const InputCommand = {
   GetAnyKey: "GetAnyKey",
   GetConfirmation: "GetConfirmation",

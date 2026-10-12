@@ -3,7 +3,9 @@ import type { Schema } from "../core/validation/schema.js";
 import { leg1Schema, type Leg1 } from "./leg1.js";
 
 export type Airline2 = {
+  /** Details about the flight legs for this ticket. */
   legs?: Leg1[];
+  /** The ticket's unique identifier */
   ticketNumber?: string;
 };
 

@@ -3,7 +3,9 @@ import type { Schema } from "../core/validation/schema.js";
 import { linksElementSchema, type LinksElement } from "./links-element.js";
 
 export type Links3 = {
+  /** Contains a link to the next page. */
   next?: LinksElement;
+  /** Contains a link to the previous page. */
   prev?: LinksElement;
 };
 

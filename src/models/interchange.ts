@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Deducts the interchange fee from specified balance account.
+ *
+ * Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
+ */
 export const Interchange = {
   DeductFromLiableAccount: "deductFromLiableAccount",
   DeductFromOneBalanceAccount: "deductFromOneBalanceAccount",

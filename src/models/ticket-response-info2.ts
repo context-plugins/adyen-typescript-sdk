@@ -1,7 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** **ticket** (Edenred Brazil) details */
 export type TicketResponseInfo2 = {
+  /** Ticket requestorId */
   requestorId?: string;
 };
 

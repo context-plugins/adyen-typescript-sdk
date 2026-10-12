@@ -4,8 +4,14 @@ import { authenticationMethodSchema, type AuthenticationMethod } from "./authent
 import { paymentInstrumentSchema, type PaymentInstrument } from "./payment-instrument.js";
 
 export type PayAtTable = {
+  /** Allowed authentication methods: Magswipe, Manual Entry. */
   authenticationMethod?: AuthenticationMethod;
+  /** Enable Pay at table. */
   enablePayAtTable?: boolean;
+  /**
+   * Sets the allowed payment instrument for Pay at table transactions. Can be: **cash** or
+   * **card**. If not set, the terminal presents both options.
+   */
   paymentInstrument?: PaymentInstrument | null;
 };
 

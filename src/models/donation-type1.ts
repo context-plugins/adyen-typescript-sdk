@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of donation to collect from the shopper. Possible values:
+ *
+ * - **roundup**: Round up the transaction amount.
+ *
+ * - **fixedAmounts**: Choose a fixed amount.
+ *
+ * - **fixedAmountsRoundup**: Round up, or choose a fixed amount.
+ */
 export const DonationType1 = {
   Roundup: "roundup",
   FixedAmounts: "fixedAmounts",

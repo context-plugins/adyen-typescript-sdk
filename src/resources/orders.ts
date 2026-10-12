@@ -1,9 +1,9 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
 import * as s from "../core/validation/index.js";
 import { balanceCheckRequestSchema, type BalanceCheckRequest } from "../models/balance-check-request.js";
 import { balanceCheckResponseSchema, type BalanceCheckResponse } from "../models/balance-check-response.js";
@@ -25,6 +25,22 @@ export class Orders {
     this.#auth = auth;
   }
 
+  /**
+   * Create an order
+   *
+   * @remarks
+   * Creates an order to be used for partial payments. Make a POST `/orders` call before making a
+   * `/payments` call when processing payments with different payment methods.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Orders.PostOrdersError} when the API answers with an error status — narrow on
+   * `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postOrders(
     request: Orders.PostOrdersRequest,
     options?: RequestOptions,
@@ -32,8 +48,10 @@ export class Orders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default("/orders"),
+        urlTemplate: this.#servers.default("/orders"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
         headers: [{ name: "Idempotency-Key", value: request.idempotencyKey, schema: s.optional(s.string()) }],
         body: {
           kind: "json",
@@ -49,6 +67,23 @@ export class Orders {
     );
   }
 
+  /**
+   * Cancel an order
+   *
+   * @remarks
+   * Cancels an order. Cancellation of an order results in an automatic rollback of all payments
+   * made in the order, either by canceling or refunding the payment, depending on the type of
+   * payment method.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Orders.PostOrdersCancelError} when the API answers with an error status — narrow
+   * on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postOrdersCancel(
     request: Orders.PostOrdersCancelRequest,
     options?: RequestOptions,
@@ -56,8 +91,10 @@ export class Orders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default("/orders/cancel"),
+        urlTemplate: this.#servers.default("/orders/cancel"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
         headers: [{ name: "Idempotency-Key", value: request.idempotencyKey, schema: s.optional(s.string()) }],
         body: {
           kind: "json",
@@ -73,6 +110,23 @@ export class Orders {
     );
   }
 
+  /**
+   * Get the balance of a gift card
+   *
+   * @remarks
+   * Retrieves the balance remaining on a shopper's gift card. To check a gift card's balance, make
+   * a POST `/paymentMethods/balance` call and include the gift card's details inside a
+   * `paymentMethod` object.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Orders.PostPaymentMethodsBalanceError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postPaymentMethodsBalance(
     request: Orders.PostPaymentMethodsBalanceRequest,
     options?: RequestOptions,
@@ -80,8 +134,10 @@ export class Orders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default("/paymentMethods/balance"),
+        urlTemplate: this.#servers.default("/paymentMethods/balance"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
         headers: [{ name: "Idempotency-Key", value: request.idempotencyKey, schema: s.optional(s.string()) }],
         body: {
           kind: "json",
@@ -100,17 +156,22 @@ export class Orders {
 
 export namespace Orders {
   export type PostOrdersRequest = {
+    /**
+     * A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
+     */
     idempotencyKey?: string;
     body?: CreateOrderRequest;
   };
 
-  export class PostOrdersError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostOrdersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostOrdersError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -121,17 +182,22 @@ export namespace Orders {
   }
 
   export type PostOrdersCancelRequest = {
+    /**
+     * A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
+     */
     idempotencyKey?: string;
     body?: CancelOrderRequest;
   };
 
-  export class PostOrdersCancelError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostOrdersCancelError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostOrdersCancelError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -142,17 +208,22 @@ export namespace Orders {
   }
 
   export type PostPaymentMethodsBalanceRequest = {
+    /**
+     * A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
+     */
     idempotencyKey?: string;
     body?: BalanceCheckRequest;
   };
 
-  export class PostPaymentMethodsBalanceError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostPaymentMethodsBalanceError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostPaymentMethodsBalanceError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },

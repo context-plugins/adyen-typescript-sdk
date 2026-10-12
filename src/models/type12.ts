@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **billdesk**
+ */
 export const Type12 = {
   BilldeskOnline: "billdesk_online",
   BilldeskWallet: "billdesk_wallet",

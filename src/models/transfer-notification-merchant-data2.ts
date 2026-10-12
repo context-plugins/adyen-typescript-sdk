@@ -1,14 +1,26 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Contains information about the merchant. */
 export type TransferNotificationMerchantData2 = {
+  /** The unique identifier of the merchant's acquirer. */
   acquirerId?: string;
+  /** The city where the merchant is located. */
   city?: string;
+  /** The country where the merchant is located. */
   country?: string;
+  /**
+   * The two-character country code of the merchant's location, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   */
   countryCode?: string;
+  /** The merchant category code. */
   mcc?: string;
+  /** The unique identifier of the merchant. */
   merchantId?: string;
+  /** The name of the merchant's shop or service. */
   name?: string;
+  /** The postal code of the merchant. */
   postalCode?: string;
 };
 

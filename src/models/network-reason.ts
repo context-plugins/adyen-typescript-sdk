@@ -3,8 +3,19 @@ import type { Schema } from "../core/validation/schema.js";
 import { namespaceSchema, type Namespace } from "./namespace.js";
 
 export type NetworkReason = {
+  /** The reason code provided by the network. */
   code?: string;
+  /** The description of the reason code. */
   description?: string;
+  /**
+   * The namespace that corresponds to the reason code.
+   *
+   * Possible values:
+   * * **ukFpsRejectionCode**
+   * * **ukFpsReturnReasonCode**
+   * * **usAchReturnReasonCode**
+   * * **iso8583ResponseCode**
+   */
   namespace?: Namespace;
 };
 

@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Class of the message. Possible values:
+ * * **Device**
+ * * **Event**
+ * * **Service**
+ */
 export const MessageClass1 = {
   Service: "Service",
   Device: "Device",

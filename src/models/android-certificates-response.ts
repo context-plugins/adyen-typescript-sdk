@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { androidCertificateSchema, type AndroidCertificate } from "./android-certificate.js";
 
 export type AndroidCertificatesResponse = {
+  /** Uploaded Android certificates for Android payment terminals. */
   data?: AndroidCertificate[];
 };
 

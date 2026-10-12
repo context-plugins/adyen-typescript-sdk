@@ -3,9 +3,16 @@ import type { Schema } from "../core/validation/schema.js";
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type GetOnboardingUrlResponse = {
+  /** Information about any invalid fields. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /**
+   * The URL to the Hosted Onboarding Page where you should redirect your sub-merchant. This URL
+   * must be used within 30 seconds and can only be used once.
+   */
   redirectUrl?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

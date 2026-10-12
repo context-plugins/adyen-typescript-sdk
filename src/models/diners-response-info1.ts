@@ -5,10 +5,23 @@ import {
   type TransactionDescriptionResponseInfo1,
 } from "./transaction-description-response-info1.js";
 
+/** **diners** details */
 export type DinersResponseInfo1 = {
+  /** MID (Merchant ID) number. */
   midNumber?: string;
+  /**
+   * Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment
+   * method.
+   */
   reuseMidNumber?: boolean;
+  /**
+   * The service level (settlement type) of this payment method. Possible values:
+   *  * **noContract**: Adyen holds the contract with JCB.
+   *  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you
+   *    or your sub-merchant directly.
+   */
   serviceLevel?: string;
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

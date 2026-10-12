@@ -3,6 +3,10 @@ import type { Schema } from "../core/validation/schema.js";
 import { summarySchema, type Summary } from "./summary.js";
 
 export type TaxFormSummaryResponse = {
+  /**
+   * A list of tax form summaries, where each summary consists of the legal entity and the tax years
+   * in which the legal entity has a tax form.
+   */
   data: Summary[];
 };
 

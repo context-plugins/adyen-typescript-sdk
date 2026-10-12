@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Indicates if the printer is working and usable. Possible values:
+ * * **OK**
+ * * **PaperLow**
+ * * **NoPaper**
+ * * **PaperJam**
+ * * **OutOfOrder**
+ */
 export const PrinterStatus = {
   Ok: "OK",
   PaperLow: "PaperLow",

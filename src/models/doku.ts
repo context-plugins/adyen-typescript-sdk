@@ -3,11 +3,19 @@ import type { Schema } from "../core/validation/schema.js";
 import { type23Schema, type Type23 } from "./type23.js";
 
 export type Doku = {
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
+  /** The shopper's first name. */
   firstName: string;
+  /** The shopper's last name. */
   lastName: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** The shopper's email. */
   shopperEmail: string;
+  /**
+   * **doku**
+   */
   type: Type23;
 };
 

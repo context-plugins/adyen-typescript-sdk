@@ -4,7 +4,7 @@
 
 Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operations · Request and error types: namespace `Transfers`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getTransfers
 
@@ -14,7 +14,7 @@ Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operat
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `FindTransfersResponse`
-- **Error**: `Transfers.GetTransfersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Transfers.GetTransfersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"transferServiceRestServiceError"` [401] `TransferServiceRestServiceError` · `"transferServiceRestServiceError2"` [403] `TransferServiceRestServiceError` · `"transferServiceRestServiceError3"` [422] `TransferServiceRestServiceError` · `"transferServiceRestServiceError4"` [500] `TransferServiceRestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Transfers.GetTransfersRequest` (11):
@@ -48,7 +48,7 @@ Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operat
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransferData`
-- **Error**: `Transfers.GetTransfersIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Transfers.GetTransfersIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"transferServiceRestServiceError"` [401] `TransferServiceRestServiceError` · `"transferServiceRestServiceError2"` [403] `TransferServiceRestServiceError` · `"transferServiceRestServiceError3"` [422] `TransferServiceRestServiceError` · `"transferServiceRestServiceError4"` [500] `TransferServiceRestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Transfers.GetTransfersIdRequest` (1):
@@ -68,9 +68,9 @@ Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operat
 - **Signature**: `postTransfers(request: Transfers.PostTransfersRequest, options?: RequestOptions): ApiPromise<Transfer, Transfers.PostTransfersError>`
 - **Wire**: `POST /transfers`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `Transfer`
-- **Error**: `Transfers.PostTransfersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Transfers.PostTransfersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [401] `ServiceError1` · `"transferServiceRestServiceError"` [403] `TransferServiceRestServiceError` · `"transferServiceRestServiceError2"` [422] `TransferServiceRestServiceError` · `"transferServiceRestServiceError3"` [500] `TransferServiceRestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Transfers.PostTransfersRequest` (3):
@@ -94,9 +94,9 @@ Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operat
 - **Signature**: `postTransfersApprove(request: Transfers.PostTransfersApproveRequest, options?: RequestOptions): ApiPromise<unknown, Transfers.PostTransfersApproveError>`
 - **Wire**: `POST /transfers/approve`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `unknown` — a bare `application/json` unknown; the success type *is* the unknown
-- **Error**: `Transfers.PostTransfersApproveError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Transfers.PostTransfersApproveError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [401] `ServiceError1` · `"transferServiceRestServiceError"` [403] `TransferServiceRestServiceError` · `"transferServiceRestServiceError2"` [422] `TransferServiceRestServiceError` · `"transferServiceRestServiceError3"` [500] `TransferServiceRestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Transfers.PostTransfersApproveRequest` (3):
@@ -119,9 +119,9 @@ Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operat
 - **Signature**: `postTransfersCancel(request: Transfers.PostTransfersCancelRequest, options?: RequestOptions): ApiPromise<unknown, Transfers.PostTransfersCancelError>`
 - **Wire**: `POST /transfers/cancel`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `unknown` — a bare `application/json` unknown; the success type *is* the unknown
-- **Error**: `Transfers.PostTransfersCancelError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Transfers.PostTransfersCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"transferServiceRestServiceError"` [401] `TransferServiceRestServiceError` · `"transferServiceRestServiceError2"` [403] `TransferServiceRestServiceError` · `"transferServiceRestServiceError3"` [422] `TransferServiceRestServiceError` · `"transferServiceRestServiceError4"` [500] `TransferServiceRestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Transfers.PostTransfersCancelRequest` (2):
@@ -142,9 +142,9 @@ Accessor: `client.transfers` · Source: `src/resources/transfers.ts` · 6 operat
 - **Signature**: `postTransfersTransferIdReturns(request: Transfers.PostTransfersTransferIdReturnsRequest, options?: RequestOptions): ApiPromise<ReturnTransferResponse, Transfers.PostTransfersTransferIdReturnsError>`
 - **Wire**: `POST /transfers/{transferId}/returns`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `ReturnTransferResponse`
-- **Error**: `Transfers.PostTransfersTransferIdReturnsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Transfers.PostTransfersTransferIdReturnsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"transferServiceRestServiceError"` [401] `TransferServiceRestServiceError` · `"transferServiceRestServiceError2"` [403] `TransferServiceRestServiceError` · `"transferServiceRestServiceError3"` [422] `TransferServiceRestServiceError` · `"transferServiceRestServiceError4"` [500] `TransferServiceRestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Transfers.PostTransfersTransferIdReturnsRequest` (3):

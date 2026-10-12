@@ -6,14 +6,33 @@ import { dynamicOfferRepayment2Schema, type DynamicOfferRepayment2 } from "./dyn
 import { financingType2Schema, type FinancingType2 } from "./financing-type2.js";
 
 export type DynamicOffer = {
+  /** The unique identifier of the account holder that the dynamic offer is for. */
   accountHolderId: string;
+  /**
+   * The contract type of the offer.
+   *
+   * Possible values:
+   * * **loan**
+   * * **cashAdvance**
+   */
   contractType: ContractType;
+  /** The expiration date and time of the offer validity period. */
   expiresAt: Date;
+  /**
+   * The type of financing that the offer is for.
+   *
+   * Possible values: **businessFinancing**.
+   */
   financingType: FinancingType2;
+  /** The unique identifier of the dynamic offer. */
   id: string;
+  /** The maximum financing amount available to the account holder under this offer. */
   maximumAmount: Amount17;
+  /** The minimum financing amount available to the account holder under this offer. */
   minimumAmount: Amount17;
+  /** Contains information about the repayment configuration of the grant. */
   repayment: DynamicOfferRepayment2;
+  /** The starting date and time of the offer validity period. */
   startsAt: Date;
 };
 

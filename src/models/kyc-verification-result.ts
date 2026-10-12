@@ -24,12 +24,19 @@ import {
 } from "./kyc-ultimate-parent-company-check-result.js";
 
 export type KycVerificationResult = {
+  /** The results of the checks on the account holder. */
   accountHolder?: KycCheckResult2;
+  /** The results of the checks on the legal arrangements. */
   legalArrangements?: KycLegalArrangementCheckResult[];
+  /** The results of the checks on the legal arrangement entities. */
   legalArrangementsEntities?: KycLegalArrangementEntityCheckResult[];
+  /** The results of the checks on the payout methods. */
   payoutMethods?: KycPayoutMethodCheckResult[];
+  /** The results of the checks on the shareholders. */
   shareholders?: KycShareholderCheckResult[];
+  /** The results of the checks on the signatories. */
   signatories?: KycSignatoryCheckResult[];
+  /** The result of the check on the Ultimate Parent Company. */
   ultimateParentCompany?: KycUltimateParentCompanyCheckResult[];
 };
 

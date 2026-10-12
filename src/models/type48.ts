@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **ratepay**
+ */
 export const Type48 = {
   Ratepay: "ratepay",
   RatepayDirectdebit: "ratepay_directdebit",

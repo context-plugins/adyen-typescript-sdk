@@ -6,6 +6,7 @@ import {
 } from "./transaction-description-response-info1.js";
 
 export type CupResponseInfo = {
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

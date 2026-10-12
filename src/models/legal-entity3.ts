@@ -24,21 +24,63 @@ import {
 import { verificationDeadlineSchema, type VerificationDeadline } from "./verification-deadline.js";
 
 export type LegalEntity3 = {
+  /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your
+   * platform.The key is a capability required for your integration. For example, **issueCard** for
+   * Issuing. The value is an object containing the settings for the capability.
+   */
   capabilities?: Record<string, LegalEntityCapability>;
+  /** List of documents uploaded for the legal entity. */
   documentDetails?: DocumentReference[];
+  /**
+   * List of documents uploaded for the legal entity.
+   *
+   * @deprecated
+   */
   documents?: UploadAndroidAppResponse[];
+  /**
+   * List of legal entities associated with the current legal entity. For example, ultimate
+   * beneficial owners associated with an organization through ownership or control, or as
+   * signatories.
+   */
   entityAssociations?: LegalEntityAssociation[];
+  /** The unique identifier of the legal entity. */
   id: string;
+  /** Information about the individual. Required if `type` is **individual**. */
   individual?: Individual1;
+  /** Information about the organization. Required if `type` is **organization**. */
   organization?: Organization1;
+  /** List of verification errors related to capabilities for the legal entity. */
   problems?: CapabilityProblem1[];
+  /** Your reference for the legal entity, maximum 150 characters. */
   reference?: string;
+  /** Information about the sole proprietorship. Required if `type` is **soleProprietorship**. */
   soleProprietorship?: SoleProprietorship1;
+  /** List of transfer instruments that the legal entity owns. */
   transferInstruments?: TransferInstrumentReference[];
+  /** Information about the trust. Required if `type` is **trust**. */
   trust?: Trust1;
+  /**
+   * The type of legal entity.
+   *
+   * Possible values: **individual**, **organization**, **soleProprietorship**, or **trust**.
+   */
   type?: Type182;
+  /**
+   * Information about the unincorporated partnership. Required if `type` is
+   * **unincorporatedPartnership**.
+   */
   unincorporatedPartnership?: UnincorporatedPartnership1;
+  /**
+   * List of verification deadlines and the capabilities that will be disallowed if verification
+   * errors are not resolved.
+   */
   verificationDeadlines?: VerificationDeadline[];
+  /**
+   * A key-value pair that specifies the verification process for a legal entity. Set to **upfront**
+   * for upfront verification for
+   * [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/verification-types/#upfront-verification).
+   */
   verificationPlan?: string;
 };
 

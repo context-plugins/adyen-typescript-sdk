@@ -2,7 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type TerminalActionScheduleDetail = {
+  /** The ID of the action on the specified terminal. */
   id?: string;
+  /** The unique ID of the terminal that the action applies to. */
   terminalId?: string;
 };
 

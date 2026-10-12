@@ -8,10 +8,15 @@ import {
 } from "./three-ds2-card-range-detail.js";
 
 export type ThreeDsAvailabilityResponse = {
+  /** Bin Group Details */
   binDetails?: BinDetail1;
+  /** List of Directory Server (DS) public keys. */
   dsPublicKeys?: DsPublicKeyDetail[];
+  /** Indicator if 3D Secure 1 is supported. */
   threeDs1Supported?: boolean;
+  /** List of brand and card range pairs. */
   threeDs2CardRangeDetails?: ThreeDs2CardRangeDetail[];
+  /** Indicator if 3D Secure 2 is supported. */
   threeDs2Supported?: boolean;
 };
 

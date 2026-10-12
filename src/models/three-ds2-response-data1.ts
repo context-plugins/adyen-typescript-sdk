@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Response of the 3D Secure 2 authentication. */
 export type ThreeDs2ResponseData1 = {
   acsChallengeMandated?: string;
   acsOperatorId?: string;

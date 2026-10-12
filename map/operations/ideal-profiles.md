@@ -4,7 +4,7 @@
 
 Accessor: `client.iDealProfiles` · Source: `src/resources/ideal-profiles.ts` · 3 operations · Request and error types: namespace `IDealProfiles`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postIdealProfileAuthLink
 
@@ -13,8 +13,9 @@ Accessor: `client.iDealProfiles` · Source: `src/resources/ideal-profiles.ts` ·
 - **Wire**: `POST /ideal/profile/auth-link`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `IdealAuthLinkResponse`
-- **Error**: `IDealProfiles.PostIdealProfileAuthLinkError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `IDealProfiles.PostIdealProfileAuthLinkError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `IDealProfiles.PostIdealProfileAuthLinkRequest` (1):
@@ -36,8 +37,9 @@ Accessor: `client.iDealProfiles` · Source: `src/resources/ideal-profiles.ts` ·
 - **Wire**: `POST /ideal/profile/authenticate`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `IdealAuthenticateResponse`
-- **Error**: `IDealProfiles.PostIdealProfileAuthenticateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `IDealProfiles.PostIdealProfileAuthenticateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `IDealProfiles.PostIdealProfileAuthenticateRequest` (1):
@@ -59,8 +61,9 @@ Accessor: `client.iDealProfiles` · Source: `src/resources/ideal-profiles.ts` ·
 - **Wire**: `POST /ideal/profile/register`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ProfileRegistrationResponse`
-- **Error**: `IDealProfiles.PostIdealProfileRegisterError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `IDealProfiles.PostIdealProfileRegisterError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `IDealProfiles.PostIdealProfileRegisterRequest` (1):

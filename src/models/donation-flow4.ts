@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The interaction flow for in-person donations: complete payment for the purchase and the donation
+ * in one go, or separately.
+ */
 export const DonationFlow4 = {
   OneStep: "oneStep",
   TwoStep: "twoStep",

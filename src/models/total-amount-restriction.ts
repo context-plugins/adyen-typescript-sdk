@@ -3,7 +3,9 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
 
 export type TotalAmountRestriction = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
+  /** The amount value and currency. */
   value?: Amount17;
 };
 

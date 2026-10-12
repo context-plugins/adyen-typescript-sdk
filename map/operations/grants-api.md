@@ -4,7 +4,7 @@
 
 Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 operations · Request and error types: namespace `GrantsApi`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getGrantsGrantId
 
@@ -14,7 +14,7 @@ Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 opera
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Grant`
-- **Error**: `GrantsApi.GetGrantsGrantIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantsApi.GetGrantsGrantIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantsApi.GetGrantsGrantIdRequest` (1):
@@ -36,7 +36,7 @@ Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 opera
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Disbursements`
-- **Error**: `GrantsApi.GetGrantsGrantIdDisbursementsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantsApi.GetGrantsGrantIdDisbursementsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantsApi.GetGrantsGrantIdDisbursementsRequest` (1):
@@ -58,7 +58,7 @@ Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 opera
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Disbursement`
-- **Error**: `GrantsApi.GetGrantsGrantIdDisbursementsDisbursementIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantsApi.GetGrantsGrantIdDisbursementsDisbursementIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantsApi.GetGrantsGrantIdDisbursementsDisbursementIdRequest` (2):
@@ -81,7 +81,7 @@ Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 opera
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Grants`
-- **Error**: `GrantsApi.GetGrants2Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantsApi.GetGrants2Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantsApi.GetGrants2Request` (1):
@@ -102,8 +102,9 @@ Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 opera
 - **Wire**: `PATCH /grants/{grantId}/disbursements/{disbursementId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Disbursement`
-- **Error**: `GrantsApi.PatchGrantsGrantIdDisbursementsDisbursementIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantsApi.PatchGrantsGrantIdDisbursementsDisbursementIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantsApi.PatchGrantsGrantIdDisbursementsDisbursementIdRequest` (3):
@@ -126,9 +127,10 @@ Accessor: `client.grantsApi` · Source: `src/resources/grants-api.ts` · 6 opera
 - **Signature**: `postGrants2(request: GrantsApi.PostGrants2Request, options?: RequestOptions): ApiPromise<Grant, GrantsApi.PostGrants2Error>`
 - **Wire**: `POST /grants`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Grant`
-- **Error**: `GrantsApi.PostGrants2Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantsApi.PostGrants2Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantsApi.PostGrants2Request` (1):

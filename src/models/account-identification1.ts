@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Contains the account number to which the payment funds are sent. */
 export type AccountIdentification1 = {
   type?: string;
 };

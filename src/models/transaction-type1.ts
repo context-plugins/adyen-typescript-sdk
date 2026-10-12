@@ -1,6 +1,28 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Debit**
+ * * **Credit**
+ * * **ReverseDebit**
+ * * **ReverseCredit**
+ * * **OneTimeReservation**
+ * * **CompletedDeffered**
+ * * **FirstReservation**
+ * * **UpdateReservation**
+ * * **CompletedReservation**
+ * * **CashAdvance**
+ * * **IssuerInstalment**
+ * * **Declined**
+ * * **Failed**
+ * * **Award**
+ * * **ReverseAward**
+ * * **Redemption**
+ * * **ReverseRedemption**
+ * * **Rebate**
+ * * **ReverseRebate**
+ */
 export const TransactionType1 = {
   Debit: "Debit",
   Credit: "Credit",

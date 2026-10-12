@@ -1,8 +1,9 @@
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   approveAssociationRequestSchema,
@@ -36,6 +37,21 @@ export class ScaAssociationManagement {
     this.#servers = servers;
   }
 
+  /**
+   * Delete association to devices
+   *
+   * @remarks
+   * Deletes one or more SCA associations for a device.
+   *
+   * @returns No Content - Successful association deletion.
+   *
+   * @throws {@link ScaAssociationManagement.DeleteScaAssociationsError} when the API answers with
+   * an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   deleteScaAssociations(
     request: ScaAssociationManagement.DeleteScaAssociationsRequest,
     options?: RequestOptions,
@@ -43,9 +59,14 @@ export class ScaAssociationManagement {
     return this.#rawClient.execute(
       {
         method: "DELETE",
-        url: this.#servers.default13("/scaAssociations"),
+        urlTemplate: this.#servers.default13("/scaAssociations"),
         auth: noneAuth,
-        headers: [{ name: "WWW-Authenticate", value: request.wwwAuthenticate, schema: s.string() }],
+        pathParams: [],
+        query: [],
+        headers: [
+          { name: "WWW-Authenticate", value: request.wwwAuthenticate, schema: s.string() },
+          { name: "Idempotency-Key", value: uuid(), schema: s.string() },
+        ],
         body: {
           kind: "json",
           value: request.body,
@@ -60,6 +81,21 @@ export class ScaAssociationManagement {
     );
   }
 
+  /**
+   * Get a list of devices associated with an entity
+   *
+   * @remarks
+   * Returns a paginated list of the SCA devices associated with a specific entity.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link ScaAssociationManagement.GetScaAssociationsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getScaAssociations(
     request: ScaAssociationManagement.GetScaAssociationsRequest,
     options?: RequestOptions,
@@ -67,14 +103,16 @@ export class ScaAssociationManagement {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/scaAssociations"),
+        urlTemplate: this.#servers.default13("/scaAssociations"),
         auth: noneAuth,
+        pathParams: [],
         query: [
           { name: "entityType", value: request.entityType, schema: scaEntityTypeSchema },
           { name: "entityId", value: request.entityId, schema: s.string() },
-          { name: "pageSize", value: request.pageSize, schema: s.number() },
-          { name: "pageNumber", value: request.pageNumber, schema: s.number() },
+          { name: "pageSize", value: request.pageSize, schema: s.int() },
+          { name: "pageNumber", value: request.pageNumber, schema: s.int() },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -85,6 +123,21 @@ export class ScaAssociationManagement {
     );
   }
 
+  /**
+   * Approve a pending approval association
+   *
+   * @remarks
+   * Approves a previously created association that is in a pending state.
+   *
+   * @returns OK - Successful approval
+   *
+   * @throws {@link ScaAssociationManagement.PatchScaAssociationsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchScaAssociations(
     request: ScaAssociationManagement.PatchScaAssociationsRequest,
     options?: RequestOptions,
@@ -92,9 +145,14 @@ export class ScaAssociationManagement {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default13("/scaAssociations"),
+        urlTemplate: this.#servers.default13("/scaAssociations"),
         auth: noneAuth,
-        headers: [{ name: "WWW-Authenticate", value: request.wwwAuthenticate, schema: s.string() }],
+        pathParams: [],
+        query: [],
+        headers: [
+          { name: "WWW-Authenticate", value: request.wwwAuthenticate, schema: s.string() },
+          { name: "Idempotency-Key", value: uuid(), schema: s.string() },
+        ],
         body: {
           kind: "json",
           value: request.body,
@@ -112,15 +170,18 @@ export class ScaAssociationManagement {
 
 export namespace ScaAssociationManagement {
   export type DeleteScaAssociationsRequest = {
+    /** The header for authenticating through SCA. */
     wwwAuthenticate: string;
     body?: RemoveAssociationRequest;
   };
 
-  export class DeleteScaAssociationsError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class DeleteScaAssociationsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<DeleteScaAssociationsError> = [
       {
         on: 401,
@@ -141,18 +202,36 @@ export namespace ScaAssociationManagement {
   }
 
   export type GetScaAssociationsRequest = {
+    /**
+     * The type of entity you want to retrieve a list of associations for.
+     *
+     * Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
+     */
     entityType: ScaEntityType;
+    /** The unique identifier of the entity. */
     entityId: string;
+    /**
+     * The number of items to have on a page.
+     *
+     * Default: **5**.
+     */
     pageSize: number;
+    /**
+     * The index of the page to retrieve. The index of the first page is **0** (zero).
+     *
+     * Default: **0**.
+     */
     pageNumber: number;
   };
 
-  export class GetScaAssociationsError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
-  > {
+  export class GetScaAssociationsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetScaAssociationsError> = [
       {
         on: 400,
@@ -178,15 +257,18 @@ export namespace ScaAssociationManagement {
   }
 
   export type PatchScaAssociationsRequest = {
+    /** The header for authenticating through SCA. */
     wwwAuthenticate: string;
     body?: ApproveAssociationRequest;
   };
 
-  export class PatchScaAssociationsError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class PatchScaAssociationsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PatchScaAssociationsError> = [
       {
         on: 401,

@@ -4,7 +4,7 @@
 
 Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal-orders-company-level.ts` · 10 operations · Request and error types: namespace `TerminalOrdersCompanyLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getCompaniesCompanyIdBillingEntities
 
@@ -14,7 +14,7 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BillingEntitiesResponse`
-- **Error**: `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdBillingEntitiesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdBillingEntitiesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdBillingEntitiesRequest` (2):
@@ -37,7 +37,7 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ShippingLocationsResponse`
-- **Error**: `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdShippingLocationsRequest` (4):
@@ -62,7 +62,7 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalModelsResponse`
-- **Error**: `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalModelsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalModelsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalModelsRequest` (1):
@@ -84,7 +84,7 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalOrdersResponse`
-- **Error**: `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalOrdersRequest` (5):
@@ -110,7 +110,7 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalOrdersOrderIdRequest` (2):
@@ -133,7 +133,7 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalProductsResponse`
-- **Error**: `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalProductsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalProductsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.GetCompaniesCompanyIdTerminalProductsRequest` (5):
@@ -157,9 +157,10 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Signature**: `patchCompaniesCompanyIdTerminalOrdersOrderId(request: TerminalOrdersCompanyLevel.PatchCompaniesCompanyIdTerminalOrdersOrderIdRequest, options?: RequestOptions): ApiPromise<TerminalOrder, TerminalOrdersCompanyLevel.PatchCompaniesCompanyIdTerminalOrdersOrderIdError>`
 - **Wire**: `PATCH /companies/{companyId}/terminalOrders/{orderId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersCompanyLevel.PatchCompaniesCompanyIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.PatchCompaniesCompanyIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.PatchCompaniesCompanyIdTerminalOrdersOrderIdRequest` (3):
@@ -182,9 +183,10 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Signature**: `postCompaniesCompanyIdShippingLocations(request: TerminalOrdersCompanyLevel.PostCompaniesCompanyIdShippingLocationsRequest, options?: RequestOptions): ApiPromise<ShippingLocation, TerminalOrdersCompanyLevel.PostCompaniesCompanyIdShippingLocationsError>`
 - **Wire**: `POST /companies/{companyId}/shippingLocations`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ShippingLocation`
-- **Error**: `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdShippingLocationsRequest` (2):
@@ -205,9 +207,10 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Signature**: `postCompaniesCompanyIdTerminalOrders(request: TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersRequest, options?: RequestOptions): ApiPromise<TerminalOrder, TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersError>`
 - **Wire**: `POST /companies/{companyId}/terminalOrders`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersRequest` (2):
@@ -230,8 +233,9 @@ Accessor: `client.terminalOrdersCompanyLevel` · Source: `src/resources/terminal
 - **Wire**: `POST /companies/{companyId}/terminalOrders/{orderId}/cancel`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersOrderIdCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersCompanyLevel.PostCompaniesCompanyIdTerminalOrdersOrderIdCancelRequest` (2):

@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the
+ * authentication has been cancelled. For possible values, refer to [3D Secure API
+ * reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
+ */
 export const ChallengeCancel = {
   _01: "01",
   _02: "02",

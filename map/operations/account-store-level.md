@@ -4,7 +4,7 @@
 
 Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-level.ts` · 8 operations · Request and error types: namespace `AccountStoreLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getMerchantsMerchantIdStores
 
@@ -14,7 +14,7 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListStoresResponse`
-- **Error**: `AccountStoreLevel.GetMerchantsMerchantIdStoresError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.GetMerchantsMerchantIdStoresError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.GetMerchantsMerchantIdStoresRequest` (4):
@@ -39,7 +39,7 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Store`
-- **Error**: `AccountStoreLevel.GetMerchantsMerchantIdStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.GetMerchantsMerchantIdStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.GetMerchantsMerchantIdStoresStoreIdRequest` (2):
@@ -62,7 +62,7 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListStoresResponse`
-- **Error**: `AccountStoreLevel.GetStoresError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.GetStoresError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.GetStoresRequest` (4):
@@ -87,7 +87,7 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Store`
-- **Error**: `AccountStoreLevel.GetStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.GetStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.GetStoresStoreIdRequest` (1):
@@ -107,9 +107,10 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Signature**: `patchMerchantsMerchantIdStoresStoreId(request: AccountStoreLevel.PatchMerchantsMerchantIdStoresStoreIdRequest, options?: RequestOptions): ApiPromise<Store, AccountStoreLevel.PatchMerchantsMerchantIdStoresStoreIdError>`
 - **Wire**: `PATCH /merchants/{merchantId}/stores/{storeId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Store`
-- **Error**: `AccountStoreLevel.PatchMerchantsMerchantIdStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.PatchMerchantsMerchantIdStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.PatchMerchantsMerchantIdStoresStoreIdRequest` (3):
@@ -132,9 +133,10 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Signature**: `patchStoresStoreId(request: AccountStoreLevel.PatchStoresStoreIdRequest, options?: RequestOptions): ApiPromise<Store, AccountStoreLevel.PatchStoresStoreIdError>`
 - **Wire**: `PATCH /stores/{storeId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Store`
-- **Error**: `AccountStoreLevel.PatchStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.PatchStoresStoreIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.PatchStoresStoreIdRequest` (2):
@@ -156,9 +158,10 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Signature**: `postMerchantsMerchantIdStores(request: AccountStoreLevel.PostMerchantsMerchantIdStoresRequest, options?: RequestOptions): ApiPromise<Store, AccountStoreLevel.PostMerchantsMerchantIdStoresError>`
 - **Wire**: `POST /merchants/{merchantId}/stores`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Store`
-- **Error**: `AccountStoreLevel.PostMerchantsMerchantIdStoresError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.PostMerchantsMerchantIdStoresError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.PostMerchantsMerchantIdStoresRequest` (2):
@@ -180,9 +183,10 @@ Accessor: `client.accountStoreLevel` · Source: `src/resources/account-store-lev
 - **Signature**: `postStores(request: AccountStoreLevel.PostStoresRequest, options?: RequestOptions): ApiPromise<Store, AccountStoreLevel.PostStoresError>`
 - **Wire**: `POST /stores`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Store`
-- **Error**: `AccountStoreLevel.PostStoresError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountStoreLevel.PostStoresError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountStoreLevel.PostStoresRequest` (1):

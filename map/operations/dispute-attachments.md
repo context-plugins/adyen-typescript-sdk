@@ -4,7 +4,7 @@
 
 Accessor: `client.disputeAttachments` · Source: `src/resources/dispute-attachments.ts` · 4 operations · Request and error types: namespace `DisputeAttachments`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteDisputesDisputeIdAttachmentsAttachmentId
 
@@ -13,8 +13,9 @@ Accessor: `client.disputeAttachments` · Source: `src/resources/dispute-attachme
 - **Wire**: `DELETE /disputes/{disputeId}/attachments/{attachmentId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `DisputeAttachments.DeleteDisputesDisputeIdAttachmentsAttachmentIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DisputeAttachments.DeleteDisputesDisputeIdAttachmentsAttachmentIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DisputeAttachments.DeleteDisputesDisputeIdAttachmentsAttachmentIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.disputeAttachments` · Source: `src/resources/dispute-attachme
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `DisputeAttachment[]` — a bare `application/json` array; the success type *is* the array, not a wrapper model
-- **Error**: `DisputeAttachments.GetDisputesDisputeIdAttachmentsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DisputeAttachments.GetDisputesDisputeIdAttachmentsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DisputeAttachments.GetDisputesDisputeIdAttachmentsRequest` (1):
@@ -58,7 +59,7 @@ Accessor: `client.disputeAttachments` · Source: `src/resources/dispute-attachme
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `DisputeAttachment`
-- **Error**: `DisputeAttachments.GetDisputesDisputeIdAttachmentsAttachmentIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DisputeAttachments.GetDisputesDisputeIdAttachmentsAttachmentIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DisputeAttachments.GetDisputesDisputeIdAttachmentsAttachmentIdRequest` (2):
@@ -80,8 +81,9 @@ Accessor: `client.disputeAttachments` · Source: `src/resources/dispute-attachme
 - **Wire**: `POST /disputes/{disputeId}/attachments`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AttachDocumentResponse`
-- **Error**: `DisputeAttachments.PostDisputesDisputeIdAttachmentsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DisputeAttachments.PostDisputesDisputeIdAttachmentsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DisputeAttachments.PostDisputesDisputeIdAttachmentsRequest` (2):

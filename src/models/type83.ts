@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**,
+ * **bankTransfer**.
+ */
 export const Type83 = {
   Payment: "payment",
   Capture: "capture",

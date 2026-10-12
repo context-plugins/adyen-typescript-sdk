@@ -2,11 +2,20 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { address11Schema, type Address11 } from "./address11.js";
 
+/** The details of the entity that the order is billed to. */
 export type BillingEntity1 = {
+  /** The address details of the billing entity. */
   address?: Address11;
+  /** The email address of the billing entity. */
   email?: string;
+  /**
+   * The unique identifier of the billing entity, for use as `billingEntityId` when creating an
+   * order.
+   */
   id?: string;
+  /** The unique name of the billing entity. */
   name?: string;
+  /** The tax number of the billing entity. */
   taxId?: string;
 };
 

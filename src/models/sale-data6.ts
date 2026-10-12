@@ -6,18 +6,49 @@ import { saleToIssuerData1Schema, type SaleToIssuerData1 } from "./sale-to-issue
 import { tokenRequestedType1Schema, type TokenRequestedType1 } from "./token-requested-type1.js";
 import { transactionIdType1Schema, type TransactionIdType1 } from "./transaction-id-type1.js";
 
+/** Data related to the Sale System. Copy. */
 export type SaleData6 = {
+  /** Identification of the Cashier or Operator. */
   operatorId?: string;
+  /** Language of the Cashier or Operator. If different from the Login. */
   operatorLanguage?: string;
+  /** Shift number. If different from the Login, see Login SaleData. */
   shiftNumber?: string;
+  /** Identification of a Sale transaction. */
   saleTransactionId: TransactionIdType1;
+  /**
+   * Identification of a Sale global transaction for a sequence of related POI transactions. If
+   * payment reservation.
+   */
   saleReferenceId?: string;
+  /**
+   * Information related to the software and hardware features of the Sale Terminal. If content is
+   * not empty.
+   */
   saleTerminalData?: SaleTerminalData1;
+  /**
+   * Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
+   * It allows, for a merchant, to use a token for a transaction only or for a longer period.
+   * Possible values:
+   * * **Customer**
+   * * **Transaction**
+   */
   tokenRequestedType?: TokenRequestedType1;
+  /** Additional and optional identification of a customer order. */
   customerOrderId?: string;
+  /**
+   * List of customer order open, closed or both to be sent in the response messages. Possible
+   * values:
+   * * **Both**
+   * * **Closed**
+   * * **Open**
+   */
   customerOrderReq?: CustomerOrderReq[];
+  /** Sale information intended for the POI. Stored with the transaction. */
   saleToPoiData?: string;
+  /** Sale information intended for the Acquirer. Send to the Acquirer if present. */
   saleToAcquirerData?: string;
+  /** Sale information intended for the Issuer. Send to the Acquirer if present. */
   saleToIssuerData?: SaleToIssuerData1;
 };
 

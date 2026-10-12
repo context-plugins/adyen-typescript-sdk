@@ -19,6 +19,7 @@ import { checkoutSdkActionSchema, type CheckoutSdkAction } from "../checkout-sdk
 import { checkoutThreeDs2ActionSchema, type CheckoutThreeDs2Action } from "../checkout-three-ds2-action.js";
 import { checkoutVoucherActionSchema, type CheckoutVoucherAction } from "../checkout-voucher-action.js";
 
+/** Action to be taken for completing the payment. */
 export type Action11 =
   | (CheckoutBankTransferAction & { type: "bankTransfer" })
   | (CheckoutQrCodeAction & { type: "qrCode" })

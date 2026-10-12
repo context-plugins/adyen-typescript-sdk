@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The tax reporting classification type.
+ *
+ * Possible values: **nonFinancialNonReportable**, **financialNonReportable**,
+ * **nonFinancialActive**, **nonFinancialPassive**.
+ */
 export const Type151 = {
   NonFinancialNonReportable: "nonFinancialNonReportable",
   FinancialNonReportable: "financialNonReportable",

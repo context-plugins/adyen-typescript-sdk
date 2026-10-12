@@ -4,17 +4,18 @@
 
 Accessor: `client.grantAccounts` · Source: `src/resources/grant-accounts.ts` · 2 operations · Request and error types: namespace `GrantAccounts`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getGrantAccountsId
 
 - **Server**: `default13` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `getGrantAccountsId(request: GrantAccounts.GetGrantAccountsIdRequest, options?: RequestOptions): ApiPromise<CapitalGrantAccount, GrantAccounts.GetGrantAccountsIdError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `GET /grantAccounts/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `CapitalGrantAccount`
-- **Error**: `GrantAccounts.GetGrantAccountsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantAccounts.GetGrantAccountsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantAccounts.GetGrantAccountsIdRequest` (1):
@@ -36,7 +37,7 @@ Accessor: `client.grantAccounts` · Source: `src/resources/grant-accounts.ts` ·
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GrantAccount`
-- **Error**: `GrantAccounts.GetGrantAccountsId1Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantAccounts.GetGrantAccountsId1Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantAccounts.GetGrantAccountsId1Request` (1):

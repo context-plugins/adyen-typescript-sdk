@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The new status of the account. >Permitted values: `Active`, `Inactive`, `Suspended`, `Closed`.
+ */
 export const Status22 = {
   Active: "Active",
   Closed: "Closed",

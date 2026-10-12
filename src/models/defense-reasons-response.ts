@@ -4,7 +4,9 @@ import { defenseReasonSchema, type DefenseReason } from "./defense-reason.js";
 import { disputeServiceResult1Schema, type DisputeServiceResult1 } from "./dispute-service-result1.js";
 
 export type DefenseReasonsResponse = {
+  /** The defense reasons that can be used to defend the dispute. */
   defenseReasons?: DefenseReason[];
+  /** The result of the dispute service. */
   disputeServiceResult: DisputeServiceResult1;
 };
 

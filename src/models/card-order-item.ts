@@ -10,13 +10,29 @@ import {
 } from "./card-order-item-delivery-status3.js";
 
 export type CardOrderItem = {
+  /** The unique identifier of the balance platform. */
   balancePlatform?: string;
+  /**
+   * The status of the card delivery.
+   *
+   * Possible values: **created**, **rejected**, **processing**, **produced**, **shipped**,
+   * **delivered**, **notApplicable**, **unknown**.
+   */
   card?: CardOrderItemDeliveryStatus3;
+  /** The unique identifier of the card order item. */
   cardOrderItemId?: string;
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example,
+   * **2025-03-19T10:15:30+01:00**.
+   */
   creationDate?: Date;
+  /** The ID of the resource. */
   id?: string;
+  /** The unique identifier of the payment instrument related to the card order item. */
   paymentInstrumentId?: string;
+  /** Contains information about the status of the PIN delivery. */
   pin?: CardOrderItemDeliveryStatus1;
+  /** The shipping method used to deliver the card or the PIN. */
   shippingMethod?: string;
 };
 

@@ -4,7 +4,7 @@
 
 Accessor: `client.paymentLinks` · Source: `src/resources/payment-links.ts` · 3 operations · Request and error types: namespace `PaymentLinks`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getPaymentLinksLinkId
 
@@ -13,7 +13,7 @@ Accessor: `client.paymentLinks` · Source: `src/resources/payment-links.ts` · 3
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PaymentLinkResponse`
-- **Error**: `PaymentLinks.GetPaymentLinksLinkIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentLinks.GetPaymentLinksLinkIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentLinks.GetPaymentLinksLinkIdRequest` (1):
@@ -32,9 +32,10 @@ Accessor: `client.paymentLinks` · Source: `src/resources/payment-links.ts` · 3
 - **Signature**: `patchPaymentLinksLinkId(request: PaymentLinks.PatchPaymentLinksLinkIdRequest, options?: RequestOptions): ApiPromise<PaymentLinkResponse, PaymentLinks.PatchPaymentLinksLinkIdError>`
 - **Wire**: `PATCH /paymentLinks/{linkId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentLinkResponse`
-- **Error**: `PaymentLinks.PatchPaymentLinksLinkIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentLinks.PatchPaymentLinksLinkIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentLinks.PatchPaymentLinksLinkIdRequest` (2):
@@ -55,9 +56,9 @@ Accessor: `client.paymentLinks` · Source: `src/resources/payment-links.ts` · 3
 - **Signature**: `postPaymentLinks(request: PaymentLinks.PostPaymentLinksRequest, options?: RequestOptions): ApiPromise<PaymentLinkResponse, PaymentLinks.PostPaymentLinksError>`
 - **Wire**: `POST /paymentLinks`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentLinkResponse`
-- **Error**: `PaymentLinks.PostPaymentLinksError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `PaymentLinks.PostPaymentLinksError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `PaymentLinks.PostPaymentLinksRequest` (2):

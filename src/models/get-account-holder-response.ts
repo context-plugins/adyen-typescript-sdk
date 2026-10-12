@@ -9,19 +9,37 @@ import { legalEntity2Schema, type LegalEntity2 } from "./legal-entity2.js";
 import { migrationData2Schema, type MigrationData2 } from "./migration-data2.js";
 
 export type GetAccountHolderResponse = {
+  /** The code of the account holder. */
   accountHolderCode?: string;
+  /** Details of the account holder. */
   accountHolderDetails?: AccountHolderDetails3;
+  /** The status of the account holder. */
   accountHolderStatus?: AccountHolderStatus3;
+  /** A list of the accounts under the account holder. */
   accounts?: Account[];
+  /** The description of the account holder. */
   description?: string;
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The legal entity of the account holder. */
   legalEntity?: LegalEntity2;
+  /** Details of the account holder migrated to the balance platform. */
   migrationData?: MigrationData2;
+  /**
+   * The three-character [ISO currency
+   * code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective
+   * account holder primarily deals.
+   */
   primaryCurrency?: string;
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
+  /** The time that shows how up to date is the information in the response. */
   systemUpToDateTime?: Date;
+  /** The details of KYC Verification of the account holder. */
   verification?: KycVerificationResult1;
+  /** The identifier of the profile that applies to this entity. */
   verificationProfile?: string;
 };
 

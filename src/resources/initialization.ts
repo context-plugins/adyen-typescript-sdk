@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { serviceErrorSchema, type ServiceError } from "../models/service-error.js";
 import {
@@ -31,6 +32,33 @@ export class Initialization {
     this.#auth = auth;
   }
 
+  /**
+   * Store payout details
+   *
+   * @remarks
+   * > This endpoint is **deprecated** and no longer supports new integrations. Do one of the
+   * following: >- If you are building a new integration, use the [Transfers
+   * API](https://docs.adyen.com/api-explorer/transfers/latest/overview) instead. > - If you are
+   * already using the Payout API, reach out to your Adyen contact to learn how to migrate to the
+   * Transfers API. > > With the Transfers API, you can: > - Handle multiple payout use cases with a
+   * single API. > - Use new payout functionalities, such as instant payouts to bank accounts. > -
+   * Receive webhooks with more details and defined transfer states. > > For more information about
+   * the payout features of the Transfers API, see our
+   * [Payouts](https://docs.adyen.com/payouts/payout-service) documentation.
+   *
+   *
+   * Stores payment details under the `PAYOUT` recurring contract. These payment details can be used
+   * later to submit a payout via the `/submitThirdParty` call.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Initialization.PostStoreDetailError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postStoreDetail(
     request: Initialization.PostStoreDetailRequest,
     options?: RequestOptions,
@@ -38,8 +66,11 @@ export class Initialization {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default3("/storeDetail"),
+        urlTemplate: this.#servers.default3("/storeDetail"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -54,6 +85,35 @@ export class Initialization {
     );
   }
 
+  /**
+   * Store details and submit a payout
+   *
+   * @remarks
+   * > This endpoint is **deprecated** and no longer supports new integrations. Do one of the
+   * following: >- If you are building a new integration, use the POST
+   * [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) endpoint
+   * instead. > - If you are already using the Payout API, reach out to your Adyen contact to learn
+   * how to migrate to the Transfers API. > > With the Transfers API, you can: > - Handle multiple
+   * payout use cases with a single API. > - Use new payout functionalities, such as instant payouts
+   * to bank accounts. > - Receive webhooks with more details and defined transfer states. > > For
+   * more information about the payout features of the Transfers API, see our
+   * [Payouts](https://docs.adyen.com/payouts/payout-service) documentation.
+   *
+   *
+   * Submits a payout and stores its details for subsequent payouts.
+   *
+   * The submitted payout must be confirmed or declined either by a reviewer or via
+   * `/confirmThirdParty` or `/declineThirdParty` calls.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Initialization.PostStoreDetailAndSubmitThirdPartyError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postStoreDetailAndSubmitThirdParty(
     request: Initialization.PostStoreDetailAndSubmitThirdPartyRequest,
     options?: RequestOptions,
@@ -61,8 +121,11 @@ export class Initialization {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default3("/storeDetailAndSubmitThirdParty"),
+        urlTemplate: this.#servers.default3("/storeDetailAndSubmitThirdParty"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -77,6 +140,36 @@ export class Initialization {
     );
   }
 
+  /**
+   * Submit a payout
+   *
+   * @remarks
+   * > This endpoint is **deprecated** and no longer supports new integrations. Do one of the
+   * following: >- If you are building a new integration, use the POST
+   * [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) endpoint
+   * instead. > - If you are already using the Payout API, reach out to your Adyen contact to learn
+   * how to migrate to the Transfers API. > > With the Transfers API, you can: > - Handle multiple
+   * payout use cases with a single API. > - Use new payout functionalities, such as instant payouts
+   * to bank accounts. > - Receive webhooks with more details and defined transfer states. > > For
+   * more information about the payout features of the Transfers API, see our
+   * [Payouts](https://docs.adyen.com/payouts/payout-service) documentation.
+   *
+   *
+   * Submits a payout using the previously stored payment details. To store payment details, use the
+   * `/storeDetail` API call.
+   *
+   * The submitted payout must be confirmed or declined either by a reviewer or via
+   * `/confirmThirdParty` or `/declineThirdParty` calls.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link Initialization.PostSubmitThirdPartyError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postSubmitThirdParty(
     request: Initialization.PostSubmitThirdPartyRequest,
     options?: RequestOptions,
@@ -84,8 +177,11 @@ export class Initialization {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default3("/submitThirdParty"),
+        urlTemplate: this.#servers.default3("/submitThirdParty"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: s.optional(s.lazy(() => submitRequestSchema)) },
       },
       {
@@ -102,13 +198,15 @@ export namespace Initialization {
     body?: StoreDetailRequest;
   };
 
-  export class PostStoreDetailError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostStoreDetailError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostStoreDetailError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -122,13 +220,15 @@ export namespace Initialization {
     body?: StoreDetailAndSubmitRequest;
   };
 
-  export class PostStoreDetailAndSubmitThirdPartyError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostStoreDetailAndSubmitThirdPartyError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostStoreDetailAndSubmitThirdPartyError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },
@@ -142,13 +242,15 @@ export namespace Initialization {
     body?: SubmitRequest;
   };
 
-  export class PostSubmitThirdPartyError extends ResponseError<
-    | Declared<"serviceError", ServiceError>
-    | Declared<"serviceError2", ServiceError>
-    | Declared<"serviceError3", ServiceError>
-    | Declared<"serviceError4", ServiceError>
-    | Declared<"serviceError5", ServiceError>
-  > {
+  export class PostSubmitThirdPartyError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError", ServiceError>
+      | Declared<"serviceError2", ServiceError>
+      | Declared<"serviceError3", ServiceError>
+      | Declared<"serviceError4", ServiceError>
+      | Declared<"serviceError5", ServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostSubmitThirdPartyError> = [
       { on: 400, kind: "serviceError", decode: { kind: "json", schema: serviceErrorSchema } },
       { on: 401, kind: "serviceError2", decode: { kind: "json", schema: serviceErrorSchema } },

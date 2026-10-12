@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { pciDocumentInfoSchema, type PciDocumentInfo } from "./pci-document-info.js";
 
 export type GetPciQuestionnaireInfosResponse = {
+  /** Information about the signed PCI questionnaires. */
   data?: PciDocumentInfo[];
 };
 

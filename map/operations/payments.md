@@ -4,16 +4,16 @@
 
 Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operations · Request and error types: namespace `Payments`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getSessionsSessionId
 
-- **Signature**: `getSessionsSessionId(request: Payments.GetSessionsSessionIdRequest, options?: RequestOptions): ApiPromise<SessionResultResponse, ResponseError>`
+- **Signature**: `getSessionsSessionId(request: Payments.GetSessionsSessionIdRequest, options?: RequestOptions): ApiPromise<SessionResultResponse, ApiError>`
 - **Wire**: `GET /sessions/{sessionId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `SessionResultResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `Payments.GetSessionsSessionIdRequest` (2):
 
@@ -32,9 +32,10 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postAuthorise(request: Payments.PostAuthoriseRequest, options?: RequestOptions): ApiPromise<PaymentResult, Payments.PostAuthoriseError>`
 - **Wire**: `POST /authorise`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentResult`
-- **Error**: `Payments.PostAuthoriseError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostAuthoriseError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostAuthoriseRequest` (1):
@@ -55,9 +56,10 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postAuthorise3D(request: Payments.PostAuthorise3DRequest, options?: RequestOptions): ApiPromise<PaymentResult, Payments.PostAuthorise3DError>`
 - **Wire**: `POST /authorise3d`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentResult`
-- **Error**: `Payments.PostAuthorise3DError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostAuthorise3DError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostAuthorise3DRequest` (1):
@@ -78,9 +80,10 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postAuthorise3Ds2(request: Payments.PostAuthorise3Ds2Request, options?: RequestOptions): ApiPromise<PaymentResult, Payments.PostAuthorise3Ds2Error>`
 - **Wire**: `POST /authorise3ds2`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentResult`
-- **Error**: `Payments.PostAuthorise3Ds2Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostAuthorise3Ds2Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostAuthorise3Ds2Request` (1):
@@ -97,12 +100,12 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 
 ### postCardDetails
 
-- **Signature**: `postCardDetails(request: Payments.PostCardDetailsRequest, options?: RequestOptions): ApiPromise<CardDetailsResponse, ResponseError>`
+- **Signature**: `postCardDetails(request: Payments.PostCardDetailsRequest, options?: RequestOptions): ApiPromise<CardDetailsResponse, ApiError>`
 - **Wire**: `POST /cardDetails`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `CardDetailsResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `Payments.PostCardDetailsRequest` (2):
 
@@ -122,9 +125,10 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postGetAuthenticationResult(request: Payments.PostGetAuthenticationResultRequest, options?: RequestOptions): ApiPromise<AuthenticationResultResponse, Payments.PostGetAuthenticationResultError>`
 - **Wire**: `POST /getAuthenticationResult`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AuthenticationResultResponse`
-- **Error**: `Payments.PostGetAuthenticationResultError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostGetAuthenticationResultError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostGetAuthenticationResultRequest` (1):
@@ -144,9 +148,9 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postPaymentMethods(request: Payments.PostPaymentMethodsRequest, options?: RequestOptions): ApiPromise<PaymentMethodsResponse, Payments.PostPaymentMethodsError>`
 - **Wire**: `POST /paymentMethods`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentMethodsResponse`
-- **Error**: `Payments.PostPaymentMethodsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostPaymentMethodsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostPaymentMethodsRequest` (2):
@@ -167,9 +171,9 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postPayments(request: Payments.PostPaymentsRequest, options?: RequestOptions): ApiPromise<PaymentResponse, Payments.PostPaymentsError>`
 - **Wire**: `POST /payments`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentResponse`
-- **Error**: `Payments.PostPaymentsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostPaymentsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostPaymentsRequest` (2):
@@ -192,8 +196,9 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Wire**: `POST /payments/cancel`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CancelPaymentResponse`
-- **Error**: `Payments.PostPaymentsCancelError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostPaymentsCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostPaymentsCancelRequest` (1):
@@ -215,8 +220,9 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Wire**: `POST /payments/confirm`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ConfirmPaymentResponse`
-- **Error**: `Payments.PostPaymentsConfirmError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostPaymentsConfirmError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostPaymentsConfirmRequest` (2):
@@ -237,9 +243,9 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postPaymentsDetails(request: Payments.PostPaymentsDetailsRequest, options?: RequestOptions): ApiPromise<PaymentDetailsResponse, Payments.PostPaymentsDetailsError>`
 - **Wire**: `POST /payments/details`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentDetailsResponse`
-- **Error**: `Payments.PostPaymentsDetailsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostPaymentsDetailsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostPaymentsDetailsRequest` (2):
@@ -262,8 +268,9 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Wire**: `POST /payments/details`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentDetailsResponse1`
-- **Error**: `Payments.PostPaymentsDetails1Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostPaymentsDetails1Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostPaymentsDetails1Request` (1):
@@ -284,9 +291,10 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 - **Signature**: `postRetrieve3Ds2Result(request: Payments.PostRetrieve3Ds2ResultRequest, options?: RequestOptions): ApiPromise<ThreeDs2ResultResponse, Payments.PostRetrieve3Ds2ResultError>`
 - **Wire**: `POST /retrieve3ds2Result`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ThreeDs2ResultResponse`
-- **Error**: `Payments.PostRetrieve3Ds2ResultError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Payments.PostRetrieve3Ds2ResultError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Payments.PostRetrieve3Ds2ResultRequest` (1):
@@ -303,12 +311,12 @@ Accessor: `client.payments` · Source: `src/resources/payments.ts` · 14 operati
 
 ### postSessions
 
-- **Signature**: `postSessions(request: Payments.PostSessionsRequest, options?: RequestOptions): ApiPromise<CreateCheckoutSessionResponse, ResponseError>`
+- **Signature**: `postSessions(request: Payments.PostSessionsRequest, options?: RequestOptions): ApiPromise<CreateCheckoutSessionResponse, ApiError>`
 - **Wire**: `POST /sessions`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `CreateCheckoutSessionResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `Payments.PostSessionsRequest` (2):
 

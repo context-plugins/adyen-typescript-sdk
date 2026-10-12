@@ -4,7 +4,9 @@ import { links21Schema, type Links21 } from "./links21.js";
 import { transferDataSchema, type TransferData } from "./transfer-data.js";
 
 export type FindTransfersResponse = {
+  /** Contains links to the next and previous page whenever applicable. */
   links?: Links21;
+  /** Contains the transfers that match the query parameters. */
   data?: TransferData[];
 };
 

@@ -7,7 +7,9 @@ import {
 import { link2Schema, type Link2 } from "./link2.js";
 
 export type BalanceAccountConfigurations = {
+  /** Contains a list of the Balance Account payout schedules. */
   balanceAccountPayoutSchedules: BalanceAccountConfiguration[];
+  /** Contains links to the next and previous page whenever applicable. */
   link: Link2;
 };
 

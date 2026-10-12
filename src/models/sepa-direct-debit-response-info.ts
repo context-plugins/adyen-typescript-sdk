@@ -6,7 +6,9 @@ import {
 } from "./transaction-description-response-info1.js";
 
 export type SepaDirectDebitResponseInfo = {
+  /** Creditor id */
   creditorId?: string;
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

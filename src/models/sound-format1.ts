@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **MessageRef**
+ * * **SoundRef**
+ * * **Text**
+ */
 export const SoundFormat1 = {
   SoundRef: "SoundRef",
   MessageRef: "MessageRef",

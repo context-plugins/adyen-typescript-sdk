@@ -1,750 +1,277 @@
-import type { UrlTemplate } from "./core/api-request.js";
-import { SdkError } from "./core/errors.js";
-
-export const ServerEnvironment = {
-  Test: "test",
-} as const;
-export type ServerEnvironment = (typeof ServerEnvironment)[keyof typeof ServerEnvironment];
-
-export type DefaultServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default1ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default2ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default3ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default4ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default5ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default6ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default7ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default8ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default9ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default10ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default11ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default12ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default13ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default14ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default15ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default16ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default17ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default18ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default19ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default20ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default21ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default22ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default23ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default24ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default25ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default26ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default27ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type Default28ServerOptions = {
-  test?: { baseUrl?: string };
-};
-
-export type ServerOptions = {
-  default?: DefaultServerOptions;
-  default1?: Default1ServerOptions;
-  default2?: Default2ServerOptions;
-  default3?: Default3ServerOptions;
-  default4?: Default4ServerOptions;
-  default5?: Default5ServerOptions;
-  default6?: Default6ServerOptions;
-  default7?: Default7ServerOptions;
-  default8?: Default8ServerOptions;
-  default9?: Default9ServerOptions;
-  default10?: Default10ServerOptions;
-  default11?: Default11ServerOptions;
-  default12?: Default12ServerOptions;
-  default13?: Default13ServerOptions;
-  default14?: Default14ServerOptions;
-  default15?: Default15ServerOptions;
-  default16?: Default16ServerOptions;
-  default17?: Default17ServerOptions;
-  default18?: Default18ServerOptions;
-  default19?: Default19ServerOptions;
-  default20?: Default20ServerOptions;
-  default21?: Default21ServerOptions;
-  default22?: Default22ServerOptions;
-  default23?: Default23ServerOptions;
-  default24?: Default24ServerOptions;
-  default25?: Default25ServerOptions;
-  default26?: Default26ServerOptions;
-  default27?: Default27ServerOptions;
-  default28?: Default28ServerOptions;
-};
+import type { ClientOptions } from "./client-options.js";
+import type { ServerBase, UrlTemplate } from "./core/api-request.js";
+import { resolveBaseUrl } from "./core/url.js";
+import * as s from "./core/validation/index.js";
 
 export type Servers = {
-  default: (subPath: string) => UrlTemplate;
-  default1: (subPath: string) => UrlTemplate;
-  default2: (subPath: string) => UrlTemplate;
-  default3: (subPath: string) => UrlTemplate;
-  default4: (subPath: string) => UrlTemplate;
-  default5: (subPath: string) => UrlTemplate;
-  default6: (subPath: string) => UrlTemplate;
-  default7: (subPath: string) => UrlTemplate;
-  default8: (subPath: string) => UrlTemplate;
-  default9: (subPath: string) => UrlTemplate;
-  default10: (subPath: string) => UrlTemplate;
-  default11: (subPath: string) => UrlTemplate;
-  default12: (subPath: string) => UrlTemplate;
-  default13: (subPath: string) => UrlTemplate;
-  default14: (subPath: string) => UrlTemplate;
-  default15: (subPath: string) => UrlTemplate;
-  default16: (subPath: string) => UrlTemplate;
-  default17: (subPath: string) => UrlTemplate;
-  default18: (subPath: string) => UrlTemplate;
-  default19: (subPath: string) => UrlTemplate;
-  default20: (subPath: string) => UrlTemplate;
-  default21: (subPath: string) => UrlTemplate;
-  default22: (subPath: string) => UrlTemplate;
-  default23: (subPath: string) => UrlTemplate;
-  default24: (subPath: string) => UrlTemplate;
-  default25: (subPath: string) => UrlTemplate;
-  default26: (subPath: string) => UrlTemplate;
-  default27: (subPath: string) => UrlTemplate;
-  default28: (subPath: string) => UrlTemplate;
+  default: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default1: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default2: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default3: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default4: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default5: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default6: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default7: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default8: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default9: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default10: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default11: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default12: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default13: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default14: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default15: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default16: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default17: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default18: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default19: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default20: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default21: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default22: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default23: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default24: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default25: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default26: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default27: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
+  default28: <Path extends string>(subPath: Path) => UrlTemplate<Path>;
 };
 
-export const DEFAULT_SERVER_OPTIONS = {
-  default: {
-    test: { baseUrl: "https://checkout-test.adyen.com/v72" },
-  },
-  default1: {
-    test: { baseUrl: "https://pal-test.adyen.com/pal/servlet/Payment/v68" },
-  },
+const serverSchemas = {
+  default: { baseUrl: s.of(s.defaulted(s.string(), "https://checkout-test.adyen.com/v72")) },
+  default1: { baseUrl: s.of(s.defaulted(s.string(), "https://pal-test.adyen.com/pal/servlet/Payment/v68")) },
   default2: {
-    test: { baseUrl: "https://pal-test.adyen.com/pal/servlet/Recurring/v68" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://pal-test.adyen.com/pal/servlet/Recurring/v68")),
   },
-  default3: {
-    test: { baseUrl: "https://pal-test.adyen.com/pal/servlet/Payout/v68" },
-  },
+  default3: { baseUrl: s.of(s.defaulted(s.string(), "https://pal-test.adyen.com/pal/servlet/Payout/v68")) },
   default4: {
-    test: { baseUrl: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://pal-test.adyen.com/pal/servlet/BinLookup/v54")),
   },
   default5: {
-    test: { baseUrl: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://pal-test.adyen.com/pal/servlet/StoredValue/v46")),
   },
   default6: {
-    test: { baseUrl: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://ca-test.adyen.com/ca/services/DataProtectionService/v1")),
   },
   default7: {
-    test: { baseUrl: "https://balanceplatform-api-test.adyen.com/fx/api/v1" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://balanceplatform-api-test.adyen.com/fx/api/v1")),
   },
-  default8: {
-    test: { baseUrl: "https://pal-test.adyen.com/pal/services/TestCard/v1" },
-  },
-  default9: {
-    test: { baseUrl: "https://management-test.adyen.com/v3" },
-  },
-  default10: {
-    test: { baseUrl: "https://cal-test.adyen.com/cal/services/Account/v6" },
-  },
+  default8: { baseUrl: s.of(s.defaulted(s.string(), "https://pal-test.adyen.com/pal/services/TestCard/v1")) },
+  default9: { baseUrl: s.of(s.defaulted(s.string(), "https://management-test.adyen.com/v3")) },
+  default10: { baseUrl: s.of(s.defaulted(s.string(), "https://cal-test.adyen.com/cal/services/Account/v6")) },
   default11: {
-    test: { baseUrl: "https://balance-control-test.adyen.com/balance-control/api/v2" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://balance-control-test.adyen.com/balance-control/api/v2")),
   },
   default12: {
-    test: { baseUrl: "https://cal-test.adyen.com/cal/services/Notification/v6" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://cal-test.adyen.com/cal/services/Notification/v6")),
   },
-  default13: {
-    test: { baseUrl: "https://balanceplatform-api-test.adyen.com/bcl/v2" },
-  },
-  default14: {
-    test: { baseUrl: "https://balanceplatform-api-test.adyen.com/btl/v4" },
-  },
+  default13: { baseUrl: s.of(s.defaulted(s.string(), "https://balanceplatform-api-test.adyen.com/bcl/v2")) },
+  default14: { baseUrl: s.of(s.defaulted(s.string(), "https://balanceplatform-api-test.adyen.com/btl/v4")) },
   default15: {
-    test: { baseUrl: "https://balanceplatform-api-test.adyen.com/capital/v1" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://balanceplatform-api-test.adyen.com/capital/v1")),
   },
-  default16: {
-    test: { baseUrl: "https://cal-test.adyen.com/cal/services/Fund/v6" },
-  },
-  default17: {
-    test: { baseUrl: "https://test.adyen.com/authe/api/v1" },
-  },
-  default18: {
-    test: { baseUrl: "https://kyc-test.adyen.com/lem/v4" },
-  },
-  default19: {
-    test: { baseUrl: "https://cal-test.adyen.com/cal/services/Hop/v6" },
-  },
+  default16: { baseUrl: s.of(s.defaulted(s.string(), "https://cal-test.adyen.com/cal/services/Fund/v6")) },
+  default17: { baseUrl: s.of(s.defaulted(s.string(), "https://test.adyen.com/authe/api/v1")) },
+  default18: { baseUrl: s.of(s.defaulted(s.string(), "https://kyc-test.adyen.com/lem/v4")) },
+  default19: { baseUrl: s.of(s.defaulted(s.string(), "https://cal-test.adyen.com/cal/services/Hop/v6")) },
   default20: {
-    test: { baseUrl: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1")),
   },
-  default21: {
-    test: { baseUrl: "https://obgateway-test.adyen.com/obgateway/v1" },
-  },
+  default21: { baseUrl: s.of(s.defaulted(s.string(), "https://obgateway-test.adyen.com/obgateway/v1")) },
   default22: {
-    test: { baseUrl: "https://ca-test.adyen.com/ca/services/DisputeService/v30" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://ca-test.adyen.com/ca/services/DisputeService/v30")),
   },
   default23: {
-    test: { baseUrl: "https://balanceplatform-api-test.adyen.com/btl/api/v4" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://balanceplatform-api-test.adyen.com/btl/api/v4")),
   },
-  default24: {
-    test: { baseUrl: "https://device-api-test.adyen.com/v1" },
-  },
+  default24: { baseUrl: s.of(s.defaulted(s.string(), "https://device-api-test.adyen.com/v1")) },
   default25: {
-    test: { baseUrl: "https://softposconfig-test.adyen.com/softposconfig/v3" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://softposconfig-test.adyen.com/softposconfig/v3")),
   },
-  default26: {
-    test: { baseUrl: "https://management-test.adyen.com/v1" },
-  },
+  default26: { baseUrl: s.of(s.defaulted(s.string(), "https://management-test.adyen.com/v1")) },
   default27: {
-    test: { baseUrl: "https://checkout-test.adyen.com/checkout/possdk/v68" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://checkout-test.adyen.com/checkout/possdk/v68")),
   },
   default28: {
-    test: { baseUrl: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1" },
+    baseUrl: s.of(s.defaulted(s.string(), "https://postfmapi-test.adyen.com/postfmapi/terminal/v1")),
   },
-} as const satisfies ServerOptions;
+};
 
-export function buildServers(environment: ServerEnvironment, options: ServerOptions): Servers {
+export function buildServers(options: ClientOptions): Servers {
+  const base = {
+    default: resolveBaseUrl(defaultServer(options)),
+    default1: resolveBaseUrl(default1Server(options)),
+    default2: resolveBaseUrl(default2Server(options)),
+    default3: resolveBaseUrl(default3Server(options)),
+    default4: resolveBaseUrl(default4Server(options)),
+    default5: resolveBaseUrl(default5Server(options)),
+    default6: resolveBaseUrl(default6Server(options)),
+    default7: resolveBaseUrl(default7Server(options)),
+    default8: resolveBaseUrl(default8Server(options)),
+    default9: resolveBaseUrl(default9Server(options)),
+    default10: resolveBaseUrl(default10Server(options)),
+    default11: resolveBaseUrl(default11Server(options)),
+    default12: resolveBaseUrl(default12Server(options)),
+    default13: resolveBaseUrl(default13Server(options)),
+    default14: resolveBaseUrl(default14Server(options)),
+    default15: resolveBaseUrl(default15Server(options)),
+    default16: resolveBaseUrl(default16Server(options)),
+    default17: resolveBaseUrl(default17Server(options)),
+    default18: resolveBaseUrl(default18Server(options)),
+    default19: resolveBaseUrl(default19Server(options)),
+    default20: resolveBaseUrl(default20Server(options)),
+    default21: resolveBaseUrl(default21Server(options)),
+    default22: resolveBaseUrl(default22Server(options)),
+    default23: resolveBaseUrl(default23Server(options)),
+    default24: resolveBaseUrl(default24Server(options)),
+    default25: resolveBaseUrl(default25Server(options)),
+    default26: resolveBaseUrl(default26Server(options)),
+    default27: resolveBaseUrl(default27Server(options)),
+    default28: resolveBaseUrl(default28Server(options)),
+  };
   return {
-    default: (s) => defaultServer(environment, s, options.default),
-    default1: (s) => default1Server(environment, s, options.default1),
-    default2: (s) => default2Server(environment, s, options.default2),
-    default3: (s) => default3Server(environment, s, options.default3),
-    default4: (s) => default4Server(environment, s, options.default4),
-    default5: (s) => default5Server(environment, s, options.default5),
-    default6: (s) => default6Server(environment, s, options.default6),
-    default7: (s) => default7Server(environment, s, options.default7),
-    default8: (s) => default8Server(environment, s, options.default8),
-    default9: (s) => default9Server(environment, s, options.default9),
-    default10: (s) => default10Server(environment, s, options.default10),
-    default11: (s) => default11Server(environment, s, options.default11),
-    default12: (s) => default12Server(environment, s, options.default12),
-    default13: (s) => default13Server(environment, s, options.default13),
-    default14: (s) => default14Server(environment, s, options.default14),
-    default15: (s) => default15Server(environment, s, options.default15),
-    default16: (s) => default16Server(environment, s, options.default16),
-    default17: (s) => default17Server(environment, s, options.default17),
-    default18: (s) => default18Server(environment, s, options.default18),
-    default19: (s) => default19Server(environment, s, options.default19),
-    default20: (s) => default20Server(environment, s, options.default20),
-    default21: (s) => default21Server(environment, s, options.default21),
-    default22: (s) => default22Server(environment, s, options.default22),
-    default23: (s) => default23Server(environment, s, options.default23),
-    default24: (s) => default24Server(environment, s, options.default24),
-    default25: (s) => default25Server(environment, s, options.default25),
-    default26: (s) => default26Server(environment, s, options.default26),
-    default27: (s) => default27Server(environment, s, options.default27),
-    default28: (s) => default28Server(environment, s, options.default28),
+    default: (subPath) => ({ baseUrl: base.default, subPath }),
+    default1: (subPath) => ({ baseUrl: base.default1, subPath }),
+    default2: (subPath) => ({ baseUrl: base.default2, subPath }),
+    default3: (subPath) => ({ baseUrl: base.default3, subPath }),
+    default4: (subPath) => ({ baseUrl: base.default4, subPath }),
+    default5: (subPath) => ({ baseUrl: base.default5, subPath }),
+    default6: (subPath) => ({ baseUrl: base.default6, subPath }),
+    default7: (subPath) => ({ baseUrl: base.default7, subPath }),
+    default8: (subPath) => ({ baseUrl: base.default8, subPath }),
+    default9: (subPath) => ({ baseUrl: base.default9, subPath }),
+    default10: (subPath) => ({ baseUrl: base.default10, subPath }),
+    default11: (subPath) => ({ baseUrl: base.default11, subPath }),
+    default12: (subPath) => ({ baseUrl: base.default12, subPath }),
+    default13: (subPath) => ({ baseUrl: base.default13, subPath }),
+    default14: (subPath) => ({ baseUrl: base.default14, subPath }),
+    default15: (subPath) => ({ baseUrl: base.default15, subPath }),
+    default16: (subPath) => ({ baseUrl: base.default16, subPath }),
+    default17: (subPath) => ({ baseUrl: base.default17, subPath }),
+    default18: (subPath) => ({ baseUrl: base.default18, subPath }),
+    default19: (subPath) => ({ baseUrl: base.default19, subPath }),
+    default20: (subPath) => ({ baseUrl: base.default20, subPath }),
+    default21: (subPath) => ({ baseUrl: base.default21, subPath }),
+    default22: (subPath) => ({ baseUrl: base.default22, subPath }),
+    default23: (subPath) => ({ baseUrl: base.default23, subPath }),
+    default24: (subPath) => ({ baseUrl: base.default24, subPath }),
+    default25: (subPath) => ({ baseUrl: base.default25, subPath }),
+    default26: (subPath) => ({ baseUrl: base.default26, subPath }),
+    default27: (subPath) => ({ baseUrl: base.default27, subPath }),
+    default28: (subPath) => ({ baseUrl: base.default28, subPath }),
   };
 }
 
-function defaultServer(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: DefaultServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function defaultServer(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default.baseUrl.decode(options.serverOptions?.default?.baseUrl) };
 }
 
-function default1Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default1ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default1.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default1Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default1.baseUrl.decode(options.serverOptions?.default1?.baseUrl) };
 }
 
-function default2Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default2ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default2.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default2Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default2.baseUrl.decode(options.serverOptions?.default2?.baseUrl) };
 }
 
-function default3Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default3ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default3.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default3Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default3.baseUrl.decode(options.serverOptions?.default3?.baseUrl) };
 }
 
-function default4Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default4ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default4.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default4Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default4.baseUrl.decode(options.serverOptions?.default4?.baseUrl) };
 }
 
-function default5Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default5ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default5.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default5Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default5.baseUrl.decode(options.serverOptions?.default5?.baseUrl) };
 }
 
-function default6Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default6ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default6.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default6Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default6.baseUrl.decode(options.serverOptions?.default6?.baseUrl) };
 }
 
-function default7Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default7ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default7.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default7Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default7.baseUrl.decode(options.serverOptions?.default7?.baseUrl) };
 }
 
-function default8Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default8ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default8.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default8Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default8.baseUrl.decode(options.serverOptions?.default8?.baseUrl) };
 }
 
-function default9Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default9ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default9.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default9Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default9.baseUrl.decode(options.serverOptions?.default9?.baseUrl) };
 }
 
-function default10Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default10ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default10.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default10Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default10.baseUrl.decode(options.serverOptions?.default10?.baseUrl) };
 }
 
-function default11Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default11ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default11.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default11Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default11.baseUrl.decode(options.serverOptions?.default11?.baseUrl) };
 }
 
-function default12Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default12ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default12.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default12Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default12.baseUrl.decode(options.serverOptions?.default12?.baseUrl) };
 }
 
-function default13Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default13ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default13.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default13Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default13.baseUrl.decode(options.serverOptions?.default13?.baseUrl) };
 }
 
-function default14Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default14ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default14.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default14Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default14.baseUrl.decode(options.serverOptions?.default14?.baseUrl) };
 }
 
-function default15Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default15ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default15.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default15Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default15.baseUrl.decode(options.serverOptions?.default15?.baseUrl) };
 }
 
-function default16Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default16ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default16.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default16Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default16.baseUrl.decode(options.serverOptions?.default16?.baseUrl) };
 }
 
-function default17Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default17ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default17.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default17Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default17.baseUrl.decode(options.serverOptions?.default17?.baseUrl) };
 }
 
-function default18Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default18ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default18.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default18Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default18.baseUrl.decode(options.serverOptions?.default18?.baseUrl) };
 }
 
-function default19Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default19ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default19.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default19Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default19.baseUrl.decode(options.serverOptions?.default19?.baseUrl) };
 }
 
-function default20Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default20ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default20.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default20Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default20.baseUrl.decode(options.serverOptions?.default20?.baseUrl) };
 }
 
-function default21Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default21ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default21.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default21Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default21.baseUrl.decode(options.serverOptions?.default21?.baseUrl) };
 }
 
-function default22Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default22ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default22.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default22Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default22.baseUrl.decode(options.serverOptions?.default22?.baseUrl) };
 }
 
-function default23Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default23ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default23.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default23Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default23.baseUrl.decode(options.serverOptions?.default23?.baseUrl) };
 }
 
-function default24Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default24ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default24.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default24Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default24.baseUrl.decode(options.serverOptions?.default24?.baseUrl) };
 }
 
-function default25Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default25ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default25.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default25Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default25.baseUrl.decode(options.serverOptions?.default25?.baseUrl) };
 }
 
-function default26Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default26ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default26.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default26Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default26.baseUrl.decode(options.serverOptions?.default26?.baseUrl) };
 }
 
-function default27Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default27ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default27.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
+function default27Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default27.baseUrl.decode(options.serverOptions?.default27?.baseUrl) };
 }
 
-function default28Server(
-  environment: ServerEnvironment,
-  subPath: string,
-  options?: Default28ServerOptions,
-): UrlTemplate {
-  switch (environment) {
-    case ServerEnvironment.Test: {
-      const test = { ...DEFAULT_SERVER_OPTIONS.default28.test, ...options?.test };
-      return { baseUrl: test.baseUrl, subPath };
-    }
-    default:
-      unknownEnvironment(environment);
-  }
-}
-
-function unknownEnvironment(environment: never): never {
-  throw new SdkError({ message: `Unknown server environment: ${String(environment)}` });
+function default28Server(options: ClientOptions): ServerBase {
+  return { baseUrl: serverSchemas.default28.baseUrl.decode(options.serverOptions?.default28?.baseUrl) };
 }

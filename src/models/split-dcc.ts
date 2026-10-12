@@ -6,5 +6,5 @@ export type SplitDcc = {
 };
 
 export const splitDccSchema: Schema<SplitDcc> = s.object<SplitDcc>({
-  accountHolderPercentage: s.optional(s.number()),
+  accountHolderPercentage: s.optional(s.int()),
 });

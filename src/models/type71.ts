@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Type of terminal action: Uninstall an Android app. */
 export const Type71 = {
   UninstallAndroidApp: "UninstallAndroidApp",
 } as const;

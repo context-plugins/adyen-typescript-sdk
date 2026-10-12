@@ -5,17 +5,58 @@ import { duration1Schema, type Duration1 } from "./duration1.js";
 import { type131Schema, type Type131 } from "./type131.js";
 
 export type TransactionRuleInterval = {
+  /**
+   * The day of month, used when the `duration.unit` is **months**. If not provided, by default,
+   * this is set to **1**, the first day of the month.
+   */
   dayOfMonth?: number;
+  /**
+   * The day of week, used when the `duration.unit` is **weeks**. If not provided, by default, this
+   * is set to **monday**.
+   *
+   * Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.
+   */
   dayOfWeek?: DayOfWeek;
+  /**
+   * The duration, which you can specify in hours, days, weeks, or months. The maximum duration is
+   * 90 days or an equivalent in other units. Required when the `type` is **rolling** or
+   * **sliding**.
+   */
   duration?: Duration1;
+  /**
+   * The time of day, in **hh:mm:ss** format, used when the `duration.unit` is **hours**. If not
+   * provided, by default, this is set to **00:00:00**.
+   */
   timeOfDay?: string;
+  /**
+   * The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example,
+   * **Europe/Amsterdam**. By default, this is set to **UTC**.
+   */
   timeZone?: string;
+  /**
+   * The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during
+   * which the rule conditions and limits apply, and how often counters are reset.
+   *
+   * Possible values:
+   *   * **perTransaction**: conditions are evaluated and the counters are reset for every
+   *     transaction.
+   *  * **daily**: the counters are reset daily at 00:00:00 CET.
+   *  * **weekly**: the counters are reset every Monday at 00:00:00 CET.
+   *  * **monthly**: the counters reset every first day of the month at 00:00:00 CET.
+   *  * **lifetime**: conditions are applied to the lifetime of the payment instrument.
+   *  * **rolling**: conditions are applied and the counters are reset based on a `duration`. If the
+   *    reset date and time are not provided, Adyen applies the default reset time similar to fixed
+   *    intervals. For example, if the duration is every two weeks, the counter resets every third
+   *    Monday at 00:00:00 CET.
+   *  * **sliding**: conditions are applied and the counters are reset based on the current time and
+   *    a `duration` that you specify.
+   */
   type: Type131;
 };
 
 export const transactionRuleIntervalSchema: Schema<TransactionRuleInterval> =
   s.object<TransactionRuleInterval>({
-    dayOfMonth: s.optional(s.number()),
+    dayOfMonth: s.optional(s.int()),
     dayOfWeek: s.optional(s.lazy(() => dayOfWeekSchema)),
     duration: s.optional(s.lazy(() => duration1Schema)),
     timeOfDay: s.optional(s.string()),

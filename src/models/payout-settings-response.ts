@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { payoutSettingsSchema, type PayoutSettings } from "./payout-settings.js";
 
 export type PayoutSettingsResponse = {
+  /** The list of payout accounts. */
   data?: PayoutSettings[];
 };
 

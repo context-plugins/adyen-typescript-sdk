@@ -6,7 +6,13 @@ import {
 } from "./transaction-description-response-info1.js";
 
 export type PayByBankPlaidResponseInfo = {
+  /**
+   * Merchant logo
+   *
+   * @deprecated
+   */
   logo?: string;
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

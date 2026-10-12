@@ -1,7 +1,21 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/**
+ * Checks if a user has recently sent the same amount of funds in multiple transfers.
+ *
+ * To use this restriction, you must:
+ *
+ * - Set the rule `type` to **velocity**.
+ *
+ * - Specify a time `interval`.
+ *
+ * - Specify a number of `matchingTransactions`.
+ *
+ * Supported operation: **equals**.
+ */
 export type SameAmountRestriction1 = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
   value?: boolean;
 };

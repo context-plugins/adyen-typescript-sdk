@@ -1,41 +1,7 @@
 export { AdyenClient } from "./client.js";
-export { DEFAULT_CLIENT_OPTIONS, type ClientOptions } from "./client-options.js";
+export type { ClientOptions } from "./client-options.js";
 
 export type { TokenProvider, BasicAuthCredentials } from "./core/auth/credentials.js";
-
-export { ServerEnvironment, DEFAULT_SERVER_OPTIONS } from "./servers.js";
-export type {
-  ServerOptions,
-  DefaultServerOptions,
-  Default1ServerOptions,
-  Default2ServerOptions,
-  Default3ServerOptions,
-  Default4ServerOptions,
-  Default5ServerOptions,
-  Default6ServerOptions,
-  Default7ServerOptions,
-  Default8ServerOptions,
-  Default9ServerOptions,
-  Default10ServerOptions,
-  Default11ServerOptions,
-  Default12ServerOptions,
-  Default13ServerOptions,
-  Default14ServerOptions,
-  Default15ServerOptions,
-  Default16ServerOptions,
-  Default17ServerOptions,
-  Default18ServerOptions,
-  Default19ServerOptions,
-  Default20ServerOptions,
-  Default21ServerOptions,
-  Default22ServerOptions,
-  Default23ServerOptions,
-  Default24ServerOptions,
-  Default25ServerOptions,
-  Default26ServerOptions,
-  Default27ServerOptions,
-  Default28ServerOptions,
-} from "./servers.js";
 
 export { Payments } from "./resources/payments.js";
 export { Donations } from "./resources/donations.js";
@@ -2111,7 +2077,7 @@ export { href3Schema, type Href3 } from "./models/href3.js";
 export { href4Schema, type Href4 } from "./models/href4.js";
 export { href5Schema, type Href5 } from "./models/href5.js";
 export { href6Schema, type Href6 } from "./models/href6.js";
-export { HttpMethod, httpMethodSchema } from "./models/http-method.js";
+export { HttpMethodEnum, httpMethodEnumSchema } from "./models/http-method-enum.js";
 export { ibanAccountIdentifierSchema, type IbanAccountIdentifier } from "./models/iban-account-identifier.js";
 export {
   ibanAccountIdentifier2Schema,
@@ -4864,16 +4830,35 @@ export { SortOrder, sortOrderSchema } from "./models/sort-order.js";
 
 export {
   CoreError as AdyenError,
+  ResponseError,
+  DecodeError,
+  EncodeError,
   ConnectionError,
   TimeoutError,
-  AbortError,
-  SdkError,
   AuthError,
+  ConfigurationError,
 } from "./core/errors.js";
-export { ResponseError } from "./core/response-error.js";
+export { ApiError } from "./core/api-error.js";
 export { SchemaError } from "./core/validation/schema-error.js";
+export {
+  defaultLoggingOptions,
+  type LoggingOptions,
+  type RequestLoggingOptions,
+  type Logger,
+  type LogDetails,
+  type HttpRequestDetails,
+  type RequestHeadersDetails,
+  type RequestBodyDetails,
+  type HttpResponseDetails,
+  type ResponseHeadersDetails,
+  type HttpRetryingDetails,
+  type HttpFailedDetails,
+  type LogLevel,
+} from "./core/logging.js";
 export type { ApiPromise, ApiResult } from "./core/api-promise.js";
-export type { RequestOptions } from "./core/api-request.js";
+export type { HttpMethod, RequestOptions } from "./core/api-request.js";
+export type { RetryOptions, RequestRetryOptions, RetryAttempt, RetryReason } from "./core/retry.js";
+export type { BinaryContent, BinaryData, BinaryErrorContent, FileData, FileInput } from "./core/binary.js";
 export type { ErrorKind } from "./core/errors.js";
-export type { ErrorPayload, Declared } from "./core/response-error.js";
+export type { ErrorPayload, Declared, Undeclared } from "./core/api-error.js";
 export type { Schema, EnumSchema, Encoded } from "./core/validation/schema.js";

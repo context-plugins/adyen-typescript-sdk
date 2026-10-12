@@ -1,8 +1,9 @@
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { capitalGrantInfoSchema, type CapitalGrantInfo } from "../models/capital-grant-info.js";
 import {
@@ -28,6 +29,21 @@ export class GrantsApi {
     this.#servers = servers;
   }
 
+  /**
+   * Get the details of a grant
+   *
+   * @remarks
+   * Returns the details of the specified grant.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link GrantsApi.GetGrantsGrantIdError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getGrantsGrantId(
     request: GrantsApi.GetGrantsGrantIdRequest,
     options?: RequestOptions,
@@ -35,9 +51,11 @@ export class GrantsApi {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default15("/grants/{grantId}"),
+        urlTemplate: this.#servers.default15("/grants/{grantId}"),
         auth: noneAuth,
         pathParams: [{ name: "grantId", value: request.grantId, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -48,6 +66,21 @@ export class GrantsApi {
     );
   }
 
+  /**
+   * Get all the disbursements of a grant
+   *
+   * @remarks
+   * Returns the disbursements of a specified grant.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link GrantsApi.GetGrantsGrantIdDisbursementsError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getGrantsGrantIdDisbursements(
     request: GrantsApi.GetGrantsGrantIdDisbursementsRequest,
     options?: RequestOptions,
@@ -55,9 +88,11 @@ export class GrantsApi {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default15("/grants/{grantId}/disbursements"),
+        urlTemplate: this.#servers.default15("/grants/{grantId}/disbursements"),
         auth: noneAuth,
         pathParams: [{ name: "grantId", value: request.grantId, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -68,6 +103,21 @@ export class GrantsApi {
     );
   }
 
+  /**
+   * Get disbursement details
+   *
+   * @remarks
+   * Returns the details of a disbursement specified in the path.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link GrantsApi.GetGrantsGrantIdDisbursementsDisbursementIdError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getGrantsGrantIdDisbursementsDisbursementId(
     request: GrantsApi.GetGrantsGrantIdDisbursementsDisbursementIdRequest,
     options?: RequestOptions,
@@ -75,12 +125,14 @@ export class GrantsApi {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default15("/grants/{grantId}/disbursements/{disbursementId}"),
+        urlTemplate: this.#servers.default15("/grants/{grantId}/disbursements/{disbursementId}"),
         auth: noneAuth,
         pathParams: [
           { name: "grantId", value: request.grantId, schema: s.string() },
           { name: "disbursementId", value: request.disbursementId, schema: s.string() },
         ],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -91,6 +143,21 @@ export class GrantsApi {
     );
   }
 
+  /**
+   * Get all the grants of an account holder
+   *
+   * @remarks
+   * Returns a list of all the grants of a specific account holder.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link GrantsApi.GetGrants2Error} when the API answers with an error status — narrow on
+   * `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getGrants2(
     request: GrantsApi.GetGrants2Request,
     options?: RequestOptions,
@@ -98,8 +165,9 @@ export class GrantsApi {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default15("/grants"),
+        urlTemplate: this.#servers.default15("/grants"),
         auth: noneAuth,
+        pathParams: [],
         query: [
           {
             name: "counterpartyAccountHolderId",
@@ -107,6 +175,7 @@ export class GrantsApi {
             schema: s.string(),
           },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -117,6 +186,21 @@ export class GrantsApi {
     );
   }
 
+  /**
+   * Update the repayment configuration of a disbursement
+   *
+   * @remarks
+   * Update the percentage of your user's net income that is deducted for repaying the grant.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link GrantsApi.PatchGrantsGrantIdDisbursementsDisbursementIdError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchGrantsGrantIdDisbursementsDisbursementId(
     request: GrantsApi.PatchGrantsGrantIdDisbursementsDisbursementIdRequest,
     options?: RequestOptions,
@@ -124,12 +208,14 @@ export class GrantsApi {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default15("/grants/{grantId}/disbursements/{disbursementId}"),
+        urlTemplate: this.#servers.default15("/grants/{grantId}/disbursements/{disbursementId}"),
         auth: noneAuth,
         pathParams: [
           { name: "grantId", value: request.grantId, schema: s.string() },
           { name: "disbursementId", value: request.disbursementId, schema: s.string() },
         ],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: disbursementInfoUpdateSchema },
       },
       {
@@ -140,6 +226,21 @@ export class GrantsApi {
     );
   }
 
+  /**
+   * Make a request for a grant
+   *
+   * @remarks
+   * Make a request for a grant on behalf of an account holder.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link GrantsApi.PostGrants2Error} when the API answers with an error status — narrow
+   * on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGrants2(
     request: GrantsApi.PostGrants2Request,
     options?: RequestOptions,
@@ -147,8 +248,11 @@ export class GrantsApi {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default15("/grants"),
+        urlTemplate: this.#servers.default15("/grants"),
         auth: noneAuth,
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: s.optional(s.lazy(() => capitalGrantInfoSchema)) },
       },
       {
@@ -162,13 +266,16 @@ export class GrantsApi {
 
 export namespace GrantsApi {
   export type GetGrantsGrantIdRequest = {
+    /** The unique identifier of the grant reference. */
     grantId: string;
   };
 
-  export class GetGrantsGrantIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-  > {
+  export class GetGrantsGrantIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetGrantsGrantIdError> = [
       {
         on: 404,
@@ -184,13 +291,16 @@ export namespace GrantsApi {
   }
 
   export type GetGrantsGrantIdDisbursementsRequest = {
+    /** The unique identifier of the grant reference. */
     grantId: string;
   };
 
-  export class GetGrantsGrantIdDisbursementsError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-  > {
+  export class GetGrantsGrantIdDisbursementsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetGrantsGrantIdDisbursementsError> = [
       {
         on: 404,
@@ -206,14 +316,18 @@ export namespace GrantsApi {
   }
 
   export type GetGrantsGrantIdDisbursementsDisbursementIdRequest = {
+    /** The unique identifier of the grant reference. */
     grantId: string;
+    /** The unique identifier of the disbursement. */
     disbursementId: string;
   };
 
-  export class GetGrantsGrantIdDisbursementsDisbursementIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-  > {
+  export class GetGrantsGrantIdDisbursementsDisbursementIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetGrantsGrantIdDisbursementsDisbursementIdError> = [
       {
         on: 404,
@@ -229,13 +343,16 @@ export namespace GrantsApi {
   }
 
   export type GetGrants2Request = {
+    /** The unique identifier of the account holder that received the grants. */
     counterpartyAccountHolderId: string;
   };
 
-  export class GetGrants2Error extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-  > {
+  export class GetGrants2Error extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetGrants2Error> = [
       {
         on: 404,
@@ -251,15 +368,19 @@ export namespace GrantsApi {
   }
 
   export type PatchGrantsGrantIdDisbursementsDisbursementIdRequest = {
+    /** The unique identifier of the grant reference. */
     grantId: string;
+    /** The unique identifier of the disbursement. */
     disbursementId: string;
     body: DisbursementInfoUpdate;
   };
 
-  export class PatchGrantsGrantIdDisbursementsDisbursementIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-  > {
+  export class PatchGrantsGrantIdDisbursementsDisbursementIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PatchGrantsGrantIdDisbursementsDisbursementIdError> = [
       {
         on: 404,
@@ -278,9 +399,11 @@ export namespace GrantsApi {
     body?: CapitalGrantInfo;
   };
 
-  export class PostGrants2Error extends ResponseError<
-    Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-  > {
+  export class PostGrants2Error extends ApiError {
+    declare readonly payload: ErrorPayload<
+      Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PostGrants2Error> = [
       {
         on: 422,

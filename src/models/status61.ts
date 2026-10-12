@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the card order.
+ *
+ * Possible values: **Open**, **Closed**.
+ */
 export const Status61 = {
   Closed: "closed",
   Open: "open",

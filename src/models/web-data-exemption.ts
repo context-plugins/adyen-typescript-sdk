@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { reason3Schema, type Reason3 } from "./reason3.js";
 
 export type WebDataExemption = {
+  /** The reason why the web data was not provided. Possible value: **noOnlinePresence**. */
   reason?: Reason3;
 };
 

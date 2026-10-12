@@ -1,6 +1,28 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of the source of funds.
+ *
+ *
+ *
+ * Possible values:
+ * * **business**
+ * * **employment**
+ * * **donations**
+ * * **inheritance**
+ * * **financialAid**
+ * * **rentalIncome**
+ * * **dividendIncome**
+ * * **royaltyIncome**
+ * * **thirdPartyFunding**
+ * * **pensionIncome**
+ * * **insuranceSettlement**
+ * * **cryptocurrencyIncome**
+ * * **assetSale**
+ * * **loans**
+ * * **gamblingWinnings**
+ */
 export const Type74 = {
   Business: "business",
   Employment: "employment",

@@ -8,10 +8,21 @@ import {
 } from "./transfer-notification-merchant-data2.js";
 
 export type TransferNotificationCounterParty = {
+  /**
+   * The unique identifier of the counterparty [balance
+   * account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
+   */
   balanceAccountId?: string;
+  /** Contains information about the counterparty bank account. */
   bankAccount?: BankAccountV31;
+  /** Contains information about the counterparty card. */
   card?: Card12;
+  /** Contains information about the merchant. */
   merchant?: TransferNotificationMerchantData2;
+  /**
+   * The unique identifier of the counterparty [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
+   */
   transferInstrumentId?: string;
 };
 

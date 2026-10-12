@@ -3,6 +3,10 @@ import type { Schema } from "../core/validation/schema.js";
 import { status16Schema, type Status16 } from "./status16.js";
 
 export type UpdateNetworkTokenRequest = {
+  /**
+   * The new status of the network token. Possible values: **active**, **suspended**, **closed**.
+   * The **closed** status is final and cannot be changed.
+   */
   status?: Status16;
 };
 

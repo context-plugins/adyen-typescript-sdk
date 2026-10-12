@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **econtextvoucher**
+ */
 export const Type29 = {
   EcontextSevenEleven: "econtext_seven_eleven",
   EcontextOnline: "econtext_online",

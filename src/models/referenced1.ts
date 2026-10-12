@@ -1,7 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** Settings for referenced refunds. */
 export type Referenced1 = {
+  /** Indicates whether referenced refunds are enabled on the standalone terminal. */
   enableStandaloneRefunds?: boolean;
 };
 

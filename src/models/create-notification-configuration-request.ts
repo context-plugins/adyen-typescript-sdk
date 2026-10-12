@@ -6,6 +6,7 @@ import {
 } from "./notification-configuration-details4.js";
 
 export type CreateNotificationConfigurationRequest = {
+  /** Details of the prospective notification subscription configuration. */
   configurationDetails: NotificationConfigurationDetails4;
 };
 

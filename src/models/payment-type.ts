@@ -1,6 +1,21 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Normal**
+ * * **Refund**
+ * * **OneTimeReservation**
+ * * **FirstReservation**
+ * * **UpdateReservation**
+ * * **Completion**
+ * * **CashAdvance**
+ * * **CashDeposit**
+ * * **Recurring**
+ * * **Instalment**
+ * * **IssuerInstalment**
+ * * **PaidOut**
+ */
 export const PaymentType = {
   Normal: "Normal",
   Refund: "Refund",

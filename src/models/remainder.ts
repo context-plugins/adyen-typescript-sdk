@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Books the amount left over after currency conversion to the specified balance account.
+ *
+ * Possible values: **addToLiableAccount**, **addToOneBalanceAccount**.
+ */
 export const Remainder = {
   AddToLiableAccount: "addToLiableAccount",
   AddToOneBalanceAccount: "addToOneBalanceAccount",

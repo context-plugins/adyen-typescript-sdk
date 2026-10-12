@@ -67,6 +67,7 @@ import { weChatPayMiniProgramSchema, type WeChatPayMiniProgram } from "../we-cha
 import { weChatPaySchema, type WeChatPay } from "../we-chat-pay.js";
 import { zipSchema, type Zip } from "../zip.js";
 
+/** The type and required details of a payment method to use. */
 export type PaymentMethod11 =
   | (ApplePayDetails & { type: "applepay" })
   | (SamsungPay & { type: "samsungpay" })

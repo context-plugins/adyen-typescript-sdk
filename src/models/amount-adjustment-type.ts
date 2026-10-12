@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of markup that is applied to an authorised payment.
+ *
+ * Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**.
+ */
 export const AmountAdjustmentType = {
   AtmMarkup: "atmMarkup",
   AuthHoldReserve: "authHoldReserve",

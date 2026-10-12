@@ -5,10 +5,21 @@ import { card12Schema, type Card12 } from "./card12.js";
 import { merchantData2Schema, type MerchantData2 } from "./merchant-data2.js";
 
 export type CounterpartyV3 = {
+  /**
+   * The unique identifier of the counterparty [balance
+   * account](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id).
+   */
   balanceAccountId?: string;
+  /** Contains information about the counterparty bank account. */
   bankAccount?: BankAccountV31;
+  /** Contains information about the counterparty card. */
   card?: Card12;
+  /** Contains information about the merchant. */
   merchant?: MerchantData2;
+  /**
+   * The unique identifier of the counterparty [transfer
+   * instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id).
+   */
   transferInstrumentId?: string;
 };
 

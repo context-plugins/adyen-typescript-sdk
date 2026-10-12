@@ -6,6 +6,7 @@ import {
 } from "./transaction-description-response-info1.js";
 
 export type IdealResponseInfo = {
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

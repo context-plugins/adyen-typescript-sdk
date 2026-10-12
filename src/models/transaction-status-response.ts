@@ -7,9 +7,16 @@ import {
 } from "./repeated-message-response2.js";
 import { response11Schema, type Response11 } from "./response11.js";
 
+/**
+ * Content of the TransactionStatus Response message. It conveys Information related to the status
+ * of the last or current Payment, Loyalty or Reversal transaction.
+ */
 export type TransactionStatusResponse = {
+  /** Result of a message request processing. */
   response: Response11;
+  /** Identification of a previous POI transaction. If `Response.Result` is Success. */
   messageReference?: MessageReference3;
+  /** Content of the requested Message Response. If Result is Success (process completed). */
   repeatedMessageResponse?: RepeatedMessageResponse2;
 };
 

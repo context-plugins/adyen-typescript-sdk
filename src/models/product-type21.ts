@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of product that you expected to receive.
+ *
+ * Possible values: **goods**, **services**.
+ */
 export const ProductType21 = {
   Goods: "goods",
   Services: "services",

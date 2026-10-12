@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { terminalOrderSchema, type TerminalOrder } from "./terminal-order.js";
 
 export type TerminalOrdersResponse = {
+  /** List of orders for payment terminal packages and parts. */
   data?: TerminalOrder[];
 };
 

@@ -4,9 +4,28 @@ import { accountType12Schema, type AccountType12 } from "./account-type12.js";
 import { paymentInstrumentDataSchema, type PaymentInstrumentData } from "./payment-instrument-data.js";
 import { transactionIdTypeSchema, type TransactionIdType } from "./transaction-id-type.js";
 
+/** Data related to the account pointed by the payment card. */
 export type PaymentAccountReq2 = {
+  /**
+   * Type of cardholder account used for the transaction. Allows a cardholder to select the type of
+   * account used for the transaction. Possible values:
+   * * **CardTotals**
+   * * **Checking**
+   * * **CreditCard**
+   * * **Default**
+   * * **EpurseCard**
+   * * **Investment**
+   * * **Savings**
+   * * **Universal**
+   */
   accountType?: AccountType12;
+  /** Identification of a transaction for the Sale System or the POI System. */
   cardAcquisitionReference?: TransactionIdType;
+  /**
+   * Data related to the instrument of payment for the transaction. Sent in the result of the
+   * payment transaction. For a card, it could also be sent in the `CardAcquisition` response, to be
+   * processed by the Sale System.
+   */
   paymentInstrumentData?: PaymentInstrumentData;
 };
 

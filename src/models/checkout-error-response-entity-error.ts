@@ -15,5 +15,5 @@ export const checkoutErrorResponseEntityErrorSchema: Schema<CheckoutErrorRespons
     errorType: s.string(),
     message: s.string(),
     pspReference: s.optional(s.string()),
-    status: s.optional(s.number()),
+    status: s.optional(s.int()),
   });

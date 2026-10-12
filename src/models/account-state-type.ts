@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The state required for the account holder. > Permitted values: `Processing`, `Payout`. */
 export const AccountStateType = {
   LimitedPayout: "LimitedPayout",
   LimitedProcessing: "LimitedProcessing",

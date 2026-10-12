@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { geographicCoordinatesSchema, type GeographicCoordinates } from "./geographic-coordinates.js";
 import { utmCoordinatesSchema, type UtmCoordinates } from "./utm-coordinates.js";
 
+/** Geographic location specified by geographic or UTM coordinates. If data available. */
 export type Geolocation1 = {
   geographicCoordinates?: GeographicCoordinates;
   utmCoordinates?: UtmCoordinates;

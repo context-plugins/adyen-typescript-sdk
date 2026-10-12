@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of information contained in the attachment: **receipt**, **correspondence**, **other**.
+ */
 export const AttachmentType1 = {
   Receipt: "receipt",
   Correspondence: "correspondence",

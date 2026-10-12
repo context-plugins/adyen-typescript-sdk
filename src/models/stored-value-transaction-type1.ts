@@ -1,6 +1,16 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Identification of operation to proceed on the stored value account or the stored value card.
+ * Possible values:
+ * * **Activate**
+ * * **Duplicate**
+ * * **Load**
+ * * **Reserve**
+ * * **Reverse**
+ * * **Unload**
+ */
 export const StoredValueTransactionType1 = {
   Reserve: "Reserve",
   Activate: "Activate",

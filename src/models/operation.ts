@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of string matching operation. Possible values: **startsWith**, **endsWith**,
+ * **isEqualTo**, **contains**,
+ */
 export const Operation = {
   Contains: "contains",
   EndsWith: "endsWith",

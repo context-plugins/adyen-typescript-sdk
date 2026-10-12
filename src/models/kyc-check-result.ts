@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { kycCheckStatusDataSchema, type KycCheckStatusData } from "./kyc-check-status-data.js";
 
 export type KycCheckResult = {
+  /** A list of the checks and their statuses. */
   checks?: KycCheckStatusData[];
 };
 

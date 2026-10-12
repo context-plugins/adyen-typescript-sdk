@@ -4,7 +4,7 @@
 
 Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal-settings-store-level.ts` · 8 operations · Request and error types: namespace `TerminalSettingsStoreLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getMerchantsMerchantIdStoresReferenceTerminalLogos
 
@@ -14,7 +14,7 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Logo`
-- **Error**: `TerminalSettingsStoreLevel.GetMerchantsMerchantIdStoresReferenceTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.GetMerchantsMerchantIdStoresReferenceTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.GetMerchantsMerchantIdStoresReferenceTerminalLogosRequest` (3):
@@ -38,7 +38,7 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalSettings`
-- **Error**: `TerminalSettingsStoreLevel.GetMerchantsMerchantIdStoresReferenceTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.GetMerchantsMerchantIdStoresReferenceTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.GetMerchantsMerchantIdStoresReferenceTerminalSettingsRequest` (2):
@@ -61,7 +61,7 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Logo`
-- **Error**: `TerminalSettingsStoreLevel.GetStoresStoreIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.GetStoresStoreIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.GetStoresStoreIdTerminalLogosRequest` (2):
@@ -84,7 +84,7 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalSettings`
-- **Error**: `TerminalSettingsStoreLevel.GetStoresStoreIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.GetStoresStoreIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.GetStoresStoreIdTerminalSettingsRequest` (1):
@@ -104,9 +104,10 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Signature**: `patchMerchantsMerchantIdStoresReferenceTerminalLogos(request: TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalLogosRequest, options?: RequestOptions): ApiPromise<Logo, TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalLogosError>`
 - **Wire**: `PATCH /merchants/{merchantId}/stores/{reference}/terminalLogos`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Logo`
-- **Error**: `TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalLogosRequest` (4):
@@ -129,9 +130,10 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Signature**: `patchMerchantsMerchantIdStoresReferenceTerminalSettings(request: TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalSettingsRequest, options?: RequestOptions): ApiPromise<TerminalSettings, TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalSettingsError>`
 - **Wire**: `PATCH /merchants/{merchantId}/stores/{reference}/terminalSettings`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalSettings`
-- **Error**: `TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.PatchMerchantsMerchantIdStoresReferenceTerminalSettingsRequest` (3):
@@ -153,9 +155,10 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Signature**: `patchStoresStoreIdTerminalLogos(request: TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalLogosRequest, options?: RequestOptions): ApiPromise<Logo, TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalLogosError>`
 - **Wire**: `PATCH /stores/{storeId}/terminalLogos`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Logo`
-- **Error**: `TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalLogosRequest` (3):
@@ -177,9 +180,10 @@ Accessor: `client.terminalSettingsStoreLevel` · Source: `src/resources/terminal
 - **Signature**: `patchStoresStoreIdTerminalSettings(request: TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalSettingsRequest, options?: RequestOptions): ApiPromise<TerminalSettings, TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalSettingsError>`
 - **Wire**: `PATCH /stores/{storeId}/terminalSettings`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalSettings`
-- **Error**: `TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsStoreLevel.PatchStoresStoreIdTerminalSettingsRequest` (2):

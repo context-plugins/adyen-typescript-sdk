@@ -3,8 +3,18 @@ import type { Schema } from "../core/validation/schema.js";
 import { identificationTypeSchema, type IdentificationType } from "./identification-type.js";
 
 export type BankIdentification = {
+  /**
+   * Two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
+   * code.
+   */
   country?: string;
+  /** The bank identification code. */
   identification?: string;
+  /**
+   * The type of the identification.
+   *
+   * Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
+   */
   identificationType?: IdentificationType;
 };
 

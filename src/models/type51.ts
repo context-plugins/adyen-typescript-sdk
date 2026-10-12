@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **sepadirectdebit**
+ */
 export const Type51 = {
   Sepadirectdebit: "sepadirectdebit",
   SepadirectdebitAmazonpay: "sepadirectdebit_amazonpay",

@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
 
 export type ThresholdRepayment1 = {
+  /** The minimum threshold amount that your user must repay on every 30-day period. */
   amount: Amount17;
 };
 

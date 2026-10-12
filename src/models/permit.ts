@@ -3,10 +3,15 @@ import type { Schema } from "../core/validation/schema.js";
 import { permitRestriction2Schema, type PermitRestriction2 } from "./permit-restriction2.js";
 
 export type Permit = {
+  /** Partner ID (when using the permit-per-partner token sharing model). */
   partnerId?: string;
+  /** The profile to apply to this permit (when using the shared permits model). */
   profileReference?: string;
+  /** Permit level restriction overrides. */
   restriction?: PermitRestriction2;
+  /** The key to link permit requests to permit results. */
   resultKey?: string;
+  /** The expiry date for this permit. */
   validTillDate?: Date;
 };
 

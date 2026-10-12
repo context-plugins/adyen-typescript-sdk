@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The processing model used for the recurring transaction. */
 export const RecurringProcessingModel7 = {
   CardOnFile: "CardOnFile",
   Subscription: "Subscription",

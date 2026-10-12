@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { dynamicOfferSchema, type DynamicOffer } from "./dynamic-offer.js";
 
 export type GetDynamicOffersResponse = {
+  /** Contains a list of available dynamic offers for the specified account holder. */
   dynamicOffers: DynamicOffer[];
 };
 

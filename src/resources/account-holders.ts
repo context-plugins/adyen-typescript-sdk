@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth, noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { accountHolderInfoSchema, type AccountHolderInfo } from "../models/account-holder-info.js";
 import {
@@ -100,6 +101,21 @@ export class AccountHolders {
     this.#auth = auth;
   }
 
+  /**
+   * Get an account holder
+   *
+   * @remarks
+   * Returns an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.GetAccountHoldersIdError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getAccountHoldersId(
     request: AccountHolders.GetAccountHoldersIdRequest,
     options?: RequestOptions,
@@ -107,9 +123,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/accountHolders/{id}"),
+        urlTemplate: this.#servers.default13("/accountHolders/{id}"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -120,6 +138,25 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Get all balance accounts of an account holder
+   *
+   * @remarks
+   * Returns a paginated list of the balance accounts associated with an account holder. To fetch
+   * multiple pages, use the query parameters.
+   *
+   * For example, to limit the page to 5 balance accounts and skip the first 10, use
+   * `/accountHolders/{id}/balanceAccounts?limit=5&offset=10`.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.GetAccountHoldersIdBalanceAccountsError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getAccountHoldersIdBalanceAccounts(
     request: AccountHolders.GetAccountHoldersIdBalanceAccountsRequest,
     options?: RequestOptions,
@@ -127,13 +164,14 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/accountHolders/{id}/balanceAccounts"),
+        urlTemplate: this.#servers.default13("/accountHolders/{id}/balanceAccounts"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
         query: [
-          { name: "offset", value: request.offset, schema: s.optional(s.number()) },
-          { name: "limit", value: request.limit, schema: s.optional(s.number()) },
+          { name: "offset", value: request.offset, schema: s.optional(s.int()) },
+          { name: "limit", value: request.limit, schema: s.optional(s.int()) },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -144,27 +182,59 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Get summary of tax forms for an account holder
+   *
+   * @remarks
+   * Returns a summary of all tax forms for an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link ApiError} when the API answers with an error status
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getAccountHoldersIdTaxFormSummary(
     request: AccountHolders.GetAccountHoldersIdTaxFormSummaryRequest,
     options?: RequestOptions,
-  ): ApiPromise<TaxFormSummaryResponse, ResponseError> {
-    return this.#rawClient.execute<TaxFormSummaryResponse, ResponseError>(
+  ): ApiPromise<TaxFormSummaryResponse, ApiError> {
+    return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/accountHolders/{id}/taxFormSummary"),
+        urlTemplate: this.#servers.default13("/accountHolders/{id}/taxFormSummary"),
         auth: noneAuth,
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
         query: [{ name: "formType", value: request.formType, schema: s.string() }],
+        headers: [],
         body: { kind: "empty" },
       },
       {
         success: { kind: "json", schema: taxFormSummaryResponseSchema },
-        errorFactory: ResponseError,
+        errorFactory: ApiError,
       },
       options,
     );
   }
 
+  /**
+   * Get a tax form
+   *
+   * @remarks
+   * Generates a tax form for account holders operating in the US. For more information, refer to US
+   * tax forms for [marketplaces](https://docs.adyen.com/marketplaces/us-tax-forms/) or
+   * [platforms](https://docs.adyen.com/platforms/us-tax-forms/) .
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.GetAccountHoldersIdTaxFormsError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getAccountHoldersIdTaxForms(
     request: AccountHolders.GetAccountHoldersIdTaxFormsRequest,
     options?: RequestOptions,
@@ -172,14 +242,15 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/accountHolders/{id}/taxForms"),
+        urlTemplate: this.#servers.default13("/accountHolders/{id}/taxForms"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
         query: [
           { name: "formType", value: request.formType, schema: formTypeSchema },
-          { name: "year", value: request.year, schema: s.number() },
+          { name: "year", value: request.year, schema: s.int() },
           { name: "legalEntityId", value: request.legalEntityId, schema: s.optional(s.string()) },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -190,6 +261,21 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Get all transaction rules for an account holder
+   *
+   * @remarks
+   * Returns a list of transaction rules associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.GetAccountHoldersIdTransactionRulesError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getAccountHoldersIdTransactionRules(
     request: AccountHolders.GetAccountHoldersIdTransactionRulesRequest,
     options?: RequestOptions,
@@ -197,9 +283,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/accountHolders/{id}/transactionRules"),
+        urlTemplate: this.#servers.default13("/accountHolders/{id}/transactionRules"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -210,6 +298,22 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Update an account holder
+   *
+   * @remarks
+   * Updates an account holder. When updating an account holder resource, if a parameter is not
+   * provided in the request, it is left unchanged.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PatchAccountHoldersIdError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchAccountHoldersId(
     request: AccountHolders.PatchAccountHoldersIdRequest,
     options?: RequestOptions,
@@ -217,9 +321,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default13("/accountHolders/{id}"),
+        urlTemplate: this.#servers.default13("/accountHolders/{id}"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -234,6 +340,22 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Create an account holder
+   *
+   * @remarks
+   * Creates an account holder linked to a [legal
+   * entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostAccountHoldersError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postAccountHolders(
     request: AccountHolders.PostAccountHoldersRequest,
     options?: RequestOptions,
@@ -241,8 +363,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/accountHolders"),
+        urlTemplate: this.#servers.default13("/accountHolders"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -257,6 +382,27 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Close an account holder
+   *
+   * @remarks
+   * Changes the [status of an account
+   * holder](https://docs.adyen.com/classic-platforms/account-holders-and-accounts#account-holder-statuses)
+   * to **Closed**. This state is final. If an account holder is closed, you can't process
+   * transactions, pay out funds, or reopen it. If payments are made to an account of an account
+   * holder with a **Closed**
+   * [`status`](https://docs.adyen.com/api-explorer/#/Account/latest/post/getAccountHolder__resParam_verification-accountHolder-checks-status),
+   * the payments are sent to your liable account.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostCloseAccountHolderError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCloseAccountHolder(
     request: AccountHolders.PostCloseAccountHolderRequest,
     options?: RequestOptions,
@@ -264,8 +410,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/closeAccountHolder"),
+        urlTemplate: this.#servers.default10("/closeAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -280,6 +429,21 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Close stores
+   *
+   * @remarks
+   * Closes stores associated with an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostCloseStoresError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCloseStores(
     request: AccountHolders.PostCloseStoresRequest,
     options?: RequestOptions,
@@ -287,8 +451,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/closeStores"),
+        urlTemplate: this.#servers.default10("/closeStores"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -303,6 +470,25 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Create an account holder
+   *
+   * @remarks
+   * Creates an account holder that [represents the sub-merchant's
+   * entity](https://docs.adyen.com/classic-platforms/account-structure#your-platform) in your
+   * platform. The details that you need to provide in the request depend on the sub-merchant's
+   * legal entity type. For more information, refer to [Account holder and
+   * accounts](https://docs.adyen.com/classic-platforms/account-holders-and-accounts#legal-entity-types).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostCreateAccountHolderError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCreateAccountHolder(
     request: AccountHolders.PostCreateAccountHolderRequest,
     options?: RequestOptions,
@@ -310,8 +496,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/createAccountHolder"),
+        urlTemplate: this.#servers.default10("/createAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -326,6 +515,21 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Get an account holder
+   *
+   * @remarks
+   * Returns the details of an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostGetAccountHolderError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGetAccountHolder(
     request: AccountHolders.PostGetAccountHolderRequest,
     options?: RequestOptions,
@@ -333,8 +537,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/getAccountHolder"),
+        urlTemplate: this.#servers.default10("/getAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -349,6 +556,22 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Get a tax form
+   *
+   * @remarks
+   * Generates a tax form for account holders operating in the US. For more information, refer to
+   * [Providing tax forms](https://docs.adyen.com/classic-platforms/tax-forms).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostGetTaxFormError} when the API answers with an error status —
+   * narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postGetTaxForm(
     request: AccountHolders.PostGetTaxFormRequest,
     options?: RequestOptions,
@@ -356,8 +579,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/getTaxForm"),
+        urlTemplate: this.#servers.default10("/getTaxForm"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -372,6 +598,23 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Suspend an account holder
+   *
+   * @remarks
+   * Changes the [status of an account
+   * holder](https://docs.adyen.com/classic-platforms/account-holders-and-accounts#account-holder-statuses)
+   * to **Suspended**.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostSuspendAccountHolderError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postSuspendAccountHolder(
     request: AccountHolders.PostSuspendAccountHolderRequest,
     options?: RequestOptions,
@@ -379,8 +622,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/suspendAccountHolder"),
+        urlTemplate: this.#servers.default10("/suspendAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -395,6 +641,31 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Unsuspend an account holder
+   *
+   * @remarks
+   * Changes the [status of an account
+   * holder](https://docs.adyen.com/classic-platforms/account-holders-and-accounts#account-holder-statuses)
+   * from **Suspended** to **Inactive**. Account holders can have a **Suspended**
+   * [`status`](https://docs.adyen.com/api-explorer/#/Account/latest/post/getAccountHolder__resParam_verification-accountHolder-checks-status)
+   * if you suspend them through the
+   * [`/suspendAccountHolder`](https://docs.adyen.com/api-explorer/#/Account/v5/post/suspendAccountHolder)
+   * endpoint or if a verification deadline expires.
+   *
+   * You can only unsuspend account holders if they do not have verification checks with a
+   * **FAILED**
+   * [`status`](https://docs.adyen.com/api-explorer/#/Account/latest/post/getAccountHolder__resParam_verification-accountHolder-checks-status).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostUnSuspendAccountHolderError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postUnSuspendAccountHolder(
     request: AccountHolders.PostUnSuspendAccountHolderRequest,
     options?: RequestOptions,
@@ -402,8 +673,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/unSuspendAccountHolder"),
+        urlTemplate: this.#servers.default10("/unSuspendAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -418,6 +692,47 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Update an account holder
+   *
+   * @remarks
+   * Updates the `accountHolderDetails` and `processingTier` of an account holder, and adds bank
+   * accounts and shareholders.
+   *
+   * When updating `accountHolderDetails`, parameters that are not included in the request are left
+   * unchanged except for the following object:
+   *
+   * * `metadata`: Updating the metadata replaces the entire object. This means that to update an
+   *   existing key-value pair, you must provide the changes, as well as other existing key-value
+   *   pairs.
+   *
+   * When updating any field in the following objects, you must submit all the fields required for
+   * validation:
+   *
+   *  * `address`
+   *
+   * * `fullPhoneNumber`
+   *
+   * * `bankAccountDetails.BankAccountDetail`
+   *
+   * * `businessDetails.shareholders.ShareholderContact`
+   *
+   * For example, to update the `address.postalCode`, you must also submit the `address.country`,
+   * `.city`, `.street`, `.postalCode`, and possibly `.stateOrProvince` so that the address can be
+   * validated.
+   *
+   * To add a bank account or shareholder, provide the bank account or shareholder details without a
+   * `bankAccountUUID` or a `shareholderCode`.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostUpdateAccountHolderError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postUpdateAccountHolder(
     request: AccountHolders.PostUpdateAccountHolderRequest,
     options?: RequestOptions,
@@ -425,8 +740,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/updateAccountHolder"),
+        urlTemplate: this.#servers.default10("/updateAccountHolder"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -441,6 +759,21 @@ export class AccountHolders {
     );
   }
 
+  /**
+   * Update payout or processing state
+   *
+   * @remarks
+   * Disables or enables the processing or payout state of an account holder.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link AccountHolders.PostUpdateAccountHolderStateError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postUpdateAccountHolderState(
     request: AccountHolders.PostUpdateAccountHolderStateRequest,
     options?: RequestOptions,
@@ -448,8 +781,11 @@ export class AccountHolders {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default10("/updateAccountHolderState"),
+        urlTemplate: this.#servers.default10("/updateAccountHolderState"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -467,16 +803,19 @@ export class AccountHolders {
 
 export namespace AccountHolders {
   export type GetAccountHoldersIdRequest = {
+    /** The unique identifier of the account holder. */
     id: string;
   };
 
-  export class GetAccountHoldersIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetAccountHoldersIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetAccountHoldersIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -487,18 +826,26 @@ export namespace AccountHolders {
   }
 
   export type GetAccountHoldersIdBalanceAccountsRequest = {
+    /** The unique identifier of the account holder. */
     id: string;
+    /** The number of items that you want to skip. */
     offset?: number;
+    /**
+     * The number of items returned per page, maximum 100 items. By default, the response returns 10
+     * items per page.
+     */
     limit?: number;
   };
 
-  export class GetAccountHoldersIdBalanceAccountsError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetAccountHoldersIdBalanceAccountsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetAccountHoldersIdBalanceAccountsError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -509,25 +856,38 @@ export namespace AccountHolders {
   }
 
   export type GetAccountHoldersIdTaxFormSummaryRequest = {
+    /** The unique identifier of the account holder. */
     id: string;
+    /**
+     * The type of tax form you want a summary for. Accepted values are **US1099k** and
+     * **US1099nec**.
+     */
     formType: string;
   };
 
   export type GetAccountHoldersIdTaxFormsRequest = {
+    /** The unique identifier of the account holder. */
     id: string;
+    /**
+     * The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**.
+     */
     formType: FormType;
+    /** The tax year in **YYYY** format for the tax form you want to retrieve. */
     year: number;
+    /** The legal entity reference whose tax form you want to retrieve. */
     legalEntityId?: string;
   };
 
-  export class GetAccountHoldersIdTaxFormsError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-    | Declared<"restServiceError6", RestServiceError>
-  > {
+  export class GetAccountHoldersIdTaxFormsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+      | Declared<"restServiceError6", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetAccountHoldersIdTaxFormsError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -539,16 +899,19 @@ export namespace AccountHolders {
   }
 
   export type GetAccountHoldersIdTransactionRulesRequest = {
+    /** The unique identifier of the account holder. */
     id: string;
   };
 
-  export class GetAccountHoldersIdTransactionRulesError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetAccountHoldersIdTransactionRulesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetAccountHoldersIdTransactionRulesError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -559,17 +922,20 @@ export namespace AccountHolders {
   }
 
   export type PatchAccountHoldersIdRequest = {
+    /** The unique identifier of the account holder. */
     id: string;
     body?: AccountHolderUpdateRequest;
   };
 
-  export class PatchAccountHoldersIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PatchAccountHoldersIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PatchAccountHoldersIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -583,13 +949,15 @@ export namespace AccountHolders {
     body?: AccountHolderInfo;
   };
 
-  export class PostAccountHoldersError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostAccountHoldersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostAccountHoldersError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -603,13 +971,15 @@ export namespace AccountHolders {
     body?: CloseAccountHolderRequest;
   };
 
-  export class PostCloseAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCloseAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCloseAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -623,13 +993,15 @@ export namespace AccountHolders {
     body?: CloseStoresRequest;
   };
 
-  export class PostCloseStoresError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCloseStoresError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCloseStoresError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -643,13 +1015,15 @@ export namespace AccountHolders {
     body?: CreateAccountHolderRequest;
   };
 
-  export class PostCreateAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostCreateAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostCreateAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -663,13 +1037,15 @@ export namespace AccountHolders {
     body?: GetAccountHolderRequest;
   };
 
-  export class PostGetAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -683,13 +1059,15 @@ export namespace AccountHolders {
     body?: GetTaxFormRequest;
   };
 
-  export class PostGetTaxFormError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostGetTaxFormError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostGetTaxFormError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -703,13 +1081,15 @@ export namespace AccountHolders {
     body?: SuspendAccountHolderRequest;
   };
 
-  export class PostSuspendAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostSuspendAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostSuspendAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -723,13 +1103,15 @@ export namespace AccountHolders {
     body?: UnSuspendAccountHolderRequest;
   };
 
-  export class PostUnSuspendAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostUnSuspendAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostUnSuspendAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -743,13 +1125,15 @@ export namespace AccountHolders {
     body?: UpdateAccountHolderRequest;
   };
 
-  export class PostUpdateAccountHolderError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostUpdateAccountHolderError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostUpdateAccountHolderError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },
@@ -763,13 +1147,15 @@ export namespace AccountHolders {
     body?: UpdateAccountHolderStateRequest;
   };
 
-  export class PostUpdateAccountHolderStateError extends ResponseError<
-    | Declared<"serviceError1", ServiceError1>
-    | Declared<"serviceError12", ServiceError1>
-    | Declared<"serviceError13", ServiceError1>
-    | Declared<"serviceError14", ServiceError1>
-    | Declared<"serviceError15", ServiceError1>
-  > {
+  export class PostUpdateAccountHolderStateError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"serviceError1", ServiceError1>
+      | Declared<"serviceError12", ServiceError1>
+      | Declared<"serviceError13", ServiceError1>
+      | Declared<"serviceError14", ServiceError1>
+      | Declared<"serviceError15", ServiceError1>
+    >;
+
     static readonly errors: ErrorDecoders<PostUpdateAccountHolderStateError> = [
       { on: 400, kind: "serviceError1", decode: { kind: "json", schema: serviceError1Schema } },
       { on: 401, kind: "serviceError12", decode: { kind: "json", schema: serviceError1Schema } },

@@ -1,6 +1,19 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**,
+ * **DecimalString** or **GetMenuEntry**. Possible values:
+ * * **DecimalString**
+ * * **DigitString**
+ * * **GetAnyKey**
+ * * **GetConfirmation**
+ * * **GetFunctionKey**
+ * * **GetMenuEntry**
+ * * **Password**
+ * * **SiteManager**
+ * * **TextString**
+ */
 export const InputCommand1 = {
   GetAnyKey: "GetAnyKey",
   GetConfirmation: "GetConfirmation",

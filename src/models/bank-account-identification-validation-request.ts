@@ -6,6 +6,7 @@ import {
 } from "./unions/account-identification11.js";
 
 export type BankAccountIdentificationValidationRequest = {
+  /** Bank account identification. */
   accountIdentification: AccountIdentification11;
 };
 

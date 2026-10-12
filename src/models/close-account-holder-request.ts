@@ -2,6 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type CloseAccountHolderRequest = {
+  /** The code of the Account Holder to be closed. */
   accountHolderCode: string;
 };
 

@@ -3,7 +3,9 @@ import type { Schema } from "../core/validation/schema.js";
 import { legalArrangementRequestSchema, type LegalArrangementRequest } from "./legal-arrangement-request.js";
 
 export type DeleteLegalArrangementRequest = {
+  /** The code of the account holder. */
   accountHolderCode: string;
+  /** List of legal arrangements. */
   legalArrangements: LegalArrangementRequest[];
 };
 

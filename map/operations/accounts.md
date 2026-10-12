@@ -4,7 +4,7 @@
 
 Accessor: `client.accounts` · Source: `src/resources/accounts.ts` · 3 operations · Request and error types: namespace `Accounts`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postCloseAccount
 
@@ -12,9 +12,10 @@ Accessor: `client.accounts` · Source: `src/resources/accounts.ts` · 3 operatio
 - **Signature**: `postCloseAccount(request: Accounts.PostCloseAccountRequest, options?: RequestOptions): ApiPromise<CloseAccountResponse, Accounts.PostCloseAccountError>`
 - **Wire**: `POST /closeAccount`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CloseAccountResponse`
-- **Error**: `Accounts.PostCloseAccountError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Accounts.PostCloseAccountError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Accounts.PostCloseAccountRequest` (1):
@@ -35,9 +36,10 @@ Accessor: `client.accounts` · Source: `src/resources/accounts.ts` · 3 operatio
 - **Signature**: `postCreateAccount(request: Accounts.PostCreateAccountRequest, options?: RequestOptions): ApiPromise<CreateAccountResponse, Accounts.PostCreateAccountError>`
 - **Wire**: `POST /createAccount`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreateAccountResponse`
-- **Error**: `Accounts.PostCreateAccountError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Accounts.PostCreateAccountError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Accounts.PostCreateAccountRequest` (1):
@@ -58,9 +60,10 @@ Accessor: `client.accounts` · Source: `src/resources/accounts.ts` · 3 operatio
 - **Signature**: `postUpdateAccount(request: Accounts.PostUpdateAccountRequest, options?: RequestOptions): ApiPromise<UpdateAccountResponse, Accounts.PostUpdateAccountError>`
 - **Wire**: `POST /updateAccount`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UpdateAccountResponse`
-- **Error**: `Accounts.PostUpdateAccountError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Accounts.PostUpdateAccountError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Accounts.PostUpdateAccountRequest` (1):

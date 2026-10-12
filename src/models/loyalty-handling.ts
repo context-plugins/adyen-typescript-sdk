@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Forbidden**
+ * * **Processed**
+ * * **Allowed**
+ * * **Proposed**
+ * * **Required**
+ */
 export const LoyaltyHandling = {
   Forbidden: "Forbidden",
   Processed: "Processed",

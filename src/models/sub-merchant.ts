@@ -1,11 +1,41 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/**
+ * Required for Back-to-Back/ purchase driven load in Wallet transactions. Contains the final
+ * merchant who will be receiving the money, also known as subMerchant, information.
+ */
 export type SubMerchant = {
+  /**
+   * The city of the sub-merchant's address.
+   * * Format: Alphanumeric
+   * * Maximum length: 13 characters
+   */
   city?: string;
+  /**
+   * The three-letter country code of the sub-merchant's address. For example, **BRA** for Brazil.
+   * * Format: [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
+   * * Fixed length: 3 characters
+   */
   country?: string;
+  /**
+   * The sub-merchant's 4-digit Merchant Category Code (MCC).
+   * * Format: Numeric
+   * * Fixed length: 4 digits
+   */
   mcc?: string;
+  /**
+   * The name of the sub-merchant. Based on scheme specifications, this value will overwrite the
+   * shopper statement that will appear in the card statement.
+   * * Format: Alphanumeric
+   * * Maximum length: 22 characters
+   */
   name?: string;
+  /**
+   * The tax ID of the sub-merchant.
+   * * Format: Numeric
+   * * Fixed length: 11 digits for the CPF or 14 digits for the CNPJ
+   */
   taxId?: string;
 };
 

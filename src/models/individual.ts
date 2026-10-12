@@ -10,15 +10,25 @@ import { taxInformationSchema, type TaxInformation } from "./tax-information.js"
 import { webData1Schema, type WebData1 } from "./web-data1.js";
 
 export type Individual = {
+  /** The individual's birth information. */
   birthData?: BirthData1;
+  /** The email address of the legal entity. */
   email?: string;
+  /** Information about the individual's identification document. */
   identificationData?: IdentificationData1;
+  /** The individual's name. */
   name: Name23;
+  /** The individual's nationality. */
   nationality?: string;
+  /** The phone number of the legal entity. */
   phone?: PhoneNumber2;
+  /** The residential address of the individual. */
   residentialAddress: Address13;
+  /** Support information for the legal entity. Required if you have a platform setup. */
   support?: Support1;
+  /** The tax information of the individual. */
   taxInformation?: TaxInformation[];
+  /** The website and app URL of the legal entity. */
   webData?: WebData1;
 };
 

@@ -6,10 +6,21 @@ import { response11Schema, type Response11 } from "./response11.js";
 import { saleData1Schema, type SaleData1 } from "./sale-data1.js";
 import { storedValueResultSchema, type StoredValueResult } from "./stored-value-result.js";
 
+/**
+ * It conveys Information related to the Stored Value transaction processed by the POI System.
+ * Content of the Stored Value Response message.
+ */
 export type StoredValueResponse = {
+  /** Result of a message request processing. */
   response: Response11;
+  /** Data related to the Sale System. */
   saleData: SaleData1;
+  /** Data related to the POI System. */
   poiData: PoiData1;
+  /**
+   * Result of loading/reloading a stored value card. If StoredValueResponse.Result is Success or
+   * Partial, one entry per StoredValueRequest.StoredValueData loaded or activated.
+   */
   storedValueResult?: StoredValueResult[];
   paymentReceipt?: PaymentReceipt[];
 };

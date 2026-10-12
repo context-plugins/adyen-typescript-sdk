@@ -6,11 +6,23 @@ import { linksElement17Schema, type LinksElement17 } from "./links-element17.js"
 import { linksElement19Schema, type LinksElement19 } from "./links-element19.js";
 import { linksElement6Schema, type LinksElement6 } from "./links-element6.js";
 
+/** References to resources connected with this webhook. */
 export type WebhookLinks2 = {
+  /**
+   * The company account that the webhook is configured for. Only present for company-level
+   * webhooks.
+   */
   company?: LinksElement15;
+  /** Generate an HMAC key. */
   generateHmac: LinksElement16;
+  /**
+   * The merchant account that the webhook is configured for. Only present for merchant-level
+   * webhooks.
+   */
   merchant?: LinksElement17;
+  /** Link to the resource itself. */
   self: LinksElement6;
+  /** Test the webhook setup. */
   testWebhook: LinksElement19;
 };
 

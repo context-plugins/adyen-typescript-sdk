@@ -1,6 +1,17 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the terminal:
+ *
+ * - `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates
+ *   when in the past week the terminal was last online.
+ *
+ * - `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.
+ *
+ * - `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`:
+ *   Indicates the terminal is scheduled to be reassigned.
+ */
 export const TerminalStatus = {
   OnlineLast1Day: "OnlineLast1Day",
   OnlineLast2Days: "OnlineLast2Days",

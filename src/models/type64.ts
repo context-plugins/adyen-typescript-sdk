@@ -1,6 +1,21 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of Terms of Service.
+ *
+ * Possible values:
+ * * **adyenForPlatformsManage**
+ * * **adyenIssuing**
+ * * **adyenForPlatformsAdvanced**
+ * * **adyenCapital**
+ * * **adyenAccount**
+ * * **adyenCard**
+ * * **adyenFranchisee**
+ * * **adyenPccr**
+ * * **adyenChargeCard**
+ * * **kycOnInvite**
+ */
 export const Type64 = {
   AdyenAccount: "adyenAccount",
   AdyenCapital: "adyenCapital",

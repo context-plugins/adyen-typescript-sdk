@@ -10,9 +10,13 @@ import {
 } from "./online-donation-settings-update.js";
 
 export type DonationCampaignUpdate = {
+  /** The unique identifiers of the account holders associated with the donation campaign. */
   accountHolderIds?: string[] | null;
+  /** The settings for in-person donations collected as part of the campaign. */
   inPerson?: InPersonDonationSettingsUpdate | null;
+  /** The name of the donation campaign. */
   name?: string;
+  /** The settings for online donations collected as part of the campaign. */
   online?: OnlineDonationSettingsUpdate | null;
 };
 

@@ -1,6 +1,20 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The result of the transfer.
+ *
+ * For example:
+ *
+ * - **received**: an outgoing transfer request is created.
+ * - **refused**: the transfer request is rejected by Adyen for one of the following reasons:
+ *   - Transfer limit exceeded.
+ *   - Transaction rule requirements violated.
+ * - **authorised**: the transfer request is authorized and the funds are reserved.
+ * - **booked**: the funds are deducted from your user's balance account.
+ *  - **failed**: the transfer is rejected by the counterparty's bank.
+ * - **returned**: the transfer is returned by the counterparty's bank.
+ */
 export const Status51 = {
   ApprovalPending: "approvalPending",
   AtmWithdrawal: "atmWithdrawal",

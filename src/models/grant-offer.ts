@@ -6,13 +6,21 @@ import { fee1Schema, type Fee1 } from "./fee1.js";
 import { repayment2Schema, type Repayment2 } from "./repayment2.js";
 
 export type GrantOffer = {
+  /** The identifier of the account holder to which the grant is offered. */
   accountHolderId: string;
+  /** The principal amount of the grant. */
   amount?: Amount17;
+  /** The contract type of the grant offer. Possible value: **cashAdvance**, **loan**. */
   contractType?: ContractType;
+  /** The end date of the grant offer validity period. */
   expiresAt?: Date;
+  /** Details of the fee configuration. */
   fee?: Fee1;
+  /** The unique identifier of the grant offer. */
   id?: string;
+  /** Details of the repayment configuration. */
   repayment?: Repayment2;
+  /** The starting date of the grant offer validity period. */
   startsAt?: Date;
 };
 

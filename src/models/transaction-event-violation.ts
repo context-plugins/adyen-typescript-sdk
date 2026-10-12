@@ -7,8 +7,11 @@ import {
 import { transactionRuleSource2Schema, type TransactionRuleSource2 } from "./transaction-rule-source2.js";
 
 export type TransactionEventViolation = {
+  /** An explanation about why the transaction rule failed. */
   reason?: string;
+  /** Contains information about the transaction rule. */
   transactionRule?: TransactionRuleReference2;
+  /** Contains information about the resource to which the transaction rule applies. */
   transactionRuleSource?: TransactionRuleSource2;
 };
 

@@ -4,6 +4,7 @@ import { amount17Schema, type Amount17 } from "./amount17.js";
 import { fundingSourceSchema, type FundingSource } from "./funding-source.js";
 import { intervalSchema, type Interval } from "./interval.js";
 
+/** A JSON object containing the settings that are allowed for the account holder. */
 export type CapabilitySettings3 = {
   amountPerIndustry?: Record<string, Amount17>;
   authorizedCardUsers?: boolean;

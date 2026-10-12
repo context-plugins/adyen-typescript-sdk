@@ -4,9 +4,21 @@ import { associationStatus1Schema, type AssociationStatus1 } from "./association
 import { scaEntityType1Schema, type ScaEntityType1 } from "./sca-entity-type1.js";
 
 export type Association = {
+  /** The unique identifier of the entity. */
   entityId: string;
+  /**
+   * The type of entity you are associating the device with.
+   *
+   * Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
+   */
   entityType: ScaEntityType1;
+  /** The unique identifier for the SCA device. */
   scaDeviceId: string;
+  /**
+   * The status of the association.
+   *
+   * Possible values: **active** or **pendingApproval**.
+   */
   status: AssociationStatus1;
 };
 

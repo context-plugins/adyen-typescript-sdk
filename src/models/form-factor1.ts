@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The form factor of the card. Possible values: **virtual**, **physical**. */
 export const FormFactor1 = {
   Physical: "physical",
   Unknown: "unknown",

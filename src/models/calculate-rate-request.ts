@@ -5,7 +5,12 @@ import {
   type CalculateRateRequestItem,
 } from "./calculate-rate-request-item.js";
 
+/** The request to calculate an amount in a different currency. */
 export type CalculateRateRequest = {
+  /**
+   * An array of objects, where each object defines a currency and value for which you want to
+   * perform an exchange calculation.
+   */
   exchangeCalculations: CalculateRateRequestItem[];
 };
 

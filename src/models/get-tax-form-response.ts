@@ -3,10 +3,15 @@ import type { Schema } from "../core/validation/schema.js";
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type GetTaxFormResponse = {
+  /** The content of the tax form in the Base64 binary format. */
   content?: string;
+  /** The content type of the tax form. */
   contentType?: string;
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

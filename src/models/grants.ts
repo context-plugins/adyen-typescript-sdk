@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { grantSchema, type Grant } from "./grant.js";
 
 export type Grants = {
+  /** Contains a list of the grants that the account holder has received. */
   grants: Grant[];
 };
 

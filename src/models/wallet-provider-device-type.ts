@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { value6Schema, type Value6 } from "./value6.js";
 
 export type WalletProviderDeviceType = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
   value?: Value6[];
 };

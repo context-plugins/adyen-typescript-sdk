@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { scaEntitySchema, type ScaEntity } from "./sca-entity.js";
 
 export type SubmitScaAssociationRequest = {
+  /** The list of entities to be associated. */
   entities: ScaEntity[];
 };
 

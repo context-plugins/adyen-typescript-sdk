@@ -6,11 +6,29 @@ import {
   type TerminalReassignmentTarget2,
 } from "./terminal-reassignment-target2.js";
 
+/**
+ * Indicates the account level to which the terminal is assigned, the [assignment
+ * status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api),
+ * and where the terminals is in the process of being reassigned to.
+ */
 export type TerminalAssignment2 = {
+  /** The unique identifier of the company account to which terminal is assigned. */
   companyId: string;
+  /** The unique identifier of the merchant account to which terminal is assigned. */
   merchantId?: string;
+  /** Indicates where the terminal is in the process of being reassigned to. */
   reassignmentTarget?: TerminalReassignmentTarget2;
+  /**
+   * The status of the reassignment. Possible values:
+   *  * `reassignmentInProgress`: the terminal was boarded and is now scheduled to remove the
+   *    configuration. Wait for the terminal to synchronize with the Adyen platform.
+   *  * `deployed`: the terminal is deployed and reassigned.
+   *  * `inventory`: the terminal is in inventory and cannot process transactions.
+   *  * `boarded`: the terminal is boarded to a store, or a merchant account representing a store,
+   *    and can process transactions.
+   */
   status: Status21;
+  /** The unique identifier of the store to which terminal is assigned. */
   storeId?: string;
 };
 

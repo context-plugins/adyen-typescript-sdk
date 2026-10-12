@@ -10,12 +10,27 @@ import {
 import { type221Schema, type Type221 } from "./type221.js";
 
 export type TransferInstrument = {
+  /** Contains information about the legal entity's bank account. */
   bankAccount: BankAccountInfo1;
+  /** List of capabilities for this transfer instrument. */
   capabilities?: Record<string, SupportingEntityCapability>;
+  /** List of documents uploaded for the transfer instrument. */
   documentDetails?: DocumentReference[];
+  /** The unique identifier of the transfer instrument. */
   id: string;
+  /**
+   * The unique identifier of the [legal
+   * entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id)
+   * that owns the transfer instrument.
+   */
   legalEntityId: string;
+  /** The verification errors related to capabilities for this transfer instrument. */
   problems?: CapabilityProblem1[];
+  /**
+   * The type of transfer instrument.
+   *
+   * Possible value: **bankAccount**.
+   */
   type: Type221;
 };
 

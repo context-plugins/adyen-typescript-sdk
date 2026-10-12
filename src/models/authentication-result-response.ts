@@ -4,7 +4,9 @@ import { threeDs1Result2Schema, type ThreeDs1Result2 } from "./three-ds1-result2
 import { threeDs2ResultSchema, type ThreeDs2Result } from "./three-ds2-result.js";
 
 export type AuthenticationResultResponse = {
+  /** The result of the 3D Secure authentication. */
   threeDs1Result?: ThreeDs1Result2;
+  /** The result of the 3D Secure 2 authentication. */
   threeDs2Result?: ThreeDs2Result;
 };
 

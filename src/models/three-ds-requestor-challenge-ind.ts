@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Indicates whether a challenge is requested for this transaction. Possible values:
+ * * **01** — No preference
+ * * **02** — No challenge requested
+ * * **03** — Challenge requested (3DS Requestor preference)
+ * * **04** — Challenge requested (Mandate)
+ * * **05** — No challenge (transactional risk analysis is already performed)
+ * * **06** — Data Only
+ */
 export const ThreeDsRequestorChallengeInd = {
   _01: "01",
   _02: "02",

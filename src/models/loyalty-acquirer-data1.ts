@@ -2,10 +2,22 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { transactionIdTypeSchema, type TransactionIdType } from "./transaction-id-type.js";
 
+/** Data related to the loyalty Acquirer during a loyalty transaction. If content not empty. */
 export type LoyaltyAcquirerData1 = {
+  /** Identification of the loyalty Acquirer. */
   loyaltyAcquirerId?: string;
+  /**
+   * Code assigned to a transaction approval by the Acquirer. Could be an identifier of the approved
+   * transaction for the Acquirer. This data element is conditional for the Loyalty Acquirers. Used
+   * in the PaymentRequest request for a referral.
+   */
   approvalCode?: string;
+  /** Identification of a transaction for the Sale System or the POI System. */
   loyaltyTransactionId?: TransactionIdType;
+  /**
+   * Identifier of a reconciliation period with a payment or loyalty host. Allows the assignment of
+   * a transaction to the Acquirer reconciliation (or batch).
+   */
   hostReconciliationId?: string;
 };
 

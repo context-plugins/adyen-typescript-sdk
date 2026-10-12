@@ -3,8 +3,11 @@ import type { Schema } from "../core/validation/schema.js";
 import { profileSchema, type Profile } from "./profile.js";
 import { settings1Schema, type Settings1 } from "./settings1.js";
 
+/** Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks. */
 export type WifiProfiles2 = {
+  /** List of remote Wi-Fi profiles. */
   profiles?: Profile[];
+  /** General Wi-Fi settings. */
   settings?: Settings1;
 };
 

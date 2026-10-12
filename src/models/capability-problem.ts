@@ -7,7 +7,9 @@ import {
 import { verificationErrorSchema, type VerificationError } from "./verification-error.js";
 
 export type CapabilityProblem = {
+  /** Contains the type of the entity and the corresponding ID. */
   entity?: CapabilityProblemEntity2;
+  /** Contains information about the verification error. */
   verificationErrors?: VerificationError[];
 };
 

@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Normal**
+ * * **Bold**
+ * * **Italic**
+ * * **Underline**
+ */
 export const CharacterStyle = {
   Normal: "Normal",
   Bold: "Bold",

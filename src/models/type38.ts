@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **molpay**
+ */
 export const Type38 = {
   MolpayEbankingFpxMy: "molpay_ebanking_fpx_MY",
   MolpayEbankingTh: "molpay_ebanking_TH",

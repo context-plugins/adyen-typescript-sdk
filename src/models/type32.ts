@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Type of terminal action: Install an Android app. */
 export const Type32 = {
   InstallAndroidApp: "InstallAndroidApp",
 } as const;

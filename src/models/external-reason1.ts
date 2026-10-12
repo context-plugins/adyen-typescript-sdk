@@ -1,9 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** The external reason for the transfer status. */
 export type ExternalReason1 = {
+  /** The reason code. */
   code?: string;
+  /** The description of the reason code. */
   description?: string;
+  /** The namespace for the reason code. */
   namespace?: string;
 };
 

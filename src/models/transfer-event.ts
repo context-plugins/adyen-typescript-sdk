@@ -13,24 +13,61 @@ import { tracingDataSchema, type TracingData } from "./unions/tracing-data.js";
 import { trackingDataSchema, type TrackingData } from "./unions/tracking-data.js";
 
 export type TransferEvent = {
+  /**
+   * The original journal amount. Only applicable for [issuing](https://docs.adyen.com/issuing/)
+   * integrations.
+   */
   amount?: Amount17;
+  /**
+   * The amount adjustments in this transfer. Only applicable for
+   * [issuing](https://docs.adyen.com/issuing/) integrations.
+   */
   amountAdjustments?: AmountAdjustment[];
+  /** Scheme unique arn identifier useful for tracing captures, chargebacks, refunds, etc. */
   arn?: string;
+  /** The date when the transfer request was sent. */
   bookingDate?: Date;
+  /** The estimated time when the beneficiary should have access to the funds. */
   estimatedArrivalTime?: Date;
+  /** A list of event data. */
   eventsData?: EventsDatum[];
+  /** The external reason for the transfer status. */
   externalReason?: ExternalReason1;
+  /** The unique identifier of the transfer event. */
   id?: string;
+  /**
+   * The payment modification. Only applicable for [returned internal
+   * transfers](https://docs.adyen.com/platforms/internal-fund-transfers/internal-transfer-webhooks/#returned-internal-transfer).
+   */
   modification?: Modification2;
+  /** The list of balance mutations per event. */
   mutations?: BalanceMutation[];
+  /**
+   * The amount in the original currency. Only applicable for
+   * [issuing](https://docs.adyen.com/issuing/) integrations.
+   */
   originalAmount?: Amount17;
+  /** The reason for the transfer status. */
   reason?: Reason1;
+  /** The status of the transfer event. */
   status?: Status24;
+  /** Additional tracing information for the tracing event. */
   tracingData?: TracingData;
+  /** Additional information for the tracking event. */
   trackingData?: TrackingData;
+  /**
+   * The id of the transaction that is related to this accounting event. Only sent for events of
+   * type **accounting** where the balance changes.
+   */
   transactionId?: string;
+  /** The type of the transfer event. Possible values: **accounting**, **tracking**. */
   type?: Type73;
+  /** The date when the tracking status was updated. */
   updateDate?: Date;
+  /**
+   * The date when the funds are expected to be deducted from or credited to the balance account.
+   * This date can be in either the past or future.
+   */
   valueDate?: Date;
 };
 

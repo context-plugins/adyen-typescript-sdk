@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Indicates if the modification request has been received for processing. */
 export const Response = {
   CaptureReceived: "[capture-received]",
   CancelReceived: "[cancel-received]",

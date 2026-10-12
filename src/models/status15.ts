@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the transfer.
+ *
+ * Possible values:
+ *
+ *  - **credited**: the funds are credited to your user's transfer instrument or bank account.-
+ *    **accepted**: the request is accepted by the integration.
+ */
 export const Status15 = {
   Credited: "credited",
   Accepted: "accepted",

@@ -10,6 +10,6 @@ export type DocumentPage = {
 
 export const documentPageSchema: Schema<DocumentPage> = s.object<DocumentPage>({
   pageName: s.optional(s.string()),
-  pageNumber: s.optional(s.number()),
+  pageNumber: s.optional(s.int()),
   type: s.optional(s.lazy(() => type91Schema)),
 });

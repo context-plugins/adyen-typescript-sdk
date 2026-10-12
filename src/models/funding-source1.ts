@@ -1,6 +1,17 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The funding source of the payment method.
+ *
+ * Possible values:
+ * * **credit**
+ * * **debit**
+ * * **prepaid**
+ * * **deferred_debit**
+ * * **charged**
+ * * **ANY**
+ */
 export const FundingSource1 = {
   Charged: "charged",
   Credit: "credit",

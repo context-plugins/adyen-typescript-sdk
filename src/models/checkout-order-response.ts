@@ -4,11 +4,17 @@ import { amount12Schema, type Amount12 } from "./amount12.js";
 import { amount13Schema, type Amount13 } from "./amount13.js";
 
 export type CheckoutOrderResponse = {
+  /** The initial amount of the order. */
   amount?: Amount12;
+  /** The expiry date for the order. */
   expiresAt?: string;
+  /** The encrypted order data. */
   orderData?: string;
+  /** The `pspReference` that belongs to the order. */
   pspReference: string;
+  /** The merchant reference for the order. */
   reference?: string;
+  /** The updated remaining amount. */
   remainingAmount?: Amount13;
 };
 

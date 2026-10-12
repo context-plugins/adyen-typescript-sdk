@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The reason for the amount update. Possible values:
+ * * **delayedCharge**
+ * * **noShow**
+ * * **installment**
+ */
 export const IndustryUsage1 = {
   DelayedCharge: "delayedCharge",
   Installment: "installment",

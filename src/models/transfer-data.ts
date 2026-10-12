@@ -30,37 +30,159 @@ import { tracingSchema, type Tracing } from "./unions/tracing.js";
 import { trackingSchema, type Tracking } from "./unions/tracking.js";
 
 export type TransferData = {
+  /** The account holder associated with the balance account involved in the transfer. */
   accountHolder?: ResourceReference5;
+  /** The amount of the transfer. */
   amount: Amount17;
+  /** Contains information about the balance account involved in the transfer. */
   balanceAccount?: ResourceReference1;
+  /** The unique identifier of the balance platform. */
   balancePlatform?: string;
+  /** The list of the latest balance statuses in the transfer. */
   balances?: BalanceMutation[];
+  /**
+   * The category of the transfer.
+   *
+   * Possible values:
+   *
+   *  - **bank**: A transfer involving a [transfer
+   *    instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id)
+   *    or a bank account.
+   *
+   * - **card**: A transfer involving a third-party card.
+   *
+   * - **internal**: A transfer between [balance
+   *   accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id)
+   *   within your platform.
+   *
+   * - **issuedCard**: A transfer initiated by an Adyen-issued card.
+   *
+   * - **platformPayment**: Funds movements related to payments that are acquired for your users.
+   *
+   * - **topUp**: An incoming transfer initiated by your user to top up their balance account.
+   */
   category: Category3;
+  /** The relevant data according to the transfer category. */
   categoryData?: CategoryData;
+  /** The other party in the transfer. */
   counterparty?: TransferNotificationCounterParty2;
+  /**
+   * The date and time when the transfer was created, in ISO 8601 extended format. For example,
+   * **2020-12-18T10:15:30+01:00**.
+   */
   createdAt?: Date;
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example,
+   * **2020-12-18T10:15:30+01:00**.
+   *
+   * @deprecated
+   */
   creationDate?: Date;
+  /**
+   * Your description for the transfer. It is used by most banks as the transfer description. We
+   * recommend sending a maximum of 140 characters, otherwise the description may be truncated.
+   *
+   * Supported characters: **[a-z] [A-Z] [0-9] / - ?** **: ( ) . , ' + Space**
+   *
+   * Supported characters for **regular** and **fast** transfers to a US counterparty: **[a-z] [A-Z]
+   * [0-9] & $ % # \@** **~ = + - _ ' " ! ?**
+   */
   description?: string;
+  /** The details of the direct debit. */
   directDebitInformation?: DirectDebitInformation1;
+  /**
+   * The direction of the transfer.
+   *
+   * Possible values: **incoming**, **outgoing**.
+   */
   direction?: Direction;
+  /**
+   * The unique identifier of the latest transfer event. Included only when the `category` is
+   * **issuedCard**.
+   */
   eventId?: string;
+  /** The list of events leading up to the current status of the transfer. */
   events?: TransferEvent[];
+  /**
+   * Contains information about the date when the transfer will be processed. The execution date
+   * must be within 30 days of the current date.
+   *
+   * Until the execution date:
+   * - The `status` of the transfer remains as **received**.
+   * - The `reason` of the transfer remains as **pending**.
+   */
   executionDate?: ExecutionDate1;
+  /** The external reason of this transfer. */
   externalReason?: ExternalReason2;
+  /** The ID of the resource. */
   id?: string;
+  /**
+   * Contains information that explains why the transfer was rejected or returned by the network.
+   */
   networkReason?: NetworkReason2;
+  /** Contains information about the payment instrument used in the transfer. */
   paymentInstrument?: PaymentInstrument3;
+  /** Additional information about the status of the transfer. */
   reason?: Reason2;
+  /**
+   * Your reference for the transfer, used internally within your platform. If you don't provide
+   * this in the request, Adyen generates a unique reference.
+   */
   reference?: string;
+  /**
+   * A reference that is sent to the recipient. This reference is also sent in all webhooks related
+   * to the transfer, so you can use it to track statuses for both the source and recipient of
+   * funds.
+   *
+   * Supported characters: **a-z**, **A-Z**, **0-9**.The maximum length depends on the `category`.
+   *
+   *  - **internal**: 80 characters
+   *
+   * - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
+   */
   referenceForBeneficiary?: string;
+  /** Contains status updates related to additional reviews. */
   review?: TransferReview1;
+  /**
+   * The sequence number of the transfer webhook. The numbers start from 1 and increase with each
+   * new webhook for a specific transfer.
+   *
+   * The sequence number can help you restore the correct sequence of events even if they arrive out
+   * of order.
+   */
   sequenceNumber?: number;
+  /**
+   * The result of the transfer.
+   *
+   * For example:
+   *
+   * - **received**: an outgoing transfer request is created.
+   * - **refused**: the transfer request is rejected by Adyen for one of the following reasons:
+   *   - Transfer limit exceeded.
+   *   - Transaction rule requirements violated.
+   * - **authorised**: the transfer request is authorized and the funds are reserved.
+   * - **booked**: the funds are deducted from your user's balance account.
+   *  - **failed**: the transfer is rejected by the counterparty's bank.
+   * - **returned**: the transfer is returned by the counterparty's bank.
+   */
   status: Status51;
+  /** Contains information for tracing the transfer after Adyen forwards it to the network. */
   tracing?: Tracing;
+  /** The latest tracking information of the transfer. */
   tracking?: Tracking;
+  /** Contains the results of the evaluation of the transaction rules. */
   transactionRulesResult?: TransactionRulesResult2;
+  /**
+   * The type of transfer or transaction. For example, **refund**, **payment**,
+   * **internalTransfer**, **bankTransfer**.
+   */
   type?: Type83;
+  /** The ultimate sender of the funds of the transfer (ultimate debtor). */
   ultimateParty?: UltimatePartyIdentification1;
+  /**
+   * The date and time when the event was triggered, in ISO 8601 extended format. For example,
+   * **2020-12-18T10:15:30+01:00**.
+   */
   updatedAt?: Date;
 };
 
@@ -89,7 +211,7 @@ export const transferDataSchema: Schema<TransferData> = s.object<TransferData>({
   reference: s.optional(s.string()),
   referenceForBeneficiary: s.optional(s.string()),
   review: s.optional(s.lazy(() => transferReview1Schema)),
-  sequenceNumber: s.optional(s.number()),
+  sequenceNumber: s.optional(s.int()),
   status: status51Schema,
   tracing: s.optional(s.lazy(() => tracingSchema)),
   tracking: s.optional(s.lazy(() => trackingSchema)),

@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The type of the delivery method. */
 export const Type21 = {
   Shipping: "Shipping",
 } as const;

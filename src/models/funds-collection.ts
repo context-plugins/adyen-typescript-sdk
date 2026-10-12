@@ -7,7 +7,16 @@ import {
 import { fundsCollectionType2Schema, type FundsCollectionType2 } from "./funds-collection-type2.js";
 
 export type FundsCollection = {
+  /**
+   * Contains the identification information of the account to which you can transfer funds related
+   * to repayments.
+   */
   accountIdentification?: BankAccountIdentification1;
+  /**
+   * The type of funds collection.
+   *
+   * Possible values: **UnscheduledRepayment**, **Revocation**.
+   */
   fundsCollectionType?: FundsCollectionType2;
 };
 

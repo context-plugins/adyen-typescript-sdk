@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of entity you are associating the device with.
+ *
+ * Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
+ */
 export const ScaEntityType1 = {
   AccountHolder: "accountHolder",
   LegalEntity: "legalEntity",

@@ -1,6 +1,16 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The resource for which you want to receive notifications. Possible values:
+ *
+ * * **balancePlatform**: receive notifications about balance changes in your entire balance
+ *   platform.
+ *
+ * * **accountHolder**: receive notifications about balance changes of a specific user.
+ *
+ * * **balanceAccount**: receive notifications about balance changes in a specific balance account.
+ */
 export const Type181 = {
   BalanceAccount: "balanceAccount",
   AccountHolder: "accountHolder",

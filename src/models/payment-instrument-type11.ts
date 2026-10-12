@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of payment instrument. Possible values:
+ * * **Card**
+ * * **Cash**
+ * * **Check**
+ * * **Mobile**
+ * * **StoredValue**
+ */
 export const PaymentInstrumentType11 = {
   Card: "Card",
   Check: "Check",

@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **androidpay**
+ */
 export const Type6 = {
   Androidpay: "androidpay",
 } as const;

@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { associationSchema, type Association } from "./association.js";
 
 export type ApproveAssociationResponse = {
+  /** The list of associations. */
   scaAssociations: Association[];
 };
 

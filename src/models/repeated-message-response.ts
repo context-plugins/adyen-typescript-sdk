@@ -7,6 +7,10 @@ import {
 } from "./repeated-response-message-body.js";
 
 export type RepeatedMessageResponse = {
+  /**
+   * Message header of the Sale to POI protocol message. It conveys Information related to the Sale
+   * to POI protocol management.
+   */
   messageHeader: MessageHeader;
   repeatedResponseMessageBody: RepeatedResponseMessageBody;
 };

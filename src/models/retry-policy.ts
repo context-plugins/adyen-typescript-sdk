@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** When set to true, you can retry for failed recurring payments. The default value is true. */
 export const RetryPolicy = {
   True: "true",
   False: "false",

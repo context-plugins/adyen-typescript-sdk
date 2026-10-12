@@ -4,7 +4,7 @@
 
 Accessor: `client.terminalSettingsCompanyLevel` · Source: `src/resources/terminal-settings-company-level.ts` · 4 operations · Request and error types: namespace `TerminalSettingsCompanyLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getCompaniesCompanyIdTerminalLogos
 
@@ -14,7 +14,7 @@ Accessor: `client.terminalSettingsCompanyLevel` · Source: `src/resources/termin
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Logo`
-- **Error**: `TerminalSettingsCompanyLevel.GetCompaniesCompanyIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsCompanyLevel.GetCompaniesCompanyIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsCompanyLevel.GetCompaniesCompanyIdTerminalLogosRequest` (2):
@@ -37,7 +37,7 @@ Accessor: `client.terminalSettingsCompanyLevel` · Source: `src/resources/termin
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalSettings`
-- **Error**: `TerminalSettingsCompanyLevel.GetCompaniesCompanyIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsCompanyLevel.GetCompaniesCompanyIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsCompanyLevel.GetCompaniesCompanyIdTerminalSettingsRequest` (1):
@@ -57,9 +57,10 @@ Accessor: `client.terminalSettingsCompanyLevel` · Source: `src/resources/termin
 - **Signature**: `patchCompaniesCompanyIdTerminalLogos(request: TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalLogosRequest, options?: RequestOptions): ApiPromise<Logo, TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalLogosError>`
 - **Wire**: `PATCH /companies/{companyId}/terminalLogos`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Logo`
-- **Error**: `TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalLogosError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalLogosRequest` (3):
@@ -81,9 +82,10 @@ Accessor: `client.terminalSettingsCompanyLevel` · Source: `src/resources/termin
 - **Signature**: `patchCompaniesCompanyIdTerminalSettings(request: TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalSettingsRequest, options?: RequestOptions): ApiPromise<TerminalSettings, TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalSettingsError>`
 - **Wire**: `PATCH /companies/{companyId}/terminalSettings`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalSettings`
-- **Error**: `TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalSettingsCompanyLevel.PatchCompaniesCompanyIdTerminalSettingsRequest` (2):

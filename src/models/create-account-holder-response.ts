@@ -7,17 +7,35 @@ import { kycVerificationResult1Schema, type KycVerificationResult1 } from "./kyc
 import { legalEntity1Schema, type LegalEntity1 } from "./legal-entity1.js";
 
 export type CreateAccountHolderResponse = {
+  /** The code of a new account created for the account holder. */
   accountCode?: string;
+  /** The code of the new account holder. */
   accountHolderCode?: string;
+  /** Details of the new account holder. */
   accountHolderDetails?: AccountHolderDetails2;
+  /** The status of the new account holder. */
   accountHolderStatus?: AccountHolderStatus2;
+  /** The description of the new account holder. */
   description?: string;
+  /** A list of fields that caused the `/createAccountHolder` request to fail. */
   invalidFields?: ErrorFieldType[];
+  /** The type of legal entity of the new account holder. */
   legalEntity?: LegalEntity1;
+  /**
+   * The three-character [ISO currency
+   * code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective
+   * account holder primarily deals.
+   *
+   * @deprecated
+   */
   primaryCurrency?: string;
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
+  /** The details of KYC Verification of the account holder. */
   verification?: KycVerificationResult1;
+  /** The identifier of the profile that applies to this entity. */
   verificationProfile?: string;
 };
 

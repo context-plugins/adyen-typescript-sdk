@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of instalment transaction. Possible values:
+ * * **Annual**
+ * * **Daily**
+ * * **Monthly**
+ * * **Weekly**
+ */
 export const PeriodUnit1 = {
   Daily: "Daily",
   Weekly: "Weekly",

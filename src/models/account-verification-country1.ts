@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The location where the third-party individual's bank account is registered. */
 export const AccountVerificationCountry1 = {
   Se: "SE",
   Fi: "FI",

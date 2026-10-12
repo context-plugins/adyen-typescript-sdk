@@ -1,14 +1,23 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type57Schema, type Type57 } from "./type57.js";
+import { Type57, type57Schema } from "./type57.js";
 
 export type WeChatPayMiniProgram = {
   appId?: string;
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
   openid?: string;
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @deprecated
+   */
   recurringDetailReference?: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /** **wechatpayMiniProgram** @default Type57.WechatpayMiniProgram */
   type?: Type57;
 };
 
@@ -19,5 +28,5 @@ export const weChatPayMiniProgramSchema: Schema<WeChatPayMiniProgram> = s.object
   recurringDetailReference: s.optional(s.string()),
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
-  type: s.optional(s.lazy(() => type57Schema)),
+  type: s.defaulted(type57Schema, Type57.WechatpayMiniProgram),
 });

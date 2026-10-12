@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   associationFinaliseRequestSchema,
@@ -45,6 +46,21 @@ export class ManageScaDevices {
     this.#auth = auth;
   }
 
+  /**
+   * Delete a registration of an SCA device
+   *
+   * @remarks
+   * Deletes an SCA device from the list of registered devices of a specific payment instrument.
+   *
+   * @returns No Content - look at the actual response code for the status of the request.
+   *
+   * @throws {@link ManageScaDevices.DeleteRegisteredDevicesIdError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   deleteRegisteredDevicesId(
     request: ManageScaDevices.DeleteRegisteredDevicesIdRequest,
     options?: RequestOptions,
@@ -52,10 +68,11 @@ export class ManageScaDevices {
     return this.#rawClient.execute(
       {
         method: "DELETE",
-        url: this.#servers.default13("/registeredDevices/{id}"),
+        urlTemplate: this.#servers.default13("/registeredDevices/{id}"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
         query: [{ name: "paymentInstrumentId", value: request.paymentInstrumentId, schema: s.string() }],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "empty" },
       },
       {
@@ -66,6 +83,22 @@ export class ManageScaDevices {
     );
   }
 
+  /**
+   * Get a list of registered SCA devices
+   *
+   * @remarks
+   * Get a paginated list of the SCA devices you have currently registered for a specific payment
+   * instrument.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link ManageScaDevices.GetRegisteredDevicesError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getRegisteredDevices(
     request: ManageScaDevices.GetRegisteredDevicesRequest,
     options?: RequestOptions,
@@ -73,13 +106,15 @@ export class ManageScaDevices {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/registeredDevices"),
+        urlTemplate: this.#servers.default13("/registeredDevices"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
         query: [
           { name: "paymentInstrumentId", value: request.paymentInstrumentId, schema: s.string() },
-          { name: "pageNumber", value: request.pageNumber, schema: s.optional(s.number()) },
-          { name: "pageSize", value: request.pageSize, schema: s.optional(s.number()) },
+          { name: "pageNumber", value: request.pageNumber, schema: s.optional(s.int()) },
+          { name: "pageSize", value: request.pageSize, schema: s.optional(s.int()) },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -90,6 +125,27 @@ export class ManageScaDevices {
     );
   }
 
+  /**
+   * Complete an association between an SCA device and a resource
+   *
+   * @remarks
+   * Completes an association between a user's registered SCA device and an Adyen resource. For
+   * example, you can associate an SCA device with additional [business
+   * accounts](https://docs.adyen.com/platforms/business-accounts/sca/register-devices) or
+   * [Adyen-issued cards](https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk/register-devices).
+   *
+   * To complete the association, this endpoint validates the authentication data of the registered
+   * device.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchRegisteredDevicesDeviceIdAssociations(
     request: ManageScaDevices.PatchRegisteredDevicesDeviceIdAssociationsRequest,
     options?: RequestOptions,
@@ -100,9 +156,11 @@ export class ManageScaDevices {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default13("/registeredDevices/{deviceId}/associations"),
+        urlTemplate: this.#servers.default13("/registeredDevices/{deviceId}/associations"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "deviceId", value: request.deviceId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -117,6 +175,24 @@ export class ManageScaDevices {
     );
   }
 
+  /**
+   * Complete the registration of an SCA device
+   *
+   * @remarks
+   * Completes the registration of an SCA device by validating the authentication data of the
+   * device. You can register SCA devices for [business
+   * accounts](https://docs.adyen.com/platforms/business-accounts/sca) or [Adyen-issued
+   * cards](https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link ManageScaDevices.PatchRegisteredDevicesIdError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchRegisteredDevicesId(
     request: ManageScaDevices.PatchRegisteredDevicesIdRequest,
     options?: RequestOptions,
@@ -124,9 +200,11 @@ export class ManageScaDevices {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default13("/registeredDevices/{id}"),
+        urlTemplate: this.#servers.default13("/registeredDevices/{id}"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "id", value: request.id, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -141,6 +219,26 @@ export class ManageScaDevices {
     );
   }
 
+  /**
+   * Initiate the registration of an SCA device
+   *
+   * @remarks
+   * Initiates the registration of a user's device for Strong Customer Authentication (SCA). You can
+   * register SCA devices for [business
+   * accounts](https://docs.adyen.com/platforms/business-accounts/sca/register-devices) or
+   * [Adyen-issued cards](https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk/register-devices).
+   *
+   * For a successful request, the device must be eligible for SCA.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link ManageScaDevices.PostRegisteredDevicesError} when the API answers with an error
+   * status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postRegisteredDevices(
     request: ManageScaDevices.PostRegisteredDevicesRequest,
     options?: RequestOptions,
@@ -148,8 +246,11 @@ export class ManageScaDevices {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/registeredDevices"),
+        urlTemplate: this.#servers.default13("/registeredDevices"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
+        pathParams: [],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -164,6 +265,24 @@ export class ManageScaDevices {
     );
   }
 
+  /**
+   * Initiate an association between an SCA device and a resource
+   *
+   * @remarks
+   * Initiates an association between a user's registered SCA device and an Adyen resource. For
+   * example, you can associate an SCA device with additional [business
+   * accounts](https://docs.adyen.com/platforms/business-accounts/sca/register-devices) or
+   * [Adyen-issued cards](https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk/register-devices).
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postRegisteredDevicesDeviceIdAssociations(
     request: ManageScaDevices.PostRegisteredDevicesDeviceIdAssociationsRequest,
     options?: RequestOptions,
@@ -174,9 +293,11 @@ export class ManageScaDevices {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/registeredDevices/{deviceId}/associations"),
+        urlTemplate: this.#servers.default13("/registeredDevices/{deviceId}/associations"),
         auth: anyAuth(this.#auth.clientKey, this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "deviceId", value: request.deviceId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -194,17 +315,21 @@ export class ManageScaDevices {
 
 export namespace ManageScaDevices {
   export type DeleteRegisteredDevicesIdRequest = {
+    /** The unique identifier of the SCA device. */
     id: string;
+    /** The unique identifier of the payment instrument linked to the SCA device. */
     paymentInstrumentId: string;
   };
 
-  export class DeleteRegisteredDevicesIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class DeleteRegisteredDevicesIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<DeleteRegisteredDevicesIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -215,18 +340,34 @@ export namespace ManageScaDevices {
   }
 
   export type GetRegisteredDevicesRequest = {
+    /**
+     * The unique identifier of a payment instrument. It limits the returned list to SCA devices
+     * associated to this payment instrument.
+     */
     paymentInstrumentId: string;
+    /**
+     * The index of the page to retrieve. The index of the first page is 0 (zero).
+     *
+     * Default: 0.
+     */
     pageNumber?: number;
+    /**
+     * The number of items to have on a page.
+     *
+     * Default: 20. Maximum: 100.
+     */
     pageSize?: number;
   };
 
-  export class GetRegisteredDevicesError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetRegisteredDevicesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetRegisteredDevicesError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -237,17 +378,20 @@ export namespace ManageScaDevices {
   }
 
   export type PatchRegisteredDevicesDeviceIdAssociationsRequest = {
+    /** The unique identifier of the SCA device that you are associating with a resource. */
     deviceId: string;
     body?: AssociationFinaliseRequest;
   };
 
-  export class PatchRegisteredDevicesDeviceIdAssociationsError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PatchRegisteredDevicesDeviceIdAssociationsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PatchRegisteredDevicesDeviceIdAssociationsError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -258,17 +402,24 @@ export namespace ManageScaDevices {
   }
 
   export type PatchRegisteredDevicesIdRequest = {
+    /**
+     * The unique identifier of the SCA device. You obtain this `id` in the response of a
+     * POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id)
+     * request.
+     */
     id: string;
     body?: RegisterScaRequest;
   };
 
-  export class PatchRegisteredDevicesIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PatchRegisteredDevicesIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PatchRegisteredDevicesIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -282,13 +433,15 @@ export namespace ManageScaDevices {
     body?: RegisterScaRequest;
   };
 
-  export class PostRegisteredDevicesError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostRegisteredDevicesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostRegisteredDevicesError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -299,17 +452,20 @@ export namespace ManageScaDevices {
   }
 
   export type PostRegisteredDevicesDeviceIdAssociationsRequest = {
+    /** The unique identifier of the SCA device that you are associating with a resource. */
     deviceId: string;
     body?: AssociationInitiateRequest;
   };
 
-  export class PostRegisteredDevicesDeviceIdAssociationsError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostRegisteredDevicesDeviceIdAssociationsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostRegisteredDevicesDeviceIdAssociationsError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },

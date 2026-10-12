@@ -4,15 +4,31 @@ import { links1Schema, type Links1 } from "./links1.js";
 import { nameSchema, type Name } from "./name.js";
 
 export type User = {
+  /** References to resources connected with this user. */
   links?: Links1;
+  /**
+   * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups)
+   * associated with this user.
+   */
   accountGroups?: string[];
+  /** Indicates whether this user is active. */
   active?: boolean;
+  /** Set of apps available to this user */
   apps?: string[];
+  /** The email address of the user. */
   email: string;
+  /** The unique identifier of the user. */
   id: string;
+  /** The user's full name. */
   name?: Name;
+  /** The list of [roles](https://docs.adyen.com/account/user-roles) for this user. */
   roles: string[];
+  /**
+   * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the
+   * time zone of the user. For example, **Europe/Amsterdam**.
+   */
   timeZoneCode: string;
+  /** The username for this user. */
   username: string;
 };
 

@@ -3,6 +3,10 @@ import type { Schema } from "../core/validation/schema.js";
 import { repaymentTermSchema, type RepaymentTerm } from "./repayment-term.js";
 
 export type DynamicOfferRepayment = {
+  /**
+   * Contains information about the time period in which your user must repay the total amount of
+   * the grant.
+   */
   term: RepaymentTerm;
 };
 

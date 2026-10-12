@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Indicates the exemption type that was applied by the issuer to the authentication, if exemption
+ * applied. Allowed values:
+ * * `lowValue`
+ * * `secureCorporate`
+ * * `trustedBeneficiary`
+ * * `transactionRiskAnalysis`
+ */
 export const ExemptionIndicator = {
   LowValue: "lowValue",
   SecureCorporate: "secureCorporate",

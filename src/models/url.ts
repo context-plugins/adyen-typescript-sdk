@@ -2,9 +2,13 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type Url = {
+  /** Indicates if the message sent to this URL should be encrypted. */
   encrypted?: boolean;
+  /** The password for authentication of the notifications. */
   password?: string;
+  /** The URL in the format: http(s)://domain.com. */
   url?: string;
+  /** The username for authentication of the notifications. */
   username?: string;
 };
 

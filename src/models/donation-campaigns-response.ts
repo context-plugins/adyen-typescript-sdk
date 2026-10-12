@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { donationCampaignSchema, type DonationCampaign } from "./donation-campaign.js";
 
 export type DonationCampaignsResponse = {
+  /** List of active donation campaigns for your merchant account. */
   donationCampaigns?: DonationCampaign[];
 };
 

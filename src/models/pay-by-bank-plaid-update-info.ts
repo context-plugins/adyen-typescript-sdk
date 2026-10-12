@@ -6,6 +6,10 @@ import {
 } from "./transaction-description-info1.js";
 
 export type PayByBankPlaidUpdateInfo = {
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

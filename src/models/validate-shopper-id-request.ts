@@ -3,7 +3,9 @@ import type { Schema } from "../core/validation/schema.js";
 import { shopperIdPaymentMethod1Schema, type ShopperIdPaymentMethod1 } from "./shopper-id-payment-method1.js";
 
 export type ValidateShopperIdRequest = {
+  /** The merchant account identifier, with which you want to process the transaction. */
   merchantAccount: string;
+  /** paymentMethod */
   paymentMethod: ShopperIdPaymentMethod1;
   shopperEmail?: string;
   shopperIp?: string;

@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the transaction. >Permitted values: `PendingCredit`, `CreditFailed`,
+ * `CreditClosed`, `CreditSuspended`, `Credited`, `Converted`, `PendingDebit`, `DebitFailed`,
+ * `Debited`, `DebitReversedReceived`, `DebitedReversed`, `ChargebackReceived`, `Chargeback`,
+ * `ChargebackReversedReceived`, `ChargebackReversed`, `Payout`, `PayoutReversed`, `FundTransfer`,
+ * `PendingFundTransfer`, `ManualCorrected`.
+ */
 export const TransactionStatus1 = {
   BalanceNotPaidOutTransfer: "BalanceNotPaidOutTransfer",
   BalancePlatformFundTransfer: "BalancePlatformFundTransfer",

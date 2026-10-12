@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Result of the validation. Ex: valid, invalid, unknown */
 export const Result1 = {
   Valid: "VALID",
   Invalid: "INVALID",

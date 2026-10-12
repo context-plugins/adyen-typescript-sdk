@@ -1,6 +1,17 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of error.
+ *
+ *
+ *
+ * Possible values:
+ * * **invalidInput**
+ * * **dataMissing**
+ * * **pendingStatus**
+ * * **dataReview**
+ */
 export const Type212 = {
   DataMissing: "dataMissing",
   DataReview: "dataReview",

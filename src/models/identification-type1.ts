@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **PAN**
+ * * **ISOTrack2**
+ * * **BarCode**
+ * * **AccountNumber**
+ * * **PhoneNumber**
+ */
 export const IdentificationType1 = {
   Pan: "PAN",
   IsoTrack2: "ISOTrack2",

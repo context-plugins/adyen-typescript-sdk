@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **ISO0**
+ * * **ISO1**
+ * * **ISO2**
+ * * **ISO3**
+ */
 export const PinFormat1 = {
   Iso0: "ISO0",
   Iso1: "ISO1",

@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { transferLimitSchema, type TransferLimit } from "./transfer-limit.js";
 
 export type TransferLimitListResponse = {
+  /** List of available transfer limits. */
   transferLimits: TransferLimit[];
 };
 

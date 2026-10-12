@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The period when the rule conditions apply. */
 export const Interval = {
   Daily: "daily",
   Monthly: "monthly",

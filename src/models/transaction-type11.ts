@@ -1,6 +1,30 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of transaction for which totals are grouped. Debit, Credit, ReverseDebit, ReverseCredit,
+ * OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation, CompletedReservation,
+ * CashAdvance. Possible values:
+ * * **Award**
+ * * **CashAdvance**
+ * * **CompletedDeffered**
+ * * **CompletedReservation**
+ * * **Credit**
+ * * **Debit**
+ * * **Declined**
+ * * **Failed**
+ * * **FirstReservation**
+ * * **IssuerInstalment**
+ * * **OneTimeReservation**
+ * * **Rebate**
+ * * **Redemption**
+ * * **ReverseAward**
+ * * **ReverseCredit**
+ * * **ReverseDebit**
+ * * **ReverseRebate**
+ * * **ReverseRedemption**
+ * * **UpdateReservation**
+ */
 export const TransactionType11 = {
   Debit: "Debit",
   Credit: "Credit",

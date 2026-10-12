@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The gender. >The following values are permitted: `MALE`, `FEMALE`, `UNKNOWN`. */
 export const Gender = {
   Male: "MALE",
   Female: "FEMALE",

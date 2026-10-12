@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of transfer.
+ *
+ * Possible values:
+ *
+ *   - **bank**: Transfer to a [transfer
+ *     instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id)
+ *     or a bank account.
+ */
 export const Category2 = {
   Bank: "bank",
   Card: "card",

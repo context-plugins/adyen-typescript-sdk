@@ -4,7 +4,7 @@
 
 Accessor: `client.usersMerchantLevel` · Source: `src/resources/users-merchant-level.ts` · 4 operations · Request and error types: namespace `UsersMerchantLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getMerchantsMerchantIdUsers
 
@@ -14,7 +14,7 @@ Accessor: `client.usersMerchantLevel` · Source: `src/resources/users-merchant-l
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListMerchantUsersResponse`
-- **Error**: `UsersMerchantLevel.GetMerchantsMerchantIdUsersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `UsersMerchantLevel.GetMerchantsMerchantIdUsersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `UsersMerchantLevel.GetMerchantsMerchantIdUsersRequest` (4):
@@ -39,7 +39,7 @@ Accessor: `client.usersMerchantLevel` · Source: `src/resources/users-merchant-l
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `User`
-- **Error**: `UsersMerchantLevel.GetMerchantsMerchantIdUsersUserIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `UsersMerchantLevel.GetMerchantsMerchantIdUsersUserIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `UsersMerchantLevel.GetMerchantsMerchantIdUsersUserIdRequest` (2):
@@ -60,9 +60,10 @@ Accessor: `client.usersMerchantLevel` · Source: `src/resources/users-merchant-l
 - **Signature**: `patchMerchantsMerchantIdUsersUserId(request: UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdRequest, options?: RequestOptions): ApiPromise<User, UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdError>`
 - **Wire**: `PATCH /merchants/{merchantId}/users/{userId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `User`
-- **Error**: `UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdRequest` (3):
@@ -85,9 +86,10 @@ Accessor: `client.usersMerchantLevel` · Source: `src/resources/users-merchant-l
 - **Signature**: `postMerchantsMerchantIdUsers(request: UsersMerchantLevel.PostMerchantsMerchantIdUsersRequest, options?: RequestOptions): ApiPromise<CreateUserResponse, UsersMerchantLevel.PostMerchantsMerchantIdUsersError>`
 - **Wire**: `POST /merchants/{merchantId}/users`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreateUserResponse`
-- **Error**: `UsersMerchantLevel.PostMerchantsMerchantIdUsersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `UsersMerchantLevel.PostMerchantsMerchantIdUsersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `UsersMerchantLevel.PostMerchantsMerchantIdUsersRequest` (2):

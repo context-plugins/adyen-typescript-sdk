@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** All Of ShopperIdPaymentMethod, PayToPaymentMethod. */
 export type PayToPaymentMethod = {
   type?: string;
   shopperReference?: string;

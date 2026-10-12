@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of transfer instrument.
+ *
+ * Possible value: **bankAccount**.
+ */
 export const Type221 = {
   BankAccount: "bankAccount",
   RecurringDetail: "recurringDetail",

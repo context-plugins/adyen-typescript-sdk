@@ -4,7 +4,16 @@ import { areaSize1Schema, type AreaSize1 } from "./area-size1.js";
 import { pointSchema, type Point } from "./point.js";
 
 export type CapturedSignature = {
+  /**
+   * Size of an area. Contain the size of the pad area where the signature is written, given with
+   * the maximum abscissa and ordinate values (X and Y). The maximum value is FFFF.
+   */
   areaSize?: AreaSize1;
+  /**
+   * Coordinates of a point where the pen changes direction or lift. Contain the Coordinates of a
+   * point of the written signature where the pen changes direction or lift where (X and Y). When
+   * the signer lifts the pen, both X and Y have the value FFFF.
+   */
   signaturePoint?: Point[];
 };
 

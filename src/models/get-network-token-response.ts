@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { networkToken2Schema, type NetworkToken2 } from "./network-token2.js";
 
 export type GetNetworkTokenResponse = {
+  /** The details of the network token. */
   token: NetworkToken2;
 };
 

@@ -4,7 +4,7 @@
 
 Accessor: `client.apiCredentialsMerchantLevel` · Source: `src/resources/api-credentials-merchant-level.ts` · 4 operations · Request and error types: namespace `ApiCredentialsMerchantLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getMerchantsMerchantIdApiCredentials
 
@@ -14,7 +14,7 @@ Accessor: `client.apiCredentialsMerchantLevel` · Source: `src/resources/api-cre
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListMerchantApiCredentialsResponse`
-- **Error**: `ApiCredentialsMerchantLevel.GetMerchantsMerchantIdApiCredentialsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ApiCredentialsMerchantLevel.GetMerchantsMerchantIdApiCredentialsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ApiCredentialsMerchantLevel.GetMerchantsMerchantIdApiCredentialsRequest` (3):
@@ -38,7 +38,7 @@ Accessor: `client.apiCredentialsMerchantLevel` · Source: `src/resources/api-cre
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ApiCredential`
-- **Error**: `ApiCredentialsMerchantLevel.GetMerchantsMerchantIdApiCredentialsApiCredentialIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ApiCredentialsMerchantLevel.GetMerchantsMerchantIdApiCredentialsApiCredentialIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ApiCredentialsMerchantLevel.GetMerchantsMerchantIdApiCredentialsApiCredentialIdRequest` (2):
@@ -59,9 +59,10 @@ Accessor: `client.apiCredentialsMerchantLevel` · Source: `src/resources/api-cre
 - **Signature**: `patchMerchantsMerchantIdApiCredentialsApiCredentialId(request: ApiCredentialsMerchantLevel.PatchMerchantsMerchantIdApiCredentialsApiCredentialIdRequest, options?: RequestOptions): ApiPromise<ApiCredential, ApiCredentialsMerchantLevel.PatchMerchantsMerchantIdApiCredentialsApiCredentialIdError>`
 - **Wire**: `PATCH /merchants/{merchantId}/apiCredentials/{apiCredentialId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ApiCredential`
-- **Error**: `ApiCredentialsMerchantLevel.PatchMerchantsMerchantIdApiCredentialsApiCredentialIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ApiCredentialsMerchantLevel.PatchMerchantsMerchantIdApiCredentialsApiCredentialIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ApiCredentialsMerchantLevel.PatchMerchantsMerchantIdApiCredentialsApiCredentialIdRequest` (3):
@@ -84,9 +85,10 @@ Accessor: `client.apiCredentialsMerchantLevel` · Source: `src/resources/api-cre
 - **Signature**: `postMerchantsMerchantIdApiCredentials(request: ApiCredentialsMerchantLevel.PostMerchantsMerchantIdApiCredentialsRequest, options?: RequestOptions): ApiPromise<CreateApiCredentialResponse, ApiCredentialsMerchantLevel.PostMerchantsMerchantIdApiCredentialsError>`
 - **Wire**: `POST /merchants/{merchantId}/apiCredentials`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreateApiCredentialResponse`
-- **Error**: `ApiCredentialsMerchantLevel.PostMerchantsMerchantIdApiCredentialsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ApiCredentialsMerchantLevel.PostMerchantsMerchantIdApiCredentialsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ApiCredentialsMerchantLevel.PostMerchantsMerchantIdApiCredentialsRequest` (2):

@@ -5,8 +5,11 @@ import {
   type TransactionDescriptionResponseInfo1,
 } from "./transaction-description-response-info1.js";
 
+/** **cartesbancaire** details */
 export type CartesBancairesResponseInfo1 = {
+  /** Cartes Bancaires SIRET. Format: 14 digits. */
   siret?: string;
+  /** Information regarding the transaction description. */
   transactionDescription?: TransactionDescriptionResponseInfo1;
 };
 

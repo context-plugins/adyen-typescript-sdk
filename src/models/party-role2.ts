@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Specifies a role or capacity of the party in relation to the bank account. */
 export const PartyRole2 = {
   Holder: "HOLDER",
   AuthorizedUser: "AUTHORIZED_USER",

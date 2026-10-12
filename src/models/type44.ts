@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The payment method type. */
 export const Type44 = {
   Pix: "pix",
 } as const;

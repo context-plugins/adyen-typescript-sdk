@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/**
+ * It contains information related to the security of the message. SecurityTrailer as used by Adyen.
+ */
 export type SecurityTrailer = {
   adyenCryptoVersion: number;
   keyIdentifier: string;
@@ -10,9 +13,9 @@ export type SecurityTrailer = {
 };
 
 export const securityTrailerSchema: Schema<SecurityTrailer> = s.object<SecurityTrailer>({
-  adyenCryptoVersion: s.number(),
+  adyenCryptoVersion: s.int(),
   keyIdentifier: s.string(),
-  keyVersion: s.number(),
+  keyVersion: s.int(),
   nonce: s.string(),
   hmac: s.string(),
   _keysMap: {

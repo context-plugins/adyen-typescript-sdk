@@ -74,31 +74,219 @@ import {
   type WalletProviderDeviceType2,
 } from "./wallet-provider-device-type2.js";
 
+/**
+ * Contains one or more objects that define the [rule
+ * conditions](https://docs.adyen.com/issuing/transaction-rules#conditions). Each object must have a
+ * value and an operation which determines how the values must be evaluated.
+ *
+ * For example, a `countries` object can have a list of country codes **["US", "CA"]** in the
+ * `value` field and **anyMatch** in the `operation` field.
+ */
 export type TransactionRuleRestrictions1 = {
+  /**
+   * The total number of tokens that a card can have across different kinds of digital wallets on
+   * the user's phones, watches, or other wearables.
+   *
+   * Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **greaterThan**,
+   * **lessThanOrEqualTo**, **lessThan**.
+   */
   activeNetworkTokens?: ActiveNetworkTokensRestriction1;
+  /**
+   * List of card brand variants and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   brandVariants?: BrandVariantsRestriction1;
+  /**
+   * Contains a list of counterparty financial institutions and how they must be evaluated.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   counterpartyBank?: CounterpartyBankRestriction1;
+  /**
+   * Contains a list of counterparty types and how they must be evaluated.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   *
+   * Supported value inputs:
+   * - **balanceAccount**
+   * - **bankAccount**
+   * - **card**
+   * - **transferInstrument**
+   */
   counterpartyTypes?: CounterpartyTypesRestriction1;
+  /**
+   * List of countries and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   countries?: CountriesRestriction1;
+  /** List of week days and the operation. Supported operations: **anyMatch**, **noneMatch**. */
   dayOfWeek?: DayOfWeekRestriction1;
+  /**
+   * Compares the currency of the payment against the currency of the payment instrument, and
+   * specifies the operation.
+   *
+   * Supported operations: **equals**, **notEquals**.
+   */
   differentCurrencies?: DifferentCurrenciesRestriction1;
+  /**
+   * List of point-of-sale entry modes and the operation..
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   entryModes?: EntryModesRestriction1;
+  /**
+   * Indicates whether transaction is an international transaction and specifies the operation.
+   *
+   * Supported operations: **equals**, **notEquals**.
+   */
   internationalTransaction?: InternationalTransactionRestriction1;
+  /**
+   * The number of transactions and the operation.
+   *
+   * Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **greaterThan**,
+   * **lessThanOrEqualTo**, **lessThan**.
+   */
   matchingTransactions?: MatchingTransactionsRestriction1;
+  /**
+   * Checks if a user has recently made multiple transfers with the specified values.
+   *
+   * To use this restriction, you must:
+   *
+   * - Set the rule `type` to **velocity**.
+   *
+   * - Specify a time `interval`.
+   *
+   * - Specify a number of `matchingTransactions`.
+   *
+   * Supported operation: **allMatch**.
+   *
+   * Supported value inputs:
+   * - **merchantId** and **acquirerId**
+   * - **amount** and **currency**
+   * - **merchantName**.
+   */
   matchingValues?: MatchingValuesRestriction1;
+  /**
+   * List of merchant category codes (MCCs) and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   mccs?: MccsRestriction1;
+  /**
+   * List of names that will be compared to the merchant name according to the matching type.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   merchantNames?: MerchantNamesRestriction1;
+  /**
+   * List of merchant ID and acquirer ID pairs, and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   merchants?: MerchantsRestriction1;
+  /**
+   * List of processing types and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   processingTypes?: ProcessingTypesRestriction1;
+  /**
+   * Risk scores provided by specific sources. The same operation applies to all scores.
+   *
+   * Current sources available: **visa**, **mastercard**
+   *
+   * Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **greaterThan**,
+   * **lessThanOrEqualTo**, **lessThan**.
+   */
   riskScores?: RiskScoresRestriction1;
+  /**
+   * Checks if a user has recently sent the same amount of funds in multiple transfers.
+   *
+   * To use this restriction, you must:
+   *
+   * - Set the rule `type` to **velocity**.
+   *
+   * - Specify a time `interval`.
+   *
+   * - Specify a number of `matchingTransactions`.
+   *
+   * Supported operation: **equals**.
+   */
   sameAmountRestriction?: SameAmountRestriction1;
+  /**
+   * Checks if a user has recently made multiple transfers to the same counterparty.
+   *
+   * To use this restriction, you must:
+   *
+   * - Set the rule `type` to **velocity**.
+   *
+   * - Specify a time `interval`.
+   *
+   * - Specify a number of `matchingTransactions`.
+   *
+   * Supported operations: **equals**.
+   */
   sameCounterpartyRestriction?: SameCounterpartyRestriction1;
+  /**
+   * Contains a list of source account types and how they must be evaluated.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   *
+   * Supported value inputs:
+   * - **balanceAccount**
+   * - **businessAccount**.
+   */
   sourceAccountTypes?: SourceAccountTypesRestriction1;
+  /**
+   * A start and end time in a time-only ISO-8601 extended offset format. Supported operations:
+   * **equals**, **notEquals**.
+   */
   timeOfDay?: TimeOfDayRestriction1;
+  /**
+   * List of token requestor IDs and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   */
   tokenRequestors?: TokenRequestorsRestriction1;
+  /**
+   * The total amount and the operation.
+   *
+   * Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **greaterThan**,
+   * **lessThanOrEqualTo**, **lessThan**.
+   */
   totalAmount?: TotalAmountRestriction1;
+  /**
+   * Checks the wallet account score.
+   *
+   * Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **greaterThan**,
+   * **lessThanOrEqualTo**, **lessThan**.
+   */
   walletProviderAccountScore?: WalletProviderAccountScoreRestriction2;
+  /**
+   * Wallet Provider Device Score and the operation.
+   *
+   * Supported operations: **equals**, **notEquals**, **greaterThanOrEqualTo**, **greaterThan**,
+   * **lessThanOrEqualTo**, **lessThan**.
+   */
   walletProviderDeviceScore?: WalletProviderDeviceScore2;
+  /**
+   * Wallet Provider Device Type and the operation.
+   *
+   * Supported operations: **anyMatch**, **noneMatch**.
+   *
+   * Supported value inputs:
+   * - **MOBILE_PHONE**
+   * - **TABLET_OR_EREADER**
+   * - **WATCH_OR_WRISTBAND**
+   * - **WEARABLE**
+   *
+   * - **CARD**
+   * - **PC**
+   * - **OTHER**
+   * - **UNKNOWN**
+   */
   walletProviderDeviceType?: WalletProviderDeviceType2;
 };
 

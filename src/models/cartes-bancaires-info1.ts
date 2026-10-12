@@ -5,8 +5,14 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/** Details to provide if `type` is **cartebancaire**. */
 export type CartesBancairesInfo1 = {
+  /** Cartes Bancaires SIRET. Format: 14 digits. */
   siret: string;
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

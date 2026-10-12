@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** Network type for Terminal API details webhooks. */
 export const NetworkType2 = {
   Local: "local",
   Public: "public",

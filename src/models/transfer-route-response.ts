@@ -3,6 +3,10 @@ import type { Schema } from "../core/validation/schema.js";
 import { transferRouteSchema, type TransferRoute } from "./transfer-route.js";
 
 export type TransferRouteResponse = {
+  /**
+   * List of available priorities for a transfer, along with requirements. Use this information to
+   * initiate a transfer.
+   */
   transferRoutes?: TransferRoute[];
 };
 

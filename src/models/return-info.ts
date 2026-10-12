@@ -2,10 +2,47 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type ReturnInfo = {
+  /**
+   * The city where the car must be returned.
+   * * Format: ASCII
+   * * maxLength: 18 characters
+   * * Must not start with a space or be all spaces.
+   * * Must not be all zeros.
+   * * **additionalData key:** `carRental.returnCity`
+   */
   city?: string;
+  /**
+   * The country where the car must be returned, in [ISO 3166-1
+   * alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+   * * maxLength: 2 characters
+   * * **additionalData key:** `carRental.returnCountry`
+   */
   countryCode?: string;
+  /**
+   * The date by which the car must be returned.
+   * * minLength: 10 characters
+   * * maxLength: 10 characters
+   * * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+   * * **additionalData key:** `carRental.returnDate`
+   */
   date?: string;
+  /**
+   * The agency code, phone number, or address abbreviation.
+   * * Format: ASCII
+   * * maxLength: 10 characters
+   * * Must not start with a space or be all spaces.
+   * * Must not be all zeros.
+   * * **additionalData key:** `carRental.returnLocationId`
+   */
   locationId?: string;
+  /**
+   * The state or province where the car must be returned.
+   * * Format: ASCII
+   * * maxLength: 3 characters
+   * * Must not start with a space or be all spaces.
+   * * Must not be all zeros.
+   * * **additionalData key:** `carRental.returnStateProvince`
+   */
   stateOrProvince?: string;
 };
 

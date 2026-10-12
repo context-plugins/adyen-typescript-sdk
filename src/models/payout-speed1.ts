@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Speed at which payouts for this account are processed.
+ *
+ * Possible values: `STANDARD` (default), `SAME_DAY`.
+ */
 export const PayoutSpeed1 = {
   Instant: "INSTANT",
   SameDay: "SAME_DAY",

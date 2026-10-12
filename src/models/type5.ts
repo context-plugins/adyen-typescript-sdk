@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **ancv**
+ */
 export const Type5 = {
   Ancv: "ancv",
 } as const;

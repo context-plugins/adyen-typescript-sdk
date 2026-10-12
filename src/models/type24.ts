@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **googlepay**, **paywithgoogle**
+ */
 export const Type24 = {
   Googlepay: "googlepay",
 } as const;

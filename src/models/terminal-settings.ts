@@ -28,31 +28,81 @@ import { timeouts2Schema, type Timeouts2 } from "./timeouts2.js";
 import { wifiProfiles2Schema, type WifiProfiles2 } from "./wifi-profiles2.js";
 
 export type TerminalSettings = {
+  /** Settings to define the header of the shopper receipt. */
   cardholderReceipt?: CardholderReceipt1;
+  /** Settings for terminal connectivity features. */
   connectivity?: Connectivity1;
+  /** Settings for Dynamic Currency Conversion (DCC). */
   dcc?: Dcc1;
+  /**
+   * Settings for tipping with or without predefined options to choose from. The maximum number of
+   * predefined options is four, or three plus the option to enter a custom tip.
+   */
   gratuities?: Gratuity[] | null;
+  /** Settings for terminal hardware features. */
   hardware?: Hardware1;
+  /** Settings for the home screen. */
   homeScreen?: HomeScreenSettings1;
+  /** Settings for kiosk mode. */
   kioskMode?: KioskModeSettings1;
+  /** Settings for localization. */
   localization?: Localization1;
+  /** Settings for Mail Order/Telephone Order transactions. */
   moto?: Moto1;
+  /** Settings for a Terminal API integration. */
   nexo?: Nexo1;
+  /**
+   * Settings for EMV [offline payment](https://docs.adyen.com/point-of-sale/offline-payments)
+   * features.
+   */
   offlineProcessing?: OfflineProcessing1;
+  /** Settings for an Oracle Payment Interface (OPI) integration. */
   opi?: Opi1;
+  /**
+   * Settings for
+   * [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab=manage_passcodes_with_an_api_call_2#manage-passcodes)
+   * features.
+   */
   passcodes?: Passcodes1;
+  /** Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features. */
   payAtTable?: PayAtTable1;
+  /** Settings for payment features. */
   payment?: Payment11;
+  /** Generic receipt settings. */
   receiptOptions?: ReceiptOptions1;
+  /**
+   * Transaction outcomes that you want the terminal to print a merchant receipt or a shopper
+   * receipt for.
+   */
   receiptPrinting?: ReceiptPrinting1;
+  /** Settings for refunds. */
   refunds?: Refunds1;
+  /** Settings to skip signature, sign on display, or sign on receipt. */
   signature?: Signature1;
+  /**
+   * Settings for
+   * [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call)
+   * features.
+   */
   standalone?: Standalone1;
+  /**
+   * Settings for store-and-forward offline payments. The `maxAmount`, `maxPayments`, and
+   * `supportedCardTypes` parameters must be configured, either in the request or inherited from a
+   * higher level in your account structure.
+   */
   storeAndForward?: StoreAndForward1;
+  /** Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features. */
   surcharge?: Surcharge21;
+  /** Settings for Tap to Pay. */
   tapToPay?: TapToPay1;
+  /** Settings to define the behaviour of the payment terminal. */
   terminalInstructions?: TerminalInstructions1;
+  /**
+   * Settings for device
+   * [time-outs](https://docs.adyen.com/point-of-sale/pos-timeouts#device-time-out).
+   */
   timeouts?: Timeouts2;
+  /** Remote Wi-Fi profiles for WPA and WPA2 PSK and EAP Wi-Fi networks. */
   wifiProfiles?: WifiProfiles2;
 };
 

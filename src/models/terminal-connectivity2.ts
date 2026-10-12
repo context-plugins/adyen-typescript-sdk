@@ -17,6 +17,7 @@ import {
   type TerminalConnectivityWifi,
 } from "./terminal-connectivity-wifi.js";
 
+/** Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal. */
 export type TerminalConnectivity2 = {
   bluetooth?: TerminalConnectivityBluetooth;
   cellular?: TerminalConnectivityCellular;

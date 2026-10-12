@@ -3,8 +3,11 @@ import type { Schema } from "../core/validation/schema.js";
 import { splitConfigurationRuleSchema, type SplitConfigurationRule } from "./split-configuration-rule.js";
 
 export type SplitConfiguration = {
+  /** Your description for the split configuration. */
   description: string;
+  /** Array of rules that define the split configuration behavior. */
   rules: SplitConfigurationRule[];
+  /** Unique identifier of the split configuration. */
   splitConfigurationId?: string;
 };
 

@@ -4,7 +4,9 @@ import { href1Schema, type Href1 } from "./href1.js";
 import { href6Schema, type Href6 } from "./href6.js";
 
 export type Links4 = {
+  /** The URL to where the user must be redirected after a payment has been canceled. */
   cancel?: Href6;
+  /** The URL to where the user must be redirected after a successful payment. */
   success?: Href1;
 };
 

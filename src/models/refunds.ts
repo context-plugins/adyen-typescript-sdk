@@ -4,7 +4,9 @@ import { referenced1Schema, type Referenced1 } from "./referenced1.js";
 import { unreferenced2Schema, type Unreferenced2 } from "./unreferenced2.js";
 
 export type Refunds = {
+  /** Settings for referenced refunds. */
   referenced?: Referenced1;
+  /** Settings for unreferenced refunds. */
   unreferenced?: Unreferenced2;
 };
 

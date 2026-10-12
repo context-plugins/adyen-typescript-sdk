@@ -4,17 +4,18 @@
 
 Accessor: `client.grantOffersApi` · Source: `src/resources/grant-offers-api.ts` · 4 operations · Request and error types: namespace `GrantOffersApi`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getGrantOffers
 
 - **Server**: `default13` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `getGrantOffers(request: GrantOffersApi.GetGrantOffersRequest, options?: RequestOptions): ApiPromise<GrantOffers, GrantOffersApi.GetGrantOffersError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `GET /grantOffers`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GrantOffers`
-- **Error**: `GrantOffersApi.GetGrantOffersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantOffersApi.GetGrantOffersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantOffersApi.GetGrantOffersRequest` (1):
@@ -32,11 +33,12 @@ Accessor: `client.grantOffersApi` · Source: `src/resources/grant-offers-api.ts`
 
 - **Server**: `default13` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `getGrantOffersGrantOfferId(request: GrantOffersApi.GetGrantOffersGrantOfferIdRequest, options?: RequestOptions): ApiPromise<GrantOffer, GrantOffersApi.GetGrantOffersGrantOfferIdError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `GET /grantOffers/{grantOfferId}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GrantOffer`
-- **Error**: `GrantOffersApi.GetGrantOffersGrantOfferIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantOffersApi.GetGrantOffersGrantOfferIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantOffersApi.GetGrantOffersGrantOfferIdRequest` (1):
@@ -58,7 +60,7 @@ Accessor: `client.grantOffersApi` · Source: `src/resources/grant-offers-api.ts`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GrantOffer1`
-- **Error**: `GrantOffersApi.GetGrantOffersIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantOffersApi.GetGrantOffersIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantOffersApi.GetGrantOffersIdRequest` (1):
@@ -80,7 +82,7 @@ Accessor: `client.grantOffersApi` · Source: `src/resources/grant-offers-api.ts`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GrantOffers`
-- **Error**: `GrantOffersApi.GetGrantOffers1Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `GrantOffersApi.GetGrantOffers1Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `GrantOffersApi.GetGrantOffers1Request` (1):

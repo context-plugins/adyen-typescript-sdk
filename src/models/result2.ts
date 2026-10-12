@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The result of this operation. */
 export const Result2 = {
   ActiveRecurringTokenExists: "ACTIVE_RECURRING_TOKEN_EXISTS",
   AlreadyProcessed: "ALREADY_PROCESSED",

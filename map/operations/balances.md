@@ -4,7 +4,7 @@
 
 Accessor: `client.balances` · Source: `src/resources/balances.ts` · 5 operations · Request and error types: namespace `Balances`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingId
 
@@ -13,8 +13,9 @@ Accessor: `client.balances` · Source: `src/resources/balances.ts` · 5 operatio
 - **Wire**: `DELETE /balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings/{settingId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `unknown` — a bare `application/json` unknown; the success type *is* the unknown
-- **Error**: `Balances.DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Balances.DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity6"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Balances.DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdRequest` (3):
@@ -37,7 +38,7 @@ Accessor: `client.balances` · Source: `src/resources/balances.ts` · 5 operatio
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `WebhookSettings`
-- **Error**: `Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity6"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsRequest` (2):
@@ -60,7 +61,7 @@ Accessor: `client.balances` · Source: `src/resources/balances.ts` · 5 operatio
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `WebhookSetting`
-- **Error**: `Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity6"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Balances.GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdRequest` (3):
@@ -83,8 +84,9 @@ Accessor: `client.balances` · Source: `src/resources/balances.ts` · 5 operatio
 - **Wire**: `PATCH /balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings/{settingId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `WebhookSetting`
-- **Error**: `Balances.PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Balances.PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity6"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Balances.PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdRequest` (4):
@@ -109,8 +111,9 @@ Accessor: `client.balances` · Source: `src/resources/balances.ts` · 5 operatio
 - **Wire**: `POST /balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `WebhookSetting`
-- **Error**: `Balances.PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Balances.PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity5"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity6"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Balances.PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsRequest` (3):

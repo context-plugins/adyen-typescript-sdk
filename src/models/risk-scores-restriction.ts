@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { riskScoresSchema, type RiskScores } from "./risk-scores.js";
 
 export type RiskScoresRestriction = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
   value?: RiskScores;
 };

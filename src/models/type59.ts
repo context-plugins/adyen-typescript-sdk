@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Payment method
+ * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+ */
 export const Type59 = {
   Abrapetite: "abrapetite",
   AbrapetiteCredit: "abrapetite_credit",

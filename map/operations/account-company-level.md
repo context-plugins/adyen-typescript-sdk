@@ -4,7 +4,7 @@
 
 Accessor: `client.accountCompanyLevel` · Source: `src/resources/account-company-level.ts` · 3 operations · Request and error types: namespace `AccountCompanyLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getCompanies
 
@@ -14,7 +14,7 @@ Accessor: `client.accountCompanyLevel` · Source: `src/resources/account-company
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListCompanyResponse`
-- **Error**: `AccountCompanyLevel.GetCompaniesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountCompanyLevel.GetCompaniesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountCompanyLevel.GetCompaniesRequest` (2):
@@ -37,7 +37,7 @@ Accessor: `client.accountCompanyLevel` · Source: `src/resources/account-company
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Company2`
-- **Error**: `AccountCompanyLevel.GetCompaniesCompanyIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountCompanyLevel.GetCompaniesCompanyIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountCompanyLevel.GetCompaniesCompanyIdRequest` (1):
@@ -59,7 +59,7 @@ Accessor: `client.accountCompanyLevel` · Source: `src/resources/account-company
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListMerchantResponse`
-- **Error**: `AccountCompanyLevel.GetCompaniesCompanyIdMerchantsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountCompanyLevel.GetCompaniesCompanyIdMerchantsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountCompanyLevel.GetCompaniesCompanyIdMerchantsRequest` (3):

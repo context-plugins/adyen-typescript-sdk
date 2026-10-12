@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The name of the token service. */
 export const TokenService = {
   Visatokenservice: "VISATOKENSERVICE",
   Mctokenservice: "MCTOKENSERVICE",

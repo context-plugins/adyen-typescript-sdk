@@ -4,7 +4,7 @@
 
 Accessor: `client.scaAssociationManagement` · Source: `src/resources/sca-association-management.ts` · 3 operations · Request and error types: namespace `ScaAssociationManagement`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteScaAssociations
 
@@ -12,9 +12,10 @@ Accessor: `client.scaAssociationManagement` · Source: `src/resources/sca-associ
 - **Signature**: `deleteScaAssociations(request: ScaAssociationManagement.DeleteScaAssociationsRequest, options?: RequestOptions): ApiPromise<undefined, ScaAssociationManagement.DeleteScaAssociationsError>`
 - **Wire**: `DELETE /scaAssociations`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `ScaAssociationManagement.DeleteScaAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ScaAssociationManagement.DeleteScaAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ScaAssociationManagement.DeleteScaAssociationsRequest` (2):
@@ -37,7 +38,7 @@ Accessor: `client.scaAssociationManagement` · Source: `src/resources/sca-associ
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListAssociationsResponse`
-- **Error**: `ScaAssociationManagement.GetScaAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ScaAssociationManagement.GetScaAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ScaAssociationManagement.GetScaAssociationsRequest` (4):
@@ -61,9 +62,10 @@ Accessor: `client.scaAssociationManagement` · Source: `src/resources/sca-associ
 - **Signature**: `patchScaAssociations(request: ScaAssociationManagement.PatchScaAssociationsRequest, options?: RequestOptions): ApiPromise<ApproveAssociationResponse, ScaAssociationManagement.PatchScaAssociationsError>`
 - **Wire**: `PATCH /scaAssociations`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ApproveAssociationResponse`
-- **Error**: `ScaAssociationManagement.PatchScaAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ScaAssociationManagement.PatchScaAssociationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [403] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ScaAssociationManagement.PatchScaAssociationsRequest` (2):

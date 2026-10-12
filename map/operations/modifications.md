@@ -4,7 +4,7 @@
 
 Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 14 operations · Request and error types: namespace `Modifications`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postAdjustAuthorisation
 
@@ -12,9 +12,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postAdjustAuthorisation(request: Modifications.PostAdjustAuthorisationRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostAdjustAuthorisationError>`
 - **Wire**: `POST /adjustAuthorisation`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostAdjustAuthorisationError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostAdjustAuthorisationError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostAdjustAuthorisationRequest` (1):
@@ -35,9 +36,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postCancel(request: Modifications.PostCancelRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostCancelError>`
 - **Wire**: `POST /cancel`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostCancelError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostCancelRequest` (1):
@@ -58,9 +60,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postCancelOrRefund(request: Modifications.PostCancelOrRefundRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostCancelOrRefundError>`
 - **Wire**: `POST /cancelOrRefund`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostCancelOrRefundError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostCancelOrRefundError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostCancelOrRefundRequest` (1):
@@ -80,9 +83,9 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postCancels(request: Modifications.PostCancelsRequest, options?: RequestOptions): ApiPromise<StandalonePaymentCancelResponse, Modifications.PostCancelsError>`
 - **Wire**: `POST /cancels`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `StandalonePaymentCancelResponse`
-- **Error**: `Modifications.PostCancelsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostCancelsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostCancelsRequest` (2):
@@ -104,9 +107,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postCapture(request: Modifications.PostCaptureRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostCaptureError>`
 - **Wire**: `POST /capture`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostCaptureError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostCaptureError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostCaptureRequest` (1):
@@ -125,11 +129,13 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 
 - **Server**: `default1` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postDonate(request: Modifications.PostDonateRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostDonateError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /donate`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostDonateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostDonateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostDonateRequest` (1):
@@ -149,9 +155,9 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postPaymentsPaymentPspReferenceAmountUpdates(request: Modifications.PostPaymentsPaymentPspReferenceAmountUpdatesRequest, options?: RequestOptions): ApiPromise<PaymentAmountUpdateResponse, Modifications.PostPaymentsPaymentPspReferenceAmountUpdatesError>`
 - **Wire**: `POST /payments/{paymentPspReference}/amountUpdates`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentAmountUpdateResponse`
-- **Error**: `Modifications.PostPaymentsPaymentPspReferenceAmountUpdatesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostPaymentsPaymentPspReferenceAmountUpdatesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostPaymentsPaymentPspReferenceAmountUpdatesRequest` (3):
@@ -173,9 +179,9 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postPaymentsPaymentPspReferenceCancels(request: Modifications.PostPaymentsPaymentPspReferenceCancelsRequest, options?: RequestOptions): ApiPromise<PaymentCancelResponse, Modifications.PostPaymentsPaymentPspReferenceCancelsError>`
 - **Wire**: `POST /payments/{paymentPspReference}/cancels`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentCancelResponse`
-- **Error**: `Modifications.PostPaymentsPaymentPspReferenceCancelsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostPaymentsPaymentPspReferenceCancelsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostPaymentsPaymentPspReferenceCancelsRequest` (3):
@@ -197,9 +203,9 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postPaymentsPaymentPspReferenceCaptures(request: Modifications.PostPaymentsPaymentPspReferenceCapturesRequest, options?: RequestOptions): ApiPromise<PaymentCaptureResponse, Modifications.PostPaymentsPaymentPspReferenceCapturesError>`
 - **Wire**: `POST /payments/{paymentPspReference}/captures`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentCaptureResponse`
-- **Error**: `Modifications.PostPaymentsPaymentPspReferenceCapturesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostPaymentsPaymentPspReferenceCapturesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostPaymentsPaymentPspReferenceCapturesRequest` (3):
@@ -221,9 +227,9 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postPaymentsPaymentPspReferenceRefunds(request: Modifications.PostPaymentsPaymentPspReferenceRefundsRequest, options?: RequestOptions): ApiPromise<PaymentRefundResponse, Modifications.PostPaymentsPaymentPspReferenceRefundsError>`
 - **Wire**: `POST /payments/{paymentPspReference}/refunds`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentRefundResponse`
-- **Error**: `Modifications.PostPaymentsPaymentPspReferenceRefundsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostPaymentsPaymentPspReferenceRefundsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostPaymentsPaymentPspReferenceRefundsRequest` (3):
@@ -245,9 +251,9 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postPaymentsPaymentPspReferenceReversals(request: Modifications.PostPaymentsPaymentPspReferenceReversalsRequest, options?: RequestOptions): ApiPromise<PaymentReversalResponse, Modifications.PostPaymentsPaymentPspReferenceReversalsError>`
 - **Wire**: `POST /payments/{paymentPspReference}/reversals`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `PaymentReversalResponse`
-- **Error**: `Modifications.PostPaymentsPaymentPspReferenceReversalsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostPaymentsPaymentPspReferenceReversalsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostPaymentsPaymentPspReferenceReversalsRequest` (3):
@@ -270,9 +276,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postRefund(request: Modifications.PostRefundRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostRefundError>`
 - **Wire**: `POST /refund`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostRefundError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostRefundError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostRefundRequest` (1):
@@ -293,9 +300,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postTechnicalCancel(request: Modifications.PostTechnicalCancelRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostTechnicalCancelError>`
 - **Wire**: `POST /technicalCancel`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostTechnicalCancelError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostTechnicalCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostTechnicalCancelRequest` (1):
@@ -316,9 +324,10 @@ Accessor: `client.modifications` · Source: `src/resources/modifications.ts` · 
 - **Signature**: `postVoidPendingRefund(request: Modifications.PostVoidPendingRefundRequest, options?: RequestOptions): ApiPromise<ModificationResult, Modifications.PostVoidPendingRefundError>`
 - **Wire**: `POST /voidPendingRefund`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ModificationResult`
-- **Error**: `Modifications.PostVoidPendingRefundError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Modifications.PostVoidPendingRefundError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError"` [400] `ServiceError` · `"serviceError2"` [401] `ServiceError` · `"serviceError3"` [403] `ServiceError` · `"serviceError4"` [422] `ServiceError` · `"serviceError5"` [500] `ServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Modifications.PostVoidPendingRefundRequest` (1):

@@ -6,8 +6,11 @@ import {
 } from "./card-acquisition-transaction1.js";
 import { saleData1Schema, type SaleData1 } from "./sale-data1.js";
 
+/** Content of the Card Acquisition Request message. */
 export type CardAcquisitionRequest2 = {
+  /** Data related to the Sale System. */
   saleData: SaleData1;
+  /** Data related to the payment and loyalty card acquisition. */
   cardAcquisitionTransaction: CardAcquisitionTransaction1;
 };
 

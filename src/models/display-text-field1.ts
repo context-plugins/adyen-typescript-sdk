@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The text shown on the payment terminal, asking the shopper for a donation. */
 export const DisplayTextField1 = {
   CauseName: "causeName",
   NonprofitName: "nonprofitName",

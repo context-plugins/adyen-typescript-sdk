@@ -11,8 +11,15 @@ import {
 import { statusSchema, type Status } from "./status.js";
 
 export type PaymentValidationsNameResponse = {
+  /** Contains the raw response(s) returned by the scheme for the name validation. */
   rawResponse?: PaymentValidationsNameResultRawResponse2;
+  /** Contains the scheme-agnostic match values returned by Adyen. */
   result?: PaymentValidationsNameResultResponse2;
+  /**
+   * Informs you if the name validation was performed. Possible values:
+   *
+   * **performed**, **notPerformed**, **notSupported**
+   */
   status?: Status;
 };
 

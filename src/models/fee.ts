@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
 
 export type Fee = {
+  /** Contains the fee amount. */
   amount: Amount17;
 };
 

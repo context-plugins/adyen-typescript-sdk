@@ -1,6 +1,17 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The frequency of payouts initiated by this payout schedule.
+ *
+ * Possible values:
+ * * daily
+ * * weekdays
+ * * weekly
+ * * monthly
+ *
+ * Default value: The `defaultFrequency` from the balance platform schedule that you are applying.
+ */
 export const Frequency1 = {
   Daily: "daily",
   Weekly: "weekly",

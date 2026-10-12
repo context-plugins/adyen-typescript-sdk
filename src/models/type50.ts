@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **samsungpay**
+ */
 export const Type50 = {
   Samsungpay: "samsungpay",
 } as const;

@@ -3,8 +3,11 @@ import type { Schema } from "../core/validation/schema.js";
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type GenericResponse = {
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

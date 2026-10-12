@@ -4,7 +4,7 @@
 
 Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/terminal-orders-merchant-level.ts` · 10 operations · Request and error types: namespace `TerminalOrdersMerchantLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getMerchantsMerchantIdBillingEntities
 
@@ -14,7 +14,7 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `BillingEntitiesResponse`
-- **Error**: `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdBillingEntitiesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdBillingEntitiesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdBillingEntitiesRequest` (2):
@@ -37,7 +37,7 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ShippingLocationsResponse`
-- **Error**: `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdShippingLocationsRequest` (4):
@@ -62,7 +62,7 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalModelsResponse`
-- **Error**: `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalModelsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalModelsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalModelsRequest` (1):
@@ -84,7 +84,7 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalOrdersResponse`
-- **Error**: `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalOrdersRequest` (5):
@@ -110,7 +110,7 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalOrdersOrderIdRequest` (2):
@@ -133,7 +133,7 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TerminalProductsResponse`
-- **Error**: `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalProductsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalProductsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.GetMerchantsMerchantIdTerminalProductsRequest` (5):
@@ -157,9 +157,10 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Signature**: `patchMerchantsMerchantIdTerminalOrdersOrderId(request: TerminalOrdersMerchantLevel.PatchMerchantsMerchantIdTerminalOrdersOrderIdRequest, options?: RequestOptions): ApiPromise<TerminalOrder, TerminalOrdersMerchantLevel.PatchMerchantsMerchantIdTerminalOrdersOrderIdError>`
 - **Wire**: `PATCH /merchants/{merchantId}/terminalOrders/{orderId}`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersMerchantLevel.PatchMerchantsMerchantIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.PatchMerchantsMerchantIdTerminalOrdersOrderIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.PatchMerchantsMerchantIdTerminalOrdersOrderIdRequest` (3):
@@ -182,9 +183,10 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Signature**: `postMerchantsMerchantIdShippingLocations(request: TerminalOrdersMerchantLevel.PostMerchantsMerchantIdShippingLocationsRequest, options?: RequestOptions): ApiPromise<ShippingLocation, TerminalOrdersMerchantLevel.PostMerchantsMerchantIdShippingLocationsError>`
 - **Wire**: `POST /merchants/{merchantId}/shippingLocations`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ShippingLocation`
-- **Error**: `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdShippingLocationsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdShippingLocationsRequest` (2):
@@ -205,9 +207,10 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Signature**: `postMerchantsMerchantIdTerminalOrders(request: TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersRequest, options?: RequestOptions): ApiPromise<TerminalOrder, TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersError>`
 - **Wire**: `POST /merchants/{merchantId}/terminalOrders`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersRequest` (2):
@@ -230,8 +233,9 @@ Accessor: `client.terminalOrdersMerchantLevel` · Source: `src/resources/termina
 - **Wire**: `POST /merchants/{merchantId}/terminalOrders/{orderId}/cancel`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TerminalOrder`
-- **Error**: `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersOrderIdCancelError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TerminalOrdersMerchantLevel.PostMerchantsMerchantIdTerminalOrdersOrderIdCancelRequest` (2):

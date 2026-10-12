@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   createMerchantUserRequestSchema,
@@ -33,6 +34,25 @@ export class UsersMerchantLevel {
     this.#auth = auth;
   }
 
+  /**
+   * Get a list of users
+   *
+   * @remarks
+   * Returns a list of users associated with the `merchantId` specified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersMerchantLevel.GetMerchantsMerchantIdUsersError} when the API answers with
+   * an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getMerchantsMerchantIdUsers(
     request: UsersMerchantLevel.GetMerchantsMerchantIdUsersRequest,
     options?: RequestOptions,
@@ -40,14 +60,15 @@ export class UsersMerchantLevel {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default9("/merchants/{merchantId}/users"),
+        urlTemplate: this.#servers.default9("/merchants/{merchantId}/users"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "merchantId", value: request.merchantId, schema: s.string() }],
         query: [
-          { name: "pageNumber", value: request.pageNumber, schema: s.optional(s.number()) },
-          { name: "pageSize", value: request.pageSize, schema: s.optional(s.number()) },
+          { name: "pageNumber", value: request.pageNumber, schema: s.optional(s.int()) },
+          { name: "pageSize", value: request.pageSize, schema: s.optional(s.int()) },
           { name: "username", value: request.username, schema: s.optional(s.string()) },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -58,6 +79,25 @@ export class UsersMerchantLevel {
     );
   }
 
+  /**
+   * Get user details
+   *
+   * @remarks
+   * Returns user details for the `userId` and the `merchantId` specified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersMerchantLevel.GetMerchantsMerchantIdUsersUserIdError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getMerchantsMerchantIdUsersUserId(
     request: UsersMerchantLevel.GetMerchantsMerchantIdUsersUserIdRequest,
     options?: RequestOptions,
@@ -65,12 +105,14 @@ export class UsersMerchantLevel {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default9("/merchants/{merchantId}/users/{userId}"),
+        urlTemplate: this.#servers.default9("/merchants/{merchantId}/users/{userId}"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [
           { name: "merchantId", value: request.merchantId, schema: s.string() },
           { name: "userId", value: request.userId, schema: s.string() },
         ],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -81,6 +123,25 @@ export class UsersMerchantLevel {
     );
   }
 
+  /**
+   * Update a user
+   *
+   * @remarks
+   * Updates user details for the `userId` and the `merchantId` specified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdError} when the API
+   * answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchMerchantsMerchantIdUsersUserId(
     request: UsersMerchantLevel.PatchMerchantsMerchantIdUsersUserIdRequest,
     options?: RequestOptions,
@@ -88,12 +149,14 @@ export class UsersMerchantLevel {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default9("/merchants/{merchantId}/users/{userId}"),
+        urlTemplate: this.#servers.default9("/merchants/{merchantId}/users/{userId}"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [
           { name: "merchantId", value: request.merchantId, schema: s.string() },
           { name: "userId", value: request.userId, schema: s.string() },
         ],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -108,6 +171,25 @@ export class UsersMerchantLevel {
     );
   }
 
+  /**
+   * Create a new user
+   *
+   * @remarks
+   * Creates a user for the `merchantId` specified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersMerchantLevel.PostMerchantsMerchantIdUsersError} when the API answers with
+   * an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postMerchantsMerchantIdUsers(
     request: UsersMerchantLevel.PostMerchantsMerchantIdUsersRequest,
     options?: RequestOptions,
@@ -115,9 +197,11 @@ export class UsersMerchantLevel {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default9("/merchants/{merchantId}/users"),
+        urlTemplate: this.#servers.default9("/merchants/{merchantId}/users"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "merchantId", value: request.merchantId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -135,19 +219,28 @@ export class UsersMerchantLevel {
 
 export namespace UsersMerchantLevel {
   export type GetMerchantsMerchantIdUsersRequest = {
+    /** Unique identifier of the merchant. */
     merchantId: string;
+    /** The number of the page to fetch. */
     pageNumber?: number;
+    /**
+     * The number of items to have on a page. Maximum value is **100**. The default is **10** items
+     * on a page.
+     */
     pageSize?: number;
+    /** The partial or complete username to select all users that match. */
     username?: string;
   };
 
-  export class GetMerchantsMerchantIdUsersError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetMerchantsMerchantIdUsersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetMerchantsMerchantIdUsersError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -158,17 +251,21 @@ export namespace UsersMerchantLevel {
   }
 
   export type GetMerchantsMerchantIdUsersUserIdRequest = {
+    /** Unique identifier of the merchant. */
     merchantId: string;
+    /** Unique identifier of the user. */
     userId: string;
   };
 
-  export class GetMerchantsMerchantIdUsersUserIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetMerchantsMerchantIdUsersUserIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetMerchantsMerchantIdUsersUserIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -179,18 +276,22 @@ export namespace UsersMerchantLevel {
   }
 
   export type PatchMerchantsMerchantIdUsersUserIdRequest = {
+    /** Unique identifier of the merchant. */
     merchantId: string;
+    /** Unique identifier of the user. */
     userId: string;
     body?: UpdateMerchantUserRequest;
   };
 
-  export class PatchMerchantsMerchantIdUsersUserIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PatchMerchantsMerchantIdUsersUserIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PatchMerchantsMerchantIdUsersUserIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -201,17 +302,20 @@ export namespace UsersMerchantLevel {
   }
 
   export type PostMerchantsMerchantIdUsersRequest = {
+    /** Unique identifier of the merchant. */
     merchantId: string;
     body?: CreateMerchantUserRequest;
   };
 
-  export class PostMerchantsMerchantIdUsersError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostMerchantsMerchantIdUsersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostMerchantsMerchantIdUsersError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },

@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { stringMatchSchema, type StringMatch } from "./string-match.js";
 
 export type MerchantNamesRestriction = {
+  /** Defines how the condition must be evaluated. */
   operation: string;
   value?: StringMatch[];
 };

@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The category of lodging charges for the payment.
+ * * **additionalData key:** `lodging.specialProgramCode`
+ */
 export const LodgingChargeType = {
   AdvanceDeposit: "advanceDeposit",
   NoShow: "noShow",

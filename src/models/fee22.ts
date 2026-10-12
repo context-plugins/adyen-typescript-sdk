@@ -2,7 +2,9 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
 
+/** Contains information about the fee that your user must pay for the disbursement. */
 export type Fee22 = {
+  /** Contains the amount of the grant fee. */
   amount: Amount17;
 };
 

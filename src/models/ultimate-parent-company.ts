@@ -7,8 +7,15 @@ import {
 import { viasAddress1Schema, type ViasAddress1 } from "./vias-address1.js";
 
 export type UltimateParentCompany = {
+  /** Address of the ultimate parent company. */
   address?: ViasAddress1;
+  /** Details about the ultimate parent company's business. */
   businessDetails?: UltimateParentCompanyBusinessDetails2;
+  /**
+   * Adyen-generated unique alphanumeric identifier (UUID) for the entry, returned in the response
+   * when you create an ultimate parent company. Required when updating an existing entry in an
+   * `/updateAccountHolder` request.
+   */
   ultimateParentCompanyCode?: string;
 };
 

@@ -8,10 +8,44 @@ import {
   type ThreeDsRequestorChallengeInd,
 } from "./three-ds-requestor-challenge-ind.js";
 
+/**
+ * Request fields for 3D Secure 2. To check if any of the following fields are required for your
+ * integration, refer to [Online payments](https://docs.adyen.com/online-payments).
+ */
 export type CheckoutSessionThreeDs2RequestData1 = {
+  /**
+   * The home phone number provided by the cardholder. The phone number must consist of a country
+   * code, followed by the number. If the value you provide does not follow the guidelines, we do
+   * not submit it for authentication. > Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the
+   * shopper's phone number in `telephoneNumber`.
+   */
   homePhone?: Phone3;
+  /**
+   * The mobile phone number provided by the cardholder. The phone number must consist of a country
+   * code, followed by the number. If the value you provide does not follow the guidelines, we do
+   * not submit it for authentication. > Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the
+   * shopper's phone number in `telephoneNumber`.
+   */
   mobilePhone?: Phone1;
+  /**
+   * Indicates whether a challenge is requested for this transaction. Possible values:
+   * * **01** — No preference
+   * * **02** — No challenge requested
+   * * **03** — Challenge requested (3DS Requestor preference)
+   * * **04** — Challenge requested (Mandate)
+   * * **05** — No challenge (transactional risk analysis is already performed)
+   * * **06** — Data Only
+   */
   threeDsRequestorChallengeInd?: ThreeDsRequestorChallengeInd;
+  /**
+   * The work phone number provided by the cardholder. The phone number must consist of a country
+   * code, followed by the number. If the value you provide does not follow the guidelines, we do
+   * not submit it for authentication. > Required for Visa and JCB transactions that require 3D
+   * Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the
+   * shopper's phone number in `telephoneNumber`.
+   */
   workPhone?: Phone2;
 };
 

@@ -2,6 +2,7 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type AccountHolder1 = {
+  /** Full name of the account holder. */
   fullName: string;
 };
 

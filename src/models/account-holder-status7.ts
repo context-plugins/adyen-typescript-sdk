@@ -5,11 +5,20 @@ import { accountPayoutState2Schema, type AccountPayoutState2 } from "./account-p
 import { accountProcessingState2Schema, type AccountProcessingState2 } from "./account-processing-state2.js";
 import { status12Schema, type Status12 } from "./status12.js";
 
+/** The new status of the account holder. */
 export type AccountHolderStatus7 = {
+  /** A list of events scheduled for the account holder. */
   events?: AccountEvent[];
+  /** The payout state of the account holder. */
   payoutState?: AccountPayoutState2;
+  /** The processing state of the account holder. */
   processingState?: AccountProcessingState2;
+  /**
+   * The status of the account holder. >Permitted values: `Active`, `Inactive`, `Suspended`,
+   * `Closed`.
+   */
   status: Status12;
+  /** The reason why the status was assigned to the account holder. */
   statusReason?: string;
 };
 

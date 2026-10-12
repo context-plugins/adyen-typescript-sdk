@@ -25,27 +25,55 @@ import {
   type TransactionStatusRequest2,
 } from "./transaction-status-request2.js";
 
+/**
+ * The SaleToPOIRequest message pair is a container for the request message content. It contains a
+ * MessageHeader and a message body.
+ */
 export type SaleToPoiRequest = {
+  /**
+   * Message header of the Sale to POI protocol message. It conveys Information related to the Sale
+   * to POI protocol management.
+   */
   messageHeader: MessageHeader;
+  /** Content of the Abort Request message. */
   abortRequest?: AbortRequest2;
+  /** Content of the Balance Inquiry Request message. */
   balanceInquiryRequest?: BalanceInquiryRequest2;
+  /** Content of the Card Acquisition Request message. */
   cardAcquisitionRequest?: CardAcquisitionRequest2;
+  /** Content of the Admin Request message. */
   adminRequest?: AdminRequest2;
+  /** Content of the Diagnosis Request message. */
   diagnosisRequest?: DiagnosisRequest2;
+  /** Content of the Display Request message. */
   displayRequest?: DisplayRequest2;
+  /** Content of the Enable Service Request message. */
   enableServiceRequest?: EnableServiceRequest2;
+  /** Content of the EventNotification message. */
   eventNotification?: EventNotification2;
+  /** Content of the Get Totals Request message. */
   getTotalsRequest?: GetTotalsRequest2;
+  /** Content of the Input Request message. */
   inputRequest?: InputRequest2;
+  /** Content of the Input Update message. */
   inputUpdate?: InputUpdate2;
+  /** Content of the Login Request message. */
   loginRequest?: LoginRequest2;
+  /** Content of the Logout Request message. */
   logoutRequest?: LogoutRequest2;
+  /** Content of the Payment Request message. */
   paymentRequest?: PaymentRequest21;
+  /** Content of the Print Request message. */
   printRequest?: PrintRequest2;
+  /** Content of the Card Reader APDU Request message. */
   cardReaderApduRequest?: CardReaderApduRequest2;
+  /** Content of the Reconciliation Request message. */
   reconciliationRequest?: ReconciliationRequest2;
+  /** Content of the Reversal Request message. */
   reversalRequest?: ReversalRequest2;
+  /** Content of the Stored Value Request message. */
   storedValueRequest?: StoredValueRequest2;
+  /** Content of the TransactionStatus Request message. */
   transactionStatusRequest?: TransactionStatusRequest2;
 };
 

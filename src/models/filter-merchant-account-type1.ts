@@ -1,6 +1,13 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Shows how merchant accounts are included in company-level webhooks. Possible values:
+ * * **includeAccounts**
+ * * **excludeAccounts**
+ * * **allAccounts**: Includes all merchant accounts, and does not require specifying
+ *   `filterMerchantAccounts`.
+ */
 export const FilterMerchantAccountType1 = {
   AllAccounts: "allAccounts",
   ExcludeAccounts: "excludeAccounts",

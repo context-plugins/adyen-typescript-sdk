@@ -6,6 +6,7 @@ import {
 } from "./balance-platform-configuration.js";
 
 export type BalancePlatformConfigurations = {
+  /** Contains a list of the payout schedules configured in your balance platform. */
   balancePlatformPayoutSchedules: BalancePlatformConfiguration[];
 };
 

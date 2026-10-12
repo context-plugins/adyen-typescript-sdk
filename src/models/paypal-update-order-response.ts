@@ -3,7 +3,12 @@ import type { Schema } from "../core/validation/schema.js";
 import { status4Schema, type Status4 } from "./status4.js";
 
 export type PaypalUpdateOrderResponse = {
+  /** The updated paymentData. */
   paymentData: string;
+  /**
+   * The status of the request. This indicates whether the order was successfully updated with
+   * PayPal.
+   */
   status: Status4;
 };
 

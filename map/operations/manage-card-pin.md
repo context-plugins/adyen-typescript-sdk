@@ -4,7 +4,7 @@
 
 Accessor: `client.manageCardPin` · Source: `src/resources/manage-card-pin.ts` · 3 operations · Request and error types: namespace `ManageCardPin`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getPublicKey
 
@@ -14,7 +14,7 @@ Accessor: `client.manageCardPin` · Source: `src/resources/manage-card-pin.ts` �
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `PublicKeyResponse`
-- **Error**: `ManageCardPin.GetPublicKeyError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageCardPin.GetPublicKeyError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [401] `RestServiceError` · `"restServiceError2"` [403] `RestServiceError` · `"restServiceError3"` [422] `RestServiceError` · `"restServiceError4"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageCardPin.GetPublicKeyRequest` (2):
@@ -35,9 +35,10 @@ Accessor: `client.manageCardPin` · Source: `src/resources/manage-card-pin.ts` �
 - **Signature**: `postPinsChange(request: ManageCardPin.PostPinsChangeRequest, options?: RequestOptions): ApiPromise<PinChangeResponse, ManageCardPin.PostPinsChangeError>`
 - **Wire**: `POST /pins/change`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PinChangeResponse`
-- **Error**: `ManageCardPin.PostPinsChangeError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageCardPin.PostPinsChangeError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [401] `RestServiceError` · `"restServiceError2"` [403] `RestServiceError` · `"restServiceError3"` [422] `RestServiceError` · `"restServiceError4"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageCardPin.PostPinsChangeRequest` (1):
@@ -58,9 +59,10 @@ Accessor: `client.manageCardPin` · Source: `src/resources/manage-card-pin.ts` �
 - **Signature**: `postPinsReveal(request: ManageCardPin.PostPinsRevealRequest, options?: RequestOptions): ApiPromise<RevealPinResponse, ManageCardPin.PostPinsRevealError>`
 - **Wire**: `POST /pins/reveal`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RevealPinResponse`
-- **Error**: `ManageCardPin.PostPinsRevealError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `ManageCardPin.PostPinsRevealError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [401] `RestServiceError` · `"restServiceError2"` [403] `RestServiceError` · `"restServiceError3"` [422] `RestServiceError` · `"restServiceError4"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `ManageCardPin.PostPinsRevealRequest` (1):

@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Personal**
+ * * **Company**
+ */
 export const TypeCode = {
   Personal: "Personal",
   Company: "Company",

@@ -1,6 +1,10 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the network token. Possible values: **active**, **inactive**, **suspended**,
+ * **closed**.
+ */
 export const Status91 = {
   Active: "active",
   Inactive: "inactive",

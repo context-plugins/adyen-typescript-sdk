@@ -4,7 +4,7 @@
 
 Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 operations · Request and error types: namespace `Verification`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postCheckAccountHolder
 
@@ -12,9 +12,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postCheckAccountHolder(request: Verification.PostCheckAccountHolderRequest, options?: RequestOptions): ApiPromise<GenericResponse, Verification.PostCheckAccountHolderError>`
 - **Wire**: `POST /checkAccountHolder`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `Verification.PostCheckAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostCheckAccountHolderError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostCheckAccountHolderRequest` (1):
@@ -35,9 +36,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postDeleteBankAccounts(request: Verification.PostDeleteBankAccountsRequest, options?: RequestOptions): ApiPromise<GenericResponse, Verification.PostDeleteBankAccountsError>`
 - **Wire**: `POST /deleteBankAccounts`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `Verification.PostDeleteBankAccountsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostDeleteBankAccountsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostDeleteBankAccountsRequest` (1):
@@ -58,9 +60,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postDeleteLegalArrangements(request: Verification.PostDeleteLegalArrangementsRequest, options?: RequestOptions): ApiPromise<GenericResponse, Verification.PostDeleteLegalArrangementsError>`
 - **Wire**: `POST /deleteLegalArrangements`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `Verification.PostDeleteLegalArrangementsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostDeleteLegalArrangementsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostDeleteLegalArrangementsRequest` (1):
@@ -81,9 +84,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postDeletePayoutMethods(request: Verification.PostDeletePayoutMethodsRequest, options?: RequestOptions): ApiPromise<GenericResponse, Verification.PostDeletePayoutMethodsError>`
 - **Wire**: `POST /deletePayoutMethods`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `Verification.PostDeletePayoutMethodsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostDeletePayoutMethodsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostDeletePayoutMethodsRequest` (1):
@@ -104,9 +108,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postDeleteShareholders(request: Verification.PostDeleteShareholdersRequest, options?: RequestOptions): ApiPromise<GenericResponse, Verification.PostDeleteShareholdersError>`
 - **Wire**: `POST /deleteShareholders`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `Verification.PostDeleteShareholdersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostDeleteShareholdersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostDeleteShareholdersRequest` (1):
@@ -127,9 +132,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postDeleteSignatories(request: Verification.PostDeleteSignatoriesRequest, options?: RequestOptions): ApiPromise<GenericResponse, Verification.PostDeleteSignatoriesError>`
 - **Wire**: `POST /deleteSignatories`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GenericResponse`
-- **Error**: `Verification.PostDeleteSignatoriesError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostDeleteSignatoriesError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostDeleteSignatoriesRequest` (1):
@@ -150,9 +156,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postGetUploadedDocuments(request: Verification.PostGetUploadedDocumentsRequest, options?: RequestOptions): ApiPromise<GetUploadedDocumentsResponse, Verification.PostGetUploadedDocumentsError>`
 - **Wire**: `POST /getUploadedDocuments`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetUploadedDocumentsResponse`
-- **Error**: `Verification.PostGetUploadedDocumentsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostGetUploadedDocumentsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostGetUploadedDocumentsRequest` (1):
@@ -173,9 +180,10 @@ Accessor: `client.verification` · Source: `src/resources/verification.ts` · 8 
 - **Signature**: `postUploadDocument(request: Verification.PostUploadDocumentRequest, options?: RequestOptions): ApiPromise<UpdateAccountHolderResponse, Verification.PostUploadDocumentError>`
 - **Wire**: `POST /uploadDocument`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `UpdateAccountHolderResponse`
-- **Error**: `Verification.PostUploadDocumentError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Verification.PostUploadDocumentError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"serviceError1"` [400] `ServiceError1` · `"serviceError12"` [401] `ServiceError1` · `"serviceError13"` [403] `ServiceError1` · `"serviceError14"` [422] `ServiceError1` · `"serviceError15"` [500] `ServiceError1` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Verification.PostUploadDocumentRequest` (1):

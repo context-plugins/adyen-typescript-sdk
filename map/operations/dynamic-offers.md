@@ -4,7 +4,7 @@
 
 Accessor: `client.dynamicOffers` · Source: `src/resources/dynamic-offers.ts` · 3 operations · Request and error types: namespace `DynamicOffers`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getDynamicOffers
 
@@ -14,7 +14,7 @@ Accessor: `client.dynamicOffers` · Source: `src/resources/dynamic-offers.ts` ·
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `GetDynamicOffersResponse`
-- **Error**: `DynamicOffers.GetDynamicOffersError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DynamicOffers.GetDynamicOffersError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DynamicOffers.GetDynamicOffersRequest` (2):
@@ -36,9 +36,10 @@ Accessor: `client.dynamicOffers` · Source: `src/resources/dynamic-offers.ts` ·
 - **Signature**: `postDynamicOffersIdCalculate(request: DynamicOffers.PostDynamicOffersIdCalculateRequest, options?: RequestOptions): ApiPromise<CalculatedGrantOffer, DynamicOffers.PostDynamicOffersIdCalculateError>`
 - **Wire**: `POST /dynamicOffers/{id}/calculate`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CalculatedGrantOffer`
-- **Error**: `DynamicOffers.PostDynamicOffersIdCalculateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DynamicOffers.PostDynamicOffersIdCalculateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DynamicOffers.PostDynamicOffersIdCalculateRequest` (2):
@@ -60,9 +61,10 @@ Accessor: `client.dynamicOffers` · Source: `src/resources/dynamic-offers.ts` ·
 - **Signature**: `postDynamicOffersIdGrantOffer(request: DynamicOffers.PostDynamicOffersIdGrantOfferRequest, options?: RequestOptions): ApiPromise<GrantOffer1, DynamicOffers.PostDynamicOffersIdGrantOfferError>`
 - **Wire**: `POST /dynamicOffers/{id}/grantOffer`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GrantOffer1`
-- **Error**: `DynamicOffers.PostDynamicOffersIdGrantOfferError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `DynamicOffers.PostDynamicOffersIdGrantOfferError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `DynamicOffers.PostDynamicOffersIdGrantOfferRequest` (2):

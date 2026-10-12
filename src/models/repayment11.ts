@@ -3,14 +3,24 @@ import type { Schema } from "../core/validation/schema.js";
 import { repaymentTermSchema, type RepaymentTerm } from "./repayment-term.js";
 import { thresholdRepayment21Schema, type ThresholdRepayment21 } from "./threshold-repayment21.js";
 
+/** Contains information about the repayment configuration of the grant. */
 export type Repayment11 = {
+  /**
+   * The percentage of your user's incoming net volume that is deducted for repaying the grant. The
+   * percentage expressed in [basis points](https://www.investopedia.com/terms/b/basispoint.asp).
+   */
   basisPoints: number;
+  /**
+   * Contains information about the time period in which your user must repay the total amount of
+   * the grant.
+   */
   term?: RepaymentTerm;
+  /** Contains the minimum threshold amount that your user must repay every 30-day period. */
   threshold?: ThresholdRepayment21;
 };
 
 export const repayment11Schema: Schema<Repayment11> = s.object<Repayment11>({
-  basisPoints: s.number(),
+  basisPoints: s.int(),
   term: s.optional(s.lazy(() => repaymentTermSchema)),
   threshold: s.optional(s.lazy(() => thresholdRepayment21Schema)),
 });

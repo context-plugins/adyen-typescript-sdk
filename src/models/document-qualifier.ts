@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **SaleReceipt**
+ * * **CashierReceipt**
+ * * **CustomerReceipt**
+ * * **Document**
+ * * **Voucher**
+ * * **Journal**
+ */
 export const DocumentQualifier = {
   SaleReceipt: "SaleReceipt",
   CashierReceipt: "CashierReceipt",

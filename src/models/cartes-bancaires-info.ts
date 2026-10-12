@@ -6,7 +6,12 @@ import {
 } from "./transaction-description-info1.js";
 
 export type CartesBancairesInfo = {
+  /** Cartes Bancaires SIRET. Format: 14 digits. */
   siret: string;
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 

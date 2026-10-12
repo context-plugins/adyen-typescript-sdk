@@ -3,9 +3,13 @@ import type { Schema } from "../core/validation/schema.js";
 import { recurringDetailWrapperSchema, type RecurringDetailWrapper } from "./recurring-detail-wrapper.js";
 
 export type RecurringDetailsResult = {
+  /** The date when the recurring details were created. */
   creationDate?: Date;
+  /** Payment details stored for recurring payments. */
   details?: RecurringDetailWrapper[];
+  /** The most recent email for this shopper (if available). */
   lastKnownShopperEmail?: string;
+  /** The reference you use to uniquely identify the shopper (e.g. user ID or account ID). */
   shopperReference?: string;
 };
 

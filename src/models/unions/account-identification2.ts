@@ -65,6 +65,10 @@ import {
   type UsLocalAccountIdentification,
 } from "../us-local-account-identification.js";
 
+/**
+ * Contains the bank account details. The fields required in this object depend on the country of
+ * the bank account and the currency of the transfer.
+ */
 export type AccountIdentification2 =
   | (IbanAccountIdentification & { type: "iban" })
   | (NumberAndBicAccountIdentification & { type: "numberAndBic" })

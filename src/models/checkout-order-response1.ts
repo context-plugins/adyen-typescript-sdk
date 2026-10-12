@@ -3,12 +3,22 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount12Schema, type Amount12 } from "./amount12.js";
 import { amount13Schema, type Amount13 } from "./amount13.js";
 
+/**
+ * Contains updated information regarding the order in case order information was provided in the
+ * request.
+ */
 export type CheckoutOrderResponse1 = {
+  /** The initial amount of the order. */
   amount?: Amount12;
+  /** The expiry date for the order. */
   expiresAt?: string;
+  /** The encrypted order data. */
   orderData?: string;
+  /** The `pspReference` that belongs to the order. */
   pspReference: string;
+  /** The merchant reference for the order. */
   reference?: string;
+  /** The updated remaining amount. */
   remainingAmount?: Amount13;
 };
 

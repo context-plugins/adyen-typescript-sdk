@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { threeDs2ResultSchema, type ThreeDs2Result } from "./three-ds2-result.js";
 
 export type ThreeDs2ResultResponse = {
+  /** The result of the 3D Secure 2 authentication. */
   threeDs2Result?: ThreeDs2Result;
 };
 

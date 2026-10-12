@@ -1,8 +1,9 @@
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   defaultErrorResponseEntitySchema,
@@ -22,6 +23,23 @@ export class DirectDebitMandates {
     this.#servers = servers;
   }
 
+  /**
+   * Get a list of mandates
+   *
+   * @remarks
+   * Returns a list of all [direct debit
+   * mandates](https://docs.adyen.com/business-accounts/accept-direct-debits-uk) created for a
+   * business account.
+   *
+   * @returns OK - The request has succeeded
+   *
+   * @throws {@link DirectDebitMandates.GetMandatesError} when the API answers with an error status
+   * — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getMandates(
     request: DirectDebitMandates.GetMandatesRequest,
     options?: RequestOptions,
@@ -29,13 +47,15 @@ export class DirectDebitMandates {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/mandates"),
+        urlTemplate: this.#servers.default13("/mandates"),
         auth: noneAuth,
+        pathParams: [],
         query: [
           { name: "balanceAccountId", value: request.balanceAccountId, schema: s.optional(s.string()) },
           { name: "paymentInstrumentId", value: request.paymentInstrumentId, schema: s.optional(s.string()) },
           { name: "cursor", value: request.cursor, schema: s.optional(s.string()) },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -46,6 +66,22 @@ export class DirectDebitMandates {
     );
   }
 
+  /**
+   * Get a specific mandate
+   *
+   * @remarks
+   * Returns the details of the specified [direct debit
+   * mandate](https://docs.adyen.com/business-accounts/accept-direct-debits-uk).
+   *
+   * @returns OK - The request has succeeded
+   *
+   * @throws {@link DirectDebitMandates.GetMandatesMandateIdError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getMandatesMandateId(
     request: DirectDebitMandates.GetMandatesMandateIdRequest,
     options?: RequestOptions,
@@ -53,9 +89,11 @@ export class DirectDebitMandates {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default13("/mandates/{mandateId}"),
+        urlTemplate: this.#servers.default13("/mandates/{mandateId}"),
         auth: noneAuth,
         pathParams: [{ name: "mandateId", value: request.mandateId, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -66,6 +104,22 @@ export class DirectDebitMandates {
     );
   }
 
+  /**
+   * Amend a mandate
+   *
+   * @remarks
+   * Amend the specified [direct debit
+   * mandate](https://docs.adyen.com/business-accounts/accept-direct-debits-uk).
+   *
+   * @returns Accepted - The request has been accepted
+   *
+   * @throws {@link DirectDebitMandates.PatchMandatesMandateIdError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchMandatesMandateId(
     request: DirectDebitMandates.PatchMandatesMandateIdRequest,
     options?: RequestOptions,
@@ -73,9 +127,11 @@ export class DirectDebitMandates {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default13("/mandates/{mandateId}"),
+        urlTemplate: this.#servers.default13("/mandates/{mandateId}"),
         auth: noneAuth,
         pathParams: [{ name: "mandateId", value: request.mandateId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: mandateUpdateSchema },
       },
       {
@@ -86,6 +142,22 @@ export class DirectDebitMandates {
     );
   }
 
+  /**
+   * Cancel a mandate
+   *
+   * @remarks
+   * Cancel a specified [direct debit
+   * mandate](https://docs.adyen.com/business-accounts/accept-direct-debits-uk).
+   *
+   * @returns Accepted - The request has been accepted
+   *
+   * @throws {@link DirectDebitMandates.PostMandatesMandateIdCancelError} when the API answers with
+   * an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postMandatesMandateIdCancel(
     request: DirectDebitMandates.PostMandatesMandateIdCancelRequest,
     options?: RequestOptions,
@@ -93,9 +165,11 @@ export class DirectDebitMandates {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default13("/mandates/{mandateId}/cancel"),
+        urlTemplate: this.#servers.default13("/mandates/{mandateId}/cancel"),
         auth: noneAuth,
         pathParams: [{ name: "mandateId", value: request.mandateId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "empty" },
       },
       {
@@ -109,17 +183,22 @@ export class DirectDebitMandates {
 
 export namespace DirectDebitMandates {
   export type GetMandatesRequest = {
+    /** The unique identifier of the balance account linked to the payment instrument. */
     balanceAccountId?: string;
+    /** The unique identifier of the payment instrument linked to the mandate. */
     paymentInstrumentId?: string;
+    /** The pagination cursor returned in a previous GET `/mandates` request. */
     cursor?: string;
   };
 
-  export class GetMandatesError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
-  > {
+  export class GetMandatesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetMandatesError> = [
       {
         on: 401,
@@ -145,16 +224,19 @@ export namespace DirectDebitMandates {
   }
 
   export type GetMandatesMandateIdRequest = {
+    /** The unique identifier of the mandate. */
     mandateId: string;
   };
 
-  export class GetMandatesMandateIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity5", DefaultErrorResponseEntity>
-  > {
+  export class GetMandatesMandateIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity5", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetMandatesMandateIdError> = [
       {
         on: 401,
@@ -185,17 +267,20 @@ export namespace DirectDebitMandates {
   }
 
   export type PatchMandatesMandateIdRequest = {
+    /** The unique identifier of the mandate. */
     mandateId: string;
     body: MandateUpdate;
   };
 
-  export class PatchMandatesMandateIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity5", DefaultErrorResponseEntity>
-  > {
+  export class PatchMandatesMandateIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity5", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PatchMandatesMandateIdError> = [
       {
         on: 401,
@@ -226,16 +311,19 @@ export namespace DirectDebitMandates {
   }
 
   export type PostMandatesMandateIdCancelRequest = {
+    /** The unique identifier of the mandate. */
     mandateId: string;
   };
 
-  export class PostMandatesMandateIdCancelError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity5", DefaultErrorResponseEntity>
-  > {
+  export class PostMandatesMandateIdCancelError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity4", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity5", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PostMandatesMandateIdCancelError> = [
       {
         on: 401,

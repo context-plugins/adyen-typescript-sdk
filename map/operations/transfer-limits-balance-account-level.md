@@ -4,7 +4,7 @@
 
 Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/transfer-limits-balance-account-level.ts` · 6 operations · Request and error types: namespace `TransferLimitsBalanceAccountLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### deleteBalanceAccountsIdTransferLimitsTransferLimitId
 
@@ -13,8 +13,9 @@ Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/t
 - **Wire**: `DELETE /balanceAccounts/{id}/transferLimits/{transferLimitId}`
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `TransferLimitsBalanceAccountLevel.DeleteBalanceAccountsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalanceAccountLevel.DeleteBalanceAccountsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalanceAccountLevel.DeleteBalanceAccountsIdTransferLimitsTransferLimitIdRequest` (2):
@@ -36,7 +37,7 @@ Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/t
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransferLimitListResponse`
-- **Error**: `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsRequest` (4):
@@ -64,7 +65,7 @@ Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/t
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransferLimitListResponse`
-- **Error**: `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsCurrentError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsCurrentError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsCurrentRequest` (3):
@@ -90,7 +91,7 @@ Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/t
 - **Auth**: none — public; no credential is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `TransferLimit`
-- **Error**: `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsTransferLimitIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalanceAccountLevel.GetBalanceAccountsIdTransferLimitsTransferLimitIdRequest` (2):
@@ -112,8 +113,9 @@ Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/t
 - **Wire**: `POST /balanceAccounts/{id}/transferLimits`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TransferLimit`
-- **Error**: `TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimitsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimitsRequest` (3):
@@ -137,8 +139,9 @@ Accessor: `client.transferLimitsBalanceAccountLevel` · Source: `src/resources/t
 - **Wire**: `POST /balanceAccounts/{id}/transferLimits/approve`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `undefined` — the operation resolves to nothing
-- **Error**: `TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimitsApproveError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimitsApproveError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [404] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `TransferLimitsBalanceAccountLevel.PostBalanceAccountsIdTransferLimitsApproveRequest` (3):

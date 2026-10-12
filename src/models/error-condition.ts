@@ -1,6 +1,26 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **Aborted**
+ * * **Busy**
+ * * **Cancel**
+ * * **DeviceOut**
+ * * **InsertedCard**
+ * * **InProgress**
+ * * **LoggedOut**
+ * * **MessageFormat**
+ * * **NotAllowed**
+ * * **NotFound**
+ * * **PaymentRestriction**
+ * * **Refusal**
+ * * **UnavailableDevice**
+ * * **UnavailableService**
+ * * **InvalidCard**
+ * * **UnreachableHost**
+ * * **WrongPIN**
+ */
 export const ErrorCondition = {
   Aborted: "Aborted",
   Busy: "Busy",

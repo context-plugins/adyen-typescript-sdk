@@ -3,10 +3,15 @@ import type { Schema } from "../core/validation/schema.js";
 import { status24Schema, type Status24 } from "./status24.js";
 
 export type Modification = {
+  /** The direction of the money movement. */
   direction?: string;
+  /** Our reference for the modification. */
   id?: string;
+  /** Your reference for the modification, used internally within your platform. */
   reference?: string;
+  /** The status of the transfer event. */
   status?: Status24;
+  /** The type of transfer modification. */
   type?: string;
 };
 

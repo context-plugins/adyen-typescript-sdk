@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **Alma payment request fee type**
+ */
 export const FeeType = {
   MerchantPays: "merchantPays",
   ShopperPays: "shopperPays",

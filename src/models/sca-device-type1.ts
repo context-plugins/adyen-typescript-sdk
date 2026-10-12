@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of device registered.
+ *
+ * Possible values: **ios**, **android**, **browser**.
+ */
 export const ScaDeviceType1 = {
   Browser: "browser",
   Ios: "ios",

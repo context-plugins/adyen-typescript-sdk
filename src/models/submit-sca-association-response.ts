@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { associationSchema, type Association } from "./association.js";
 
 export type SubmitScaAssociationResponse = {
+  /** List of associations created to the entities and their statuses. */
   scaAssociations: Association[];
 };
 

@@ -19,6 +19,7 @@ import {
   type UninstallAndroidCertificateDetails,
 } from "../uninstall-android-certificate-details.js";
 
+/** Information about the action to take. */
 export type ActionDetails =
   | (InstallAndroidAppDetails & { type: "InstallAndroidApp" })
   | (InstallAndroidCertificateDetails & { type: "InstallAndroidCertificate" })

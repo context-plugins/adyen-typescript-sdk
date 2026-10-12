@@ -1,20 +1,41 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
-import { type49Schema, type Type49 } from "./type49.js";
+import { Type49, type49Schema } from "./type49.js";
 
 export type Riverty = {
+  /** The address where to send the invoice. */
   billingAddress?: string;
+  /** The checkout attempt identifier. */
   checkoutAttemptId?: string;
+  /** The address where the goods should be delivered. */
   deliveryAddress?: string;
+  /**
+   * A string containing the shopper's device fingerprint. For more information, refer to [Device
+   * fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
+   */
   deviceFingerprint?: string;
+  /** The iban number of the customer */
   iban?: string;
+  /**
+   * Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty at authorization.
+   */
   merchantData?: string;
+  /** Shopper name, date of birth, phone number, and email address. */
   personalDetails?: string;
+  /**
+   * This is the `recurringDetailReference` returned in the response when you created the token.
+   *
+   * @deprecated
+   */
   recurringDetailReference?: string;
+  /** Base64-encoded JSON object containing SDK related parameters required by the SDK */
   sdkData?: string;
+  /** This is the `recurringDetailReference` returned in the response when you created the token. */
   storedPaymentMethodId?: string;
+  /** The payment method subtype. */
   subtype?: string;
-  type: Type49;
+  /** **riverty** @default Type49.Riverty */
+  type?: Type49;
 };
 
 export const rivertySchema: Schema<Riverty> = s.object<Riverty>({
@@ -29,5 +50,5 @@ export const rivertySchema: Schema<Riverty> = s.object<Riverty>({
   sdkData: s.optional(s.string()),
   storedPaymentMethodId: s.optional(s.string()),
   subtype: s.optional(s.string()),
-  type: type49Schema,
+  type: s.defaulted(type49Schema, Type49.Riverty),
 });

@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The type of financing that the offer is for.
+ *
+ * Possible values: **businessFinancing**.
+ */
 export const FinancingType2 = {
   HardwareFinancing: "hardwareFinancing",
   BusinessFinancing: "businessFinancing",

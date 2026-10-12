@@ -7,8 +7,11 @@ import {
 import { verifiedAccountSchema, type VerifiedAccount } from "./verified-account.js";
 
 export type AccountVerificationReportResponse = {
+  /** A list of bank accounts with their respective information. */
   accounts: VerifiedAccount[];
+  /** The location where the third-party individual's bank account is registered. */
   country: AccountVerificationCountry1;
+  /** The unique identifier for the specific report. */
   id: string;
 };
 

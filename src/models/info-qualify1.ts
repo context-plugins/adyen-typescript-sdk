@@ -1,6 +1,22 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Qualification of the information to sent to an output logical device, to display or print to the
+ * Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send the
+ * information to a particular physical device or to present the information accordingly. Possible
+ * values:
+ * * **CustomerAssistance**
+ * * **Display**
+ * * **Document**
+ * * **Error**
+ * * **Input**
+ * * **POIReplication**
+ * * **Receipt**
+ * * **Sound**
+ * * **Status**
+ * * **Voucher**
+ */
 export const InfoQualify1 = {
   Status: "Status",
   Error: "Error",

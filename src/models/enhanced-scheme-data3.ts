@@ -7,12 +7,45 @@ import { levelTwoThree2Schema, type LevelTwoThree2 } from "./level-two-three2.js
 import { lodging2Schema, type Lodging2 } from "./lodging2.js";
 import { temporaryServices2Schema, type TemporaryServices2 } from "./temporary-services2.js";
 
+/**
+ * [Enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/) that
+ * may be required for processing the payment and/or interchange savings can apply.
+ */
 export type EnhancedSchemeData3 = {
+  /**
+   * [Airline enhanced scheme
+   * data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/airline/) that may be
+   * required for processing the transaction and/or for interchange savings.
+   */
   airline?: Airline1;
+  /**
+   * [Car rental enhanced scheme
+   * data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/car-rental/) that may
+   * be required for processing the transaction and/or for interchange savings.
+   */
   carRental?: CarRental1;
+  /**
+   * Healthcare auto-substantiation amounts for FSA/HSA card transactions. The amounts are used to
+   * qualify for reduced interchange rates on healthcare-eligible cards.
+   */
   healthcare?: Healthcare2;
+  /**
+   * [Level 2 and Level 3 enhanced scheme
+   * data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3/) that may be
+   * required for processing the transaction and/or for interchange savings.
+   */
   levelTwoThree?: LevelTwoThree2;
+  /**
+   * [Lodging enhanced scheme
+   * data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/lodging/) that may be
+   * required for processing the transaction and/or for interchange savings.
+   */
   lodging?: Lodging2;
+  /**
+   * [Temporary services enhanced scheme
+   * data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/temporary-services/)
+   * that may be required for processing the transaction and/or for interchange savings.
+   */
   temporaryServices?: TemporaryServices2;
 };
 

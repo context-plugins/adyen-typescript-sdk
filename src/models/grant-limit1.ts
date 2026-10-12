@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { amount17Schema, type Amount17 } from "./amount17.js";
 
 export type GrantLimit1 = {
+  /** The limit amount of the grant account. */
   amount?: Amount17;
 };
 

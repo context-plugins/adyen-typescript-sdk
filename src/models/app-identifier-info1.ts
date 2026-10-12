@@ -1,8 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** The app identifier information containing iOS scheme and Android package ID. */
 export type AppIdentifierInfo1 = {
+  /** The Android package identifier for this app. */
   androidPackageId?: string;
+  /** The iOS URL scheme for this app. */
   iosScheme?: string;
 };
 

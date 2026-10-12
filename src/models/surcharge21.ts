@@ -2,10 +2,18 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 import { configurationSchema, type Configuration } from "./configuration.js";
 
+/** Settings for payment [surcharge](https://docs.adyen.com/point-of-sale/surcharge) features. */
 export type Surcharge21 = {
+  /** Show the surcharge details on the terminal, so the shopper can confirm. */
   askConfirmation?: boolean;
+  /**
+   * Surcharge fees or percentages for specific cards, funding sources (credit or debit), and
+   * currencies.
+   */
   configurations?: Configuration[];
+  /** Show the maximum surcharge rate to the shopper on the present card screen before they tap. */
   disclosureOnPresentCard?: boolean;
+  /** Exclude the tip amount from the surcharge calculation. */
   excludeGratuityFromSurcharge?: boolean;
 };
 

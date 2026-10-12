@@ -4,8 +4,17 @@ import { paymentAccountStatus2Schema, type PaymentAccountStatus2 } from "./payme
 import { paymentReceiptSchema, type PaymentReceipt } from "./payment-receipt.js";
 import { response11Schema, type Response11 } from "./response11.js";
 
+/**
+ * Content of the Balance Inquiry Response message. It conveys the balance and the identification of
+ * the associated payment, loyalty or stored value account.
+ */
 export type BalanceInquiryResponse = {
+  /** Result of a message request processing. */
   response: Response11;
+  /**
+   * Data related to the result of a Balance Inquiry request. If BalanceInquiryRequest.
+   * PaymentAccount present.
+   */
   paymentAccountStatus?: PaymentAccountStatus2;
   paymentReceipt?: PaymentReceipt[];
 };

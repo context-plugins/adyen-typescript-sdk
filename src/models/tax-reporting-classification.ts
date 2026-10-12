@@ -5,9 +5,31 @@ import { mainSourceOfIncomeSchema, type MainSourceOfIncome } from "./main-source
 import { type151Schema, type Type151 } from "./type151.js";
 
 export type TaxReportingClassification = {
+  /**
+   * The organization's business type.
+   *
+   * Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**,
+   * **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
+   */
   businessType?: BusinessType;
+  /**
+   * The Global Intermediary Identification Number (GIIN) required for FATCA. Only required if the
+   * organization is a US financial institution and the `businessType` is **financialInstitution**.
+   */
   financialInstitutionNumber?: string;
+  /**
+   * The organization's main source of income. Only required if `businessType` is **other**.
+   *
+   * Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**,
+   * **propertyRental**, **other**.
+   */
   mainSourceOfIncome?: MainSourceOfIncome;
+  /**
+   * The tax reporting classification type.
+   *
+   * Possible values: **nonFinancialNonReportable**, **financialNonReportable**,
+   * **nonFinancialActive**, **nonFinancialPassive**.
+   */
   type?: Type151;
 };
 

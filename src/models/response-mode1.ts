@@ -1,6 +1,14 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Message response awaited by the initiator of the Request. Allows various types and
+ * synchronisation of requests for Print or Sound. Possible values:
+ * * **Immediate**
+ * * **NotRequired**
+ * * **PrintEnd**
+ * * **SoundEnd**
+ */
 export const ResponseMode1 = {
   NotRequired: "NotRequired",
   Immediate: "Immediate",

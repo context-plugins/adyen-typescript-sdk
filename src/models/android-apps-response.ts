@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { androidAppSchema, type AndroidApp } from "./android-app.js";
 
 export type AndroidAppsResponse = {
+  /** Apps uploaded for Android payment terminals. */
   data?: AndroidApp[];
 };
 

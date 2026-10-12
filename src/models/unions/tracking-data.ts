@@ -10,6 +10,7 @@ import {
   type InternalReviewTrackingData,
 } from "../internal-review-tracking-data.js";
 
+/** Additional information for the tracking event. */
 export type TrackingData =
   | (EstimationTrackingData & { type: "estimation" })
   | (ConfirmationTrackingData & { type: "confirmation" })

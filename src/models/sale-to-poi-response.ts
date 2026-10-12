@@ -26,25 +26,51 @@ import {
   type TransactionStatusResponse2,
 } from "./transaction-status-response2.js";
 
+/**
+ * The SaleToPOIResponse message pair is a container for the response message content. It contains a
+ * MessageHeader and a message body.
+ */
 export type SaleToPoiResponse = {
+  /**
+   * Message header of the Sale to POI protocol message. It conveys Information related to the Sale
+   * to POI protocol management.
+   */
   messageHeader: MessageHeader;
+  /** Content of the Balance Inquiry Response message. */
   balanceInquiryResponse?: BalanceInquiryResponse2;
+  /** Content of the Card Acquisition Response message. */
   cardAcquisitionResponse?: CardAcquisitionResponse2;
+  /** Content of the Admin Response message. */
   adminResponse?: AdminResponse2;
+  /** Content of the Diagnosis Response message. */
   diagnosisResponse?: DiagnosisResponse2;
+  /** Content of the Display Response message. */
   displayResponse?: DisplayResponse2;
+  /** Content of the Enable Service Response message. */
   enableServiceResponse?: EnableServiceResponse2;
+  /** Content of the Get Totals Response message. */
   getTotalsResponse?: GetTotalsResponse2;
+  /** Content of the Input Response message. */
   inputResponse?: InputResponse2;
+  /** Content of the Login Response message. */
   loginResponse?: LoginResponse2;
+  /** Content of the Logout Response message. */
   logoutResponse?: LogoutResponse2;
+  /** Content of the Loyalty Response message. */
   loyaltyResponse?: LoyaltyResponse2;
+  /** Content of the Payment Response message. */
   paymentResponse?: PaymentResponse21;
+  /** Content of the Print Response message. */
   printResponse?: PrintResponse2;
+  /** Content of the Card Reader APDU Response message. */
   cardReaderApduResponse?: CardReaderApduResponse2;
+  /** Content of the Reconciliation Response message. */
   reconciliationResponse?: ReconciliationResponse2;
+  /** Content of the Reversal Response message. */
   reversalResponse?: ReversalResponse2;
+  /** Content of the Stored Value Response message. */
   storedValueResponse?: StoredValueResponse2;
+  /** Content of the TransactionStatus Response message. */
   transactionStatusResponse?: TransactionStatusResponse2;
 };
 

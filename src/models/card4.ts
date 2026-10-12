@@ -4,7 +4,9 @@ import { cardIdentification3Schema, type CardIdentification3 } from "./card-iden
 import { partyIdentification1Schema, type PartyIdentification1 } from "./party-identification1.js";
 
 export type Card4 = {
+  /** Contains information about the cardholder. */
   cardHolder: PartyIdentification1;
+  /** Contains the identification details of the card. */
   cardIdentification: CardIdentification3;
 };
 

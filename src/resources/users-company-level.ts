@@ -1,9 +1,10 @@
 import type { AuthSchemes } from "../auth-schemes.js";
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { anyAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import { companyUserSchema, type CompanyUser } from "../models/company-user.js";
 import {
@@ -36,6 +37,25 @@ export class UsersCompanyLevel {
     this.#auth = auth;
   }
 
+  /**
+   * Get a list of users
+   *
+   * @remarks
+   * Returns the list of users for the `companyId` identified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersCompanyLevel.GetCompaniesCompanyIdUsersError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getCompaniesCompanyIdUsers(
     request: UsersCompanyLevel.GetCompaniesCompanyIdUsersRequest,
     options?: RequestOptions,
@@ -43,14 +63,15 @@ export class UsersCompanyLevel {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default9("/companies/{companyId}/users"),
+        urlTemplate: this.#servers.default9("/companies/{companyId}/users"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "companyId", value: request.companyId, schema: s.string() }],
         query: [
-          { name: "pageNumber", value: request.pageNumber, schema: s.optional(s.number()) },
-          { name: "pageSize", value: request.pageSize, schema: s.optional(s.number()) },
+          { name: "pageNumber", value: request.pageNumber, schema: s.optional(s.int()) },
+          { name: "pageSize", value: request.pageSize, schema: s.optional(s.int()) },
           { name: "username", value: request.username, schema: s.optional(s.string()) },
         ],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -61,6 +82,25 @@ export class UsersCompanyLevel {
     );
   }
 
+  /**
+   * Get user details
+   *
+   * @remarks
+   * Returns user details for the `userId` and the `companyId` identified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersCompanyLevel.GetCompaniesCompanyIdUsersUserIdError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getCompaniesCompanyIdUsersUserId(
     request: UsersCompanyLevel.GetCompaniesCompanyIdUsersUserIdRequest,
     options?: RequestOptions,
@@ -68,12 +108,14 @@ export class UsersCompanyLevel {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default9("/companies/{companyId}/users/{userId}"),
+        urlTemplate: this.#servers.default9("/companies/{companyId}/users/{userId}"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [
           { name: "companyId", value: request.companyId, schema: s.string() },
           { name: "userId", value: request.userId, schema: s.string() },
         ],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -84,6 +126,25 @@ export class UsersCompanyLevel {
     );
   }
 
+  /**
+   * Update user details
+   *
+   * @remarks
+   * Updates user details for the `userId` and the `companyId` identified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersCompanyLevel.PatchCompaniesCompanyIdUsersUserIdError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   patchCompaniesCompanyIdUsersUserId(
     request: UsersCompanyLevel.PatchCompaniesCompanyIdUsersUserIdRequest,
     options?: RequestOptions,
@@ -91,12 +152,14 @@ export class UsersCompanyLevel {
     return this.#rawClient.execute(
       {
         method: "PATCH",
-        url: this.#servers.default9("/companies/{companyId}/users/{userId}"),
+        urlTemplate: this.#servers.default9("/companies/{companyId}/users/{userId}"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [
           { name: "companyId", value: request.companyId, schema: s.string() },
           { name: "userId", value: request.userId, schema: s.string() },
         ],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -111,6 +174,25 @@ export class UsersCompanyLevel {
     );
   }
 
+  /**
+   * Create a new user
+   *
+   * @remarks
+   * Creates the user for the `companyId` identified in the path.
+   *
+   * To make this request, your API credential must have the following
+   * [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+   * * Management API—Users read and write
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link UsersCompanyLevel.PostCompaniesCompanyIdUsersError} when the API answers with an
+   * error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postCompaniesCompanyIdUsers(
     request: UsersCompanyLevel.PostCompaniesCompanyIdUsersRequest,
     options?: RequestOptions,
@@ -118,9 +200,11 @@ export class UsersCompanyLevel {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default9("/companies/{companyId}/users"),
+        urlTemplate: this.#servers.default9("/companies/{companyId}/users"),
         auth: anyAuth(this.#auth.basicAuth, this.#auth.apiKeyAuth),
         pathParams: [{ name: "companyId", value: request.companyId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: {
           kind: "json",
           value: request.body,
@@ -138,19 +222,28 @@ export class UsersCompanyLevel {
 
 export namespace UsersCompanyLevel {
   export type GetCompaniesCompanyIdUsersRequest = {
+    /** The unique identifier of the company account. */
     companyId: string;
+    /** The number of the page to return. */
     pageNumber?: number;
+    /**
+     * The number of items to have on a page. Maximum value is **100**. The default is **10** items
+     * on a page.
+     */
     pageSize?: number;
+    /** The partial or complete username to select all users that match. */
     username?: string;
   };
 
-  export class GetCompaniesCompanyIdUsersError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetCompaniesCompanyIdUsersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetCompaniesCompanyIdUsersError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -161,17 +254,21 @@ export namespace UsersCompanyLevel {
   }
 
   export type GetCompaniesCompanyIdUsersUserIdRequest = {
+    /** The unique identifier of the company account. */
     companyId: string;
+    /** The unique identifier of the user. */
     userId: string;
   };
 
-  export class GetCompaniesCompanyIdUsersUserIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class GetCompaniesCompanyIdUsersUserIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<GetCompaniesCompanyIdUsersUserIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -182,18 +279,22 @@ export namespace UsersCompanyLevel {
   }
 
   export type PatchCompaniesCompanyIdUsersUserIdRequest = {
+    /** The unique identifier of the company account. */
     companyId: string;
+    /** The unique identifier of the user. */
     userId: string;
     body?: UpdateCompanyUserRequest;
   };
 
-  export class PatchCompaniesCompanyIdUsersUserIdError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PatchCompaniesCompanyIdUsersUserIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PatchCompaniesCompanyIdUsersUserIdError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },
@@ -204,17 +305,20 @@ export namespace UsersCompanyLevel {
   }
 
   export type PostCompaniesCompanyIdUsersRequest = {
+    /** The unique identifier of the company account. */
     companyId: string;
     body?: CreateCompanyUserRequest;
   };
 
-  export class PostCompaniesCompanyIdUsersError extends ResponseError<
-    | Declared<"restServiceError", RestServiceError>
-    | Declared<"restServiceError2", RestServiceError>
-    | Declared<"restServiceError3", RestServiceError>
-    | Declared<"restServiceError4", RestServiceError>
-    | Declared<"restServiceError5", RestServiceError>
-  > {
+  export class PostCompaniesCompanyIdUsersError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"restServiceError", RestServiceError>
+      | Declared<"restServiceError2", RestServiceError>
+      | Declared<"restServiceError3", RestServiceError>
+      | Declared<"restServiceError4", RestServiceError>
+      | Declared<"restServiceError5", RestServiceError>
+    >;
+
     static readonly errors: ErrorDecoders<PostCompaniesCompanyIdUsersError> = [
       { on: 400, kind: "restServiceError", decode: { kind: "json", schema: restServiceErrorSchema } },
       { on: 401, kind: "restServiceError2", decode: { kind: "json", schema: restServiceErrorSchema } },

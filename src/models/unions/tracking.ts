@@ -10,6 +10,7 @@ import {
   type InternalReviewTrackingData,
 } from "../internal-review-tracking-data.js";
 
+/** The latest tracking information of the transfer. */
 export type Tracking =
   | (EstimationTrackingData & { type: "estimation" })
   | (ConfirmationTrackingData & { type: "confirmation" })

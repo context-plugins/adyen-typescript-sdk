@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **wechatpayMiniProgram**
+ */
 export const Type57 = {
   WechatpayMiniProgram: "wechatpayMiniProgram",
 } as const;

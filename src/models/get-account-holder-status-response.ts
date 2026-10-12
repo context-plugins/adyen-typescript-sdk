@@ -4,10 +4,15 @@ import { accountHolderStatus4Schema, type AccountHolderStatus4 } from "./account
 import { errorFieldTypeSchema, type ErrorFieldType } from "./error-field-type.js";
 
 export type GetAccountHolderStatusResponse = {
+  /** The code of the Account Holder. */
   accountHolderCode?: string;
+  /** The status of the Account Holder. */
   accountHolderStatus?: AccountHolderStatus4;
+  /** Contains field validation errors that would prevent requests from being processed. */
   invalidFields?: ErrorFieldType[];
+  /** The reference of a request. Can be used to uniquely identify the request. */
   pspReference?: string;
+  /** The result code. */
   resultCode?: string;
 };
 

@@ -7,12 +7,33 @@ import { eftAccountIdentifier2Schema, type EftAccountIdentifier2 } from "./eft-a
 import { ibanAccountIdentifier2Schema, type IbanAccountIdentifier2 } from "./iban-account-identifier2.js";
 import { rixAccountIdentifier2Schema, type RixAccountIdentifier2 } from "./rix-account-identifier2.js";
 
+/**
+ * Contains various codes and details used to uniquely identify the bank account across different
+ * regions.
+ */
 export type AccountIdentifiers1 = {
+  /**
+   * Identifiers relevant for Automated Clearing House (ACH) payments, primarily used in the United
+   * States.
+   */
   ach?: AchAccountIdentifier1;
+  /**
+   * Identifiers relevant for Bankers' Automated Clearing Services (BACS) payments, primarily used
+   * in the United Kingdom.
+   */
   bacs?: BacsAccountIdentifier2;
+  /**
+   * Identifiers relevant for Australian banking, specifically for BSB (Bank-State-Branch) numbers.
+   */
   bsb?: BsbAccountIdentifier2;
+  /** Identifiers relevant for Electronic Funds Transfer (EFT) payments, commonly used in Canada. */
   eft?: EftAccountIdentifier2;
+  /** The international bank account number as defined in the ISO-13616 standard. */
   iban?: IbanAccountIdentifier2;
+  /**
+   * Identifiers relevant for the Rix (Russian Interbank eXchange) system, used for interbank
+   * payments within Russia.
+   */
   rix?: RixAccountIdentifier2;
 };
 

@@ -1,6 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Card track format. Possible values:
+ * * **AAMVA**
+ * * **ISO**
+ */
 export const TrackFormat1 = {
   Iso: "ISO",
   JisI: "JIS-I",

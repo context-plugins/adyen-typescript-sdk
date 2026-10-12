@@ -1,8 +1,8 @@
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
 import * as s from "../core/validation/index.js";
 import { companyBalancesSchema, type CompanyBalances } from "../models/company-balances.js";
 import {
@@ -21,6 +21,41 @@ export class BalancesOverview {
     this.#servers = servers;
   }
 
+  /**
+   * View the available balances for all merchant accounts under your company.
+   *
+   * @remarks
+   * Returns an array with details about the balances available for all merchant accounts under your
+   * company account. For each merchant account, the response returns the following:
+   *
+   *
+   * * **Available funds**: The funds in the merchant account that have been settled and are
+   *   available for use.
+   *
+   *
+   * * **Pending balance**: The funds in the merchant account that have not been settled yet.
+   *
+   *
+   * * **Next payout amount**: The amount that will be settled to your bank account with the next
+   *   payout.
+   *
+   *
+   * * **Reserve**: The available amount to cover refunds, payouts, chargebacks, and other
+   *   operational expenses that cannot be covered by your in-process funds.
+   *
+   *
+   * * **Deposit**: The amount withheld by Adyen to cover potential losses and liabilities due to
+   *   payment processing.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link BalancesOverview.GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError}
+   * when the API answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getBalanceOverviewCompaniesCompanyAccountCodeBalances(
     request: BalancesOverview.GetBalanceOverviewCompaniesCompanyAccountCodeBalancesRequest,
     options?: RequestOptions,
@@ -31,10 +66,11 @@ export class BalancesOverview {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default11("/balanceOverview/companies/{companyAccountCode}/balances"),
+        urlTemplate: this.#servers.default11("/balanceOverview/companies/{companyAccountCode}/balances"),
         auth: noneAuth,
         pathParams: [{ name: "companyAccountCode", value: request.companyAccountCode, schema: s.string() }],
         query: [{ name: "currency", value: request.currency, schema: s.string() }],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -45,6 +81,41 @@ export class BalancesOverview {
     );
   }
 
+  /**
+   * View all balances available for your merchant account.
+   *
+   * @remarks
+   * Returns an overview of the different balances available for the merchant account. This includes
+   * details about the following:
+   *
+   *
+   * * **Available funds**: The funds in the merchant account that have been settled and are
+   *   available for use.
+   *
+   *
+   * * **Pending balance**: The funds in the merchant account that have not been settled yet.
+   *
+   *
+   * * **Next payout amount**: The amount that will be settled to your bank account with the next
+   *   payout.
+   *
+   *
+   * * **Reserve**: The available amount to cover refunds, payouts, chargebacks, and other
+   *   operational expenses that cannot be covered by your in-process funds.
+   *
+   *
+   * * **Deposit**: The amount withheld by Adyen to cover potential losses and liabilities due to
+   *   payment processing.
+   *
+   * @returns OK - The request has succeeded.
+   *
+   * @throws {@link BalancesOverview.GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError}
+   * when the API answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getBalanceOverviewMerchantsMerchantAccountCodeBalances(
     request: BalancesOverview.GetBalanceOverviewMerchantsMerchantAccountCodeBalancesRequest,
     options?: RequestOptions,
@@ -55,10 +126,11 @@ export class BalancesOverview {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default11("/balanceOverview/merchants/{merchantAccountCode}/balances"),
+        urlTemplate: this.#servers.default11("/balanceOverview/merchants/{merchantAccountCode}/balances"),
         auth: noneAuth,
         pathParams: [{ name: "merchantAccountCode", value: request.merchantAccountCode, schema: s.string() }],
         query: [{ name: "currency", value: request.currency, schema: s.string() }],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -72,15 +144,19 @@ export class BalancesOverview {
 
 export namespace BalancesOverview {
   export type GetBalanceOverviewCompaniesCompanyAccountCodeBalancesRequest = {
+    /** The unique identifier of your company account. */
     companyAccountCode: string;
+    /** The currency for which you want a balances overview. */
     currency: string;
   };
 
-  export class GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetBalanceOverviewCompaniesCompanyAccountCodeBalancesError> = [
       {
         on: 401,
@@ -101,15 +177,19 @@ export namespace BalancesOverview {
   }
 
   export type GetBalanceOverviewMerchantsMerchantAccountCodeBalancesRequest = {
+    /** The unique identifier of your merchant account. */
     merchantAccountCode: string;
+    /** The currency for which you want a balances overview. */
     currency: string;
   };
 
-  export class GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetBalanceOverviewMerchantsMerchantAccountCodeBalancesError> = [
       {
         on: 401,

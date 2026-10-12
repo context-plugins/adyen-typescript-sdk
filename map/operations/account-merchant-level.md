@@ -4,7 +4,7 @@
 
 Accessor: `client.accountMerchantLevel` · Source: `src/resources/account-merchant-level.ts` · 4 operations · Request and error types: namespace `AccountMerchantLevel`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getMerchants
 
@@ -14,7 +14,7 @@ Accessor: `client.accountMerchantLevel` · Source: `src/resources/account-mercha
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `ListMerchantResponse`
-- **Error**: `AccountMerchantLevel.GetMerchantsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountMerchantLevel.GetMerchantsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountMerchantLevel.GetMerchantsRequest` (2):
@@ -37,7 +37,7 @@ Accessor: `client.accountMerchantLevel` · Source: `src/resources/account-mercha
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `Merchant`
-- **Error**: `AccountMerchantLevel.GetMerchantsMerchantIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountMerchantLevel.GetMerchantsMerchantIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountMerchantLevel.GetMerchantsMerchantIdRequest` (1):
@@ -57,9 +57,10 @@ Accessor: `client.accountMerchantLevel` · Source: `src/resources/account-mercha
 - **Signature**: `postMerchants(request: AccountMerchantLevel.PostMerchantsRequest, options?: RequestOptions): ApiPromise<CreateMerchantResponse, AccountMerchantLevel.PostMerchantsError>`
 - **Wire**: `POST /merchants`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CreateMerchantResponse`
-- **Error**: `AccountMerchantLevel.PostMerchantsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountMerchantLevel.PostMerchantsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountMerchantLevel.PostMerchantsRequest` (1):
@@ -81,8 +82,9 @@ Accessor: `client.accountMerchantLevel` · Source: `src/resources/account-mercha
 - **Wire**: `POST /merchants/{merchantId}/activate`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `RequestActivationResponse`
-- **Error**: `AccountMerchantLevel.PostMerchantsMerchantIdActivateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `AccountMerchantLevel.PostMerchantsMerchantIdActivateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [422] `RestServiceError` · `"restServiceError5"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `AccountMerchantLevel.PostMerchantsMerchantIdActivateRequest` (1):

@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Possible values:
+ * * **StartSound**
+ * * **StopSound**
+ * * **SetDefaultVolume**
+ */
 export const SoundAction = {
   StartSound: "StartSound",
   StopSound: "StopSound",

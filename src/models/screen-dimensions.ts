@@ -7,6 +7,6 @@ export type ScreenDimensions = {
 };
 
 export const screenDimensionsSchema: Schema<ScreenDimensions> = s.object<ScreenDimensions>({
-  height: s.optional(s.number()),
-  width: s.optional(s.number()),
+  height: s.optional(s.int()),
+  width: s.optional(s.int()),
 });

@@ -6,6 +6,10 @@ import {
 } from "./unions/account-identification2.js";
 
 export type BankAccount2 = {
+  /**
+   * Contains the bank account details. The fields required in this object depend on the country of
+   * the bank account and the currency of the transfer.
+   */
   accountIdentification: AccountIdentification2;
 };
 

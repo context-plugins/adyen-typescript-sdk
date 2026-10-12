@@ -4,7 +4,7 @@
 
 Accessor: `client.sessionAuthentication` · Source: `src/resources/session-authentication.ts` · 2 operations · Request and error types: namespace `SessionAuthentication`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### postAuthCertificate
 
@@ -12,9 +12,10 @@ Accessor: `client.sessionAuthentication` · Source: `src/resources/session-authe
 - **Signature**: `postAuthCertificate(request: SessionAuthentication.PostAuthCertificateRequest, options?: RequestOptions): ApiPromise<CertificateLoadingResponse, SessionAuthentication.PostAuthCertificateError>`
 - **Wire**: `POST /auth/certificate`
 - **Auth**: none — public; no credential is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CertificateLoadingResponse`
-- **Error**: `SessionAuthentication.PostAuthCertificateError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `SessionAuthentication.PostAuthCertificateError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [422] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity4"` [500] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `SessionAuthentication.PostAuthCertificateRequest` (2):
@@ -37,8 +38,9 @@ Accessor: `client.sessionAuthentication` · Source: `src/resources/session-authe
 - **Wire**: `POST /sessions`
 - **Auth**: none — public; no credential is sent
 - **Request body**: `application/json` — the `body` field
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AuthenticationSessionResponse`
-- **Error**: `SessionAuthentication.PostSessions2Error` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `SessionAuthentication.PostSessions2Error` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"defaultErrorResponseEntity"` [400] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity2"` [401] `DefaultErrorResponseEntity` · `"defaultErrorResponseEntity3"` [403] `DefaultErrorResponseEntity` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `SessionAuthentication.PostSessions2Request` (1):

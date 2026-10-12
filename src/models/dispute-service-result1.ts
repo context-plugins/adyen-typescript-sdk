@@ -1,8 +1,11 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** The result of the dispute service. */
 export type DisputeServiceResult1 = {
+  /** The general error message. */
   errorMessage?: string;
+  /** Indicates whether the request succeeded. */
   success: boolean;
 };
 

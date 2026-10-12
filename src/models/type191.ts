@@ -1,6 +1,39 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * Type of Partnership.
+ *
+ * Possible values:
+ * * **limitedPartnership**
+ * * **generalPartnership**
+ * * **familyPartnership**
+ * * **commercialPartnership**
+ * * **publicPartnership**
+ * * **otherPartnership**
+ * * **gbr**
+ * * **gmbh**
+ * * **kgaa**
+ * * **cv**
+ * * **vof**
+ * * **maatschap**
+ * * **privateFundLimitedPartnership**
+ * * **businessTrustEntity**
+ * * **businessPartnership**
+ * * **limitedLiabilityPartnership**
+ * * **eg**
+ * * **cooperative**
+ * * **vos**
+ * * **comunidadDeBienes**
+ * * **herenciaYacente**
+ * * **comunidadDePropietarios**
+ * * **sep**
+ * * **sca**
+ * * **bt**
+ * * **kkt**
+ * * **scs**
+ * * **snc**
+ */
 export const Type191 = {
   LimitedPartnership: "limitedPartnership",
   GeneralPartnership: "generalPartnership",

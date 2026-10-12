@@ -3,8 +3,14 @@ import type { Schema } from "../core/validation/schema.js";
 import { inputResult2Schema, type InputResult2 } from "./input-result2.js";
 import { outputResult1Schema, type OutputResult1 } from "./output-result1.js";
 
+/** Content of the Input Response message. */
 export type InputResponse2 = {
+  /**
+   * Information related to the result the output (display, print, input). If DisplayOutput present
+   * in the request.
+   */
   outputResult?: OutputResult1;
+  /** Contains the result and the content of the input. */
   inputResult: InputResult2;
 };
 

@@ -1,6 +1,12 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The specific category of **other** dispute that you are raising.
+ *
+ * Possible values: **atmDispute**, **cancelledGoodsServices**, **cancelledRecurring**,
+ * **counterfeit**, **creditNotProcessed**, **notAsDescribed**.
+ */
 export const SubType11 = {
   AtmDispute: "atmDispute",
   CancelledGoodsServices: "cancelledGoodsServices",

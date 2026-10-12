@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
+/** List of allowed origins. */
 export type LinksElement1 = {
   href?: string;
 };

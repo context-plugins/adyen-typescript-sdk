@@ -4,9 +4,13 @@ import { hostStatusSchema, type HostStatus } from "./host-status.js";
 import { poiStatus1Schema, type PoiStatus1 } from "./poi-status1.js";
 import { response11Schema, type Response11 } from "./response11.js";
 
+/** Content of the Diagnosis Response message. */
 export type DiagnosisResponse2 = {
+  /** Result of a message request processing. */
   response: Response11;
+  /** State of a POI Terminal. If `Response.Result` is Success. */
   poiStatus?: PoiStatus1;
+  /** State of a Host. */
   hostStatus?: HostStatus[];
 };
 

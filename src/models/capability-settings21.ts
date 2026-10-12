@@ -4,11 +4,17 @@ import { fundingSourceSchema, type FundingSource } from "./funding-source.js";
 import { intervalSchema, type Interval } from "./interval.js";
 import { patchableAmountDtoSchema, type PatchableAmountDto } from "./patchable-amount-dto.js";
 
+/** The settings that are requested for the legal entity. */
 export type CapabilitySettings21 = {
+  /** The maximum amount a card holder can spend per industry. */
   amountPerIndustry?: Record<string, PatchableAmountDto>;
+  /** The number of card holders who can use the card. */
   authorizedCardUsers?: boolean;
+  /** The funding source of the card, for example **debit**. */
   fundingSource?: FundingSource[];
+  /** The period when the rule conditions apply. */
   interval?: Interval;
+  /** The maximum amount a card holder can withdraw per day. */
   maxAmount?: PatchableAmountDto;
 };
 

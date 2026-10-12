@@ -3,6 +3,7 @@ import type { Schema } from "../core/validation/schema.js";
 import { splitConfigurationSchema, type SplitConfiguration } from "./split-configuration.js";
 
 export type SplitConfigurationList = {
+  /** List of split configurations applied to the stores under the merchant account. */
   data?: SplitConfiguration[];
 };
 

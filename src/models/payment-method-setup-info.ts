@@ -49,58 +49,168 @@ import { weChatPayInfo2Schema, type WeChatPayInfo2 } from "./we-chat-pay-info2.j
 import { weChatPayPosInfo2Schema, type WeChatPayPosInfo2 } from "./we-chat-pay-pos-info2.js";
 
 export type PaymentMethodSetupInfo = {
+  /** Details to provide if `type` is **accel**. */
   accel?: AccelInfo1;
+  /** Details to provide if `type` is **affirm**. */
   affirm?: AffirmInfo1;
+  /** Details to provide if `type` is **afterpaytouch**. */
   afterpayTouch?: AfterpayTouchInfo1;
+  /** Details to provide if `type` is **alipay_plus**. */
   alipayPlus?: AlipayPlusInfo1;
+  /**
+   * Details to provide if `type` is **amex**. For merchants operating in Australia, New Zealand &
+   * Canada, JCB and American Express are automatically requested together.
+   */
   amex?: AmexInfo1;
+  /** Details to provide if `type` is **applepay**. */
   applePay?: ApplePayInfo1;
+  /** Details to provide if `type` is **bcmc** (Bancontact). */
   bcmc?: BcmcInfo1;
+  /**
+   * The unique identifier of the business line. Required if you are a [platform
+   * model](https://docs.adyen.com/platforms).
+   */
   businessLineId?: string;
+  /** Details to provide if `type` is **carnet**. */
   carnet?: CarnetInfo1;
+  /** Details to provide if `type` is **cartebancaire**. */
   cartesBancaires?: CartesBancairesInfo1;
+  /** Details to provide if `type` is **clearpay**. */
   clearpay?: ClearpayInfo1;
+  /**
+   * The list of countries where a payment method is available. By default, all countries supported
+   * by the payment method.
+   */
   countries?: string[];
+  /** Details to provide if `type` is **cup** (China Union Pay). */
   cup?: GenericPmWithTdiInfo1;
+  /**
+   * The list of currencies that a payment method supports. By default, all currencies supported by
+   * the payment method.
+   */
   currencies?: string[];
+  /** The list of custom routing flags to route payment to the intended acquirer. */
   customRoutingFlags?: string[];
+  /**
+   * Details to provide if `type` is **diners**. For merchants operating in Japan, Diners payments
+   * are processed through the JCB network. This means that you must include [JCB-specific
+   * fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
+   * in this object.
+   */
   diners?: DinersInfo1;
+  /**
+   * Details to provide if `type` is **discover**. For merchants operating in Japan, request
+   * [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners)
+   * payment method instead. Discover is automatically requested, together with Diners.
+   */
   discover?: GenericPmWithTdiInfo2;
+  /** Details to provide if `type` is **eft_directdebit_CA** (EFT PAD). */
   eftDirectdebitCa?: GenericPmWithTdiInfo3;
+  /** Details to provide if `type` is **eftpos_australia**. */
   eftposAustralia?: GenericPmWithTdiInfo4;
+  /** Details to provide if `type` is **girocard**. */
   girocard?: GenericPmWithTdiInfo5;
+  /** Details to provide if `type` is **givex**. */
   givex?: GivexInfo1;
+  /** Details to provide if `type` is **googlepay**. */
   googlePay?: GooglePayInfo1;
+  /** Details to provide if `type` is **ideal**. */
   ideal?: GenericPmWithTdiInfo6;
+  /** Details to provide if `type` is **interac_card**. */
   interacCard?: GenericPmWithTdiInfo7;
+  /**
+   * Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`,
+   * `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of
+   * Japan, these fields are not required. For merchants operating in Australia, New Zealand &
+   * Canada, JCB and American Express are automatically requested together.
+   */
   jcb?: JcbInfo1;
+  /**
+   * Details to provide if `type` is **klarna** or its variant.
+   *
+   * You can use the following payment method `type` values for Klarna:
+   * * **klarna**: Klarna Pay Later
+   * * **klarna_account**: Klarna Pay over time
+   * * **klarna_paynow**: Klarna Pay now
+   * * **klarna_b2b**: [Billie via Klarna](https://docs.adyen.com/payment-methods/klarna/billie)
+   */
   klarna?: KlarnaInfo1;
+  /**
+   * Details to provide if `type` is **maestro**. In the US, `maestro` is not supported; use
+   * `maestro_usa` instead.
+   */
   maestro?: GenericPmWithTdiInfo8;
+  /**
+   * Details to provide if `type` is **maestro_usa**. Only for Maestro USA, otherwise use `maestro`.
+   */
   maestroUsa?: GenericPmWithTdiInfo9;
+  /** Details to provide if `type` is **mc**. */
   mc?: GenericPmWithTdiInfo10;
+  /** Details to provide if `type` is **mealVoucher_FR**. */
   mealVoucherFr?: MealVoucherFrInfo1;
+  /** Details to provide if `type` is **nyce**. */
   nyce?: NyceInfo1;
+  /** Details to provide if `type` is **paybybank_plaid**. */
   paybybankPlaid?: PayByBankPlaidInfo1;
+  /** Details to provide if `type` is **payme**. */
   payme?: PayMeInfo1;
+  /** Details to provide if `type` is **paypal**. */
   paypal?: PayPalInfo1;
+  /** Details to provide if `type` is **payto**. */
   payto?: PayToInfo1;
+  /** Details to provide if `type` is **pulse**. */
   pulse?: PulseInfo2;
+  /** Your reference for the payment method. Supported characters a-z, A-Z, 0-9. */
   reference?: string;
+  /** Details to provide if `type` is **sepadirectdebit**. */
   sepadirectdebit?: SepaDirectDebitInfo2;
+  /**
+   * The sales channel. Required if:
+   * - The merchant account does not have a sales channel.
+   * - `type` is **alipay**.
+   *
+   * When you provide this field, it overrides the default sales channel set on the merchant
+   * account.
+   *
+   * Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**.
+   */
   shopperInteraction?: ShopperInteraction1;
+  /** Details to provide if `type` is **sodexo**. */
   sodexo?: SodexoInfo2;
+  /** Sofort details. */
   sofort?: SofortInfo2;
+  /** Details to provide if `type` is **star**. */
   star?: StarInfo2;
+  /** The unique identifier of the store for which to configure the payment method, if any. */
   storeIds?: string[];
+  /** Details to provide if `type` is **svs**. */
   svs?: SvsInfo2;
+  /**
+   * Details to provide if `type` is **swish**.
+   *  - This field is required only if you have a contract with Swish. Swish handles settlement
+   *    directly with you (not through Adyen).
+   *  - If not specified then it's assumed that you are using Adyen's contract with Swish.You don't
+   *    have a direct relationship with Swish.
+   */
   swish?: SwishInfo2;
+  /** Details to provide if `type` is **ticket** (Edenred Brazil). */
   ticket?: TicketInfo2;
+  /** Details to provide if `type` is **twint**. */
   twint?: TwintInfo2;
+  /**
+   * Payment method
+   * [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+   */
   type: Type59;
+  /** Details to provide if `type` is **valuelink**. */
   valuelink?: ValuelinkInfo2;
+  /** Details to provide if `type` is **vipps**. */
   vipps?: VippsInfo2;
+  /** Details to provide if `type` is **visa**. */
   visa?: GenericPmWithTdiInfo11;
+  /** Details to provide if `type` is **wechatpay**. */
   wechatpay?: WeChatPayInfo2;
+  /** Details to provide if `type` is **wechatpay_pos**. */
   wechatpayPos?: WeChatPayPosInfo2;
 };
 

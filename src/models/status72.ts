@@ -1,6 +1,15 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * The status of the transaction.
+ *
+ * Possible values:
+ *
+ * * **pending**: The transaction is still pending.
+ *
+ * * **booked**: The transaction has been booked to the balance account.
+ */
 export const Status72 = {
   Booked: "booked",
   Pending: "pending",

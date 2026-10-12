@@ -6,9 +6,16 @@ import {
 } from "./checkout-forward-response-from-url2.js";
 
 export type CheckoutForwardResponse = {
+  /** Merchant defined payment reference. */
   merchantReference?: string;
+  /**
+   * Adyen's 16-character reference associated with the transaction/request. This value is globally
+   * unique. Use this reference when you communicate with us about this request.
+   */
   pspReference?: string;
+  /** The details of the response Adyen received from the third party. */
   response: CheckoutForwardResponseFromUrl2;
+  /** The unique identifier of the token. */
   storedPaymentMethodId?: string;
 };
 

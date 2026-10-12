@@ -6,16 +6,44 @@ import {
   type TransactionDescriptionInfo1,
 } from "./transaction-description-info1.js";
 
+/**
+ * Details to provide if `type` is **diners**. For merchants operating in Japan, Diners payments are
+ * processed through the JCB network. This means that you must include [JCB-specific
+ * fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb)
+ * in this object.
+ */
 export type DinersInfo1 = {
+  /**
+   * MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric
+   * characters.
+   */
   midNumber?: string;
-  reuseMidNumber: boolean;
+  /**
+   * Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment
+   * method. The default value is **false**. For merchants operating in Japan, this field is
+   * required and must be set to **true**.
+   *
+   * @default false
+   */
+  reuseMidNumber?: boolean;
+  /**
+   * Specifies the service level (settlement type) of this payment method. Required for merchants
+   * operating in Japan. Possible values:
+   *  * **noContract**: Adyen holds the contract with JCB.
+   *  * **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you
+   *    or your sub-merchant directly.
+   */
   serviceLevel?: ServiceLevel1;
+  /**
+   * Information regarding the transaction description. > You cannot configure the transaction
+   * description in the test environment.
+   */
   transactionDescription?: TransactionDescriptionInfo1;
 };
 
 export const dinersInfo1Schema: Schema<DinersInfo1> = s.object<DinersInfo1>({
   midNumber: s.optional(s.string()),
-  reuseMidNumber: s.boolean(),
+  reuseMidNumber: s.defaulted(s.boolean(), false),
   serviceLevel: s.optional(s.lazy(() => serviceLevel1Schema)),
   transactionDescription: s.optional(s.lazy(() => transactionDescriptionInfo1Schema)),
 });

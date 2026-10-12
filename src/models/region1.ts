@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The region of operation. */
 export const Region1 = {
   Au: "AU",
   Ch: "CH",

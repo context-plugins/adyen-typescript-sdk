@@ -1,8 +1,9 @@
+import { ApiError, type Declared, type ErrorDecoders, type ErrorPayload } from "../core/api-error.js";
 import type { ApiPromise } from "../core/api-promise.js";
 import type { RequestOptions } from "../core/api-request.js";
 import { noneAuth } from "../core/auth/schemes.js";
 import type { RawClient } from "../core/raw-client.js";
-import { ResponseError, type Declared, type ErrorDecoders } from "../core/response-error.js";
+import { uuid } from "../core/uuid.js";
 import * as s from "../core/validation/index.js";
 import {
   attachDocumentResponseSchema,
@@ -24,6 +25,22 @@ export class DisputeAttachments {
     this.#servers = servers;
   }
 
+  /**
+   * Delete attachment from a dispute
+   *
+   * @remarks
+   * Removes the attachment from the raised dispute. Adyen may keep this file for compliance
+   * purposes.
+   *
+   * @returns The attachment was successfully removed
+   *
+   * @throws {@link DisputeAttachments.DeleteDisputesDisputeIdAttachmentsAttachmentIdError} when the
+   * API answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   deleteDisputesDisputeIdAttachmentsAttachmentId(
     request: DisputeAttachments.DeleteDisputesDisputeIdAttachmentsAttachmentIdRequest,
     options?: RequestOptions,
@@ -31,12 +48,14 @@ export class DisputeAttachments {
     return this.#rawClient.execute(
       {
         method: "DELETE",
-        url: this.#servers.default23("/disputes/{disputeId}/attachments/{attachmentId}"),
+        urlTemplate: this.#servers.default23("/disputes/{disputeId}/attachments/{attachmentId}"),
         auth: noneAuth,
         pathParams: [
           { name: "disputeId", value: request.disputeId, schema: s.string() },
           { name: "attachmentId", value: request.attachmentId, schema: s.string() },
         ],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "empty" },
       },
       {
@@ -47,6 +66,21 @@ export class DisputeAttachments {
     );
   }
 
+  /**
+   * Get all attachments linked to a raised dispute
+   *
+   * @remarks
+   * Get a list of attachments associated with a dispute ID.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link DisputeAttachments.GetDisputesDisputeIdAttachmentsError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getDisputesDisputeIdAttachments(
     request: DisputeAttachments.GetDisputesDisputeIdAttachmentsRequest,
     options?: RequestOptions,
@@ -54,9 +88,11 @@ export class DisputeAttachments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default23("/disputes/{disputeId}/attachments"),
+        urlTemplate: this.#servers.default23("/disputes/{disputeId}/attachments"),
         auth: noneAuth,
         pathParams: [{ name: "disputeId", value: request.disputeId, schema: s.string() }],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -67,6 +103,21 @@ export class DisputeAttachments {
     );
   }
 
+  /**
+   * Get an attachment
+   *
+   * @remarks
+   * Search for a single attachment, providing the specific dispute ID and attachment ID.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link DisputeAttachments.GetDisputesDisputeIdAttachmentsAttachmentIdError} when the
+   * API answers with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   getDisputesDisputeIdAttachmentsAttachmentId(
     request: DisputeAttachments.GetDisputesDisputeIdAttachmentsAttachmentIdRequest,
     options?: RequestOptions,
@@ -74,12 +125,14 @@ export class DisputeAttachments {
     return this.#rawClient.execute(
       {
         method: "GET",
-        url: this.#servers.default23("/disputes/{disputeId}/attachments/{attachmentId}"),
+        urlTemplate: this.#servers.default23("/disputes/{disputeId}/attachments/{attachmentId}"),
         auth: noneAuth,
         pathParams: [
           { name: "disputeId", value: request.disputeId, schema: s.string() },
           { name: "attachmentId", value: request.attachmentId, schema: s.string() },
         ],
+        query: [],
+        headers: [],
         body: { kind: "empty" },
       },
       {
@@ -90,6 +143,22 @@ export class DisputeAttachments {
     );
   }
 
+  /**
+   * Add an attachment to a dispute
+   *
+   * @remarks
+   * Add supporting information as an attachment for the raised dispute. Upload receipts,
+   * communication, or any other documentation to support the dispute.
+   *
+   * @returns OK - the request has succeeded.
+   *
+   * @throws {@link DisputeAttachments.PostDisputesDisputeIdAttachmentsError} when the API answers
+   * with an error status — narrow on `err.payload.kind`
+   *
+   * @throws {@link AdyenError} when no usable response was produced: a connection failure, a
+   * timeout, a body that would not decode, a value that would not encode, or a credential that
+   * could not be obtained
+   */
   postDisputesDisputeIdAttachments(
     request: DisputeAttachments.PostDisputesDisputeIdAttachmentsRequest,
     options?: RequestOptions,
@@ -97,9 +166,11 @@ export class DisputeAttachments {
     return this.#rawClient.execute(
       {
         method: "POST",
-        url: this.#servers.default23("/disputes/{disputeId}/attachments"),
+        urlTemplate: this.#servers.default23("/disputes/{disputeId}/attachments"),
         auth: noneAuth,
         pathParams: [{ name: "disputeId", value: request.disputeId, schema: s.string() }],
+        query: [],
+        headers: [{ name: "Idempotency-Key", value: uuid(), schema: s.string() }],
         body: { kind: "json", value: request.body, schema: disputeAttachmentSchema },
       },
       {
@@ -113,15 +184,19 @@ export class DisputeAttachments {
 
 export namespace DisputeAttachments {
   export type DeleteDisputesDisputeIdAttachmentsAttachmentIdRequest = {
+    /** The unique identifier of the raised dispute. */
     disputeId: string;
+    /** The unique identifier of the attachment. */
     attachmentId: string;
   };
 
-  export class DeleteDisputesDisputeIdAttachmentsAttachmentIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class DeleteDisputesDisputeIdAttachmentsAttachmentIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<DeleteDisputesDisputeIdAttachmentsAttachmentIdError> = [
       {
         on: 401,
@@ -142,14 +217,17 @@ export namespace DisputeAttachments {
   }
 
   export type GetDisputesDisputeIdAttachmentsRequest = {
+    /** The unique identifier of the raised dispute. */
     disputeId: string;
   };
 
-  export class GetDisputesDisputeIdAttachmentsError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class GetDisputesDisputeIdAttachmentsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetDisputesDisputeIdAttachmentsError> = [
       {
         on: 401,
@@ -170,15 +248,19 @@ export namespace DisputeAttachments {
   }
 
   export type GetDisputesDisputeIdAttachmentsAttachmentIdRequest = {
+    /** The unique identifier of the raised dispute. */
     disputeId: string;
+    /** The unique identifier of the attachment. */
     attachmentId: string;
   };
 
-  export class GetDisputesDisputeIdAttachmentsAttachmentIdError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class GetDisputesDisputeIdAttachmentsAttachmentIdError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<GetDisputesDisputeIdAttachmentsAttachmentIdError> = [
       {
         on: 401,
@@ -199,15 +281,18 @@ export namespace DisputeAttachments {
   }
 
   export type PostDisputesDisputeIdAttachmentsRequest = {
+    /** The unique identifier of the raised dispute. */
     disputeId: string;
     body: DisputeAttachment;
   };
 
-  export class PostDisputesDisputeIdAttachmentsError extends ResponseError<
-    | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
-    | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
-  > {
+  export class PostDisputesDisputeIdAttachmentsError extends ApiError {
+    declare readonly payload: ErrorPayload<
+      | Declared<"defaultErrorResponseEntity", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity2", DefaultErrorResponseEntity>
+      | Declared<"defaultErrorResponseEntity3", DefaultErrorResponseEntity>
+    >;
+
     static readonly errors: ErrorDecoders<PostDisputesDisputeIdAttachmentsError> = [
       {
         on: 401,

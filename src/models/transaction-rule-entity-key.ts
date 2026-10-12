@@ -2,7 +2,14 @@ import * as s from "../core/validation/index.js";
 import type { Schema } from "../core/validation/schema.js";
 
 export type TransactionRuleEntityKey = {
+  /** The unique identifier of the resource. */
   entityReference?: string;
+  /**
+   * The type of resource.
+   *
+   * Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**,
+   * **balanceAccount**, or **paymentInstrument**.
+   */
   entityType?: string;
 };
 

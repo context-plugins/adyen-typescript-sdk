@@ -6,17 +6,18 @@ Accessor: `client` (the client itself) · Source: `src/client.ts` · 18 operatio
 
 Operations the spec leaves untagged are methods on the client rather than on a resource, so there is no accessor property to go through. The request type still lives in a namespace merged onto the exported class, so you write `AdyenClient.AbortRequestRequest`.
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### abortRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `abortRequest(request: AdyenClient.AbortRequestRequest, options?: RequestOptions): ApiPromise<Record<string, unknown>, ResponseError>`
+- **Signature**: `abortRequest(request: AdyenClient.AbortRequestRequest, options?: RequestOptions): ApiPromise<Record<string, unknown>, ApiError>`
 - **Wire**: `POST /abort`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `Record<string, unknown>` — a bare `application/json` map; the success type *is* the map
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.AbortRequestRequest` (1):
 
@@ -31,12 +32,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### adminRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `adminRequest(request: AdyenClient.AdminRequestRequest, options?: RequestOptions): ApiPromise<AdminResponse, ResponseError>`
+- **Signature**: `adminRequest(request: AdyenClient.AdminRequestRequest, options?: RequestOptions): ApiPromise<AdminResponse, ApiError>`
 - **Wire**: `POST /admin`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `AdminResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.AdminRequestRequest` (1):
 
@@ -52,12 +54,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### balanceInquiryRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `balanceInquiryRequest(request: AdyenClient.BalanceInquiryRequestRequest, options?: RequestOptions): ApiPromise<BalanceInquiryResponse, ResponseError>`
+- **Signature**: `balanceInquiryRequest(request: AdyenClient.BalanceInquiryRequestRequest, options?: RequestOptions): ApiPromise<BalanceInquiryResponse, ApiError>`
 - **Wire**: `POST /balanceinquiry`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `BalanceInquiryResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.BalanceInquiryRequestRequest` (1):
 
@@ -73,12 +76,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### cardAcquisitionRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `cardAcquisitionRequest(request: AdyenClient.CardAcquisitionRequestRequest, options?: RequestOptions): ApiPromise<CardAcquisitionResponse, ResponseError>`
+- **Signature**: `cardAcquisitionRequest(request: AdyenClient.CardAcquisitionRequestRequest, options?: RequestOptions): ApiPromise<CardAcquisitionResponse, ApiError>`
 - **Wire**: `POST /cardacquisition`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CardAcquisitionResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.CardAcquisitionRequestRequest` (1):
 
@@ -94,12 +98,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### cardReaderApduRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `cardReaderApduRequest(request: AdyenClient.CardReaderApduRequestRequest, options?: RequestOptions): ApiPromise<CardReaderApduResponse, ResponseError>`
+- **Signature**: `cardReaderApduRequest(request: AdyenClient.CardReaderApduRequestRequest, options?: RequestOptions): ApiPromise<CardReaderApduResponse, ApiError>`
 - **Wire**: `POST /cardreaderapdu`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `CardReaderApduResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.CardReaderApduRequestRequest` (1):
 
@@ -115,12 +120,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### diagnosisRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `diagnosisRequest(request: AdyenClient.DiagnosisRequestRequest, options?: RequestOptions): ApiPromise<DiagnosisResponse, ResponseError>`
+- **Signature**: `diagnosisRequest(request: AdyenClient.DiagnosisRequestRequest, options?: RequestOptions): ApiPromise<DiagnosisResponse, ApiError>`
 - **Wire**: `POST /diagnosis`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DiagnosisResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.DiagnosisRequestRequest` (1):
 
@@ -136,12 +142,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### displayRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `displayRequest(request: AdyenClient.DisplayRequestRequest, options?: RequestOptions): ApiPromise<DisplayResponse, ResponseError>`
+- **Signature**: `displayRequest(request: AdyenClient.DisplayRequestRequest, options?: RequestOptions): ApiPromise<DisplayResponse, ApiError>`
 - **Wire**: `POST /display`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `DisplayResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.DisplayRequestRequest` (1):
 
@@ -157,12 +164,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### enableServiceRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `enableServiceRequest(request: AdyenClient.EnableServiceRequestRequest, options?: RequestOptions): ApiPromise<EnableServiceResponse, ResponseError>`
+- **Signature**: `enableServiceRequest(request: AdyenClient.EnableServiceRequestRequest, options?: RequestOptions): ApiPromise<EnableServiceResponse, ApiError>`
 - **Wire**: `POST /enableservice`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `EnableServiceResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.EnableServiceRequestRequest` (1):
 
@@ -178,12 +186,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### getTotalsRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `getTotalsRequest(request: AdyenClient.GetTotalsRequestRequest, options?: RequestOptions): ApiPromise<GetTotalsResponse, ResponseError>`
+- **Signature**: `getTotalsRequest(request: AdyenClient.GetTotalsRequestRequest, options?: RequestOptions): ApiPromise<GetTotalsResponse, ApiError>`
 - **Wire**: `POST /gettotals`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `GetTotalsResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.GetTotalsRequestRequest` (1):
 
@@ -199,12 +208,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### inputRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `inputRequest(request: AdyenClient.InputRequestRequest, options?: RequestOptions): ApiPromise<InputResponse, ResponseError>`
+- **Signature**: `inputRequest(request: AdyenClient.InputRequestRequest, options?: RequestOptions): ApiPromise<InputResponse, ApiError>`
 - **Wire**: `POST /input`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `InputResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.InputRequestRequest` (1):
 
@@ -220,12 +230,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### loginRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `loginRequest(request: AdyenClient.LoginRequestRequest, options?: RequestOptions): ApiPromise<LoginResponse, ResponseError>`
+- **Signature**: `loginRequest(request: AdyenClient.LoginRequestRequest, options?: RequestOptions): ApiPromise<LoginResponse, ApiError>`
 - **Wire**: `POST /login`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `LoginResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.LoginRequestRequest` (1):
 
@@ -241,12 +252,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### logoutRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `logoutRequest(request: AdyenClient.LogoutRequestRequest, options?: RequestOptions): ApiPromise<LogoutResponse, ResponseError>`
+- **Signature**: `logoutRequest(request: AdyenClient.LogoutRequestRequest, options?: RequestOptions): ApiPromise<LogoutResponse, ApiError>`
 - **Wire**: `POST /logout`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `LogoutResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.LogoutRequestRequest` (1):
 
@@ -262,12 +274,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### paymentRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `paymentRequest(request: AdyenClient.PaymentRequestRequest, options?: RequestOptions): ApiPromise<PaymentResponse4, ResponseError>`
+- **Signature**: `paymentRequest(request: AdyenClient.PaymentRequestRequest, options?: RequestOptions): ApiPromise<PaymentResponse4, ApiError>`
 - **Wire**: `POST /payment`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PaymentResponse4`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.PaymentRequestRequest` (1):
 
@@ -283,12 +296,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### printRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `printRequest(request: AdyenClient.PrintRequestRequest, options?: RequestOptions): ApiPromise<PrintResponse, ResponseError>`
+- **Signature**: `printRequest(request: AdyenClient.PrintRequestRequest, options?: RequestOptions): ApiPromise<PrintResponse, ApiError>`
 - **Wire**: `POST /print`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `PrintResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.PrintRequestRequest` (1):
 
@@ -304,12 +318,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### reconciliationRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `reconciliationRequest(request: AdyenClient.ReconciliationRequestRequest, options?: RequestOptions): ApiPromise<ReconciliationResponse, ResponseError>`
+- **Signature**: `reconciliationRequest(request: AdyenClient.ReconciliationRequestRequest, options?: RequestOptions): ApiPromise<ReconciliationResponse, ApiError>`
 - **Wire**: `POST /reconciliation`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ReconciliationResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.ReconciliationRequestRequest` (1):
 
@@ -325,12 +340,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### reversalRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `reversalRequest(request: AdyenClient.ReversalRequestRequest, options?: RequestOptions): ApiPromise<ReversalResponse, ResponseError>`
+- **Signature**: `reversalRequest(request: AdyenClient.ReversalRequestRequest, options?: RequestOptions): ApiPromise<ReversalResponse, ApiError>`
 - **Wire**: `POST /reversal`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `ReversalResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.ReversalRequestRequest` (1):
 
@@ -346,12 +362,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### storedValueRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `storedValueRequest(request: AdyenClient.StoredValueRequestRequest, options?: RequestOptions): ApiPromise<StoredValueResponse, ResponseError>`
+- **Signature**: `storedValueRequest(request: AdyenClient.StoredValueRequestRequest, options?: RequestOptions): ApiPromise<StoredValueResponse, ApiError>`
 - **Wire**: `POST /storedvalue`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `StoredValueResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.StoredValueRequestRequest` (1):
 
@@ -367,12 +384,13 @@ Operations the spec leaves untagged are methods on the client rather than on a r
 ### transactionStatusRequest
 
 - **Server**: `default24` — not the `default` group; see Servers & auth in sdk-map.md
-- **Signature**: `transactionStatusRequest(request: AdyenClient.TransactionStatusRequestRequest, options?: RequestOptions): ApiPromise<TransactionStatusResponse, ResponseError>`
+- **Signature**: `transactionStatusRequest(request: AdyenClient.TransactionStatusRequestRequest, options?: RequestOptions): ApiPromise<TransactionStatusResponse, ApiError>`
 - **Wire**: `POST /transactionstatus`
 - **Auth**: any of `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
+- **SDK-sent**: `header Idempotency-Key` (minted per call)
 - **Returns**: `TransactionStatusResponse`
-- **Error**: `ResponseError` — untyped, `payload.kind` always `"undeclared"`
+- **Error**: `AdyenError` with `kind: "api"` — untyped, `payload.kind` always `"undeclared"`
 
 **Fields** — `AdyenClient.TransactionStatusRequestRequest` (1):
 

@@ -1,6 +1,7 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/** The payment method type. */
 export const Type52 = {
   AlipayPlus: "alipay_plus",
   AlipayPlusAlipayCn: "alipay_plus_alipay_cn",

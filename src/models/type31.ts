@@ -1,6 +1,9 @@
 import * as s from "../core/validation/index.js";
 import type { EnumSchema } from "../core/validation/schema.js";
 
+/**
+ * **genericissuer**
+ */
 export const Type31 = {
   OnlineBankingPl: "onlineBanking_PL",
   Eps: "eps",

@@ -4,7 +4,12 @@ import { patchableAmountDto1Schema, type PatchableAmountDto1 } from "./patchable
 import { patchableScheduleSchema, type PatchableSchedule } from "./patchable-schedule.js";
 
 export type PatchableTrigger = {
+  /** Contains the details about the schedule that determines when the top up is executed. */
   schedule?: PatchableSchedule | null;
+  /**
+   * The balance threshold that triggers the top-up. If the balance falls below this amount, a
+   * top-up is initiated.
+   */
   threshold?: PatchableAmountDto1;
 };
 

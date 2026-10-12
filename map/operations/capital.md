@@ -4,17 +4,18 @@
 
 Accessor: `client.capital` · Source: `src/resources/capital.ts` · 3 operations · Request and error types: namespace `Capital`
 
-**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ResponseError` and the runtime error family are excluded — see sdk-map.md.
+**Type sources**: every type an operation names, with the file that declares it and the schema value exported beside it. Import every name from `adyen`; the `Source` path is where to **read** the shape, never what to import. `ApiError`, the runtime error family and the file vocabulary are excluded — see sdk-map.md.
 
 ### getGrants
 
 - **Server**: `default14` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `getGrants(request: Capital.GetGrantsRequest, options?: RequestOptions): ApiPromise<CapitalGrants, Capital.GetGrantsError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `GET /grants`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `CapitalGrants`
-- **Error**: `Capital.GetGrantsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Capital.GetGrantsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [404] `RestServiceError` · `"restServiceError5"` [422] `RestServiceError` · `"restServiceError6"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Capital.GetGrantsRequest` (1):
@@ -32,11 +33,12 @@ Accessor: `client.capital` · Source: `src/resources/capital.ts` · 3 operations
 
 - **Server**: `default14` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `getGrantsId(request: Capital.GetGrantsIdRequest, options?: RequestOptions): ApiPromise<CapitalGrant, Capital.GetGrantsIdError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `GET /grants/{id}`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
 - **Request body**: none — no `Content-Type` header is sent
 - **Returns**: `CapitalGrant`
-- **Error**: `Capital.GetGrantsIdError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Capital.GetGrantsIdError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [404] `RestServiceError` · `"restServiceError5"` [422] `RestServiceError` · `"restServiceError6"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Capital.GetGrantsIdRequest` (1):
@@ -54,11 +56,12 @@ Accessor: `client.capital` · Source: `src/resources/capital.ts` · 3 operations
 
 - **Server**: `default14` — not the `default` group; see Servers & auth in sdk-map.md
 - **Signature**: `postGrants(request: Capital.PostGrantsRequest, options?: RequestOptions): ApiPromise<CapitalGrant, Capital.PostGrantsError>`
+- **Deprecated**: the method carries `@deprecated`, so an IDE strikes the call site through; it still works
 - **Wire**: `POST /grants`
 - **Auth**: any of `clientKey`, `basicAuth`, `apiKeyAuth` — the first one configured is sent
-- **Request body**: `application/json` — the `body` field
+- **Request body**: `application/json` — the `body` field. **Optional**: omit it and the request carries no body and no `Content-Type` header at all
 - **Returns**: `CapitalGrant`
-- **Error**: `Capital.PostGrantsError` — **typed arms**, narrowed on `err.payload.kind`
+- **Error**: `AdyenError` with `kind: "api"`, an instance of `Capital.PostGrantsError` — **typed arms**, narrowed on `err.payload.kind`
 - **Error arms**: `"restServiceError"` [400] `RestServiceError` · `"restServiceError2"` [401] `RestServiceError` · `"restServiceError3"` [403] `RestServiceError` · `"restServiceError4"` [404] `RestServiceError` · `"restServiceError5"` [422] `RestServiceError` · `"restServiceError6"` [500] `RestServiceError` · `"undeclared"` [any other] `rawBody: ArrayBuffer`
 
 **Fields** — `Capital.PostGrantsRequest` (2):
